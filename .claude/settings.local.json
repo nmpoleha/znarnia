@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/apole/AppData/Roaming/**)",
+      "Read(//c/Users/apole/AppData/Local/**)",
+      "Bash(cmd.exe /c \"node --version\")",
+      "Bash(cmd.exe /c \"npm --version\")",
+      "Bash(powershell.exe:*)",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(npm create:*)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "Bash(npm run:*)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(git -C C:/Users/apole/znarnia remote -v)"
+    ]
+  }
+}
