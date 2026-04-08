@@ -81,7 +81,7 @@ export default function Page() {
         </section>
 
         {/* OFFER LABEL */}
-        <div className="offer-label">Оставьте заявку сейчас, чтобы получить в апреле:</div>
+        <div className="offer-label">Оставьте заявку сейчас, чтобы получить:</div>
 
         {/* FEATURES */}
         <div className="features">
