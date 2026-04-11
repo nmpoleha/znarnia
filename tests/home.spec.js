@@ -1,13 +1,21 @@
 import { test, expect } from '@playwright/test'
 
-test.describe('Главная страница', () => {
+test.describe('Каталог (root)', () => {
+  test('отображает каталог страниц', async ({ page }) => {
+    await page.goto('/znarnia/')
+    await expect(page.locator('.catalog__title')).toContainText('Znarnia')
+    await expect(page.locator('.catalog__card')).toHaveCount(2)
+  })
+})
+
+test.describe('Страница leto2026', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/znarnia/leto2026/')
   })
 
   test('отображает логотип и название школы', async ({ page }) => {
-    await expect(page.locator('.ph__logo')).toBeVisible()
-    await expect(page.locator('.ph__name')).toContainText('Школа Сотниковой Ольги')
+    await expect(page.locator('.school-header__logo')).toBeVisible()
+    await expect(page.locator('.school-header__name')).toContainText('Школа Сотниковой Ольги')
   })
 
   test('отображает заголовок Лето 2026', async ({ page }) => {

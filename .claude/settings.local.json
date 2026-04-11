@@ -16,7 +16,9 @@
       "Bash(npm run:*)",
       "Bash(gh auth:*)",
       "Bash(git --version)",
-      "Bash(git -C C:/Users/apole/znarnia remote -v)"
+      "Bash(git -C C:/Users/apole/znarnia remote -v)",
+      "WebFetch(domain:stkcentr.ru)",
+      "WebFetch(domain:znarnia.ru)"
     ]
   }
 }
