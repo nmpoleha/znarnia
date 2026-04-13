@@ -50,10 +50,9 @@ export default function Page() {
         {/* HERO */}
         <section className="hero">
           <div className="hero__tag">Начальная школа · 1–4 класс</div>
-          <h1 className="hero__title">Летние<br /><span>занятия</span></h1>
+          <h1 className="hero__title">Летние <span>занятия</span></h1>
           <p className="hero__sub">
-            Развиваем мышление, укрепляем знания —<br className="hero__br" />
-            без стресса и жёсткого графика
+            Развиваем мышление, укрепляем знания — без стресса и жёсткого графика
           </p>
           <p className="hero__quote">
             Лето — шанс не просто повторить пройденное, а научить ребёнка думать, читать осмысленно и решать нестандартные задачи с удовольствием.
@@ -63,19 +62,20 @@ export default function Page() {
 
         {/* WHY BLOCK */}
         <section className="why">
-          <div className="why__col">
-            <div className="why__icon">💡</div>
-            <div>
+          <div className="why__item">
+            <div className="why__img-placeholder" />
+            <div className="why__body">
+              <div className="why__icon">💡</div>
               <div className="why__title">Нужны ли занятия летом?</div>
               <p className="why__text">
                 Однозначно да. К сентябрю дети теряют до 30% знаний. Но главное — лето даёт уникальный шанс развить то, на что у школы нет времени: логику, упорство и осмысленное чтение.
               </p>
             </div>
           </div>
-          <div className="why__divider" />
-          <div className="why__col">
-            <div className="why__icon">🎯</div>
-            <div>
+          <div className="why__item">
+            <div className="why__img-placeholder" />
+            <div className="why__body">
+              <div className="why__icon">🎯</div>
               <div className="why__title">Почему это работает</div>
               <p className="why__text">
                 Мы создали уроки со сказочными сюжетными линиями — ребёнок решает задачи внутри приключения и втягивается в мир математики сам, незаметно для себя.
@@ -101,7 +101,7 @@ export default function Page() {
           <div className="interactive__badge">Онлайн-платформа</div>
           <h2 className="interactive__title">Ребёнок — участник, а не зритель</h2>
           <p className="interactive__text">
-            Даже просматривая урок в записи, ребёнок остаётся полноценным участником: отвечает на интерактивные вопросы, решает задачи прямо в видео, получает мгновенную обратную связь. Сюжет не даёт отвлечься.
+            Даже просматривая урок в&nbsp;записи, ребёнок остаётся полноценным участником: отвечает на&nbsp;вопросы в&nbsp;интерактиве, решает задачи прямо в&nbsp;видео, получает мгновенную обратную связь. Сюжет не&nbsp;даёт отвлечься.
           </p>
           <div className="interactive__points">
             <div className="interactive__point">✦ Интерактивные задачи внутри урока</div>
