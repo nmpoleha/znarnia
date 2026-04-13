@@ -60,6 +60,42 @@ export default function Page() {
           <a href="#registration" className="hero__cta">Записаться на лето</a>
         </section>
 
+        {/* SCHOOL GAP BLOCK */}
+        <section className="gap-block">
+          <div className="gap-block__header">
+            <div className="gap-block__tag">Что не даёт школа</div>
+            <h2 className="gap-block__title">Школьная программа — это только база</h2>
+            <p className="gap-block__lead">
+              Программа, по которой работает большинство школ,&nbsp;— базовая. Счёт, таблица умножения, простейшие задачи. Но&nbsp;развитие мышления в&nbsp;ней попросту не&nbsp;предусмотрено.
+            </p>
+          </div>
+          <div className="gap-block__cols">
+            <div className="gap-block__col gap-block__col--red">
+              <div className="gap-block__col-title">❌ Школа не&nbsp;развивает</div>
+              <ul className="gap-block__list">
+                <li>Умение рассуждать, когда ответ не&nbsp;очевиден</li>
+                <li>Осмысленное чтение и&nbsp;анализ задачи</li>
+                <li>Интеллектуальную выносливость</li>
+                <li>Настойчивость при решении сложных задач</li>
+                <li>Математический азарт и&nbsp;интерес к&nbsp;предмету</li>
+              </ul>
+            </div>
+            <div className="gap-block__col gap-block__col--green">
+              <div className="gap-block__col-title">✓ Летние курсы дают</div>
+              <ul className="gap-block__list">
+                <li>Логическое мышление через нестандартные задачи</li>
+                <li>Осмысленное чтение условий и&nbsp;анализ</li>
+                <li>Умение не&nbsp;сдаваться и&nbsp;пробовать разные пути</li>
+                <li>Математическую грамотность сверх программы</li>
+                <li>Уверенный старт в&nbsp;средней школе</li>
+              </ul>
+            </div>
+          </div>
+          <p className="gap-block__note">
+            Именно эти качества — а&nbsp;не&nbsp;только быстрый счёт — позволяют ребёнку учиться успешно, без стресса и&nbsp;страха перед сложными задачами.
+          </p>
+        </section>
+
         {/* WHY BLOCK */}
         <section className="why">
           <div className="why__item">

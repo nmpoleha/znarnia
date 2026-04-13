@@ -40,7 +40,7 @@
   border-radius: 10px;
   padding: 11px 14px;
   font-size: 14px;
-  color: #1a0a2e;
+  color: #2d1760;
   outline: none;
   transition: all 0.2s ease;
   width: 100%;
@@ -68,7 +68,7 @@
   padding-right: 36px;
 }
 
-.form__select option { background: #fff; color: #1a0a2e; }
+.form__select option { background: #fff; color: #2d1760; }
 
 .form__err { font-size: 11px; color: #dc2626; }
 
@@ -152,7 +152,7 @@
   box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
 }
 
-.form-success__title { font-size: 22px; font-weight: 800; color: #1a0a2e; margin-bottom: 8px; }
+.form-success__title { font-size: 22px; font-weight: 800; color: #2d1760; margin-bottom: 8px; }
 .form-success__text { font-size: 14px; color: #6b5a8e; }
 
 @media (max-width: 640px) {

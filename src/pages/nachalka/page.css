@@ -113,6 +113,135 @@
   line-height: 1.6;
 }
 
+/* ── SCHOOL GAP BLOCK ── */
+.gap-block {
+  background: #fff;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(100, 50, 200, 0.05);
+}
+
+.gap-block__header {
+  margin-bottom: 20px;
+}
+
+.gap-block__tag {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #4f46e5;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.gap-block__title {
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 800;
+  color: #2d1760;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.gap-block__lead {
+  font-size: 14px;
+  color: #5b4880;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.gap-block__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.gap-block__col {
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.gap-block__col--red {
+  background: rgba(99, 102, 241, 0.04);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.gap-block__col--green {
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.gap-block__col-title {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.gap-block__col--red .gap-block__col-title { color: #4f46e5; }
+.gap-block__col--green .gap-block__col-title { color: #059669; }
+
+.gap-block__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.gap-block__col--red .gap-block__list li {
+  font-size: 13px;
+  color: #5b4880;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.gap-block__col--red .gap-block__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4f46e5;
+  font-weight: 700;
+}
+
+.gap-block__col--green .gap-block__list li {
+  font-size: 13px;
+  color: #5b4880;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.gap-block__col--green .gap-block__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #059669;
+  font-weight: 700;
+}
+
+.gap-block__note {
+  font-size: 13px;
+  font-style: italic;
+  color: #7c5aa8;
+  line-height: 1.6;
+  border-top: 1px solid rgba(124, 58, 237, 0.08);
+  padding-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .gap-block__cols { grid-template-columns: 1fr; }
+  .gap-block { padding: 20px 18px; }
+}
+
 /* ── WHY BLOCK ── */
 .why {
   display: flex;
@@ -172,7 +301,7 @@
 .why__title {
   font-size: 16px;
   font-weight: 800;
-  color: #1a0a2e;
+  color: #2d1760;
   letter-spacing: -0.02em;
 }
 
@@ -220,7 +349,7 @@
 .fcard__title {
   font-size: 13px;
   font-weight: 800;
-  color: #1a0a2e;
+  color: #2d1760;
   letter-spacing: 0.02em;
   margin-bottom: 6px;
 }
@@ -254,7 +383,7 @@
 .formats__title {
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 800;
-  color: #1a0a2e;
+  color: #2d1760;
   letter-spacing: -0.02em;
 }
 
@@ -283,7 +412,7 @@
 .formats__card-title {
   font-size: 16px;
   font-weight: 800;
-  color: #1a0a2e;
+  color: #2d1760;
   letter-spacing: -0.02em;
 }
 
@@ -352,7 +481,7 @@
 .interactive__title {
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 800;
-  color: #1a0a2e;
+  color: #2d1760;
   letter-spacing: -0.02em;
   margin-bottom: 10px;
 }
@@ -465,7 +594,7 @@
 .trainer__preview-title {
   font-size: 13px;
   font-weight: 700;
-  color: #1a0a2e;
+  color: #2d1760;
   margin-bottom: 12px;
 }
 
