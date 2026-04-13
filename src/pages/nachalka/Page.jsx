@@ -63,17 +63,18 @@ export default function Page() {
         {/* WHY BLOCK */}
         <section className="why">
           <div className="why__item">
-            <div className="why__img-placeholder" />
+            <img className="why__img" src="/znarnia/images/boy-thinking.png" alt="Нужны ли занятия летом?" />
             <div className="why__body">
               <div className="why__icon">💡</div>
               <div className="why__title">Нужны ли занятия летом?</div>
               <p className="why__text">
-                Однозначно да. К сентябрю дети теряют до 30% знаний. Но главное — лето даёт уникальный шанс развить то, на что у школы нет времени: логику, упорство и осмысленное чтение.
+                Однозначно да. К&nbsp;сентябрю дети теряют до&nbsp;30% знаний.<br />
+                Но&nbsp;главное — лето даёт уникальный шанс развить то, на&nbsp;что у&nbsp;школы нет времени: логику, упорство и&nbsp;осмысленное чтение.
               </p>
             </div>
           </div>
           <div className="why__item">
-            <div className="why__img-placeholder" />
+            <img className="why__img" src="/znarnia/images/boy-learning.png" alt="Почему это работает" />
             <div className="why__body">
               <div className="why__icon">🎯</div>
               <div className="why__title">Почему это работает</div>
