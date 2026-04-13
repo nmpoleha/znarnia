@@ -4,7 +4,7 @@ test.describe('Каталог (root)', () => {
   test('отображает каталог страниц', async ({ page }) => {
     await page.goto('/znarnia/')
     await expect(page.locator('.catalog__title')).toContainText('Znarnia')
-    await expect(page.locator('.catalog__card')).toHaveCount(2)
+    await expect(page.locator('.catalog__card')).toHaveCount(3)
   })
 })
 
