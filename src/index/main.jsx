@@ -18,6 +18,13 @@ const pages = [
     description: 'Лендинг для родителей учеников 1–4 классов',
     date: 'Апрель 2026',
   },
+  {
+    slug: 'partner',
+    title: 'Партнёрская программа',
+    client: 'Znarnia',
+    description: 'B2B лендинг для партнёров образовательной платформы',
+    date: 'Апрель 2026',
+  },
 ]
 
 function Catalog() {

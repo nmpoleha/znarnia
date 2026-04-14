@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         leto2026: resolve(__dirname, 'leto2026/index.html'),
         nachalka: resolve(__dirname, 'nachalka/index.html'),
+        partner: resolve(__dirname, 'partner/index.html'),
       },
     },
   },
