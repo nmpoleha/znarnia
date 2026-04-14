@@ -1,38 +1,6 @@
 import SchoolHeader from '../../shared/components/SchoolHeader'
 import RegistrationForm from '../../shared/components/RegistrationForm'
 
-const features = [
-  {
-    icon: '🧠',
-    title: 'Логика и мышление',
-    desc: 'Нестандартные задачи, осмысленное чтение, умение рассуждать\u00A0— то, чему школа уделяет мало времени',
-  },
-  {
-    icon: '📐',
-    title: 'Математика без скуки',
-    desc: '2 онлайн-урока в\u00A0неделю со\u00A0сказочными героями: текстовые задачи и\u00A0счёт через живой сюжет',
-  },
-  {
-    icon: '🌍',
-    title: 'Сюжетные приключения',
-    desc: 'Урок в\u00A0записи: то\u00A0в\u00A0Египте, то\u00A0среди динозавров, то\u00A0в\u00A0космосе\u00A0— задания вплетены в\u00A0историю',
-  },
-  {
-    icon: '✍️',
-    title: 'Русский язык',
-    desc: '2 записанных урока в\u00A0своём темпе\u00A0— повышаем грамотность, учим читать, понимать и\u00A0выражать мысли',
-  },
-  {
-    icon: '📊',
-    title: 'Аналитика для родителей',
-    desc: 'Полная прозрачность: процент правильных ответов, работа на\u00A0каждом уроке, сложные темы',
-  },
-  {
-    icon: '🤖',
-    title: 'ИИ-помощник',
-    desc: 'Встроенный ИИ-ассистент на\u00A0платформе подсказывает и\u00A0объясняет\u00A0— ребёнок не\u00A0застрянет',
-  },
-]
 
 export default function Page() {
   return (
@@ -125,13 +93,29 @@ export default function Page() {
         {/* FEATURES */}
         <div className="offer-label">Что входит в программу:</div>
         <div className="features">
-          {features.map((f, i) => (
-            <div key={i} className="fcard">
-              <span className="fcard__icon">{f.icon}</span>
-              <div className="fcard__title">{f.title}</div>
-              <div className="fcard__desc">{f.desc}</div>
+          <div className="fcard fcard--wide">
+            <div className="fcard__split">
+              <div className="fcard__split-left">
+                <span className="fcard__icon">📐</span>
+                <div className="fcard__title">Математика без скуки</div>
+                <div className="fcard__desc">2 онлайн-урока в&nbsp;неделю со&nbsp;сказочными героями: текстовые задачи и&nbsp;счёт через живой сюжет</div>
+                <a href="#registration" className="fcard__btn">Смотреть запись урока →</a>
+              </div>
+              <div className="fcard__split-divider" />
+              <div className="fcard__split-right">
+                <span className="fcard__icon">🗺️</span>
+                <div className="fcard__title">МатКвест</div>
+                <div className="fcard__desc">Тренажёр в&nbsp;формате приключения: решай задачи, открывай уровни, видь результат сразу</div>
+                <a href="#registration" className="fcard__btn fcard__btn--accent">Попробовать тренажёр →</a>
+              </div>
             </div>
-          ))}
+          </div>
+          <div className="fcard">
+            <span className="fcard__icon">✍️</span>
+            <div className="fcard__title">Русский язык</div>
+            <div className="fcard__desc">2 записанных урока в&nbsp;своём темпе&nbsp;— повышаем грамотность, учим читать, понимать и&nbsp;выражать мысли</div>
+            <a href="#registration" className="fcard__btn fcard__btn--accent">Попробовать тренажёр →</a>
+          </div>
         </div>
 
         {/* FORMATS BLOCK */}
@@ -170,29 +154,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TRAINER BLOCK */}
-        <section className="trainer">
-          <div className="trainer__left">
-            <div className="trainer__badge">Тренажёр</div>
-            <h2 className="trainer__title">МатКвест</h2>
-            <p className="trainer__sub">Математические приключения</p>
-            <p className="trainer__text">
-              Набор задач в&nbsp;формате квеста: ребёнок выбирает приключение, решает задачи и&nbsp;открывает следующий уровень. Видит результат сразу&nbsp;— сколько решил верно, где ошибся и&nbsp;как улучшить.
-            </p>
-            <a href="#registration" className="trainer__btn">Попробовать тренажёр →</a>
-          </div>
-          <div className="trainer__right">
-            <div className="trainer__preview">
-              <div className="trainer__preview-icon">🗺️</div>
-              <div className="trainer__preview-title">Выбери приключение</div>
-              <div className="trainer__preview-items">
-                <div className="trainer__preview-item">🦕 Мир динозавров</div>
-                <div className="trainer__preview-item">🚀 Космическая миссия</div>
-                <div className="trainer__preview-item">🏺 Тайны Египта</div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <RegistrationForm
           successText="Мы свяжемся с&nbsp;вами для уточнения деталей программы. До&nbsp;встречи этим летом!"
