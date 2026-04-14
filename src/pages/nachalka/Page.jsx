@@ -117,6 +117,9 @@ export default function Page() {
             <a href="#registration" className="fcard__btn fcard__btn--accent">Попробовать тренажёр →</a>
           </div>
         </div>
+        <div className="features-cta">
+          <a href="#registration" className="features-cta__btn">Записаться на летние занятия</a>
+        </div>
 
         {/* FORMATS BLOCK */}
         <section className="formats">

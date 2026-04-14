@@ -316,6 +316,28 @@
   line-height: 1.7;
 }
 
+/* ── FEATURES CTA ── */
+.features-cta {
+  text-align: center;
+  margin: 16px 0 24px;
+}
+
+.features-cta__btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+  animation: cta-pulse 2s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.features-cta__btn:hover { transform: translateY(-2px) scale(1.03); }
+
 /* ── OFFER LABEL ── */
 .offer-label {
   text-align: center;
