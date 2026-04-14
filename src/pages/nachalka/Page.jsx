@@ -145,15 +145,27 @@ export default function Page() {
         {/* INTERACTIVE BLOCK */}
         <section className="interactive">
           <div className="interactive__badge">Онлайн-платформа</div>
-          <h2 className="interactive__title">Ребёнок&nbsp;— участник, а&nbsp;не&nbsp;зритель</h2>
-          <p className="interactive__text">
-            Даже просматривая урок в&nbsp;записи, ребёнок остаётся полноценным участником: отвечает на&nbsp;вопросы в&nbsp;интерактиве, решает задачи прямо в&nbsp;видео, получает мгновенную обратную связь. Сюжет не&nbsp;даёт отвлечься.
-          </p>
-          <div className="interactive__points">
-            <div className="interactive__point">✦ Интерактивные задачи внутри урока</div>
-            <div className="interactive__point">✦ Ответы и&nbsp;подсказки в&nbsp;реальном времени</div>
-            <div className="interactive__point">✦ ИИ-помощник объяснит, если что-то непонятно</div>
-            <div className="interactive__point">✦ Родитель видит всё в&nbsp;личном кабинете</div>
+          <div className="interactive__cards">
+            <div className="icard">
+              <div className="icard__icon">⚡</div>
+              <div className="icard__title">Супер-интерактивность в&nbsp;реальном времени</div>
+              <div className="icard__desc">Учитель видит, что пишет ученик, в&nbsp;реальном времени. Может подсказать, исправить или похвалить&nbsp;— как если бы сидел рядом.</div>
+            </div>
+            <div className="icard">
+              <div className="icard__icon">🤖</div>
+              <div className="icard__title">Домашнее задание с&nbsp;ИИ-помощником</div>
+              <div className="icard__desc">Искусственный интеллект помогает разобраться в&nbsp;домашнем задании: объясняет ошибки, даёт подсказки, адаптируется под уровень.</div>
+            </div>
+            <div className="icard">
+              <div className="icard__icon">📊</div>
+              <div className="icard__title">Аналитика для родителя&nbsp;— полная прозрачность</div>
+              <div className="icard__desc">Родители в&nbsp;любой момент видят прогресс ребёнка: оценки, посещаемость, динамику. Больше не&nbsp;нужно спрашивать «как дела в&nbsp;школе».</div>
+            </div>
+            <div className="icard">
+              <div className="icard__icon">🙋</div>
+              <div className="icard__title">Ребёнок&nbsp;— участник, а&nbsp;не&nbsp;зритель</div>
+              <div className="icard__desc">Даже в&nbsp;записи ребёнок отвечает на&nbsp;вопросы, решает задачи прямо в&nbsp;видео и&nbsp;получает мгновенную обратную связь. Сюжет не&nbsp;даёт отвлечься.</div>
+            </div>
           </div>
         </section>
 
