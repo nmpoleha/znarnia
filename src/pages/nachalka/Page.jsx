@@ -58,6 +58,7 @@ export default function Page() {
             Лето&nbsp;— шанс не&nbsp;просто повторить пройденное, а&nbsp;научить ребёнка думать, читать осмысленно и&nbsp;решать нестандартные задачи с&nbsp;удовольствием.
           </p>
           <a href="#registration" className="hero__cta">Записаться на лето</a>
+          <div className="hero__start">Начало занятий — 1 июня</div>
         </section>
 
         {/* WHY BLOCK */}
@@ -135,33 +136,22 @@ export default function Page() {
 
         {/* FORMATS BLOCK */}
         <section className="formats">
-          <div className="formats__header">
-            <div className="formats__tag">Форматы занятий</div>
-            <h2 className="formats__title">Выберите подходящий формат</h2>
+          <div className="formats__tag">Формат занятий</div>
+          <div className="formats__main-card">
+            <div className="formats__main-left">
+              <div className="formats__main-icon">🧒👧🧒</div>
+              <div className="formats__main-title">Мини-группы по классам</div>
+              <p className="formats__main-desc">Занятия по&nbsp;классам: школьная математика и&nbsp;решение задач в&nbsp;небольших группах. Учим ребёнка думать, а&nbsp;не&nbsp;механически считать.</p>
+            </div>
+            <ul className="formats__main-list">
+              <li>Составлять алгоритм решений</li>
+              <li>Осмысленно читать условие задачи</li>
+              <li>Составлять уравнения и&nbsp;решать их</li>
+              <li>Развивать логическое мышление</li>
+            </ul>
           </div>
-          <div className="formats__grid">
-            <div className="formats__card">
-              <div className="formats__card-icon">🧒👧🧒</div>
-              <div className="formats__card-title">Мини-группы</div>
-              <p className="formats__card-desc">Занятия по&nbsp;классам: школьная математика и&nbsp;решение задач в&nbsp;небольших группах. Учим ребёнка думать, а&nbsp;не&nbsp;механически считать.</p>
-              <ul className="formats__list">
-                <li>Составлять алгоритм решений</li>
-                <li>Осмысленно читать условие задачи</li>
-                <li>Составлять уравнения и&nbsp;решать их</li>
-                <li>Развивать логическое мышление</li>
-              </ul>
-            </div>
-            <div className="formats__card">
-              <div className="formats__card-icon">🧒</div>
-              <div className="formats__card-title">Индивидуальные занятия</div>
-              <p className="formats__card-desc">Программа выстраивается под&nbsp;конкретного ребёнка&nbsp;— его уровень, запросы и&nbsp;цели. Математика и&nbsp;русский язык.</p>
-              <ul className="formats__list">
-                <li>Программа под&nbsp;запрос ученика и&nbsp;родителя</li>
-                <li>Математика и&nbsp;русский язык</li>
-                <li>Эффективное решение конкретной задачи</li>
-                <li>Максимальный результат за&nbsp;лето</li>
-              </ul>
-            </div>
+          <div className="formats__note">
+            Также доступны <strong>индивидуальные занятия</strong>&nbsp;— программа выстраивается под&nbsp;конкретного ребёнка, его уровень и&nbsp;запросы. Уточните при&nbsp;записи.
           </div>
         </section>
 
