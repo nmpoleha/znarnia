@@ -36,7 +36,7 @@
 /* ── HERO ── */
 .hero {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero__tag {
@@ -44,22 +44,22 @@
   background: rgba(124, 58, 237, 0.08);
   border: 1px solid rgba(124, 58, 237, 0.2);
   color: #6d28d9;
-  padding: 5px 16px;
+  padding: 4px 14px;
   border-radius: 100px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .hero__title {
-  font-size: clamp(36px, 7vw, 67px);
+  font-size: clamp(26px, 4.5vw, 43px);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.04em;
   color: #7c3aed;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .hero__title span {
@@ -71,8 +71,8 @@
 
 .hero__cta {
   display: inline-block;
-  margin: 18px 0 4px;
-  padding: 14px 36px;
+  margin: 14px 0 4px;
+  padding: 12px 32px;
   background: linear-gradient(135deg, #7c3aed, #a855f7);
   color: #fff;
   border: none;
@@ -95,17 +95,17 @@
 }
 
 .hero__sub {
-  font-size: clamp(15px, 2.2vw, 19px);
+  font-size: clamp(14px, 2vw, 17px);
   color: #3b1f6e;
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   font-weight: 500;
 }
 
 .hero__br { display: block; }
 
 .hero__quote {
-  font-size: 14px;
+  font-size: 12px;
   color: #7c5aa8;
   font-style: italic;
   max-width: 580px;

@@ -60,6 +60,31 @@ export default function Page() {
           <a href="#registration" className="hero__cta">Записаться на лето</a>
         </section>
 
+        {/* WHY BLOCK */}
+        <section className="why">
+          <div className="why__item">
+            <img className="why__img" src="/znarnia/images/boy-thinking.png" alt="Нужны ли занятия летом?" />
+            <div className="why__body">
+              <div className="why__icon">💡</div>
+              <div className="why__title">Нужны ли занятия летом?</div>
+              <p className="why__text">
+                Однозначно да. К&nbsp;сентябрю дети теряют до&nbsp;30% знаний.<br />
+                Но&nbsp;главное&nbsp;— лето даёт уникальный шанс развить то, на&nbsp;что у&nbsp;школы нет времени: логику, упорство и&nbsp;осмысленное чтение.
+              </p>
+            </div>
+          </div>
+          <div className="why__item">
+            <img className="why__img" src="/znarnia/images/boy-learning.png" alt="Почему это работает" />
+            <div className="why__body">
+              <div className="why__icon">🎯</div>
+              <div className="why__title">Почему это работает</div>
+              <p className="why__text">
+                Мы создали уроки со&nbsp;сказочными сюжетными линиями&nbsp;— ребёнок решает задачи внутри приключения и&nbsp;втягивается в&nbsp;мир математики сам, незаметно для&nbsp;себя.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* SCHOOL GAP BLOCK */}
         <section className="gap-block">
           <div className="gap-block__header">
@@ -94,31 +119,6 @@ export default function Page() {
           <p className="gap-block__note">
             Именно эти качества — а&nbsp;не&nbsp;только быстрый счёт — позволяют ребёнку учиться успешно, без стресса и&nbsp;страха перед сложными задачами.
           </p>
-        </section>
-
-        {/* WHY BLOCK */}
-        <section className="why">
-          <div className="why__item">
-            <img className="why__img" src="/znarnia/images/boy-thinking.png" alt="Нужны ли занятия летом?" />
-            <div className="why__body">
-              <div className="why__icon">💡</div>
-              <div className="why__title">Нужны ли занятия летом?</div>
-              <p className="why__text">
-                Однозначно да. К&nbsp;сентябрю дети теряют до&nbsp;30% знаний.<br />
-                Но&nbsp;главное&nbsp;— лето даёт уникальный шанс развить то, на&nbsp;что у&nbsp;школы нет времени: логику, упорство и&nbsp;осмысленное чтение.
-              </p>
-            </div>
-          </div>
-          <div className="why__item">
-            <img className="why__img" src="/znarnia/images/boy-learning.png" alt="Почему это работает" />
-            <div className="why__body">
-              <div className="why__icon">🎯</div>
-              <div className="why__title">Почему это работает</div>
-              <p className="why__text">
-                Мы создали уроки со&nbsp;сказочными сюжетными линиями&nbsp;— ребёнок решает задачи внутри приключения и&nbsp;втягивается в&nbsp;мир математики сам, незаметно для&nbsp;себя.
-              </p>
-            </div>
-          </div>
         </section>
 
         {/* FEATURES */}
