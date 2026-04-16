@@ -174,6 +174,10 @@ export default function Page() {
             <p>И этот выбор всегда остаётся за родителями.</p>
           </div>
 
+          <a href="/znarnia/nachalka/" className="post__cta-bottom">
+            Записаться на летние занятия →
+          </a>
+
         </article>
 
         <footer className="footer">
