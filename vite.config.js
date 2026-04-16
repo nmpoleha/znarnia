@@ -15,6 +15,7 @@ export default defineConfig({
         'post-leto': resolve(__dirname, 'post-leto/index.html'),
         'post-kanikuly': resolve(__dirname, 'post-kanikuly/index.html'),
         srednyaya: resolve(__dirname, 'srednyaya/index.html'),
+        teens: resolve(__dirname, 'teens/index.html'),
       },
     },
   },
