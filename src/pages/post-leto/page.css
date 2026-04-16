@@ -62,19 +62,20 @@
 }
 
 .post__title {
-  font-size: clamp(24px, 5vw, 36px);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: #2d1760;
-  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0;
+  color: #3b1f6e;
+  margin-bottom: 0;
 }
 
 .post__lead {
-  font-size: clamp(17px, 2.5vw, 20px);
-  font-weight: 700;
-  color: #7c3aed;
+  font-size: 15px;
+  font-weight: 400;
+  color: #3b1f6e;
   margin-bottom: 24px;
+  line-height: 1.8;
 }
 
 .post__body {
@@ -197,7 +198,7 @@
 .post__preview {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: stretch;
   background: #faf8ff;
   border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 16px;
@@ -295,6 +296,7 @@
 .post__preview-cta {
   display: inline-block;
   align-self: flex-start;
+  margin-top: auto;
   padding: 9px 18px;
   background: linear-gradient(135deg, #7c3aed, #a855f7);
   color: #fff;
@@ -436,6 +438,39 @@
   background: #7c3aed;
 }
 
+/* ── RESULT LIST ── */
+.post__result-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post__result-list li {
+  font-size: 15px;
+  color: #3b1f6e;
+  line-height: 1.7;
+  padding-left: 18px;
+  position: relative;
+}
+
+.post__result-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+}
+
+.post__float-clear {
+  clear: both;
+}
+
 /* ── FOOTER ── */
 .footer {
   display: flex;
@@ -446,15 +481,14 @@
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 560px) {
-  .post {
-    padding: 24px 20px 28px;
-    border-radius: 18px;
+@media (max-width: 640px) {
+  .page__inner {
+    padding: 0 12px 32px;
   }
 
-  .post__highlight {
-    flex-direction: column;
-    gap: 10px;
+  .post {
+    padding: 20px 16px 24px;
+    border-radius: 16px;
   }
 
   .post__preview {
@@ -463,13 +497,22 @@
 
   .post__preview-img {
     width: 100%;
-    height: 140px;
+    height: 130px;
   }
 
+  .post__body--with-float .slideshow,
   .slideshow {
-    float: none;
+    float: none !important;
+    width: 100% !important;
+    height: 190px;
+    margin: 0 0 16px 0 !important;
+  }
+
+  .post__stats {
+    flex-direction: column;
+  }
+
+  .post__stats-slides {
     width: 100%;
-    height: 200px;
-    margin: 0 0 16px 0;
   }
 }
