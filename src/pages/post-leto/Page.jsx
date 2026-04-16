@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import Slideshow from '../../shared/components/Slideshow'
 
 const slides = [
   { label: 'фото 1' },
@@ -6,46 +6,6 @@ const slides = [
   { label: 'фото 3' },
   { label: 'фото 4' },
 ]
-
-function Slideshow() {
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length)
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length)
-  const next = () => setCurrent((c) => (c + 1) % slides.length)
-
-  return (
-    <div className="slideshow">
-      <div className="slideshow__track">
-        {slides.map((s, i) => (
-          <div
-            key={i}
-            className={`slideshow__slide ${i === current ? 'slideshow__slide--active' : ''}`}
-          >
-            <span className="slideshow__label">{s.label}</span>
-          </div>
-        ))}
-      </div>
-      <button className="slideshow__btn slideshow__btn--prev" onClick={prev}>‹</button>
-      <button className="slideshow__btn slideshow__btn--next" onClick={next}>›</button>
-      <div className="slideshow__dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`slideshow__dot ${i === current ? 'slideshow__dot--active' : ''}`}
-            onClick={() => setCurrent(i)}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export default function Page() {
   return (
@@ -146,7 +106,7 @@ export default function Page() {
           <div className="post__divider post__divider--gap" />
 
           <div className="post__body post__body--with-float">
-            <Slideshow />
+            <Slideshow slides={slides} />
 
             <p>
               И в этот момент происходит самое ценное: он не «делает уроки» — он начинает думать.
@@ -188,7 +148,7 @@ export default function Page() {
 
           <div className="post__stats">
             <div className="post__stats-slides">
-              <Slideshow />
+              <Slideshow slides={slides} />
             </div>
             <div className="post__stats-content">
               <div className="post__preview-heading">Аналитика для родителей</div>

@@ -13,6 +13,7 @@ export default defineConfig({
         nachalka: resolve(__dirname, 'nachalka/index.html'),
         partner: resolve(__dirname, 'partner/index.html'),
         'post-leto': resolve(__dirname, 'post-leto/index.html'),
+        'post-kanikuly': resolve(__dirname, 'post-kanikuly/index.html'),
       },
     },
   },
