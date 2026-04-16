@@ -12,6 +12,7 @@ export default defineConfig({
         leto2026: resolve(__dirname, 'leto2026/index.html'),
         nachalka: resolve(__dirname, 'nachalka/index.html'),
         partner: resolve(__dirname, 'partner/index.html'),
+        'post-leto': resolve(__dirname, 'post-leto/index.html'),
       },
     },
   },
