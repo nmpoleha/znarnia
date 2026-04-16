@@ -123,7 +123,7 @@ export default function Page() {
           <div className="interactive__cards">
             <div className="icard">
               <div className="icard__icon">⚡</div>
-              <div className="icard__title">Супер-интерактивность в&nbsp;реальном времени</div>
+              <div className="icard__title">Онлайн-уроки с&nbsp;интерактивными возможностями</div>
               <div className="icard__desc">Учитель видит, что пишет ученик, в&nbsp;реальном времени. Может подсказать, исправить или похвалить&nbsp;— как если бы сидел рядом.</div>
             </div>
             <div className="icard">
