@@ -14,6 +14,7 @@ export default defineConfig({
         partner: resolve(__dirname, 'partner/index.html'),
         'post-leto': resolve(__dirname, 'post-leto/index.html'),
         'post-kanikuly': resolve(__dirname, 'post-kanikuly/index.html'),
+        srednyaya: resolve(__dirname, 'srednyaya/index.html'),
       },
     },
   },
