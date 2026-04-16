@@ -1,4 +1,52 @@
+import { useState, useEffect } from 'react'
 import SchoolHeader from '../../shared/components/SchoolHeader'
+
+const slides = [
+  { label: 'фото 1' },
+  { label: 'фото 2' },
+  { label: 'фото 3' },
+  { label: 'фото 4' },
+]
+
+function Slideshow() {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % slides.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length)
+  const next = () => setCurrent((c) => (c + 1) % slides.length)
+
+  return (
+    <div className="slideshow">
+      <div className="slideshow__track">
+        {slides.map((s, i) => (
+          <div
+            key={i}
+            className={`slideshow__slide ${i === current ? 'slideshow__slide--active' : ''}`}
+          >
+            <span className="slideshow__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+      <button className="slideshow__btn slideshow__btn--prev" onClick={prev}>‹</button>
+      <button className="slideshow__btn slideshow__btn--next" onClick={next}>›</button>
+      <div className="slideshow__dots">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            className={`slideshow__dot ${i === current ? 'slideshow__dot--active' : ''}`}
+            onClick={() => setCurrent(i)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Page() {
   return (
@@ -86,6 +134,114 @@ export default function Page() {
 
               <a href="#" className="post__preview-cta">▶ Просмотр онлайн-урока</a>
             </div>
+          </div>
+
+          <div className="post__divider post__divider--gap" />
+
+          <div className="post__body">
+            <p>
+              Плюс есть ещё один урок, который он проходит самостоятельно в удобное время.
+              Каждый раз это новое приключение: сегодня Египет и пирамиды, завтра динозавры,
+              потом космос. Ребёнок читает задания, разбирается, решает — и параллельно
+              узнаёт что-то новое.
+            </p>
+          </div>
+
+          <div className="post__preview">
+            <div className="post__preview-img">
+              <span className="post__preview-img-label">Интерактивный задачник</span>
+            </div>
+
+            <div className="post__preview-content">
+              <div className="post__preview-heading">
+                Возможности платформы
+              </div>
+
+              <ul className="post__preview-list">
+                <li>тезис 1</li>
+                <li>тезис 2</li>
+                <li>тезис 3</li>
+              </ul>
+
+              <a href="#" className="post__preview-cta">▶ Посмотреть задачник</a>
+            </div>
+          </div>
+
+          <div className="post__divider post__divider--gap" />
+
+          <div className="post__body post__body--with-float">
+            <Slideshow />
+
+            <p>
+              И в этот момент происходит самое ценное: он не «делает уроки» — он начинает думать.
+            </p>
+
+            <p>
+              В итоге получается простой, но очень важный эффект: даёшь ребёнку гаджет — а он
+              не просто проводит время, а действительно тренирует мозг.
+            </p>
+
+            <p>
+              Мы специально сделали формат из трёх занятий в неделю — этого достаточно,
+              чтобы был результат, но без перегрузки.
+            </p>
+
+            <p>
+              В этом году добавили ещё и короткие уроки по русскому языку, которые можно
+              проходить в удобное время. Они помогают закрепить базовые правила и, что
+              особенно важно, развивают осмысленное чтение. А это напрямую влияет на все предметы.
+            </p>
+
+            <p className="post__intro-nuance">Что в итоге меняется?</p>
+
+            <p>
+              Ребёнок перестаёт угадывать и начинает понимать.<br />
+              Лучше читает и улавливает смысл.<br />
+              Может сам решить задачу, а не ждать подсказку.<br />
+              Становится увереннее — и это всегда заметно.
+            </p>
+          </div>
+
+          <div className="post__divider post__divider--gap" />
+
+          <div className="post__body">
+            <p>
+              И, пожалуй, самое важное для родителей — вам не нужно ломать голову, как всё это
+              организовать. Не нужно искать задания, заставлять, контролировать. Ребёнок
+              втягивается сам, а вы просто видите результат.
+            </p>
+          </div>
+
+          <div className="post__stats">
+            <div className="post__stats-slides">
+              <Slideshow />
+            </div>
+            <div className="post__stats-content">
+              <div className="post__preview-heading">Аналитика для родителей</div>
+              <ul className="post__preview-list">
+                <li>результаты каждого урока</li>
+                <li>процент правильных ответов</li>
+                <li>проблемные темы</li>
+              </ul>
+              <p className="post__preview-result">
+                <strong>Что это даёт:</strong> полная прозрачность и понимание реального прогресса ребёнка.
+              </p>
+            </div>
+          </div>
+
+          <div className="post__divider post__divider--gap" />
+
+          <div className="post__body">
+            <p>
+              Лето можно просто «переждать» до сентября.
+            </p>
+            <p>
+              А можно использовать его как точку роста — момент, когда ребёнку действительно
+              становится легче учиться дальше.
+            </p>
+            <p>
+              И этот выбор всегда остаётся за родителями.
+            </p>
           </div>
 
         </article>
