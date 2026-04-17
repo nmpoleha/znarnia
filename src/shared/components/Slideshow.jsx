@@ -21,20 +21,25 @@ export default function Slideshow({ slides }) {
             key={i}
             className={`slideshow__slide ${i === current ? 'slideshow__slide--active' : ''}`}
           >
-            <span className="slideshow__label">{s.label}</span>
+            {s.src
+              ? <img src={s.src} alt={s.label || ''} className="slideshow__img" />
+              : <span className="slideshow__label">{s.label}</span>
+            }
           </div>
         ))}
       </div>
-      <button className="slideshow__btn slideshow__btn--prev" onClick={prev}>‹</button>
-      <button className="slideshow__btn slideshow__btn--next" onClick={next}>›</button>
-      <div className="slideshow__dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`slideshow__dot ${i === current ? 'slideshow__dot--active' : ''}`}
-            onClick={() => setCurrent(i)}
-          />
-        ))}
+      <div className="slideshow__controls">
+        <button className="slideshow__btn" onClick={prev}>‹</button>
+        <div className="slideshow__dots">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`slideshow__dot ${i === current ? 'slideshow__dot--active' : ''}`}
+              onClick={() => setCurrent(i)}
+            />
+          ))}
+        </div>
+        <button className="slideshow__btn" onClick={next}>›</button>
       </div>
     </div>
   )
