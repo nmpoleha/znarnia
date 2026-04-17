@@ -26,7 +26,7 @@ export default function Page() {
             Лето&nbsp;— шанс не&nbsp;просто повторить пройденное, а&nbsp;научить ребёнка думать, читать осмысленно и&nbsp;решать нестандартные задачи с&nbsp;удовольствием.
           </p>
           <a href="#registration" className="hero__cta">Записаться на лето</a>
-          <div className="hero__start">Начало занятий — 1 июня</div>
+          <div className="hero__start">Начало занятий — 22 июня</div>
         </section>
 
         {/* WHY BLOCK */}
