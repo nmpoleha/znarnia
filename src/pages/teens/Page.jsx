@@ -31,7 +31,7 @@ export default function Page() {
         {/* WHY BLOCK */}
         <section className="why">
           <div className="why__item">
-            <img className="why__img" src="/znarnia/images/boy-thinking.png" alt="Нужны ли занятия летом?" />
+            <img className="why__img" src="/znarnia/images/boy-thinking-warm.png" alt="Нужны ли занятия летом?" />
             <div className="why__body">
               <div className="why__icon">💡</div>
               <div className="why__title">Нужны ли занятия летом?</div>
@@ -41,7 +41,7 @@ export default function Page() {
             </div>
           </div>
           <div className="why__item">
-            <img className="why__img" src="/znarnia/images/boy-learning.png" alt="Почему это работает" />
+            <img className="why__img" src="/znarnia/images/boy-learning-warm.png" alt="Почему это работает" />
             <div className="why__body">
               <div className="why__icon">🎯</div>
               <div className="why__title">Почему это работает</div>
