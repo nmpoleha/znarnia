@@ -21,11 +21,11 @@ export default function Page() {
           <p className="hero__sub">
             Пробелы в&nbsp;базе, потери за&nbsp;лето&nbsp;— и&nbsp;ребёнок возвращается в&nbsp;школу почти с&nbsp;нуля
           </p>
-          <p className="hero__quote">
+          <p className="hero__quote" style={{maxWidth: 'none', whiteSpace: 'nowrap'}}>
             «Я&nbsp;всё забыл»&nbsp;— за&nbsp;этими словами стоит не&nbsp;лень, а&nbsp;накопленные пробелы. Мы знаем, как их&nbsp;закрыть.
           </p>
           <a href="#registration" className="hero__cta">Записаться на лето</a>
-          <div className="hero__start">Начало занятий — 1 июня</div>
+          <div className="hero__start">Начало занятий — 22 июня</div>
         </section>
 
         {/* WHY BLOCK */}
