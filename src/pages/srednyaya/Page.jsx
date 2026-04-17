@@ -16,7 +16,7 @@ export default function Page() {
 
         {/* HERO */}
         <section className="hero">
-          <div className="hero__tag">Средняя школа · 6–9 класс</div>
+          <div className="hero__tag">С 6 по 10 класс</div>
           <h1 className="hero__title">Летние <span>занятия</span></h1>
           <p className="hero__sub">
             Пробелы в&nbsp;базе, потери за&nbsp;лето&nbsp;— и&nbsp;ребёнок возвращается в&nbsp;школу почти с&nbsp;нуля
