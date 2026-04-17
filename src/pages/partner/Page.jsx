@@ -84,12 +84,12 @@ export default function Page() {
           </p>
 
           <div className="pp-pills">
-            <span className="pp-pill">собственная видеосвязь</span>
-            <span className="pp-pill">онлайн-доска</span>
-            <span className="pp-pill">задания в реальном времени</span>
-            <span className="pp-pill">геймификация</span>
-            <span className="pp-pill">аналитика</span>
-            <span className="pp-pill">ИИ-помощник</span>
+            <span className="pp-pill">🎥 собственная видеосвязь</span>
+            <span className="pp-pill">🖊️ онлайн-доска</span>
+            <span className="pp-pill">⚡ задания в реальном времени</span>
+            <span className="pp-pill">🏆 геймификация</span>
+            <span className="pp-pill">📊 аналитика</span>
+            <span className="pp-pill">🤖 ИИ-помощник</span>
           </div>
 
           <div className="pp-focus">
@@ -214,8 +214,15 @@ export default function Page() {
         <section className="pp-section" id="about-partner">
           <div className="pp-section__num">03</div>
           <h2 className="pp-section__title">О партнёрстве</h2>
-          <div className="pp-partner-card">
-            <div className="pp-partner-card__col">
+          <div className="pp-about-grid">
+            <div className="pp-about-item">
+              <img src="/znarnia/images/desktop-dashboard.png" alt="Почему это востребовано" className="pp-about-img" />
+              <h3 className="pp-partner-card__title">Почему это востребовано</h3>
+              <p className="pp-about-text">Рынок дополнительного образования стабильно растёт. Более 70% родителей ищут помощь уже в&nbsp;начальной школе, миллион детей занимаются вне школы, а&nbsp;основной запрос&nbsp;— результат, не&nbsp;просто занятия.</p>
+              <p className="pp-about-accent">Мы закрываем этот запрос технологически</p>
+            </div>
+            <div className="pp-about-item">
+              <img src="/znarnia/images/boy-fives.png" alt="Что вы предлагаете своей аудитории" className="pp-about-img" />
               <h3 className="pp-partner-card__title">Что вы предлагаете своей аудитории</h3>
               <p className="pp-partner-card__intro">Не уроки, а:</p>
               <ul className="pp-partner-card__list">
@@ -259,29 +266,36 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── 05 ДОХОД ── */}
+        {/* ── 05 ВОЗНАГРАЖДЕНИЕ ── */}
         <section className="pp-section" id="income">
           <div className="pp-section__num">05</div>
-          <h2 className="pp-section__title">Доход</h2>
-          <p className="pp-ltv">
-            Средний срок обучения:&nbsp;<strong>9+ месяцев</strong>&nbsp;— стабильный LTV
-          </p>
+          <h2 className="pp-section__title">Вознаграждение</h2>
+          <p className="pp-recurring"><strong>Рекуррентная модель:</strong> вы получаете доход каждый месяц, пока ученик обучается.</p>
+          <div className="pp-ltv-bar">
+            <span>Средний срок обучения:&nbsp;<strong>9+ месяцев</strong></span>
+            <span className="pp-ltv-bar__label">СТАБИЛЬНЫЙ LTV</span>
+          </div>
           <div className="pp-pricing">
             <div className="pp-pricing__now">
               <div className="pp-pricing__now-label">Текущие условия (2025/26)</div>
               <div className="pp-pricing__now-subject">Математика</div>
               <div className="pp-pricing__now-price">7&nbsp;000 <span>руб./мес.</span></div>
               <div className="pp-pricing__now-note">Стоимость для клиента</div>
+              <div className="pp-pricing__now-income">Ваш доход: <strong>1&nbsp;000 руб./мес. за ученика</strong></div>
             </div>
             <div className="pp-pricing__future">
               <div className="pp-pricing__future-badge">С сентября 2026</div>
               <div className="pp-pricing__future-title">Расширение линейки</div>
-              <div className="pp-pricing__future-subj">русский · английский</div>
+              <ul className="pp-pricing__future-subjects">
+                <li>русский</li>
+                <li>английский</li>
+              </ul>
               <div className="pp-pricing__tiers">
                 <div className="pp-tier"><span>1 предмет</span><strong>1&nbsp;000 руб.</strong></div>
                 <div className="pp-tier"><span>2 предмета</span><strong>1&nbsp;300 руб.</strong></div>
                 <div className="pp-tier"><span>3 предмета</span><strong>1&nbsp;600 руб.</strong></div>
               </div>
+              <div className="pp-pricing__future-avg">Средний доход: <strong>~ 1&nbsp;300 руб./ученик</strong></div>
             </div>
           </div>
         </section>
