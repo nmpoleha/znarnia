@@ -58,7 +58,12 @@ export default function Page() {
 
           <div className="post__preview">
             <div className="post__preview-img">
-              <span className="post__preview-img-label">Фрагмент урока</span>
+              <video
+                className="post__preview-video"
+                src="/znarnia/videos/lesson-preview.mov"
+                controls
+                playsInline
+              />
             </div>
             <div className="post__preview-content">
               <div className="post__preview-heading">
