@@ -1,10 +1,11 @@
 import Slideshow from '../../shared/components/Slideshow'
 
 const statsSlides = [
-  { label: 'фото 1' },
-  { label: 'фото 2' },
-  { label: 'фото 3' },
-  { label: 'фото 4' },
+  { src: '/znarnia/images/stats1.jpg', label: 'Посещаемость' },
+  { src: '/znarnia/images/stats2.jpg', label: 'Статистика по уроку' },
+  { src: '/znarnia/images/stats3.jpg', label: 'Статистика по темам' },
+  { src: '/znarnia/images/stats4.jpg', label: 'Детализация по темам' },
+  { src: '/znarnia/images/stats5.jpg', label: 'Детализация по ДЗ' },
 ]
 
 export default function Page() {
@@ -59,7 +60,12 @@ export default function Page() {
 
           <div className="post__preview">
             <div className="post__preview-img">
-              <span className="post__preview-img-label">Интерактивный задачник</span>
+              <video
+                className="post__preview-video"
+                src="/znarnia/videos/trainer-srednyaya.mov"
+                controls
+                playsInline
+              />
             </div>
             <div className="post__preview-content">
               <div className="post__preview-heading">Возможности платформы</div>
@@ -88,7 +94,12 @@ export default function Page() {
 
           <div className="post__preview">
             <div className="post__preview-img">
-              <span className="post__preview-img-label">Фрагмент урока</span>
+              <video
+                className="post__preview-video"
+                src="/znarnia/videos/lesson-srednyaya.mov"
+                controls
+                playsInline
+              />
             </div>
             <div className="post__preview-content">
               <div className="post__preview-heading">
