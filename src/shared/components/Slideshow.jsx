@@ -1,14 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Slideshow({ slides }) {
   const [current, setCurrent] = useState(0)
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length)
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [slides.length])
 
   const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length)
   const next = () => setCurrent((c) => (c + 1) % slides.length)
