@@ -1,4 +1,4 @@
-const imgHeroPlatform = "https://www.figma.com/api/mcp/asset/dd37df99-8624-4664-978d-8cf9ad3b4999"
+const imgHeroPlatform = "/znarnia/images/partner-hero.png"
 
 export default function Page() {
   return (
