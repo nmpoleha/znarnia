@@ -1,4 +1,14 @@
+import Slideshow from '../../shared/components/Slideshow'
+
 const imgHeroPlatform = "/znarnia/images/partner-hero.png"
+
+const statsSlides = [
+  { src: '/znarnia/images/stats1.jpg', label: 'Посещаемость' },
+  { src: '/znarnia/images/stats2.jpg', label: 'Статистика по уроку' },
+  { src: '/znarnia/images/stats3.jpg', label: 'Статистика по темам' },
+  { src: '/znarnia/images/stats4.jpg', label: 'Детализация по темам' },
+  { src: '/znarnia/images/stats5.jpg', label: 'Детализация по ДЗ' },
+]
 
 export default function Page() {
   return (
@@ -97,62 +107,87 @@ export default function Page() {
             <div className="pp-focus__sub">Полный контроль над процессом обучения</div>
           </div>
 
-          <h3 className="pp-feats__heading">Ключевые возможности платформы</h3>
-          <div className="pp-feats">
-            <div className="pp-feat">
-              <div className="pp-feat__num">1</div>
-              <div className="pp-feat__title">Единая среда обучения</div>
-              <p className="pp-feat__desc">Собственная видеосвязь и&nbsp;онлайн-доска внутри платформы.</p>
-              <p className="pp-feat__result"><b>Что это даёт:</b> обучение становится непрерывным и&nbsp;стабильным — без технических сбоев, вкладок и&nbsp;потери времени.</p>
+          <div className="pp-platform">
+            <div className="pp-platform__badge">Онлайн-платформа</div>
+            <div className="pp-platform__grid">
+              <div className="pp-platform__card">
+                <div className="pp-platform__icon">⚡</div>
+                <h4 className="pp-platform__title pp-platform__title--purple">Онлайн-уроки с&nbsp;интерактивными возможностями</h4>
+                <p className="pp-platform__desc">Учитель видит, что пишет ученик, в&nbsp;реальном времени. Может подсказать, исправить или похвалить — как если бы сидел рядом.</p>
+              </div>
+              <div className="pp-platform__card">
+                <div className="pp-platform__icon">🤖</div>
+                <h4 className="pp-platform__title">Домашнее задание с&nbsp;ИИ-помощником</h4>
+                <p className="pp-platform__desc">Искусственный интеллект помогает разобраться в&nbsp;домашнем задании: объясняет ошибки, даёт подсказки, адаптируется под уровень.</p>
+              </div>
+              <div className="pp-platform__card">
+                <div className="pp-platform__icon">📊</div>
+                <h4 className="pp-platform__title pp-platform__title--purple">Аналитика для родителя — полная прозрачность</h4>
+                <p className="pp-platform__desc">Родители в&nbsp;любой момент видят прогресс ребёнка: оценки, посещаемость, динамику. Больше не&nbsp;нужно спрашивать «как дела в&nbsp;школе».</p>
+              </div>
+              <div className="pp-platform__card">
+                <div className="pp-platform__icon">🏆</div>
+                <h4 className="pp-platform__title">Ребёнок — участник, а&nbsp;не зритель</h4>
+                <p className="pp-platform__desc">Даже в&nbsp;записи ребёнок отвечает на&nbsp;вопросы, решает задачи прямо в&nbsp;видео и&nbsp;получает мгновенную обратную связь. Сюжет не&nbsp;даёт отвлечься.</p>
+              </div>
             </div>
-            <div className="pp-feat">
-              <div className="pp-feat__num">2</div>
-              <div className="pp-feat__title">Интерактив в&nbsp;реальном времени</div>
-              <ul className="pp-feat__list">
-                <li>отвечает на задания у&nbsp;себя на&nbsp;экране</li>
-                <li>не видит ответы других</li>
+          </div>
+
+          <div className="pp-preview">
+            <div className="pp-preview__video-wrap">
+              <video
+                className="pp-preview__video"
+                src="/znarnia/videos/trainer-srednyaya.mov"
+                controls
+                playsInline
+              />
+            </div>
+            <div className="pp-preview__content">
+              <div className="pp-preview__heading">Возможности платформы</div>
+              <ul className="pp-preview__list">
+                <li>домашнее задание с&nbsp;ИИ&#8209;помощником — ребёнок не&nbsp;застрянет</li>
+                <li>сюжетный урок, помогающий быть сконцентрированным и&nbsp;вовлечённым</li>
+                <li>супер&#8209;интерактивность в&nbsp;реальном времени</li>
+              </ul>
+              <a href="#contact" className="pp-preview__cta">▶ Попробовать тренажер</a>
+            </div>
+          </div>
+
+          <div className="pp-preview">
+            <div className="pp-preview__video-wrap">
+              <video
+                className="pp-preview__video"
+                src="/znarnia/videos/lesson-preview.mov"
+                controls
+                playsInline
+              />
+            </div>
+            <div className="pp-preview__content">
+              <div className="pp-preview__heading">Онлайн-уроки с&nbsp;интерактивными возможностями</div>
+              <ul className="pp-preview__list">
+                <li>ребёнок отвечает на&nbsp;задания у&nbsp;себя на&nbsp;экране</li>
+                <li>не&nbsp;видит ответы других</li>
                 <li>получает мгновенную обратную связь</li>
               </ul>
-              <p className="pp-feat__result">Ребёнок не «присутствует» — он работает.</p>
+              <p className="pp-preview__result"><strong>Что это даёт:</strong> полное вовлечение. Ребёнок не&nbsp;«присутствует» — он работает.</p>
+              <a href="#contact" className="pp-preview__cta">▶ Просмотр онлайн&#8209;урока</a>
             </div>
-            <div className="pp-feat">
-              <div className="pp-feat__num">3</div>
-              <div className="pp-feat__title">Геймификация с&nbsp;реальной ценностью</div>
-              <ul className="pp-feat__list">
-                <li>тратить баллы на&nbsp;развитие аватара</li>
-                <li>обменивать баллы на&nbsp;реальные подарки</li>
-              </ul>
-              <p className="pp-feat__result">Мотивация к&nbsp;учёбе, которой управляет сам ребёнок.</p>
+          </div>
+
+          <div className="pp-stats-block">
+            <div className="pp-stats-block__slides">
+              <Slideshow slides={statsSlides} />
             </div>
-            <div className="pp-feat">
-              <div className="pp-feat__num">4</div>
-              <div className="pp-feat__title">Аналитика для учителя</div>
-              <ul className="pp-feat__list">
-                <li>кто понял тему</li>
-                <li>кто ошибается</li>
-                <li>кто не вовлечён</li>
-              </ul>
-              <p className="pp-feat__result">Обучение становится точечным и&nbsp;управляемым, а&nbsp;не «средним по классу».</p>
-            </div>
-            <div className="pp-feat">
-              <div className="pp-feat__num">5</div>
-              <div className="pp-feat__title">Аналитика для родителей</div>
-              <ul className="pp-feat__list">
+            <div className="pp-stats-block__content">
+              <div className="pp-preview__heading">Аналитика для&nbsp;родителей</div>
+              <ul className="pp-preview__list">
                 <li>результаты каждого урока</li>
                 <li>процент правильных ответов</li>
                 <li>проблемные темы</li>
               </ul>
-              <p className="pp-feat__result">Понимание реального прогресса ребёнка.</p>
-            </div>
-            <div className="pp-feat">
-              <div className="pp-feat__num">6</div>
-              <div className="pp-feat__title">Домашняя работа с&nbsp;ИИ-помощником</div>
-              <ul className="pp-feat__list">
-                <li>задаёт наводящие вопросы</li>
-                <li>помогает дойти до решения</li>
-                <li>закрепляет материал дополнительными задачами</li>
-              </ul>
-              <p className="pp-feat__result">Ученик учится думать, а&nbsp;не&nbsp;списывать. Пробелы не накапливаются.</p>
+              <p className="pp-preview__result">
+                <strong>Что это даёт:</strong> полная прозрачность и&nbsp;понимание реального прогресса ребёнка.
+              </p>
             </div>
           </div>
 
