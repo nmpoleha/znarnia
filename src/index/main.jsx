@@ -53,6 +53,13 @@ const pages = [
     description: 'Версия для подростков: тёмный фон, неон, cyan + pink',
     date: 'Апрель 2026',
   },
+  {
+    slug: 'oplata-srednyaya',
+    title: 'Оплата летних занятий',
+    client: 'Школа Сотниковой Ольги',
+    description: 'Страница с этапами и описанием уроков-тренажёров',
+    date: 'Апрель 2026',
+  },
 ]
 
 function Catalog() {
