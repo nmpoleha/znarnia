@@ -219,7 +219,7 @@ export default function Page() {
               <img src="/znarnia/images/desktop-dashboard.png" alt="Почему это востребовано" className="pp-about-img" />
               <h3 className="pp-partner-card__title">Почему это востребовано</h3>
               <p className="pp-about-text">Рынок дополнительного образования стабильно растёт. Более 70% родителей ищут помощь уже в&nbsp;начальной школе, миллион детей занимаются вне школы, а&nbsp;основной запрос&nbsp;— результат, не&nbsp;просто занятия.</p>
-              <p className="pp-about-accent">Мы закрываем этот запрос технологически</p>
+              <p className="pp-about-accent">Мы превращаем этот запрос в результат с помощью технологий</p>
             </div>
             <div className="pp-about-item">
               <img src="/znarnia/images/boy-fives.png" alt="Что вы предлагаете своей аудитории" className="pp-about-img" />
@@ -250,7 +250,7 @@ export default function Page() {
             </div>
             <div className="pp-mech__item">
               <div className="pp-mech__num">02</div>
-              <div className="pp-mech__title">Учёт учеников по&nbsp;промокоду</div>
+              <div className="pp-mech__title">Учёт учеников</div>
               <p className="pp-mech__desc">Все привлечённые ученики фиксируются автоматически и&nbsp;прозрачно.</p>
             </div>
             <div className="pp-mech__item">
@@ -301,30 +301,50 @@ export default function Page() {
         </section>
 
         {/* ── 06 ПОТЕНЦИАЛЬНЫЙ ДОХОД ── */}
-        <section className="pp-calc-wrap" id="potential">
-          <div className="pp-section__num pp-section__num--light">06</div>
-          <h2 className="pp-section__title pp-section__title--light">Потенциальный доход</h2>
-          <div className="pp-calc">
-            <div className="pp-calc__col">
-              <div className="pp-calc__label">Аудитория</div>
-              <div className="pp-calc__val">50&nbsp;000</div>
+        <section className="pp-section" id="potential">
+          <div className="pp-section__num">06</div>
+          <h2 className="pp-section__title">Потенциальный доход</h2>
+          <div className="pp-calc-new">
+            <div className="pp-calc-new__top">
+              <div className="pp-calc-new__col">
+                <div className="pp-calc-new__label">Аудитория</div>
+                <div className="pp-calc-new__val">50&nbsp;000</div>
+              </div>
+              <div className="pp-calc-new__arrow">→</div>
+              <div className="pp-calc-new__col">
+                <div className="pp-calc-new__label">Конверсия</div>
+                <div className="pp-calc-new__val">5%</div>
+              </div>
+              <div className="pp-calc-new__arrow">→</div>
+              <div className="pp-calc-new__col">
+                <div className="pp-calc-new__label">Ученики</div>
+                <div className="pp-calc-new__val">2&nbsp;500</div>
+              </div>
             </div>
-            <div className="pp-calc__arrow">→</div>
-            <div className="pp-calc__col">
-              <div className="pp-calc__label">Конверсия</div>
-              <div className="pp-calc__val">5%</div>
-            </div>
-            <div className="pp-calc__arrow">→</div>
-            <div className="pp-calc__col">
-              <div className="pp-calc__label">Ученики</div>
-              <div className="pp-calc__val">2&nbsp;500</div>
-            </div>
-            <div className="pp-calc__eq">=</div>
-            <div className="pp-calc__result">
-              <div className="pp-calc__result-num">3&nbsp;250&nbsp;000 руб</div>
-              <div className="pp-calc__result-sub">в месяц</div>
+            <div className="pp-calc-new__results">
+              <div className="pp-calc-new__result pp-calc-new__result--month">
+                <div className="pp-calc-new__result-num">3&nbsp;250&nbsp;000 руб</div>
+                <div className="pp-calc-new__result-sub">в месяц</div>
+              </div>
+              <div className="pp-calc-new__result pp-calc-new__result--cycle">
+                <div className="pp-calc-new__result-num">29&nbsp;250&nbsp;000 руб.</div>
+                <div className="pp-calc-new__result-sub">за цикл обучения</div>
+              </div>
             </div>
           </div>
+        </section>
+
+        {/* ── 07 ИТОГ ── */}
+        <section className="pp-section pp-section--outro">
+          <div className="pp-section__num">07</div>
+          <h2 className="pp-outro__title">Итог</h2>
+          <p className="pp-outro__text">
+            Партнёрство с&nbsp;нами — это продукт с&nbsp;высокой удерживаемостью, понятная прозрачная
+            модель дохода, масштабируемая система и&nbsp;сильная образовательная база
+          </p>
+          <p className="pp-outro__accent">
+            Вы становитесь не&nbsp;просто партнёром, а&nbsp;проводником новой модели обучения.
+          </p>
         </section>
 
         {/* ── CTA / ФОРМА ── */}
