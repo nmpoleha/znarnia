@@ -37,19 +37,6 @@ export default function Page() {
             <div className="op-stage__dates">с 1 по 21 июня</div>
           </div>
 
-          <div className="op-stage__desc">
-<div className="op-why__result">
-              <div className="op-why__result-title">За 3 недели ребёнок:</div>
-              <div className="op-why__result-cols">
-                <ul className="op-why__result-list">
-                  <li>подтягивает ключевые темы</li>
-                  <li>начинает понимать материал</li>
-                  <li>чувствует уверенность в&nbsp;учёбе</li>
-                </ul>
-                <p className="op-why__footer">Основа, без которой дальше двигаться сложно&nbsp;—<br />здесь она становится понятной и&nbsp;устойчивой.</p>
-              </div>
-            </div>
-          </div>
 
           <div className="op-stage__body">
 

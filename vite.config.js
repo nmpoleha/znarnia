@@ -17,6 +17,7 @@ export default defineConfig({
         srednyaya: resolve(__dirname, 'srednyaya/index.html'),
         teens: resolve(__dirname, 'teens/index.html'),
         'oplata-srednyaya': resolve(__dirname, 'oplata-srednyaya/index.html'),
+        'oplata': resolve(__dirname, 'oplata/index.html'),
       },
     },
   },
