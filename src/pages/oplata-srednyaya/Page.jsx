@@ -87,6 +87,92 @@ export default function Page() {
           </div>
         </section>
 
+        {/* STAGE 2 */}
+        <section className="op-stage">
+          <div className="op-stage__head">
+            <div className="op-stage__head-left">
+              <div className="op-stage__num">2 Этап</div>
+              <div className="op-stage__head-subtitle">Основной этап</div>
+              <div className="op-stage__head-subtitle">Уверенность и результат</div>
+            </div>
+            <div className="op-stage__dates">с 22 июня</div>
+          </div>
+
+          {/* Онлайн-уроки */}
+          <div className="op-stage__body">
+            <div className="op-stage__row">
+              <div className="op-stage__info">
+                <div className="op-stage__lesson-count">
+                  <span className="op-stage__count-num">2</span>
+                  <span className="op-stage__count-label">онлайн-урока<br />в неделю · 60 мин</span>
+                </div>
+              </div>
+              <div className="op-stage__theses">
+                <div className="op-thesis">
+                  <span className="op-thesis__icon">📚</span>
+                  <span className="op-thesis__text">Разбираем основополагающие темы за текущий класс</span>
+                </div>
+                <div className="op-thesis">
+                  <span className="op-thesis__icon">🎯</span>
+                  <span className="op-thesis__text">Акцент на сложных разделах: текстовые задачи, геометрия, нестандартные задания</span>
+                </div>
+                <div className="op-thesis">
+                  <span className="op-thesis__icon">🧠</span>
+                  <span className="op-thesis__text">Учим рассуждать и логически мыслить</span>
+                </div>
+                <div className="op-thesis">
+                  <span className="op-thesis__icon">🔧</span>
+                  <span className="op-thesis__text">Не бросать задачу, а строить математическую модель через рассуждения</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Урок-тренажёр */}
+          <div className="op-stage__desc">
+            <div className="op-s2-trainer">
+              <div className="op-s2-trainer__left">
+                <div className="op-stage__lesson-count">
+                  <span className="op-stage__count-num">1</span>
+                  <span className="op-stage__count-label">урок-тренажёр<br />в неделю</span>
+                </div>
+              </div>
+              <div className="op-s2-trainer__content">
+                <p className="op-s2-trainer__text">Тренажёр в&nbsp;формате приключения:</p>
+                <div className="op-stage__theses">
+                  <div className="op-thesis">
+                    <span className="op-thesis__icon">🧩</span>
+                    <span className="op-thesis__text">Решай задачи</span>
+                  </div>
+                  <div className="op-thesis">
+                    <span className="op-thesis__icon">🗺️</span>
+                    <span className="op-thesis__text">Открывай уровни</span>
+                  </div>
+                  <div className="op-thesis">
+                    <span className="op-thesis__icon">⚡</span>
+                    <span className="op-thesis__text">Видь результат сразу</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="op-s2-topics-wrap">
+              <a href="#" className="op-s2-topics-btn">Посмотреть список тем →</a>
+            </div>
+          </div>
+
+
+          {/* Результат */}
+          <div className="op-stage__desc op-s2-result-block">
+            <div className="op-s2-result__tag">Результат</div>
+            <ul className="op-why__result-list">
+              <li>Находим и&nbsp;закрываем конкретные пробелы в&nbsp;знаниях</li>
+              <li>С&nbsp;1&nbsp;сентября ребёнок опирается на&nbsp;прочную базу и&nbsp;включается в&nbsp;урок</li>
+              <li>Уходит сопротивление учёбе&nbsp;— появляется уверенность и&nbsp;мотивация</li>
+            </ul>
+          </div>
+
+        </section>
+
         <footer className="op-footer">
           <span>© 2026 Школа Сотниковой Ольги</span>
         </footer>
