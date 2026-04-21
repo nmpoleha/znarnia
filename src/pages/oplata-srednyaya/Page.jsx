@@ -173,6 +173,38 @@ export default function Page() {
 
         </section>
 
+        {/* PRICING */}
+        <section className="op-pricing">
+          <div className="op-pricing__tag">Стоимость программы</div>
+          <div className="op-pricing__card">
+            <div className="op-pricing__main">
+              <div className="op-pricing__total">
+                <span className="op-pricing__price">24 600 ₽</span>
+                <span className="op-pricing__period">за всю программу</span>
+              </div>
+              <div className="op-pricing__divider" />
+              <div className="op-pricing__stats">
+                <div className="op-pricing__stat">
+                  <span className="op-pricing__stat-num">40</span>
+                  <span className="op-pricing__stat-label">уроков</span>
+                </div>
+                <div className="op-pricing__stat">
+                  <span className="op-pricing__stat-num">615 ₽</span>
+                  <span className="op-pricing__stat-label">цена урока</span>
+                </div>
+              </div>
+            </div>
+            <div className="op-pricing__includes">
+              <div className="op-pricing__includes-title">В стоимость входит:</div>
+              <ul className="op-why__result-list">
+                <li>40 уроков по двум этапам программы</li>
+                <li>Проверка домашних заданий</li>
+              </ul>
+              <a href="#" className="op-pricing__buy-btn">Купить →</a>
+            </div>
+          </div>
+        </section>
+
         <footer className="op-footer">
           <span>© 2026 Школа Сотниковой Ольги</span>
         </footer>
