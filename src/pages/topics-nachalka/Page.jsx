@@ -67,7 +67,6 @@ export default function Page() {
         <section className="tn-hero">
           <div className="tn-hero__tag">Начальная школа · 1–4 класс</div>
           <h1 className="tn-hero__title">Список тем</h1>
-          <p className="tn-hero__sub">Темы этапа 1 — уроки-тренажёры. Базовый и продвинутый уровни.</p>
         </section>
 
         <div className="tn-grid">
