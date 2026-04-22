@@ -150,7 +150,7 @@ export default function Page() {
               </div>
             </div>
             <div className="op-s2-topics-wrap">
-              <a href="#" className="op-s2-topics-btn">Посмотреть список тем →</a>
+              <a href="/znarnia/topics-nachalka/" className="op-s2-topics-btn">Посмотреть список тем →</a>
             </div>
           </div>
 
