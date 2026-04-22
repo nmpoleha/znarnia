@@ -65,7 +65,6 @@ export default function Page() {
 
           <div className="pp-hero__right">
             <div className="pp-aside">
-              <div className="pp-aside__tag">Единая визуальная экосистема</div>
               <div className="pp-aside__screen">
                 <img src={imgHeroPlatform} alt="Интерфейс платформы" className="pp-aside__img" />
               </div>
