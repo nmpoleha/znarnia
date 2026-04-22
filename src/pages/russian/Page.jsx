@@ -36,32 +36,46 @@ function Block({ label, grades, problems, results }) {
 function FormatBlock() {
   return (
     <section className="ru-format-block">
+      <div className="ru-structure__title">Как проходит урок и почему это даёт результат</div>
       <div className="ru-stage__row">
         <div className="ru-stage__info">
           <div className="op-stage__lesson-count">
             <span className="op-stage__count-num">20</span>
-            <span className="op-stage__count-label">уроков<br />по 30–40 минут</span>
+            <span className="op-stage__count-label">коротких уроков<br />по 30–40 минут</span>
           </div>
-          <p className="ru-stage__note">в удобное время</p>
+          <div className="ru-format-hints">
+            <div className="ru-format-hint">🔹 оптимальная длительность, ребёнок не устаёт</div>
+            <div className="ru-format-hint">🔹 регулярность → закрепление без перегрузки</div>
+          </div>
         </div>
 
-        <div className="op-stage__theses">
-          <div className="ru-structure__title">🧠 Структура урока:</div>
-          <div className="op-thesis">
-            <span className="op-thesis__icon">1️⃣</span>
-            <span className="op-thesis__text"><strong>Короткая теория</strong> (3–4 минуты)</span>
+        <div className="ru-steps">
+          <div className="ru-step">
+            <div className="ru-step__body">
+              <div className="ru-step__title">Короткая теория (3–4 минуты)</div>
+              <div className="ru-step__result">→ только суть, без перегрузки</div>
+            </div>
           </div>
-          <div className="op-thesis">
-            <span className="op-thesis__icon">2️⃣</span>
-            <span className="op-thesis__text"><strong>Практика</strong>&nbsp;— самостоятельное выполнение, сразу применение правила</span>
+          <div className="ru-step">
+            <div className="ru-step__body">
+              <div className="ru-step__title">Практика сразу после объяснения</div>
+              <div className="ru-step__result">→ правило закрепляется, а не забывается</div>
+            </div>
           </div>
-          <div className="op-thesis">
-            <span className="op-thesis__icon">3️⃣</span>
-            <span className="op-thesis__text"><strong>Разбор</strong>&nbsp;— проверка ошибок, объяснение при необходимости</span>
+          <div className="ru-step">
+            <div className="ru-step__body">
+              <div className="ru-step__title">Разбор ошибок с объяснением</div>
+              <div className="ru-step__result">→ ребёнок понимает, а не заучивает</div>
+            </div>
           </div>
-          <div className="op-thesis">
-            <span className="op-thesis__icon">4️⃣</span>
-            <span className="op-thesis__text"><strong>Переход</strong> к следующей теме</span>
+          <div className="ru-step">
+            <div className="ru-step__body">
+              <div className="ru-step__title">Переход к следующей теме</div>
+              <div className="ru-step__result">→ без «пробелов» и потери материала</div>
+            </div>
+          </div>
+          <div className="ru-format-summary">
+            Каждый урок = понимание + закрепление + уверенность
           </div>
         </div>
       </div>
@@ -92,7 +106,7 @@ export default function Page() {
         <section className="op-why">
           <div className="op-why__tag">Зачем заниматься летом?</div>
           <div className="op-why__card">
-            <p className="op-why__body-text">Лето&nbsp;— это время отдыха, но именно в&nbsp;этот период дети чаще всего теряют часть школьных навыков. По&nbsp;русскому языку это особенно заметно: снижается грамотность, забываются правила, ухудшается письмо и&nbsp;чтение. Лёгкие и&nbsp;регулярные занятия летом помогают сохранить уровень знаний и&nbsp;укрепить базу без перегрузки. В&nbsp;результате ребёнок возвращается в&nbsp;школу уверенным и&nbsp;готовым к&nbsp;новым темам.</p>
+            <p className="op-why__body-text">Русский язык&nbsp;— ключевой предмет: он напрямую влияет на&nbsp;успеваемость по&nbsp;всем дисциплинам. Лёгкие регулярные занятия летом помогают сохранить знания и&nbsp;вернуться в&nbsp;школу уверенным и&nbsp;готовым к&nbsp;новым темам.</p>
           </div>
         </section>
 

@@ -846,10 +846,83 @@
 }
 
 .ru-structure__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #2d1760;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+/* ── FORMAT HINTS ── */
+.ru-format-hints {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ru-format-hint {
+  font-size: 12px;
+  color: #7c5aa8;
+  line-height: 1.5;
+}
+
+/* ── STEPS ── */
+.ru-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ru-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ru-step__num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ru-step__body {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ru-step__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d1760;
+  line-height: 1.4;
+}
+
+.ru-step__result {
+  font-size: 13px;
+  color: #7c3aed;
+  font-weight: 500;
+}
+
+.ru-format-summary {
+  margin-top: 6px;
+  padding: 12px 18px;
+  background: #ede9ff;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
-  color: #2d1760;
-  margin-bottom: 8px;
+  color: #7c3aed;
+  line-height: 1.5;
 }
 
 /* ── PROBLEMS / RESULTS GRID ── */
