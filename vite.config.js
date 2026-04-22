@@ -20,6 +20,7 @@ export default defineConfig({
         'oplata': resolve(__dirname, 'oplata/index.html'),
         'oplata-nachalka': resolve(__dirname, 'oplata-nachalka/index.html'),
         'topics-nachalka': resolve(__dirname, 'topics-nachalka/index.html'),
+        'topics-srednyaya': resolve(__dirname, 'topics-srednyaya/index.html'),
       },
     },
   },
