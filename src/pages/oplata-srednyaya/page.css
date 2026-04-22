@@ -284,7 +284,6 @@
   line-height: 1.6;
   margin: 0;
   text-align: left;
-  white-space: nowrap;
 }
 
 .op-stage__btn {
@@ -760,18 +759,83 @@
   .op-why__grid { grid-template-columns: 1fr; }
 
   .op-stage__body {
-    grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px 18px;
   }
 
-  .op-stage__info {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  .op-stage__desc {
+    padding: 20px 18px;
   }
 
-  .op-stage__head { padding: 16px 20px; }
+  .op-stage__head {
+    padding: 16px 18px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .op-stage__head-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .op-stage__head-subtitle {
+    border-left: none;
+    padding-left: 0;
+    font-size: 12px;
+  }
+
+  .op-stage__dates {
+    font-size: 13px;
+  }
+
+  .op-stage__row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .op-stage__info {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .op-stage__lesson-count {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   .op-stage__count-num { font-size: 40px; }
+
+  .op-s2-trainer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .op-s2-trainer__left .op-stage__lesson-count {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .op-s2-online {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .op-s2-program {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .op-s2-program__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .op-s2-platform {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .op-s2-topics-btn {
+    padding: 12px 28px;
+  }
 }
