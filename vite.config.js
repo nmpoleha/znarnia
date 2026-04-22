@@ -18,6 +18,7 @@ export default defineConfig({
         teens: resolve(__dirname, 'teens/index.html'),
         'oplata-srednyaya': resolve(__dirname, 'oplata-srednyaya/index.html'),
         'oplata': resolve(__dirname, 'oplata/index.html'),
+        'oplata-nachalka': resolve(__dirname, 'oplata-nachalka/index.html'),
       },
     },
   },
