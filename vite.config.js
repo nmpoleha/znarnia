@@ -21,6 +21,7 @@ export default defineConfig({
         'oplata-nachalka': resolve(__dirname, 'oplata-nachalka/index.html'),
         'topics-nachalka': resolve(__dirname, 'topics-nachalka/index.html'),
         'topics-srednyaya': resolve(__dirname, 'topics-srednyaya/index.html'),
+        'russian': resolve(__dirname, 'russian/index.html'),
       },
     },
   },
