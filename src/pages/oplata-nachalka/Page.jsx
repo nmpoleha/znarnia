@@ -23,7 +23,7 @@ export default function Page() {
         <section className="op-why">
           <div className="op-why__tag">Зачем заниматься летом?</div>
           <div className="op-why__card">
-            <p className="op-why__body-text">Школьная программа&nbsp;— это только база, мы же не&nbsp;ограничиваемся базовым школьным курсом. Наши летние занятия развивают логическое мышление через нестандартные задачи, осмысленное чтение условий и&nbsp;анализ, умение не&nbsp;сдаваться и&nbsp;пробовать разные пути, уверенное понимание математики и&nbsp;ощущение, что задачи решаемы&nbsp;— всё то, что даёт ребёнку спокойный и&nbsp;уверенный старт в&nbsp;средней школе.</p>
+            <p className="op-why__body-text">К&nbsp;сентябрю дети теряют до&nbsp;30% знаний. Но главное&nbsp;— лето даёт уникальный шанс развить то, на&nbsp;что у&nbsp;школы нет времени: логику, упорство и&nbsp;осмысленное чтение.</p>
           </div>
         </section>
 
@@ -43,11 +43,11 @@ export default function Page() {
 
             <div className="op-stage__row">
               <div className="op-stage__info">
-                <div className="op-stage__lesson-count">
+                <div className="op-stage__lesson-count op-stage__lesson-count--wide">
                   <span className="op-stage__count-num">6</span>
                   <span className="op-stage__count-label">базовых урока<br />по 30 минут</span>
                 </div>
-                <div className="op-stage__lesson-count">
+                <div className="op-stage__lesson-count op-stage__lesson-count--wide">
                   <span className="op-stage__count-num">6</span>
                   <span className="op-stage__count-label">уроков продвинутого<br />уровня</span>
                 </div>
@@ -99,20 +99,24 @@ export default function Page() {
               </div>
               <div className="op-stage__theses">
                 <div className="op-thesis">
-                  <span className="op-thesis__icon">📚</span>
-                  <span className="op-thesis__text">Разбираем основополагающие темы за текущий класс</span>
-                </div>
-                <div className="op-thesis">
-                  <span className="op-thesis__icon">🎯</span>
-                  <span className="op-thesis__text">Акцент на сложных разделах: текстовые задачи, геометрия, нестандартные задания</span>
+                  <span className="op-thesis__icon">🚀</span>
+                  <span className="op-thesis__text">Выходим за рамки школьной программы — даём глубокое понимание</span>
                 </div>
                 <div className="op-thesis">
                   <span className="op-thesis__icon">🧠</span>
-                  <span className="op-thesis__text">Учим рассуждать и логически мыслить</span>
+                  <span className="op-thesis__text">Развиваем логическое мышление и навык рассуждения</span>
                 </div>
                 <div className="op-thesis">
-                  <span className="op-thesis__icon">🔧</span>
-                  <span className="op-thesis__text">Не бросать задачу, а строить математическую модель через рассуждения</span>
+                  <span className="op-thesis__icon">🔑</span>
+                  <span className="op-thesis__text">Работаем с нестандартными задачами, а не шаблонами</span>
+                </div>
+                <div className="op-thesis">
+                  <span className="op-thesis__icon">🔍</span>
+                  <span className="op-thesis__text">Формируем умение анализировать и искать разные решения</span>
+                </div>
+                <div className="op-thesis">
+                  <span className="op-thesis__icon">💪</span>
+                  <span className="op-thesis__text">Даём уверенность: ребёнок понимает, а не заучивает</span>
                 </div>
               </div>
             </div>
