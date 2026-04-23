@@ -22,6 +22,7 @@ export default defineConfig({
         'topics-nachalka': resolve(__dirname, 'topics-nachalka/index.html'),
         'topics-srednyaya': resolve(__dirname, 'topics-srednyaya/index.html'),
         'russian': resolve(__dirname, 'russian/index.html'),
+        'info': resolve(__dirname, 'info/index.html'),
       },
     },
   },
