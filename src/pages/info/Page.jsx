@@ -43,7 +43,7 @@ export default function Page() {
         {/* HERO */}
         <section className="hero">
           <div className="hero__tag">Часто задаваемые вопросы</div>
-          <h1 className="hero__title">Информация <span>о курсе</span></h1>
+          <h1 className="hero__title">Информация <span>о летнем курсе</span></h1>
           <p className="hero__sub">Всё, что нужно знать перед началом занятий</p>
         </section>
 
