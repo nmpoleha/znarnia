@@ -193,7 +193,6 @@ export default function Page() {
                 <li>40 уроков по двум этапам программы</li>
                 <li>Проверка домашних заданий</li>
               </ul>
-              <a href="#" className="op-pricing__buy-btn">Купить →</a>
             </div>
           </div>
         </section>
