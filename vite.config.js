@@ -23,6 +23,7 @@ export default defineConfig({
         'topics-srednyaya': resolve(__dirname, 'topics-srednyaya/index.html'),
         'russian': resolve(__dirname, 'russian/index.html'),
         'info': resolve(__dirname, 'info/index.html'),
+        'banner': resolve(__dirname, 'banner/index.html'),
       },
     },
   },

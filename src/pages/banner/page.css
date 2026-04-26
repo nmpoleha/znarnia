@@ -1,0 +1,133 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+.banner-wrap {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #f0eef8;
+}
+
+.banner-variant-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: -16px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 200px;
+  background: linear-gradient(135deg, #5a38a8, #2a7aad);
+  border-radius: 22px;
+  padding: 32px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  top: -80px;
+  right: 180px;
+  pointer-events: none;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  bottom: -60px;
+  left: 40%;
+  pointer-events: none;
+}
+
+.banner__icon {
+  font-size: 56px;
+  line-height: 1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.banner__left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.banner__title {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.banner__text {
+  font-size: clamp(13px, 1.5vw, 15px);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.banner__right {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.banner__btn {
+  display: inline-block;
+  padding: 13px 28px;
+  background: #ffffff;
+  color: #6B42C8;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.banner__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 560px) {
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 24px;
+    min-height: unset;
+    border-radius: 18px;
+  }
+
+  .banner__btn {
+    width: 100%;
+    text-align: center;
+  }
+}
