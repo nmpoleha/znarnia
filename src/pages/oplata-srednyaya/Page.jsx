@@ -15,7 +15,7 @@ export default function Page() {
 
         {/* HERO */}
         <section className="op-hero">
-          <div className="op-hero__tag">С 6 по 10 класс</div>
+          <div className="op-hero__tag">С 5 по 10 класс</div>
           <h1 className="op-hero__title">Летние <span>занятия</span></h1>
         </section>
 
@@ -187,7 +187,6 @@ export default function Page() {
                 <li>40 уроков по двум этапам программы</li>
                 <li>Проверка домашних заданий</li>
               </ul>
-              <a href="#" className="op-pricing__buy-btn">Купить →</a>
             </div>
           </div>
         </section>
