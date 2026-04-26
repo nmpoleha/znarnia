@@ -51,6 +51,7 @@ export default function Page() {
         <div className="info-sections">
 
           <FaqCard icon="📅" title="Когда старт занятий?">
+            <div className="info-subject-label">📐 Математика</div>
             <div className="info-dates">
               <div className="info-date-item">
                 <div className="info-date-item__badge">1 Этап</div>
@@ -61,6 +62,14 @@ export default function Page() {
                 <div className="info-date-item__badge">2 Этап</div>
                 <div className="info-date-item__date">с 22 июня</div>
                 <div className="info-date-item__desc">Онлайн-уроки + тренажёр: уверенность и результат</div>
+              </div>
+            </div>
+            <div className="info-subject-label">✍️ Русский язык</div>
+            <div className="info-dates">
+              <div className="info-date-item">
+                <div className="info-date-item__badge">Старт</div>
+                <div className="info-date-item__date">с 1 июня</div>
+                <div className="info-date-item__desc">20 коротких уроков по 30–40 минут</div>
               </div>
             </div>
           </FaqCard>
