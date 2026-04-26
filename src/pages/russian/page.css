@@ -65,6 +65,19 @@
   background-clip: text;
 }
 
+.op-hero__start {
+  display: inline-block;
+  margin-top: 14px;
+  margin-bottom: 28px;
+  padding: 6px 18px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
 /* ── WHY SUMMER ── */
 .op-why {
   margin-bottom: 20px;

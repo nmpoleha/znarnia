@@ -100,6 +100,7 @@ export default function Page() {
         <section className="op-hero">
           <div className="op-hero__tag">1–10 класс</div>
           <h1 className="op-hero__title">Летний <span>русский язык</span></h1>
+          <div className="op-hero__start">Начало занятий — 1 июня</div>
         </section>
 
         {/* INTRO */}
@@ -160,13 +161,11 @@ export default function Page() {
               <div className="ru-price-card__title">В пакете с&nbsp;математикой</div>
               <div className="ru-price-card__price">9&nbsp;000 <span>₽</span></div>
               <div className="ru-price-card__note">за весь курс русского языка</div>
-              <a href="#" className="ru-price-card__btn">Купить в пакете →</a>
             </div>
             <div className="ru-price-card">
               <div className="ru-price-card__title">Только русский язык</div>
               <div className="ru-price-card__price">12&nbsp;000 <span>₽</span></div>
               <div className="ru-price-card__note">за весь курс</div>
-              <a href="#" className="ru-price-card__btn ru-price-card__btn--outline">Купить →</a>
             </div>
           </div>
         </section>
