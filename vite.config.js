@@ -24,6 +24,7 @@ export default defineConfig({
         'russian': resolve(__dirname, 'russian/index.html'),
         'info': resolve(__dirname, 'info/index.html'),
         'banner': resolve(__dirname, 'banner/index.html'),
+        'courses': resolve(__dirname, 'courses/index.html'),
       },
     },
   },
