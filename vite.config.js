@@ -25,6 +25,7 @@ export default defineConfig({
         'info': resolve(__dirname, 'info/index.html'),
         'banner': resolve(__dirname, 'banner/index.html'),
         'courses': resolve(__dirname, 'courses/index.html'),
+        'diagnostika': resolve(__dirname, 'diagnostika/index.html'),
       },
     },
   },
