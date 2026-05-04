@@ -62,26 +62,22 @@ export default function Page() {
           </div>
         </section>
 
-        {/* BEFORE/AFTER */}
-        <div className="dg-ba">
-          <div className="dg-ba__head">
-            <div className="dg-ba__col-label dg-ba__col-label--before">😟 Было</div>
-            <div className="dg-ba__arrow">→</div>
-            <div className="dg-ba__col-label dg-ba__col-label--after">😎 Стало</div>
-          </div>
-          <div className="dg-ba__rows">
+        {/* WHO IS IT FOR */}
+        <div className="dg-who">
+          <div className="dg-who__title">Кому подойдёт диагностика</div>
+          <p className="dg-who__desc">{nb('Если вы замечаете у ребёнка сложности в обучении, диагностика поможет понять, где именно причина и что делать дальше.')}</p>
+          <div className="dg-who__grid">
             {[
-              ['не понимает математику', 'понимает и уверен в себе'],
-              ['боится контрольных', 'пишет спокойно и без стресса'],
-              ['ошибки в знакомых темах', 'решает точно и без сомнений'],
-              ['занимается без результата', 'видит прогресс и рост'],
-              ['новый класс вызывает тревогу', 'уверенно идёт дальше'],
-              ['стресс перед экзаменами', 'готов и спокоен за результат'],
-            ].map(([before, after], i) => (
-              <div key={i} className="dg-ba__row">
-                <div className="dg-ba__cell dg-ba__cell--before">{nb(before)}</div>
-                <div className="dg-ba__row-arrow">→</div>
-                <div className="dg-ba__cell dg-ba__cell--after">{nb(after)}</div>
+              { icon: '?', text: 'не понимает математику' },
+              { icon: '!', text: 'боится контрольных' },
+              { icon: '×', text: 'делает ошибки в знакомых темах' },
+              { icon: '→', text: 'занимается, но результата нет' },
+              { icon: '↗', text: 'переходит в новый класс' },
+              { icon: '✓', text: 'готовится к ВПР, ОГЭ или ЕГЭ' },
+            ].map((item, i) => (
+              <div key={i} className="dg-who__card">
+                <div className="dg-who__icon">{item.icon}</div>
+                <div className="dg-who__text">{nb(item.text)}</div>
               </div>
             ))}
           </div>

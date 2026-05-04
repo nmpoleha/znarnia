@@ -320,6 +320,64 @@
   content: '👉 ';
 }
 
+/* ── WHO ── */
+.dg-who {
+  background: #ede9fe;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.dg-who__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e1040;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.dg-who__desc {
+  font-size: 13px;
+  color: #4c3a7a;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.dg-who__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.dg-who__card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dg-who__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ede9fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.dg-who__text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e1040;
+  line-height: 1.4;
+}
+
 /* ── TARGET ── */
 .dg-ba {
   background: #fff;
@@ -545,12 +603,10 @@
   .dg-section { padding: 14px 16px; }
   .dg-part--2 { padding: 18px 16px; }
 
-  /* Before/After */
-  .dg-ba { padding: 16px; }
-  .dg-ba__head { grid-template-columns: 1fr 20px 1fr; }
-  .dg-ba__row { grid-template-columns: 1fr 20px 1fr; }
-  .dg-ba__cell { padding: 8px 10px; font-size: 12px; }
-  .dg-ba__col-label { font-size: 11px; }
+  /* Who */
+  .dg-who { padding: 16px; }
+  .dg-who__title { font-size: 18px; }
+  .dg-who__grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 
   /* Callout */
   .dg-callout { flex-direction: column; gap: 12px; padding: 20px 18px; }
