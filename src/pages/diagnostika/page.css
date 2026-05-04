@@ -356,6 +356,39 @@
   content: '👉 ';
 }
 
+/* ── CALLOUT ── */
+.dg-callout {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #6d28d9;
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin-top: 16px;
+}
+
+.dg-callout__title {
+  flex-shrink: 0;
+  width: 310px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+}
+
+.dg-callout__line {
+  display: block;
+}
+
+.dg-callout__text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+}
+
 /* ── PART 2 ── */
 .dg-part--2 {
   background: #fff;

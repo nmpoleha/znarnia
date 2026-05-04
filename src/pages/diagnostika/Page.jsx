@@ -96,6 +96,14 @@ export default function Page() {
               result="Вы увидите, какой формат обучения ему подходит и почему текущий может не работать"
             />
           </div>
+
+          <div className="dg-callout">
+            <div className="dg-callout__title">
+              <span className="dg-callout__line">Это не пробный урок,</span>
+              <span className="dg-callout__line">это глубокая диагностика</span>
+            </div>
+            <div className="dg-callout__text">Мы смотрим не только на правильные и неправильные ответы. Нам важно понять, как ребёнок рассуждает, где теряет уверенность и почему ошибки повторяются.</div>
+          </div>
         </section>
 
         {/* PART 2 */}
