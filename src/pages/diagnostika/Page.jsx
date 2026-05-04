@@ -128,7 +128,10 @@ export default function Page() {
               <span className="dg-callout__line">{nb('Это не пробный урок,')}</span>
               <span className="dg-callout__line">это глубокая диагностика</span>
             </div>
-            <div className="dg-callout__text">{nb('Мы смотрим не только на правильные и неправильные ответы. Нам важно понять, как ребёнок рассуждает, где теряет уверенность и почему ошибки повторяются.')}</div>
+            <div className="dg-callout__text">
+              {nb('Мы смотрим не только на правильные и неправильные ответы.')}<br />
+              {nb('Нам важно понять, как ребёнок рассуждает, где теряет уверенность и почему ошибки повторяются.')}
+            </div>
           </div>
         </section>
 
@@ -140,20 +143,30 @@ export default function Page() {
           </div>
           <div className="dg-part--2">
             <p className="dg-part__desc">{nb('Сразу после урока вы получаете не общее мнение, а чёткое понимание ситуации и конкретные шаги:')}</p>
-            <ul className="dg-plan-list">
-              <li>{nb('почему у ребёнка снижается мотивация')}</li>
-              <li>{nb('в чём реальные причины сложностей в учёбе')}</li>
-              <li>{nb('где пробелы и как они влияют на текущие результаты')}</li>
-              <li>{nb('что делать уже сейчас, чтобы улучшить успеваемость')}</li>
-            </ul>
+            <div className="dg-plan-cards">
+              {[
+                { icon: '?', text: 'почему у ребёнка снижается мотивация' },
+                { icon: '!', text: 'в чём реальные причины сложностей в учёбе' },
+                { icon: '↓', text: 'где пробелы и как они влияют на текущие результаты' },
+                { icon: '→', text: 'что делать уже сейчас, чтобы улучшить успеваемость' },
+              ].map((item, i) => (
+                <div key={i} className="dg-plan-card">
+                  <div className="dg-plan-card__icon">{item.icon}</div>
+                  <div className="dg-plan-card__text">{nb(item.text)}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* RESULT */}
         <section className="dg-result">
-          <div className="dg-result__title">{nb('Вы уходите не с вопросами, а с готовым планом действий')}</div>
-          <p className="dg-result__text">{nb('Один урок поможет понять больше, чем месяцы догадок и тревоги: что мешает ребёнку, с чего начать и как улучшить результат.')}</p>
-          <a href="#" className="dg-result__btn">Записаться на диагностический урок</a>
+          <div className="dg-result__content">
+            <div className="dg-result__title">{nb('Вы уходите не с вопросами, а с готовым планом действий')}</div>
+            <p className="dg-result__text">{nb('Один урок поможет понять больше, чем месяцы догадок и тревоги: что мешает ребёнку, с чего начать и как улучшить результат.')}</p>
+            <a href="#" className="dg-result__btn">Записаться на диагностический урок</a>
+          </div>
+          <img className="dg-result__image" src="/znarnia/lampochka.png" alt="" />
         </section>
 
         <footer className="dg-footer">
