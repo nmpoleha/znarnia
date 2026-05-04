@@ -27,6 +27,7 @@ export default defineConfig({
         'courses': resolve(__dirname, 'courses/index.html'),
         'diagnostika': resolve(__dirname, 'diagnostika/index.html'),
         'diagnostika2': resolve(__dirname, 'diagnostika2/index.html'),
+        'sobranie': resolve(__dirname, 'sobranie/index.html'),
       },
     },
   },
