@@ -143,32 +143,61 @@ export default function Page() {
         </section>
 
         {/* PART 2 */}
-        <section className="dg-part">
-          <div className="dg-part__head">
-            <div className="dg-part__label">Часть 2</div>
-            <div className="dg-part__title">{nb('💡 Разбор с родителями — превращаем диагностику в план')}</div>
+        <section className="dg-part--2">
+          <div className="dg-part2__top">
+            <div className="dg-part2__header">
+              <div className="dg-part2__pre">После диагностики вы получите</div>
+              <div className="dg-part2__heading">{nb('понятную картину обучения')}</div>
+            </div>
           </div>
-          <div className="dg-part--2">
-            <div className="dg-part2__top">
-              <p className="dg-part__desc">{nb('Сразу после урока вы получаете не общее мнение, а чёткое понимание ситуации и конкретные шаги:')}</p>
-              <div className="dg-part2__stars">
-                <span className="dg-part2__star">★</span>
-                <span className="dg-part2__star dg-part2__star--sm">★</span>
+          <div className="dg-plan-cards">
+            {[
+              {
+                Icon: () => (
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#d97706" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.2-1.2 4.1-3 5.2V17H9v-2.8C7.2 13.1 6 11.2 6 9a6 6 0 0 1 6-6z"/>
+                  </svg>
+                ),
+                title: 'что ребёнок уже умеет',
+                sub: 'увидим сильные стороны и опору для роста',
+              },
+              {
+                Icon: () => (
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#d97706" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                ),
+                title: 'где именно пробелы',
+                sub: 'точно определим, какие темы «проседают»',
+              },
+              {
+                Icon: () => (
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#d97706" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                  </svg>
+                ),
+                title: 'почему появляются ошибки',
+                sub: 'разберём причины, а не только симптомы',
+              },
+              {
+                Icon: () => (
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#d97706" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                    <rect x="9" y="3" width="6" height="4" rx="1"/>
+                    <polyline points="9 12 11 14 15 10"/><line x1="9" y1="17" x2="13" y2="17"/>
+                  </svg>
+                ),
+                title: 'как выстроить обучение дальше',
+                sub: 'даём понятный план действий для результата',
+              },
+            ].map(({ Icon, title, sub }, i) => (
+              <div key={i} className="dg-plan-card">
+                <div className="dg-plan-card__icon"><Icon /></div>
+                <div className="dg-plan-card__title">{nb(title)}</div>
+                <div className="dg-plan-card__sub">{nb(sub)}</div>
               </div>
-            </div>
-            <div className="dg-plan-cards">
-              {[
-                { icon: '💡', text: 'почему у ребёнка снижается мотивация' },
-                { icon: '🔍', text: 'в чём реальные причины сложностей в учёбе' },
-                { icon: '⚠️', text: 'где пробелы и как они влияют на текущие результаты' },
-                { icon: '📋', text: 'что делать уже сейчас, чтобы улучшить успеваемость' },
-              ].map((item, i) => (
-                <div key={i} className="dg-plan-card">
-                  <div className="dg-plan-card__icon"><span className="dg-plan-card__icon-img">{item.icon}</span></div>
-                  <div className="dg-plan-card__text">{nb(item.text)}</div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </section>
 

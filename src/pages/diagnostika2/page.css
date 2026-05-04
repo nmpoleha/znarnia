@@ -542,41 +542,40 @@
 
 /* ── PART 2 ── */
 .dg-part--2 {
-  background: #fffbeb;
+  background: #fffde7;
   border-radius: var(--radius-lg);
-  padding: 28px 24px 32px;
+  padding: 32px 28px 36px;
+  margin-bottom: 24px;
 }
 
 .dg-part2__top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   gap: 16px;
 }
 
-.dg-part2__stars {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
+.dg-part2__header { display: flex; flex-direction: column; gap: 4px; }
 
-.dg-part2__star {
-  font-size: 24px;
-  color: #f59e0b;
-  line-height: 1;
-}
-
-.dg-part2__star--sm {
-  font-size: 16px;
-  opacity: 0.7;
-}
-
-.dg-part--2 .dg-part__desc {
-  margin-bottom: 0;
-  color: #6b5e2e;
+.dg-part2__pre {
   font-size: 14px;
+  color: #7c6fcd;
+  font-weight: 500;
+}
+
+.dg-part2__heading {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  color: #6d28d9;
+  line-height: 1.2;
+}
+
+.dg-part2__deco-svg {
+  width: 260px;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: -8px;
 }
 
 .dg-plan-cards {
@@ -586,45 +585,46 @@
 }
 
 .dg-plan-card {
-  background: var(--clr-surface);
+  background: #fff;
   border-radius: var(--radius-md);
-  padding: 24px 16px 20px;
+  padding: 28px 16px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .dg-plan-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
 }
 
 .dg-plan-card__icon {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: #fef3c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   flex-shrink: 0;
+  margin-bottom: 4px;
 }
 
-.dg-plan-card__icon-img {
-  font-size: 26px;
-  filter: grayscale(1) sepia(1) saturate(4) hue-rotate(-5deg) brightness(0.95);
-}
-
-.dg-plan-card__text {
-  font-size: 14px;
+.dg-plan-card__title {
+  font-size: 15px;
   font-weight: 700;
-  color: var(--clr-text);
-  line-height: 1.45;
+  color: #6d28d9;
+  line-height: 1.4;
+}
+
+.dg-plan-card__sub {
+  font-size: 13px;
+  color: #7c6fcd;
+  line-height: 1.5;
 }
 
 /* ── BA (before/after) ── */
@@ -837,7 +837,9 @@
   .dg-section__title { font-size: 12px; }
   .dg-part--2 { padding: 18px 14px; }
   .dg-plan-cards { grid-template-columns: repeat(2, 1fr); }
-  .dg-part2__top { flex-direction: column; gap: 8px; }
+  .dg-part2__top { flex-direction: column; gap: 12px; }
+  .dg-part2__deco-svg { display: none; }
+  .dg-part--2 { padding: 24px 16px 28px; }
 
   /* Who */
   .dg-who { padding: 18px 16px; }
