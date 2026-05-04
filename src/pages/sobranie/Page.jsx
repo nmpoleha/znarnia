@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import SchoolHeader from '../../shared/components/SchoolHeader'
 
 function nb(str) {
@@ -104,7 +105,75 @@ const webinarItems = [
   { Icon: IcQuestion, text: 'Отвечу на ваши вопросы' },
 ]
 
+function Modal({ onClose }) {
+  const [form, setForm] = useState({ name: '', phone: '', grade: '', prev: '' })
+  const [sent, setSent] = useState(false)
+
+  const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }))
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSent(true)
+  }
+
+  return (
+    <div className="rs-modal-overlay" onClick={onClose}>
+      <div className="rs-modal" onClick={e => e.stopPropagation()}>
+        <button className="rs-modal__close" onClick={onClose}>✕</button>
+        {sent ? (
+          <div className="rs-modal__success">
+            <div className="rs-modal__success-icon">✓</div>
+            <div className="rs-modal__success-title">Вы записаны!</div>
+            <div className="rs-modal__success-text">Мы свяжемся с вами перед собранием.</div>
+          </div>
+        ) : (
+          <>
+            <div className="rs-modal__title">Записаться на собрание</div>
+            <div className="rs-modal__sub">16 мая в 12:30 (онлайн)</div>
+            <form className="rs-form" onSubmit={handleSubmit}>
+              <div className="rs-form__group">
+                <label className="rs-form__label">Ваше имя</label>
+                <input className="rs-form__input" type="text" placeholder="Елена" required value={form.name} onChange={set('name')} />
+              </div>
+              <div className="rs-form__group">
+                <label className="rs-form__label">Телефон</label>
+                <input className="rs-form__input" type="tel" placeholder="+7 (___) ___-__-__" required value={form.phone} onChange={set('phone')} />
+              </div>
+              <div className="rs-form__group">
+                <label className="rs-form__label">Класс ребёнка</label>
+                <select className="rs-form__select" required value={form.grade} onChange={set('grade')}>
+                  <option value="">Выберите класс</option>
+                  {[1,2,3,4,5,6,7,8,9,10,11].map(g => (
+                    <option key={g} value={g}>{g} класс</option>
+                  ))}
+                </select>
+              </div>
+              <div className="rs-form__group">
+                <label className="rs-form__label">Обучались ранее на наших курсах?</label>
+                <div className="rs-form__radios">
+                  <label className="rs-form__radio">
+                    <input type="radio" name="prev" value="yes" required checked={form.prev === 'yes'} onChange={set('prev')} />
+                    <span>Да</span>
+                  </label>
+                  <label className="rs-form__radio">
+                    <input type="radio" name="prev" value="no" checked={form.prev === 'no'} onChange={set('prev')} />
+                    <span>Нет</span>
+                  </label>
+                </div>
+              </div>
+              <button type="submit" className="rs-form__submit">Записаться <span className="rs-btn-arrow">→</span></button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function Page() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const openModal = (e) => { e.preventDefault(); setModalOpen(true) }
+
   return (
     <div className="rs-page">
       <div className="rs-page__bg-glow rs-page__bg-glow--1" />
@@ -140,7 +209,7 @@ export default function Page() {
               </div>
             </div>
             <p className="rs-hero__note">{nb('Для родителей, которые хотят, чтобы лето прошло с пользой — без давления и «надо».')}</p>
-            <a href="#" className="rs-hero__btn">Записаться <span className="rs-btn-arrow">→</span></a>
+            <a href="#" className="rs-hero__btn" onClick={openModal}>Записаться <span className="rs-btn-arrow">→</span></a>
           </div>
           <div className="rs-hero__right">
             <div className="rs-hero__img-wrap">
@@ -207,13 +276,14 @@ export default function Page() {
               <div className="rs-cta__date">16 мая в 12:30 (онлайн)</div>
             </div>
           </div>
-          <a href="#" className="rs-cta__btn">Записаться <span className="rs-btn-arrow">→</span></a>
+          <a href="#" className="rs-cta__btn" onClick={openModal}>Записаться <span className="rs-btn-arrow">→</span></a>
         </section>
 
         <footer className="rs-footer">
           <span>© 2026 Школа Сотниковой Ольги</span>
         </footer>
       </div>
+      {modalOpen && <Modal onClose={() => setModalOpen(false)} />}
     </div>
   )
 }
