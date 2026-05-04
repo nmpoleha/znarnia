@@ -312,6 +312,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .rs-webinar__mic-img {
@@ -345,7 +346,7 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   padding: 0 20px 0 0;
 }
@@ -403,6 +404,7 @@
   height: 110px;
   object-fit: contain;
   object-position: bottom;
+  mix-blend-mode: multiply;
 }
 
 .rs-bonus__title {
