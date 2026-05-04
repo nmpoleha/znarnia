@@ -361,7 +361,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  background: #6d28d9;
+  background: linear-gradient(135deg, #1a0a3c, #4c1d95);
   border-radius: 20px;
   padding: 28px 32px;
   margin-top: 16px;
