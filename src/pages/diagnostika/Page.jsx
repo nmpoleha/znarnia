@@ -161,12 +161,10 @@ export default function Page() {
 
         {/* RESULT */}
         <section className="dg-result">
-          <div className="dg-result__content">
-            <div className="dg-result__title">{nb('Вы уходите не с вопросами, а с готовым планом действий')}</div>
-            <p className="dg-result__text">{nb('Один урок поможет понять больше, чем месяцы догадок и тревоги: что мешает ребёнку, с чего начать и как улучшить результат.')}</p>
-            <a href="#" className="dg-result__btn">Записаться на диагностический урок</a>
-          </div>
+          <div className="dg-result__title">{nb('Вы уходите не с вопросами, а с готовым планом действий')}</div>
+          <p className="dg-result__text">{nb('Один урок поможет понять больше, чем месяцы догадок и тревоги: что мешает ребёнку, с чего начать и как улучшить результат.')}</p>
           <img className="dg-result__image" src="/znarnia/lampochka.png" alt="" />
+          <a href="#" className="dg-result__btn">Записаться на диагностический урок</a>
         </section>
 
         <footer className="dg-footer">
