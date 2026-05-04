@@ -89,6 +89,13 @@ const pages = [
     date: 'Май 2026',
   },
   {
+    slug: 'diagnostika2',
+    title: 'Диагностика 2',
+    client: 'Школа Сотниковой Ольги',
+    description: 'Улучшенная версия диагностики',
+    date: 'Май 2026',
+  },
+  {
     slug: 'courses',
     title: 'Все летние курсы',
     client: 'Школа Сотниковой Ольги',
