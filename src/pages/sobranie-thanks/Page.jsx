@@ -38,8 +38,8 @@ export default function Page() {
             <li>дополнительные материалы</li>
           </ul>
           <div className="st-links">
-            <a href="#" className="st-link st-link--tg">Telegram</a>
-            <a href="#" className="st-link st-link--vk">Max</a>
+            <a href="https://t.me/+YQgZEhiyoSY3ZGMy" className="st-link st-link--tg" target="_blank" rel="noreferrer">Telegram</a>
+            <a href="https://max.ru/join/DrqRI_v3N9TL1j9sSqWZrrU7TS9b87W64Y6oQHLLN5Y" className="st-link st-link--vk" target="_blank" rel="noreferrer">Max</a>
           </div>
         </section>
 

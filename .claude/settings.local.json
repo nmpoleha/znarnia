@@ -18,7 +18,13 @@
       "Bash(git --version)",
       "Bash(git -C C:/Users/apole/znarnia remote -v)",
       "WebFetch(domain:stkcentr.ru)",
-      "WebFetch(domain:znarnia.ru)"
+      "WebFetch(domain:znarnia.ru)",
+      "mcp__plugin_figma_figma__get_metadata",
+      "Bash(node:*)",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
