@@ -107,27 +107,19 @@ const webinarItems = [
 
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', grade: '', prev: '' })
-  const [sent, setSent] = useState(false)
 
   const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }))
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSent(true)
+    window.location.href = '/znarnia/sobranie-thanks/'
   }
 
   return (
     <div className="rs-modal-overlay" onClick={onClose}>
       <div className="rs-modal" onClick={e => e.stopPropagation()}>
         <button className="rs-modal__close" onClick={onClose}>✕</button>
-        {sent ? (
-          <div className="rs-modal__success">
-            <div className="rs-modal__success-icon">✓</div>
-            <div className="rs-modal__success-title">Вы записаны!</div>
-            <div className="rs-modal__success-text">Мы свяжемся с вами перед собранием.</div>
-          </div>
-        ) : (
-          <>
+        <>
             <div className="rs-modal__title">Записаться на собрание</div>
             <div className="rs-modal__sub">16 мая в 12:30 (онлайн)</div>
             <form className="rs-form" onSubmit={handleSubmit}>
@@ -164,7 +156,6 @@ function Modal({ onClose }) {
               <button type="submit" className="rs-form__submit">Записаться <span className="rs-btn-arrow">→</span></button>
             </form>
           </>
-        )}
       </div>
     </div>
   )

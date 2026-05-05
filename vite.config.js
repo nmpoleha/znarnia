@@ -28,6 +28,7 @@ export default defineConfig({
         'diagnostika': resolve(__dirname, 'diagnostika/index.html'),
         'diagnostika2': resolve(__dirname, 'diagnostika2/index.html'),
         'sobranie': resolve(__dirname, 'sobranie/index.html'),
+        'sobranie-thanks': resolve(__dirname, 'sobranie-thanks/index.html'),
       },
     },
   },
