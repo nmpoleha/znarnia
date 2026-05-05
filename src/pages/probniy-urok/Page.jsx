@@ -41,7 +41,6 @@ export default function Page() {
         {/* ── HERO ── */}
         <section className="pu-hero">
           <div className="pu-hero__left">
-            <div className="pu-hero__tag">Пробный урок</div>
             <h1 className="pu-hero__title">Пробная неделя<br />обучения</h1>
             <div className="pu-hero__sub">{nb('Покажите ребёнку, что учёба может быть интересной и эффективной')}</div>
             <p className="pu-hero__desc">{nb('Ваш ребёнок привык к скучным урокам и непонятным темам? Мы покажем другой формат — где обучение вовлекает, объясняет и даёт результат.')}</p>
@@ -56,7 +55,7 @@ export default function Page() {
         </section>
 
         {/* ── SECTION 1 ── */}
-        <section className="pu-card">
+        <section className="pu-card pu-card--s1">
           <div className="pu-card__head">
             <Num n="1" />
             <div>
@@ -64,7 +63,7 @@ export default function Page() {
               <div className="pu-card__sub">{nb('Системное освоение темы через цикл «теория → практика → закрепление»')}</div>
             </div>
           </div>
-          <div className="pu-card__body">
+          <div className="pu-card__body pu-card__body--row">
             <div className="pu-card__body-left">
               <div className="pu-meta">
                 <div className="pu-meta__item">⏱ Длительность: 30–40 минут</div>
@@ -81,9 +80,16 @@ export default function Page() {
                 ]} />
               </div>
             </div>
+            <div className="pu-card__body-right">
+              <div className="pu-lesson-preview">
+                <img src="/znarnia/images/lesson-screen.png" alt="" className="pu-lesson-preview__img" />
+                <div className="pu-lesson-preview__badge">⭐ Отлично!<br />+10 баллов</div>
+              </div>
+            </div>
           </div>
           <div className="pu-callout">
-            {nb('Каждый урок выстроен как последовательность повторяющихся циклов: объяснение → практика → анализ → следующий шаг.')}<br />
+            Каждый урок выстроен как последовательность повторяющихся циклов:<br />
+            объяснение → практика → анализ → следующий шаг.<br />
             {nb('Ребёнок не просто знакомится с темой, а последовательно прорабатывает каждый её элемент до понимания.')}
           </div>
         </section>
@@ -92,18 +98,23 @@ export default function Page() {
         <section className="pu-card">
           <div className="pu-card__head">
             <Num n="2" />
-            <div>
-              <div className="pu-card__title">Урок с сюжетной линией</div>
-              <div className="pu-card__sub">Тема урока построена на реальной жизненной ситуации.</div>
-            </div>
+            <div className="pu-card__title">Урок с сюжетной линией</div>
           </div>
-          <div className="pu-card__body pu-card__body--row">
-            <p className="pu-card__text">{nb('Ребёнок не просто изучает тему — он сразу видит, где и как она используется в реальной жизни.')}</p>
-            <CheckList items={[
-              'Делает материал понятнее',
-              'Повышает интерес к обучению',
-              'Убирает вопрос: «А зачем мне это нужно?»',
-            ]} />
+          <div className="pu-s2-body">
+            <div className="pu-s2-left">
+              <p className="pu-s2-bold">{nb('Тема урока построена на реальной жизненной ситуации.')}</p>
+              <p className="pu-card__text">{nb('Ребёнок не просто изучает тему — он сразу видит, где и как она используется в реальной жизни.')}</p>
+            </div>
+            <div className="pu-s2-mid">
+              <img src="/znarnia/images/girl-tablet.png" alt="" className="pu-s2-img" />
+            </div>
+            <div className="pu-s2-right">
+              <CheckList items={[
+                'Делает материал понятнее',
+                'Повышает интерес к обучению',
+                'Убирает вопрос:\n«А зачем мне это нужно?»',
+              ]} />
+            </div>
           </div>
         </section>
 
