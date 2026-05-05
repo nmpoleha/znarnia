@@ -20,14 +20,6 @@ export default function Page() {
           <div className="st-hero__date">📅 16 мая в 12:30 (онлайн)</div>
         </section>
 
-        {/* WHAT NEXT */}
-        <section className="st-card">
-          <div className="st-card__title">💡 Что дальше</div>
-          <p className="st-card__text">
-            {nb('Мы уже забронировали для вас место и отправим напоминание перед началом.')}
-          </p>
-        </section>
-
         {/* CHANNEL */}
         <section className="st-card st-card--purple">
           <div className="st-card__title">👉 Чтобы ничего не пропустить</div>
@@ -41,6 +33,14 @@ export default function Page() {
             <a href="https://t.me/+YQgZEhiyoSY3ZGMy" className="st-link st-link--tg" target="_blank" rel="noreferrer">Telegram</a>
             <a href="https://max.ru/join/DrqRI_v3N9TL1j9sSqWZrrU7TS9b87W64Y6oQHLLN5Y" className="st-link st-link--vk" target="_blank" rel="noreferrer">Max</a>
           </div>
+        </section>
+
+        {/* WHAT NEXT */}
+        <section className="st-card">
+          <div className="st-card__title">💡 Что дальше</div>
+          <p className="st-card__text">
+            {nb('Мы уже забронировали для вас место и отправим напоминание перед началом.')}
+          </p>
         </section>
 
         {/* IMPORTANT */}

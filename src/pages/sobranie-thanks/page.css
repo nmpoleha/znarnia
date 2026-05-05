@@ -189,9 +189,25 @@
 
 @media (max-width: 640px) {
   .st-wrap { padding: 0 16px 44px; }
-  .st-hero { padding: 24px 0 20px; }
-  .st-hero__title { font-size: 22px; }
-  .st-card { padding: 20px 18px; }
+  .st-wrap .school-header { margin-bottom: 16px; }
+  .st-hero {
+    padding: 16px 0 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+  .st-hero__check {
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .st-hero__title { font-size: 18px; margin: 0; }
+  .st-hero__event, .st-hero__event-name, .st-hero__date { display: none; }
+  .st-card { padding: 16px 16px; margin-bottom: 12px; }
   .st-links { flex-direction: column; }
   .st-link { justify-content: center; }
 }
