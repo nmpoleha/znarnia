@@ -142,6 +142,8 @@
   margin-bottom: 20px;
 }
 
+.pu-card__head--center { align-items: center; }
+
 .pu-num {
   width: 40px;
   height: 40px;
@@ -204,7 +206,7 @@
 
 .pu-lesson-preview__img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 48px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
   display: block;
 }
@@ -250,6 +252,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: -20px;
 }
 
 .pu-s2-bold {
@@ -271,10 +274,13 @@
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 48px;
 }
 
 .pu-s2-right {
   flex: 1;
+  align-self: flex-start;
+  padding-top: 50px;
 }
 
 @media (max-width: 640px) {

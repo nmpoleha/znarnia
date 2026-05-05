@@ -26,7 +26,7 @@ function CheckList({ items }) {
   return (
     <ul className="pu-checklist">
       {items.map((t, i) => (
-        <li key={i}><Check /><span>{nb(t)}</span></li>
+        <li key={i}><Check /><span>{typeof t === 'string' ? nb(t) : t}</span></li>
       ))}
     </ul>
   )
@@ -96,7 +96,7 @@ export default function Page() {
 
         {/* ── SECTION 2 ── */}
         <section className="pu-card">
-          <div className="pu-card__head">
+          <div className="pu-card__head pu-card__head--center">
             <Num n="2" />
             <div className="pu-card__title">Урок с сюжетной линией</div>
           </div>
@@ -112,7 +112,7 @@ export default function Page() {
               <CheckList items={[
                 'Делает материал понятнее',
                 'Повышает интерес к обучению',
-                'Убирает вопрос:\n«А зачем мне это нужно?»',
+                <>Убирает вопрос:<br />«А зачем мне это нужно?»</>,
               ]} />
             </div>
           </div>
@@ -133,8 +133,8 @@ export default function Page() {
               'сразу видит, правильно или нет',
               'получает баллы за выполнение заданий',
             ]} />
-            <div className="pu-note">
-              🔒 {nb('Важно: ответы видны только самому ребёнку — никакого стресса и страха ошибиться.')}
+            <div className="pu-callout">
+              {nb('Важно: ответы видны только самому ребёнку — никакого стресса и страха ошибиться.')}
             </div>
           </div>
         </section>
