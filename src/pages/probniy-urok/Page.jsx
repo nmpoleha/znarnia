@@ -13,11 +13,40 @@ const Check = () => (
 )
 
 const DiamondIcon = () => (
-  <svg viewBox="0 0 20 20" width="43" height="43" fill="none" xmlns="http://www.w3.org/2000/svg" style={{position:'relative', top:'5px'}}>
+  <svg viewBox="0 0 20 20" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" style={{position:'relative', top:'5px'}}>
     <path d="M10 17L2 7l2.5-4h11L18 7l-8 10z" stroke="#6d28d9" strokeWidth="1.6" strokeLinejoin="round"/>
     <path d="M2 7h16M7 7L10 17M13 7L10 17M4.5 3L7 7M15.5 3L13 7" stroke="#6d28d9" strokeWidth="1.2" strokeLinejoin="round"/>
   </svg>
 )
+
+const StatsChart = () => {
+  const r = 32, cx = 50, cy = 50
+  const circ = 2 * Math.PI * r
+  const green = 0.60 * circ
+  const blue  = 0.32 * circ
+  const red   = 0.08 * circ
+  return (
+    <div className="pu-stats-widget">
+      <svg viewBox="0 0 100 100" width="90" height="90">
+        <g transform="rotate(-90 50 50)">
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#22c55e" strokeWidth="13"
+            strokeDasharray={`${green} ${circ}`} strokeDashoffset="0" strokeLinecap="butt"/>
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#818cf8" strokeWidth="13"
+            strokeDasharray={`${blue} ${circ}`} strokeDashoffset={-green} strokeLinecap="butt"/>
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#f97316" strokeWidth="13"
+            strokeDasharray={`${red} ${circ}`} strokeDashoffset={-(green+blue)} strokeLinecap="butt"/>
+        </g>
+        <text x="50" y="47" textAnchor="middle" fontSize="11" fill="#6b7280">Всего</text>
+        <text x="50" y="61" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e1b4b">25</text>
+      </svg>
+      <div className="pu-stats-legend">
+        <div><span style={{background:'#22c55e'}}/>Онлайн</div>
+        <div><span style={{background:'#818cf8'}}/>Оффлайн</div>
+        <div><span style={{background:'#f97316'}}/>Пропущено</div>
+      </div>
+    </div>
+  )
+}
 
 const PeopleIcon = () => (
   <svg viewBox="0 0 36 28" width="36" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
@@ -186,7 +215,7 @@ export default function Page() {
                 'получает мгновенную обратную связь',
                 'статистика также доступна родителям',
               ]} />
-              <div className="pu-note pu-note--row"><PlayIcon /><span>{nb('По эффективности это тот же полноценный урок.')}</span></div>
+              <div className="pu-note pu-note--row"><PlayIcon /><span>По эффективности это<br />тот же полноценный урок.</span></div>
             </div>
           </section>
 
@@ -195,16 +224,19 @@ export default function Page() {
               <Num n="5" />
               <div className="pu-card__title">Полная прозрачность<br />для родителей</div>
             </div>
-            <div className="pu-card__body">
-              <p className="pu-card__text">После каждого урока вы получаете подробную статистику:</p>
-              <CheckList items={[
-                'сколько заданий решено',
-                'где были ошибки',
-                'сколько попыток понадобилось',
-                'какие темы вызвали сложности',
-              ]} />
-              <div className="pu-note pu-note--row"><PeopleIcon /><span>Вы не гадаете —<br />вы точно понимаете уровень ребёнка.</span></div>
+            <div className="pu-card__body pu-card__body--row" style={{alignItems:'flex-start'}}>
+              <div className="pu-card__body-left">
+                <p className="pu-card__text">После каждого урока вы получаете подробную статистику:</p>
+                <CheckList items={[
+                  'сколько заданий решено',
+                  'где были ошибки',
+                  'сколько попыток понадобилось',
+                  <span style={{whiteSpace:'nowrap'}}>какие темы вызвали сложности</span>,
+                ]} />
+              </div>
+              <StatsChart />
             </div>
+            <div className="pu-note pu-note--row" style={{marginTop:'16px'}}><PeopleIcon /><span>Вы не гадаете — вы точно понимаете уровень ребёнка.</span></div>
           </section>
         </div>
 
