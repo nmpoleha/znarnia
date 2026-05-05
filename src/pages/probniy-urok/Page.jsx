@@ -12,6 +12,30 @@ const Check = () => (
   </svg>
 )
 
+const DiamondIcon = () => (
+  <svg viewBox="0 0 20 20" width="43" height="43" fill="none" xmlns="http://www.w3.org/2000/svg" style={{position:'relative', top:'5px'}}>
+    <path d="M10 17L2 7l2.5-4h11L18 7l-8 10z" stroke="#6d28d9" strokeWidth="1.6" strokeLinejoin="round"/>
+    <path d="M2 7h16M7 7L10 17M13 7L10 17M4.5 3L7 7M15.5 3L13 7" stroke="#6d28d9" strokeWidth="1.2" strokeLinejoin="round"/>
+  </svg>
+)
+
+const PeopleIcon = () => (
+  <svg viewBox="0 0 36 28" width="36" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
+    <circle cx="13" cy="8" r="4.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M4 24c0-5 4-8 9-8s9 3 9 8" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+    <circle cx="26" cy="8" r="3.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M26 16c3 0 6 2.5 6 7" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
+
+const PlayIcon = () => (
+  <svg viewBox="0 0 36 28" width="36" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
+    <rect x="1" y="1" width="34" height="22" rx="4" stroke="#6d28d9" strokeWidth="1.8"/>
+    <polygon points="14,7 14,17 23,12" fill="#6d28d9"/>
+    <line x1="10" y1="26" x2="26" y2="26" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
+
 const Shield = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6b7280" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -119,22 +143,30 @@ export default function Page() {
         </section>
 
         {/* ── SECTION 3 ── */}
-        <section className="pu-card">
+        <section className="pu-card pu-card--s3">
           <div className="pu-card__head">
             <Num n="3" />
             <div>
-              <div className="pu-card__title">Интерактивный онлайн-урок<br />с учителем</div>
-              <div className="pu-card__sub">Живое участие вместо пассивного просмотра</div>
+              <div className="pu-card__title">Интерактивный онлайн-урок с учителем</div>
+              <div className="pu-card__sub" style={{marginTop:'10px'}}>Живое участие вместо пассивного просмотра</div>
             </div>
           </div>
-          <div className="pu-card__body">
-            <CheckList items={[
-              'ребёнок отвечает на вопросы в процессе урока',
-              'сразу видит, правильно или нет',
-              'получает баллы за выполнение заданий',
-            ]} />
-            <div className="pu-callout">
-              {nb('Важно: ответы видны только самому ребёнку — никакого стресса и страха ошибиться.')}
+          <div className="pu-card__body pu-card__body--row">
+            <div className="pu-card__body-left">
+              <CheckList items={[
+                'ребёнок отвечает на вопросы в процессе урока',
+                'сразу видит, правильно или нет',
+                'получает баллы за выполнение заданий',
+              ]} />
+              <div className="pu-callout">
+                Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
+              </div>
+            </div>
+            <div className="pu-card__body-right">
+              <div className="pu-lesson-preview">
+                <img src="/znarnia/images/online-lesson.png" alt="" className="pu-lesson-preview__img" style={{transform:'scale(1.1) translateY(-20px)'}} />
+                <div className="pu-lesson-preview__badge pu-lesson-preview__badge--lg"><DiamondIcon />+15 баллов</div>
+              </div>
             </div>
           </div>
         </section>
@@ -154,7 +186,7 @@ export default function Page() {
                 'получает мгновенную обратную связь',
                 'статистика также доступна родителям',
               ]} />
-              <div className="pu-note">▶ {nb('По эффективности это тот же полноценный урок.')}</div>
+              <div className="pu-note pu-note--row"><PlayIcon /><span>{nb('По эффективности это тот же полноценный урок.')}</span></div>
             </div>
           </section>
 
@@ -171,7 +203,7 @@ export default function Page() {
                 'сколько попыток понадобилось',
                 'какие темы вызвали сложности',
               ]} />
-              <div className="pu-note">👥 {nb('Вы не гадаете — вы точно понимаете уровень ребёнка.')}</div>
+              <div className="pu-note pu-note--row"><PeopleIcon /><span>Вы не гадаете —<br />вы точно понимаете уровень ребёнка.</span></div>
             </div>
           </section>
         </div>
