@@ -1,4 +1,106 @@
 
+import { useState } from 'react'
+
+const SCHEDULE = {
+  '1':  [{ id: 's1',  date: '23 мая (сб)', time: '11:30' }],
+  '2':  [{ id: 's2',  date: '25 мая (пн)', time: '18:30' }],
+  '3':  [{ id: 's3',  date: '26 мая (вт)', time: '18:30' }],
+  '4':  [{ id: 's4',  date: '29 мая (пт)', time: '18:30' }],
+  '5':  [{ id: 's5',  date: '18 мая (пн)', time: '18:30' }],
+  '6':  [{ id: 's6',  date: '19 мая (вт)', time: '18:30' }],
+  '7':  [{ id: 's7',  date: '20 мая (ср)', time: '18:30' }],
+  '8':  [{ id: 's8',  date: '22 мая (пт)', time: '18:30' }],
+  '9':  [],
+  '10': [{ id: 's10', date: '30 мая (сб)', time: '11:30' }],
+}
+
+function Modal({ onClose }) {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', grade: '', slot: '' })
+  const [submitted, setSubmitted] = useState(false)
+
+  const slots = form.grade ? SCHEDULE[form.grade] : null
+  const canSubmit = !form.grade || (slots && slots.length === 0) || !!form.slot
+
+  function set(k, v) {
+    if (k === 'grade') {
+      setForm(f => ({ ...f, grade: v, slot: '' }))
+    } else {
+      setForm(f => ({ ...f, [k]: v }))
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
+  return (
+    <div className="dg-modal-overlay" onClick={onClose}>
+      <div className="dg-modal" onClick={e => e.stopPropagation()}>
+        <button className="dg-modal__x" onClick={onClose}>×</button>
+
+        {submitted ? (
+          <div className="dg-modal__success">
+            <div className="dg-modal__success-icon">✓</div>
+            <div className="dg-modal__success-title">Заявка принята!</div>
+            <div className="dg-modal__success-text">Мы свяжемся с вами в ближайшее время для подтверждения записи</div>
+            <button className="dg-modal__close-btn" onClick={onClose}>Закрыть</button>
+          </div>
+        ) : (
+          <>
+            <div className="dg-modal__title">Записаться на диагностику</div>
+            <form className="dg-modal__form" onSubmit={handleSubmit}>
+              <div className="dg-modal__group">
+                <label className="dg-modal__label">Имя</label>
+                <input className="dg-modal__input" type="text" required placeholder="Ваше имя" value={form.name} onChange={e => set('name', e.target.value)} />
+              </div>
+              <div className="dg-modal__group">
+                <label className="dg-modal__label">Телефон</label>
+                <input className="dg-modal__input" type="tel" required placeholder="+7 000 000-00-00" value={form.phone} onChange={e => set('phone', e.target.value)} />
+              </div>
+              <div className="dg-modal__group">
+                <label className="dg-modal__label">Email</label>
+                <input className="dg-modal__input" type="email" required placeholder="example@mail.ru" value={form.email} onChange={e => set('email', e.target.value)} />
+              </div>
+              <div className="dg-modal__group">
+                <label className="dg-modal__label">Класс ребёнка</label>
+                <select className="dg-modal__select" required value={form.grade} onChange={e => set('grade', e.target.value)}>
+                  <option value="">Выберите класс</option>
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <option key={i + 1} value={String(i + 1)}>{i + 1} класс</option>
+                  ))}
+                </select>
+              </div>
+              {slots && slots.length > 0 && (
+                <div className="dg-modal__group">
+                  <label className="dg-modal__label">Дата и время диагностики</label>
+                  <div className="dg-modal__slots">
+                    {slots.map(s => (
+                      <label key={s.id} className={`dg-modal__slot${form.slot === s.id ? ' dg-modal__slot--active' : ''}`}>
+                        <input type="radio" name="slot" value={s.id} checked={form.slot === s.id} onChange={() => set('slot', s.id)} />
+                        <span className="dg-modal__slot-date">{s.date}</span>
+                        <span className="dg-modal__slot-time">{s.time}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {slots && slots.length === 0 && (
+                <div className="dg-modal__no-slots">
+                  Расписание для этого класса уточняется. Оставьте заявку — мы свяжемся с вами и подберём удобное время.
+                </div>
+              )}
+              <button className="dg-modal__submit" type="submit" disabled={!canSubmit}>
+                Отправить заявку
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function ContactBar() {
   return (
     <div className="dg-contact-bar">
@@ -60,8 +162,12 @@ function Section({ icon, title, items, result }) {
 }
 
 export default function Page() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const openModal = e => { e.preventDefault(); setModalOpen(true) }
+
   return (
     <div className="dg-page">
+      {modalOpen && <Modal onClose={() => setModalOpen(false)} />}
       <ContactBar />
       <div className="dg-page__bg-glow dg-page__bg-glow--1" />
       <div className="dg-page__bg-glow dg-page__bg-glow--2" />
@@ -96,7 +202,7 @@ export default function Page() {
             </div>
 
             <div className="dg-hero__cta-row">
-              <a href="#" className="dg-hero__cta-btn">📅 Записаться на онлайн-диагностику</a>
+              <a href="#" className="dg-hero__cta-btn" onClick={openModal}>📅 Записаться на онлайн-диагностику</a>
               <span className="dg-hero__cta-note">
                 <svg className="dg-hero__cta-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none">
                   <path d="M22 6 C22 6 10 8 8 18 L12 16 M8 18 L6 14" stroke="#a78bda" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
@@ -257,7 +363,7 @@ export default function Page() {
           <div className="dg-result__title">{nb('Вы уходите не с вопросами, а с готовым планом действий')}</div>
           <p className="dg-result__text">{nb('Один урок поможет понять больше, чем месяцы догадок и тревоги: что мешает ребёнку, с чего начать и как улучшить результат.')}</p>
           <img className="dg-result__image" src="/znarnia/lampochka.png" alt="" />
-          <a href="#" className="dg-result__btn">Записаться на диагностический урок</a>
+          <a href="#" className="dg-result__btn" onClick={openModal}>Записаться на диагностический урок</a>
         </section>
 
         <footer className="dg-footer">
