@@ -48,7 +48,10 @@ function Modal({ onClose }) {
           </div>
         ) : (
           <>
-            <div className="dg-modal__title">Записаться на диагностику</div>
+            <div className="dg-modal__header">
+              <div className="dg-modal__title">Записаться на диагностику</div>
+              <div className="dg-modal__price">900&thinsp;₽</div>
+            </div>
             <form className="dg-modal__form" onSubmit={handleSubmit}>
               <div className="dg-modal__group">
                 <label className="dg-modal__label">Имя</label>
@@ -91,7 +94,7 @@ function Modal({ onClose }) {
                 </div>
               )}
               <button className="dg-modal__submit" type="submit" disabled={!canSubmit}>
-                Отправить заявку
+                Оплатить
               </button>
             </form>
           </>
@@ -202,13 +205,28 @@ export default function Page() {
             </div>
 
             <div className="dg-hero__cta-row">
-              <a href="#" className="dg-hero__cta-btn" onClick={openModal}>📅 Записаться на онлайн-диагностику</a>
-              <span className="dg-hero__cta-note">
-                <svg className="dg-hero__cta-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M22 6 C22 6 10 8 8 18 L12 16 M8 18 L6 14" stroke="#a78bda" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                </svg>
-                Всего 1 занятие —<br/>польза на месяцы вперёд
-              </span>
+              <div className="dg-hero__cta-left">
+                <a href="#" className="dg-hero__cta-btn" onClick={openModal}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M3 9h18" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M8 2v3M16 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <rect x="7" y="13" width="3" height="3" rx="0.5" fill="currentColor"/>
+                    <rect x="11" y="13" width="3" height="3" rx="0.5" fill="currentColor"/>
+                  </svg>
+                  Записаться на онлайн-диагностику
+                </a>
+                <span className="dg-hero__cta-note">
+                  <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
+                    <path d="M2 2 C2 2 2 9 8 9 L8 9 L14 9 M11 6 L14 9 L11 12" stroke="#a78bda" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Всего 1 занятие — польза на месяцы вперёд
+                </span>
+              </div>
+              <div className="dg-hero__cta-price">
+                <div className="dg-hero__cta-price-val">900&thinsp;<span className="dg-hero__cta-price-cur">₽</span></div>
+                <div className="dg-hero__cta-price-desc">45 минут онлайн<br/>+ рекомендации</div>
+              </div>
             </div>
 
             <div className="dg-hero__footer-badges">

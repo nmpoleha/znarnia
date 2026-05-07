@@ -280,16 +280,23 @@
 .dg-hero__cta-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dg-hero__cta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
 }
 
 .dg-hero__cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 15px 28px;
-  background: linear-gradient(135deg, #3b1f6e, #6d28d9);
+  gap: 10px;
+  padding: 15px 26px;
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
   color: #fff;
   font-family: var(--font-body);
   font-size: 15px;
@@ -299,26 +306,52 @@
   box-shadow: var(--shadow-btn);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   letter-spacing: 0.01em;
+  align-self: flex-start;
 }
 
 .dg-hero__cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(59, 31, 110, 0.45);
+  box-shadow: 0 8px 28px rgba(109, 40, 217, 0.45);
 }
 
 .dg-hero__cta-note {
   display: flex;
-  align-items: flex-start;
-  gap: 4px;
-  font-size: 9px;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
   color: var(--clr-muted);
-  line-height: 1.5;
-  max-width: 160px;
+  line-height: 1.4;
+  padding-left: 4px;
 }
 
-.dg-hero__cta-arrow {
+/* Price block */
+.dg-hero__cta-price {
   flex-shrink: 0;
-  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 20px;
+  border-left: 1px solid var(--clr-border-mid);
+}
+
+.dg-hero__cta-price-val {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--clr-text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.dg-hero__cta-price-cur {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dg-hero__cta-price-desc {
+  font-size: 12px;
+  color: var(--clr-muted);
+  line-height: 1.5;
 }
 
 /* Footer badges */
@@ -994,15 +1027,32 @@
 
 .dg-modal__x:hover { color: var(--clr-text); }
 
+.dg-modal__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding-right: 24px;
+}
+
 .dg-modal__title {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 900;
   color: var(--clr-text);
   letter-spacing: -0.02em;
-  margin-bottom: 22px;
   line-height: 1.2;
-  padding-right: 24px;
+}
+
+.dg-modal__price {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--clr-primary);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .dg-modal__form {
@@ -1194,6 +1244,8 @@
   .dg-hero__left { align-self: auto; }
   .dg-hero__right { width: 100%; }
   .dg-hero__btn { align-self: stretch; text-align: center; margin-bottom: 0; }
+  .dg-hero__cta-btn { align-self: stretch; justify-content: center; }
+  .dg-hero__cta-price { border-left: none; padding-left: 0; flex-direction: row; align-items: baseline; gap: 10px; }
   .dg-hero__intro-nowrap { white-space: normal; }
   .dg-hero__title { font-size: clamp(14px, 4.5vw, 18px); }
 
