@@ -78,6 +78,10 @@ export default function Page() {
               <p><span className="dg-hero__intro-accent">Онлайн-диагностика</span>{nb(' — это не просто занятие, а глубокое исследование способностей вашего ребёнка: как он думает, учится и что мешает ему показывать лучший результат.')}</p>
             </div>
             <a href="#" className="dg-hero__btn">Записаться на диагностику</a>
+            <div className="dg-hero__card-tags">
+              <span className="dg-hero__tag">1–10 класс</span>
+              <span className="dg-hero__tag">за 45 минут находим что мешает учёбе</span>
+            </div>
           </div>
           <div className="dg-hero__right">
             <div className="dg-hero__card">
