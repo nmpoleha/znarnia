@@ -71,18 +71,57 @@ export default function Page() {
         {/* HERO */}
         <section className="dg-hero">
           <div className="dg-hero__left">
-            <h1 className="dg-hero__title">{nb('Понять ребёнка — значит помочь ему учиться лучше')}</h1>
-            <div className="dg-hero__intro">
-              <p className="dg-hero__intro-lead">{nb('Перестаньте гадать и тревожиться.')}</p>
-              <p className="dg-hero__intro-nowrap">{nb('Превратите неясные сомнения в чёткий план действий уже за один урок.')}</p>
-              <p><span className="dg-hero__intro-accent">Онлайн-диагностика</span>{nb(' — это не просто занятие, а глубокое исследование способностей вашего ребёнка: как он думает, учится и что мешает ему показывать лучший результат.')}</p>
+            <div className="dg-hero__label-tag">Для родителей школьников</div>
+            <h1 className="dg-hero__title">
+              Онлайн-диагностика<br/><span className="dg-hero__title-accent">обучения ребёнка</span>
+            </h1>
+            <div className="dg-hero__grade">1–10 класса</div>
+            <p className="dg-hero__desc">{nb('За 45 минут определим, что мешает ребёнку учиться: пробелы в знаниях, особенности мышления или трудности в понимании материала.')}</p>
+
+            <div className="dg-hero__benefits">
+              {[
+                { icon: 'icon-search', title: 'Поймёте реальные причины сложностей', desc: 'Узнаете, что именно мешает ребёнку учиться' },
+                { icon: 'icon-chart', title: 'Получите оценку знаний и мышления', desc: 'Проверим ключевые навыки и тип мышления' },
+                { icon: 'icon-star', title: nb('Узнаете сильные и слабые стороны ребёнка'), desc: 'На что опираться, а над чем стоит поработать' },
+                { icon: 'icon-clipboard', title: 'Получите понятный план действий', desc: 'Рекомендации, которые помогут улучшить результаты' },
+              ].map((item, i) => (
+                <div key={i} className="dg-hero__benefit">
+                  <img src={`/znarnia/images/icons/${item.icon}.png`} className="dg-hero__benefit-icon" alt="" />
+                  <div className="dg-hero__benefit-text">
+                    <div className="dg-hero__benefit-title">{item.title}</div>
+                    <div className="dg-hero__benefit-desc">{nb(item.desc)}</div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <a href="#" className="dg-hero__btn">Записаться на диагностику</a>
-            <div className="dg-hero__card-tags">
-              <span className="dg-hero__tag">1–10 класс</span>
-              <span className="dg-hero__tag">за 45 минут находим что мешает учёбе</span>
+
+            <div className="dg-hero__cta-row">
+              <a href="#" className="dg-hero__cta-btn">📅 Записаться на онлайн-диагностику</a>
+              <span className="dg-hero__cta-note">
+                <svg className="dg-hero__cta-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M22 6 C22 6 10 8 8 18 L12 16 M8 18 L6 14" stroke="#a78bda" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                </svg>
+                Всего 1 занятие —<br/>польза на месяцы вперёд
+              </span>
+            </div>
+
+            <div className="dg-hero__footer-badges">
+              {[
+                { icon: 'icon-graduation', title: '1–10 класс', desc: 'для школьников' },
+                { icon: 'icon-clock', title: '45 минут онлайн', desc: 'удобно из дома' },
+                { icon: 'icon-document', title: 'План рекомендаций', desc: 'после занятия' },
+              ].map((item, i) => (
+                <div key={i} className="dg-hero__footer-badge">
+                  <img src={`/znarnia/images/icons/${item.icon}.png`} className="dg-hero__footer-badge-icon" alt="" />
+                  <div>
+                    <div className="dg-hero__footer-badge-title">{item.title}</div>
+                    <div className="dg-hero__footer-badge-desc">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+
           <div className="dg-hero__right">
             <div className="dg-hero__card">
               <div className="dg-hero__card-badges">
@@ -90,10 +129,27 @@ export default function Page() {
                 <span className="dg-hero__badge dg-hero__badge--purple">онлайн</span>
               </div>
               <div className="dg-hero__avatar">👧</div>
-              <div className="dg-hero__card-items">
-                <div className="dg-hero__card-item">🧠 Мышление</div>
-                <div className="dg-hero__card-item">📚 Знания</div>
-                <div className="dg-hero__card-item">🗺️ План действий</div>
+              <div className="dg-hero__card-items-v2">
+                {[
+                  { icon: '🧠', title: 'Проверяем мышление', desc: 'Определим особенности мышления и как ребёнок решает задачи' },
+                  { icon: '📚', title: 'Анализируем знания', desc: 'Выявим пробелы и понимание ключевых тем' },
+                  { icon: '📖', title: 'Даём рекомендации', desc: 'Вы получите понятный план, что делать дальше' },
+                ].map((item, i) => (
+                  <div key={i} className="dg-hero__card-item-v2">
+                    <span className="dg-hero__card-item-v2-icon">{item.icon}</span>
+                    <div>
+                      <div className="dg-hero__card-item-v2-title">{item.title}</div>
+                      <div className="dg-hero__card-item-v2-desc">{nb(item.desc)}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="dg-hero__card-after">
+                <span className="dg-hero__card-after-icon">📄</span>
+                <div>
+                  <div className="dg-hero__card-after-title">После занятия вы получите</div>
+                  <div className="dg-hero__card-after-desc">{nb('полную расшифровку результатов и рекомендации от Ольги Сотниковой')}</div>
+                </div>
               </div>
             </div>
           </div>
