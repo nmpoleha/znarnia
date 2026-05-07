@@ -91,7 +91,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
   color: #fff;
   font-size: 13px;
   font-weight: 900;
@@ -966,7 +966,7 @@
   display: inline-block;
   align-self: end;
   padding: 14px 34px;
-  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-lt));
+  background: linear-gradient(135deg, #3b1f6e, var(--clr-primary));
   color: #fff;
   font-family: var(--font-body);
   font-size: 15px;
@@ -1221,13 +1221,13 @@
   transition: background 0.18s ease;
 }
 
-.dg-modal__close-btn:hover { background: #d8b4fe; }
+.dg-modal__close-btn:hover { background: #f0eaff; }
 
 /* ── FOOTER ── */
 .dg-footer {
   text-align: center;
   font-size: 12px;
-  color: #b39fda;
+  color: var(--clr-muted);
   letter-spacing: 0.02em;
 }
 
