@@ -342,6 +342,7 @@ export default function Page() {
                 'оцениваем глубину понимания',
               ]}
               result='Станет ясно, где именно «проседает фундамент» и что мешает двигаться дальше'
+              imgSrc="/znarnia/images/section-knowledge.png"
             />
             <Section
               icon="✦"

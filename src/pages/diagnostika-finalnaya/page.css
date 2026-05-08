@@ -744,10 +744,10 @@
 
 .dg-section__img-slot {
   position: absolute;
-  right: 40px;
-  top: 0;
+  right: 10px;
+  top: -10px;
   bottom: 0;
-  width: 288px;
+  width: 317px;
   z-index: 0;
   overflow: hidden;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
