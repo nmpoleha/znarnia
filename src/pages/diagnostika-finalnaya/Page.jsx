@@ -218,7 +218,7 @@ export default function Page() {
                 </a>
                 <span className="dg-hero__cta-note">
                   <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
-                    <path d="M2 2 C2 2 2 9 8 9 L8 9 L14 9 M11 6 L14 9 L11 12" stroke="#a78bda" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2 2 C2 2 2 9 8 9 L8 9 L14 9 M11 6 L14 9 L11 12" stroke="#f97316" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   Всего 1 занятие — польза на месяцы вперёд
                 </span>
@@ -248,11 +248,11 @@ export default function Page() {
 
           <div className="dg-hero__right">
             <div className="dg-hero__card">
-              <div className="dg-hero__card-badges">
-                <span className="dg-hero__badge dg-hero__badge--white">45 минут</span>
-                <span className="dg-hero__badge dg-hero__badge--purple">онлайн</span>
-              </div>
-              <div className="dg-hero__avatar">👧</div>
+              <img
+                src="/znarnia/images/diagnostika-screen.png"
+                alt="Онлайн-диагностика"
+                className="dg-hero__card-photo"
+              />
               <div className="dg-hero__card-items-v2">
                 {[
                   { icon: '🧠', title: 'Проверяем мышление', desc: 'Определим особенности мышления и как ребёнок решает задачи' },
@@ -267,13 +267,6 @@ export default function Page() {
                     </div>
                   </div>
                 ))}
-              </div>
-              <div className="dg-hero__card-after">
-                <span className="dg-hero__card-after-icon">📄</span>
-                <div>
-                  <div className="dg-hero__card-after-title">После занятия вы получите</div>
-                  <div className="dg-hero__card-after-desc">{nb('полную расшифровку результатов и рекомендации от Ольги Сотниковой')}</div>
-                </div>
               </div>
             </div>
           </div>

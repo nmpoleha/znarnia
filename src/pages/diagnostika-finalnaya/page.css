@@ -1,30 +1,31 @@
 /* ── DESIGN TOKENS ── */
 :root {
-  --clr-bg:          #f3efff;
+  --clr-bg:          #ffffff;
   --clr-surface:     #ffffff;
   --clr-primary:     #6d28d9;
   --clr-primary-lt:  #8b5cf6;
-  --clr-accent:      #ec4899;
-  --clr-text:        #1a0a3c;
-  --clr-muted:       #5b4880;
-  --clr-lavender:    #ede9fe;
-  --clr-border:      rgba(109, 40, 217, 0.12);
-  --clr-border-mid:  rgba(109, 40, 217, 0.18);
+  --clr-accent:      #f97316;
+  --clr-text:        #1e1b4b;
+  --clr-muted:       #4b5563;
+  --clr-lavender:    #f5f3ff;
+  --clr-border:      rgba(229, 231, 235, 0.9);
+  --clr-border-mid:  rgba(196, 181, 253, 0.5);
   --font-display:    'Montserrat', sans-serif;
   --font-body:       'Roboto', sans-serif;
   --radius-sm:       12px;
   --radius-md:       18px;
   --radius-lg:       24px;
-  --shadow-card:     0 2px 20px rgba(109, 40, 217, 0.08);
-  --shadow-btn:      0 4px 20px rgba(109, 40, 217, 0.35);
+  --shadow-card:     0 2px 16px rgba(0, 0, 0, 0.06);
+  --shadow-btn:      0 4px 20px rgba(249, 115, 22, 0.35);
 }
 
 /* ── CONTACT BAR ── */
 .dg-contact-bar {
   width: 100%;
-  background: #ffffff;
+  background: #f9f8ff;
   padding: 30px 0;
-  box-shadow: 0 2px 12px rgba(109, 40, 217, 0.08);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: none;
 }
 
 .dg-contact-bar__inner {
@@ -144,14 +145,14 @@
 .dg-page__bg-glow--1 {
   width: 680px; height: 680px;
   background: #c4b5fd;
-  opacity: 0.22;
+  opacity: 0.10;
   top: -220px; right: -180px;
 }
 
 .dg-page__bg-glow--2 {
   width: 480px; height: 480px;
-  background: #f9a8d4;
-  opacity: 0.15;
+  background: #fed7aa;
+  opacity: 0.18;
   bottom: 160px; left: -140px;
 }
 
@@ -182,7 +183,7 @@
 /* ── HERO ── */
 .dg-hero {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 32px;
   margin-bottom: 48px;
   animation: fadeUp 0.65s ease 0.05s both;
@@ -194,7 +195,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-self: stretch;
 }
 
 .dg-hero__label-tag {
@@ -214,7 +214,7 @@
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: #1a0a3c;
+  color: #1e1b4b;
   margin: 0;
 }
 
@@ -296,7 +296,7 @@
   align-items: center;
   gap: 10px;
   padding: 15px 26px;
-  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+  background: #f97316;
   color: #fff;
   font-family: var(--font-body);
   font-size: 15px;
@@ -311,7 +311,7 @@
 
 .dg-hero__cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(109, 40, 217, 0.45);
+  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.45);
 }
 
 .dg-hero__cta-note {
@@ -390,16 +390,23 @@
 }
 
 .dg-hero__card {
-  background: linear-gradient(150deg, #faf8ff, #f5f0ff);
-  border: 1px solid var(--clr-border-mid);
+  background: #f5f3ff;
+  border: 1.5px solid #e0d9ff;
   border-radius: var(--radius-lg);
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   box-shadow: var(--shadow-card);
-  height: 100%;
-  box-sizing: border-box;
+}
+
+.dg-hero__card-photo {
+  width: 100%;
+  height: 175px;
+  border-radius: var(--radius-lg);
+  display: block;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .dg-hero__card-badges {
@@ -521,7 +528,8 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: var(--clr-lavender);
+  background: #fff;
+  border: 1.5px solid #e0d9ff;
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   margin-top: 4px;
@@ -689,7 +697,7 @@
 
 .dg-section__icon {
   font-size: 14px;
-  color: var(--clr-accent);
+  color: var(--clr-primary);
   flex-shrink: 0;
 }
 
@@ -723,7 +731,7 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: #a78bda;
+  color: #9ca3af;
   font-weight: 700;
 }
 
@@ -917,7 +925,7 @@
 
 /* ── RESULT ── */
 .dg-result {
-  background: linear-gradient(135deg, var(--clr-lavender) 0%, #f8f4ff 100%);
+  background: #f5f3ff;
   border: 1px solid var(--clr-border-mid);
   border-radius: var(--radius-lg);
   padding: 36px 24px;
@@ -966,7 +974,7 @@
   display: inline-block;
   align-self: end;
   padding: 14px 34px;
-  background: linear-gradient(135deg, #3b1f6e, var(--clr-primary));
+  background: #f97316;
   color: #fff;
   font-family: var(--font-body);
   font-size: 15px;
@@ -981,7 +989,7 @@
 
 .dg-result__btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.38);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.42);
 }
 
 /* ── MODAL ── */
