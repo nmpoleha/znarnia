@@ -170,11 +170,21 @@ function Section({ icon, title, items, result, imgSrc }) {
 }
 
 const REVIEWS = [
-  { src: null },
-  { src: null },
-  { src: null },
-  { src: null },
-  { src: null },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-04.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-29-53.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-20.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-07-19.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-45.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-52.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-07-44.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-15.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-07-30.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-31.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-06-39.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-06-27.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-06-13.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-07-07.jpg' },
+  { src: '/znarnia/images/reviews/photo_2026-05-08_13-06-02.jpg' },
 ]
 
 function ReviewsCarousel() {
@@ -212,7 +222,7 @@ function ReviewsCarousel() {
       <div className="dg-reviews__track-wrap">
         <div
           className="dg-reviews__track"
-          style={{ transform: `translateX(calc(-${index} * (100% / ${visible}) - ${index} * 16px))` }}
+          style={{ transform: `translateX(calc(-${index} * (100% / ${visible} + 16px / ${visible})))` }}
         >
           {REVIEWS.map((r, i) => (
             <div key={i} className="dg-reviews__slide">
