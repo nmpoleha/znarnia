@@ -625,10 +625,6 @@
   z-index: 1;
 }
 
-@media (max-width: 640px) {
-  .dg-who__layout { grid-template-columns: 1fr; }
-  .dg-who__image-slot { width: 100%; height: 180px; }
-}
 
 .dg-who__card {
   background: rgba(255, 255, 255, 0.55);
@@ -1555,7 +1551,8 @@
   .dg-hero__cta-price-desc { font-size: 11px; }
 
   /* Footer badges */
-  .dg-hero__footer-badges { gap: 12px 20px; }
+  .dg-hero__footer-badges { gap: 10px 16px; flex-wrap: wrap; }
+  .dg-hero__footer-badge { flex: 0 0 calc(50% - 8px); }
   .dg-hero__footer-badge-icon { width: 32px; height: 32px; }
   .dg-hero__footer-badge-title { font-size: 12px; }
   .dg-hero__footer-badge-desc { font-size: 10px; }
@@ -1563,7 +1560,19 @@
   /* Who */
   .dg-who { padding: 18px 16px; }
   .dg-who__title { font-size: 15px; }
-  .dg-who__grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .dg-who__layout { grid-template-columns: 1fr 1fr; gap: 8px; align-items: stretch; }
+  .dg-who__bg-image {
+    position: static;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    grid-column: 1 / -1;
+    transform: none;
+  }
+  .dg-who__spacer { display: none; }
+  .dg-who__col { display: contents; }
+  .dg-who__card { backdrop-filter: none; background: var(--clr-lavender); transform: none; box-shadow: none; padding: 10px 12px; gap: 6px; }
   .dg-who__text { font-size: 12px; }
 
   /* Part head */
@@ -1573,7 +1582,11 @@
 
   /* Sections */
   .dg-sections { grid-template-columns: 1fr; }
+  .dg-sections .dg-section:first-child { grid-column: auto; }
   .dg-section { padding: 14px 16px; }
+  .dg-section__img-slot { position: static; width: 100%; height: 200px; border-radius: var(--radius-sm); }
+  .dg-section__img { object-fit: cover; height: 100%; }
+  .dg-section__content { max-width: 100%; }
   .dg-section__title { font-size: 12px; }
   .dg-section__list li { font-size: 13px; }
   .dg-section__result { font-size: 12px; }
@@ -1582,6 +1595,10 @@
   .dg-callout { flex-direction: column; gap: 14px; padding: 20px 16px; }
   .dg-callout__title { width: 100%; font-size: 15px; }
   .dg-callout__text { font-size: 13px; }
+
+  /* Stats */
+  .dg-stats { padding: 0; box-shadow: none; }
+  .dg-stats__val { font-size: 15px; }
 
   /* Part 2 */
   .dg-part--2 { padding: 18px 14px; }
