@@ -249,7 +249,7 @@ export default function Page() {
           <div className="dg-hero__right">
             <div className="dg-hero__card">
               <img
-                src="/znarnia/images/diagnostika-screen.png"
+                src="/znarnia/images/who-lesson.png"
                 alt="Онлайн-диагностика"
                 className="dg-hero__card-photo"
               />
@@ -279,20 +279,33 @@ export default function Page() {
         <div className="dg-who">
           <div className="dg-who__title">Кому подойдёт диагностика</div>
           <p className="dg-who__desc">{nb('Если вы замечаете у ребёнка сложности в обучении, диагностика поможет понять, где именно причина и что делать дальше.')}</p>
-          <div className="dg-who__grid">
-            {[
-              { icon: '?', text: 'не понимает математику' },
-              { icon: '!', text: 'боится контрольных' },
-              { icon: '×', text: 'делает ошибки в знакомых темах' },
-              { icon: '→', text: 'занимается, но результата нет' },
-              { icon: '↗', text: 'переходит в новый класс' },
-              { icon: '✓', text: 'готовится к ВПР, ОГЭ или ЕГЭ' },
-            ].map((item, i) => (
-              <div key={i} className="dg-who__card">
-                <div className="dg-who__icon">{item.icon}</div>
-                <div className="dg-who__text">{nb(item.text)}</div>
-              </div>
-            ))}
+          <div className="dg-who__layout">
+            <img src="/znarnia/images/who-center.png" alt="" className="dg-who__bg-image" />
+            <div className="dg-who__col">
+              {[
+                { icon: '?', text: 'не понимает математику' },
+                { icon: '!', text: 'боится контрольных' },
+                { icon: '×', text: 'делает ошибки в знакомых темах' },
+              ].map((item, i) => (
+                <div key={i} className="dg-who__card">
+                  <div className="dg-who__icon">{item.icon}</div>
+                  <div className="dg-who__text">{nb(item.text)}</div>
+                </div>
+              ))}
+            </div>
+            <div className="dg-who__spacer" />
+            <div className="dg-who__col">
+              {[
+                { icon: '→', text: 'занимается, но результата нет' },
+                { icon: '↗', text: 'переходит в новый класс' },
+                { icon: '✓', text: 'готовится к ВПР, ОГЭ или ЕГЭ' },
+              ].map((item, i) => (
+                <div key={i} className="dg-who__card">
+                  <div className="dg-who__icon">{item.icon}</div>
+                  <div className="dg-who__text">{nb(item.text)}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
