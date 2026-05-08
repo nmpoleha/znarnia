@@ -169,6 +169,81 @@ function Section({ icon, title, items, result, imgSrc }) {
   )
 }
 
+const REVIEWS = [
+  { src: null },
+  { src: null },
+  { src: null },
+  { src: null },
+  { src: null },
+]
+
+function ReviewsCarousel() {
+  const [index, setIndex] = useState(0)
+  const visible = 3
+  const total = REVIEWS.length
+  const canPrev = index > 0
+  const canNext = index + visible < total
+
+  return (
+    <div className="dg-reviews">
+      <div className="dg-reviews__head">
+        <div className="dg-reviews__title">Родители о нас</div>
+        <div className="dg-reviews__nav">
+          <button
+            className={`dg-reviews__arrow${!canPrev ? ' dg-reviews__arrow--disabled' : ''}`}
+            onClick={() => canPrev && setIndex(i => i - 1)}
+            aria-label="Назад"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <button
+            className={`dg-reviews__arrow${!canNext ? ' dg-reviews__arrow--disabled' : ''}`}
+            onClick={() => canNext && setIndex(i => i + 1)}
+            aria-label="Вперёд"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M8 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div className="dg-reviews__track-wrap">
+        <div
+          className="dg-reviews__track"
+          style={{ transform: `translateX(calc(-${index} * (100% / ${visible}) - ${index} * 16px))` }}
+        >
+          {REVIEWS.map((r, i) => (
+            <div key={i} className="dg-reviews__slide">
+              {r.src
+                ? <img src={r.src} alt={`Отзыв ${i + 1}`} className="dg-reviews__img" />
+                : <div className="dg-reviews__placeholder">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <rect x="4" y="4" width="28" height="28" rx="4" stroke="#c4b5fd" strokeWidth="2" strokeDasharray="4 3"/>
+                      <path d="M12 24l5-6 4 5 3-3 4 4" stroke="#c4b5fd" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="13" cy="14" r="2" fill="#c4b5fd"/>
+                    </svg>
+                    <span>Фото отзыва</span>
+                  </div>
+              }
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="dg-reviews__dots">
+        {Array.from({ length: total - visible + 1 }).map((_, i) => (
+          <button
+            key={i}
+            className={`dg-reviews__dot${index === i ? ' dg-reviews__dot--active' : ''}`}
+            onClick={() => setIndex(i)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Page() {
   const [modalOpen, setModalOpen] = useState(false)
   const openModal = e => { e.preventDefault(); setModalOpen(true) }
@@ -392,6 +467,47 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        {/* STATS */}
+        <div className="dg-stats">
+          {[
+            { icon: (
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <circle cx="12" cy="10" r="4" stroke="#6d28d9" strokeWidth="2"/>
+                  <circle cx="22" cy="10" r="4" stroke="#6d28d9" strokeWidth="2"/>
+                  <path d="M4 26c0-4.4 3.6-8 8-8h8c4.4 0 8 3.6 8 8" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              ), val: '10 000+', desc: nb('проведённых диагностик') },
+            { icon: (
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 4l3 7h7l-5.5 4.5 2 7L16 19l-6.5 3.5 2-7L6 11h7z" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round"/>
+                </svg>
+              ), val: '95%', desc: nb('учеников улучшают свои результаты') },
+            { icon: (
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <circle cx="16" cy="16" r="10" stroke="#6d28d9" strokeWidth="2"/>
+                  <circle cx="16" cy="16" r="5" stroke="#6d28d9" strokeWidth="2"/>
+                  <path d="M16 6V4M16 28v-2M6 16H4M28 16h-2" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              ), val: '17 лет', desc: nb('опыт работы с детьми') },
+            { icon: (
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 27S6 21 6 13a6 6 0 0 1 10-4.5A6 6 0 0 1 26 13c0 8-10 14-10 14z" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round"/>
+                </svg>
+              ), val: '4,9 из 5', desc: nb('рейтинг школы по отзывам родителей') },
+          ].map((item, i) => (
+            <div key={i} className="dg-stats__item">
+              <div className="dg-stats__icon">{item.icon}</div>
+              <div>
+                <div className="dg-stats__val">{item.val}</div>
+                <div className="dg-stats__desc">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* REVIEWS */}
+        <ReviewsCarousel />
 
         {/* RESULT */}
         <section className="dg-result">
