@@ -353,6 +353,7 @@ export default function Page() {
                 'оцениваем включённость и скорость',
               ]}
               result="Вы увидите, какой формат обучения ему подходит и почему текущий может не работать"
+              imgSrc="/znarnia/images/section-learning.png"
             />
           </div>
 

@@ -744,10 +744,10 @@
 
 .dg-section__img-slot {
   position: absolute;
-  right: 10px;
+  right: -35px;
   top: -10px;
   bottom: 0;
-  width: 317px;
+  width: 380px;
   z-index: 0;
   overflow: hidden;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
@@ -820,7 +820,7 @@
   color: var(--clr-primary);
   line-height: 1.55;
   padding: 10px 14px;
-  background: rgba(109, 40, 217, 0.05);
+  background: rgba(109, 40, 217, 0.12);
   border-left: 3px solid rgba(109, 40, 217, 0.28);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
