@@ -732,6 +732,35 @@
   padding: 20px 24px;
   box-shadow: var(--shadow-card);
   transition: box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dg-section__content {
+  position: relative;
+  z-index: 1;
+  max-width: calc(100% - 220px);
+}
+
+.dg-section__img-slot {
+  position: absolute;
+  right: 40px;
+  top: 0;
+  bottom: 0;
+  width: 288px;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.dg-section__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  image-rendering: auto;
+  filter: blur(0.4px);
 }
 
 .dg-section:hover {

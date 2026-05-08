@@ -147,19 +147,24 @@ function nb(str) {
   return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w}${NBSP}`)
 }
 
-function Section({ icon, title, items, result }) {
+function Section({ icon, title, items, result, imgSrc }) {
   return (
     <div className="dg-section">
-      <div className="dg-section__head">
-        <span className="dg-section__icon">{icon}</span>
-        <div className="dg-section__title">{title}</div>
+      <div className="dg-section__content">
+        <div className="dg-section__head">
+          <span className="dg-section__icon">{icon}</span>
+          <div className="dg-section__title">{title}</div>
+        </div>
+        <ul className="dg-section__list">
+          {items.map((item, i) => (
+            <li key={i}>{nb(item)}</li>
+          ))}
+        </ul>
+        <div className="dg-section__result">{nb(result)}</div>
       </div>
-      <ul className="dg-section__list">
-        {items.map((item, i) => (
-          <li key={i}>{nb(item)}</li>
-        ))}
-      </ul>
-      <div className="dg-section__result">{nb(result)}</div>
+      <div className="dg-section__img-slot">
+        {imgSrc && <img src={imgSrc} alt="" className="dg-section__img" />}
+      </div>
     </div>
   )
 }
@@ -326,6 +331,7 @@ export default function Page() {
                 'оцениваем самостоятельность в принятии решений',
               ]}
               result="Вы поймёте, как устроено его мышление: умеет ли он рассуждать или действует наугад"
+              imgSrc="/znarnia/images/section-thinking.png"
             />
             <Section
               icon="✦"
