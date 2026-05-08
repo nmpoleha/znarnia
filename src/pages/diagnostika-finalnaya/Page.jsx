@@ -225,7 +225,7 @@ export default function Page() {
               </div>
               <div className="dg-hero__cta-price">
                 <div className="dg-hero__cta-price-val">900&thinsp;<span className="dg-hero__cta-price-cur">₽</span></div>
-                <div className="dg-hero__cta-price-desc">45 минут онлайн<br/>+ рекомендации</div>
+                <div className="dg-hero__cta-price-desc">45 минут онлайн + рекомендации</div>
               </div>
             </div>
 
@@ -255,12 +255,15 @@ export default function Page() {
               />
               <div className="dg-hero__card-items-v2">
                 {[
-                  { icon: '🧠', title: 'Проверяем мышление', desc: 'Определим особенности мышления и как ребёнок решает задачи' },
-                  { icon: '📚', title: 'Анализируем знания', desc: 'Выявим пробелы и понимание ключевых тем' },
-                  { icon: '📖', title: 'Даём рекомендации', desc: 'Вы получите понятный план, что делать дальше' },
+                  { title: 'Проверяем мышление', desc: 'Определим особенности мышления и как ребёнок решает задачи' },
+                  { title: 'Анализируем знания', desc: 'Выявим пробелы и понимание ключевых тем' },
+                  { title: 'Даём рекомендации', desc: 'Вы получите понятный план, что делать дальше' },
                 ].map((item, i) => (
                   <div key={i} className="dg-hero__card-item-v2">
-                    <span className="dg-hero__card-item-v2-icon">{item.icon}</span>
+                    <svg className="dg-hero__card-item-v2-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                      <circle cx="14" cy="14" r="14" fill="#ede9fe"/>
+                      <path d="M8 14.5l4.5 4.5 8-9" stroke="#6d28d9" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                     <div>
                       <div className="dg-hero__card-item-v2-title">{item.title}</div>
                       <div className="dg-hero__card-item-v2-desc">{nb(item.desc)}</div>
