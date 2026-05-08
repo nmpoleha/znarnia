@@ -720,9 +720,13 @@
 
 /* ── SECTIONS (PART 1 CARDS) ── */
 .dg-sections {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+
+.dg-sections .dg-section:first-child {
+  grid-column: 1 / -1;
 }
 
 .dg-section {
@@ -740,6 +744,10 @@
   position: relative;
   z-index: 1;
   max-width: calc(100% - 220px);
+}
+
+.dg-section--no-img .dg-section__content {
+  max-width: 100%;
 }
 
 .dg-section__img-slot {
@@ -1563,6 +1571,7 @@
   .dg-part__title { font-size: 13px; }
 
   /* Sections */
+  .dg-sections { grid-template-columns: 1fr; }
   .dg-section { padding: 14px 16px; }
   .dg-section__title { font-size: 12px; }
   .dg-section__list li { font-size: 13px; }

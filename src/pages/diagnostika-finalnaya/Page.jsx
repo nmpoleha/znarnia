@@ -149,7 +149,7 @@ function nb(str) {
 
 function Section({ icon, title, items, result, imgSrc }) {
   return (
-    <div className="dg-section">
+    <div className={`dg-section${!imgSrc ? ' dg-section--no-img' : ''}`}>
       <div className="dg-section__content">
         <div className="dg-section__head">
           <span className="dg-section__icon">{icon}</span>
@@ -417,7 +417,6 @@ export default function Page() {
                 'оцениваем глубину понимания',
               ]}
               result='Станет ясно, где именно «проседает фундамент» и что мешает двигаться дальше'
-              imgSrc="/znarnia/images/section-knowledge.png"
             />
             <Section
               icon="✦"
@@ -428,7 +427,6 @@ export default function Page() {
                 'оцениваем включённость и скорость',
               ]}
               result="Вы увидите, какой формат обучения ему подходит и почему текущий может не работать"
-              imgSrc="/znarnia/images/section-learning.png"
             />
           </div>
 
