@@ -31,6 +31,7 @@ export default defineConfig({
         'sobranie-thanks': resolve(__dirname, 'sobranie-thanks/index.html'),
         'probniy-urok': resolve(__dirname, 'probniy-urok/index.html'),
         'diagnostika-finalnaya': resolve(__dirname, 'diagnostika-finalnaya/index.html'),
+        'diagnostika-finalnaya-2': resolve(__dirname, 'diagnostika-finalnaya-2/index.html'),
       },
     },
   },

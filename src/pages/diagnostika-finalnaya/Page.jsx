@@ -399,29 +399,78 @@ const SCHEDULE_ITEMS = [
   { date: '30 мая (сб)', time: '11:30', grade: '10 класс' },
 ]
 
-export default function Page() {
+export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVariant, heroV2Image, hideHero } = {}) {
   const [modalOpen, setModalOpen] = useState(false)
   const [scheduleOpen, setScheduleOpen] = useState(false)
   const openModal = e => { e.preventDefault(); setModalOpen(true) }
 
   return (
-    <div className="dg-page">
+    <div className={`dg-page${heroVariant === 'v2' ? ' dg-page--white' : ''}`}>
       {modalOpen && <Modal onClose={() => setModalOpen(false)} />}
       <ContactBar />
-      <div className="dg-page__bg-glow dg-page__bg-glow--1" />
-      <div className="dg-page__bg-glow dg-page__bg-glow--2" />
+      {heroVariant !== 'v2' && <div className="dg-page__bg-glow dg-page__bg-glow--1" />}
+      {heroVariant !== 'v2' && <div className="dg-page__bg-glow dg-page__bg-glow--2" />}
 
-      <div className="dg-wrap">
+      <div className={`dg-wrap${heroVariant === 'v2' ? ' dg-wrap--v2' : ''}`}>
 
         {/* HERO */}
+        {!hideHero && (heroVariant === 'v2' ? (
+          <section className="dg-hero dg-hero--v2">
+            {heroV2Image && (
+              <>
+                <img src={heroV2Image} alt="" className="dg-hero__v2-img" />
+              </>
+            )}
+            <div className="dg-hero__v2-content">
+              <div className="dg-hero__v2-left">
+                <h1 className="dg-hero__title">{heroTitle}</h1>
+                <div className="dg-hero__v2-list-head">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/></svg>
+                  Всего за 1 занятие вы узнаете:
+                </div>
+                <ul className="dg-hero__v2-list">
+                  <li>почему ребёнку сложно или легко даётся учёба</li>
+                  <li>как он воспринимает и обрабатывает информацию</li>
+                  <li>где скрыты реальные причины ошибок и трудностей</li>
+                  <li>что поможет ему учиться уверенее и быстрее</li>
+                </ul>
+              </div>
+              <div className="dg-hero__v2-cards">
+                {[
+                  { emoji: '🧠', title: 'Как он думает?', desc: 'Оценим логику, уверенность в себе и то, как он рассуждает.' },
+                  { emoji: '📖', title: 'Что он знает?', desc: 'Выявим пробелы в основах и поймём, какие ошибки критичны, а какие — просто от невнимательности.' },
+                  { emoji: '🚀', title: 'Как он учится?', desc: 'Проверим, насколько легко он воспринимает объяснения и может ли использовать новое правило сразу.' },
+                ].map((c, i) => (
+                  <div key={i} className="dg-hero__v2-card">
+                    <div className="dg-hero__v2-card-head">
+                      <div className="dg-hero__v2-card-icon">{c.emoji}</div>
+                      <div className="dg-hero__v2-card-title">{c.title}</div>
+                    </div>
+                    <div className="dg-hero__v2-card-desc">{c.desc}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="dg-hero__v2-bottom">
+                <a href="#" className="dg-hero__cta-btn" onClick={openModal}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M3 9h18" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M8 2v3M16 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Записаться на диагностику
+                </a>
+              </div>
+            </div>
+          </section>
+        ) : (
         <section className="dg-hero">
           <div className="dg-hero__left">
             <div className="dg-hero__label-tag">Для родителей школьников</div>
             <h1 className="dg-hero__title">
-              Онлайн-диагностика<br/><span className="dg-hero__title-accent">обучения ребёнка</span>
+              {heroTitle ?? <>Онлайн-диагностика<br/><span className="dg-hero__title-accent">обучения ребёнка</span></>}
             </h1>
             <div className="dg-hero__grade">1–10 класса</div>
-            <p className="dg-hero__desc">{nb('За 45 минут определим, что мешает ребёнку учиться: пробелы в знаниях, особенности мышления или трудности в понимании материала.')}</p>
+            {!hideHeroDesc && <p className="dg-hero__desc">{nb('За 45 минут определим, что мешает ребёнку учиться: пробелы в знаниях, особенности мышления или трудности в понимании материала.')}</p>}
 
             <div className="dg-hero__benefits">
               {[
@@ -482,7 +531,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="dg-hero__right">
+          {!hideHeroRight && <div className="dg-hero__right">
             <div className="dg-hero__card">
               <img
                 src="/znarnia/images/who-lesson.png"
@@ -508,8 +557,9 @@ export default function Page() {
                 ))}
               </div>
             </div>
-          </div>
+          </div>}
         </section>
+        ))}
 
         {/* WHO IS IT FOR */}
         <div className="dg-who">
@@ -614,16 +664,6 @@ export default function Page() {
             />
           </div>
 
-          <div className="dg-callout">
-            <div className="dg-callout__title">
-              <span className="dg-callout__line">{nb('Это не пробный урок,')}</span>
-              <span className="dg-callout__line">это глубокая диагностика</span>
-            </div>
-            <div className="dg-callout__text">
-              {nb('Мы смотрим не только на правильные и неправильные ответы.')}<br />
-              {nb('Нам важно понять, как ребёнок рассуждает, где теряет уверенность и почему ошибки повторяются.')}
-            </div>
-          </div>
         </section>
 
         {/* PART 2 */}
