@@ -654,7 +654,7 @@ export default function Page() {
         <div className="dg-author">
           <div className="dg-author__top">
             <div className="dg-author__left">
-              <div className="dg-author__label">Основатель и руководитель Школы Знарния</div>
+              <div className="dg-author__label">Основатель и руководитель<br/>Школы Знарния</div>
               <div className="dg-author__name">Сотникова&nbsp;Ольга&nbsp;Александровна</div>
               <div className="dg-author__items">
                 {[
