@@ -387,8 +387,21 @@ function ReviewsCarousel() {
   )
 }
 
+const SCHEDULE_ITEMS = [
+  { date: '18 мая (пн)', time: '18:30', grade: '5 класс' },
+  { date: '19 мая (вт)', time: '18:30', grade: '6 класс' },
+  { date: '20 мая (ср)', time: '18:30', grade: '7 класс' },
+  { date: '22 мая (пт)', time: '18:30', grade: '8 класс' },
+  { date: '23 мая (сб)', time: '11:30', grade: '1 класс' },
+  { date: '25 мая (пн)', time: '18:30', grade: '2 класс' },
+  { date: '26 мая (вт)', time: '18:30', grade: '3 класс' },
+  { date: '29 мая (пт)', time: '18:30', grade: '4 класс' },
+  { date: '30 мая (сб)', time: '11:30', grade: '10 класс' },
+]
+
 export default function Page() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [scheduleOpen, setScheduleOpen] = useState(false)
   const openModal = e => { e.preventDefault(); setModalOpen(true) }
 
   return (
@@ -530,6 +543,34 @@ export default function Page() {
               ))}
             </div>
           </div>
+          <div className="dg-who__schedule-wrap">
+            <button className="dg-who__schedule-btn" onClick={() => setScheduleOpen(v => !v)}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
+                <path d="M3 9h18" stroke="currentColor" strokeWidth="2"/>
+                <path d="M8 2v3M16 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+              Посмотреть расписание
+              <svg className={`dg-who__schedule-chevron${scheduleOpen ? ' dg-who__schedule-chevron--open' : ''}`} width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            {scheduleOpen && (
+              <div className="dg-schedule">
+                <div className="dg-schedule__title">Ближайшие диагностики</div>
+                <div className="dg-schedule__list">
+                  {SCHEDULE_ITEMS.map((s, i) => (
+                    <div key={i} className="dg-schedule__row">
+                      <span className="dg-schedule__grade">{s.grade}</span>
+                      <span className="dg-schedule__date">{s.date}</span>
+                      <span className="dg-schedule__time">{s.time}</span>
+                      <a href="#" className="dg-schedule__book" onClick={openModal}>Записаться</a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* PART 1 */}
@@ -657,7 +698,7 @@ export default function Page() {
                   <circle cx="16" cy="16" r="5" stroke="#6d28d9" strokeWidth="2"/>
                   <path d="M16 6V4M16 28v-2M6 16H4M28 16h-2" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-              ), val: '17 лет', desc: nb('опыт работы с детьми') },
+              ), val: '20+ лет', desc: nb('опыт работы с детьми') },
             { icon: (
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                   <path d="M16 27S6 21 6 13a6 6 0 0 1 10-4.5A6 6 0 0 1 26 13c0 8-10 14-10 14z" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round"/>
