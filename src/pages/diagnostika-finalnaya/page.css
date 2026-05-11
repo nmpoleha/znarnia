@@ -23,7 +23,7 @@
 .dg-contact-bar {
   width: 100%;
   background: #f9f8ff;
-  padding: 30px 0;
+  padding: 7px 0;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: none;
 }
@@ -35,24 +35,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 12px;
 }
 
 .dg-contact-bar__contacts {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px 32px;
-  margin-right: -145px;
-  margin-top: 10px;
+  gap: 4px 13px;
+  margin-right: -64px;
+  margin-top: 4px;
 }
 
 .dg-contact-bar__item {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 3px;
   color: #3b1f6e;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.01em;
   transition: color 0.18s ease;
@@ -66,35 +66,35 @@
 .dg-contact-bar__brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   flex-shrink: 0;
-  margin-left: -145px;
+  margin-left: -64px;
 }
 
 .dg-contact-bar__logo {
-  height: 112px;
+  height: 70px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .dg-contact-bar__name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: #3b1f6e;
   white-space: nowrap;
   letter-spacing: 0.01em;
-  margin-left: -10px;
-  margin-top: 35px;
+  margin-left: -4px;
+  margin-top: 14px;
 }
 
 .dg-contact-bar__max-icon {
-  width: 22px;
-  height: 22px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background: linear-gradient(135deg, #5b21b6, #7c3aed);
   color: #fff;
-  font-size: 13px;
+  font-size: 8px;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -185,6 +185,7 @@
   display: flex;
   align-items: flex-start;
   gap: 32px;
+  margin-top: -40px;
   margin-bottom: 45px;
   animation: fadeUp 0.65s ease 0.05s both;
 }
