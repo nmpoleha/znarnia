@@ -459,6 +459,9 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   </svg>
                   Записаться на диагностику
                 </a>
+                <div className="dg-hero__v2-price">
+                  590&thinsp;<span className="dg-hero__v2-price-cur">₽</span>
+                </div>
               </div>
             </div>
           </section>
@@ -561,8 +564,132 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
         </section>
         ))}
 
+        {/* HOW IT WORKS — only v2 */}
+        {heroVariant === 'v2' && (
+          <section className="dg-how">
+
+            {/* ── TOP ── */}
+            <div className="dg-how__header">
+              <div className="dg-how__header-left">
+                <h2 className="dg-how__title">Как проходит <span className="dg-how__title-accent">диагностика</span></h2>
+                <div className="dg-how__subtitle">Диагностика проходит онлайн в два этапа</div>
+              </div>
+            </div>
+
+            {/* ── BODY: two columns ── */}
+            <div className="dg-how__body">
+              <div className="dg-how__main">
+
+                {/* Stage 1 */}
+                <div className="dg-how__stage">
+                  <div className="dg-how__stage-head">
+                    <div className="dg-how__stage-pill">1 ЭТАП</div>
+                    <div className="dg-how__stage-label">С РЕБЁНКОМ</div>
+                  </div>
+                  <div className="dg-how__stage1-body">
+                    <div className="dg-how__stage1-left">
+                      <p className="dg-how__stage-intro">В онлайн-формате мы оцениваем три ключевых показателя:</p>
+                      <div className="dg-how__items">
+                        {[
+                          { icon: 'icon-puzzle', title: 'КАК ОН ДУМАЕТ?', desc: 'Логика, мышление, умение рассуждать' },
+                          { icon: 'icon-book', title: 'ЧТО ОН ЗНАЕТ?', desc: 'Уровень знаний, пробелы в основах, понимание тем' },
+                          { icon: 'icon-target', title: 'КАК ОН УЧИТСЯ?', desc: 'Скорость восприятия, умение применять новые правила и решать задачи' },
+                        ].map((item, i) => (
+                          <div key={i} className="dg-how__item">
+                            <div className="dg-how__item-icon"><img src={`/znarnia/images/icons/${item.icon}.png`} alt="" /></div>
+                            <div>
+                              <div className="dg-how__item-title">{item.title}</div>
+                              <div className="dg-how__item-desc">{item.desc}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="dg-how__stage-callout">
+                        ✏️ Ребёнок проходит <strong>авторскую диагностику</strong>, разработанную специально для школьников.
+                      </div>
+                    </div>
+                    <div className="dg-how__stage1-placeholder" />
+                  </div>
+                </div>
+
+                {/* Stage 2 */}
+                <div className="dg-how__stage dg-how__stage--2">
+                  <div className="dg-how__stage-head">
+                    <div className="dg-how__stage-pill">2 ЭТАП</div>
+                    <div className="dg-how__stage-label">С РОДИТЕЛЕМ</div>
+                  </div>
+                  <div className="dg-how__stage2-body">
+                    <img src="/znarnia/images/who-lesson.png" alt="" className="dg-how__stage2-img" />
+                    <div className="dg-how__stage2-text">
+                      <p className="dg-how__stage-intro">{nb('К подключению приглашаются родители. Вы получите подробный разбор результатов диагностики и сможете:')}</p>
+                      <ul className="dg-how__checklist">
+                        {[
+                          'увидеть сильные и слабые стороны ребёнка',
+                          'понять причины трудностей в учёбе',
+                          'получить рекомендации по развитию и обучению',
+                          'задать вопросы и получить ответы эксперта',
+                        ].map((t, i) => <li key={i}>{t}</li>)}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Sidebar: stats */}
+              <div className="dg-how__sidebar">
+                <div className="dg-how__stats-title">НАМ ДОВЕРЯЮТ</div>
+                {[
+                  { icon: 'icon-person', num: '10 000+', desc: 'диагностик проведено для школьников' },
+                  { icon: 'icon-graduation', num: '100+', desc: 'московских школ используют нашу диагностику' },
+                  { icon: 'icon-star', desc: 'Опытные педагоги и методисты с многолетним опытом работы с детьми' },
+                ].map((s, i) => (
+                  <div key={i} className="dg-how__stat">
+                    <div className="dg-how__stat-icon"><img src={`/znarnia/images/icons/${s.icon}.png`} alt="" /></div>
+                    {s.num && <div className="dg-how__stat-num">{s.num}</div>}
+                    <div className="dg-how__stat-desc">{s.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── RECORDING ── */}
+            <div className="dg-how__record">
+              <div className="dg-how__record-head">
+                <div className="dg-how__record-play">▶</div>
+                <div className="dg-how__record-title">
+                  Если не получится присутствовать онлайн —<br/>
+                  диагностику можно пройти <span className="dg-how__record-accent">в записи</span>
+                </div>
+              </div>
+              <div className="dg-how__steps">
+                {[
+                  'Ребёнок выполняет диагностику в удобное время в записи.',
+                  'Система фиксирует результаты: количество верных ответов и ошибки по каждому заданию.',
+                  'Вы можете посмотреть все задания и разбор: что означает каждое из них и как оно влияет на успеваемость в школе.',
+                  'При этом сохраняется вся функциональность и глубина анализа.',
+                ].map((t, i) => (
+                  <div key={i} className="dg-how__step-wrap">
+                    <div className="dg-how__step">
+                      <div className="dg-how__step-icon">
+                        <img src={`/znarnia/images/icons/${['icon-clipboard','icon-chart','icon-document','icon-sun'][i]}.png`} alt="" />
+                      </div>
+                      <div className="dg-how__step-text">{t}</div>
+                    </div>
+                    {i < 3 && <div className="dg-how__step-arrow">→</div>}
+                  </div>
+                ))}
+              </div>
+              <div className="dg-how__record-callout">
+                ⭐ <strong>Вы получите ту же точную картину</strong>, что и при онлайн-диагностике: удобно, информативно и максимально полезно.
+              </div>
+            </div>
+
+          </section>
+        )}
+
         {/* WHO IS IT FOR */}
-        <div className="dg-who">
+        {heroVariant !== 'v2' && <div className="dg-who">
           <div className="dg-who__title">Кому подойдёт диагностика</div>
           <p className="dg-who__desc">{nb('Если вы замечаете у ребёнка сложности в обучении, диагностика поможет понять, где именно причина и что делать дальше.')}</p>
           <div className="dg-who__layout">
@@ -621,10 +748,10 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               </div>
             )}
           </div>
-        </div>
+        </div>}
 
         {/* PART 1 */}
-        <section className="dg-part">
+        {heroVariant !== 'v2' && <section className="dg-part">
           <div className="dg-part__head">
             <div className="dg-part__label">Часть 1</div>
             <div className="dg-part__title">{nb('Работа с ребёнком')}</div>
@@ -664,10 +791,10 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
             />
           </div>
 
-        </section>
+        </section>}
 
         {/* PART 2 */}
-        <section className="dg-part">
+        {heroVariant !== 'v2' && <section className="dg-part">
           <div className="dg-part__head">
             <div className="dg-part__label">Часть 2</div>
             <div className="dg-part__title">{nb('💡 Разбор с родителями — превращаем диагностику в план')}</div>
@@ -688,7 +815,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               ))}
             </div>
           </div>
-        </section>
+        </section>}
 
         {/* AUTHOR + STATS */}
         <div className="dg-author">
@@ -715,7 +842,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               <img src="/znarnia/images/author-sotnikova.png" alt="Сотникова Ольга Александровна" className="dg-author__photo" />
             </div>
           </div>
-          <div className="dg-author__stats">
+          {heroVariant !== 'v2' && <div className="dg-author__stats">
             {[
               { icon: <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="12" cy="10" r="4" stroke="#6d28d9" strokeWidth="2"/><circle cx="22" cy="10" r="4" stroke="#6d28d9" strokeWidth="2"/><path d="M4 26c0-4.4 3.6-8 8-8h8c4.4 0 8 3.6 8 8" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/></svg>, val: '10 000+', desc: nb('проведённых диагностик') },
               { icon: <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 7h7l-5.5 4.5 2 7L16 19l-6.5 3.5 2-7L6 11h7z" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round"/></svg>, val: '95%', desc: nb('учеников улучшают свои результаты') },
@@ -730,7 +857,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 </div>
               </div>
             ))}
-          </div>
+          </div>}
         </div>
 
         {/* REVIEWS */}
