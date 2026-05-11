@@ -437,13 +437,13 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               </div>
               <div className="dg-hero__v2-cards">
                 {[
-                  { emoji: '🧠', title: 'Как он думает?', desc: 'Оценим логику, уверенность в себе и то, как он рассуждает.' },
-                  { emoji: '📖', title: 'Что он знает?', desc: 'Выявим пробелы в основах и поймём, какие ошибки критичны, а какие — просто от невнимательности.' },
-                  { emoji: '🚀', title: 'Как он учится?', desc: 'Проверим, насколько легко он воспринимает объяснения и может ли использовать новое правило сразу.' },
+                  { icon: 'brain_icon', title: 'Как он думает?', desc: 'Оценим логику, уверенность в себе и то, как он рассуждает.' },
+                  { icon: 'book_icon', title: 'Что он знает?', desc: 'Выявим пробелы в основах и поймём, какие ошибки критичны, а какие — просто от невнимательности.' },
+                  { icon: 'rocket_icon', title: 'Как он учится?', desc: 'Проверим, насколько легко он воспринимает объяснения и может ли использовать новое правило сразу.' },
                 ].map((c, i) => (
                   <div key={i} className="dg-hero__v2-card">
                     <div className="dg-hero__v2-card-head">
-                      <div className="dg-hero__v2-card-icon">{c.emoji}</div>
+                      <div className="dg-hero__v2-card-icon"><img src={`/znarnia/images/icons/${c.icon}.png`} alt="" /></div>
                       <div className="dg-hero__v2-card-title">{c.title}</div>
                     </div>
                     <div className="dg-hero__v2-card-desc">{c.desc}</div>
@@ -591,9 +591,9 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                       <p className="dg-how__stage-intro">В онлайн-формате мы оцениваем три ключевых показателя:</p>
                       <div className="dg-how__items">
                         {[
-                          { icon: 'icon-puzzle', title: 'КАК ОН ДУМАЕТ?', desc: 'Логика, мышление, умение рассуждать' },
-                          { icon: 'icon-book', title: 'ЧТО ОН ЗНАЕТ?', desc: 'Уровень знаний, пробелы в основах, понимание тем' },
-                          { icon: 'icon-target', title: 'КАК ОН УЧИТСЯ?', desc: 'Скорость восприятия, умение применять новые правила и решать задачи' },
+                          { icon: 'brain_icon', title: 'КАК ОН ДУМАЕТ?', desc: 'Логика, мышление, умение рассуждать' },
+                          { icon: 'book_icon', title: 'ЧТО ОН ЗНАЕТ?', desc: 'Уровень знаний, пробелы в основах, понимание тем' },
+                          { icon: 'rocket_icon', title: 'КАК ОН УЧИТСЯ?', desc: 'Скорость восприятия, умение применять новые правила и решать задачи' },
                         ].map((item, i) => (
                           <div key={i} className="dg-how__item">
                             <div className="dg-how__item-icon"><img src={`/znarnia/images/icons/${item.icon}.png`} alt="" /></div>
@@ -608,7 +608,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                         ✏️ Ребёнок проходит <strong>авторскую диагностику</strong>, разработанную специально для школьников.
                       </div>
                     </div>
-                    <div className="dg-how__stage1-placeholder" />
+                    <img src="/znarnia/images/girl-thinking.png" alt="" className="dg-how__stage1-img" />
                   </div>
                 </div>
 
@@ -637,20 +637,6 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               </div>
 
               {/* Sidebar: stats */}
-              <div className="dg-how__sidebar">
-                <div className="dg-how__stats-title">НАМ ДОВЕРЯЮТ</div>
-                {[
-                  { icon: 'icon-person', num: '10 000+', desc: 'диагностик проведено для школьников' },
-                  { icon: 'icon-graduation', num: '100+', desc: 'московских школ используют нашу диагностику' },
-                  { icon: 'icon-star', desc: 'Опытные педагоги и методисты с многолетним опытом работы с детьми' },
-                ].map((s, i) => (
-                  <div key={i} className="dg-how__stat">
-                    <div className="dg-how__stat-icon"><img src={`/znarnia/images/icons/${s.icon}.png`} alt="" /></div>
-                    {s.num && <div className="dg-how__stat-num">{s.num}</div>}
-                    <div className="dg-how__stat-desc">{s.desc}</div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* ── RECORDING ── */}
@@ -842,7 +828,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               <img src="/znarnia/images/author-sotnikova.png" alt="Сотникова Ольга Александровна" className="dg-author__photo" />
             </div>
           </div>
-          {heroVariant !== 'v2' && <div className="dg-author__stats">
+          <div className="dg-author__stats">
             {[
               { icon: <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="12" cy="10" r="4" stroke="#6d28d9" strokeWidth="2"/><circle cx="22" cy="10" r="4" stroke="#6d28d9" strokeWidth="2"/><path d="M4 26c0-4.4 3.6-8 8-8h8c4.4 0 8 3.6 8 8" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/></svg>, val: '10 000+', desc: nb('проведённых диагностик') },
               { icon: <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 7h7l-5.5 4.5 2 7L16 19l-6.5 3.5 2-7L6 11h7z" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round"/></svg>, val: '95%', desc: nb('учеников улучшают свои результаты') },
@@ -857,7 +843,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 </div>
               </div>
             ))}
-          </div>}
+          </div>
         </div>
 
         {/* REVIEWS */}
