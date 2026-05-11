@@ -169,6 +169,109 @@ function Section({ icon, title, items, result, imgSrc }) {
   )
 }
 
+const LETTERS = [
+  { src: '/znarnia/images/letters/letter-01.jpg' },
+  { src: '/znarnia/images/letters/letter-02.jpg' },
+  { src: '/znarnia/images/letters/letter-03.jpg' },
+  { src: '/znarnia/images/letters/letter-04.jpg' },
+  { src: '/znarnia/images/letters/letter-05.jpg' },
+  { src: '/znarnia/images/letters/letter-06.jpg' },
+  { src: '/znarnia/images/letters/letter-07.jpg' },
+  { src: '/znarnia/images/letters/letter-08.jpg' },
+]
+
+function LettersCarousel() {
+  const [index, setIndex] = useState(0)
+  const [lightbox, setLightbox] = useState(null)
+  const visible = 4
+  const total = LETTERS.length
+  const canPrev = index > 0
+  const canNext = index + visible < total
+
+  function openLightbox(i) { setLightbox(i) }
+  function closeLightbox() { setLightbox(null) }
+  function lbPrev() { setLightbox(i => Math.max(0, i - 1)) }
+  function lbNext() { setLightbox(i => Math.min(total - 1, i + 1)) }
+
+  return (
+    <>
+      <div className="dg-letters">
+        <div className="dg-letters__track-wrap">
+          <div
+            className="dg-letters__track"
+            style={{ transform: `translateX(calc(-${index} * (100% / ${visible} + 10px / ${visible})))` }}
+          >
+            {LETTERS.map((l, i) => (
+              <div key={i} className="dg-letters__thumb" onClick={() => openLightbox(i)}>
+                <img src={l.src} alt={`Благодарность ${i + 1}`} className="dg-letters__thumb-img" />
+                <div className="dg-letters__thumb-overlay">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <circle cx="11" cy="11" r="10" stroke="#fff" strokeWidth="1.5"/>
+                    <path d="M7 11h8M11 7v8" stroke="#fff" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {(canPrev || canNext) && (
+          <div className="dg-letters__nav">
+            <button
+              className={`dg-letters__arrow${!canPrev ? ' dg-letters__arrow--disabled' : ''}`}
+              onClick={() => canPrev && setIndex(i => i - 1)}
+              aria-label="Назад"
+            >
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              className={`dg-letters__arrow${!canNext ? ' dg-letters__arrow--disabled' : ''}`}
+              onClick={() => canNext && setIndex(i => i + 1)}
+              aria-label="Вперёд"
+            >
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <path d="M8 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {lightbox !== null && (
+        <div className="dg-lightbox" onClick={closeLightbox}>
+          <button className="dg-lightbox__close" onClick={closeLightbox} aria-label="Закрыть">×</button>
+          <button
+            className={`dg-lightbox__prev${lightbox === 0 ? ' dg-lightbox__nav--hidden' : ''}`}
+            onClick={e => { e.stopPropagation(); lbPrev() }}
+            aria-label="Предыдущая"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 4l-8 8 8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <img
+            src={LETTERS[lightbox].src}
+            alt={`Благодарность ${lightbox + 1}`}
+            className="dg-lightbox__img"
+            onClick={e => e.stopPropagation()}
+          />
+          <button
+            className={`dg-lightbox__next${lightbox === total - 1 ? ' dg-lightbox__nav--hidden' : ''}`}
+            onClick={e => { e.stopPropagation(); lbNext() }}
+            aria-label="Следующая"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 4l8 8-8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <div className="dg-lightbox__counter">{lightbox + 1} / {total}</div>
+        </div>
+      )}
+    </>
+  )
+}
+
 const REVIEWS = [
   { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-04.jpg' },
   { src: '/znarnia/images/reviews/photo_2026-05-08_20-29-53.jpg' },
@@ -516,6 +619,22 @@ export default function Page() {
 
         {/* REVIEWS */}
         <ReviewsCarousel />
+
+        {/* SCHOOLS */}
+        <div className="dg-schools">
+          <div className="dg-schools__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3L3 9l11 6 11-6-11-6z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
+              <path d="M3 9v8" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+              <path d="M7 11.5v5.5a7 7 0 0 0 14 0v-5.5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <div className="dg-schools__body">
+            <div className="dg-schools__title">Сотрудничество со школами</div>
+            <p className="dg-schools__text">{nb('Опыт сотрудничества со школами — одно из подтверждений качества нашей диагностики. Мы проводили независимую оценку знаний для учеников из более 50 образовательных учреждений Москвы и получали благодарственные письма от школ и педагогов.')}</p>
+            <LettersCarousel />
+          </div>
+        </div>
 
         {/* RESULT */}
         <section className="dg-result">
