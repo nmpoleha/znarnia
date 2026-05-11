@@ -581,7 +581,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               <div className="dg-how__main">
 
                 {/* Stage 1 */}
-                <div className="dg-how__stage">
+                <div className="dg-how__stage dg-how__stage--1">
                   <div className="dg-how__stage-head">
                     <div className="dg-how__stage-pill">1 ЭТАП</div>
                     <div className="dg-how__stage-label">С РЕБЁНКОМ</div>
@@ -597,7 +597,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                         ].map((item, i) => (
                           <div key={i} className="dg-how__item">
                             <div className="dg-how__item-icon"><img src={`/znarnia/images/icons/${item.icon}.png`} alt="" /></div>
-                            <div>
+                            <div className="dg-how__item-body">
                               <div className="dg-how__item-title">{item.title}</div>
                               <div className="dg-how__item-desc">{item.desc}</div>
                             </div>
@@ -607,6 +607,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                       <div className="dg-how__stage-callout">
                         ✏️ Ребёнок проходит <strong>авторскую диагностику</strong>, разработанную специально для школьников.
                       </div>
+                      <p className="dg-how__stage-intro" style={{marginTop:'12px'}}>{nb('Диагностика проходит онлайн в реальном времени в назначенное время. Ребёнок последовательно решает специально подготовленные задания, а все его ответы фиксируются и анализируются.')}</p>
                     </div>
                     <img src="/znarnia/images/girl-thinking.png" alt="" className="dg-how__stage1-img" />
                   </div>
@@ -619,7 +620,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                     <div className="dg-how__stage-label">С РОДИТЕЛЕМ</div>
                   </div>
                   <div className="dg-how__stage2-body">
-                    <img src="/znarnia/images/who-lesson.png" alt="" className="dg-how__stage2-img" />
+                    <img src="/znarnia/images/mom-child-laptop.png" alt="" className="dg-how__stage2-img" />
                     <div className="dg-how__stage2-text">
                       <p className="dg-how__stage-intro">{nb('К подключению приглашаются родители. Вы получите подробный разбор результатов диагностики и сможете:')}</p>
                       <ul className="dg-how__checklist">
@@ -630,6 +631,9 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                           'задать вопросы и получить ответы эксперта',
                         ].map((t, i) => <li key={i}>{t}</li>)}
                       </ul>
+                      <div className="dg-how__stage-callout" style={{marginTop:'14px'}}>
+                        {nb('Сразу после диагностики подключается родитель. Мы вместе подробно разбираем результаты: какие задания вызвали сложности, о чём это говорит, какие есть пробелы и как дальше выстраивать обучение.')}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -640,12 +644,39 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
             </div>
 
             {/* ── RECORDING ── */}
+            <div className="dg-how__record-cta">
+              <button className="dg-who__schedule-btn" onClick={() => setScheduleOpen(v => !v)}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M3 9h18" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M8 2v3M16 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                Посмотреть расписание
+                <svg className={`dg-who__schedule-chevron${scheduleOpen ? ' dg-who__schedule-chevron--open' : ''}`} width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              {scheduleOpen && (
+                <div className="dg-schedule">
+                  <div className="dg-schedule__title">Ближайшие диагностики</div>
+                  <div className="dg-schedule__list">
+                    {SCHEDULE_ITEMS.map((s, i) => (
+                      <div key={i} className="dg-schedule__row">
+                        <span className="dg-schedule__grade">{s.grade}</span>
+                        <span className="dg-schedule__date">{s.date}</span>
+                        <span className="dg-schedule__time">{s.time}</span>
+                        <a href="#" className="dg-schedule__book" onClick={openModal}>Записаться</a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
             <div className="dg-how__record">
               <div className="dg-how__record-head">
                 <div className="dg-how__record-play">▶</div>
                 <div className="dg-how__record-title">
-                  Если не получится присутствовать онлайн —<br/>
-                  диагностику можно пройти <span className="dg-how__record-accent">в записи</span>
+                  Если не получится присутствовать онлайн — диагностику можно пройти <span className="dg-how__record-accent">в записи</span>
                 </div>
               </div>
               <div className="dg-how__steps">
@@ -658,7 +689,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   <div key={i} className="dg-how__step-wrap">
                     <div className="dg-how__step">
                       <div className="dg-how__step-icon">
-                        <img src={`/znarnia/images/icons/${['icon-clipboard','icon-chart','icon-document','icon-sun'][i]}.png`} alt="" />
+                        <img src={`/znarnia/images/icons/${['icon-clipboard','icon-chart','icon-document','icon-star'][i]}.png`} alt="" />
                       </div>
                       <div className="dg-how__step-text">{t}</div>
                     </div>
@@ -875,6 +906,31 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
 
         <footer className="dg-footer">
           <span>© 2026 Школа Сотниковой Ольги</span>
+          <div className="dg-footer__contacts">
+            <a href="mailto:info@znarnia.ru" className="dg-contact-bar__item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
+                <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2"/>
+              </svg>
+              <span>info@znarnia.ru</span>
+            </a>
+            <a href="https://t.me/sotnikova_oa_school" className="dg-contact-bar__item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M21.8 3.2L2.4 10.9c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.7.4.9 1 .9.4 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.8L23.9 4.5c.3-1.3-.5-1.8-2.1-1.3z" fill="currentColor"/>
+              </svg>
+              <span>@sotnikova_oa_school</span>
+            </a>
+            <a href="https://max.ru/sotnikova_oa_school" className="dg-contact-bar__item">
+              <span className="dg-contact-bar__max-icon">M</span>
+              <span>написать в Max</span>
+            </a>
+            <a href="https://wa.me/79955775318" className="dg-contact-bar__item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M17.4 6.6A7.1 7.1 0 0 0 12 4.5a7.15 7.15 0 0 0-6.2 10.7L4.5 19.5l4.4-1.15A7.15 7.15 0 0 0 19.5 12a7.1 7.1 0 0 0-2.1-5.4zm-5.4 11a5.95 5.95 0 0 1-3.03-.83l-.22-.13-2.26.59.6-2.2-.14-.23A5.95 5.95 0 1 1 12 17.6zm3.26-4.45c-.18-.09-1.06-.52-1.22-.58-.16-.06-.28-.09-.4.09s-.46.58-.56.7c-.1.12-.2.13-.38.04a4.8 4.8 0 0 1-1.42-.88 5.3 5.3 0 0 1-.98-1.22c-.1-.18-.01-.27.08-.36.08-.08.18-.2.27-.3.09-.1.12-.18.18-.3.06-.12.03-.22-.02-.31-.05-.09-.4-.96-.54-1.32-.14-.34-.29-.3-.4-.3h-.34c-.12 0-.31.04-.47.22s-.62.6-.62 1.47.63 1.7.72 1.82c.09.12 1.24 1.9 3.01 2.66.42.18.75.29 1 .37.42.13.8.11 1.1.07.34-.05 1.04-.43 1.19-.84.14-.41.14-.76.1-.83-.05-.08-.17-.12-.35-.2z" fill="currentColor"/>
+              </svg>
+              <span>+7 995 577-53-18</span>
+            </a>
+          </div>
         </footer>
 
       </div>

@@ -349,6 +349,10 @@
   .dg-hero__v2-float-badge { display: none; }
   .dg-hero__v2-cards { grid-template-columns: 1fr; margin-top: 16px; gap: 6px; }
   .dg-hero__v2-card { padding: 10px 12px; }
+  .dg-hero__v2-card-head { margin-left: 0; margin-top: 0; }
+  .dg-hero__v2-card:nth-child(1) .dg-hero__v2-card-head,
+  .dg-hero__v2-card:nth-child(3) .dg-hero__v2-card-head { margin-left: 0; }
+  .dg-hero__v2-card-desc { margin-top: 0; }
   .dg-hero__v2-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
   .dg-hero__v2-price { font-size: 22px; }
 }
@@ -2181,6 +2185,13 @@
   color: var(--clr-muted);
   letter-spacing: 0.02em;
 }
+.dg-footer__contacts {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
@@ -2196,15 +2207,10 @@
   .dg-contact-bar__brand { margin-left: 0; align-items: center; gap: 4px; }
   .dg-contact-bar__logo { height: 58px; }
   .dg-contact-bar__name { font-size: 15px; margin-left: 0; margin-top: 22px; }
-  .dg-contact-bar__contacts {
-    margin-right: 0;
-    margin-top: 0;
-    gap: 4px 14px;
-    width: 100%;
-  }
-  .dg-contact-bar__item { font-size: 11px; gap: 5px; }
-  .dg-contact-bar__item svg { width: 14px; height: 14px; }
-  .dg-contact-bar__max-icon { width: 18px; height: 18px; font-size: 11px; }
+  .dg-contact-bar__contacts { display: none; }
+  .dg-footer__contacts { display: flex; }
+  .dg-footer__contacts .dg-contact-bar__item { font-size: 13px; gap: 6px; color: var(--clr-muted); }
+  .dg-footer__contacts .dg-contact-bar__max-icon { width: 18px; height: 18px; font-size: 11px; }
 
   /* Wrap */
   .dg-wrap { padding: 20px 14px 44px; }
@@ -2421,6 +2427,12 @@
   border-radius: 20px;
   padding: 24px 28px;
 }
+.dg-how__stage--1 {
+  position: relative;
+  overflow: hidden;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 
 .dg-how__stage-head {
   display: flex;
@@ -2459,18 +2471,18 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  max-width: calc(100% - 269px);
 }
 
 .dg-how__stage1-img {
-  flex-shrink: 0;
-  width: 420px;
-  align-self: stretch;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 269px;
+  height: 80%;
   object-fit: cover;
   object-position: center top;
-  margin-top: -24px;
-  margin-bottom: -24px;
-  margin-right: -28px;
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 18px 18px 0;
 }
 
 .dg-how__stage-intro {
@@ -2483,28 +2495,39 @@
 .dg-how__items {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
   margin-bottom: 14px;
+  margin-left: -10px;
 }
 
 .dg-how__item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 0px;
+  margin-bottom: -8px;
 }
 
 .dg-how__item-icon {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-shrink: 0;
 }
 .dg-how__item-icon img {
-  width: 72px;
-  height: 72px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  object-position: center top;
   object-fit: contain;
 }
 
+.dg-how__item-body {
+  margin-left: -8px;
+}
+.dg-how__item-icon img[src*="brain_icon"] {
+  position: relative;
+  top: -10px;
+}
 .dg-how__item-title {
   font-family: var(--font-display);
   font-size: 13px;
@@ -2538,8 +2561,8 @@
 }
 
 .dg-how__stage2-img {
-  width: 180px;
-  height: 140px;
+  width: 281px;
+  height: 218px;
   object-fit: cover;
   border-radius: 14px;
   flex-shrink: 0;
@@ -2674,14 +2697,19 @@
 .dg-how__step {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
+  align-items: flex-start;
+  gap: 0px;
+  text-align: left;
 }
 
+.dg-how__step-icon {
+  height: 72px;
+  display: flex;
+  align-items: flex-end;
+}
 .dg-how__step-icon img {
-  width: 36px;
-  height: 36px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
 }
 
@@ -2689,6 +2717,7 @@
   font-size: 12px;
   color: #4b5563;
   line-height: 1.5;
+  margin-top: -10px;
 }
 
 .dg-how__step-arrow {
@@ -2706,6 +2735,9 @@
   color: #3b1f6e;
   line-height: 1.6;
 }
+.dg-how__record-cta {
+  margin-bottom: 12px;
+}
 
 @media (max-width: 640px) {
   .dg-how__header { flex-direction: column; gap: 8px; }
@@ -2715,10 +2747,20 @@
   .dg-how__stage { padding: 18px 16px; }
   .dg-how__stage1-body { flex-direction: column; }
   .dg-how__stage1-img { display: none; }
+  .dg-how__stage1-left { max-width: 100%; }
   .dg-how__stage2-body { flex-direction: column; }
-  .dg-how__stage2-img { width: 100%; height: 160px; }
+  .dg-how__stage2-img { width: 100%; height: 200px; }
+  .dg-how__items { margin-left: 0; gap: 12px; }
+  .dg-how__item { margin-bottom: 0; }
+  .dg-how__item-body { margin-left: 0; }
+  .dg-how__stage-intro { white-space: normal; }
   .dg-how__record { padding: 18px 16px; }
+  .dg-how__record-cta { margin-bottom: 8px; }
+  .dg-how__who__schedule-btn { width: 100%; justify-content: center; }
   .dg-how__steps { grid-template-columns: 1fr 1fr; gap: 12px; }
   .dg-how__step-arrow { display: none; }
+  .dg-how__step-icon { height: 56px; }
+  .dg-how__step-icon img { width: 56px; height: 56px; }
   .dg-how__record-title { font-size: 14px; }
+  .dg-how__record-callout { font-size: 12px; }
 }
