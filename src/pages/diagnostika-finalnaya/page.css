@@ -344,6 +344,17 @@
 @media (max-width: 640px) {
   .dg-hero--v2 { min-height: unset; }
   .dg-hero__v2-img { display: none; }
+  .dg-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url('/znarnia/images/hero-bg-mobile.png') center top / cover no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dg-page { position: relative; }
+  .dg-wrap { position: relative; z-index: 1; }
   .dg-hero__v2-left { max-width: 100%; }
   .dg-hero--v2 .dg-hero__title { font-size: 24px; line-height: 1.5; }
   .dg-hero__v2-float-badge { display: none; }
@@ -2197,7 +2208,7 @@
 @media (max-width: 640px) {
 
   /* Contact bar */
-  .dg-contact-bar { padding: 8px 0; }
+  .dg-contact-bar { padding: 8px 0; position: relative; z-index: 2; background: #f9f8ff; }
   .dg-contact-bar__inner {
     flex-direction: column;
     align-items: flex-start;
