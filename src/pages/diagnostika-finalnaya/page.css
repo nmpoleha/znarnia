@@ -195,17 +195,17 @@
 }
 .dg-hero__v2-img {
   position: absolute;
-  right: -20px;
-  top: -190px;
+  right: 20px;
+  top: -200px;
   height: 100%;
   width: auto;
-  max-width: 55%;
+  max-width: 44%;
   object-fit: contain;
   object-position: right bottom;
   mix-blend-mode: multiply;
   z-index: 0;
   pointer-events: none;
-  border-radius: 48px;
+  border-radius: 80px;
   opacity: 0.95;
 }
 .dg-hero__v2-float-badge {
@@ -260,14 +260,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 .dg-hero__v2-list li {
   display: flex;
   align-items: flex-start;
   gap: 8px;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.3;
   color: var(--clr-text);
 }
 .dg-hero__v2-list li::before {
@@ -409,7 +409,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 .dg-hero__v2-card {
   background: rgba(255, 255, 255, 0.95);
