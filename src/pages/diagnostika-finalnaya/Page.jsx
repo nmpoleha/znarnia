@@ -292,68 +292,98 @@ const REVIEWS = [
 
 function ReviewsCarousel() {
   const [index, setIndex] = useState(0)
-  const visible = 3
+  const [lightbox, setLightbox] = useState(null)
+  const visible = 5
   const total = REVIEWS.length
   const canPrev = index > 0
   const canNext = index + visible < total
 
   return (
-    <div className="dg-reviews">
-      <div className="dg-reviews__head">
-        <div className="dg-reviews__title">Родители о нас</div>
-        <div className="dg-reviews__nav">
-          <button
-            className={`dg-reviews__arrow${!canPrev ? ' dg-reviews__arrow--disabled' : ''}`}
-            onClick={() => canPrev && setIndex(i => i - 1)}
-            aria-label="Назад"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <button
-            className={`dg-reviews__arrow${!canNext ? ' dg-reviews__arrow--disabled' : ''}`}
-            onClick={() => canNext && setIndex(i => i + 1)}
-            aria-label="Вперёд"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M8 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+    <>
+      <div className="dg-reviews">
+        <div className="dg-reviews__head">
+          <div className="dg-reviews__title">Родители о нас</div>
+          <div className="dg-reviews__nav">
+            <button
+              className={`dg-reviews__arrow${!canPrev ? ' dg-reviews__arrow--disabled' : ''}`}
+              onClick={() => canPrev && setIndex(i => i - 1)}
+              aria-label="Назад"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              className={`dg-reviews__arrow${!canNext ? ' dg-reviews__arrow--disabled' : ''}`}
+              onClick={() => canNext && setIndex(i => i + 1)}
+              aria-label="Вперёд"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M8 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="dg-reviews__track-wrap">
-        <div
-          className="dg-reviews__track"
-          style={{ transform: `translateX(calc(-${index} * (100% / ${visible} + 16px / ${visible})))` }}
-        >
-          {REVIEWS.map((r, i) => (
-            <div key={i} className="dg-reviews__slide">
-              {r.src
-                ? <img src={r.src} alt={`Отзыв ${i + 1}`} className="dg-reviews__img" />
-                : <div className="dg-reviews__placeholder">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                      <rect x="4" y="4" width="28" height="28" rx="4" stroke="#c4b5fd" strokeWidth="2" strokeDasharray="4 3"/>
-                      <path d="M12 24l5-6 4 5 3-3 4 4" stroke="#c4b5fd" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <circle cx="13" cy="14" r="2" fill="#c4b5fd"/>
-                    </svg>
-                    <span>Фото отзыва</span>
-                  </div>
-              }
-            </div>
+        <div className="dg-reviews__track-wrap">
+          <div
+            className="dg-reviews__track"
+            style={{ transform: `translateX(calc(-${index} * (100% / ${visible} + 10px / ${visible})))` }}
+          >
+            {REVIEWS.map((r, i) => (
+              <div key={i} className="dg-reviews__thumb" onClick={() => setLightbox(i)}>
+                <img src={r.src} alt={`Отзыв ${i + 1}`} className="dg-reviews__thumb-img" />
+                <div className="dg-reviews__thumb-overlay">
+                  <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+                    <circle cx="11" cy="11" r="10" stroke="#fff" strokeWidth="1.5"/>
+                    <path d="M7 11h8M11 7v8" stroke="#fff" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="dg-reviews__dots">
+          {Array.from({ length: total - visible + 1 }).map((_, i) => (
+            <button
+              key={i}
+              className={`dg-reviews__dot${index === i ? ' dg-reviews__dot--active' : ''}`}
+              onClick={() => setIndex(i)}
+            />
           ))}
         </div>
       </div>
-      <div className="dg-reviews__dots">
-        {Array.from({ length: total - visible + 1 }).map((_, i) => (
+
+      {lightbox !== null && (
+        <div className="dg-lightbox" onClick={() => setLightbox(null)}>
+          <button className="dg-lightbox__close" onClick={() => setLightbox(null)} aria-label="Закрыть">×</button>
           <button
-            key={i}
-            className={`dg-reviews__dot${index === i ? ' dg-reviews__dot--active' : ''}`}
-            onClick={() => setIndex(i)}
+            className={`dg-lightbox__prev${lightbox === 0 ? ' dg-lightbox__nav--hidden' : ''}`}
+            onClick={e => { e.stopPropagation(); setLightbox(i => Math.max(0, i - 1)) }}
+            aria-label="Предыдущая"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 4l-8 8 8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <img
+            src={REVIEWS[lightbox].src}
+            alt={`Отзыв ${lightbox + 1}`}
+            className="dg-lightbox__img"
+            onClick={e => e.stopPropagation()}
           />
-        ))}
-      </div>
-    </div>
+          <button
+            className={`dg-lightbox__next${lightbox === total - 1 ? ' dg-lightbox__nav--hidden' : ''}`}
+            onClick={e => { e.stopPropagation(); setLightbox(i => Math.min(total - 1, i + 1)) }}
+            aria-label="Следующая"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 4l8 8-8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <div className="dg-lightbox__counter">{lightbox + 1} / {total}</div>
+        </div>
+      )}
+    </>
   )
 }
 
@@ -578,6 +608,33 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        {/* AUTHOR */}
+        <div className="dg-author">
+          <div className="dg-author__header">
+            <div className="dg-author__label">Основатель и руководитель Школы Знарния</div>
+            <div className="dg-author__name">Сотникова&nbsp;Ольга&nbsp;Александровна</div>
+          </div>
+          <div className="dg-author__body">
+            <div className="dg-author__items">
+              {[
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/><path d="M12 7v5l3 3" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>, text: 'Опыт преподавания: более 20 лет' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="11" rx="1.5" stroke="#6d28d9" strokeWidth="1.8"/><path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/><path d="M9 17h6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/></svg>, text: 'Посетила с проверками более 200 школ в качестве эксперта' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="#6d28d9" strokeWidth="1.8"/><circle cx="16" cy="8" r="3" stroke="#6d28d9" strokeWidth="1.8"/><path d="M2 20c0-3.9 3.1-7 7-7h6c3.9 0 7 3.1 7 7" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/></svg>, text: nb('Лично провела независимую диагностику у 10 000+ школьников') },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 10-5-10-5z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/><path d="M6 11v5a6 6 0 0 0 12 0v-5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/></svg>, text: nb('Обучила даже тех детей, которых школа считала неспособными') },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 0 1 4 12.7V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.3A7 7 0 0 1 12 2z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 21h6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/></svg>, text: 'Разработала уникальную методику обучения' },
+              ].map((item, i) => (
+                <div key={i} className="dg-author__item">
+                  <span className="dg-author__icon">{item.icon}</span>
+                  <span>{item.text}</span>
+                </div>
+              ))}
+            </div>
+            <div className="dg-author__photo-slot">
+              <img src="/znarnia/images/author-sotnikova.png" alt="Сотникова Ольга Александровна" className="dg-author__photo" />
+            </div>
+          </div>
+        </div>
 
         {/* STATS */}
         <div className="dg-stats">
