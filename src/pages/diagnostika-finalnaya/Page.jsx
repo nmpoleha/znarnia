@@ -50,7 +50,7 @@ function Modal({ onClose }) {
           <>
             <div className="dg-modal__header">
               <div className="dg-modal__title">Записаться на диагностику</div>
-              <div className="dg-modal__price">900&thinsp;₽</div>
+              <div className="dg-modal__price">590&thinsp;₽</div>
             </div>
             <form className="dg-modal__form" onSubmit={handleSubmit}>
               <div className="dg-modal__group">
@@ -460,7 +460,7 @@ export default function Page() {
                 </span>
               </div>
               <div className="dg-hero__cta-price">
-                <div className="dg-hero__cta-price-val">900&thinsp;<span className="dg-hero__cta-price-cur">₽</span></div>
+                <div className="dg-hero__cta-price-val">590&thinsp;<span className="dg-hero__cta-price-cur">₽</span></div>
                 <div className="dg-hero__cta-price-desc">45 минут онлайн + рекомендации</div>
               </div>
             </div>
