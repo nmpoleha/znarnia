@@ -477,7 +477,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 {[
                   { icon: 'icon-graduation', title: '1–10 класс', desc: 'для школьников' },
                   { icon: 'icon-clock', title: 'Онлайн', desc: 'удобно из дома' },
-                  { icon: 'icon-document', title: 'План рекомендаций', desc: 'после занятия' },
+                  { icon: 'icon-document', title: 'Готовый план', desc: 'после занятия' },
                 ].map((item, i) => (
                   <div key={i} className="dg-hero__footer-badge">
                     <img src={`/znarnia/images/icons/${item.icon}.png`} className="dg-hero__footer-badge-icon" alt="" />
