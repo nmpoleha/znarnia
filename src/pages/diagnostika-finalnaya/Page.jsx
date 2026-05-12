@@ -451,17 +451,42 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 ))}
               </div>
               <div className="dg-hero__v2-bottom">
-                <a href="#" className="dg-hero__cta-btn" onClick={openModal}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M3 9h18" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M8 2v3M16 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                  Записаться на диагностику
-                </a>
+                <div className="dg-hero__cta-left">
+                  <a href="#" className="dg-hero__cta-btn" onClick={openModal}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M3 9h18" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M8 2v3M16 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <rect x="7" y="13" width="3" height="3" rx="0.5" fill="currentColor"/>
+                      <rect x="11" y="13" width="3" height="3" rx="0.5" fill="currentColor"/>
+                    </svg>
+                    Записаться на онлайн-диагностику
+                  </a>
+                  <span className="dg-hero__cta-note">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
+                      <path d="M2 2 C2 2 2 9 8 9 L8 9 L14 9 M11 6 L14 9 L11 12" stroke="#f97316" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    Всего 1 занятие — польза на месяцы вперёд
+                  </span>
+                </div>
                 <div className="dg-hero__v2-price">
                   590&thinsp;<span className="dg-hero__v2-price-cur">₽</span>
                 </div>
+              </div>
+              <div className="dg-hero__footer-badges">
+                {[
+                  { icon: 'icon-graduation', title: '1–10 класс', desc: 'для школьников' },
+                  { icon: 'icon-clock', title: 'Онлайн', desc: 'удобно из дома' },
+                  { icon: 'icon-document', title: 'План рекомендаций', desc: 'после занятия' },
+                ].map((item, i) => (
+                  <div key={i} className="dg-hero__footer-badge">
+                    <img src={`/znarnia/images/icons/${item.icon}.png`} className="dg-hero__footer-badge-icon" alt="" />
+                    <div>
+                      <div className="dg-hero__footer-badge-title">{item.title}</div>
+                      <div className="dg-hero__footer-badge-desc">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

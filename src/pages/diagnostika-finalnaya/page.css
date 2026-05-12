@@ -196,7 +196,7 @@
 .dg-hero__v2-img {
   position: absolute;
   right: 20px;
-  top: -180px;
+  top: -260px;
   height: 100%;
   width: auto;
   max-width: 44%;
@@ -355,16 +355,20 @@
   }
   .dg-page { position: relative; }
   .dg-wrap { position: relative; z-index: 1; }
-  .dg-hero__v2-left { max-width: 100%; }
+  .dg-hero__v2-left        { display: contents; }
+  .dg-hero--v2 .dg-hero__title { order: 1; }
+  .dg-hero__v2-list-head   { order: 2; margin-top: 0; }
+  .dg-hero__v2-cards       { grid-template-columns: 1fr; gap: 6px; order: 3; }
+  .dg-hero__v2-bottom      { order: 4; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .dg-hero__footer-badges  { order: 5; }
+  .dg-hero__v2-list        { order: 6; }
   .dg-hero--v2 .dg-hero__title { font-size: 24px; line-height: 1.5; }
   .dg-hero__v2-float-badge { display: none; }
-  .dg-hero__v2-cards { grid-template-columns: 1fr; margin-top: 16px; gap: 6px; }
   .dg-hero__v2-card { padding: 10px 12px; }
   .dg-hero__v2-card-head { margin-left: 0; margin-top: 0; }
   .dg-hero__v2-card:nth-child(1) .dg-hero__v2-card-head,
   .dg-hero__v2-card:nth-child(3) .dg-hero__v2-card-head { margin-left: 0; }
   .dg-hero__v2-card-desc { margin-top: 0; }
-  .dg-hero__v2-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
   .dg-hero__v2-price { font-size: 22px; }
 }
 
