@@ -633,9 +633,9 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                       <div className="dg-how__stage-callout">
                         ✏️ Ребёнок проходит <strong>авторскую диагностику</strong>, разработанную специально для школьников.
                       </div>
-                      <p className="dg-how__stage-intro" style={{marginTop:'12px'}}>{nb('Диагностика проходит онлайн в реальном времени в назначенное время. Ребёнок последовательно решает специально подготовленные задания, а все его ответы фиксируются и анализируются.')}</p>
+                      <p className="dg-how__stage-intro dg-how__stage-intro--detail" style={{marginTop:'12px'}}>{nb('Диагностика проходит онлайн в реальном времени в назначенное время. Ребёнок последовательно решает специально подготовленные задания, а все его ответы фиксируются и анализируются.')}</p>
                     </div>
-                    <img src="/znarnia/images/girl-thinking.png" alt="" className="dg-how__stage1-img" />
+                    <img src="/znarnia/images/girl-thinking.png" alt="Девочка выполняет задания диагностики" width="269" height="336" className="dg-how__stage1-img" loading="lazy" decoding="async" />
                   </div>
                 </div>
 

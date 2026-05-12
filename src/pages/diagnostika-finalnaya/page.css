@@ -2543,7 +2543,6 @@
   padding: 24px 28px;
 }
 .dg-how__stage--1 {
-  position: relative;
   overflow: hidden;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -2575,29 +2574,41 @@
   letter-spacing: 0.04em;
 }
 
+/* §2.1 — grid-cell overlap: image and text share one cell */
 .dg-how__stage1-body {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  display: grid;
 }
 
+.dg-how__stage1-img,
 .dg-how__stage1-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  max-width: calc(100% - 269px);
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .dg-how__stage1-img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 269px;
-  height: 80%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 0 18px 18px 0;
+  /* top-right, 1/3 of block width, not cropped */
+  justify-self: end;
+  align-self: start;
+  width: 43%;
+  height: auto;
+  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
+  margin-right: 20px;
+  margin-top: -45px;
+  border-radius: 50%;
+  /* fade left edge so card bg shows through */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.6) 25%, white 55%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.6) 25%, white 55%);
+  opacity: 0.9;
+}
+
+.dg-how__stage1-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  z-index: 1;
 }
 
 .dg-how__stage-intro {
@@ -2605,6 +2616,12 @@
   color: #4b5563;
   line-height: 1.6;
   margin: 0 0 14px;
+}
+
+.dg-how__stage-intro--detail {
+  font-size: 12px;
+  font-weight: 700;
+  color: #3b1f6e;
 }
 
 .dg-how__items {
