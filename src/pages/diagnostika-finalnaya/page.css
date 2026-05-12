@@ -254,6 +254,8 @@
   color: var(--clr-text);
   margin-top: 20px;
 }
+.dg-hero__v2-list-label { display: none; }
+
 .dg-hero__v2-list {
   list-style: none;
   padding: 0;
@@ -363,7 +365,16 @@
   .dg-hero__footer-badges  { order: 5; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; gap: 0; margin-top: -5px; }
   .dg-hero__footer-badge   { flex: 1; justify-content: center; }
   .dg-hero__footer-badge-desc { display: none; }
-  .dg-hero__v2-list        { order: 6; }
+  .dg-hero__v2-list-label  {
+    order: 6;
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #5b21b6;
+    margin-top: -7px;
+    margin-bottom: -2px;
+  }
+  .dg-hero__v2-list        { order: 7; }
   .dg-hero--v2 .dg-hero__title { font-size: 24px; line-height: 1.5; }
   .dg-hero__v2-float-badge { display: none; }
   .dg-hero__v2-card { padding: 0 12px; }
@@ -548,6 +559,23 @@
     border-left: 2px solid rgba(109, 40, 217, 0.18);
     line-height: 1.1;
     margin-top: 12px;
+  }
+
+  /* список на плашке */
+  .dg-hero__v2-list {
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-right: -14px;
+    gap: 10px;
+  }
+  .dg-hero__v2-list li {
+    font-size: 15px;
+    color: #1e1b4b;
+  }
+  .dg-hero__v2-list li::before {
+    color: #6d28d9;
   }
 }
 
@@ -1641,6 +1669,7 @@
 }
 
 @media (max-width: 640px) {
+  .dg-reviews { margin-bottom: 28px; }
   .dg-reviews__thumb { flex: 0 0 calc((100% - 10px) / 2); }
 }
 
@@ -1691,8 +1720,8 @@
 }
 
 @media (max-width: 640px) {
-  .dg-schools { padding: 18px 16px; gap: 14px; }
-  .dg-schools__icon { width: 44px; height: 44px; }
+  .dg-schools { padding: 20px 16px; gap: 14px; margin-bottom: 28px; }
+  .dg-schools__icon { width: 40px; height: 40px; }
   .dg-schools__title { font-size: 14px; }
   .dg-schools__text { font-size: 13px; }
 }
@@ -2368,12 +2397,12 @@
   .dg-callout__text { font-size: 13px; }
 
   /* Author */
-  .dg-author { margin-top: 32px; overflow: hidden; }
+  .dg-author { margin-top: 28px; margin-bottom: 28px; overflow: hidden; }
   .dg-author__top { grid-template-columns: 1fr; }
-  .dg-author__left { padding: 18px 18px 18px 18px; }
+  .dg-author__left { padding: 20px 16px; gap: 2px; }
   .dg-author__label, .dg-author__name { font-size: 13px; }
   .dg-author__item { font-size: 13px; white-space: normal; }
-  .dg-author__items { margin-top: 14px; gap: 8px; }
+  .dg-author__items { margin-top: 12px; gap: 8px; }
   .dg-author__photo-slot { height: auto; }
   .dg-author__photo {
     height: auto;
@@ -2382,7 +2411,7 @@
     object-fit: contain;
   }
   .dg-author__stats { flex-direction: column; padding: 0; }
-  .dg-author__stat { border-right: none; border-bottom: 1px solid #e5e7eb; padding: 14px 18px; }
+  .dg-author__stat { border-right: none; border-bottom: 1px solid #e5e7eb; padding: 14px 16px; }
   .dg-author__stat:last-child { border-bottom: none; }
   .dg-author__stat-val { font-size: 15px; }
 
@@ -2401,11 +2430,11 @@
   .dg-plan-cards { grid-template-columns: 1fr; gap: 10px; }
 
   /* Result */
-  .dg-result { display: flex; flex-direction: column; padding: 22px 16px; gap: 14px; }
+  .dg-result { display: flex; flex-direction: column; padding: 24px 16px; gap: 12px; margin-bottom: 28px; }
   .dg-result__title { order: 1; font-size: 15px; }
   .dg-result__text  { order: 2; font-size: 13px; }
-  .dg-result__image { order: 3; width: 100%; height: auto; max-height: 160px; object-fit: contain; }
-  .dg-result__btn   { order: 4; display: block; text-align: center; font-size: 14px; padding: 13px 20px; }
+  .dg-result__image { order: 3; width: 100%; height: auto; max-height: 140px; object-fit: contain; }
+  .dg-result__btn   { order: 4; display: block; text-align: center; font-size: 14px; padding: 14px 20px; }
 
   /* Modal */
   .dg-modal-overlay { padding: 12px; align-items: flex-end; }
@@ -2826,27 +2855,36 @@
 }
 
 @media (max-width: 640px) {
-  .dg-how__header { flex-direction: column; gap: 8px; }
+  .dg-how { margin-top: -50px; margin-bottom: 28px; }
+  .dg-how__header { flex-direction: column; gap: 6px; margin-bottom: 12px; }
   .dg-how__title { white-space: normal; font-size: 18px; }
-  .dg-how__body { grid-template-columns: 1fr; }
-  .dg-how__sidebar { order: -1; }
-  .dg-how__stage { padding: 18px 16px; }
+  .dg-how__subtitle { font-size: 14px; }
+  .dg-how__body { grid-template-columns: 1fr; gap: 12px; }
+  .dg-how__sidebar { order: -1; padding: 16px; }
+  .dg-how__stage { padding: 20px 16px; }
+  .dg-how__stage-head { margin-bottom: 10px; }
   .dg-how__stage1-body { flex-direction: column; }
   .dg-how__stage1-img { display: none; }
   .dg-how__stage1-left { max-width: 100%; }
-  .dg-how__stage2-body { flex-direction: column; }
-  .dg-how__stage2-img { width: 100%; height: 200px; }
-  .dg-how__items { margin-left: 0; gap: 12px; }
-  .dg-how__item { margin-bottom: 0; }
+  .dg-how__stage2-body { flex-direction: column; gap: 12px; }
+  .dg-how__stage2-img { width: 100%; height: 180px; border-radius: 10px; }
+  .dg-how__items { margin-left: -10px; gap: 10px; }
+  .dg-how__item:nth-child(2) { margin-top: -13px; }
+  .dg-how__item { margin-bottom: 0; gap: 10px; }
   .dg-how__item-body { margin-left: 0; }
-  .dg-how__stage-intro { white-space: normal; }
-  .dg-how__record { padding: 18px 16px; }
-  .dg-how__record-cta { margin-bottom: 8px; }
+  .dg-how__stage-intro { white-space: normal; font-size: 13px; margin-bottom: 8px; }
+  .dg-how__stage-callout { margin-top: 3px; font-size: 12px; padding: 10px 14px; }
+  .dg-how__record { padding: 20px 16px; }
+  .dg-how__record-cta { margin-bottom: 12px; }
+  .dg-how__record-head { gap: 10px; margin-bottom: 12px; }
   .dg-how__who__schedule-btn { width: 100%; justify-content: center; }
   .dg-how__steps { grid-template-columns: 1fr 1fr; gap: 12px; }
   .dg-how__step-arrow { display: none; }
   .dg-how__step-icon { height: 56px; }
   .dg-how__step-icon img { width: 56px; height: 56px; }
-  .dg-how__record-title { font-size: 14px; }
-  .dg-how__record-callout { font-size: 12px; }
+  .dg-how__step-text { font-size: 11px; line-height: 1.45; }
+  .dg-how__record-title { font-size: 13px; line-height: 1.45; }
+  .dg-how__record-callout { font-size: 12px; margin-top: 12px; }
+  .dg-how__checklist { gap: 8px; }
+  .dg-how__checklist li { font-size: 13px; }
 }

@@ -428,6 +428,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/></svg>
                   Всего за 1 занятие вы узнаете:
                 </div>
+                <div className="dg-hero__v2-list-label">Вы поймёте</div>
                 <ul className="dg-hero__v2-list">
                   <li>почему ребёнку сложно или легко даётся учёба</li>
                   <li>как он воспринимает и обрабатывает информацию</li>
