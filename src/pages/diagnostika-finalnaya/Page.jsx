@@ -600,6 +600,11 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 <h2 className="dg-how__title">Как проходит <span className="dg-how__title-accent">диагностика</span></h2>
                 <div className="dg-how__subtitle">Диагностика проходит онлайн в два этапа</div>
               </div>
+              <div className="dg-how__author-badge">
+                <div className="dg-how__author-badge-conducts">Проводит</div>
+                <div className="dg-how__author-badge-name">Сотникова Ольга Александровна</div>
+                <div className="dg-how__author-badge-label">Основатель и руководитель Школы Знарния</div>
+              </div>
             </div>
 
             {/* ── BODY: two columns ── */}
@@ -648,7 +653,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   <div className="dg-how__stage2-body">
                     <img src="/znarnia/images/mom-child-laptop.png" alt="" className="dg-how__stage2-img" />
                     <div className="dg-how__stage2-text">
-                      <p className="dg-how__stage-intro">{nb('К подключению приглашаются родители. Вы получите подробный разбор результатов диагностики и сможете:')}</p>
+                      <p className="dg-how__stage-intro dg-how__stage-intro--bold">{nb('К подключению приглашаются родители. Вы получите подробный разбор результатов диагностики и сможете:')}</p>
                       <ul className="dg-how__checklist">
                         {[
                           'увидеть сильные и слабые стороны ребёнка',
@@ -668,6 +673,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
 
               {/* Sidebar: stats */}
             </div>
+
 
             {/* ── RECORDING ── */}
             <div className="dg-how__record-cta">
