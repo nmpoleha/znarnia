@@ -50,7 +50,11 @@ function Modal({ onClose }) {
           <>
             <div className="dg-modal__header">
               <div className="dg-modal__title">Записаться на диагностику</div>
-              <div className="dg-modal__price">590&thinsp;₽</div>
+              <div className="dg-modal__price">
+                <span className="dg-price__old">590&thinsp;₽</span>
+                <span className="dg-price__new">290&thinsp;₽</span>
+                <span className="dg-price__deadline">цена действует до 16 мая</span>
+              </div>
             </div>
             <form className="dg-modal__form" onSubmit={handleSubmit}>
               <div className="dg-modal__group">
@@ -471,7 +475,9 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   </span>
                 </div>
                 <div className="dg-hero__v2-price">
-                  590&thinsp;<span className="dg-hero__v2-price-cur">₽</span>
+                  <span className="dg-price__old">590&thinsp;₽</span>
+                  <span className="dg-price__new">290&thinsp;₽</span>
+                  <span className="dg-price__deadline">цена действует до 16 мая</span>
                 </div>
               </div>
               <div className="dg-hero__footer-badges">
@@ -538,7 +544,11 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 </span>
               </div>
               <div className="dg-hero__cta-price">
-                <div className="dg-hero__cta-price-val">590&thinsp;<span className="dg-hero__cta-price-cur">₽</span></div>
+                <div className="dg-hero__cta-price-val">
+                  <span className="dg-price__old">590&thinsp;₽</span>
+                  <span className="dg-price__new">290&thinsp;₽</span>
+                  <span className="dg-price__deadline">цена действует до 16 мая</span>
+                </div>
                 <div className="dg-hero__cta-price-desc">45 минут онлайн + рекомендации</div>
               </div>
             </div>

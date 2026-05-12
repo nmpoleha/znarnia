@@ -322,6 +322,10 @@
   font-weight: 900;
   color: #1e1b4b;
   line-height: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
 }
 .dg-hero__v2-price-cur {
   font-size: 20px;
@@ -361,7 +365,7 @@
   .dg-hero--v2 .dg-hero__title { order: 1; }
   .dg-hero__v2-list-head   { order: 2; margin-top: 0; }
   .dg-hero__v2-cards       { grid-template-columns: 1fr; gap: 6px; order: 3; margin-top: -21px; }
-  .dg-hero__v2-bottom      { order: 4; flex-direction: row; align-items: flex-start; gap: 16px; }
+  .dg-hero__v2-bottom      { order: 4; flex-direction: column; align-items: stretch; gap: 10px; }
   .dg-hero__footer-badges  { order: 5; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; gap: 0; margin-top: -5px; }
   .dg-hero__footer-badge   { flex: 1; justify-content: center; }
   .dg-hero__footer-badge-desc { display: none; }
@@ -545,20 +549,28 @@
     font-weight: 800;
   }
 
-  /* кнопка + цена в одну строку */
+  /* кнопка на всю ширину, цена снизу */
   .dg-hero__v2-bottom .dg-hero__cta-left {
-    flex: 1;
+    width: 100%;
     min-width: 0;
   }
 
+  .dg-hero__v2-bottom .dg-hero__cta-left .dg-hero__cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .dg-hero__v2-bottom .dg-hero__v2-price {
-    flex-shrink: 0;
-    font-size: 22px;
+    order: -1;
+    font-size: 20px;
     text-align: center;
-    padding-left: 16px;
-    border-left: 2px solid rgba(109, 40, 217, 0.18);
-    line-height: 1.1;
-    margin-top: 12px;
+    border-left: none;
+    padding-left: 0;
+    border-bottom: 1px solid rgba(109, 40, 217, 0.15);
+    padding-bottom: 10px;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
   }
 
   /* список на плашке */
@@ -683,6 +695,29 @@
   padding-left: 4px;
 }
 
+/* Promotional price helpers */
+.dg-price__old {
+  text-decoration: line-through;
+  opacity: 0.45;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.dg-price__new {
+  color: #dc2626;
+  font-weight: 900;
+}
+.dg-price__deadline {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #dc2626;
+  opacity: 0.75;
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+
 /* Price block */
 .dg-hero__cta-price {
   flex-shrink: 0;
@@ -702,6 +737,10 @@
   color: var(--clr-text);
   letter-spacing: -0.03em;
   line-height: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
 }
 
 .dg-hero__cta-price-cur {
@@ -2121,8 +2160,11 @@
   font-weight: 900;
   color: var(--clr-primary);
   letter-spacing: -0.02em;
-  white-space: nowrap;
   flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
 }
 
 .dg-modal__form {
