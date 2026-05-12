@@ -2434,7 +2434,7 @@
   .dg-result__title { order: 1; font-size: 15px; }
   .dg-result__text  { order: 2; font-size: 13px; }
   .dg-result__image { order: 3; width: 100%; height: auto; max-height: 140px; object-fit: contain; }
-  .dg-result__btn   { order: 4; display: block; text-align: center; font-size: 14px; padding: 14px 20px; }
+  .dg-result__btn   { order: 4; display: block; text-align: center; font-size: 14px; padding: 14px 20px; align-self: center; }
 
   /* Modal */
   .dg-modal-overlay { padding: 12px; align-items: flex-end; }
@@ -2547,6 +2547,10 @@
   overflow: hidden;
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+.dg-how__stage1-mobile-img {
+  display: none;
 }
 
 .dg-how__stage-head {
@@ -2920,8 +2924,18 @@
 
 @media (max-width: 640px) {
   .dg-how { margin-top: -50px; margin-bottom: 28px; }
-  .dg-how__header { flex-direction: column; gap: 6px; margin-bottom: 12px; align-items: flex-start; }
-  .dg-how__author-badge { display: none; }
+  .dg-how__header { flex-direction: column; gap: 8px; margin-bottom: 12px; align-items: flex-start; }
+  .dg-how__author-badge {
+    align-self: flex-start;
+    background: linear-gradient(135deg, #ea6c0a 0%, #f97316 100%);
+    border-left-color: #fb923c;
+    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+    padding: 14px 24px 14px 18px;
+    gap: 4px;
+  }
+  .dg-how__author-badge .dg-how__author-badge-conducts { color: rgba(255,255,255,0.75); }
+  .dg-how__author-badge .dg-how__author-badge-name    { color: #fff; }
+  .dg-how__author-badge .dg-how__author-badge-label   { color: rgba(255,255,255,0.65); }
   .dg-how__title { white-space: normal; font-size: 18px; }
   .dg-how__subtitle { font-size: 14px; }
   .dg-how__body { grid-template-columns: 1fr; gap: 12px; }
@@ -2930,6 +2944,13 @@
   .dg-how__stage-head { margin-bottom: 10px; }
   .dg-how__stage1-body { flex-direction: column; }
   .dg-how__stage1-img { display: none; }
+  .dg-how__stage1-mobile-img {
+    display: block;
+    width: calc(100% + 32px);
+    margin: 10px -16px 4px;
+    height: auto;
+    border-radius: 10px;
+  }
   .dg-how__stage1-left { max-width: 100%; }
   .dg-how__stage2-body { flex-direction: column; gap: 12px; }
   .dg-how__stage2-img { width: 100%; height: 180px; border-radius: 10px; }
@@ -2940,7 +2961,7 @@
   .dg-how__stage-intro { white-space: normal; font-size: 13px; margin-bottom: 8px; }
   .dg-how__stage-callout { margin-top: 3px; font-size: 12px; padding: 10px 14px; }
   .dg-how__record { padding: 20px 16px; }
-  .dg-how__record-cta { margin-bottom: 12px; }
+  .dg-how__record-cta { margin-bottom: 12px; display: flex; justify-content: center; }
   .dg-how__record-head { gap: 10px; margin-bottom: 12px; }
   .dg-how__who__schedule-btn { width: 100%; justify-content: center; }
   .dg-how__steps { grid-template-columns: 1fr 1fr; gap: 12px; }

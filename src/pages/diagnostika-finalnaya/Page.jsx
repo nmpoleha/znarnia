@@ -617,6 +617,15 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                     <div className="dg-how__stage-pill">1 ЭТАП</div>
                     <div className="dg-how__stage-label">С РЕБЁНКОМ</div>
                   </div>
+                  <img
+                    src="/znarnia/images/stage1-lesson.png"
+                    alt="Онлайн-занятие с ребёнком"
+                    width="1320"
+                    height="860"
+                    className="dg-how__stage1-mobile-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="dg-how__stage1-body">
                     <div className="dg-how__stage1-left">
                       <p className="dg-how__stage-intro">В онлайн-формате мы оцениваем три ключевых показателя:</p>
