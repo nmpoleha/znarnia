@@ -32,6 +32,7 @@ export default defineConfig({
         'probniy-urok': resolve(__dirname, 'probniy-urok/index.html'),
         'diagnostika-finalnaya': resolve(__dirname, 'diagnostika-finalnaya/index.html'),
         'diagnostika-finalnaya-2': resolve(__dirname, 'diagnostika-finalnaya-2/index.html'),
+        'letnie-kursy': resolve(__dirname, 'letnie-kursy/index.html'),
       },
     },
   },
