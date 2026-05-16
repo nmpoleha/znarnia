@@ -60,7 +60,7 @@ const FORMATS = [
     id: 'stelat',
     badge: 'С 1 июня',
     color: 'purple',
-    title: 'Стелет — мягкий старт',
+    title: 'Мягкий старт',
     features: [
       { icon: 'clock', text: '~50 уроков' },
       { icon: 'check', text: '2 этапа обучения' },
@@ -97,7 +97,7 @@ const FORMATS = [
 const FORMAT_DETAILS = {
   stelat: {
     color: 'purple',
-    label: 'СТЕЛЕТ — МЯГКИЙ СТАРТ',
+    label: 'МЯГКИЙ СТАРТ',
     content: (
       <div className="lk-detail__body">
         <div className="lk-detail__stage">Этап 1 (с 1 июня)</div>
@@ -412,7 +412,10 @@ export default function Page() {
                 {openDetail.labelCount && <span className="lk-detail__label-count">{openDetail.labelCount}</span>}
               </div>
               {openDetail.content}
-              <button className={`lk-detail__btn lk-detail__btn--${openDetail.color}`} onClick={() => setShowModal(true)}>Записаться</button>
+              <div className="lk-detail__btns">
+                <button className={`lk-detail__btn lk-detail__btn--${openDetail.color}`} onClick={() => setShowModal(true)}>Забронировать место</button>
+                <button className={`lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-${openDetail.color}`} onClick={() => setShowModal(true)}>Купить курс</button>
+              </div>
             </div>
           )}
         </div>
