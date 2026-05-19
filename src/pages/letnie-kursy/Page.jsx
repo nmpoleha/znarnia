@@ -665,6 +665,67 @@ export default function Page() {
       </section>
 
 
+      {/* Lesson block */}
+      <section className="lk-lesson-section">
+        <div className="lk-wrap">
+          <div className="lk-lesson-banner">
+            Авторские уроки-тренажёры Ольги Сотниковой построены на принципе активного обучения: объяснение, практика, анализ и следующий шаг. Такой подход помогает ребёнку не теряться в теме, а постепенно разбирать её до уверенного понимания и самостоятельного решения задач.
+          </div>
+
+          <div className="lk-lesson-card">
+            <div className="lk-lesson-card__head">
+              <div className="lk-lesson-num">1</div>
+              <div>
+                <div className="lk-lesson-card__title">Интерактивный урок-тренажёр</div>
+                <div className="lk-lesson-card__sub">Системное освоение темы через цикл «теория → практика → закрепление»</div>
+              </div>
+            </div>
+            <div className="lk-lesson-card__body">
+              <div className="lk-lesson-card__left">
+                <div className="lk-lesson-meta">
+                  <div className="lk-lesson-meta__item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6b7280" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#6b7280" strokeWidth="2" strokeLinecap="round"/></svg>
+                    Длительность: 30–40 минут
+                  </div>
+                  <div className="lk-lesson-meta__item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6b7280" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#6b7280" strokeWidth="2" strokeLinecap="round"/></svg>
+                    Урок можно проходить в удобное время
+                  </div>
+                </div>
+                <div>
+                  <div className="lk-lesson-how-title">Как устроен урок:</div>
+                  <ul className="lk-lesson-checklist">
+                    {[
+                      'Короткое объяснение ключевой темы',
+                      'Сразу — применение на практике',
+                      'Мгновенная обратная связь по каждому заданию',
+                      'При необходимости — разбор решений',
+                      'Переход к следующему элементу темы',
+                    ].map((item, i) => (
+                      <li key={i}>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="lk-lesson-card__right">
+                <div className="lk-lesson-preview">
+                  <img src="/znarnia/images/lesson-screen.png" alt="Пример урока-тренажёра" className="lk-lesson-preview__img" width="440" height="330" loading="lazy" />
+                  <div className="lk-lesson-preview__badge">⭐ Отлично!<br />+10 баллов</div>
+                </div>
+              </div>
+            </div>
+            <div className="lk-lesson-callout">
+              Каждый урок выстроен как последовательность повторяющихся циклов:<br />
+              объяснение → практика → анализ → следующий шаг.<br />
+              Ребёнок не просто знакомится с темой, а последовательно прорабатывает каждый её элемент до понимания.
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison table — own section */}
       <section className="lk-comparison-section">
         <div className="lk-wrap">
