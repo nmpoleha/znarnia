@@ -325,20 +325,31 @@ export default function Page() {
         <div className="lk-topbar__inner">
           <div className="lk-topbar__brand">
             <img src="https://znarnia.ru/logo.png" alt="Школа Сотниковой Ольги" className="lk-topbar__logo" />
-            <span className="lk-topbar__name">Школа<br/>Сотниковой Ольги</span>
+            <span className="lk-topbar__name">Школа Сотниковой Ольги</span>
           </div>
-          <div className="lk-topbar__links">
-            <a href="https://t.me/sotnikova_oa_school" className="lk-topbar__link">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.686l-1.68 7.92c-.126.56-.452.696-.916.432l-2.532-1.864-1.22 1.176c-.136.134-.25.248-.51.248l.18-2.58 4.702-4.248c.204-.18-.044-.28-.316-.1L7.726 14.61 5.22 13.83c-.55-.17-.562-.548.116-.81l9.69-3.734c.455-.166.856.108.704.4z" fill="currentColor"/>
+          <div className="lk-topbar__contacts">
+            <a href="mailto:info@znarnia.ru" className="lk-topbar__item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
+                <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2"/>
               </svg>
-              @sotnikova_oa_school
+              <span>info@znarnia.ru</span>
             </a>
-            <a href="https://wa.me/79955775318" className="lk-topbar__link">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <a href="https://t.me/sotnikova_oa_school" className="lk-topbar__item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M21.8 3.2L2.4 10.9c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.7.4.9 1 .9.4 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.8L23.9 4.5c.3-1.3-.5-1.8-2.1-1.3z" fill="currentColor"/>
+              </svg>
+              <span>@sotnikova_oa_school</span>
+            </a>
+            <a href="https://max.ru/sotnikova_oa_school" className="lk-topbar__item">
+              <span className="lk-topbar__max-icon">M</span>
+              <span>написать в Max</span>
+            </a>
+            <a href="https://wa.me/79955775318" className="lk-topbar__item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path d="M17.4 6.6A7.1 7.1 0 0 0 12 4.5a7.15 7.15 0 0 0-6.2 10.7L4.5 19.5l4.4-1.15A7.15 7.15 0 0 0 19.5 12a7.1 7.1 0 0 0-2.1-5.4zm-5.4 11a5.95 5.95 0 0 1-3.03-.83l-.22-.13-2.26.59.6-2.2-.14-.23A5.95 5.95 0 1 1 12 17.6zm3.26-4.45c-.18-.09-1.06-.52-1.22-.58-.16-.06-.28-.09-.4.09s-.46.58-.56.7c-.1.12-.2.13-.38.04a4.8 4.8 0 0 1-1.42-.88 5.3 5.3 0 0 1-.98-1.22c-.1-.18-.01-.27.08-.36.08-.08.18-.2.27-.3.09-.1.12-.18.18-.3.06-.12.03-.22-.02-.31-.05-.09-.4-.96-.54-1.32-.14-.34-.29-.3-.4-.3h-.34c-.12 0-.31.04-.47.22s-.62.6-.62 1.47.63 1.7.72 1.82c.09.12 1.24 1.9 3.01 2.66.42.18.75.29 1 .37.42.13.8.11 1.1.07.34-.05 1.04-.43 1.19-.84.14-.41.14-.76.1-.83-.05-.08-.17-.12-.35-.2z" fill="currentColor"/>
               </svg>
-              +7 995 577-53-18
+              <span>+7 995 577-53-18</span>
             </a>
           </div>
         </div>
@@ -349,7 +360,7 @@ export default function Page() {
         <div className="lk-hero__inner">
           <div className="lk-hero__content">
             <h1 className="lk-hero__title">
-              Летняя программа по математике<br/>
+              Летняя программа<br/>по математике<br/>
               <span className="lk-hero__accent">для 1–10 классов</span>
             </h1>
             <ul className="lk-hero__points">
@@ -357,34 +368,27 @@ export default function Page() {
               <li>Устраняем пробелы в программе</li>
               <li>Готовим к новому учебному году</li>
             </ul>
-            <div className="lk-hero__badges">
-              <div className="lk-hero__badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="2"/>
-                  <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-                Онлайн-уроки
-              </div>
-              <div className="lk-hero__badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="2" stroke="#6d28d9" strokeWidth="2"/>
-                  <path d="M7 8h10M7 12h6M7 16h8" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-                Тренажёры
+            <div className="lk-hero__actions">
+              <button className="lk-hero__cta" onClick={() => setShowModal(true)}>
+                Выбрать формат
+              </button>
+              <div className="lk-hero__badges">
+                <div className="lk-hero__badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="2"/>
+                    <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Онлайн-уроки
+                </div>
+                <div className="lk-hero__badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#6d28d9" strokeWidth="2"/>
+                    <path d="M7 8h10M7 12h6M7 16h8" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Тренажёры
+                </div>
               </div>
             </div>
-            <button className="lk-hero__cta" onClick={() => setShowModal(true)}>
-              Выбрать формат
-            </button>
-          </div>
-          <div className="lk-hero__image-col">
-            <img
-              src="/znarnia/images/hero-boy.png"
-              alt="Ребёнок занимается математикой онлайн"
-              className="lk-hero__img"
-              width="420"
-              height="440"
-            />
           </div>
         </div>
       </section>
