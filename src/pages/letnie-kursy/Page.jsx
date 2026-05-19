@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', grade: '' })
@@ -91,6 +91,18 @@ const FORMATS = [
     ],
     desc: 'Подготовка к новому учебному году и закрытие пробелов',
     price: '10 800',
+  },
+  {
+    id: 'zapis',
+    badge: 'В любое время',
+    color: 'blue',
+    title: 'Занятия в записи',
+    features: [
+      { icon: 'check', text: 'Доступ к урокам 24/7' },
+      { icon: 'check', text: 'Без фиксированного расписания' },
+    ],
+    desc: 'Смотрите уроки в удобное время — без привязки к расписанию',
+    price: '15 000',
   },
 ]
 
@@ -193,6 +205,20 @@ const FORMAT_DETAILS = {
             </ul>
           </div>
         </div>
+      </div>
+    ),
+  },
+  zapis: {
+    color: 'blue',
+    label: 'ЗАНЯТИЯ В ЗАПИСИ',
+    content: (
+      <div className="lk-detail__body">
+        <ul className="lk-detail__list">
+          <li>Доступ к записям уроков в любое время</li>
+          <li>Без фиксированного расписания</li>
+          <li>Авторские уроки-тренажёры по математике</li>
+          <li>Подходит для самостоятельного изучения</li>
+        </ul>
       </div>
     ),
   },
@@ -323,8 +349,7 @@ export default function Page() {
         <div className="lk-hero__inner">
           <div className="lk-hero__content">
             <h1 className="lk-hero__title">
-              Летняя программа<br/>
-              по математике<br/>
+              Летняя программа по математике<br/>
               <span className="lk-hero__accent">для 1–10 классов</span>
             </h1>
             <ul className="lk-hero__points">
@@ -346,12 +371,6 @@ export default function Page() {
                   <path d="M7 8h10M7 12h6M7 16h8" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
                 Тренажёры
-              </div>
-              <div className="lk-hero__badge lk-hero__badge--star">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f97316" stroke="#f97316" strokeWidth="0.5"/>
-                </svg>
-                3 формата обучения
               </div>
             </div>
             <button className="lk-hero__cta" onClick={() => setShowModal(true)}>

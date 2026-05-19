@@ -122,11 +122,12 @@
 
 .lk-hero__title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
+  font-size: clamp(22px, 3vw, 40px);
   font-weight: 900;
   color: var(--lk-text);
   line-height: 1.1;
   margin-bottom: 16px;
+  white-space: nowrap;
 }
 
 .lk-hero__accent {
@@ -255,6 +256,7 @@
 .lk-card--purple { border-top-color: var(--lk-primary); }
 .lk-card--green  { border-top-color: var(--lk-green); }
 .lk-card--orange { border-top-color: var(--lk-accent); }
+.lk-card--blue   { border-top-color: #2563eb; }
 
 .lk-card--active {
   box-shadow: 0 4px 28px rgba(109, 40, 217, 0.14);
@@ -266,6 +268,10 @@
 
 .lk-card--orange.lk-card--active {
   box-shadow: 0 4px 28px rgba(249, 115, 22, 0.14);
+}
+
+.lk-card--blue.lk-card--active {
+  box-shadow: 0 4px 28px rgba(37, 99, 235, 0.14);
 }
 
 .lk-card__badge {
@@ -282,6 +288,7 @@
 .lk-card--purple .lk-card__badge { background: #ede9fe; color: var(--lk-primary); }
 .lk-card--green  .lk-card__badge { background: #dcfce7; color: var(--lk-green-lt); }
 .lk-card--orange .lk-card__badge { background: #fff7ed; color: #c2410c; }
+.lk-card--blue   .lk-card__badge { background: #dbeafe; color: #1d4ed8; }
 
 .lk-card__top {
   display: flex;
@@ -330,6 +337,7 @@
 .lk-card--purple .lk-card__feat-icon { color: var(--lk-primary); }
 .lk-card--green  .lk-card__feat-icon { color: var(--lk-green); }
 .lk-card--orange .lk-card__feat-icon { color: var(--lk-accent); }
+.lk-card--blue   .lk-card__feat-icon { color: #2563eb; }
 
 .lk-card__desc {
   font-size: 13px;
@@ -348,6 +356,7 @@
 }
 
 .lk-card--orange .lk-card__price { color: var(--lk-accent); }
+.lk-card--blue   .lk-card__price { color: #2563eb; }
 
 .lk-card__more {
   width: 100%;
@@ -364,10 +373,12 @@
 .lk-card--purple .lk-card__more { border: 1.5px solid var(--lk-primary); color: var(--lk-primary); }
 .lk-card--green  .lk-card__more { border: 1.5px solid var(--lk-green); color: var(--lk-green); }
 .lk-card--orange .lk-card__more { border: 1.5px solid var(--lk-accent); color: var(--lk-accent); }
+.lk-card--blue   .lk-card__more { border: 1.5px solid #2563eb; color: #2563eb; }
 
 .lk-card--purple .lk-card__more:hover { background: var(--lk-primary); color: #fff; }
 .lk-card--green  .lk-card__more:hover { background: var(--lk-green); color: #fff; }
 .lk-card--orange .lk-card__more:hover { background: var(--lk-accent); color: #fff; }
+.lk-card--blue   .lk-card__more:hover { background: #2563eb; color: #fff; }
 
 /* ── FORMAT DETAIL PANEL ── */
 .lk-detail {
@@ -388,6 +399,7 @@
 .lk-detail--purple { border-left-color: var(--lk-primary); }
 .lk-detail--green  { border-left-color: var(--lk-green); }
 .lk-detail--orange { border-left-color: var(--lk-accent); }
+.lk-detail--blue   { border-left-color: #2563eb; }
 
 .lk-detail__label {
   font-family: 'Montserrat', sans-serif;
@@ -401,6 +413,7 @@
 .lk-detail--purple .lk-detail__label { color: var(--lk-primary); }
 .lk-detail--green  .lk-detail__label { color: var(--lk-green); }
 .lk-detail--orange .lk-detail__label { color: var(--lk-accent); }
+.lk-detail--blue   .lk-detail__label { color: #2563eb; }
 
 .lk-detail__body { }
 
@@ -457,6 +470,7 @@
 .lk-detail--purple .lk-detail__list li::before { color: var(--lk-primary); }
 .lk-detail--green  .lk-detail__list li::before { color: var(--lk-green); }
 .lk-detail--orange .lk-detail__list li::before { color: var(--lk-accent); }
+.lk-detail--blue   .lk-detail__list li::before { color: #2563eb; }
 
 .lk-detail__list--star li::before { content: '★'; }
 
@@ -487,6 +501,7 @@
 .lk-detail__btn--purple { background: #7c3aed; }
 .lk-detail__btn--green  { background: #16a34a; }
 .lk-detail__btn--orange { background: #f97316; }
+.lk-detail__btn--blue   { background: #2563eb; }
 
 .lk-detail__btn--outline {
   background: transparent;
@@ -495,6 +510,7 @@
 .lk-detail__btn--outline-purple { border: 2px solid #7c3aed; color: #7c3aed; }
 .lk-detail__btn--outline-green  { border: 2px solid #16a34a; color: #16a34a; }
 .lk-detail__btn--outline-orange { border: 2px solid #f97316; color: #f97316; }
+.lk-detail__btn--outline-blue   { border: 2px solid #2563eb; color: #2563eb; }
 
 .lk-detail__btn--outline:hover {
   color: #fff;
@@ -504,6 +520,7 @@
 .lk-detail__btn--outline-purple:hover { background: #7c3aed; }
 .lk-detail__btn--outline-green:hover  { background: #16a34a; }
 .lk-detail__btn--outline-orange:hover { background: #f97316; }
+.lk-detail__btn--outline-blue:hover   { background: #2563eb; }
 
 @media (max-width: 640px) {
   .lk-detail__btns {
