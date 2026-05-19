@@ -568,59 +568,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="lk-how">
-        <div className="lk-wrap">
-          <h2 className="lk-heading">Как проходит обучение</h2>
-          <div className="lk-how__grid">
-            <div className="lk-how__item">
-              <div className="lk-how__icon lk-how__icon--blue">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <circle cx="15" cy="15" r="12" stroke="#3b82f6" strokeWidth="2.2"/>
-                  <path d="M15 8v7l5 3" stroke="#3b82f6" strokeWidth="2.2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="lk-how__title">Уроки по 30–40 минут</div>
-              <div className="lk-how__desc">Оптимальный формат для концентрации и усвоения</div>
-            </div>
-            <div className="lk-how__item">
-              <div className="lk-how__icon lk-how__icon--purple">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <path d="M5 15C5 9.477 9.477 5 15 5" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round"/>
-                  <path d="M25 15C25 20.523 20.523 25 15 25" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round"/>
-                  <circle cx="15" cy="15" r="4" fill="#7c3aed"/>
-                  <path d="M8 8l-3-3M22 22l3 3" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="lk-how__title">Теория + практика</div>
-              <div className="lk-how__desc">Ребёнок сразу закрепляет материал на практике</div>
-            </div>
-            <div className="lk-how__item">
-              <div className="lk-how__icon lk-how__icon--blue">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <rect x="3" y="5" width="24" height="16" rx="2.5" stroke="#3b82f6" strokeWidth="2.2"/>
-                  <path d="M10 27h10M15 21v6" stroke="#3b82f6" strokeWidth="2.2" strokeLinecap="round"/>
-                  <path d="M10 13l3.5 3.5 6.5-6.5" stroke="#3b82f6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="lk-how__title">Онлайн + тренажёры</div>
-              <div className="lk-how__desc">Комфортный темп и гибкий график в летний период</div>
-            </div>
-            <div className="lk-how__item">
-              <div className="lk-how__icon lk-how__icon--orange">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <rect x="3" y="19" width="5" height="8" rx="1.5" fill="#f97316"/>
-                  <rect x="12" y="14" width="5" height="13" rx="1.5" fill="#f97316"/>
-                  <rect x="21" y="9" width="5" height="18" rx="1.5" fill="#f97316"/>
-                  <path d="M5 18l7-7 5 5 7-9" stroke="#f97316" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="lk-how__title">Постепенное усложнение</div>
-              <div className="lk-how__desc">Без перегруза и стресса</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Comparison table — own section */}
       <section className="lk-comparison-section">

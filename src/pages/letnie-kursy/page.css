@@ -659,13 +659,27 @@
 .lk-detail--green .lk-s1__benefits { background: #f0fdf4; }
 .lk-detail--green .lk-s1__benefit b { color: #15803d; }
 
+.lk-detail--green .lk-russian-promo { border-color: #bbf7d0; }
+.lk-detail--green .lk-russian-promo__label { color: #16a34a; }
+.lk-detail--green .lk-russian-promo__meta { color: #16a34a; }
+.lk-detail--green .lk-russian-promo__summary { background: #dcfce7; border-color: #bbf7d0; color: #15803d; }
+.lk-detail--green .lk-russian-promo__price-row--accent { background: #f0fdf4; }
+.lk-detail--green .lk-russian-promo__price-row--accent b { color: #16a34a; }
+
 .lk-s1__count-card b {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
-  color: #1a1a2e;
-  line-height: 1;
+  color: #7c3aed;
+  background: #ede9fe;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .lk-s1__count-card span {
@@ -675,6 +689,8 @@
   white-space: nowrap;
   font-weight: 500;
 }
+
+.lk-s1__count-card--green b { background: #dcfce7; color: #16a34a; }
 
 .lk-s1__benefits {
   display: flex;
