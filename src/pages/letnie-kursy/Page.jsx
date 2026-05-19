@@ -84,9 +84,9 @@ const FORMATS = [
     id: 'august',
     badge: 'Август',
     color: 'orange',
-    title: 'Август-интенсив',
+    title: 'Умный август',
     features: [
-      { icon: 'check', text: '20+ уроков' },
+      { icon: 'check', text: '20 уроков' },
       { icon: 'check', text: 'Устранение пробелов' },
     ],
     desc: 'Подготовка к новому учебному году и закрытие пробелов',
@@ -112,6 +112,7 @@ const FORMAT_DETAILS = {
     label: 'ПОЛНЫЙ КУРС',
     content: (
       <div className="lk-detail__body">
+        <p className="lk-detail__intro">Полная программа подготовки к учебному году: от восстановления базы до развития логики и уверенного мышления. Чтобы ребёнок вошёл в сентябрь спокойно, собранно и с ощущением «я справлюсь».</p>
 
         {/* Этап 1 */}
         <div className="lk-detail__stage-header">
@@ -235,9 +236,9 @@ const FORMAT_DETAILS = {
     labelCount: '28 уроков',
     content: (
       <div className="lk-detail__body">
+        <p className="lk-detail__intro">Регулярные занятия помогают сохранить знания летом, развить логическое мышление и уверенно войти в учебный год. Ребёнок начинает понимать материал глубже и спокойнее справляется с задачами.</p>
         <div className="lk-detail__stage-header">
-          <span className="lk-detail__stage-num">Основной этап</span>
-          <span className="lk-detail__stage-desc">Уверенность и результат</span>
+          <span className="lk-detail__stage-num">Уверенность и результат</span>
           <span className="lk-detail__stage-date">с 22 июня</span>
         </div>
 
@@ -299,24 +300,66 @@ const FORMAT_DETAILS = {
   },
   august: {
     color: 'orange',
-    label: 'АВГУСТ-ИНТЕНСИВ',
+    label: 'УМНЫЙ АВГУСТ',
     content: (
       <div className="lk-detail__body">
-        <div className="lk-detail__two-col">
-          <div>
-            <ul className="lk-detail__list">
-              <li>12 уроков-тренажёров</li>
-              <li>8–9 онлайн-уроков</li>
-              <li>Подбор тем по результатам тестирования</li>
-            </ul>
+        <p className="lk-detail__intro">Чтобы в сентябре ребёнок не растерялся на первых уроках, важно заранее восстановить базу и учебный ритм. Этот курс помогает мягко вернуться в обучение, закрыть пробелы и почувствовать уверенность перед школой.</p>
+
+        <div className="lk-detail__stage-header">
+          <span className="lk-detail__stage-num">Восстановление базы</span>
+          <span className="lk-detail__stage-date">Август</span>
+        </div>
+
+        <div className="lk-s1__counts" style={{marginTop:'14px'}}>
+          <div className="lk-s1__count-card lk-s1__count-card--orange" style={{flex:'0 0 auto'}}>
+            <b>8</b><span>онлайн-уроков · 60&nbsp;мин</span>
           </div>
-          <div>
-            <div className="lk-detail__result-label">Результат</div>
-            <ul className="lk-detail__list lk-detail__list--star">
-              <li>Устранение пробелов</li>
-              <li>Повторение ключевых тем</li>
-              <li>Уверенный старт сентября</li>
-            </ul>
+          <div className="lk-s1__count-card lk-s1__count-card--orange" style={{flex:'0 0 auto'}}>
+            <b>12</b><span>уроков-тренажёров</span>
+          </div>
+        </div>
+
+        <div className="lk-s1__benefits">
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#ea580c" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Подбор тем <b>по результатам тестирования</b> — работаем точечно</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16l-7-4-7 4V4z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Повторение <b>ключевых тем</b> перед учебным годом</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Теория + сразу практика — <b>быстрое восстановление</b> навыков</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Восстанавливаем <b>учебный ритм</b> — ребёнок готов к сентябрю</span></div>
+        </div>
+
+        <div className="lk-detail__result-label" style={{marginTop:'16px'}}>Результат</div>
+        <div className="lk-s1__benefits" style={{background:'#fff7ed'}}>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ea580c" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Закрыты <b>конкретные пробелы</b> в знаниях</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ea580c" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Ребёнок <b>не растеряется</b> на первых уроках в сентябре</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ea580c" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уверенность и <b>готовность к учебному году</b></span></div>
+        </div>
+
+        <div className="lk-russian-promo">
+          <div className="lk-russian-promo__header">
+            <div className="lk-russian-promo__label">Также доступно</div>
+            <div className="lk-russian-promo__title">Летний русский язык</div>
+            <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
+          </div>
+          <div className="lk-russian-promo__body">
+            <div className="lk-russian-promo__flow">
+              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
+              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
+              <div className="lk-russian-promo__step"><b>Разбор ошибок</b> — ребёнок понимает, а не заучивает</div>
+              <div className="lk-russian-promo__step"><b>Переход к новой теме</b> — без пробелов и потери материала</div>
+            </div>
+          </div>
+          <div className="lk-russian-promo__footer">
+            <div className="lk-russian-promo__summary">Каждый урок = понимание + закрепление + уверенность</div>
+            <div className="lk-russian-promo__prices">
+              <div className="lk-russian-promo__price-row">
+                <span>Только математика</span><b>10&thinsp;800&thinsp;₽</b>
+              </div>
+              <div className="lk-russian-promo__price-row">
+                <span>Только русский</span><b>12&thinsp;000&thinsp;₽</b>
+              </div>
+              <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
+                <span>Математика + русский</span><b>22&thinsp;800&thinsp;₽</b>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -344,7 +387,7 @@ const COMPARISON = [
   { param: 'Тренажёры',               stelat: '✓',         main: '✓',         august: '✓'         },
   { param: 'Плавная адаптация',       stelat: '✓',         main: '—',         august: '—'         },
   { param: 'Индивидуальные пробелы',  stelat: '✓',         main: 'частично',  august: '✓'         },
-  { param: 'Количество уроков',       stelat: '~50',       main: '28',        august: '20+'       },
+  { param: 'Количество уроков',       stelat: '~50',       main: '28',        august: '20'        },
   { param: 'Стоимость',               stelat: '21 600 ₽', main: '17 600 ₽', august: '10 800 ₽', highlight: true },
 ]
 

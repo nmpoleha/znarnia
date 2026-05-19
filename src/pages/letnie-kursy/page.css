@@ -463,6 +463,13 @@
 
 .lk-detail__body { }
 
+.lk-detail__intro {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
 .lk-detail__stage {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
@@ -568,6 +575,7 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 18px;
 }
 
@@ -659,6 +667,18 @@
 .lk-detail--green .lk-s1__benefits { background: #f0fdf4; }
 .lk-detail--green .lk-s1__benefit b { color: #15803d; }
 
+.lk-detail--orange .lk-detail__stage-header { background: linear-gradient(135deg, #ea580c, #c2410c); }
+.lk-detail--orange .lk-s1__benefits { background: #fff7ed; }
+.lk-detail--orange .lk-s1__benefit b { color: #c2410c; }
+.lk-detail--orange .lk-s1__count-card b { background: #ffedd5; color: #ea580c; }
+
+.lk-detail--orange .lk-russian-promo { border-color: #fed7aa; }
+.lk-detail--orange .lk-russian-promo__label { color: #ea580c; }
+.lk-detail--orange .lk-russian-promo__meta { color: #ea580c; }
+.lk-detail--orange .lk-russian-promo__summary { background: #fff7ed; border-color: #fed7aa; color: #c2410c; }
+.lk-detail--orange .lk-russian-promo__price-row--accent { background: #fff7ed; }
+.lk-detail--orange .lk-russian-promo__price-row--accent b { color: #ea580c; }
+
 .lk-detail--green .lk-russian-promo { border-color: #bbf7d0; }
 .lk-detail--green .lk-russian-promo__label { color: #16a34a; }
 .lk-detail--green .lk-russian-promo__meta { color: #16a34a; }
@@ -690,7 +710,7 @@
   font-weight: 500;
 }
 
-.lk-s1__count-card--green b { background: #dcfce7; color: #16a34a; }
+.lk-detail--green .lk-s1__count-card b { background: #dcfce7; color: #16a34a; }
 
 .lk-s1__benefits {
   display: flex;
@@ -891,13 +911,19 @@
   gap: 14px;
 }
 
+.lk-russian-promo__header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 4px;
+}
+
 .lk-russian-promo__label {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #7c3aed;
-  margin-bottom: 4px;
 }
 
 .lk-russian-promo__title {
@@ -912,6 +938,7 @@
   font-weight: 600;
   color: #7c3aed;
   margin-top: 4px;
+  word-spacing: 0.3em;
 }
 
 .lk-russian-promo__body {
