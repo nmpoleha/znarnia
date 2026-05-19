@@ -60,9 +60,9 @@ const FORMATS = [
     id: 'stelat',
     badge: 'С 1 июня',
     color: 'purple',
-    title: 'Мягкий старт',
+    title: 'Полный курс',
     features: [
-      { icon: 'clock', text: '~50 уроков' },
+      { icon: 'clock', text: '40 уроков' },
       { icon: 'check', text: '2 этапа обучения' },
     ],
     desc: 'Плавное включение в учебный ритм и системная подготовка',
@@ -109,50 +109,93 @@ const FORMATS = [
 const FORMAT_DETAILS = {
   stelat: {
     color: 'purple',
-    label: 'МЯГКИЙ СТАРТ',
+    label: 'ПОЛНЫЙ КУРС',
     content: (
       <div className="lk-detail__body">
-        <div className="lk-detail__stage">Этап 1 (с 1 июня)</div>
-        <div className="lk-detail__two-col">
-          <div>
-            <div className="lk-detail__sub">Начальная школа</div>
-            <ul className="lk-detail__list">
-              <li>6 уроков на логику и мышление</li>
-              <li>6 уроков на текстовые задачи</li>
-            </ul>
+
+        {/* Этап 1 */}
+        <div className="lk-detail__stage-header">
+          <span className="lk-detail__stage-num">1 Этап</span>
+          <span className="lk-detail__stage-desc">Мягкий старт — закрываем пробелы и выстраиваем базу</span>
+          <span className="lk-detail__stage-date">с 1 по 21 июня</span>
+        </div>
+        {/* Формат — flow */}
+        <div className="lk-s1__flow">
+          <div className="lk-s1__flow-step">📖 Объяснение</div>
+          <div className="lk-s1__flow-arrow">→</div>
+          <div className="lk-s1__flow-step">✏️ Практика</div>
+          <div className="lk-s1__flow-arrow">→</div>
+          <div className="lk-s1__flow-step">🏆 Результат</div>
+        </div>
+
+        {/* Уроки */}
+        <div className="lk-s1__counts">
+          <div className="lk-s1__school-block">
+            <div className="lk-s1__school-label">Начальная школа</div>
+            <div className="lk-s1__count-row lk-s1__count-row--col">
+              <div className="lk-s1__count-card"><b>6</b><span>базовых&nbsp;урока · 30&nbsp;мин</span></div>
+              <div className="lk-s1__count-card"><b>6</b><span>уроков продвинутого&nbsp;уровня</span></div>
+            </div>
           </div>
-          <div>
-            <div className="lk-detail__sub">Средняя школа <span className="lk-detail__count">12 уроков</span></div>
-            <ul className="lk-detail__list">
-              <li>систематизация знаний</li>
-              <li>устранение пробелов</li>
-              <li>повышение качества решений</li>
-            </ul>
+          <div className="lk-s1__school-block">
+            <div className="lk-s1__school-label">Средняя школа</div>
+            <div className="lk-s1__count-row">
+              <div className="lk-s1__count-card lk-s1__count-card--wide lk-s1__count-card--tall">
+                <div className="lk-s1__count-num-col">
+                  <b>12</b>
+                  <small>тренажёров<br/>по 30&nbsp;мин</small>
+                </div>
+                <ul className="lk-s1__card-list">
+                  <li>систематизация знаний</li>
+                  <li>устранение пробелов</li>
+                  <li>повышение качества решений</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="lk-detail__stage">Формат уроков</div>
-        <p className="lk-detail__note">
-          Уроки-тренажёры разработаны по авторской методике и специально созданы для начальной и средней школы. Построены на цикличном чередовании теории и практики — ребёнку комфортно воспринимать материал.
-        </p>
-        <div className="lk-detail__flow">
-          <span className="lk-detail__flow-step">Теория</span>
-          <span className="lk-detail__flow-arrow">→</span>
-          <span className="lk-detail__flow-step">Практика</span>
-          <span className="lk-detail__flow-arrow">→</span>
-          <span className="lk-detail__flow-step">Теория</span>
-          <span className="lk-detail__flow-arrow">→</span>
-          <span className="lk-detail__flow-step">Практика</span>
+
+        {/* Преимущества */}
+        <div className="lk-s1__benefits">
+          <div className="lk-s1__benefit">🕐 <span>Смотрим <b>в удобное время</b></span></div>
+          <div className="lk-s1__benefit">💡 <span>Сохраняем знания</span></div>
+          <div className="lk-s1__benefit">🔍 <span><b>Восполняем пробелы</b> и разминка для ума</span></div>
+          <div className="lk-s1__benefit">⚡ <span>Теория + сразу практика — <b>удобный и эффективный формат</b></span></div>
         </div>
-        <ul className="lk-detail__list">
-          <li>Авторские уроки-тренажёры</li>
-          <li>Комфортный темп просмотра</li>
-          <li>~50 уроков по 30–40 минут</li>
-        </ul>
-        <div className="lk-detail__stage">Этап 2 — Основная программа (с 22 июня)</div>
-        <ul className="lk-detail__list">
-          <li>2 онлайн-урока в неделю</li>
-          <li>1 самостоятельный урок-тренажёр</li>
-        </ul>
+
+        {/* Этап 2 */}
+        <div className="lk-detail__stage-header">
+          <span className="lk-detail__stage-num">2 Этап</span>
+          <span className="lk-detail__stage-desc">Основной этап — уверенность и результат</span>
+          <span className="lk-detail__stage-date">с 22 июня</span>
+        </div>
+        {/* Уроки 2 этапа */}
+        <div className="lk-s1__counts" style={{marginTop:'14px'}}>
+          <div className="lk-s1__count-card" style={{flex:'0 0 auto'}}>
+            <b>2</b><span>онлайн-урока в неделю · 60&nbsp;мин</span>
+          </div>
+          <div className="lk-s1__count-card" style={{flex:'0 0 auto'}}>
+            <b>1</b><span>урок-тренажёр в неделю</span>
+          </div>
+        </div>
+
+        {/* Преимущества */}
+        <div className="lk-s1__benefits">
+          <div className="lk-s1__benefit">🚀 <span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
+          <div className="lk-s1__benefit">🧠 <span>Развиваем <b>логическое мышление</b> и навык рассуждения</span></div>
+          <div className="lk-s1__benefit">🔑 <span>Работаем с <b>нестандартными задачами</b>, а не шаблонами</span></div>
+          <div className="lk-s1__benefit">🔍 <span>Формируем умение анализировать и искать разные решения</span></div>
+          <div className="lk-s1__benefit">💪 <span>Даём уверенность: ребёнок <b>понимает</b>, а не заучивает</span></div>
+        </div>
+
+        {/* Результат */}
+        <div className="lk-detail__result-label" style={{marginTop:'16px'}}>Результат</div>
+        <div className="lk-s1__benefits" style={{background:'#f0fdf4'}}>
+          <div className="lk-s1__benefit">✅ <span>Находим и закрываем <b>конкретные пробелы</b> в знаниях</span></div>
+          <div className="lk-s1__benefit">✅ <span>С 1 сентября ребёнок опирается на <b>прочную базу</b> и включается в урок</span></div>
+          <div className="lk-s1__benefit">✅ <span>Уходит сопротивление учёбе — появляется <b>уверенность и мотивация</b></span></div>
+        </div>
+
       </div>
     ),
   },
@@ -271,12 +314,21 @@ function IconRocket() {
   return (
     <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
       <circle cx="28" cy="28" r="28" fill="#ede9fe"/>
-      <path d="M28 14c0 0 10 4 10 14 0 4-2 7-2 7H20s-2-3-2-7c0-10 10-14 10-14z" fill="#7c3aed"/>
-      <ellipse cx="28" cy="35" rx="4" ry="3" fill="#6d28d9"/>
-      <path d="M20 35l-3 7h22l-3-7" fill="#7c3aed"/>
-      <circle cx="28" cy="26" r="3.5" fill="#fff"/>
-      <path d="M16 31l-4 2 2-6" fill="#c4b5fd"/>
-      <path d="M40 31l4 2-2-6" fill="#c4b5fd"/>
+      {/* body */}
+      <path d="M28 12 C28 12 20 18 20 28 L20 36 L36 36 L36 28 C36 18 28 12 28 12Z" fill="#7c3aed"/>
+      {/* nose cone */}
+      <path d="M24 16 Q28 10 32 16Z" fill="#5b21b6"/>
+      {/* window */}
+      <circle cx="28" cy="26" r="4" fill="#fff" opacity="0.9"/>
+      <circle cx="28" cy="26" r="2.2" fill="#c4b5fd"/>
+      {/* fins left */}
+      <path d="M20 32 L14 38 L20 36Z" fill="#6d28d9"/>
+      {/* fins right */}
+      <path d="M36 32 L42 38 L36 36Z" fill="#6d28d9"/>
+      {/* flame */}
+      <ellipse cx="28" cy="38" rx="4" ry="2.5" fill="#f97316" opacity="0.9"/>
+      <ellipse cx="28" cy="40" rx="2.5" ry="3.5" fill="#fbbf24"/>
+      <ellipse cx="28" cy="42" rx="1.5" ry="2" fill="#fff" opacity="0.7"/>
     </svg>
   )
 }
@@ -302,6 +354,18 @@ function IconTarget() {
       <circle cx="28" cy="28" r="4.5" fill="#f97316"/>
       <path d="M37 15l2-2 3 3-2 2z" fill="#fb923c"/>
       <path d="M38.5 19l1.5-9" stroke="#fb923c" strokeWidth="1.8" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
+function IconPlay() {
+  return (
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+      <circle cx="28" cy="28" r="28" fill="#dbeafe"/>
+      <rect x="13" y="17" width="30" height="20" rx="4" fill="#2563eb"/>
+      <polygon points="24,22 24,34 36,28" fill="#fff"/>
+      <rect x="18" y="40" width="20" height="2.5" rx="1.25" fill="#2563eb" opacity="0.5"/>
+      <rect x="22" y="38" width="12" height="2.5" rx="1.25" fill="#2563eb" opacity="0.3"/>
     </svg>
   )
 }
@@ -407,6 +471,7 @@ export default function Page() {
                     {f.id === 'stelat' && <IconRocket />}
                     {f.id === 'main'   && <IconCalendar />}
                     {f.id === 'august' && <IconTarget />}
+                    {f.id === 'zapis'  && <IconPlay />}
                   </div>
                 </div>
                 <ul className="lk-card__feats">
