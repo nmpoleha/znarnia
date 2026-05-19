@@ -726,6 +726,50 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Platform section */}
+      <section className="lk-platform">
+        <div className="lk-wrap">
+          <div className="lk-platform__header">
+            <div className="lk-platform__tag">Платформа</div>
+            <h2 className="lk-platform__title">«Знарния» — образовательная онлайн-среда для комфортного обучения детей</h2>
+          </div>
+          <p className="lk-platform__desc">Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.</p>
+          <ul className="lk-platform__features">
+              {[
+                {
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V10.5z" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 22V12h6v10" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                  text: 'Собственная платформа',
+                },
+                {
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 20h9" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                  text: 'Интерактивная онлайн-доска',
+                },
+                {
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                  text: 'Задания и проверка в реальном времени',
+                },
+                {
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                  text: 'Игровая система мотивации',
+                },
+                {
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                  text: 'Аналитика для родителей',
+                },
+                {
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="#6d28d9" strokeWidth="2"/><path d="M10 9l5 3-5 3V9z" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                  text: 'Возможность пересматривать уроки в записи',
+                },
+              ].map((f, i) => (
+                <li key={i} className="lk-platform__feature">
+                  <span className="lk-platform__feature-icon">{f.icon}</span>
+                  <span className="lk-platform__feature-text">{f.text}</span>
+                </li>
+              ))}
+            </ul>
+        </div>
+      </section>
+
       {/* Comparison table — own section */}
       <section className="lk-comparison-section">
         <div className="lk-wrap">

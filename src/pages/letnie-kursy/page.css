@@ -2049,6 +2049,112 @@
   }
 }
 
+/* ── PLATFORM SECTION ── */
+.lk-platform {
+  padding: 48px 0;
+}
+
+.lk-platform__header {
+  max-width: 820px;
+  margin-bottom: 12px;
+}
+
+.lk-platform__tag {
+  display: inline-block;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+
+.lk-platform__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 800;
+  color: #1e1b4b;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.lk-platform__desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700;
+  color: #6d28d9;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.lk-platform__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: 1.5px solid #e9e3ff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.lk-platform__feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border-bottom: 1px solid #f0edff;
+  border-right: 1px solid #f0edff;
+}
+
+.lk-platform__feature:nth-child(2n) {
+  border-right: none;
+}
+
+.lk-platform__feature:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.lk-platform__feature-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background: #f5f3ff;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.lk-platform__feature-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e1b4b;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .lk-platform__features {
+    grid-template-columns: 1fr;
+  }
+
+  .lk-platform__feature {
+    border-right: none;
+  }
+
+  .lk-platform__feature:nth-last-child(-n+2) {
+    border-bottom: 1px solid #f0edff;
+  }
+
+  .lk-platform__feature:last-child {
+    border-bottom: none;
+  }
+}
+
 @media (max-width: 900px) and (min-width: 641px) {
   .lk-formats__grid {
     grid-template-columns: repeat(2, 1fr);
