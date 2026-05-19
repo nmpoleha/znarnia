@@ -483,6 +483,10 @@
   flex-wrap: wrap;
 }
 
+.lk-detail--green .lk-detail__stage-header {
+  background: linear-gradient(135deg, #15803d, #166534);
+}
+
 .lk-detail__stage-num {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -571,9 +575,9 @@
 
 .lk-s1__school-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--lk-muted);
+  color: var(--lk-text);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 8px;
@@ -642,31 +646,34 @@
 
 .lk-s1__count-card {
   flex: 0 0 auto;
-  background: #f5f3ff;
-  border-radius: 12px;
-  padding: 12px 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   white-space: nowrap;
 }
 
 .lk-s1__count-card--wide { white-space: normal; }
 
+.lk-s1__count-card--green b { color: #16a34a; }
+
+.lk-detail--green .lk-s1__benefits { background: #f0fdf4; }
+.lk-detail--green .lk-s1__benefit b { color: #15803d; }
+
 .lk-s1__count-card b {
   font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
+  font-size: 16px;
   font-weight: 900;
-  color: #7c3aed;
+  color: #1a1a2e;
   line-height: 1;
   flex-shrink: 0;
 }
 
 .lk-s1__count-card span {
   font-size: 15px;
-  color: var(--lk-muted);
+  color: #374151;
   line-height: 1.4;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .lk-s1__benefits {
@@ -885,43 +892,39 @@
 }
 
 .lk-russian-promo__meta {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c3aed;
+  margin-top: 4px;
 }
 
 .lk-russian-promo__body {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .lk-russian-promo__count {
   flex-shrink: 0;
-  background: #f5f3ff;
-  border: 1.5px solid #e9e3ff;
-  border-radius: 10px;
-  padding: 10px 14px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
-  min-width: 80px;
-  text-align: center;
+  gap: 8px;
 }
 
 .lk-russian-promo__count b {
   font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
+  font-size: 16px;
   font-weight: 900;
-  color: #7c3aed;
+  color: #1a1a2e;
   line-height: 1;
 }
 
 .lk-russian-promo__count span {
-  font-size: 11px;
-  color: #6b7280;
+  font-size: 15px;
+  color: #374151;
   line-height: 1.4;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .lk-russian-promo__flow {

@@ -203,10 +203,6 @@ const FORMAT_DETAILS = {
             <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
           </div>
           <div className="lk-russian-promo__body">
-            <div className="lk-russian-promo__count">
-              <b>20</b>
-              <span>коротких уроков<br/>по 30–40 минут</span>
-            </div>
             <div className="lk-russian-promo__flow">
               <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
               <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
@@ -239,22 +235,63 @@ const FORMAT_DETAILS = {
     labelCount: '28 уроков',
     content: (
       <div className="lk-detail__body">
-        <div className="lk-detail__two-col">
-          <div>
-            <ul className="lk-detail__list">
-              <li>2 онлайн-урока в неделю</li>
-              <li>1 самостоятельный урок-тренажёр</li>
-              <li>Регулярная практика</li>
-              <li>Системное повторение</li>
-            </ul>
+        <div className="lk-detail__stage-header">
+          <span className="lk-detail__stage-num">Основной этап</span>
+          <span className="lk-detail__stage-desc">Уверенность и результат</span>
+          <span className="lk-detail__stage-date">с 22 июня</span>
+        </div>
+
+        <div className="lk-s1__counts" style={{marginTop:'14px'}}>
+          <div className="lk-s1__count-card lk-s1__count-card--green" style={{flex:'0 0 auto'}}>
+            <b>2</b><span>онлайн-урока в неделю · 60&nbsp;мин</span>
           </div>
-          <div>
-            <div className="lk-detail__result-label">Результат</div>
-            <ul className="lk-detail__list lk-detail__list--star">
-              <li>Поддержание уровня летом</li>
-              <li>Усиление навыков</li>
-              <li>Подготовка к учебному году</li>
-            </ul>
+          <div className="lk-s1__count-card lk-s1__count-card--green" style={{flex:'0 0 auto'}}>
+            <b>1</b><span>урок-тренажёр в неделю</span>
+          </div>
+        </div>
+
+        <div className="lk-s1__benefits">
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Развиваем <b>логическое мышление</b> и навык рассуждения</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="#16a34a" strokeWidth="2"/><path d="M13 13l7 7M17 17l-2 2" stroke="#16a34a" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Работаем с <b>нестандартными задачами</b>, а не шаблонами</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#16a34a" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#16a34a" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Формируем умение анализировать и искать разные решения</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Даём уверенность: ребёнок <b>понимает</b>, а не заучивает</span></div>
+        </div>
+
+        <div className="lk-detail__result-label" style={{marginTop:'16px'}}>Результат</div>
+        <div className="lk-s1__benefits" style={{background:'#f0fdf4'}}>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Поддерживаем уровень знаний — <b>без летнего провала</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>С 1 сентября ребёнок опирается на <b>прочную базу</b> и включается в урок</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уходит сопротивление учёбе — появляется <b>уверенность и мотивация</b></span></div>
+        </div>
+
+        <div className="lk-russian-promo">
+          <div className="lk-russian-promo__header">
+            <div className="lk-russian-promo__label">Также доступно</div>
+            <div className="lk-russian-promo__title">Летний русский язык</div>
+            <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
+          </div>
+          <div className="lk-russian-promo__body">
+            <div className="lk-russian-promo__flow">
+              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
+              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
+              <div className="lk-russian-promo__step"><b>Разбор ошибок</b> — ребёнок понимает, а не заучивает</div>
+              <div className="lk-russian-promo__step"><b>Переход к новой теме</b> — без пробелов и потери материала</div>
+            </div>
+          </div>
+          <div className="lk-russian-promo__footer">
+            <div className="lk-russian-promo__summary">Каждый урок = понимание + закрепление + уверенность</div>
+            <div className="lk-russian-promo__prices">
+              <div className="lk-russian-promo__price-row">
+                <span>Только математика</span><b>17&thinsp;600&thinsp;₽</b>
+              </div>
+              <div className="lk-russian-promo__price-row">
+                <span>Только русский</span><b>12&thinsp;000&thinsp;₽</b>
+              </div>
+              <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
+                <span>Математика + русский</span><b>29&thinsp;600&thinsp;₽</b>
+              </div>
+            </div>
           </div>
         </div>
       </div>
