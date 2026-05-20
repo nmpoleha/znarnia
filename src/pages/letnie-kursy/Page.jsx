@@ -466,7 +466,7 @@ const FAQ = [
   { q: 'Сколько длится урок?',     a: 'Урок длится 30–40 минут — оптимальный формат для концентрации и усвоения.' },
   { q: 'Можно ли смотреть записи?', a: 'Да, записи всех уроков сохраняются и доступны в любое время.' },
   { q: 'Как проходят тренажёры?',  a: 'Тренажёры — самостоятельные задания по инструкции, которые ребёнок выполняет в удобное время.' },
-  { q: 'Чем отличаются форматы?',  a: 'Форматы отличаются объёмом уроков, темпом и датой старта. Мягкий старт — самый постепенный, август-интенсив — самый сжатый.' },
+  { q: 'Чем отличаются форматы?',  a: 'Форматы отличаются объёмом уроков, темпом и датой старта. Полный курс — самый постепенный, Умный август — самый сжатый.' },
   { q: 'Есть ли домашние задания?', a: 'Нет, домашние задания не задаются. Тренажёры встроены в учебный план и заменяют ДЗ.' },
 ]
 
@@ -671,13 +671,7 @@ export default function Page() {
               </div>
             </div>
           )}
-        </div>
-      </section>
 
-
-      {/* Individual lessons banner */}
-      <section className="lk-indiv">
-        <div className="lk-wrap">
           <div className="lk-indiv__card">
             <div className="lk-indiv__label">Индивидуальные<br/>занятия</div>
             <div className="lk-indiv__info">
@@ -824,6 +818,10 @@ export default function Page() {
               </tbody>
             </table>
           </div>
+          <div className="lk-comparison-btns">
+            <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => setShowModal(true)}>Забронировать место</button>
+            <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => setShowModal(true)}>Купить курс</button>
+          </div>
         </div>
       </section>
 
@@ -834,11 +832,19 @@ export default function Page() {
 
             <div className="lk-who">
               <h2 className="lk-heading lk-heading--left">Кому подойдёт программа</h2>
-              <ul className="lk-who__list">
-                {WHO_FOR.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
+              <div className="lk-who__card">
+                <ul className="lk-who__list">
+                  {WHO_FOR.map((item, i) => (
+                    <li key={i}>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="2"/>
+                        <path d="M8 12l3 3 5-5" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div className="lk-faq">

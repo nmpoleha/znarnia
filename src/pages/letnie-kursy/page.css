@@ -1412,6 +1412,13 @@
   background: #fafafa;
 }
 
+.lk-comparison-btns {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
 /* ── MID SECTION (Who + FAQ) ── */
 .lk-mid {
   background: #f9f8ff;
@@ -1426,99 +1433,103 @@
 }
 
 /* ── WHO FOR ── */
+.lk-who__card {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+
 .lk-who__list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .lk-who__list li {
-  font-size: 13.5px;
-  color: var(--lk-muted);
+  font-size: 14px;
+  color: #374151;
   line-height: 1.5;
-  padding-left: 26px;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.lk-who__list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 3px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--lk-lavender);
-  border: 1.5px solid var(--lk-primary-lt);
-}
-
-.lk-who__list li::after {
-  content: '✓';
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--lk-primary);
-  line-height: 16px;
-  width: 16px;
-  text-align: center;
+.lk-who__list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* ── FAQ ── */
 .lk-faq__list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
 }
 
 .lk-faq__item {
-  border-bottom: 1px solid var(--lk-border);
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.lk-faq__item:last-child {
+  border-bottom: none;
 }
 
 .lk-faq__q {
   width: 100%;
   background: none;
   border: none;
-  padding: 12px 0;
+  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--lk-text);
   cursor: pointer;
   text-align: left;
   font-family: 'Roboto', sans-serif;
-  transition: color 0.15s;
+  transition: color 0.15s, background 0.15s;
 }
 
 .lk-faq__q:hover {
-  color: var(--lk-primary);
+  background: #fafafa;
 }
 
 .lk-faq__item--open .lk-faq__q {
   color: var(--lk-primary);
   font-weight: 600;
+  background: #faf8ff;
 }
 
 .lk-faq__icon {
   flex-shrink: 0;
-  font-size: 18px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f5f3ff;
   color: var(--lk-primary);
-  line-height: 1;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lk-faq__a {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--lk-muted);
-  line-height: 1.6;
-  padding-bottom: 12px;
+  line-height: 1.65;
+  padding: 0 20px 14px;
   animation: lk-slide-in 0.18s ease;
 }
 
@@ -1877,18 +1888,16 @@
 }
 
 /* ── INDIVIDUAL LESSONS ── */
-.lk-indiv {
-  padding: 24px 0 0;
-}
-
 .lk-indiv__card {
+  margin-top: 16px;
   display: flex;
   align-items: center;
   gap: 24px;
-  background: #f5f3ff;
-  border: 1.5px solid #e9e3ff;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
   border-radius: 16px;
   padding: 20px 28px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
 }
 
 .lk-indiv__label {
@@ -1896,7 +1905,7 @@
   font-size: 13px;
   font-weight: 900;
   color: #fff;
-  background: #6d28d9;
+  background: #1e1b4b;
   border-radius: 10px;
   padding: 10px 16px;
   text-align: center;
@@ -1934,17 +1943,17 @@
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  background: #fff;
+  background: #f9fafb;
   border-radius: 12px;
   padding: 10px 20px;
-  border: 1px solid #e9e3ff;
+  border: 1px solid #e5e7eb;
 }
 
 .lk-indiv__count-num {
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: 900;
-  color: #6d28d9;
+  color: #1e1b4b;
   line-height: 1;
 }
 
@@ -1969,7 +1978,7 @@
 
 /* ── LESSON SECTION ── */
 .lk-lesson-section {
-  padding: 48px 0 0;
+  padding: 60px 0;
 }
 
 .lk-lesson-banner {
@@ -2019,7 +2028,7 @@
 }
 
 .lk-lesson-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 800;
   color: #1e1b4b;
@@ -2027,9 +2036,9 @@
 }
 
 .lk-lesson-card__sub {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #6b7280;
-  margin-top: 4px;
+  margin-top: 6px;
   line-height: 1.5;
 }
 
@@ -2044,7 +2053,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .lk-lesson-card__right {
@@ -2055,11 +2064,14 @@
 .lk-lesson-meta {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
+  padding: 12px 14px;
+  background: #f9f8ff;
+  border-radius: 10px;
 }
 
 .lk-lesson-meta__item {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #4b5563;
   display: flex;
   align-items: center;
@@ -2067,10 +2079,12 @@
 }
 
 .lk-lesson-how-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: #6d28d9;
-  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
 }
 
 .lk-lesson-checklist {
@@ -2079,7 +2093,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
 }
 
 .lk-lesson-checklist li {
@@ -2087,7 +2101,7 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 14px;
-  color: #374151;
+  color: #374151 !important;
   line-height: 1.5;
 }
 
@@ -2154,7 +2168,7 @@
 
 /* ── PLATFORM SECTION ── */
 .lk-platform {
-  padding: 48px 0;
+  padding: 60px 0;
 }
 
 .lk-platform__header {
