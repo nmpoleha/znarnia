@@ -224,7 +224,7 @@ const FORMAT_DETAILS = {
                 <span>Только русский</span><b>12&thinsp;000&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
-                <span>Математика + русский</span><b>36&thinsp;600&thinsp;₽</b>
+                <span>Математика + русский</span><b>33&thinsp;600&thinsp;₽</b>
               </div>
             </div>
           </div>
@@ -750,7 +750,7 @@ export default function Page() {
               <li>Готовим к новому учебному году</li>
             </ul>
             <div className="lk-hero__actions">
-              <button className="lk-hero__cta" onClick={() => setShowModal(true)}>
+              <button className="lk-hero__cta" onClick={() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' })}>
                 Выбрать формат
               </button>
               <div className="lk-hero__badges">
@@ -840,7 +840,7 @@ export default function Page() {
       </section>
 
       {/* Comparison table — own section */}
-      <section className="lk-comparison-section">
+      <section className="lk-comparison-section" id="comparison">
         <div className="lk-wrap">
           <h2 className="lk-heading lk-heading--left">Сравнение форматов</h2>
           <div className="lk-table-wrap">
