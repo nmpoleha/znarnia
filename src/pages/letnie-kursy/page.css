@@ -2112,138 +2112,78 @@
   .dg-lightbox__next { right: 8px; width: 40px; height: 40px; }
 }
 
-/* ── MOBILE ── */
+/* ── MOBILE (<640px) ── */
 @media (max-width: 640px) {
-  .lk-hero {
-    padding: 28px 0 32px;
-  }
+  .lk-wrap { padding: 0 16px; }
 
-  .lk-hero__inner {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
+  /* Hero */
+  .lk-hero { padding: 24px 0 28px; }
+  .lk-hero__inner::after { display: none; }
+  .lk-hero__content { max-width: 100%; margin-left: 0; top: 0; }
+  .lk-hero__title { font-size: 26px; }
+  .lk-hero__points li { font-size: 14px; }
+  .lk-hero__actions { gap: 12px; margin-top: 20px; }
+  .lk-hero__cta { width: 100%; text-align: center; }
+  .lk-hero__badges { gap: 12px; }
 
-  .lk-hero__inner::after {
-    display: none;
-  }
+  /* Formats */
+  .lk-formats { padding: 28px 0 32px; margin-top: -60px; }
+  .lk-formats__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .lk-card { padding: 16px 14px 14px; }
+  .lk-card__title { font-size: 16px; }
+  .lk-card__price { font-size: 22px; }
 
-  .lk-hero__content {
-    max-width: 100%;
-  }
+  /* Detail panel */
+  .lk-detail { padding: 18px 14px; }
+  .lk-detail__two-col { grid-template-columns: 1fr; gap: 12px; }
+  .lk-s1__count-card span { white-space: normal; }
+  .lk-s1__counts { justify-content: flex-start; }
+  .lk-comparison-btns { flex-direction: column; }
 
-  .lk-hero__title {
-    font-size: 28px;
-  }
+  /* Comparison */
+  .lk-comparison-section { padding: 24px 0 40px; }
+  .lk-table-wrap { overflow-x: auto; }
+  .lk-table { font-size: 12px; min-width: 520px; }
+  .lk-table thead th { padding: 10px 10px; }
+  .lk-table tbody td { padding: 10px 10px; }
 
-  .lk-hero__points li {
-    font-size: 15px;
-  }
+  /* Lesson block */
+  .lk-lesson-section { padding: 0 0 16px; }
+  .lk-lesson-card { padding: 18px 16px; }
+  .lk-lesson-card__body { flex-direction: column; }
+  .lk-lesson-card__right { width: 100%; }
+  .lk-lesson-banner { font-size: 14px; }
 
-  .lk-hero__cta {
-    width: 100%;
-    text-align: center;
-  }
+  /* Platform */
+  .lk-platform { padding: 16px 0 28px; }
+  .lk-platform__desc { white-space: normal; font-size: 13px; }
+  .lk-platform__features { grid-template-columns: 1fr; }
+  .lk-platform__feature { border-right: none; }
+  .lk-platform__feature:nth-last-child(-n+2) { border-bottom: 1px solid #f0edff; }
+  .lk-platform__feature:last-child { border-bottom: none; }
 
-  .lk-formats {
-    padding: 36px 0;
-  }
+  /* How (unused but kept) */
+  .lk-how { padding: 28px 0; }
+  .lk-how__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
-  .lk-formats__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+  /* Headings */
+  .lk-heading { font-size: 20px; margin-bottom: 20px; }
+  .lk-heading--left { font-size: 17px; }
 
-  .lk-panels {
-    padding: 0 0 36px;
-  }
+  /* Who / FAQ */
+  .lk-mid { padding: 28px 0; }
+  .lk-mid__grid { grid-template-columns: 1fr; gap: 24px; }
 
-  .lk-panels__grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
+  /* CTA */
+  .lk-cta { padding: 36px 16px; }
+  .lk-cta__title { font-size: 20px; }
+  .lk-cta__btns { flex-direction: column; align-items: stretch; }
+  .lk-cta__btn { width: 100%; }
 
-  .lk-panel__two {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .lk-detail {
-    padding: 20px 16px;
-  }
-
-  .lk-detail__two-col {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .lk-how {
-    padding: 36px 0;
-  }
-
-  .lk-how__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .lk-comparison-section {
-    padding: 36px 0;
-  }
-
-  .lk-table-wrap {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-
-  .lk-mid {
-    padding: 36px 0;
-  }
-
-  .lk-mid__grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .lk-table-wrap {
-    overflow-x: auto;
-  }
-
-  .lk-heading {
-    font-size: 22px;
-    margin-bottom: 24px;
-  }
-
-  .lk-heading--left {
-    font-size: 18px;
-  }
-
-  .lk-cta {
-    padding: 40px 20px;
-  }
-
-  .lk-cta__title {
-    font-size: 22px;
-  }
-
-  .lk-cta__btns {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .lk-cta__btn {
-    width: 100%;
-  }
-
-  .lk-topbar__contacts {
-    display: none;
-  }
-
-  .lk-topbar__brand {
-    margin-left: 0;
-  }
-
-  .lk-topbar__inner {
-    justify-content: center;
-  }
+  /* Topbar */
+  .lk-topbar__contacts { display: none; }
+  .lk-topbar__brand { margin-left: 0; }
+  .lk-topbar__inner { justify-content: center; }
 }
 
 /* ── INDIVIDUAL LESSONS ── */
@@ -2767,6 +2707,10 @@
 }
 
 @media (max-width: 640px) {
+  .lk-platform__desc {
+    white-space: normal;
+  }
+
   .lk-platform__features {
     grid-template-columns: 1fr;
   }
@@ -2784,27 +2728,48 @@
   }
 }
 
-@media (max-width: 900px) and (min-width: 641px) {
-  .lk-formats__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+/* ── TABLET (641–1024px) ── */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .lk-wrap { padding: 0 20px; }
 
-  .lk-panels__grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
+  .lk-hero { padding: 48px 0 60px; }
+  .lk-hero__title { font-size: clamp(26px, 3.5vw, 38px); }
+  .lk-hero__content { margin-left: 20px; max-width: 420px; }
+  .lk-hero__inner::after { width: 32%; right: 20px; }
 
-  .lk-how__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .lk-formats { margin-top: -80px; }
+  .lk-formats__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
-  .lk-mid__grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+  .lk-lesson-section { padding: 32px 0 20px; }
+  .lk-lesson-card { padding: 22px 24px; }
+  .lk-lesson-card__body { gap: 20px; }
+  .lk-lesson-card__right { width: 40%; }
 
-  .lk-hero__title {
-    font-size: 32px;
-  }
+  .lk-mid__grid { grid-template-columns: 1fr; gap: 28px; }
+
+  .dg-author__top { grid-template-columns: 1fr 220px; }
+  .dg-author__stats { flex-wrap: wrap; }
+  .dg-author__stat { flex: 0 0 50%; border-right: none; border-bottom: 1px solid #e5e7eb; padding: 14px 20px; }
+  .dg-author__stat:nth-child(odd) { border-right: 1px solid #e5e7eb; }
+  .dg-author__stat:nth-last-child(-n+2) { border-bottom: none; }
+
+  .dg-reviews__thumb { flex: 0 0 calc((100% - 20px) / 3); }
+  .dg-letters__thumb { flex: 0 0 calc((100% - 20px) / 3); }
+
+  .lk-comparison-btns { gap: 12px; }
+
+  .lk-s1__counts { justify-content: flex-start; }
+}
+
+/* ── TABLET PORTRAIT (641–768px) ── */
+@media (min-width: 641px) and (max-width: 768px) {
+  .lk-hero__inner::after { display: none; }
+  .lk-hero__content { max-width: 100%; margin-left: 0; }
+
+  .lk-lesson-card__body { flex-direction: column; }
+  .lk-lesson-card__right { width: 100%; }
+
+  .dg-author__top { grid-template-columns: 1fr; }
+  .dg-author__photo-slot { height: 260px; }
+  .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; object-fit: cover; object-position: center top; }
 }
