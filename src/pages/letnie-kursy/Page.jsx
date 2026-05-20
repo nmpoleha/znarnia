@@ -433,14 +433,26 @@ const FORMAT_DETAILS = {
 }
 
 const COMPARISON = [
-  { param: 'Старт',                   stelat: '1 июня',    main: '22 июня',   august: 'Август'    },
-  { param: 'Онлайн-уроки',            stelat: '✓',         main: '✓',         august: '✓'         },
-  { param: 'Тренажёры',               stelat: '✓',         main: '✓',         august: '✓'         },
-  { param: 'Плавная адаптация',       stelat: '✓',         main: '—',         august: '—'         },
-  { param: 'Индивидуальные пробелы',  stelat: '✓',         main: 'частично',  august: '✓'         },
-  { param: 'Количество уроков',       stelat: '~50',       main: '28',        august: '20'        },
-  { param: 'Стоимость',               stelat: '21 600 ₽', main: '17 600 ₽', august: '10 800 ₽', highlight: true },
+  { param: 'Старт',                  stelat: '1 июня',    main: '22 июня',  august: 'Август',    zapis: 'В любое время' },
+  { param: 'Онлайн-уроки',           stelat: '18',        main: '18',       august: '8',         zapis: false           },
+  { param: 'Тренажёры',              stelat: '22',        main: '10',       august: '12',        zapis: '10'            },
+  { param: 'Занятия в записи',       stelat: true,        main: true,       august: true,        zapis: true            },
+  { param: 'Плавная адаптация',      stelat: true,        main: false,      august: false,       zapis: false           },
+  { param: 'Количество уроков',      stelat: '40',        main: '28',       august: '20',        zapis: '40'            },
+  { param: 'Стоимость',              stelat: '21 600 ₽', main: '17 600 ₽', august: '10 800 ₽', zapis: '15 000 ₽', highlight: true },
 ]
+
+function CmpCell({ value, color }) {
+  if (value === true) return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke={color} strokeWidth="2"/>
+      <path d="M8 12l3 3 5-5" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+  if (value === false) return <span style={{color:'#d1d5db',fontSize:'16px',fontWeight:400}}>—</span>
+  return value
+}
+
 
 const WHO_FOR = [
   'Ребёнок быстро забывает материал летом',
@@ -663,16 +675,32 @@ export default function Page() {
       </section>
 
 
+      {/* Individual lessons banner */}
+      <section className="lk-indiv">
+        <div className="lk-wrap">
+          <div className="lk-indiv__card">
+            <div className="lk-indiv__label">Индивидуальные<br/>занятия</div>
+            <div className="lk-indiv__info">
+              <span className="lk-indiv__price-line">До 1 июня — <b>14 400 ₽</b> за 8 уроков <span className="lk-indiv__note">(цена фиксируется на учебный год)</span></span>
+              <span className="lk-indiv__price-line">После 1 июня — <b>15 200 ₽</b></span>
+            </div>
+            <div className="lk-indiv__count">
+              <span className="lk-indiv__count-num">8</span>
+              <span className="lk-indiv__count-label">уроков</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Lesson block */}
       <section className="lk-lesson-section">
         <div className="lk-wrap">
           <div className="lk-lesson-banner">
-            Авторские уроки-тренажёры Ольги Сотниковой построены на принципе активного обучения: объяснение, практика, анализ и следующий шаг. Такой подход помогает ребёнку не теряться в теме, а постепенно разбирать её до уверенного понимания и самостоятельного решения задач.
+            <span className="lk-lesson-banner__accent">Авторские уроки-тренажёры Ольги Сотниковой</span> построены на принципе активного обучения: объяснение, практика, анализ и следующий шаг. Такой подход помогает ребёнку не теряться в теме, а постепенно разбирать её до уверенного понимания и самостоятельного решения задач.
           </div>
 
           <div className="lk-lesson-card">
             <div className="lk-lesson-card__head">
-              <div className="lk-lesson-num">1</div>
               <div>
                 <div className="lk-lesson-card__title">Интерактивный урок-тренажёр</div>
                 <div className="lk-lesson-card__sub">Системное освоение темы через цикл «теория → практика → закрепление»</div>
@@ -776,19 +804,21 @@ export default function Page() {
             <table className="lk-table">
               <thead>
                 <tr>
-                  <th className="lk-table__h--param">ПАРАМЕТРЫ</th>
-                  <th className="lk-table__h--purple">МЯГКИЙ<br/>СТАРТ</th>
+                  <th className="lk-table__h--param"></th>
+                  <th className="lk-table__h--purple">ПОЛНЫЙ<br/>КУРС</th>
                   <th className="lk-table__h--green">ОСНОВНОЙ<br/>ПОТОК</th>
-                  <th className="lk-table__h--orange">АВГУСТ</th>
+                  <th className="lk-table__h--orange">УМНЫЙ<br/>АВГУСТ</th>
+                  <th className="lk-table__h--blue">ЗАНЯТИЯ<br/>В ЗАПИСИ</th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON.map((row, i) => (
                   <tr key={i} className={row.highlight ? 'lk-table__row--hl' : ''}>
                     <td className="lk-table__param">{row.param}</td>
-                    <td className="lk-table__v--purple">{row.stelat}</td>
-                    <td className="lk-table__v--green">{row.main}</td>
-                    <td className="lk-table__v--orange">{row.august}</td>
+                    <td className="lk-table__v--purple"><CmpCell value={row.stelat} color="#6d28d9"/></td>
+                    <td className="lk-table__v--green"><CmpCell value={row.main} color="#15803d"/></td>
+                    <td className="lk-table__v--orange"><CmpCell value={row.august} color="#c2410c"/></td>
+                    <td className="lk-table__v--blue"><CmpCell value={row.zapis} color="#2563eb"/></td>
                   </tr>
                 ))}
               </tbody>

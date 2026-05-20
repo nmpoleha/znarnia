@@ -1345,7 +1345,10 @@
 }
 
 .lk-table-wrap {
-  max-width: 580px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
 }
 
 .lk-table {
@@ -1355,54 +1358,58 @@
 }
 
 .lk-table thead th {
-  padding: 12px 16px;
+  padding: 14px 16px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.4;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .lk-table__h--param {
   text-align: left;
-  background: #f5f3ff;
-  color: var(--lk-muted);
-  font-size: 10.5px;
-  width: 38%;
+  background: #f9f8ff;
+  color: #9ca3af;
+  font-size: 10px;
+  width: 28%;
 }
 
-.lk-table__h--purple { background: #ede9fe; color: var(--lk-primary); }
-.lk-table__h--green  { background: #dcfce7; color: var(--lk-green-lt); }
-.lk-table__h--orange { background: #fff7ed; color: #c2410c; }
+.lk-table__h--purple { background: #f5f3ff; color: var(--lk-primary);  border-top: 3px solid #6d28d9; }
+.lk-table__h--green  { background: #f0fdf4; color: var(--lk-green-lt); border-top: 3px solid #16a34a; }
+.lk-table__h--orange { background: #fff7ed; color: #c2410c;            border-top: 3px solid #ea580c; }
+.lk-table__h--blue   { background: #eff6ff; color: #2563eb;            border-top: 3px solid #2563eb; }
 
 .lk-table tbody td {
-  padding: 11px 16px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 13px 16px;
+  border-bottom: 1px solid #f3f4f6;
   text-align: center;
-  color: var(--lk-muted);
   vertical-align: middle;
 }
 
-.lk-table tbody tr:hover td {
-  background: #fafaf9;
-}
+.lk-table tbody tr:last-child td { border-bottom: none; }
+
+.lk-table tbody tr:hover td { background: #fafafa; }
 
 .lk-table__param {
   text-align: left !important;
   color: var(--lk-text) !important;
   font-size: 13.5px;
+  font-weight: 500;
 }
 
 .lk-table__v--purple { color: var(--lk-primary) !important; font-weight: 600; }
 .lk-table__v--green  { color: var(--lk-green-lt) !important; font-weight: 600; }
 .lk-table__v--orange { color: #c2410c !important; font-weight: 600; }
+.lk-table__v--blue   { color: #2563eb !important; font-weight: 600; }
 
 .lk-table__row--hl td {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 15px;
   border-bottom: none;
+  background: #fafafa;
 }
 
 /* ── MID SECTION (Who + FAQ) ── */
@@ -1869,6 +1876,97 @@
   }
 }
 
+/* ── INDIVIDUAL LESSONS ── */
+.lk-indiv {
+  padding: 24px 0 0;
+}
+
+.lk-indiv__card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #f5f3ff;
+  border: 1.5px solid #e9e3ff;
+  border-radius: 16px;
+  padding: 20px 28px;
+}
+
+.lk-indiv__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  background: #6d28d9;
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.lk-indiv__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lk-indiv__price-line {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.lk-indiv__price-line b {
+  color: #1e1b4b;
+  font-weight: 700;
+}
+
+.lk-indiv__note {
+  font-size: 12.5px;
+  color: #6b7280;
+}
+
+.lk-indiv__count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 20px;
+  border: 1px solid #e9e3ff;
+}
+
+.lk-indiv__count-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #6d28d9;
+  line-height: 1;
+}
+
+.lk-indiv__count-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .lk-indiv__card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .lk-indiv__count {
+    align-self: flex-end;
+  }
+}
+
 /* ── LESSON SECTION ── */
 .lk-lesson-section {
   padding: 48px 0 0;
@@ -1883,6 +1981,11 @@
   color: #374151;
   line-height: 1.7;
   margin-bottom: 24px;
+}
+
+.lk-lesson-banner__accent {
+  color: #6d28d9;
+  font-weight: 700;
 }
 
 .lk-lesson-card {
@@ -2055,39 +2158,39 @@
 }
 
 .lk-platform__header {
-  max-width: 820px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .lk-platform__tag {
   display: inline-block;
   background: #ede9fe;
   color: #6d28d9;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   padding: 4px 12px;
   border-radius: 100px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .lk-platform__title {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(22px, 2.8vw, 32px);
+  font-size: clamp(18px, 1.8vw, 22px);
   font-weight: 800;
   color: #1e1b4b;
-  line-height: 1.25;
-  margin: 0 0 12px;
+  line-height: 1.3;
+  margin: 0;
 }
 
 .lk-platform__desc {
   font-family: 'Manrope', sans-serif;
-  font-size: clamp(16px, 1.8vw, 20px);
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   color: #6d28d9;
   line-height: 1.5;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
+  white-space: nowrap;
 }
 
 .lk-platform__features {
