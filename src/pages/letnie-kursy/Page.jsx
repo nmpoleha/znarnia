@@ -5,6 +5,23 @@ function nb(str) {
   return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w}${NBSP}`)
 }
 
+const LkCheck = () => (
+  <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+    <circle cx="10" cy="10" r="10" fill="#ede9fe"/>
+    <polyline points="5.5 10.5 8.5 13.5 14.5 7" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+function LkChecklist({ items }) {
+  return (
+    <ul className="lk-plot-checklist">
+      {items.map((t, i) => (
+        <li key={i}><LkCheck /><span>{typeof t === 'string' ? nb(t) : t}</span></li>
+      ))}
+    </ul>
+  )
+}
+
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', grade: '' })
   const [submitted, setSubmitted] = useState(false)
@@ -929,6 +946,34 @@ export default function Page() {
               Каждый урок выстроен как последовательность повторяющихся циклов:<br />
               объяснение → практика → анализ → следующий шаг.<br />
               Ребёнок не просто знакомится с темой, а последовательно прорабатывает каждый её элемент до понимания.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Урок с сюжетной линией */}
+      <section className="lk-plot-section">
+        <div className="lk-wrap">
+          <div className="lk-plot-card">
+            <div className="lk-plot-card__head">
+              <div className="lk-plot-num">2</div>
+              <div className="lk-plot-card__title">Урок с сюжетной линией</div>
+            </div>
+            <div className="lk-s2-body">
+              <div className="lk-s2-left">
+                <p className="lk-s2-bold">{nb('Тема урока построена на реальной жизненной ситуации.')}</p>
+                <p className="lk-s2-text">{nb('Ребёнок не просто изучает тему — он сразу видит, где и как она используется в реальной жизни.')}</p>
+              </div>
+              <div className="lk-s2-mid">
+                <img src="/znarnia/images/girl-tablet.png" alt="Ребёнок с планшетом" className="lk-s2-img" width="400" height="400" loading="lazy" />
+              </div>
+              <div className="lk-s2-right">
+                <LkChecklist items={[
+                  'Делает материал понятнее',
+                  'Повышает интерес к обучению',
+                  <>Убирает вопрос:<br />«А зачем мне это нужно?»</>,
+                ]} />
+              </div>
             </div>
           </div>
         </div>
