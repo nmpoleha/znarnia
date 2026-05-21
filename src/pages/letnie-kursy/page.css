@@ -1079,7 +1079,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 15px;
-  color: #dc2626;
+  color: #dc2626 !important;
   white-space: nowrap;
 }
 
