@@ -517,10 +517,10 @@ const FORMAT_DETAILS = {
 }
 
 const COMPARISON = [
-  { param: 'Старт',                  stelat: '1 июня',    main: '22 июня',  august: 'Август',    zapis: 'В любое время' },
+  { param: 'Старт',                  stelat: '1 июня',    main: '22 июня',  august: '1 августа', zapis: 'С 1 июня · в любое время' },
   { param: 'Онлайн-уроки',           stelat: '18',        main: '18',       august: '8',         zapis: false           },
-  { param: 'Тренажёры',              stelat: '22',        main: '10',       august: '12',        zapis: '10'            },
-  { param: 'Занятия в записи',       stelat: true,        main: true,       august: true,        zapis: true            },
+  { param: 'Тренажёры',              stelat: '22',        main: '10',       august: '12',        zapis: '22'            },
+  { param: 'Занятия в записи',       stelat: '18',        main: '18',       august: '8',         zapis: '18'            },
   { param: 'Плавная адаптация',      stelat: true,        main: false,      august: false,       zapis: false           },
   { param: 'Количество уроков',      stelat: '40',        main: '28',       august: '20',        zapis: '40'            },
   { param: 'Стоимость',              stelat: '21 600 ₽', main: '17 600 ₽', august: '10 800 ₽', zapis: '15 000 ₽', highlight: true },
