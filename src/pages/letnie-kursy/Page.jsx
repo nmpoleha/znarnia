@@ -104,7 +104,7 @@ const FORMATS = [
   },
   {
     id: 'august',
-    badge: 'Август',
+    badge: 'С 1 августа',
     color: 'orange',
     title: 'Умный август',
     features: [
@@ -115,10 +115,11 @@ const FORMATS = [
   },
   {
     id: 'zapis',
-    badge: 'В любое время',
+    badge: 'С 1 июня · в любое время',
     color: 'blue',
     title: 'Занятия в записи',
     features: [
+      { icon: 'clock', text: '40 уроков' },
       { icon: 'check', text: 'Без фиксированного расписания' },
     ],
     desc: 'Смотрите уроки в удобное время — без привязки к расписанию',
