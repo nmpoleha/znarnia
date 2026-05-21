@@ -1037,6 +1037,20 @@ export default function Page() {
       {/* Comparison table — own section */}
       <section className="lk-comparison-section" id="comparison">
         <div className="lk-wrap">
+          <div className="lk-record-banner">
+            <div className="lk-record-banner__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2"/><path d="M10 8l6 4-6 4V8z" fill="#fff"/></svg>
+            </div>
+            <div className="lk-record-banner__body">
+              <div className="lk-record-banner__title">Все занятия доступны в записи</div>
+              <div className="lk-record-banner__text">Смотрите уроки в удобное время, возвращайтесь к сложным темам и учитесь в своём темпе — без привязки к расписанию</div>
+            </div>
+            <div className="lk-record-banner__pills">
+              <span>📅 В любое время</span>
+              <span>🔁 Неограниченный повтор</span>
+              <span>⏱ Свой темп</span>
+            </div>
+          </div>
           <h2 className="lk-heading lk-heading--left">Сравнение форматов</h2>
           <div className="lk-table-wrap">
             <table className="lk-table">
@@ -1245,6 +1259,13 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Buttons before author */}
+      <div className="lk-wrap lk-pre-author-btns">
+        <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => { setPaymentMode('book'); setShowPaymentModal(true); }}>Забронировать место</button>
+        <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>
+        <button className="lk-detail__btn lk-detail__btn--ghost" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
+      </div>
+
       {/* Author block */}
       <section className="lk-author-section">
         <div className="lk-wrap">
@@ -1361,8 +1382,9 @@ export default function Page() {
             <h2 className="lk-cta__title">Выберите подходящий формат летнего обучения</h2>
             <p className="lk-cta__desc">Поможем ребёнку учиться с удовольствием и результатом</p>
             <div className="lk-cta__btns">
-              <button className="lk-cta__btn lk-cta__btn--primary" onClick={() => setShowModal(true)}>Записаться</button>
-              <button className="lk-cta__btn lk-cta__btn--outline" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
+              <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => { setPaymentMode('book'); setShowPaymentModal(true); }}>Забронировать место</button>
+              <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>
+              <button className="lk-cta__btn--ghost" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
             </div>
           </div>
         </div>
