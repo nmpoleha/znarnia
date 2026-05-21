@@ -22,6 +22,113 @@ function LkChecklist({ items }) {
   )
 }
 
+function ConsultationModal({ onClose }) {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', consent: false })
+  const [submitted, setSubmitted] = useState(false)
+  function set(k, v) { setForm(f => ({ ...f, [k]: v })) }
+  function handleSubmit(e) {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+  return (
+    <div className="lk-modal-overlay" onClick={onClose}>
+      <div className="lk-cm" onClick={e => e.stopPropagation()}>
+        <div className="lk-cm__header">
+          <div className="lk-cm__title">Запись на консультацию</div>
+          <div className="lk-cm__sub">Оставьте контакты — мы свяжемся и ответим на все вопросы</div>
+          <button className="lk-cm__x" onClick={onClose}>×</button>
+        </div>
+        {submitted ? (
+          <div className="lk-cm__body lk-cm__success">
+            <div className="lk-modal__success-icon">✓</div>
+            <div className="lk-modal__success-title">Заявка принята!</div>
+            <div className="lk-modal__success-text">Мы свяжемся с вами в ближайшее время</div>
+            <button className="lk-modal__close-btn" onClick={onClose}>Закрыть</button>
+          </div>
+        ) : (
+          <div className="lk-cm__body">
+            <form className="lk-cm__form" onSubmit={handleSubmit}>
+              <div className="lk-cm__grid">
+                <div className="lk-cm__group">
+                  <label className="lk-cm__label">Ваше имя <span className="lk-cm__req">*</span></label>
+                  <input className="lk-cm__input" type="text" required placeholder="Иван Иванов" value={form.name} onChange={e => set('name', e.target.value)} />
+                </div>
+                <div className="lk-cm__group">
+                  <label className="lk-cm__label">Телефон <span className="lk-cm__req">*</span></label>
+                  <input className="lk-cm__input" type="tel" required placeholder="+7 (___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
+                </div>
+                <div className="lk-cm__group">
+                  <label className="lk-cm__label">Email <span className="lk-cm__req">*</span></label>
+                  <input className="lk-cm__input" type="email" required placeholder="ivan@example.com" value={form.email} onChange={e => set('email', e.target.value)} />
+                </div>
+                <div className="lk-cm__group">
+                  <label className="lk-cm__label">Ник в Telegram</label>
+                  <input className="lk-cm__input" type="text" placeholder="@username" value={form.telegram} onChange={e => set('telegram', e.target.value)} />
+                </div>
+              </div>
+              <div className="lk-cm__group">
+                <label className="lk-cm__label">Класс ребёнка</label>
+                <select className="lk-cm__select" value={form.grade} onChange={e => set('grade', e.target.value)}>
+                  <option value="">Выберите класс</option>
+                  {[1,2,3,4,5,6,7,8,9,10].map(g => <option key={g} value={g}>{g} класс</option>)}
+                </select>
+              </div>
+              <label className="lk-cm__consent">
+                <input type="checkbox" required checked={form.consent} onChange={e => set('consent', e.target.checked)} />
+                <span>Согласен с обработкой персональных данных в соответствии с <span className="lk-cm__link">политикой конфиденциальности</span> <span className="lk-cm__req">*</span></span>
+              </label>
+              <button className="lk-cm__submit" type="submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                Записаться на консультацию
+              </button>
+              <div className="lk-cm__footer">* заполнение формы ни к чему не обязывает</div>
+            </form>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function PaymentModal({ onClose, mode }) {
+  const [selected, setSelected] = useState('stelat')
+  const courses = [
+    { id: 'stelat', title: 'Полный курс',       badge: 'С 1 июня',                 color: '#6d28d9', price: '21 600' },
+    { id: 'main',   title: 'Основной поток',     badge: 'С 22 июня',                color: '#16a34a', price: '17 600' },
+    { id: 'august', title: 'Умный август',        badge: 'С 1 августа',              color: '#f97316', price: '10 800' },
+    { id: 'zapis',  title: 'Занятия в записи',   badge: 'С 1 июня · в любое время', color: '#2563eb', price: '15 000' },
+  ]
+  const cur = courses.find(c => c.id === selected)
+  return (
+    <div className="lk-modal-overlay" onClick={onClose}>
+      <div className="lk-pm" onClick={e => e.stopPropagation()}>
+        <button className="lk-modal__x" onClick={onClose}>×</button>
+        <div className="lk-pm__title">Выберите курс</div>
+        {mode === 'book' && <div className="lk-pm__note">Сейчас вы вносите предоплату 5 000 ₽</div>}
+        <div className="lk-pm__list">
+          {courses.map(c => (
+            <label
+              key={c.id}
+              className={'lk-pm__item' + (selected === c.id ? ' lk-pm__item--selected' : '')}
+              style={selected === c.id ? {borderColor: c.color} : {}}
+            >
+              <input type="radio" name="course" value={c.id} checked={selected === c.id} onChange={() => setSelected(c.id)} className="lk-pm__radio" />
+              <div className="lk-pm__item-body">
+                <div className="lk-pm__item-left">
+                  <span className="lk-pm__item-title" style={selected === c.id ? {color: c.color} : {}}>{c.title}</span>
+                  <span className="lk-pm__item-badge">{c.badge}</span>
+                </div>
+                <span className="lk-pm__item-price" style={{color: c.color}}>{c.price} ₽</span>
+              </div>
+            </label>
+          ))}
+        </div>
+        <button className="lk-pm__pay" style={{background: cur.color}} onClick={onClose}>Оплатить</button>
+      </div>
+    </div>
+  )
+}
+
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', grade: '' })
   const [submitted, setSubmitted] = useState(false)
@@ -773,6 +880,9 @@ export default function Page() {
   const [openFormat, setOpenFormat] = useState(null)
   const [openFaq, setOpenFaq] = useState(null)
   const [showModal, setShowModal] = useState(false)
+  const [showPaymentModal, setShowPaymentModal] = useState(false)
+  const [paymentMode, setPaymentMode] = useState('buy')
+  const [showConsultModal, setShowConsultModal] = useState(false)
 
   function toggleFormat(id) {
     setOpenFormat(prev => prev === id ? null : id)
@@ -903,8 +1013,9 @@ export default function Page() {
               </div>
               {openDetail.content}
               <div className="lk-detail__btns">
-                <button className={`lk-detail__btn lk-detail__btn--${openDetail.color}`} onClick={() => setShowModal(true)}>Забронировать место</button>
-                <button className={`lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-${openDetail.color}`} onClick={() => setShowModal(true)}>Купить курс</button>
+                <button className={`lk-detail__btn lk-detail__btn--${openDetail.color}`}>Забронировать место</button>
+                <button className={`lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-${openDetail.color}`}>Купить курс</button>
+                <button className="lk-detail__btn lk-detail__btn--ghost" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
               </div>
             </div>
           )}
@@ -952,8 +1063,9 @@ export default function Page() {
             </table>
           </div>
           <div className="lk-comparison-btns">
-            <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => setShowModal(true)}>Забронировать место</button>
-            <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => setShowModal(true)}>Купить курс</button>
+            <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => { setPaymentMode('book'); setShowPaymentModal(true); }}>Забронировать место</button>
+            <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>
+            <button className="lk-detail__btn lk-detail__btn--ghost" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
           </div>
         </div>
       </section>
@@ -1250,13 +1362,15 @@ export default function Page() {
             <p className="lk-cta__desc">Поможем ребёнку учиться с удовольствием и результатом</p>
             <div className="lk-cta__btns">
               <button className="lk-cta__btn lk-cta__btn--primary" onClick={() => setShowModal(true)}>Записаться</button>
-              <button className="lk-cta__btn lk-cta__btn--outline" onClick={() => setShowModal(true)}>Получить консультацию</button>
+              <button className="lk-cta__btn lk-cta__btn--outline" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
             </div>
           </div>
         </div>
       </section>
 
       {showModal && <Modal onClose={() => setShowModal(false)} />}
+      {showPaymentModal && <PaymentModal onClose={() => setShowPaymentModal(false)} mode={paymentMode} />}
+      {showConsultModal && <ConsultationModal onClose={() => setShowConsultModal(false)} />}
     </div>
   )
 }
