@@ -968,7 +968,7 @@ export default function Page() {
           <div className="lk-lesson-card">
             <div className="lk-lesson-card__head">
               <div>
-                <div className="lk-lesson-card__title">Интерактивный урок-тренажёр</div>
+                <div className="lk-lesson-card__title">Урок-тренажёр</div>
                 <div className="lk-lesson-card__sub">Системное освоение темы через цикл «теория → практика → закрепление»</div>
               </div>
             </div>
@@ -1024,7 +1024,6 @@ export default function Page() {
         <div className="lk-wrap">
           <div className="lk-plot-card">
             <div className="lk-plot-card__head">
-              <div className="lk-plot-num">2</div>
               <div className="lk-plot-card__title">Урок с сюжетной линией</div>
             </div>
             <div className="lk-s2-body">
@@ -1036,11 +1035,54 @@ export default function Page() {
                 <img src="/znarnia/images/girl-tablet.png" alt="Ребёнок с планшетом" className="lk-s2-img" width="400" height="400" loading="lazy" />
               </div>
               <div className="lk-s2-right">
-                <LkChecklist items={[
-                  'Делает материал понятнее',
-                  'Повышает интерес к обучению',
-                  <>Убирает вопрос:<br />«А зачем мне это нужно?»</>,
-                ]} />
+                <ul className="lk-lesson-checklist">
+                  {['Делает материал понятнее', <span style={{whiteSpace:'nowrap'}}>Повышает интерес к обучению</span>, <>Убирает вопрос:<br />«А зачем мне это нужно?»</>].map((item, i) => (
+                    <li key={i}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Онлайн-урок с учителем */}
+      <section className="lk-plot-section">
+        <div className="lk-wrap">
+          <div className="lk-plot-card">
+            <div className="lk-plot-card__head">
+              <div className="lk-plot-card__title">Онлайн-урок с учителем</div>
+              <div className="lk-plot-card__sub">Живое участие вместо пассивного просмотра</div>
+            </div>
+            <div className="lk-interactive-body">
+              <div className="lk-interactive-left">
+                <ul className="lk-lesson-checklist">
+                  {[
+                    <span>ребёнок отвечает на вопросы <b>в процессе урока</b></span>,
+                    <span>сразу <b>видит, правильно или нет</b></span>,
+                    <span>получает <b>баллы за выполнение заданий</b></span>,
+                  ].map((item, i) => (
+                    <li key={i}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="lk-interactive-callout">
+                  Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
+                </div>
+              </div>
+              <div className="lk-interactive-right">
+                <div className="lk-interactive-img-wrap">
+                  <img src="/znarnia/images/online-lesson.png" alt="Онлайн-урок с учителем" className="lk-interactive-img" width="560" height="420" loading="lazy" />
+                  <div className="lk-interactive-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#7c3aed"/></svg>
+                    +15 баллов
+                  </div>
+                </div>
               </div>
             </div>
           </div>

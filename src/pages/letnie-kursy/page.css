@@ -2903,29 +2903,11 @@
 }
 
 .lk-plot-card__head {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   margin-bottom: 20px;
 }
 
-.lk-plot-num {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #6d28d9;
-  color: #fff;
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
 .lk-plot-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 800;
   color: #1e1b4b;
@@ -2934,7 +2916,7 @@
 
 .lk-s2-body {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
 }
 
@@ -2943,7 +2925,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: -20px;
+  padding-top: 60px;
 }
 
 .lk-s2-bold {
@@ -2966,6 +2948,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -15px;
 }
 
 .lk-s2-img {
@@ -2977,8 +2960,7 @@
 
 .lk-s2-right {
   flex: 1;
-  align-self: flex-start;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .lk-plot-checklist {
@@ -3001,6 +2983,74 @@
 
 .lk-plot-checklist li svg { flex-shrink: 0; margin-top: 2px; }
 
+.lk-plot-card__sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* ── Interactive lesson block ── */
+.lk-interactive-body {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.lk-interactive-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lk-interactive-callout {
+  background: #f5f3ff;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e1b4b;
+  line-height: 1.6;
+}
+
+.lk-interactive-right {
+  flex-shrink: 0;
+  width: 46%;
+}
+
+.lk-interactive-img-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.lk-interactive-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.lk-interactive-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fde68a;
+  color: #4c1d95;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.4);
+  pointer-events: none;
+}
+
 @media (max-width: 640px) {
   .lk-school-card { grid-template-columns: 1fr; padding: 18px 16px; }
 
@@ -3008,6 +3058,9 @@
   .lk-s2-body { flex-direction: column; }
   .lk-s2-left, .lk-s2-mid, .lk-s2-right { flex: none; width: 100%; margin-top: 0; padding-top: 0; }
   .lk-s2-mid { min-height: 180px; }
+
+  .lk-interactive-body { flex-direction: column; }
+  .lk-interactive-right { width: 100%; }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
