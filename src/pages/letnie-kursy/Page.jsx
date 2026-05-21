@@ -248,11 +248,11 @@ const FORMAT_DETAILS = {
                 <span>Только математика</span><b>21&thinsp;600&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row">
-                <span>Только русский</span><b>12&thinsp;000&thinsp;₽</b>
+                <span>Только русский</span><b>10&thinsp;000&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
                 <span>Математика + русский <span className="lk-russian-promo__bundle-badge">скидка при покупке вместе</span></span>
-                <span className="lk-russian-promo__price-bundle"><s>33&thinsp;600&thinsp;₽</s><b>30&thinsp;600&thinsp;₽</b></span>
+                <span className="lk-russian-promo__price-bundle"><s>31&thinsp;600&thinsp;₽</s><b>28&thinsp;600&thinsp;₽</b></span>
               </div>
             </div>
           </div>
@@ -327,11 +327,11 @@ const FORMAT_DETAILS = {
                 <span>Только математика</span><b>17&thinsp;600&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row">
-                <span>Только русский</span><b>12&thinsp;000&thinsp;₽</b>
+                <span>Только русский</span><b>10&thinsp;000&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
                 <span>Математика + русский <span className="lk-russian-promo__bundle-badge">скидка при покупке вместе</span></span>
-                <span className="lk-russian-promo__price-bundle"><s>29&thinsp;600&thinsp;₽</s><b>26&thinsp;600&thinsp;₽</b></span>
+                <span className="lk-russian-promo__price-bundle"><s>27&thinsp;600&thinsp;₽</s><b>24&thinsp;600&thinsp;₽</b></span>
               </div>
             </div>
           </div>
@@ -412,11 +412,11 @@ const FORMAT_DETAILS = {
                 <span>Только математика</span><b>10&thinsp;800&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row">
-                <span>Только русский</span><b>12&thinsp;000&thinsp;₽</b>
+                <span>Только русский</span><b>10&thinsp;000&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
                 <span>Математика + русский <span className="lk-russian-promo__bundle-badge">скидка при покупке вместе</span></span>
-                <span className="lk-russian-promo__price-bundle"><s>22&thinsp;800&thinsp;₽</s><b>19&thinsp;800&thinsp;₽</b></span>
+                <span className="lk-russian-promo__price-bundle"><s>20&thinsp;800&thinsp;₽</s><b>17&thinsp;800&thinsp;₽</b></span>
               </div>
             </div>
           </div>
@@ -502,11 +502,11 @@ const FORMAT_DETAILS = {
                 <span>Только математика</span><b>15&thinsp;000&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row">
-                <span>Только русский</span><b>9&thinsp;000&thinsp;₽</b>
+                <span>Только русский</span><b>10&thinsp;000&thinsp;₽</b>
               </div>
               <div className="lk-russian-promo__price-row lk-russian-promo__price-row--accent">
                 <span>Математика + русский <span className="lk-russian-promo__bundle-badge">скидка при покупке вместе</span></span>
-                <span className="lk-russian-promo__price-bundle"><b>24&thinsp;000&thinsp;₽</b></span>
+                <span className="lk-russian-promo__price-bundle"><b>22&thinsp;000&thinsp;₽</b></span>
               </div>
             </div>
           </div>
