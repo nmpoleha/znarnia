@@ -1613,7 +1613,7 @@
 }
 
 .lk-cta__inner {
-  max-width: 900px;
+  max-width: 1052px;
   margin: 0 auto;
   text-align: center;
   background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 60%, #a855f7 100%);
@@ -1656,6 +1656,27 @@
   white-space: nowrap;
 }
 .lk-cta__btn--ghost:hover { background: rgba(255, 255, 255, 0.25); }
+
+.lk-cta__btn--buy {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  background: #fff;
+  color: #6d28d9;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.lk-cta__btn--buy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
 
 /* ── MODAL ── */
 .lk-modal-overlay {

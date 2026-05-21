@@ -1383,7 +1383,7 @@ export default function Page() {
             <p className="lk-cta__desc">Поможем ребёнку учиться с удовольствием и результатом</p>
             <div className="lk-cta__btns">
               <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => { setPaymentMode('book'); setShowPaymentModal(true); }}>Забронировать место</button>
-              <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>
+              <button className="lk-cta__btn--buy" onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>
               <button className="lk-cta__btn--ghost" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
             </div>
           </div>
