@@ -400,6 +400,22 @@
 
 .lk-card__price { color: var(--lk-text); }
 
+.lk-card__old-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.lk-card__price-note {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: -10px;
+  margin-bottom: 12px;
+}
+
 .lk-card__more {
   width: 100%;
   border-radius: 10px;
@@ -469,6 +485,23 @@
   line-height: 1.65;
   margin: 0 0 16px;
 }
+
+.lk-zapis-program-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #1d4ed8;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.lk-zapis-program-note svg { flex-shrink: 0; margin-top: 1px; }
+.lk-zapis-program-note b { color: #1d4ed8; }
 
 .lk-detail__stage {
   font-family: 'Montserrat', sans-serif;

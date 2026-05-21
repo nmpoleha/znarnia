@@ -89,6 +89,7 @@ const FORMATS = [
     ],
     desc: 'Плавное включение в учебный ритм и системная подготовка',
     price: '21 600',
+    oldPrice: '24 600',
   },
   {
     id: 'main',
@@ -101,6 +102,7 @@ const FORMATS = [
     ],
     desc: 'Для детей, готовых сразу включиться в основной учебный ритм',
     price: '17 600',
+    oldPrice: '20 600',
   },
   {
     id: 'august',
@@ -112,6 +114,7 @@ const FORMATS = [
     ],
     desc: 'Подготовка к новому учебному году и закрытие пробелов',
     price: '10 800',
+    oldPrice: '13 800',
   },
   {
     id: 'zapis',
@@ -881,7 +884,9 @@ export default function Page() {
                   ))}
                 </ul>
                 <p className="lk-card__desc">{f.desc}</p>
+                {f.oldPrice && <div className="lk-card__old-price">{f.oldPrice}&thinsp;₽</div>}
                 <div className="lk-card__price">{f.price}&thinsp;₽</div>
+                <div className="lk-card__price-note">Цена действует до 1 июня</div>
                 <button className="lk-card__more" onClick={() => toggleFormat(f.id)}>
                   Подробнее&nbsp;{openFormat === f.id ? '▲' : '▼'}
                 </button>
