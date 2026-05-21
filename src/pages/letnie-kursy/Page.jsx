@@ -1052,7 +1052,7 @@ export default function Page() {
       {/* Онлайн-урок с учителем */}
       <section className="lk-plot-section">
         <div className="lk-wrap">
-          <div className="lk-plot-card">
+          <div className="lk-plot-card lk-plot-card--compact">
             <div className="lk-plot-card__head">
               <div className="lk-plot-card__title">Онлайн-урок с учителем</div>
               <div className="lk-plot-card__sub">Живое участие вместо пассивного просмотра</div>
@@ -1078,10 +1078,10 @@ export default function Page() {
               <div className="lk-interactive-right">
                 <div className="lk-interactive-img-wrap">
                   <img src="/znarnia/images/online-lesson.png" alt="Онлайн-урок с учителем" className="lk-interactive-img" width="560" height="420" loading="lazy" />
-                  <div className="lk-interactive-badge">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#7c3aed"/></svg>
-                    +15 баллов
-                  </div>
+                </div>
+                <div className="lk-interactive-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#7c3aed"/></svg>
+                  +15 баллов
                 </div>
               </div>
             </div>
