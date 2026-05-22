@@ -1069,8 +1069,8 @@ export default function Page({ afterHero }) {
               </div>
               {openDetail.content}
               <div className="lk-detail__btns">
-                <button className={`lk-detail__btn lk-detail__btn--${openDetail.color}`}>Забронировать место</button>
-                <button className={`lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-${openDetail.color}`}>Купить курс</button>
+                <button className={`lk-detail__btn lk-detail__btn--${openDetail.color}`} onClick={() => { setPaymentMode('book'); setShowPaymentModal(true); }}>Забронировать место</button>
+                <button className={`lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-${openDetail.color}`} onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>
                 <button className="lk-detail__btn lk-detail__btn--ghost" onClick={() => setShowConsultModal(true)}>Получить консультацию</button>
               </div>
             </div>

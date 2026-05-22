@@ -62,6 +62,19 @@
 }
 
 @media (max-width: 640px) {
+  .lk-interactive-right {
+    margin-top: -15px;
+  }
+
+  .dg-author__photo-slot {
+    height: auto;
+  }
+  .dg-author__photo {
+    height: auto;
+    margin-top: 0;
+    object-fit: contain;
+  }
+
   /* Comparison table: hide desktop table, show tab-switcher */
   .lk-table-wrap {
     display: none;
