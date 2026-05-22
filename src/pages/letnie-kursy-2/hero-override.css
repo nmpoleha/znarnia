@@ -1,0 +1,22 @@
+/* Hero image override for the root copy page */
+.lk-hero__content {
+  margin-left: 0;
+}
+
+.lk-hero__inner::after {
+  background-image: url('/znarnia/images/hero-boy-laptop.png');
+  background-size: contain;
+  background-position: right bottom;
+  top: -72px;
+  bottom: 55px;
+  width: 49.14%;
+  right: 24px;
+  border-radius: 80px;
+}
+
+@media (max-width: 900px) {
+  .lk-hero__inner::after {
+    background-size: contain;
+    background-position: right bottom;
+  }
+}
