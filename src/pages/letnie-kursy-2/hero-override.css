@@ -1,9 +1,39 @@
+/* Override text color variable — covers all var(--lk-text) headings */
+:root {
+  --lk-text: #1e3a5f;
+}
+
 /* Hero image override for the root copy page */
 .lk-hero__content {
   margin-left: 0;
 }
 
 .lk-hero__title {
+  color: #1e3a5f;
+}
+
+/* Keep card badges on one line */
+.lk-card__badge {
+  white-space: nowrap;
+}
+
+/* Hardcoded heading overrides */
+.dg-reviews__title,
+.dg-schools__title,
+.lk-lesson-card__title,
+.lk-platform__title,
+.lk-plot-card__title,
+.lk-pm__title,
+.lk-pm__item-title,
+.lk-indiv__count-num,
+.lk-interactive-callout,
+.lk-s2-bold,
+.dg-author__label,
+.dg-author__item,
+.dg-author__stat-val,
+.lk-platform__feature-text,
+.lk-lesson-callout,
+.lk-indiv__price-line b {
   color: #1e3a5f;
 }
 

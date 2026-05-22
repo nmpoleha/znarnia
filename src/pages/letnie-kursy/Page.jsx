@@ -1147,36 +1147,6 @@ export default function Page({ afterHero }) {
         </div>
       </section>
 
-      {/* Урок с сюжетной линией */}
-      <section className="lk-plot-section">
-        <div className="lk-wrap">
-          <div className="lk-plot-card">
-            <div className="lk-plot-card__head">
-              <div className="lk-plot-card__title">Урок с сюжетной линией</div>
-            </div>
-            <div className="lk-s2-body">
-              <div className="lk-s2-left">
-                <p className="lk-s2-bold">{nb('Тема урока построена на реальной жизненной ситуации.')}</p>
-                <p className="lk-s2-text">{nb('Ребёнок не просто изучает тему — он сразу видит, где и как она используется в реальной жизни.')}</p>
-              </div>
-              <div className="lk-s2-mid">
-                <img src="/znarnia/images/girl-tablet.png" alt="Ребёнок с планшетом" className="lk-s2-img" width="400" height="400" loading="lazy" />
-              </div>
-              <div className="lk-s2-right">
-                <ul className="lk-lesson-checklist">
-                  {['Делает материал понятнее', <span style={{whiteSpace:'nowrap'}}>Повышает интерес к обучению</span>, <>Убирает вопрос:<br />«А зачем мне это нужно?»</>].map((item, i) => (
-                    <li key={i}>
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Онлайн-урок с учителем */}
       <section className="lk-plot-section">
         <div className="lk-wrap">
@@ -1211,6 +1181,36 @@ export default function Page({ afterHero }) {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#7c3aed"/></svg>
                   +15 баллов
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Урок с сюжетной линией */}
+      <section className="lk-plot-section">
+        <div className="lk-wrap">
+          <div className="lk-plot-card">
+            <div className="lk-plot-card__head">
+              <div className="lk-plot-card__title">Урок-тренажер с сюжетной линией</div>
+            </div>
+            <div className="lk-s2-body">
+              <div className="lk-s2-left">
+                <p className="lk-s2-bold">{nb('Тема урока построена на реальной жизненной ситуации.')}</p>
+                <p className="lk-s2-text">{nb('Ребёнок не просто изучает тему — он сразу видит, где и как она используется в реальной жизни.')}</p>
+              </div>
+              <div className="lk-s2-mid">
+                <img src="/znarnia/images/girl-tablet.png" alt="Ребёнок с планшетом" className="lk-s2-img" width="400" height="400" loading="lazy" />
+              </div>
+              <div className="lk-s2-right">
+                <ul className="lk-lesson-checklist">
+                  {['Делает материал понятнее', <span style={{whiteSpace:'nowrap'}}>Повышает интерес к обучению</span>, <>Убирает вопрос:<br />«А зачем мне это нужно?»</>].map((item, i) => (
+                    <li key={i}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
