@@ -62,6 +62,86 @@
 }
 
 @media (max-width: 640px) {
+  /* Comparison table: hide desktop table, show tab-switcher */
+  .lk-table-wrap {
+    display: none;
+  }
+  .lk-cmp-mobile {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .lk-cmp-mobile__tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .lk-cmp-mobile__tab {
+    padding: 10px 8px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #9ca3af;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.3;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .lk-cmp-mobile__card {
+    border: 1.5px solid #e5e7eb;
+    border-top-width: 3px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .lk-cmp-mobile__card-header {
+    padding: 12px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .lk-cmp-mobile__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px;
+    border-top: 1px solid #f3f4f6;
+    gap: 8px;
+  }
+  .lk-cmp-mobile__param {
+    font-size: 13px;
+    color: #4b5563;
+    font-family: 'Roboto', sans-serif;
+    flex: 1;
+  }
+  .lk-cmp-mobile__val {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    font-family: 'Roboto', sans-serif;
+  }
+  .lk-cmp-mobile__row--hl {
+    background: #fafafa;
+  }
+  .lk-cmp-mobile__row--hl .lk-cmp-mobile__param {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #1a1a2e;
+  }
+  .lk-cmp-mobile__row--hl .lk-cmp-mobile__val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+  }
+
   .lk-formats__grid {
     grid-template-columns: 1fr;
   }
@@ -116,6 +196,16 @@
 
   .lk-meta-br {
     display: block;
+  }
+
+  .lk-zapis-program-note {
+    display: block;
+  }
+
+  .lk-zapis-program-note svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
   }
 
   .lk-meta-dot {

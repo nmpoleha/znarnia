@@ -928,6 +928,7 @@ export default function Page({ afterHero }) {
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [paymentMode, setPaymentMode] = useState('buy')
   const [showConsultModal, setShowConsultModal] = useState(false)
+  const [cmpTab, setCmpTab] = useState(0)
 
   function toggleFormat(id) {
     setOpenFormat(prev => prev === id ? null : id)
@@ -1131,6 +1132,41 @@ export default function Page({ afterHero }) {
               </tbody>
             </table>
           </div>
+          {/* Mobile comparison — activated via hero-override.css on letnie-kursy-2 */}
+          {(() => {
+            const CMP_TABS = [
+              { key: 'stelat', label: 'ПОЛНЫЙ КУРС',      color: '#6d28d9', bg: '#f5f3ff', border: '#6d28d9' },
+              { key: 'main',   label: 'ОСНОВНОЙ ПОТОК',   color: '#15803d', bg: '#f0fdf4', border: '#16a34a' },
+              { key: 'august', label: 'УМНЫЙ АВГУСТ',     color: '#c2410c', bg: '#fff7ed', border: '#ea580c' },
+              { key: 'zapis',  label: 'ЗАНЯТИЯ В ЗАПИСИ', color: '#2563eb', bg: '#eff6ff', border: '#2563eb' },
+            ]
+            const tab = CMP_TABS[cmpTab]
+            return (
+              <div className="lk-cmp-mobile">
+                <div className="lk-cmp-mobile__tabs">
+                  {CMP_TABS.map((t, i) => (
+                    <button
+                      key={i}
+                      className={'lk-cmp-mobile__tab' + (cmpTab === i ? ' lk-cmp-mobile__tab--active' : '')}
+                      style={cmpTab === i ? { borderColor: t.border, background: t.bg, color: t.color } : {}}
+                      onClick={() => setCmpTab(i)}
+                    >{t.label}</button>
+                  ))}
+                </div>
+                <div className="lk-cmp-mobile__card" style={{ borderTopColor: tab.border }}>
+                  <div className="lk-cmp-mobile__card-header" style={{ color: tab.color }}>{tab.label}</div>
+                  {COMPARISON.map((row, i) => (
+                    <div key={i} className={'lk-cmp-mobile__row' + (row.highlight ? ' lk-cmp-mobile__row--hl' : '')}>
+                      <span className="lk-cmp-mobile__param">{row.param}</span>
+                      <span className="lk-cmp-mobile__val" style={{ color: tab.color }}>
+                        <CmpCell value={row[tab.key]} color={tab.color} />
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
           <div className="lk-comparison-btns">
             <button className="lk-detail__btn lk-detail__btn--orange" onClick={() => { setPaymentMode('book'); setShowPaymentModal(true); }}>Забронировать место</button>
             <button className="lk-detail__btn lk-detail__btn--outline lk-detail__btn--outline-orange" onClick={() => { setPaymentMode('buy'); setShowPaymentModal(true); }}>Купить курс</button>

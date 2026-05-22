@@ -1450,6 +1450,8 @@
 }
 
 
+.lk-cmp-mobile { display: none; }
+
 .lk-table-wrap {
   border: 1.5px solid #e5e7eb;
   border-radius: 16px;
