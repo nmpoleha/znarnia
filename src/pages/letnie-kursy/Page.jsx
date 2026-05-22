@@ -22,6 +22,51 @@ function LkChecklist({ items }) {
   )
 }
 
+const LkStatsChart = () => {
+  const r = 32, cx = 50, cy = 50
+  const circ = 2 * Math.PI * r
+  const green = 0.60 * circ, blue = 0.32 * circ, red = 0.08 * circ
+  return (
+    <div className="lk-stats-widget">
+      <svg viewBox="0 0 100 100" width="90" height="90">
+        <g transform="rotate(-90 50 50)">
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#22c55e" strokeWidth="13" strokeDasharray={`${green} ${circ}`} strokeDashoffset="0"/>
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#818cf8" strokeWidth="13" strokeDasharray={`${blue} ${circ}`} strokeDashoffset={-green}/>
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#f97316" strokeWidth="13" strokeDasharray={`${red} ${circ}`} strokeDashoffset={-(green+blue)}/>
+        </g>
+        <text x="50" y="47" textAnchor="middle" fontSize="11" fill="#6b7280">Всего</text>
+        <text x="50" y="61" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e1b4b">25</text>
+      </svg>
+      <div className="lk-stats-legend">
+        <div><span style={{background:'#22c55e'}}/>Онлайн</div>
+        <div><span style={{background:'#818cf8'}}/>Оффлайн</div>
+        <div><span style={{background:'#f97316'}}/>Пропущено</div>
+      </div>
+    </div>
+  )
+}
+
+const LkPeopleIcon = () => (
+  <svg viewBox="0 0 36 28" width="36" height="28" fill="none" style={{flexShrink:0}}>
+    <circle cx="13" cy="8" r="4.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M4 24c0-5 4-8 9-8s9 3 9 8" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+    <circle cx="26" cy="8" r="3.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M26 16c3 0 6 2.5 6 7" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
+
+const LkPlayIcon = () => (
+  <svg viewBox="0 0 36 28" width="36" height="28" fill="none" style={{flexShrink:0}}>
+    <rect x="1" y="1" width="34" height="22" rx="4" stroke="#6d28d9" strokeWidth="1.8"/>
+    <polygon points="14,7 14,17 23,12" fill="#6d28d9"/>
+    <line x1="10" y1="26" x2="26" y2="26" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
+
+function LkNum({ n }) {
+  return <div className="lk-num">{n}</div>
+}
+
 function ConsultationModal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', consent: false })
   const [submitted, setSubmitted] = useState(false)
@@ -1212,6 +1257,47 @@ export default function Page({ afterHero }) {
                   ))}
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sections 4 & 5 from probniy-urok */}
+      <section className="lk-plot-section">
+        <div className="lk-wrap">
+          <div className="lk-cards-row">
+            <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <div className="lk-pu-card__title">{nb('Не получилось присутствовать онлайн? Не проблема')}</div>
+              </div>
+              <div className="lk-pu-card__body">
+                <p className="lk-pu-card__text">Если ребёнок пропустил онлайн-урок:</p>
+                <ul className="lk-pu-checklist">
+                  {['он смотрит его в записи','сохраняется вся интерактивность','получает мгновенную обратную связь','статистика также доступна родителям'].map((t, i) => (
+                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                  ))}
+                </ul>
+                <div className="lk-pu-note lk-pu-note--row"><LkPlayIcon /><span>По эффективности это тот же полноценный урок.</span></div>
+              </div>
+            </div>
+
+            <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <div className="lk-pu-card__title">Полная прозрачность<br />для родителей</div>
+              </div>
+              <div className="lk-pu-card__body lk-pu-card__body--row" style={{alignItems:'flex-start'}}>
+                <div className="lk-pu-card__body-left">
+                  <p className="lk-pu-card__text">После каждого урока вы получаете подробную статистику:</p>
+                  <ul className="lk-pu-checklist">
+                    {['сколько заданий решено','где были ошибки','сколько попыток понадобилось'].map((t, i) => (
+                      <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                    ))}
+                    <li><LkCheck /><span style={{whiteSpace:'nowrap'}}>какие темы вызвали сложности</span></li>
+                  </ul>
+                </div>
+                <LkStatsChart />
+              </div>
+              <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span>Вы не гадаете — вы точно понимаете уровень ребёнка.</span></div>
             </div>
           </div>
         </div>

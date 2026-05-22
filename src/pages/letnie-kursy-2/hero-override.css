@@ -12,6 +12,20 @@
   color: #1e3a5f;
 }
 
+/* Lesson banner — navy/green instead of purple */
+.lk-lesson-banner {
+  background: #f0fdf4;
+  border-left-color: #16a34a;
+}
+.lk-lesson-banner__accent {
+  color: #1e3a5f;
+}
+
+/* Record banner — navy blue instead of purple */
+.lk-record-banner {
+  background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 60%, #2a4e76 100%);
+}
+
 /* Keep card badges on one line */
 .lk-card__badge {
   white-space: nowrap;
