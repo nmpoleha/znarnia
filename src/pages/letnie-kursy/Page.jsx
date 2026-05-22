@@ -386,7 +386,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
+            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
@@ -465,7 +465,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
+            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
@@ -550,7 +550,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
+            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
@@ -640,7 +640,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta">1–10 класс · 20 уроков по 30–40 мин · с 15 июня</div>
+            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">

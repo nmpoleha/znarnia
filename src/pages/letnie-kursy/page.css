@@ -1010,6 +1010,14 @@
   word-spacing: 0.3em;
 }
 
+.lk-meta-br {
+  display: none;
+}
+
+.lk-meta-dot {
+  display: inline;
+}
+
 .lk-russian-promo__body {
   display: flex;
   flex-direction: column;
@@ -2298,6 +2306,7 @@
   padding: 20px 28px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
 }
+
 
 .lk-indiv__label {
   font-family: 'Montserrat', sans-serif;
