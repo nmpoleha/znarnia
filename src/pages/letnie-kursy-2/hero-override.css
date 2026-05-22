@@ -3,6 +3,31 @@
   margin-left: 0;
 }
 
+.lk-hero__title {
+  color: #1e3a5f;
+}
+
+.lk-hero__accent {
+  color: #d97706;
+}
+
+.lk-hero__points li::before {
+  background-color: #16a34a;
+}
+
+.lk-hero__badge svg rect,
+.lk-hero__badge svg path {
+  stroke: #1e3a5f;
+}
+
+.lk-hero__cta {
+  background: #16a34a;
+  box-shadow: 0 4px 20px rgba(22, 163, 74, 0.35);
+}
+.lk-hero__cta:hover {
+  box-shadow: 0 6px 28px rgba(22, 163, 74, 0.45);
+}
+
 .lk-hero__inner::after {
   background-image: url('/znarnia/images/hero-boy-laptop.png');
   background-size: contain;
