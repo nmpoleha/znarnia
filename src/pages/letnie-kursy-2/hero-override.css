@@ -39,6 +39,66 @@
   border-radius: 80px;
 }
 
+/* Remove overlap since theses banner sits between hero and formats */
+.lk-formats {
+  margin-top: 0;
+}
+
+/* ── THESES BANNER ── */
+.lk2-theses {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(22, 163, 74, 0.12);
+  padding: 20px 24px;
+  margin-top: -115px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1052px;
+  width: calc(100% - 48px);
+  position: relative;
+  z-index: 2;
+}
+
+.lk2-theses__inner {
+  max-width: 1052px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.lk2-theses__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lk2-theses__icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.lk2-theses__text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #1a3a2f;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .lk2-theses__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .lk2-theses__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .lk-hero__inner::after {
     background-size: contain;

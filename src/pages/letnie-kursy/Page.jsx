@@ -876,7 +876,7 @@ function IconPlay() {
   )
 }
 
-export default function Page() {
+export default function Page({ afterHero }) {
   const [openFormat, setOpenFormat] = useState(null)
   const [openFaq, setOpenFaq] = useState(null)
   const [showModal, setShowModal] = useState(false)
@@ -965,6 +965,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {afterHero}
 
       {/* Formats */}
       <section className="lk-formats" id="formats">
