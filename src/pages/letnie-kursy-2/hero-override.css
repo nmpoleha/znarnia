@@ -66,6 +66,39 @@
     grid-template-columns: 1fr;
   }
 
+  .lk-card__title {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .lk-detail__label {
+    padding-right: 0;
+    flex-wrap: wrap;
+  }
+
+  .lk-detail__price {
+    margin-left: 0;
+    width: 100%;
+    font-size: 22px;
+  }
+
+  .lk-russian-promo__price-row {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .lk-russian-promo__price-bundle {
+    margin-left: 0;
+  }
+
+  .lk-detail__close {
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
   .lk2-theses {
     width: calc(100% - 32px);
     margin-left: 16px;
