@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 
 function nb(str) {
   const NBSP = String.fromCharCode(160)
@@ -934,6 +934,13 @@ export default function Page({ afterHero }) {
   }
 
   const openDetail = openFormat ? FORMAT_DETAILS[openFormat] : null
+  const detailRef = useRef(null)
+
+  useEffect(() => {
+    if (openFormat && detailRef.current) {
+      detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [openFormat])
 
   return (
     <div className="lk-page">
@@ -1052,7 +1059,7 @@ export default function Page({ afterHero }) {
           </div>
 
           {openDetail && (
-            <div className={`lk-detail lk-detail--${openDetail.color}`}>
+            <div ref={detailRef} className={`lk-detail lk-detail--${openDetail.color}`}>
               <button className="lk-detail__close" onClick={() => setOpenFormat(null)} aria-label="Закрыть">✕</button>
               <div className="lk-detail__label">
                 {openDetail.label}
