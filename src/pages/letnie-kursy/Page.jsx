@@ -1053,6 +1053,7 @@ export default function Page({ afterHero }) {
 
           {openDetail && (
             <div className={`lk-detail lk-detail--${openDetail.color}`}>
+              <button className="lk-detail__close" onClick={() => setOpenFormat(null)} aria-label="Закрыть">✕</button>
               <div className="lk-detail__label">
                 {openDetail.label}
                 {openDetail.labelCount && <span className="lk-detail__label-count">{openDetail.labelCount}</span>}

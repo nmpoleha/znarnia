@@ -447,6 +447,30 @@
   box-shadow: var(--lk-shadow-md);
   border-left: 5px solid transparent;
   animation: lk-slide-in 0.2s ease;
+  position: relative;
+}
+
+.lk-detail__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.lk-detail__close:hover {
+  border-color: #9ca3af;
+  color: #374151;
 }
 
 @keyframes lk-slide-in {
@@ -470,6 +494,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+  padding-right: 44px;
 }
 
 .lk-detail--purple .lk-detail__label { color: var(--lk-primary); }
