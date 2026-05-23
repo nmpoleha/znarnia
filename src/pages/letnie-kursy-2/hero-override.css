@@ -185,6 +185,17 @@
     font-size: 22px;
   }
 
+  .lk-record-banner {
+    margin-top: -30px;
+    align-items: flex-start;
+  }
+
+  .lk-record-banner__text {
+    margin-left: calc(-52px - 14px);
+    width: calc(100% + 52px + 14px);
+    margin-top: 10px;
+  }
+
   .lk-russian-promo__title {
     margin-top: 5px;
   }
@@ -223,11 +234,18 @@
   .lk-indiv__card {
     flex-direction: column;
     align-items: stretch;
+    padding: 6px 20px;
   }
 
   .lk-indiv__label {
     width: 100%;
     box-sizing: border-box;
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+
+  .lk-indiv__label br {
+    display: none;
   }
 
   .lk-indiv__count {
@@ -369,6 +387,15 @@
 /* Remove overlap since theses banner sits between hero and formats */
 .lk-formats {
   margin-top: 0;
+}
+
+/* Equal 40px spacing between all sections on mobile */
+@media (max-width: 640px) {
+  .lk-formats          { padding-bottom: 40px; }
+  .lk-comparison-section { padding-bottom: 40px; }
+  .lk-lesson-section   { padding-bottom: 40px; }
+  .lk-platform         { padding-top: 0; }
+  .lk-mid              { padding-top: 0; padding-bottom: 40px; }
 }
 
 /* ── THESES BANNER ── */

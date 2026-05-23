@@ -1079,7 +1079,7 @@ export default function Page({ afterHero }) {
           )}
 
           <div className="lk-indiv__card">
-            <div className="lk-indiv__label">Индивидуальные<br/>занятия</div>
+            <div className="lk-indiv__label">Индивидуальные <br/>занятия</div>
             <div className="lk-indiv__info">
               <span className="lk-indiv__price-line">{nb('До 1 июня — ')}<b>14 400 ₽</b> за 8 уроков <span className="lk-indiv__note">(цена фиксируется на учебный год)</span></span>
               <span className="lk-indiv__price-line">{nb('После 1 июня — ')}<b>15 200 ₽</b></span>
