@@ -258,6 +258,15 @@
     font-size: 20px;
   }
 
+  .lk-russian-promo__summary {
+    margin-left: -18px;
+    margin-right: -18px;
+    border-radius: 0;
+    padding: 8px 18px;
+    letter-spacing: 0.07em;
+    line-height: 1.6;
+  }
+
   .lk-russian-promo__meta {
     font-size: 11px;
     margin-top: 1px;
