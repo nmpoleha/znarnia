@@ -1,8 +1,10 @@
 ﻿import { useState, useEffect, useRef } from 'react'
 
 function nb(str) {
-  const NBSP = String.fromCharCode(160)
-  return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w}${NBSP}`)
+  const NBSP = ' '
+  return str
+    .replace(/ — /g, `${NBSP}—${NBSP}`)
+    .replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w}${NBSP}`)
 }
 
 const LkCheck = () => (
@@ -80,7 +82,7 @@ function ConsultationModal({ onClose }) {
       <div className="lk-cm" onClick={e => e.stopPropagation()}>
         <div className="lk-cm__header">
           <div className="lk-cm__title">Запись на консультацию</div>
-          <div className="lk-cm__sub">Оставьте контакты — мы свяжемся и ответим на все вопросы</div>
+          <div className="lk-cm__sub">{nb('Оставьте контакты — мы свяжемся и ответим на все вопросы')}</div>
           <button className="lk-cm__x" onClick={onClose}>×</button>
         </div>
         {submitted ? (
@@ -288,12 +290,12 @@ const FORMAT_DETAILS = {
     label: 'ПОЛНЫЙ КУРС',
     content: (
       <div className="lk-detail__body">
-        <p className="lk-detail__intro">Полная программа подготовки к учебному году: от восстановления базы до развития логики и уверенного мышления. Чтобы ребёнок вошёл в сентябрь спокойно, собранно и с ощущением «я справлюсь».</p>
+        <p className="lk-detail__intro">{nb('Полная программа подготовки к учебному году: от восстановления базы до развития логики и уверенного мышления. Чтобы ребёнок вошёл в сентябрь спокойно, собранно и с ощущением «я справлюсь».')}</p>
 
         {/* Этап 1 */}
         <div className="lk-detail__stage-header">
           <span className="lk-detail__stage-num">1 Этап</span>
-          <span className="lk-detail__stage-desc">Мягкий старт — закрываем пробелы и выстраиваем базу</span>
+          <span className="lk-detail__stage-desc">Мягкий старт — закрываем пробелы и выстраиваем базу</span>
           <span className="lk-detail__stage-date">с 1 по 21 июня</span>
         </div>
         {/* Формат — flow */}
@@ -337,13 +339,13 @@ const FORMAT_DETAILS = {
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7c3aed" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Смотрим <b>в удобное время</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16l-7-4-7 4V4z" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Сохраняем знания</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#7c3aed" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round"/></svg></span><span><b>Восполняем пробелы</b> и разминка для ума</span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Теория + сразу практика — <b>удобный и эффективный формат</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Теория + сразу практика — <b>удобный и эффективный формат</b></span></div>
         </div>
 
         {/* Этап 2 */}
         <div className="lk-detail__stage-header">
           <span className="lk-detail__stage-num">2 Этап</span>
-          <span className="lk-detail__stage-desc">Основной этап — уверенность и результат</span>
+          <span className="lk-detail__stage-desc">Основной этап — уверенность и результат</span>
           <span className="lk-detail__stage-date">с 22 июня</span>
         </div>
         {/* Уроки 2 этапа */}
@@ -359,7 +361,7 @@ const FORMAT_DETAILS = {
         {/* Преимущества */}
         <div className="lk-s1__school-label" style={{marginTop:'14px'}}>Начальная школа</div>
         <div className="lk-s1__benefits">
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Развиваем <b>логическое мышление</b> и навык рассуждения</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="#7c3aed" strokeWidth="2"/><path d="M13 13l7 7M17 17l-2 2" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Работаем с <b>нестандартными задачами</b>, а не шаблонами</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#7c3aed" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Формируем умение анализировать и искать разные решения</span></div>
@@ -379,7 +381,7 @@ const FORMAT_DETAILS = {
         <div className="lk-s1__benefits" style={{background:'#f0fdf4'}}>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Находим и закрываем <b>конкретные пробелы</b> в знаниях</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>С 1 сентября ребёнок опирается на <b>прочную базу</b> и включается в урок</span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уходит сопротивление учёбе — появляется <b>уверенность и мотивация</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уходит сопротивление учёбе — появляется <b>уверенность и мотивация</b></span></div>
         </div>
 
         <div className="lk-russian-promo">
@@ -390,10 +392,10 @@ const FORMAT_DETAILS = {
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
-              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
-              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
-              <div className="lk-russian-promo__step"><b>Разбор ошибок</b> — ребёнок понимает, а не заучивает</div>
-              <div className="lk-russian-promo__step"><b>Переход к новой теме</b> — без пробелов и потери материала</div>
+              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b>{' — только суть, без перегрузки'}</div>
+              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b>{' — правило закрепляется, а не забывается'}</div>
+              <div className="lk-russian-promo__step"><b>Разбор ошибок</b>{' — ребёнок понимает, а не заучивает'}</div>
+              <div className="lk-russian-promo__step"><b>Переход к новой теме</b>{' — без пробелов и потери материала'}</div>
             </div>
           </div>
           <div className="lk-russian-promo__footer">
@@ -422,7 +424,7 @@ const FORMAT_DETAILS = {
     labelCount: '28 уроков',
     content: (
       <div className="lk-detail__body">
-        <p className="lk-detail__intro">Регулярные занятия помогают сохранить знания летом, развить логическое мышление и уверенно войти в учебный год. Ребёнок начинает понимать материал глубже и спокойнее справляется с задачами.</p>
+        <p className="lk-detail__intro">{nb('Регулярные занятия помогают сохранить знания летом, развить логическое мышление и уверенно войти в учебный год. Ребёнок начинает понимать материал глубже и спокойнее справляется с задачами.')}</p>
         <div className="lk-detail__stage-header">
           <span className="lk-detail__stage-num">Уверенность и результат</span>
           <span className="lk-detail__stage-date">с 22 июня</span>
@@ -439,7 +441,7 @@ const FORMAT_DETAILS = {
 
         <div className="lk-s1__school-label" style={{marginTop:'14px'}}>Начальная школа</div>
         <div className="lk-s1__benefits">
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Развиваем <b>логическое мышление</b> и навык рассуждения</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="#16a34a" strokeWidth="2"/><path d="M13 13l7 7M17 17l-2 2" stroke="#16a34a" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Работаем с <b>нестандартными задачами</b>, а не шаблонами</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#16a34a" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#16a34a" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Формируем умение анализировать и искать разные решения</span></div>
@@ -456,9 +458,9 @@ const FORMAT_DETAILS = {
 
         <div className="lk-detail__result-label" style={{marginTop:'16px'}}>Результат</div>
         <div className="lk-s1__benefits" style={{background:'#f0fdf4'}}>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Поддерживаем уровень знаний — <b>без летнего провала</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Поддерживаем уровень знаний — <b>без летнего провала</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>С 1 сентября ребёнок опирается на <b>прочную базу</b> и включается в урок</span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уходит сопротивление учёбе — появляется <b>уверенность и мотивация</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уходит сопротивление учёбе — появляется <b>уверенность и мотивация</b></span></div>
         </div>
 
         <div className="lk-russian-promo">
@@ -469,10 +471,10 @@ const FORMAT_DETAILS = {
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
-              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
-              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
-              <div className="lk-russian-promo__step"><b>Разбор ошибок</b> — ребёнок понимает, а не заучивает</div>
-              <div className="lk-russian-promo__step"><b>Переход к новой теме</b> — без пробелов и потери материала</div>
+              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b>{' — только суть, без перегрузки'}</div>
+              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b>{' — правило закрепляется, а не забывается'}</div>
+              <div className="lk-russian-promo__step"><b>Разбор ошибок</b>{' — ребёнок понимает, а не заучивает'}</div>
+              <div className="lk-russian-promo__step"><b>Переход к новой теме</b>{' — без пробелов и потери материала'}</div>
             </div>
           </div>
           <div className="lk-russian-promo__footer">
@@ -499,7 +501,7 @@ const FORMAT_DETAILS = {
     label: 'УМНЫЙ АВГУСТ',
     content: (
       <div className="lk-detail__body">
-        <p className="lk-detail__intro">Чтобы в сентябре ребёнок не растерялся на первых уроках, важно заранее восстановить базу и учебный ритм. Этот курс помогает мягко вернуться в обучение, закрыть пробелы и почувствовать уверенность перед школой.</p>
+        <p className="lk-detail__intro">{nb('Чтобы в сентябре ребёнок не растерялся на первых уроках, важно заранее восстановить базу и учебный ритм. Этот курс помогает мягко вернуться в обучение, закрыть пробелы и почувствовать уверенность перед школой.')}</p>
 
         <div className="lk-detail__stage-header">
           <span className="lk-detail__stage-num">Восстановление базы</span>
@@ -516,15 +518,15 @@ const FORMAT_DETAILS = {
         </div>
 
         <div className="lk-s1__benefits">
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#ea580c" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Подбор тем <b>по результатам тестирования</b> — работаем точечно</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#ea580c" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Подбор тем <b>по результатам тестирования</b> — работаем точечно</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16l-7-4-7 4V4z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Повторение <b>ключевых тем</b> перед учебным годом</span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Теория + сразу практика — <b>быстрое восстановление</b> навыков</span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Восстанавливаем <b>учебный ритм</b> — ребёнок готов к сентябрю</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Теория + сразу практика — <b>быстрое восстановление</b> навыков</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Восстанавливаем <b>учебный ритм</b> — ребёнок готов к сентябрю</span></div>
         </div>
 
         <div className="lk-s1__school-label" style={{marginTop:'14px'}}>Начальная школа</div>
         <div className="lk-s1__benefits">
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Развиваем <b>логическое мышление</b> и навык рассуждения</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="#ea580c" strokeWidth="2"/><path d="M13 13l7 7M17 17l-2 2" stroke="#ea580c" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Работаем с <b>нестандартными задачами</b>, а не шаблонами</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#ea580c" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#ea580c" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Формируем умение анализировать и искать разные решения</span></div>
@@ -554,10 +556,10 @@ const FORMAT_DETAILS = {
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
-              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
-              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
-              <div className="lk-russian-promo__step"><b>Разбор ошибок</b> — ребёнок понимает, а не заучивает</div>
-              <div className="lk-russian-promo__step"><b>Переход к новой теме</b> — без пробелов и потери материала</div>
+              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b>{' — только суть, без перегрузки'}</div>
+              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b>{' — правило закрепляется, а не забывается'}</div>
+              <div className="lk-russian-promo__step"><b>Разбор ошибок</b>{' — ребёнок понимает, а не заучивает'}</div>
+              <div className="lk-russian-promo__step"><b>Переход к новой теме</b>{' — без пробелов и потери материала'}</div>
             </div>
           </div>
           <div className="lk-russian-promo__footer">
@@ -584,11 +586,11 @@ const FORMAT_DETAILS = {
     label: 'ЗАНЯТИЯ В ЗАПИСИ',
     content: (
       <div className="lk-detail__body">
-        <p className="lk-detail__intro">Доступ к урокам в любое время — без расписания и привязки к датам. Ребёнок занимается в удобном темпе, возвращается к сложным темам сколько нужно и двигается вперёд без спешки.</p>
+        <p className="lk-detail__intro">{nb('Доступ к урокам в любое время — без расписания и привязки к датам. Ребёнок занимается в удобном темпе, возвращается к сложным темам сколько нужно и двигается вперёд без спешки.')}</p>
 
         <div className="lk-zapis-program-note">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M12 8v4M12 16h.01" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg>
-          Программа соответствует <b>Полному курсу</b> — те же уроки и темы, в удобном для вас темпе
+          Программа соответствует <b>Полному курсу</b> — те же уроки и темы, в удобном для вас темпе
         </div>
 
         <div className="lk-detail__stage-header">
@@ -606,15 +608,15 @@ const FORMAT_DETAILS = {
         </div>
 
         <div className="lk-s1__benefits">
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Смотрим <b>в любое удобное время</b> — нет привязки к расписанию</span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16l-7-4-7 4V4z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Доступ к урокам сохраняется — можно <b>вернуться к любой теме</b></span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Авторские уроки-тренажёры — <b>понимание, а не заучивание</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Смотрим <b>в любое удобное время</b> — нет привязки к расписанию</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16l-7-4-7 4V4z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Доступ к урокам сохраняется — можно <b>вернуться к любой теме</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Авторские уроки-тренажёры — <b>понимание, а не заучивание</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Подходит для <b>самостоятельного изучения</b> в своём ритме</span></div>
         </div>
 
         <div className="lk-s1__school-label" style={{marginTop:'14px'}}>Начальная школа</div>
         <div className="lk-s1__benefits">
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Выходим за рамки школьной программы — даём <b>глубокое понимание</b></span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Развиваем <b>логическое мышление</b> и навык рассуждения</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="#2563eb" strokeWidth="2"/><path d="M13 13l7 7M17 17l-2 2" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Работаем с <b>нестандартными задачами</b>, а не шаблонами</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#2563eb" strokeWidth="2"/><path d="M16.5 16.5l4 4" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg></span><span>Формируем умение анализировать и искать разные решения</span></div>
@@ -632,7 +634,7 @@ const FORMAT_DETAILS = {
         <div className="lk-detail__result-label" style={{marginTop:'16px'}}>Результат</div>
         <div className="lk-s1__benefits" style={{background:'#eff6ff'}}>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Закрыты <b>пробелы в ключевых темах</b></span></div>
-          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Ребёнок занимается <b>без стресса</b> — в удобном темпе</span></div>
+          <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Ребёнок занимается <b>без стресса</b> — в удобном темпе</span></div>
           <div className="lk-s1__benefit"><span className="lk-s1__benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/><path d="M8 12l3 3 5-5" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>Уверенность и <b>готовность к учебному году</b></span></div>
         </div>
 
@@ -644,10 +646,10 @@ const FORMAT_DETAILS = {
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
-              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b> — только суть, без перегрузки</div>
-              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b> — правило закрепляется, а не забывается</div>
-              <div className="lk-russian-promo__step"><b>Разбор ошибок</b> — ребёнок понимает, а не заучивает</div>
-              <div className="lk-russian-promo__step"><b>Переход к новой теме</b> — без пробелов и потери материала</div>
+              <div className="lk-russian-promo__step"><b>Краткая теория (3–4 мин)</b>{' — только суть, без перегрузки'}</div>
+              <div className="lk-russian-promo__step"><b>Практика сразу после объяснения</b>{' — правило закрепляется, а не забывается'}</div>
+              <div className="lk-russian-promo__step"><b>Разбор ошибок</b>{' — ребёнок понимает, а не заучивает'}</div>
+              <div className="lk-russian-promo__step"><b>Переход к новой теме</b>{' — без пробелов и потери материала'}</div>
             </div>
           </div>
           <div className="lk-russian-promo__footer">
@@ -1048,7 +1050,7 @@ export default function Page({ afterHero }) {
                     </li>
                   ))}
                 </ul>
-                <p className="lk-card__desc">{f.desc}</p>
+                <p className="lk-card__desc">{nb(f.desc)}</p>
                 {f.oldPrice && <div className="lk-card__old-price">{f.oldPrice}&thinsp;₽</div>}
                 <div className="lk-card__price">{f.price}&thinsp;₽</div>
                 <div className="lk-card__price-note">Цена действует до 1 июня</div>
@@ -1079,8 +1081,8 @@ export default function Page({ afterHero }) {
           <div className="lk-indiv__card">
             <div className="lk-indiv__label">Индивидуальные<br/>занятия</div>
             <div className="lk-indiv__info">
-              <span className="lk-indiv__price-line">До 1 июня — <b>14 400 ₽</b> за 8 уроков <span className="lk-indiv__note">(цена фиксируется на учебный год)</span></span>
-              <span className="lk-indiv__price-line">После 1 июня — <b>15 200 ₽</b></span>
+              <span className="lk-indiv__price-line">{nb('До 1 июня — ')}<b>14 400 ₽</b> за 8 уроков <span className="lk-indiv__note">(цена фиксируется на учебный год)</span></span>
+              <span className="lk-indiv__price-line">{nb('После 1 июня — ')}<b>15 200 ₽</b></span>
             </div>
             <div className="lk-indiv__count">
               <span className="lk-indiv__count-num">8</span>
@@ -1099,7 +1101,7 @@ export default function Page({ afterHero }) {
             </div>
             <div className="lk-record-banner__body">
               <div className="lk-record-banner__title">Все занятия доступны в записи</div>
-              <div className="lk-record-banner__text">Смотрите уроки в удобное время, возвращайтесь к сложным темам и учитесь в своём темпе — без привязки к расписанию</div>
+              <div className="lk-record-banner__text">{nb('Смотрите уроки в удобное время, возвращайтесь к сложным темам и учитесь в своём темпе — без привязки к расписанию')}</div>
             </div>
             <div className="lk-record-banner__pills">
               <span>📅 В любое время</span>
@@ -1341,7 +1343,7 @@ export default function Page({ afterHero }) {
                 </div>
                 <LkStatsChart />
               </div>
-              <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span>Вы не гадаете — вы точно понимаете уровень ребёнка.</span></div>
+              <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span>{nb('Вы не гадаете — вы точно понимаете уровень ребёнка.')}</span></div>
             </div>
           </div>
         </div>
@@ -1352,9 +1354,9 @@ export default function Page({ afterHero }) {
         <div className="lk-wrap">
           <div className="lk-platform__header">
             <div className="lk-platform__tag">Платформа</div>
-            <h2 className="lk-platform__title">«Знарния» — образовательная онлайн-среда для комфортного обучения детей</h2>
+            <h2 className="lk-platform__title">{nb('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}</h2>
           </div>
-          <p className="lk-platform__desc">Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.</p>
+          <p className="lk-platform__desc">{nb('Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.')}</p>
           <ul className="lk-platform__features">
               {[
                 {
@@ -1494,10 +1496,10 @@ export default function Page({ afterHero }) {
                 {FAQ.map((item, i) => (
                   <div key={i} className={`lk-faq__item${openFaq === i ? ' lk-faq__item--open' : ''}`}>
                     <button className="lk-faq__q" onClick={() => setOpenFaq(prev => prev === i ? null : i)}>
-                      <span>{item.q}</span>
+                      <span>{nb(item.q)}</span>
                       <span className="lk-faq__icon">{openFaq === i ? '−' : '+'}</span>
                     </button>
-                    {openFaq === i && <div className="lk-faq__a">{item.a}</div>}
+                    {openFaq === i && <div className="lk-faq__a">{nb(item.a)}</div>}
                   </div>
                 ))}
               </div>
