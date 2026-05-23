@@ -196,6 +196,14 @@
     margin-top: 10px;
   }
 
+  .lk-pu-card {
+    padding: 20px 18px;
+  }
+
+  .lk-pu-card__title {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   .lk-russian-promo__title {
     margin-top: 5px;
   }
