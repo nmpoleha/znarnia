@@ -3176,6 +3176,8 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 24px;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 .lk-pm__item {

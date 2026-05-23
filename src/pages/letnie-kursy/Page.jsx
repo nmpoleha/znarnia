@@ -140,10 +140,15 @@ function ConsultationModal({ onClose }) {
 function PaymentModal({ onClose, mode }) {
   const [selected, setSelected] = useState('stelat')
   const courses = [
-    { id: 'stelat', title: 'Полный курс',       badge: 'С 1 июня',                 color: '#6d28d9', price: '21 600' },
-    { id: 'main',   title: 'Основной поток',     badge: 'С 22 июня',                color: '#16a34a', price: '17 600' },
-    { id: 'august', title: 'Умный август',        badge: 'С 1 августа',              color: '#f97316', price: '10 800' },
-    { id: 'zapis',  title: 'Занятия в записи',   badge: 'С 1 июня · в любое время', color: '#2563eb', price: '15 000' },
+    { id: 'stelat',     title: 'Полный курс',                badge: 'С 1 июня',                 color: '#6d28d9', price: '21 600' },
+    { id: 'stelat_rus', title: 'Полный курс + русский язык', badge: 'С 1 июня',                 color: '#6d28d9', price: '28 600' },
+    { id: 'main',       title: 'Основной поток',             badge: 'С 22 июня',                color: '#16a34a', price: '17 600' },
+    { id: 'main_rus',   title: 'Основной поток + русский',   badge: 'С 22 июня',                color: '#16a34a', price: '24 600' },
+    { id: 'august',     title: 'Умный август',                badge: 'С 1 августа',              color: '#f97316', price: '10 800' },
+    { id: 'august_rus', title: 'Август + русский',            badge: 'С 1 августа',              color: '#f97316', price: '17 800' },
+    { id: 'zapis',      title: 'Занятия в записи',           badge: 'С 1 июня · в любое время', color: '#2563eb', price: '15 000' },
+    { id: 'zapis_rus',  title: 'Запись + русский',           badge: 'С 1 июня · в любое время', color: '#2563eb', price: '22 000' },
+    { id: 'russian',    title: 'Только русский язык',        badge: 'С 15 июня',                color: '#0891b2', price: '10 000' },
   ]
   const cur = courses.find(c => c.id === selected)
   return (
