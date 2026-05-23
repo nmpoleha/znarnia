@@ -83,6 +83,21 @@
     justify-content: center;
   }
 
+  .lk-stats-widget {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .lk-stats-legend {
+    flex: 1;
+  }
+
+  .lk-pu-note--row {
+    margin-top: 6px !important;
+  }
+
   .lk-hero__title {
     background: linear-gradient(120deg, #ea580c 0%, #f59e0b 100%);
     color: #ffffff;
