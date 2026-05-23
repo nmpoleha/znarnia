@@ -255,11 +255,12 @@
 
   .lk-russian-promo__title {
     margin-top: 5px;
+    font-size: 20px;
   }
 
   .lk-russian-promo__meta {
     font-size: 11px;
-    margin-top: -4px;
+    margin-top: 1px;
   }
 
   .lk-russian-promo__meta .lk-meta-br {
