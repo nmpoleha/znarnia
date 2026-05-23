@@ -62,6 +62,23 @@
 }
 
 @media (max-width: 640px) {
+  .lk-hero {
+    padding-top: 0;
+  }
+
+  .lk-hero__title {
+    background: linear-gradient(120deg, #ea580c 0%, #f59e0b 100%);
+    color: #ffffff;
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-top: 0;
+    padding: 20px 24px 16px;
+  }
+
+  .lk-hero__title .lk-hero__accent {
+    color: #fef9c3;
+  }
+
   .lk-interactive-right {
     margin-top: -15px;
   }
