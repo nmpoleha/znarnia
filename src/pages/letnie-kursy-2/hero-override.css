@@ -1,3 +1,5 @@
+.lk-callout-mobile { display: none; }
+
 /* Author name — orange */
 .dg-author__name {
   color: #15803d;
@@ -65,6 +67,17 @@
   .lk-hero {
     padding-top: 0;
   }
+
+  .lk-plot-card--compact .lk-plot-card__head {
+    margin-top: 0;
+  }
+
+  .lk-plot-card--compact .lk-interactive-body {
+    margin-top: -7px;
+  }
+
+  .lk-callout-desktop { display: none; }
+  .lk-callout-mobile { display: inline; }
 
   .lk-hero__title {
     background: linear-gradient(120deg, #ea580c 0%, #f59e0b 100%);

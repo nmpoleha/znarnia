@@ -1266,7 +1266,8 @@ export default function Page({ afterHero }) {
                   ))}
                 </ul>
                 <div className="lk-interactive-callout">
-                  Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
+                  <span className="lk-callout-desktop">Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.</span>
+                  <span className="lk-callout-mobile">Важно: ответы видны только самому ребёнку, без стресса и страха ошибиться.</span>
                 </div>
               </div>
               <div className="lk-interactive-right">
