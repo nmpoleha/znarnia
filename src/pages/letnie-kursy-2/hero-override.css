@@ -46,7 +46,7 @@
 }
 
 .lk-pu-note {
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 /* Lesson banner — navy/green instead of purple */
@@ -78,6 +78,10 @@
 
   .lk-callout-desktop { display: none; }
   .lk-callout-mobile { display: inline; }
+
+  .lk-cta__btn--buy {
+    justify-content: center;
+  }
 
   .lk-hero__title {
     background: linear-gradient(120deg, #ea580c 0%, #f59e0b 100%);
