@@ -66,6 +66,16 @@
     margin-top: -15px;
   }
 
+  .lk-stage-br {
+    display: block;
+  }
+
+  .lk-s1__card-list {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
   .dg-author__photo-slot {
     height: auto;
   }
@@ -175,6 +185,23 @@
     font-size: 22px;
   }
 
+  .lk-russian-promo__title {
+    margin-top: 5px;
+  }
+
+  .lk-russian-promo__meta {
+    font-size: 11px;
+    margin-top: -4px;
+  }
+
+  .lk-russian-promo__meta .lk-meta-br {
+    display: block;
+  }
+
+  .lk-russian-promo__meta .lk-meta-dot {
+    display: none;
+  }
+
   .lk-russian-promo__price-row {
     flex-wrap: wrap;
     gap: 4px;
@@ -207,10 +234,6 @@
     display: none;
   }
 
-  .lk-meta-br {
-    display: block;
-  }
-
   .lk-zapis-program-note {
     display: block;
   }
@@ -219,10 +242,6 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 6px;
-  }
-
-  .lk-meta-dot {
-    display: none;
   }
 
   .lk-detail__stage-header {
@@ -244,7 +263,11 @@
     grid-column: 1;
     grid-row: 2;
     margin-left: -5px;
+    margin-top: -10px;
     font-size: 11px;
+  }
+  .lk-detail__stage-date--s2 {
+    margin-top: -2px;
   }
 
   .lk-detail__stage-desc {

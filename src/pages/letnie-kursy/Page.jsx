@@ -295,7 +295,7 @@ const FORMAT_DETAILS = {
         {/* Этап 1 */}
         <div className="lk-detail__stage-header">
           <span className="lk-detail__stage-num">1 Этап</span>
-          <span className="lk-detail__stage-desc">Мягкий старт — закрываем пробелы и выстраиваем базу</span>
+          <span className="lk-detail__stage-desc">Мягкий старт.<br className="lk-stage-br"/>Закрываем пробелы и выстраиваем базу</span>
           <span className="lk-detail__stage-date">с 1 по 21 июня</span>
         </div>
         {/* Формат — flow */}
@@ -345,8 +345,8 @@ const FORMAT_DETAILS = {
         {/* Этап 2 */}
         <div className="lk-detail__stage-header">
           <span className="lk-detail__stage-num">2 Этап</span>
-          <span className="lk-detail__stage-desc">Основной этап — уверенность и результат</span>
-          <span className="lk-detail__stage-date">с 22 июня</span>
+          <span className="lk-detail__stage-desc">Основной этап.<br className="lk-stage-br"/>Уверенность и результат</span>
+          <span className="lk-detail__stage-date lk-detail__stage-date--s2">с 22 июня</span>
         </div>
         {/* Уроки 2 этапа */}
         <div className="lk-s1__counts" style={{marginTop:'14px'}}>
@@ -388,7 +388,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
+            <div className="lk-russian-promo__meta">1–10 класс<span className="lk-meta-dot"> · </span><span className="lk-meta-br"/><span style={{whiteSpace:'nowrap'}}>20 уроков по 30–40 мин</span><span style={{whiteSpace:'nowrap'}}> · с 15 июня</span></div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
@@ -467,7 +467,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
+            <div className="lk-russian-promo__meta">1–10 класс<span className="lk-meta-dot"> · </span><span className="lk-meta-br"/><span style={{whiteSpace:'nowrap'}}>20 уроков по 30–40 мин</span><span style={{whiteSpace:'nowrap'}}> · с 15 июня</span></div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
@@ -552,7 +552,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
+            <div className="lk-russian-promo__meta">1–10 класс<span className="lk-meta-dot"> · </span><span className="lk-meta-br"/><span style={{whiteSpace:'nowrap'}}>20 уроков по 30–40 мин</span><span style={{whiteSpace:'nowrap'}}> · с 15 июня</span></div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">
@@ -642,7 +642,7 @@ const FORMAT_DETAILS = {
           <div className="lk-russian-promo__header">
             <div className="lk-russian-promo__label">Также доступно</div>
             <div className="lk-russian-promo__title">Летний русский язык</div>
-            <div className="lk-russian-promo__meta"><span style={{whiteSpace:'nowrap'}}>1–10 класс · 20 уроков по 30–40 мин</span><span className="lk-meta-br"/><span className="lk-meta-dot"> · </span>с 15 июня</div>
+            <div className="lk-russian-promo__meta">1–10 класс<span className="lk-meta-dot"> · </span><span className="lk-meta-br"/><span style={{whiteSpace:'nowrap'}}>20 уроков по 30–40 мин</span><span style={{whiteSpace:'nowrap'}}> · с 15 июня</span></div>
           </div>
           <div className="lk-russian-promo__body">
             <div className="lk-russian-promo__flow">

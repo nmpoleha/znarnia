@@ -562,6 +562,8 @@
   padding-right: 10px;
 }
 
+.lk-stage-br { display: none; }
+
 .lk-detail__stage-desc {
   font-size: 13px;
   font-weight: 600;
