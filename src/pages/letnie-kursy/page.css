@@ -3819,6 +3819,9 @@
     width: 100%;
     justify-content: center;
   }
+  .lk-sched__deco {
+    display: none;
+  }
   .lk-sched-modal {
     padding: 24px 16px 20px;
     border-radius: 16px;
