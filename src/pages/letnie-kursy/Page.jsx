@@ -137,6 +137,88 @@ function ConsultationModal({ onClose }) {
   )
 }
 
+function ScheduleModal({ onClose }) {
+  return (
+    <div className="lk-modal-overlay" onClick={onClose}>
+      <div className="lk-sched-modal" onClick={e => e.stopPropagation()}>
+        <button className="lk-modal__x" onClick={onClose}>×</button>
+        <div className="lk-sched__header">
+          <div className="lk-sched__title">Расписание<br/>онлайн-занятий</div>
+          <div className="lk-sched__stage">2 этап обучения&nbsp;•&nbsp;<span className="lk-sched__stage-accent">Старт 22 июня</span></div>
+        </div>
+        <div className="lk-sched__grid">
+          <div className="lk-sched__col lk-sched__col--blue">
+            <div className="lk-sched__col-title">
+              <span className="lk-sched__col-icon">🎒</span> 1–4 классы
+            </div>
+            {[
+              { g: '1 класс', days: 'Понедельник + Среда', time: '19:15' },
+              { g: '2 класс', days: 'Понедельник + Среда', time: '17:00' },
+              { g: '3 класс', days: 'Понедельник + Среда', time: '18:15' },
+              { g: '4 класс', days: 'Понедельник + Среда', time: '18:15' },
+            ].map(r => (
+              <div className="lk-sched__row" key={r.g}>
+                <span className="lk-sched__grade">{r.g}</span>
+                <span className="lk-sched__days">{r.days}</span>
+                <span className="lk-sched__time lk-sched__time--blue">{r.time} <span className="lk-sched__msk">по МСК</span></span>
+              </div>
+            ))}
+          </div>
+          <div className="lk-sched__col lk-sched__col--green">
+            <div className="lk-sched__col-title">
+              <span className="lk-sched__col-icon">📖</span> 5–8 классы
+            </div>
+            {[
+              { g: '5 класс', days: 'Вторник + Четверг', time: '11:00' },
+              { g: '6 класс', days: 'Вторник + Четверг', time: '11:00' },
+              { g: '7 класс', days: 'Вторник + Четверг', time: '12:15' },
+              { g: '8 класс', days: 'Вторник + Четверг', time: '12:15' },
+            ].map(r => (
+              <div className="lk-sched__row" key={r.g}>
+                <span className="lk-sched__grade">{r.g}</span>
+                <span className="lk-sched__days">{r.days}</span>
+                <span className="lk-sched__time lk-sched__time--green">{r.time} <span className="lk-sched__msk">по МСК</span></span>
+              </div>
+            ))}
+          </div>
+          <div className="lk-sched__col lk-sched__col--orange">
+            <div className="lk-sched__col-title">
+              <span className="lk-sched__col-icon">🎓</span> 9–10 классы
+            </div>
+            {[
+              { g: '9 класс', days: 'Вторник + Четверг', time: '12:00' },
+              { g: '10 класс', days: 'Вторник + Четверг', time: '12:00' },
+            ].map(r => (
+              <div className="lk-sched__row" key={r.g}>
+                <span className="lk-sched__grade">{r.g}</span>
+                <span className="lk-sched__days">{r.days}</span>
+                <span className="lk-sched__time lk-sched__time--orange">{r.time} <span className="lk-sched__msk">по МСК</span></span>
+              </div>
+            ))}
+            <div className="lk-sched__legend">
+              <div className="lk-sched__legend-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#6b7280" strokeWidth="2"/><path d="M8 21h8M12 17v4" stroke="#6b7280" strokeWidth="2" strokeLinecap="round"/></svg>
+                Онлайн-уроки с учителем
+              </div>
+              <div className="lk-sched__legend-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 18V8M8 18V4M12 18v-6M16 18V10M20 18v-4" stroke="#16a34a" strokeWidth="2" strokeLinecap="round"/></svg>
+                Интерактивные тренажёры
+              </div>
+              <div className="lk-sched__legend-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6b7280" strokeWidth="2"/><path d="M10 8l6 4-6 4V8z" fill="#6b7280"/></svg>
+                Записи занятий доступны после урока
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="lk-sched__footer">
+          🏆 Учимся летом — стартуем уверенно в новом учебном году!
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function PaymentModal({ onClose, mode }) {
   const [selected, setSelected] = useState('stelat')
   const courses = [
@@ -935,6 +1017,7 @@ export default function Page({ afterHero }) {
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [paymentMode, setPaymentMode] = useState('buy')
   const [showConsultModal, setShowConsultModal] = useState(false)
+  const [showScheduleModal, setShowScheduleModal] = useState(false)
   const [cmpTab, setCmpTab] = useState(0)
 
   function toggleFormat(id) {
@@ -1004,6 +1087,10 @@ export default function Page({ afterHero }) {
             <div className="lk-hero__actions">
               <button className="lk-hero__cta" onClick={() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' })}>
                 Выбрать формат
+              </button>
+              <button className="lk-hero__sched-btn" onClick={() => setShowScheduleModal(true)}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M8 2v4M16 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                Расписание
               </button>
               <div className="lk-hero__badges">
                 <div className="lk-hero__badge">
@@ -1533,6 +1620,7 @@ export default function Page({ afterHero }) {
       {showModal && <Modal onClose={() => setShowModal(false)} />}
       {showPaymentModal && <PaymentModal onClose={() => setShowPaymentModal(false)} mode={paymentMode} />}
       {showConsultModal && <ConsultationModal onClose={() => setShowConsultModal(false)} />}
+      {showScheduleModal && <ScheduleModal onClose={() => setShowScheduleModal(false)} />}
     </div>
   )
 }
