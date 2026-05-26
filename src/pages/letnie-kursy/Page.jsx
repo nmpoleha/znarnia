@@ -143,8 +143,58 @@ function ScheduleModal({ onClose }) {
       <div className="lk-sched-modal" onClick={e => e.stopPropagation()}>
         <button className="lk-modal__x" onClick={onClose}>×</button>
         <div className="lk-sched__header">
+          {/* Left decoration — bush with round leaves */}
+          <svg className="lk-sched__deco lk-sched__deco--left" aria-hidden="true" width="105" height="115" viewBox="0 0 105 115" fill="none">
+            {/* Main trunk/stem */}
+            <path d="M52 115 L52 72" stroke="#92400e" strokeWidth="4" strokeLinecap="round"/>
+            <path d="M52 95 L34 78" stroke="#92400e" strokeWidth="3" strokeLinecap="round"/>
+            <path d="M52 85 L70 72" stroke="#92400e" strokeWidth="3" strokeLinecap="round"/>
+            <path d="M52 72 L40 58" stroke="#92400e" strokeWidth="2.5" strokeLinecap="round"/>
+            <path d="M52 72 L64 56" stroke="#92400e" strokeWidth="2.5" strokeLinecap="round"/>
+            <path d="M52 72 L52 52" stroke="#92400e" strokeWidth="2.5" strokeLinecap="round"/>
+            {/* Large round leaves */}
+            <circle cx="24" cy="68" r="18" fill="#16a34a"/>
+            <circle cx="73" cy="62" r="16" fill="#22c55e"/>
+            <circle cx="50" cy="42" r="17" fill="#4ade80"/>
+            <circle cx="36" cy="48" r="13" fill="#22c55e"/>
+            <circle cx="68" cy="44" r="12" fill="#16a34a"/>
+            {/* Leaf veins */}
+            <path d="M24 68 C18 62 14 56 16 50" stroke="#4ade80" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            <path d="M50 42 C46 36 44 30 46 24" stroke="#86efac" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            <path d="M73 62 C68 56 66 50 68 44" stroke="#86efac" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            {/* Tiny accent circles */}
+            <circle cx="14" cy="52" r="8" fill="#4ade80"/>
+            <circle cx="86" cy="50" r="7" fill="#4ade80"/>
+            <circle cx="52" cy="26" r="7" fill="#22c55e"/>
+            {/* Ground mound */}
+            <ellipse cx="52" cy="113" rx="30" ry="6" fill="#bbf7d0"/>
+          </svg>
+
           <div className="lk-sched__title">Расписание<br/>онлайн-занятий</div>
           <div className="lk-sched__stage">2 этап обучения&nbsp;•&nbsp;<span className="lk-sched__stage-accent">Старт 22 июня</span></div>
+
+          {/* Right decoration — sun & plants */}
+          <svg className="lk-sched__deco lk-sched__deco--right" aria-hidden="true" width="100" height="110" viewBox="0 0 100 110" fill="none">
+            {/* Sun rays */}
+            {[0,45,90,135,180,225,270,315].map((deg, i) => {
+              const r = Math.PI * deg / 180;
+              const x1 = 62 + Math.cos(r) * 26, y1 = 36 + Math.sin(r) * 26;
+              const x2 = 62 + Math.cos(r) * 34, y2 = 36 + Math.sin(r) * 34;
+              return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#fbbf24" strokeWidth="3" strokeLinecap="round"/>;
+            })}
+            {/* Sun body */}
+            <circle cx="62" cy="36" r="18" fill="#fde047"/>
+            <circle cx="62" cy="36" r="13" fill="#fbbf24"/>
+            {/* Sun face */}
+            <circle cx="57" cy="33" r="2" fill="#f97316"/>
+            <circle cx="67" cy="33" r="2" fill="#f97316"/>
+            <path d="M56 40 Q62 45 68 40" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+            {/* Small plant right */}
+            <ellipse cx="28" cy="78" rx="12" ry="20" fill="#4ade80" transform="rotate(25 28 78)"/>
+            <ellipse cx="28" cy="78" rx="5" ry="18" fill="#86efac" transform="rotate(25 28 78)"/>
+            <line x1="28" y1="108" x2="26" y2="80" stroke="#15803d" strokeWidth="2.5" strokeLinecap="round"/>
+            <ellipse cx="30" cy="108" rx="22" ry="4" fill="#bbf7d0"/>
+          </svg>
         </div>
         <div className="lk-sched__grid">
           <div className="lk-sched__col lk-sched__col--blue">
