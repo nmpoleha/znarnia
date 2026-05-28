@@ -124,22 +124,6 @@ export default function GlavnayaPage() {
               <a href="#" className="gv-btn gv-btn--primary">Подобрать курс</a>
             </div>
 
-            <div className="gv-hero__stats">
-              <div className="gv-hero__stat">
-                <span className="gv-hero__stat-val">1–8</span>
-                <span className="gv-hero__stat-label">классы</span>
-              </div>
-              <div className="gv-hero__stat-sep" aria-hidden="true"/>
-              <div className="gv-hero__stat">
-                <span className="gv-hero__stat-val">Онлайн</span>
-                <span className="gv-hero__stat-label">из любой точки</span>
-              </div>
-              <div className="gv-hero__stat-sep" aria-hidden="true"/>
-              <div className="gv-hero__stat">
-                <span className="gv-hero__stat-val">Мини-группы</span>
-                <span className="gv-hero__stat-label">4–8 человек</span>
-              </div>
-            </div>
           </div>
 
           {/* RIGHT: hero image */}
