@@ -34,6 +34,7 @@ export default defineConfig({
         'diagnostika-finalnaya-2': resolve(__dirname, 'diagnostika-finalnaya-2/index.html'),
         'letnie-kursy': resolve(__dirname, 'letnie-kursy/index.html'),
         'letnie-kursy-2': resolve(__dirname, 'letnie-kursy-2/index.html'),
+        'glavnaya': resolve(__dirname, 'glavnaya/index.html'),
       },
     },
   },
