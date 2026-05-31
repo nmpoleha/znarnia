@@ -39,51 +39,60 @@ const FEATURES = [
   { icon: <IconBulb />,  text: 'Ребёнок начинает\nпонимать математику' },
 ]
 
-const NAV_LINKS = [
-  'Курсы',
-  'Как проходят занятия',
-  'О нас',
-  'Отзывы',
-  'Блог',
-  'Контакты',
-]
+import { useState } from 'react'
 
 export default function GlavnayaPage() {
+  const [contactsOpen, setContactsOpen] = useState(false)
+
   return (
     <div className="gv-page">
 
       {/* ── TOPBAR ── */}
       <header className="gv-topbar">
         <div className="gv-topbar__inner">
-          <a href="/znarnia/" className="gv-topbar__brand">
+          <div className="gv-topbar__brand">
             <img
               src="https://znarnia.ru/logo.png"
-              alt="Знарния"
+              alt="Школа Сотниковой Ольги"
               className="gv-topbar__logo"
-              width="52"
-              height="52"
             />
-            <div className="gv-topbar__brand-text">
-              <span className="gv-topbar__brand-name">ЗНАРНИЯ</span>
-              <span className="gv-topbar__brand-sub">онлайн-школа математики</span>
-            </div>
-          </a>
-
-          <nav className="gv-topbar__nav" aria-label="Основная навигация">
-            {NAV_LINKS.map(link => (
+            <span className="gv-topbar__brand-name">Школа Сотниковой Ольги</span>
+          </div>
+          <nav className="gv-topbar__nav">
+            {['О нас','Отзывы','Сообщество','Курсы','Как проходят занятия'].map(link => (
               <a key={link} href="#" className="gv-topbar__link">{link}</a>
             ))}
+            <button
+              className={`gv-topbar__link gv-topbar__link--contacts${contactsOpen ? ' gv-topbar__link--active' : ''}`}
+              onClick={() => setContactsOpen(v => !v)}
+            >
+              Контакты
+            </button>
           </nav>
-
-          <div className="gv-topbar__phone">
-            <a href="tel:88006003623" className="gv-topbar__phone-num">8 (800) 600-36-23</a>
-            <span className="gv-topbar__phone-hours">ежедневно 9:00–21:00</span>
-          </div>
-
-          <button className="gv-topbar__burger" aria-label="Меню">
-            <span/><span/><span/>
-          </button>
         </div>
+        {contactsOpen && (
+          <div className="gv-topbar__contacts-dropdown">
+            <a href="mailto:info@znarnia.ru" className="gv-topbar__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
+                <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2"/>
+              </svg>
+              <span>info@znarnia.ru</span>
+            </a>
+            <a href="https://t.me/sotnikova_oa_school" className="gv-topbar__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M21.8 3.2L2.4 10.9c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.7.4.9 1 .9.4 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.8L23.9 4.5c.3-1.3-.5-1.8-2.1-1.3z" fill="currentColor"/>
+              </svg>
+              <span>@sotnikova_oa_school</span>
+            </a>
+            <a href="https://wa.me/79955775318" className="gv-topbar__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M17.4 6.6A7.1 7.1 0 0 0 12 4.5a7.15 7.15 0 0 0-6.2 10.7L4.5 19.5l4.4-1.15A7.15 7.15 0 0 0 19.5 12a7.1 7.1 0 0 0-2.1-5.4zm-5.4 11a5.95 5.95 0 0 1-3.03-.83l-.22-.13-2.26.59.6-2.2-.14-.23A5.95 5.95 0 1 1 12 17.6zm3.26-4.45c-.18-.09-1.06-.52-1.22-.58-.16-.06-.28-.09-.4.09s-.46.58-.56.7c-.1.12-.2.13-.38.04a4.8 4.8 0 0 1-1.42-.88 5.3 5.3 0 0 1-.98-1.22c-.1-.18-.01-.27.08-.36.08-.08.18-.2.27-.3.09-.1.12-.18.18-.3.06-.12.03-.22-.02-.31-.05-.09-.4-.96-.54-1.32-.14-.34-.29-.3-.4-.3h-.34c-.12 0-.31.04-.47.22s-.62.6-.62 1.47.63 1.7.72 1.82c.09.12 1.24 1.9 3.01 2.66.42.18.75.29 1 .37.42.13.8.11 1.1.07.34-.05 1.04-.43 1.19-.84.14-.41.14-.76.1-.83-.05-.08-.17-.12-.35-.2z" fill="currentColor"/>
+              </svg>
+              <span>+7 995 577-53-18</span>
+            </a>
+          </div>
+        )}
       </header>
 
       {/* ── HERO ── */}

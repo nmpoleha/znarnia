@@ -31,14 +31,10 @@
 
 /* ── TOPBAR ── */
 .gv-topbar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
-  box-shadow: 0 1px 0 rgba(229, 231, 235, 0.6), 0 2px 12px rgba(0, 0, 0, 0.04);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  width: 100%;
+  background: #f9f8ff;
+  padding: 6px 0;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .gv-topbar__inner {
@@ -47,62 +43,50 @@
   padding: 0 clamp(16px, 5vw, 80px);
   display: flex;
   align-items: center;
-  gap: 24px;
-  height: 72px;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .gv-topbar__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   flex-shrink: 0;
-  text-decoration: none;
 }
 
 .gv-topbar__logo {
-  width: 48px;
-  height: 48px;
+  height: 91px;
+  width: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-.gv-topbar__brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
 .gv-topbar__brand-name {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 17px;
-  color: var(--gv-purple);
-  letter-spacing: 0.07em;
-}
-
-.gv-topbar__brand-sub {
-  font-size: 10.5px;
-  color: var(--gv-text-2);
-  letter-spacing: 0.02em;
-  margin-top: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3b1f6e;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  margin-top: 19px;
 }
 
 .gv-topbar__nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .gv-topbar__link {
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #374151;
+  color: #3b1f6e;
   text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 5px 9px;
+  border-radius: 7px;
   white-space: nowrap;
   transition: color 0.18s, background 0.18s;
 }
@@ -111,49 +95,39 @@
   background: var(--gv-purple-lt);
 }
 
-.gv-topbar__phone {
-  flex-shrink: 0;
-  text-align: right;
-}
-
-.gv-topbar__phone-num {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--gv-text);
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  line-height: 1;
-  transition: color 0.15s;
-}
-.gv-topbar__phone-num:hover { color: var(--gv-purple); }
-
-.gv-topbar__phone-hours {
-  font-size: 11px;
-  color: var(--gv-text-2);
-  margin-top: 3px;
-  display: block;
-}
-
-.gv-topbar__burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
+.gv-topbar__link--contacts {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
-  flex-shrink: 0;
 }
-.gv-topbar__burger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--gv-text);
-  border-radius: 2px;
-  transition: background 0.15s;
+.gv-topbar__link--active {
+  color: var(--gv-purple);
+  background: var(--gv-purple-lt);
 }
+
+.gv-topbar__contacts-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 8px clamp(16px, 5vw, 80px);
+  background: #f9f8ff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.gv-topbar__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #3b1f6e;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: color 0.18s;
+}
+.gv-topbar__contact-item:hover { color: var(--gv-purple); }
 
 /* ── HERO ── */
 .gv-hero {
@@ -331,11 +305,6 @@
 
 /* ── RESPONSIVE: TABLET ── */
 @media (max-width: 1024px) {
-  .gv-topbar__nav { gap: 0; }
-  .gv-topbar__link {
-    font-size: 13px;
-    padding: 6px 7px;
-  }
   .gv-hero__inner {
     grid-template-columns: minmax(0, 1fr) minmax(240px, 38%);
   }
@@ -355,23 +324,11 @@
   }
 }
 
-@media (max-width: 860px) {
-  .gv-topbar__nav { display: none; }
-  .gv-topbar__burger { display: flex; }
-  .gv-topbar__phone-num { font-size: 14px; }
-}
-
 /* ── RESPONSIVE: MOBILE ── */
 @media (max-width: 640px) {
-  .gv-topbar__inner {
-    padding: 0 16px;
-    height: 60px;
-    gap: 12px;
-  }
-  .gv-topbar__logo { width: 38px; height: 38px; }
-  .gv-topbar__brand-name { font-size: 15px; }
-  .gv-topbar__brand-sub { display: none; }
-  .gv-topbar__phone { display: none; }
+  .gv-topbar__nav { display: none; }
+  .gv-topbar__contacts { display: none; }
+  .gv-topbar__logo { height: 52px; }
 
   .gv-hero {
     background: #ffffff;
