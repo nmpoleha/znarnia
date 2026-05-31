@@ -860,46 +860,130 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE: TABLET ── */
 @media (max-width: 860px) {
+  .os-wrap { padding: 0 32px; }
+  .os-header__inner { padding: 0 32px; }
+
   .os-hero__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 38%);
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 36%);
+    gap: 0;
   }
+  .os-hero__content { padding: 24px 24px 40px 32px; }
+  .os-hero__photo-wrap { padding: 24px 32px 0 0; }
+
   .os-benefits__grid { grid-template-columns: repeat(2, 1fr); }
+
+  .os-levels__grid { grid-template-columns: 1fr; }
+
+  .os-trust-banner__inner { grid-template-columns: repeat(2, 1fr); }
+  .os-trust-banner__item:nth-child(2n) { border-right: none; }
+  .os-trust-banner__item:nth-child(3),
+  .os-trust-banner__item:nth-child(4) { border-bottom: 1px solid rgba(109, 40, 217, 0.1); }
+  .os-trust-banner__item:nth-child(5),
+  .os-trust-banner__item:nth-child(6) { border-bottom: none; }
+  .os-trust-banner__item:nth-child(3n) { border-right: 1px solid rgba(109, 40, 217, 0.15); }
 }
 
+/* ── RESPONSIVE: MOBILE ── */
 @media (max-width: 640px) {
-  .os-header__logo { height: 64px; }
-  .os-header__brand-name { font-size: 16px; margin-top: 14px; }
+  /* Globals */
+  .os-wrap { padding: 0 16px; }
+  .os-header__inner { padding: 0 16px; }
 
-  .os-hero { padding: 28px 0 0; }
+  /* Header */
+  .os-header__logo { height: 52px; }
+  .os-header__brand-name { font-size: 15px; margin-top: 10px; }
 
+  /* Hero */
+  .os-hero { padding: 0; }
   .os-hero__inner {
     grid-template-columns: 1fr;
     gap: 0;
   }
-
-  .os-hero__content { padding-bottom: 0; }
-
-  .os-hero__photo-wrap {
-    order: -1;
-    margin-bottom: 24px;
+  .os-hero__content {
+    padding: 20px 16px 24px;
+    order: 2;
   }
-
+  .os-hero__title { font-size: clamp(20px, 5.5vw, 26px); }
+  .os-hero__photo-wrap {
+    order: 1;
+    padding: 0;
+  }
   .os-hero__photo {
     aspect-ratio: 4 / 3;
-    border-radius: 16px;
+    border-radius: 0;
+    object-position: top center;
   }
-
-  .os-hero__card { padding: 20px 20px 18px; }
+  .os-hero__price-badge {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .os-hero__price-row { justify-content: flex-start; }
   .os-price-new--big { font-size: 28px; }
-  .os-btn--primary { font-size: 14px; padding: 14px 20px; }
+  .os-hero__card { padding: 16px 16px 14px; }
 
-  .os-benefits { padding: 36px 0; }
-  .os-benefits__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .os-checklist {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .os-checklist__item {
+    flex-direction: row;
+    align-items: flex-start;
+    border-right: none;
+    border-bottom: 1px solid #e8d5c0;
+    padding: 0 0 12px;
+    margin: 0;
+  }
+  .os-checklist__item:last-child { border-bottom: none; padding-bottom: 0; }
 
-  .os-thanks__inner { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .os-btn--lg { width: 100%; justify-content: center; }
+  .os-platform-banner {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .os-platform-banner__btn { width: 100%; justify-content: center; }
+
+  .os-btn--primary { font-size: 15px; padding: 15px 20px; }
+
+  /* Levels */
+  .os-levels { padding: 36px 0; }
+  .os-levels__common {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .os-levels__common-item {
+    border-right: none;
+    border-bottom: 1px solid #e8d5c0;
+    padding: 0 0 12px;
+    margin: 0;
+    font-size: 13.5px;
+  }
+  .os-levels__common-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .os-levels__grid { grid-template-columns: 1fr; gap: 16px; }
+  .os-levels__col { padding: 20px 16px 18px; }
+  .os-levels__cta { margin-top: 24px; }
+  .os-levels__cta-btn { width: 100%; padding: 15px 20px; }
+
+  /* Trust banner */
+  .os-trust-banner { padding: 16px 0; }
+  .os-trust-banner__inner { grid-template-columns: 1fr; }
+  .os-trust-banner__item {
+    border-right: none;
+    border-bottom: 1px solid rgba(109, 40, 217, 0.1);
+    padding: 12px 16px;
+  }
+  .os-trust-banner__item:last-child { border-bottom: none; }
+  .os-trust-banner__item:nth-child(3n) { border-right: none; }
+
+  /* Thanks */
+  .os-thanks { padding: 32px 0; }
+  .os-thanks__inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .os-btn--lg { width: 100%; justify-content: center; padding: 16px 20px; }
+
+  /* Footer */
   .os-footer__badges { gap: 24px; }
 }
