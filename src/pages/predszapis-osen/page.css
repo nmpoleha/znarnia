@@ -902,18 +902,21 @@
     gap: 0;
   }
   .os-hero__content {
-    padding: 20px 16px 24px;
-    order: 2;
+    padding: 20px 16px 8px;
+    order: 1;
   }
   .os-hero__title { font-size: clamp(20px, 5.5vw, 26px); }
   .os-hero__photo-wrap {
-    order: 1;
-    padding: 0;
+    order: 2;
+    padding: 12px 32px 28px;
+    overflow: visible;
   }
   .os-hero__photo {
     aspect-ratio: 4 / 3;
-    border-radius: 0;
+    border-radius: 20px;
     object-position: top center;
+    max-height: 240px;
+    box-shadow: 0 8px 32px rgba(44, 26, 16, 0.14);
   }
   .os-hero__price-badge {
     flex-direction: column;
