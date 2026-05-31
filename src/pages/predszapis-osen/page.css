@@ -912,10 +912,10 @@
     overflow: visible;
   }
   .os-hero__photo {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1148 / 1370;
     border-radius: 20px;
     object-position: top center;
-    max-height: 240px;
+    max-height: 340px;
     box-shadow: 0 8px 32px rgba(44, 26, 16, 0.14);
   }
   .os-hero__price-badge {
