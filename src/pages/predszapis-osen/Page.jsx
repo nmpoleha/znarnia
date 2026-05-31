@@ -126,38 +126,59 @@ export default function Page() {
           {/* LEFT: text */}
           <div className="os-hero__content">
             <h1 className="os-hero__title">
-              Продолжайте обучение<br/>
-              в Знарнии этой осенью&nbsp;🍁
+              Продолжайте обучение в Знарнии<br/>
+              этой осенью&nbsp;🍁
             </h1>
-            <p className="os-hero__sub">Ваше место в группе уже ждёт вас.</p>
-
-            <div className="os-hero__card">
-              <div className="os-hero__card-label">
-                Специальная цена<br/>только для действующих учеников
+            <div className="os-hero__price-badge">
+              <div className="os-hero__price-badge-left">
+                <p className="os-hero__sub">Ваше место в группе уже ждёт вас.&nbsp;🍁</p>
+                <div className="os-hero__card-label">
+                  Специальная цена<br/>только для действующих учеников
+                </div>
               </div>
               <div className="os-hero__price-row">
                 <span className="os-price-old">5 000&thinsp;₽</span>
                 <span className="os-price-arrow">→</span>
                 <span className="os-price-new os-price-new--big">3 500&thinsp;₽</span>
               </div>
+            </div>
 
-              <ul className="os-checklist">
-                {[
-                  'Сохраняете привычного преподавателя',
-                  'Сохраняете место в группе',
-                  'Продолжаете обучение без адаптации в сентябре',
-                ].map((item, i) => (
-                  <li key={i}>
-                    <span className="os-check">
-                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                        <circle cx="10" cy="10" r="10" fill="#22c55e"/>
-                        <path d="M5.5 10.5l3 3 6-6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="os-hero__card">
+              <div className="os-checklist">
+                <div className="os-checklist__item">
+                  <div className="os-checklist__icon">
+                    {/* Trophy */}
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M5 3h14v8a7 7 0 0 1-14 0V3z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <path d="M5 6H2.5a1.5 1.5 0 0 0 0 3H5M19 6h2.5a1.5 1.5 0 0 1 0 3H19" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M9 17h6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                  <span>Сохраняете привычного преподавателя</span>
+                </div>
+                <div className="os-checklist__item">
+                  <div className="os-checklist__icon">
+                    {/* Pin */}
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <circle cx="12" cy="10" r="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
+                    </svg>
+                  </div>
+                  <span>Сохраняете место в группе</span>
+                </div>
+                <div className="os-checklist__item">
+                  <div className="os-checklist__icon">
+                    {/* Rocket */}
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2C8 6 7 10 7 14l2.5 2.5L12 22l2.5-5.5L17 14c0-4-1-8-5-12z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <circle cx="12" cy="11" r="2" stroke="#6d28d9" strokeWidth="1.6"/>
+                      <path d="M7 14c-2 1-3 3-2.5 4.5L9.5 14M17 14c2 1 3 3 2.5 4.5L14.5 14" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                  <span>Продолжаете обучение без адаптации в сентябре</span>
+                </div>
+              </div>
 
               <button className="os-btn os-btn--primary" onClick={openModal}>
                 Сохранить место за 3&thinsp;500&thinsp;₽

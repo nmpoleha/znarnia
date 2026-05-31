@@ -83,20 +83,20 @@
 .os-hero__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: clamp(28px, 3.2vw, 46px);
+  font-size: clamp(24px, 2.7vw, 38px);
   line-height: 1.1;
   color: #3730a3;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.04em;
   margin-bottom: 12px;
 }
 
 .os-hero__sub {
   font-size: clamp(15px, 1.4vw, 18px);
-  color: var(--os-purple);
-  font-weight: 700;
-  margin-bottom: 28px;
+  color: var(--os-text);
+  font-weight: 800;
+  margin-bottom: 6px;
   font-family: 'Montserrat', sans-serif;
-  opacity: 0.85;
+  line-height: 1.25;
 }
 
 /* ── PRICE CARD ── */
@@ -108,20 +108,37 @@
   box-shadow: 0 2px 20px rgba(109, 40, 217, 0.08), 0 1px 4px rgba(0,0,0,0.04);
 }
 
+.os-hero__price-badge {
+  background: #fff8f0;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.os-hero__price-badge-left {
+  flex: 1;
+  min-width: 0;
+}
+
 .os-hero__card-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--os-purple);
   line-height: 1.4;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .os-hero__price-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 
 .os-price-old {
@@ -150,27 +167,42 @@
 
 /* ── CHECKLIST ── */
 .os-checklist {
-  list-style: none;
-  padding: 0;
+  display: flex;
+  gap: 0;
   margin: 0 0 24px;
+}
+
+.os-checklist__item {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.os-checklist li {
-  display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 17px;
+  flex: 1;
+  padding: 0 16px 0 0;
+  border-right: 1px solid #e5e7eb;
+  margin-right: 16px;
+  font-size: 14px;
   color: #374151;
-  line-height: 1.5;
+  line-height: 1.45;
   font-weight: 600;
+  font-family: 'Nunito', sans-serif;
 }
 
-.os-check {
+.os-checklist__item:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.os-checklist__icon {
+  width: 44px;
+  height: 44px;
+  background: #f5f3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 1px;
 }
 
 /* ── BUTTON ── */
