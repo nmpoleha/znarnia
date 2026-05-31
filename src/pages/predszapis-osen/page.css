@@ -546,6 +546,19 @@
   font-weight: 700;
 }
 
+/* ── LEVELS CTA ── */
+.os-levels__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.os-levels__cta-btn {
+  width: auto;
+  padding: 16px 48px;
+  font-size: 16px;
+}
+
 /* ── THANK YOU ── */
 .os-thanks {
   background: linear-gradient(135deg, #fff3e0 0%, #fde8c8 100%);
@@ -610,9 +623,8 @@
 }
 
 .os-trust-banner__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
 
@@ -620,22 +632,33 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1;
   font-size: 14px;
   font-weight: 600;
   color: #3b1f6e;
   font-family: 'Nunito', sans-serif;
-  padding: 0 32px;
+  padding: 12px 28px;
   border-right: 1px solid rgba(109, 40, 217, 0.15);
-  text-align: left;
+  border-bottom: 1px solid rgba(109, 40, 217, 0.1);
 }
 
-.os-trust-banner__item:last-child {
+.os-trust-banner__item:nth-child(3n) {
   border-right: none;
 }
 
+.os-trust-banner__item:nth-child(4),
+.os-trust-banner__item:nth-child(5),
+.os-trust-banner__item:nth-child(6) {
+  border-bottom: none;
+}
+
 .os-trust-banner__icon {
-  font-size: 24px;
+  width: 36px;
+  height: 36px;
+  background: rgba(109, 40, 217, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
