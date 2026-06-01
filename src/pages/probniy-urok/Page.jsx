@@ -454,13 +454,6 @@ export default function Page() {
           </ul>
         </section>
 
-        {/* ── PRE-AUTHOR BUTTONS ── */}
-        <div className="pu-pre-author-btns">
-          <a href="#" className="pu-cta-link pu-cta-link--orange">Забронировать место</a>
-          <a href="#" className="pu-cta-link pu-cta-link--outline-orange">Купить курс</a>
-          <a href="#" className="pu-cta-link pu-cta-link--ghost">Получить консультацию</a>
-        </div>
-
         {/* ── AUTHOR ── */}
         <section className="pu-author-section">
           <div className="pu-author">
