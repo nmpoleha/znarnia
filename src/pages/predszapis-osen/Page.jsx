@@ -139,6 +139,43 @@ function LettersCarousel() {
   )
 }
 
+const SCHEDULE = [
+  { grade: '1 класс',  day1: 'Понедельник', day2: 'Среда',     time: '15:00' },
+  { grade: '2 класс',  day1: 'Вторник',     day2: 'Четверг',   time: '15:30' },
+  { grade: '3 класс',  day1: 'Понедельник', day2: 'Пятница',   time: '16:00' },
+  { grade: '4 класс',  day1: 'Среда',       day2: 'Пятница',   time: '16:30' },
+  { grade: '5 класс',  day1: 'Вторник',     day2: 'Четверг',   time: '17:00' },
+  { grade: '6 класс',  day1: 'Понедельник', day2: 'Среда',     time: '17:30' },
+  { grade: '7 класс',  day1: 'Вторник',     day2: 'Пятница',   time: '18:00' },
+  { grade: '8 класс',  day1: 'Среда',       day2: 'Пятница',   time: '18:30' },
+  { grade: '9 класс',  day1: 'Понедельник', day2: 'Четверг',   time: '19:00' },
+  { grade: '10 класс', day1: 'Вторник',     day2: 'Пятница',   time: '19:30' },
+]
+
+function ScheduleModal({ onClose }) {
+  return (
+    <div className="os-overlay" onClick={onClose}>
+      <div className="os-modal os-modal--schedule" onClick={e => e.stopPropagation()}>
+        <button className="os-modal__x" onClick={onClose}>×</button>
+        <div className="os-modal__title">Расписание на осень</div>
+        <div className="os-schedule">
+          {SCHEDULE.map((row, i) => (
+            <div key={i} className="os-schedule__row">
+              <div className="os-schedule__grade">{row.grade}</div>
+              <div className="os-schedule__days">
+                <span className="os-schedule__day">{row.day1}</span>
+                <span className="os-schedule__sep">+</span>
+                <span className="os-schedule__day">{row.day2}</span>
+              </div>
+              <div className="os-schedule__time">{row.time}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', grade: '' })
   const [submitted, setSubmitted] = useState(false)
@@ -160,8 +197,8 @@ function Modal({ onClose }) {
           <>
             <div className="os-modal__title">Сохранить место на осень</div>
             <div className="os-modal__price-line">
-              <span className="os-price-old">5 000&thinsp;₽</span>
-              <span className="os-price-new">3 500&thinsp;₽</span>
+              <span className="os-price-old">6 000&thinsp;₽</span>
+              <span className="os-price-new">4 500&thinsp;₽</span>
             </div>
             <form className="os-modal__form" onSubmit={handleSubmit}>
               <div className="os-modal__group">
@@ -181,8 +218,8 @@ function Modal({ onClose }) {
                   ))}
                 </select>
               </div>
-              <button className="os-modal__submit" type="submit">Сохранить место за 3&thinsp;500&thinsp;₽</button>
-              <div className="os-modal__note">Предложение действует до 31 августа</div>
+              <button className="os-modal__submit" type="submit">Сохранить место за 4&thinsp;500&thinsp;₽</button>
+              <div className="os-modal__note">Предложение действует до 30 июня</div>
             </form>
           </>
         )}
@@ -236,11 +273,14 @@ const BENEFITS = [
 
 export default function Page() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [scheduleOpen, setScheduleOpen] = useState(false)
   const openModal = e => { e.preventDefault(); setModalOpen(true) }
+  const openSchedule = e => { e.preventDefault(); setScheduleOpen(true) }
 
   return (
     <div className="os-page">
       {modalOpen && <Modal onClose={() => setModalOpen(false)} />}
+      {scheduleOpen && <ScheduleModal onClose={() => setScheduleOpen(false)} />}
 
       {/* ── HEADER ── */}
       <header className="os-header">
@@ -276,9 +316,9 @@ export default function Page() {
                 </div>
               </div>
               <div className="os-hero__price-row">
-                <span className="os-price-old">5 000&thinsp;₽</span>
+                <span className="os-price-old">6 000&thinsp;₽</span>
                 <span className="os-price-arrow">→</span>
-                <span className="os-price-new os-price-new--big">3 500&thinsp;₽</span>
+                <span className="os-price-new os-price-new--big">4 500&thinsp;₽</span>
               </div>
             </div>
 
@@ -319,10 +359,15 @@ export default function Page() {
                 </div>
               </div>
 
-              <button className="os-btn os-btn--primary" onClick={openModal}>
-                Сохранить место за 3&thinsp;500&thinsp;₽
-              </button>
-              <div className="os-hero__card-note">Предложение действует до 31 августа.</div>
+              <div className="os-hero__card-btns">
+                <button className="os-btn os-btn--primary" onClick={openModal}>
+                  Сохранить место за 4&thinsp;500&thinsp;₽
+                </button>
+                <button className="os-btn os-btn--secondary" onClick={openSchedule}>
+                  Расписание
+                </button>
+              </div>
+              <div className="os-hero__card-note">Предложение действует до 30 июня.</div>
             </div>
 
             <div className="os-platform-banner">
@@ -384,12 +429,28 @@ export default function Page() {
                   <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
                   <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
                   <circle cx="12" cy="10" r="2" fill="#6d28d9"/>
-                </svg>), text: 'Живые онлайн-занятия в группе 4–8 человек' },
+                </svg>), text: 'Живые онлайн-занятия в мини-группе' },
               { icon: (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
                   <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
                 </svg>), text: 'Записи всех уроков в личном кабинете' },
+              { icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                  <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>), text: '2 онлайн-урока в неделю и 1 урок-тренажёр' },
+              { icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 20V16M8 20V12M12 20V8M16 20V14M20 20V10" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>), text: 'Группы формируются по уровню знаний' },
+              { icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  <path d="M10 17l5-5-5-5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M15 12H3" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>), text: 'Можно присоединиться к группе в любое время' },
             ].map((item, i) => (
               <div key={i} className="os-levels__common-item">
                 <div className="os-levels__common-icon">{item.icon}</div>
@@ -407,11 +468,11 @@ export default function Page() {
                 <span className="os-levels__col-grade">1–4 класс</span>
               </div>
               <ul className="os-levels__list">
-                <li>Выходим за рамки школьной программы — даём <strong>глубокое понимание</strong></li>
+                <li>Выходим за рамки школьной программы — даём <strong>продвинутую математическую базу</strong></li>
                 <li>Развиваем <strong>логическое мышление</strong> и навык рассуждения</li>
                 <li>Работаем с <strong>нестандартными задачами</strong>, а не шаблонами</li>
                 <li>Формируем умение анализировать и искать разные решения</li>
-                <li>Даём уверенность: ребёнок <strong>понимает</strong>, а не заучивает</li>
+                <li>Ребёнок начинает <strong>самостоятельно делать домашние задания</strong></li>
               </ul>
             </div>
 
@@ -426,6 +487,7 @@ export default function Page() {
                 <li>Акцент на <strong>сложных разделах</strong>: текстовые задачи, геометрия, нестандартные задания</li>
                 <li>Учим <strong>рассуждать и логически мыслить</strong></li>
                 <li>Не бросать задачу, а строить <strong>математическую модель</strong> через рассуждения</li>
+                <li>Через понимание развивается <strong>интерес</strong> и повышается <strong>мотивация</strong> изучать предмет</li>
               </ul>
             </div>
 
@@ -564,7 +626,7 @@ export default function Page() {
                 Мы будем рады продолжить путь вашего ребёнка в Знарнии и в новом учебном году.
               </p>
               <div className="os-thanks__price-label">Стоимость для действующих учеников:</div>
-              <div className="os-thanks__price">3 500&thinsp;₽</div>
+              <div className="os-thanks__price">4 500&thinsp;₽</div>
             </div>
             <div className="os-thanks__right">
               <button className="os-btn os-btn--primary os-btn--lg" onClick={openModal}>
