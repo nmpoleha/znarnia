@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function nb(str) {
-  return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w} `)
+  return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w} `)
 }
 
 const REVIEWS = [
@@ -195,7 +195,7 @@ function Modal({ onClose }) {
           </div>
         ) : (
           <>
-            <div className="os-modal__title">Сохранить место на осень</div>
+            <div className="os-modal__title">Записаться на осень</div>
             <div className="os-modal__price-line">
               <span className="os-price-old">6 000&thinsp;₽</span>
               <span className="os-price-new">4 500&thinsp;₽</span>
@@ -222,7 +222,7 @@ function Modal({ onClose }) {
                   ))}
                 </select>
               </div>
-              <button className="os-modal__submit" type="submit">Сохранить место за 4&thinsp;500&thinsp;₽</button>
+              <button className="os-modal__submit" type="submit">Записаться за 4&thinsp;500&thinsp;₽</button>
               <div className="os-modal__note">Предложение действует до 30 июня</div>
             </form>
           </>
@@ -231,49 +231,6 @@ function Modal({ onClose }) {
     </div>
   )
 }
-
-const BENEFITS = [
-  {
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="18" r="18" fill="#ede9fe"/>
-        <circle cx="18" cy="13" r="5" stroke="#c2440e" strokeWidth="1.8"/>
-        <path d="M8 28c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
-      </svg>
-    ),
-    text: 'Ребёнок начинает учебный год без стресса',
-  },
-  {
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="18" r="18" fill="#ede9fe"/>
-        <circle cx="13" cy="13" r="4" stroke="#c2440e" strokeWidth="1.8"/>
-        <circle cx="23" cy="13" r="4" stroke="#c2440e" strokeWidth="1.8"/>
-        <path d="M5 28c0-4.4 3.6-8 8-8h10c4.4 0 8 3.6 8 8" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
-      </svg>
-    ),
-    text: 'Не нужно искать новую группу в сентябре',
-  },
-  {
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="18" r="18" fill="#ede9fe"/>
-        <path d="M12 20l3 3 9-9" stroke="#c2440e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M18 8v4M18 24v4M8 18h4M24 18h4" stroke="#c2440e" strokeWidth="1.6" strokeLinecap="round"/>
-      </svg>
-    ),
-    text: 'Сохраняется комфортный темп обучения',
-  },
-  {
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="18" r="18" fill="#ede9fe"/>
-        <path d="M18 10l2.5 5 5.5.8-4 3.9.95 5.5L18 22.5l-4.95 2.7.95-5.5-4-3.9 5.5-.8z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
-      </svg>
-    ),
-    text: 'Гарантировано место у любимого преподавателя',
-  },
-]
 
 export default function Page() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -309,14 +266,14 @@ export default function Page() {
           {/* LEFT: text */}
           <div className="os-hero__content">
             <h1 className="os-hero__title">
-              Продолжайте обучение в Знарнии<br/>
+              Начните обучение в Знарнии<br/>
               этой осенью&nbsp;🍁
             </h1>
             <div className="os-hero__price-badge">
               <div className="os-hero__price-badge-left">
-                <p className="os-hero__sub">Ваше место в группе уже ждёт вас.&nbsp;🍁</p>
+                <p className="os-hero__sub">Запишитесь сейчас — успейте по ранней цене.&nbsp;🍁</p>
                 <div className="os-hero__card-label">
-                  Специальная цена<br/>только для действующих учеников
+                  Специальная цена<br/>при ранней записи до 30 июня
                 </div>
               </div>
               <div className="os-hero__price-row">
@@ -330,25 +287,23 @@ export default function Page() {
               <div className="os-checklist">
                 <div className="os-checklist__item">
                   <div className="os-checklist__icon">
-                    {/* Trophy */}
+                    {/* Star */}
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                      <path d="M8 21h8M12 17v4" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M5 3h14v8a7 7 0 0 1-14 0V3z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
-                      <path d="M5 6H2.5a1.5 1.5 0 0 0 0 3H5M19 6h2.5a1.5 1.5 0 0 1 0 3H19" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M9 17h6" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 2l2.5 5 5.5.8-4 3.9.95 5.5L12 14.5l-4.95 2.7.95-5.5L4 7.8l5.5-.8z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span>Сохраняете привычного преподавателя</span>
+                  <span>Учёба становится спокойнее для всей семьи</span>
                 </div>
                 <div className="os-checklist__item">
                   <div className="os-checklist__icon">
-                    {/* Pin */}
+                    {/* Group */}
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
-                      <circle cx="12" cy="10" r="2.5" stroke="#c2440e" strokeWidth="1.8"/>
+                      <circle cx="9" cy="8" r="3" stroke="#c2440e" strokeWidth="1.8"/>
+                      <circle cx="16" cy="8" r="3" stroke="#c2440e" strokeWidth="1.8"/>
+                      <path d="M2 20c0-3.9 3.1-7 7-7h6c3.9 0 7 3.1 7 7" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
                     </svg>
                   </div>
-                  <span>Сохраняете место в группе</span>
+                  <span>Получаете гарантированное место в группе до начала набора</span>
                 </div>
                 <div className="os-checklist__item">
                   <div className="os-checklist__icon">
@@ -359,13 +314,13 @@ export default function Page() {
                       <path d="M7 14c-2 1-3 3-2.5 4.5L9.5 14M17 14c2 1 3 3 2.5 4.5L14.5 14" stroke="#c2440e" strokeWidth="1.6" strokeLinecap="round"/>
                     </svg>
                   </div>
-                  <span>Продолжаете обучение без адаптации в сентябре</span>
+                  <span>Улучшаем школьные оценки и понимание предмета</span>
                 </div>
               </div>
 
               <div className="os-hero__card-btns">
                 <button className="os-btn os-btn--primary" onClick={openModal}>
-                  Сохранить место за 4&thinsp;500&thinsp;₽
+                  Записаться за 4&thinsp;500&thinsp;₽
                 </button>
                 <button className="os-btn os-btn--secondary" onClick={openSchedule}>
                   Расписание
@@ -404,7 +359,7 @@ export default function Page() {
             />
             <div className="os-hero__quote">
               <p className="os-hero__quote-text">
-                Я очень рада видеть наших учеников в новом учебном году. До встречи на занятиях!&nbsp;💜
+                Я рада каждому новому ученику в Знарнии. До встречи на занятиях!&nbsp;💜
               </p>
               <div className="os-hero__quote-author">
                 <strong>Ольга Сотникова</strong>
@@ -621,20 +576,20 @@ export default function Page() {
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{verticalAlign:'middle',marginRight:8}}>
                   <path d="M14 24S4 17.5 4 10a6 6 0 0 1 10-4.5A6 6 0 0 1 24 10c0 7.5-10 14-10 14z" stroke="#c2440e" strokeWidth="1.8" fill="#ede9fe"/>
                 </svg>
-                Спасибо, что вы с нами!&nbsp;
+                Добро пожаловать в Знарнию!&nbsp;
                 <svg width="22" height="22" viewBox="0 0 28 28" fill="none" style={{verticalAlign:'middle'}}>
                   <path d="M14 24S4 17.5 4 10a6 6 0 0 1 10-4.5A6 6 0 0 1 24 10c0 7.5-10 14-10 14z" stroke="#c2440e" strokeWidth="1.8" fill="none"/>
                 </svg>
               </div>
               <p className="os-thanks__desc">
-                Мы будем рады продолжить путь вашего ребёнка в Знарнии и в новом учебном году.
+                Мы будем рады помочь вашему ребёнку обрести уверенность в математике в новом учебном году.
               </p>
-              <div className="os-thanks__price-label">Стоимость для действующих учеников:</div>
+              <div className="os-thanks__price-label">Стоимость при ранней записи:</div>
               <div className="os-thanks__price">4 500&thinsp;₽</div>
             </div>
             <div className="os-thanks__right">
               <button className="os-btn os-btn--primary os-btn--lg" onClick={openModal}>
-                Сохранить место
+                Записаться
               </button>
             </div>
           </div>
