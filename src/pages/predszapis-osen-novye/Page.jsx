@@ -268,18 +268,46 @@ export default function Page() {
               Начните обучение в Знарнии<br/>
               этой осенью&nbsp;🍁
             </h1>
-            <div className="os-hero__price-badge">
-              <div className="os-hero__price-badge-left">
-                <p className="os-hero__sub">Запишитесь сейчас — успейте по ранней цене.&nbsp;🍁</p>
-                <div className="os-hero__card-label">
-                  Специальная цена<br/>при ранней записи
+            <div className="os-offer-card">
+
+              {/* Body */}
+              <div className="os-offer-card__body">
+                <div className="os-offer-card__col">
+                  <div className="os-offer-card__col-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="2" width="14" height="20" rx="2" stroke="#c2440e" strokeWidth="1.8"/>
+                      <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="os-offer-card__col-label">Специальная цена при ранней записи:</div>
+                    <div className="os-offer-card__col-price">
+                      <span className="os-offer-card__col-old">6 000&thinsp;₽</span>
+                      4 500&thinsp;₽ <span>за 10 уроков</span>
+                    </div>
+                    <div className="os-offer-card__col-sub">450&thinsp;₽ за урок</div>
+                  </div>
+                </div>
+                <div className="os-offer-card__col">
+                  <div className="os-offer-card__col-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 3L4 7v5c0 5 3.6 9.3 8 10 4.4-.7 8-5 8-10V7l-8-4z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <path d="M9 12l2 2 4-4" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="os-offer-card__col-title">Сейчас бронируем место в группе на осень</div>
+                    <div className="os-offer-card__col-text">Заполните анкету, чтобы забронировать место по этой цене. Решение о начале обучения — за вами.</div>
+                  </div>
                 </div>
               </div>
-              <div className="os-hero__price-row">
-                <span className="os-price-old">6 000&thinsp;₽</span>
-                <span className="os-price-arrow">→</span>
-                <span className="os-price-new os-price-new--big">4 500&thinsp;₽</span>
+
+              {/* Footer stat */}
+              <div className="os-offer-card__footer">
+                <span className="os-offer-card__footer-num">90%</span>
+                <span className="os-offer-card__footer-text">учеников получают плюс один балл к оценке уже за два месяца</span>
               </div>
+
             </div>
 
             <div className="os-hero__card">
@@ -315,11 +343,22 @@ export default function Page() {
                   </div>
                   <span>Улучшаем школьные оценки и понимание предмета</span>
                 </div>
+                <div className="os-checklist__item">
+                  <div className="os-checklist__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M20 12v9H4v-9" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M22 7H2v5h20V7z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <path d="M12 22V7" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span>Получайте подарки</span>
+                </div>
               </div>
 
               <div className="os-hero__card-btns">
                 <button className="os-btn os-btn--primary" onClick={openModal}>
-                  Записаться за 4&thinsp;500&thinsp;₽
+                  Подать заявку
                 </button>
                 <button className="os-btn os-btn--secondary" onClick={openSchedule}>
                   Расписание
@@ -357,7 +396,7 @@ export default function Page() {
             />
             <div className="os-hero__quote">
               <p className="os-hero__quote-text">
-                Я рада каждому новому ученику в Знарнии. До встречи на занятиях!&nbsp;💜
+                Я рада каждому новому ученику в Знарнии.<br/>До встречи на занятиях!&nbsp;💜
               </p>
               <div className="os-hero__quote-author">
                 <strong>Ольга Сотникова</strong>
@@ -369,6 +408,53 @@ export default function Page() {
         </div>
       </section>
 
+
+      {/* ── GIFTS ── */}
+      <section className="os-gifts">
+        <div className="os-wrap">
+          <div className="os-gifts__head">
+            <div className="os-gifts__badge">🎁 Подарки участникам предзаписи</div>
+            <h2 className="os-gifts__title">Каждый, кто заполнит анкету, получает два подарка</h2>
+          </div>
+          <div className="os-gifts__grid">
+
+            <div className="os-gifts__card">
+              <div className="os-gifts__card-num" aria-hidden="true">1</div>
+              <div className="os-gifts__card-head">
+                <div className="os-gifts__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="12" cy="12" r="7" stroke="#c2440e" strokeWidth="1.8"/>
+                    <path d="M17 17l5 5" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                    <path d="M9 12h6M12 9v6" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <div className="os-gifts__card-name">Диагностический урок</div>
+              </div>
+              <p className="os-gifts__card-text">
+                Урок подобран под класс вашего ребёнка. Помогает определить текущий уровень знаний и выявить пробелы — чтобы точно знать, с чего начать осенью.
+              </p>
+            </div>
+
+            <div className="os-gifts__card">
+              <div className="os-gifts__card-num" aria-hidden="true">2</div>
+              <div className="os-gifts__card-head">
+                <div className="os-gifts__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <path d="M14 5a6 6 0 0 1 3 11.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.8A6 6 0 0 1 14 5z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M11 23h6" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                    <path d="M12 13.5l1.5-3 1.5 2 1-1.5" stroke="#c2440e" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="os-gifts__card-name">Урок-тренажёр</div>
+              </div>
+              <p className="os-gifts__card-text">
+                Раскрывает сложную тему по классу ученика в интерактивном формате. Разминка для ума в каникулы — чтобы войти в осень без потерь.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* ── SCHOOL LEVELS ── */}
       <section className="os-levels">
@@ -407,7 +493,7 @@ export default function Page() {
                   <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
                   <path d="M10 17l5-5-5-5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M15 12H3" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>), text: 'Можно присоединиться к группе в любое время' },
+                </svg>), text: 'Удобный личный кабинет и система вознаграждений' },
             ].map((item, i) => (
               <div key={i} className="os-levels__common-item">
                 <div className="os-levels__common-icon">{item.icon}</div>
@@ -437,7 +523,7 @@ export default function Page() {
               <div className="os-levels__col-head">
                 <span className="os-levels__col-icon">📖</span>
                 <span className="os-levels__col-label">Средняя школа</span>
-                <span className="os-levels__col-grade">5–10 класс</span>
+                <span className="os-levels__col-grade">5–8 класс</span>
               </div>
               <ul className="os-levels__list">
                 <li>Разбираем <strong>основополагающие темы</strong> за текущий класс</li>
@@ -445,6 +531,36 @@ export default function Page() {
                 <li>Учим <strong>рассуждать и логически мыслить</strong></li>
                 <li>Не бросать задачу, а строить <strong>математическую модель</strong> через рассуждения</li>
                 <li>Через понимание развивается <strong>интерес</strong> и повышается <strong>мотивация</strong> изучать предмет</li>
+              </ul>
+            </div>
+
+            <div className="os-levels__col">
+              <div className="os-levels__col-head">
+                <span className="os-levels__col-icon">📝</span>
+                <span className="os-levels__col-label">Подготовка к ОГЭ</span>
+                <span className="os-levels__col-grade">9 класс</span>
+              </div>
+              <ul className="os-levels__list">
+                <li>Закрываем пробелы и <strong>систематизируем знания</strong></li>
+                <li>Разбираем именно те задания, которые будут на <strong>ОГЭ-2027</strong></li>
+                <li>Нарабатываем решение <strong>сложных номеров</strong> и учимся быстро находить верные решения</li>
+                <li>Особое внимание уделяем <strong>геометрии</strong> — самой проблемной части экзамена</li>
+                <li>Помогаем каждому ученику выйти на <strong>уверенный результат</strong> независимо от стартового уровня</li>
+              </ul>
+            </div>
+
+            <div className="os-levels__col">
+              <div className="os-levels__col-head">
+                <span className="os-levels__col-icon">🎯</span>
+                <span className="os-levels__col-label">Подготовка к ЕГЭ</span>
+                <span className="os-levels__col-grade">10–11 класс</span>
+              </div>
+              <ul className="os-levels__list">
+                <li>Закрываем пробелы и <strong>систематизируем знания</strong> по всем темам, которые проверяются на ЕГЭ</li>
+                <li>Разбираем именно те задания, которые будут на <strong>ЕГЭ-2027</strong></li>
+                <li>Повышаем нарешенность, доводим алгоритмы до <strong>автоматизма</strong> и учимся работать быстро и без ошибок</li>
+                <li>Особое внимание заданиям <strong>повышенного уровня сложности</strong> для высоких баллов</li>
+                <li>Помогаем каждому ученику выйти на <strong>максимальный результат</strong> и уверенно сдать ЕГЭ</li>
               </ul>
             </div>
 
@@ -481,7 +597,7 @@ export default function Page() {
               },
               {
                 icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 20V14M8 20V10M12 20V6M16 20V12M20 20V8" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/></svg>,
-                text: 'Видимый результат уже за 2–4 недели'
+                text: 'Видимый результат уже за 1–2 месяца'
               },
               {
                 icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21S4 16.5 4 10a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 6.5-8 11-8 11z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/></svg>,

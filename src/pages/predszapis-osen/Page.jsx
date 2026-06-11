@@ -451,6 +451,53 @@ export default function Page() {
       </section>
 
 
+      {/* ── GIFTS ── */}
+      <section className="os-gifts">
+        <div className="os-wrap">
+          <div className="os-gifts__head">
+            <div className="os-gifts__badge">🎁 Подарки участникам предзаписи</div>
+            <h2 className="os-gifts__title">Каждый, кто заполнит анкету, получает два подарка</h2>
+          </div>
+          <div className="os-gifts__grid">
+
+            <div className="os-gifts__card">
+              <div className="os-gifts__card-num" aria-hidden="true">1</div>
+              <div className="os-gifts__card-head">
+                <div className="os-gifts__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="12" cy="12" r="7" stroke="#c2440e" strokeWidth="1.8"/>
+                    <path d="M17 17l5 5" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                    <path d="M9 12h6M12 9v6" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <div className="os-gifts__card-name">Диагностический урок</div>
+              </div>
+              <p className="os-gifts__card-text">
+                Урок подобран под класс вашего ребёнка. Помогает определить текущий уровень знаний и выявить пробелы — чтобы точно знать, с чего начать осенью.
+              </p>
+            </div>
+
+            <div className="os-gifts__card">
+              <div className="os-gifts__card-num" aria-hidden="true">2</div>
+              <div className="os-gifts__card-head">
+                <div className="os-gifts__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <path d="M14 5a6 6 0 0 1 3 11.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.8A6 6 0 0 1 14 5z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M11 23h6" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                    <path d="M12 13.5l1.5-3 1.5 2 1-1.5" stroke="#c2440e" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="os-gifts__card-name">Урок-тренажёр</div>
+              </div>
+              <p className="os-gifts__card-text">
+                Раскрывает сложную тему по классу ученика в интерактивном формате. Разминка для ума в каникулы — чтобы войти в осень без потерь.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── SCHOOL LEVELS ── */}
       <section className="os-levels">
         <div className="os-wrap">
