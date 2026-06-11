@@ -222,8 +222,7 @@ function Modal({ onClose }) {
                   ))}
                 </select>
               </div>
-              <button className="os-modal__submit" type="submit">Записаться за 4&thinsp;500&thinsp;₽</button>
-              <div className="os-modal__note">Предложение действует до 30 июня</div>
+              <button className="os-modal__submit" type="submit">Подать заявку</button>
             </form>
           </>
         )}
@@ -273,7 +272,7 @@ export default function Page() {
               <div className="os-hero__price-badge-left">
                 <p className="os-hero__sub">Запишитесь сейчас — успейте по ранней цене.&nbsp;🍁</p>
                 <div className="os-hero__card-label">
-                  Специальная цена<br/>при ранней записи до 30 июня
+                  Специальная цена<br/>при ранней записи
                 </div>
               </div>
               <div className="os-hero__price-row">
@@ -326,7 +325,6 @@ export default function Page() {
                   Расписание
                 </button>
               </div>
-              <div className="os-hero__card-note">Предложение действует до 30 июня.</div>
             </div>
 
             <div className="os-platform-banner">

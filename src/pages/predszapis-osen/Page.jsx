@@ -222,8 +222,7 @@ function Modal({ onClose }) {
                   ))}
                 </select>
               </div>
-              <button className="os-modal__submit" type="submit">Сохранить место за 4&thinsp;500&thinsp;₽</button>
-              <div className="os-modal__note">Предложение действует до 30 июня</div>
+              <button className="os-modal__submit" type="submit">Подать заявку</button>
             </form>
           </>
         )}
@@ -407,7 +406,6 @@ export default function Page() {
                   Расписание
                 </button>
               </div>
-              <div className="os-hero__card-note">Предложение действует до 30 июня.</div>
             </div>
 
             <div className="os-platform-banner">
