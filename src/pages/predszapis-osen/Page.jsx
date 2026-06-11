@@ -386,6 +386,17 @@ export default function Page() {
                   </div>
                   <span>Продолжаете обучение без адаптации в сентябре</span>
                 </div>
+                <div className="os-checklist__item">
+                  <div className="os-checklist__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M20 12v9H4v-9" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M22 7H2v5h20V7z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <path d="M12 22V7" stroke="#c2440e" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke="#c2440e" strokeWidth="1.8" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span>Получайте подарки</span>
+                </div>
               </div>
 
               <div className="os-hero__card-btns">
@@ -429,7 +440,7 @@ export default function Page() {
             />
             <div className="os-hero__quote">
               <p className="os-hero__quote-text">
-                Я очень рада видеть наших учеников в новом учебном году. До встречи на занятиях!&nbsp;💜
+                Я очень рада видеть наших учеников в новом учебном году.<br/>До встречи на занятиях!&nbsp;💜
               </p>
               <div className="os-hero__quote-author">
                 <strong>Ольга Сотникова</strong>
