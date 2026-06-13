@@ -1,0 +1,1 @@
+import{c as e,j as t,R as o}from"./client-DYDkQYN6.js";import{P as r}from"./Page-DW-SDk6j.js";/* empty css             *//* empty css             */e.createRoot(document.getElementById("root")).render(t.jsx(o.StrictMode,{children:t.jsx(r,{})}));

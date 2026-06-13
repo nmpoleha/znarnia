@@ -1,0 +1,1 @@
+import{j as e}from"./client-DYDkQYN6.js";function r({logoUrl:o,name:s}){return e.jsxs("header",{className:"school-header",children:[e.jsx("img",{src:o,alt:s,className:"school-header__logo"}),e.jsx("div",{className:"school-header__name",children:s})]})}export{r as S};
