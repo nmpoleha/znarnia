@@ -1139,6 +1139,21 @@
   letter-spacing: 0.03em;
 }
 
+@media (max-height: 700px) and (min-width: 861px) {
+  .os-hv2 { padding: 20px 0 24px; }
+  .os-hv2__inner {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    row-gap: 12px;
+  }
+  .os-hv2__title { font-size: clamp(20px, 2.4vw, 30px); }
+  .os-hv2__giftbox-title { padding: 14px 16px 12px; }
+  .os-hv2__giftbox-title-emoji { font-size: 44px; }
+  .os-hv2__giftbox-body { padding: 4px 16px; }
+  .os-hv2__giftbox-item { padding: 10px 0; }
+  .os-hv2__giftbox-name { font-size: 14px; }
+  .os-hv2__giftbox-desc { font-size: 13px; }
+}
+
 @media (max-width: 860px) {
   .os-hv2__inner {
     padding: 0 32px;
