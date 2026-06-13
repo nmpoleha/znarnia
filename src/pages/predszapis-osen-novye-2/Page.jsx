@@ -335,35 +335,27 @@ export default function Page() {
           <div className="os-hv2__right">
 
           <div className="os-hv2__giftbox">
-            <div>
-              <div className="os-hv2__giftbox-title">🎁 Два подарка за заполнение анкеты</div>
+            <div className="os-hv2__giftbox-title">
+              <span className="os-hv2__giftbox-title-emoji">🎁</span>
+              <span className="os-hv2__giftbox-title-text">Два подарка за заполнение анкеты</span>
+            </div>
+            <div className="os-hv2__giftbox-body">
               <div className="os-hv2__giftbox-item">
-                <div className="os-hv2__giftbox-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <circle cx="11" cy="11" r="7" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M16 16l4 4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                </div>
+                <div className="os-hv2__giftbox-num">1</div>
                 <div>
                   <div className="os-hv2__giftbox-name">Диагностический урок</div>
                   <div className="os-hv2__giftbox-desc">Определим уровень знаний и покажем основные пробелы.</div>
                 </div>
               </div>
+              <div className="os-hv2__giftbox-divider" />
               <div className="os-hv2__giftbox-item">
-                <div className="os-hv2__giftbox-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2a7 7 0 0 1 3 13.3V17a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1v-1.7A7 7 0 0 1 12 2z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
-                    <path d="M9 21h6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                    <path d="M10 12l1.5-3 1.5 2 1-1.5" stroke="#6d28d9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <div className="os-hv2__giftbox-num">2</div>
                 <div>
                   <div className="os-hv2__giftbox-name">Урок-тренажёр</div>
                   <div className="os-hv2__giftbox-desc">Интерактивное занятие по теме вашего класса.</div>
                 </div>
               </div>
             </div>
-            <div className="os-hv2__giftbox-emoji">🎁</div>
           </div>
 
           </div>{/* end os-hv2__right */}

@@ -934,67 +934,94 @@
 
 .os-hv2__giftbox {
   width: 100%;
-  background: #fff8f0;
-  border: 1.5px solid var(--os-border);
-  border-radius: 18px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
+  background: #fff;
+  border: 2px solid rgba(249, 115, 22, 0.22);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.13), 0 1px 4px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
   text-align: left;
 }
 
 .os-hv2__giftbox-title {
+  background: var(--os-cream);
+  border-bottom: 1.5px solid var(--os-border);
+  padding: 24px 20px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.os-hv2__giftbox-title-emoji {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.os-hv2__giftbox-title-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 900;
   color: var(--os-espresso);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.os-hv2__giftbox-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 20px;
 }
 
 .os-hv2__giftbox-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 14px;
+  padding: 18px 0;
+  margin-bottom: 0;
 }
 
-.os-hv2__giftbox-item:last-child { margin-bottom: 0; }
+.os-hv2__giftbox-divider {
+  height: 1px;
+  background: var(--os-border);
+}
 
-.os-hv2__giftbox-icon {
+.os-hv2__giftbox-num {
   width: 34px;
   height: 34px;
-  background: var(--os-purple-lt);
-  border-radius: 10px;
+  background: linear-gradient(135deg, var(--os-amber) 0%, var(--os-sienna) 100%);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.35);
 }
 
 .os-hv2__giftbox-name {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   color: var(--os-espresso);
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .os-hv2__giftbox-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--os-muted);
   font-weight: 600;
   font-family: 'Nunito', sans-serif;
-  line-height: 1.4;
-}
-
-.os-hv2__giftbox-emoji {
-  font-size: 52px;
-  line-height: 1;
-  align-self: center;
+  line-height: 1.5;
 }
 
 .os-hv2__price {
@@ -1132,8 +1159,6 @@
   .os-hv2__steps { grid-template-columns: 1fr; gap: 8px; }
   .os-hv2__step { flex-direction: row; text-align: left; align-items: flex-start; }
   .os-hv2__info-pair { grid-template-columns: 1fr; }
-  .os-hv2__giftbox { grid-template-columns: 1fr; }
-  .os-hv2__giftbox-emoji { display: none; }
 }
 
 /* ── GIFTS ── */
