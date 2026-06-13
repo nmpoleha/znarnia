@@ -305,13 +305,33 @@ export default function Page() {
             </div>
           </div>
 
+          <div className="os-hv2__info-pair">
+            <div className="os-hv2__price">
+              <div className="os-hv2__price-label">Специальная цена при ранней записи</div>
+              <div className="os-hv2__price-row">
+                <span className="os-hv2__price-old">6 000&thinsp;₽</span>
+                <span className="os-hv2__price-main">4 500&thinsp;₽</span>
+                <span className="os-hv2__price-per"><strong>450&thinsp;₽</strong> стоимость<br/>1 урока</span>
+              </div>
+              <div className="os-hv2__price-tag">за 10 уроков</div>
+            </div>
+
+            <div className="os-hv2__nopay">
+              <span className="os-hv2__nopay-icon">⭐</span>
+              <div className="os-hv2__nopay-text">
+                <strong>Сейчас ничего оплачивать не нужно!</strong>
+                Вы просто оставляете заявку и получаете подарки.
+              </div>
+            </div>
+          </div>
+
           <button className="os-hv2__cta-primary" onClick={openModal}>
             Оставить анкету
           </button>
 
           </div>{/* end os-hv2__left */}
 
-          {/* RIGHT: gifts, price, no-pay */}
+          {/* RIGHT: gifts only */}
           <div className="os-hv2__right">
 
           <div className="os-hv2__giftbox">
@@ -344,24 +364,6 @@ export default function Page() {
               </div>
             </div>
             <div className="os-hv2__giftbox-emoji">🎁</div>
-          </div>
-
-          <div className="os-hv2__price">
-            <div className="os-hv2__price-label">Специальная цена при ранней записи</div>
-            <div className="os-hv2__price-row">
-              <span className="os-hv2__price-old">6 000&thinsp;₽</span>
-              <span className="os-hv2__price-main">4 500&thinsp;₽</span>
-              <span className="os-hv2__price-per"><strong>450&thinsp;₽</strong> стоимость<br/>1 урока</span>
-            </div>
-            <div className="os-hv2__price-tag">за 10 уроков</div>
-          </div>
-
-          <div className="os-hv2__nopay">
-            <span className="os-hv2__nopay-icon">⭐</span>
-            <div className="os-hv2__nopay-text">
-              <strong>Сейчас ничего оплачивать не нужно!</strong>
-              Вы просто оставляете заявку и получаете подарки.
-            </div>
           </div>
 
           </div>{/* end os-hv2__right */}

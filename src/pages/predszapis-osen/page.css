@@ -1064,6 +1064,14 @@
   margin-top: 8px;
 }
 
+.os-hv2__info-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
 .os-hv2__nopay {
   width: 100%;
   background: linear-gradient(135deg, var(--os-purple-lt) 0%, #ede9fe 100%);
@@ -1119,6 +1127,7 @@
   .os-hv2__left { align-items: center; text-align: center; }
   .os-hv2__steps { grid-template-columns: 1fr; gap: 8px; }
   .os-hv2__step { flex-direction: row; text-align: left; align-items: flex-start; }
+  .os-hv2__info-pair { grid-template-columns: 1fr; }
   .os-hv2__giftbox { grid-template-columns: 1fr; }
   .os-hv2__giftbox-emoji { display: none; }
 }
