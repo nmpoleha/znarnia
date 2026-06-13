@@ -1461,6 +1461,27 @@
 /* ── HV2 VARIANTS (predszapis-osen-novye-2) ── */
 .os-hv2--noborder { border-bottom: none; padding-bottom: 0; }
 
+.os-hv2--noborder .os-hv2__nopay {
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: 16px;
+}
+
+.os-hv2--noborder .os-hv2__nopay-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.os-hv2--noborder .os-hv2__nopay-text {
+  font-size: 14px;
+}
+
+.os-hv2--noborder .os-hv2__nopay-text strong {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
 /* ── LEVELS VARIANTS (predszapis-osen-novye-2) ── */
 .os-levels--novye2 { padding-top: 60px; }
 .os-levels--novye2 .os-wrap { padding-left: 104px; padding-right: 104px; }
@@ -1929,6 +1950,9 @@
   .os-levels__col { padding: 20px 16px 18px; }
   .os-levels__cta { margin-top: 24px; }
   .os-levels__cta-btn { width: 100%; padding: 15px 20px; }
+  .os-levels--novye2 .os-wrap { padding-left: 16px; padding-right: 16px; }
+  .os-levels__common--accent .os-levels__common-item { border-bottom: none !important; }
+  .os-levels__common--accent .os-levels__common-item:last-child { border-bottom: none !important; }
 
   /* Trust banner */
   .os-trust-banner { padding: 16px 0; }
