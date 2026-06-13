@@ -37,6 +37,7 @@ export default defineConfig({
         'glavnaya': resolve(__dirname, 'glavnaya/index.html'),
         'predszapis-osen': resolve(__dirname, 'predszapis-osen/index.html'),
         'predszapis-osen-novye': resolve(__dirname, 'predszapis-osen-novye/index.html'),
+        'predszapis-osen-novye-2': resolve(__dirname, 'predszapis-osen-novye-2/index.html'),
       },
     },
   },
