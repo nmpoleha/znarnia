@@ -1173,6 +1173,8 @@
   .os-hv2__intro { grid-column: 1; grid-row: 1; }
   .os-hv2__left  { grid-column: 1; grid-row: 2; }
   .os-hv2__right { grid-column: 1; grid-row: 3; }
+  .os-hv2__steps { grid-template-columns: 1fr; gap: 8px; }
+  .os-hv2__info-pair { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
