@@ -1175,6 +1175,7 @@
   .os-hv2__right { grid-column: 1; grid-row: 3; }
   .os-hv2__steps { grid-template-columns: 1fr; gap: 8px; }
   .os-hv2__info-pair { grid-template-columns: 1fr; }
+  .os-levels--novye2 .os-wrap { padding-left: 32px !important; padding-right: 32px !important; }
 }
 
 @media (max-width: 640px) {
@@ -1969,7 +1970,7 @@
   .os-levels__cta { margin-top: 24px; }
   .os-levels__cta-btn { width: 100%; padding: 15px 20px; }
   .os-levels--novye2 { padding-top: 40px; }
-  .os-levels--novye2 .os-wrap { padding-left: 16px; padding-right: 16px; }
+  .os-levels--novye2 .os-wrap { padding-left: 16px !important; padding-right: 16px !important; }
   .os-levels__common--accent .os-levels__common-item { border-bottom: none !important; }
   .os-levels__common--accent .os-levels__common-item:last-child { border-bottom: none !important; }
 
