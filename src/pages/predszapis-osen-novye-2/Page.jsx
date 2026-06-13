@@ -223,6 +223,7 @@ function Modal({ onClose }) {
                 </select>
               </div>
               <button className="os-modal__submit" type="submit">Подать заявку</button>
+              <p className="os-hv2__cta-note">После заполнения заявки с вами свяжется наш менеджер</p>
             </form>
           </>
         )}
@@ -328,6 +329,7 @@ export default function Page() {
           <button className="os-hv2__cta-primary" onClick={openModal}>
             Оставить анкету
           </button>
+          <p className="os-hv2__cta-note">После заполнения заявки с вами свяжется наш менеджер</p>
 
           </div>{/* end os-hv2__left */}
 

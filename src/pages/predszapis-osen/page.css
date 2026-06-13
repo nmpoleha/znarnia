@@ -898,6 +898,14 @@
   box-shadow: 0 10px 32px rgba(249, 115, 22, 0.5);
 }
 
+.os-hv2__cta-note {
+  font-size: 13px;
+  color: var(--os-muted);
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
 .os-hv2__cta-secondary {
   width: 100%;
   font-size: 13px;
