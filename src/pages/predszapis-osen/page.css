@@ -782,7 +782,11 @@
   grid-row: 2;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-self: stretch;
+}
+
+.os-hv2__right .os-hv2__giftbox {
+  flex: 1;
 }
 
 .os-hv2__badge {
