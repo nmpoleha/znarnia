@@ -1450,6 +1450,43 @@
   font-size: 16px;
 }
 
+/* ── HV2 VARIANTS (predszapis-osen-novye-2) ── */
+.os-hv2--noborder { border-bottom: none; padding-bottom: 0; }
+
+/* ── LEVELS VARIANTS (predszapis-osen-novye-2) ── */
+.os-levels--novye2 { padding-top: 60px; }
+.os-levels--novye2 .os-wrap { padding-left: 104px; padding-right: 104px; }
+.os-levels--novye2 .os-levels__col { background: #fff; }
+.os-levels--novye2 .os-levels__common { margin-bottom: 44px; }
+
+
+.os-levels__common--accent {
+  background: #8b5cf6;
+  border-color: transparent;
+}
+
+.os-levels__common--accent .os-levels__common-item {
+  color: rgba(255, 255, 255, 0.92);
+  border-right-color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.os-levels__common--accent .os-levels__common-item:nth-child(3n) {
+  border-right: none;
+}
+
+.os-levels__common--accent .os-levels__common-item:nth-child(1),
+.os-levels__common--accent .os-levels__common-item:nth-child(2),
+.os-levels__common--accent .os-levels__common-item:nth-child(3) {
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+
+.os-levels__common--accent .os-levels__common-icon {
+  background: rgba(255, 255, 255, 0.95);
+}
+
 /* ── THANK YOU ── */
 .os-thanks {
   background: linear-gradient(135deg, #fff3e0 0%, #fde8c8 100%);

@@ -259,7 +259,7 @@ export default function Page() {
       </header>
 
       {/* ── HERO V2 ── */}
-      <section className="os-hv2">
+      <section className="os-hv2 os-hv2--noborder">
         <div className="os-hv2__inner">
 
           {/* INTRO: badge, title, subtitle — grid row 1, left column */}
@@ -364,41 +364,27 @@ export default function Page() {
       </section>
 
       {/* ── SCHOOL LEVELS ── */}
-      <section className="os-levels">
+      <section className="os-levels os-levels--novye2">
         <div className="os-wrap">
-          <h2 className="os-levels__title">Что ждёт вашего ребёнка осенью</h2>
-          <div className="os-levels__common">
+          <div className="os-levels__common os-levels__common--accent">
             {[
               { icon: (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3L2 8l10 5 10-5-10-5z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
-                  <path d="M6 11v5a6 6 0 0 0 12 0v-5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>), text: 'Авторская методика Ольги Сотниковой' },
+                  <path d="M12 2l2.5 5.1 5.6.8-4.05 3.95.96 5.55L12 14.77l-4.97 2.63.96-5.55L3.9 7.9l5.6-.8z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
+                </svg>), text: 'Учёба становится спокойнее для всей семьи' },
               { icon: (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  <circle cx="12" cy="10" r="2" fill="#6d28d9"/>
-                </svg>), text: 'Живые онлайн-занятия в мини-группе' },
+                  <circle cx="8" cy="8" r="3" stroke="#6d28d9" strokeWidth="1.8"/>
+                  <circle cx="16" cy="8" r="3" stroke="#6d28d9" strokeWidth="1.8"/>
+                  <path d="M1 20c0-3.3 3.1-6 7-6h8c3.9 0 7 2.7 7 6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>), text: 'Получаете гарантированное место в группе до начала набора' },
               { icon: (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
-                </svg>), text: 'Записи всех уроков в личном кабинете' },
-              { icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>), text: '2 онлайн-урока в неделю и 1 урок-тренажёр' },
-              { icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 20V16M8 20V12M12 20V8M16 20V14M20 20V10" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>), text: 'Группы формируются по уровню знаний' },
-              { icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l2.5 5 5.5.8-4 3.9.95 5.5L12 14.5l-4.95 2.7.95-5.5L4 7.8l5.5-.8z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
-                </svg>), text: 'Удобный личный кабинет и система вознаграждений' },
+                  <circle cx="12" cy="12" r="10" stroke="#6d28d9" strokeWidth="1.8"/>
+                  <circle cx="12" cy="12" r="6" stroke="#6d28d9" strokeWidth="1.8"/>
+                  <circle cx="12" cy="12" r="2.5" fill="#6d28d9"/>
+                  <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>), text: 'Улучшаем школьные оценки и понимание предмета' },
             ].map((item, i) => (
               <div key={i} className="os-levels__common-item">
                 <div className="os-levels__common-icon">{item.icon}</div>
@@ -416,11 +402,9 @@ export default function Page() {
                 <span className="os-levels__col-grade">1–4 класс</span>
               </div>
               <ul className="os-levels__list">
-                <li>Выходим за рамки школьной программы — даём <strong>продвинутую математическую базу</strong></li>
-                <li>Развиваем <strong>логическое мышление</strong> и навык рассуждения</li>
-                <li>Работаем с <strong>нестандартными задачами</strong>, а не шаблонами</li>
-                <li>Формируем умение анализировать и искать разные решения</li>
-                <li>Ребёнок начинает <strong>самостоятельно делать домашние задания</strong></li>
+                <li>Даём прочную математическую базу</li>
+                <li>Учим думать, а не действовать по шаблону</li>
+                <li>Развиваем логическое мышление и самостоятельность</li>
               </ul>
             </div>
 
@@ -431,11 +415,9 @@ export default function Page() {
                 <span className="os-levels__col-grade">5–8 класс</span>
               </div>
               <ul className="os-levels__list">
-                <li>Разбираем <strong>основополагающие темы</strong> за текущий класс</li>
-                <li>Акцент на <strong>сложных разделах</strong>: текстовые задачи, геометрия, нестандартные задания</li>
-                <li>Учим <strong>рассуждать и логически мыслить</strong></li>
-                <li>Не бросать задачу, а строить <strong>математическую модель</strong> через рассуждения</li>
-                <li>Через понимание развивается <strong>интерес</strong> и повышается <strong>мотивация</strong> изучать предмет</li>
+                <li>Укрепляем математическую базу и закрываем пробелы</li>
+                <li>Разбираем сложные темы текущего класса</li>
+                <li>Учим рассуждать и находить решения самостоятельно</li>
               </ul>
             </div>
 
@@ -446,11 +428,9 @@ export default function Page() {
                 <span className="os-levels__col-grade">9 класс</span>
               </div>
               <ul className="os-levels__list">
-                <li>Закрываем пробелы и <strong>систематизируем знания</strong></li>
-                <li>Разбираем именно те задания, которые будут на <strong>ОГЭ-2027</strong></li>
-                <li>Нарабатываем решение <strong>сложных номеров</strong> и учимся быстро находить верные решения</li>
-                <li>Особое внимание уделяем <strong>геометрии</strong> — самой проблемной части экзамена</li>
-                <li>Помогаем каждому ученику выйти на <strong>уверенный результат</strong> независимо от стартового уровня</li>
+                <li>Закрываем пробелы и систематизируем знания</li>
+                <li>Разбираем задания, которые будут на ОГЭ</li>
+                <li>Помогаем выйти на уверенный результат независимо от стартового уровня</li>
               </ul>
             </div>
 
@@ -461,11 +441,9 @@ export default function Page() {
                 <span className="os-levels__col-grade">10–11 класс</span>
               </div>
               <ul className="os-levels__list">
-                <li>Закрываем пробелы и <strong>систематизируем знания</strong> по всем темам, которые проверяются на ЕГЭ</li>
-                <li>Разбираем именно те задания, которые будут на <strong>ЕГЭ-2027</strong></li>
-                <li>Повышаем нарешенность, доводим алгоритмы до <strong>автоматизма</strong> и учимся работать быстро и без ошибок</li>
-                <li>Особое внимание заданиям <strong>повышенного уровня сложности</strong> для высоких баллов</li>
-                <li>Помогаем каждому ученику выйти на <strong>максимальный результат</strong> и уверенно сдать ЕГЭ</li>
+                <li>Закрываем пробелы по всем темам ЕГЭ</li>
+                <li>Разбираем задания, которые будут на ЕГЭ</li>
+                <li>Помогаем выйти на высокий результат и уверенно сдать экзамен</li>
               </ul>
             </div>
 
