@@ -1176,15 +1176,16 @@
 }
 
 @media (max-width: 640px) {
-  .os-hv2 { padding: 24px 0 32px; }
-  .os-hv2__inner { padding: 0 16px; }
+  .os-hv2 { padding: 24px 0 40px; }
+  .os-hv2__inner { padding: 0 16px; row-gap: 28px; }
   /* Reorder: intro → gifts → CTA → steps → info-pair */
   .os-hv2__right { grid-row: 2; }
   .os-hv2__left  { grid-row: 3; }
-  .os-hv2__left { align-items: center; text-align: center; }
-  .os-hv2__cta-primary { order: -1; margin-bottom: 16px; }
-  .os-hv2__steps { order: 1; grid-template-columns: 1fr; gap: 8px; }
-  .os-hv2__info-pair { order: 2; grid-template-columns: 1fr; }
+  .os-hv2__left { align-items: center; text-align: center; gap: 0; }
+  .os-hv2__cta-primary { order: -1; margin-bottom: 8px; }
+  .os-hv2__cta-note { order: 0; margin-bottom: 24px; }
+  .os-hv2__steps { order: 1; grid-template-columns: 1fr; gap: 8px; margin-bottom: 20px; }
+  .os-hv2__info-pair { order: 2; grid-template-columns: 1fr; gap: 12px; }
   .os-hv2__step { flex-direction: row; text-align: left; align-items: flex-start; }
   /* Compact giftbox on mobile */
   .os-hv2__giftbox-title { padding: 14px 16px 12px; }
@@ -1950,6 +1951,7 @@
   .os-levels__col { padding: 20px 16px 18px; }
   .os-levels__cta { margin-top: 24px; }
   .os-levels__cta-btn { width: 100%; padding: 15px 20px; }
+  .os-levels--novye2 { padding-top: 40px; }
   .os-levels--novye2 .os-wrap { padding-left: 16px; padding-right: 16px; }
   .os-levels__common--accent .os-levels__common-item { border-bottom: none !important; }
   .os-levels__common--accent .os-levels__common-item:last-child { border-bottom: none !important; }
