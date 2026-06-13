@@ -1464,6 +1464,21 @@
 /* ── HV2 VARIANTS (predszapis-osen-novye-2) ── */
 .os-hv2--noborder { border-bottom: none; padding-bottom: 0; }
 
+@media (max-width: 1100px) and (min-width: 861px) {
+  .os-hv2--noborder .os-hv2__inner {
+    padding: 0 32px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 24px;
+    column-gap: 0;
+  }
+  .os-hv2--noborder .os-hv2__intro { grid-column: 1; grid-row: 1; }
+  .os-hv2--noborder .os-hv2__left  { grid-column: 1; grid-row: 2; }
+  .os-hv2--noborder .os-hv2__right { grid-column: 1; grid-row: 3; }
+  .os-hv2--noborder .os-hv2__steps { grid-template-columns: repeat(3, 1fr); }
+  .os-hv2--noborder .os-hv2__info-pair { grid-template-columns: 1fr 1fr; }
+}
+
 .os-hv2--noborder .os-hv2__nopay {
   align-items: center;
   gap: 16px;
