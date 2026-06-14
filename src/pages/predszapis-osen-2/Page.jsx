@@ -231,21 +231,31 @@ export default function Page() {
       <section className="p2-how">
         <div className="os-wrap">
           <div className="p2-section-badge">Формат занятий</div>
-          <h2 className="p2-section-title">Интерактивный формат,<br/>который нравится детям</h2>
+          <h2 className="p2-section-title">Интерактивный формат, который нравится детям</h2>
 
           <div className="p2-how__grid">
 
             <div className="p2-how__card p2-how__card--wide">
-              <div className="p2-how__card-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  <circle cx="12" cy="10" r="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
-                </svg>
+              <div className="p2-how__card-content">
+                <div className="p2-how__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                    <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                    <circle cx="12" cy="10" r="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
+                  </svg>
+                </div>
+                <h3 className="p2-how__card-title">Интерактивные онлайн-занятия в мини-группах с преподавателем</h3>
+                <p className="p2-how__card-text">{nb('На уроке ребёнок не остаётся пассивным слушателем. Он отвечает на вопросы, предлагает свои решения, работает на платформе и участвует в обсуждении вместе с преподавателем и другими учениками.')}</p>
+                <p className="p2-how__card-text">{nb('Каждое занятие проходит в формате увлекательного сюжета или квеста, поэтому дети не просто учатся, а становятся участниками настоящего приключения. Именно поэтому многие ученики сами напоминают родителям о занятиях и с удовольствием приходят на уроки.')}</p>
               </div>
-              <h3 className="p2-how__card-title">Интерактивные онлайн-занятия в мини-группах с преподавателем</h3>
-              <p className="p2-how__card-text">{nb('На уроке ребёнок не остаётся пассивным слушателем. Он отвечает на вопросы, предлагает свои решения, работает на платформе и участвует в обсуждении вместе с преподавателем и другими учениками.')}</p>
-              <p className="p2-how__card-text">{nb('Каждое занятие проходит в формате увлекательного сюжета или квеста, поэтому дети не просто учатся, а становятся участниками настоящего приключения. Именно поэтому многие ученики сами напоминают родителям о занятиях и с удовольствием приходят на уроки.')}</p>
+              <div className="p2-how__card-photo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="#9ca3af" strokeWidth="1.5"/>
+                  <circle cx="12" cy="12" r="3" stroke="#9ca3af" strokeWidth="1.5"/>
+                  <circle cx="17" cy="8" r="1" fill="#9ca3af"/>
+                </svg>
+                <span>Фото</span>
+              </div>
             </div>
 
             <div className="p2-how__card">
@@ -291,8 +301,8 @@ export default function Page() {
         <div className="os-wrap">
           <div className="p2-records__inner">
             <div className="p2-records__left">
-              <div className="p2-section-badge p2-section-badge--light">Записи уроков</div>
-              <h2 className="p2-section-title p2-section-title--light">Ни один урок<br/>не потеряется</h2>
+              <div className="p2-section-badge">Записи уроков</div>
+              <h2 className="p2-section-title">Ни один урок не потеряется</h2>
               <p className="p2-records__desc">{nb('Каждый урок сохраняется в личном кабинете. Даже при просмотре записи ребёнок остаётся активным участником занятия:')}</p>
               <ul className="p2-records__list">
                 {['выполняет задания', 'вводит ответы', 'получает звёзды за правильные решения', 'проходит урок в интерактивном формате'].map((item, i) => (
@@ -401,7 +411,7 @@ export default function Page() {
         <div className="os-wrap">
           <div className="p2-cta__inner">
             <div className="p2-cta__left">
-              <h2 className="p2-cta__title">Готовы занять место<br/>в осеннем наборе?</h2>
+              <h2 className="p2-cta__title">Готовы занять место в осеннем наборе?</h2>
               <div className="p2-cta__price">
                 <span className="p2-cta__price-old">6&thinsp;000&thinsp;₽</span>
                 <span className="p2-cta__price-main">4&thinsp;500&thinsp;₽</span>
