@@ -829,6 +829,25 @@
   margin-bottom: 0;
 }
 
+.os-hv2__subjects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.os-hv2__subjects span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--os-espresso);
+  background: #fff;
+  border: 1.5px solid var(--os-border);
+  border-radius: 20px;
+  padding: 5px 14px;
+}
+
 .os-hv2__steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1766,6 +1785,58 @@
 .os-modal__group select:focus {
   outline: none;
   border-color: var(--os-purple);
+}
+
+.os-modal__subjects-hint {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--os-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.os-modal__subject-check {
+  color: var(--os-purple);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.os-modal__subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.os-modal__group .os-modal__subject {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--os-espresso);
+  background: #fff;
+  border: 1.5px solid var(--os-border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  user-select: none;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: 'Nunito', sans-serif;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.os-modal__subject input[type="checkbox"] {
+  display: none;
+}
+
+.os-modal__group .os-modal__subject--on {
+  background: var(--os-purple-soft);
+  border-color: var(--os-purple);
+  color: var(--os-purple);
 }
 
 .os-modal__submit {

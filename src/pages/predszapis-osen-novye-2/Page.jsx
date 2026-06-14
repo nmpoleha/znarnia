@@ -176,10 +176,14 @@ function ScheduleModal({ onClose }) {
   )
 }
 
+const SUBJECTS = ['Математика', 'Физика', 'Информатика', 'Русский язык', 'Иностранный язык']
+
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', grade: '' })
+  const [subjects, setSubjects] = useState([])
   const [submitted, setSubmitted] = useState(false)
   function set(k, v) { setForm(f => ({ ...f, [k]: v })) }
+  function toggleSubject(s) { setSubjects(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]) }
   function handleSubmit(e) { e.preventDefault(); setSubmitted(true) }
 
   return (
@@ -221,6 +225,18 @@ function Modal({ onClose }) {
                     <option key={i+1} value={i+1}>{i+1} класс</option>
                   ))}
                 </select>
+              </div>
+              <div className="os-modal__group">
+                <label>Предметы <span className="os-modal__subjects-hint">— можно выбрать несколько</span></label>
+                <div className="os-modal__subjects">
+                  {SUBJECTS.map(s => (
+                    <label key={s} className={`os-modal__subject${subjects.includes(s) ? ' os-modal__subject--on' : ''}`}>
+                      <input type="checkbox" checked={subjects.includes(s)} onChange={() => toggleSubject(s)} />
+                      {subjects.includes(s) && <span className="os-modal__subject-check">✓</span>}
+                      {s}
+                    </label>
+                  ))}
+                </div>
               </div>
               <button className="os-modal__submit" type="submit">Подать заявку</button>
               <p className="os-hv2__cta-note">После заполнения заявки с вами свяжется наш менеджер</p>
@@ -271,6 +287,13 @@ export default function Page() {
               <span className="os-hv2__title-accent">Осенний набор</span>
             </h1>
             <p className="os-hv2__sub">Для учеников 1–11 классов</p>
+            <div className="os-hv2__subjects">
+              <span>📐 Математика</span>
+              <span>⚛️ Физика</span>
+              <span>💻 Информатика</span>
+              <span>📝 Русский язык</span>
+              <span>🌍 Иностранный язык</span>
+            </div>
           </div>
 
           {/* LEFT: steps, buttons — grid row 2, left column */}
