@@ -1,8 +1,58 @@
 import { useState } from 'react'
+import heroPhotoImg from './hero-photo.png'
+import onlineLessonImg from './online-lesson.png'
 
 function nb(str) {
-  return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w} `)
+  return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w} `)
 }
+
+const LkCheck = () => (
+  <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+    <circle cx="10" cy="10" r="10" fill="#ede9fe"/>
+    <polyline points="5.5 10.5 8.5 13.5 14.5 7" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+const LkStatsChart = () => {
+  const r = 32, cx = 50, cy = 50
+  const circ = 2 * Math.PI * r
+  const green = 0.60 * circ, blue = 0.32 * circ, red = 0.08 * circ
+  return (
+    <div className="lk-stats-widget">
+      <svg viewBox="0 0 100 100" width="90" height="90">
+        <g transform="rotate(-90 50 50)">
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#22c55e" strokeWidth="13" strokeDasharray={`${green} ${circ}`} strokeDashoffset="0"/>
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#818cf8" strokeWidth="13" strokeDasharray={`${blue} ${circ}`} strokeDashoffset={-green}/>
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="#f97316" strokeWidth="13" strokeDasharray={`${red} ${circ}`} strokeDashoffset={-(green+blue)}/>
+        </g>
+        <text x="50" y="47" textAnchor="middle" fontSize="11" fill="#6b7280">Всего</text>
+        <text x="50" y="61" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e1b4b">25</text>
+      </svg>
+      <div className="lk-stats-legend">
+        <div><span style={{background:'#22c55e'}}/>Онлайн</div>
+        <div><span style={{background:'#818cf8'}}/>Оффлайн</div>
+        <div><span style={{background:'#f97316'}}/>Пропущено</div>
+      </div>
+    </div>
+  )
+}
+
+const LkPeopleIcon = () => (
+  <svg viewBox="0 0 36 28" width="36" height="28" fill="none" style={{flexShrink:0}}>
+    <circle cx="13" cy="8" r="4.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M4 24c0-5 4-8 9-8s9 3 9 8" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+    <circle cx="26" cy="8" r="3.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M26 16c3 0 6 2.5 6 7" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
+
+const LkPlayIcon = () => (
+  <svg viewBox="0 0 36 28" width="36" height="28" fill="none" style={{flexShrink:0}}>
+    <rect x="1" y="1" width="34" height="22" rx="4" stroke="#6d28d9" strokeWidth="1.8"/>
+    <polygon points="14,7 14,17 23,12" fill="#6d28d9"/>
+    <line x1="10" y1="26" x2="26" y2="26" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
 
 const SCHEDULE = [
   { grade: '1 класс',  day1: 'Понедельник', day2: 'Среда',     time: '15:00' },
@@ -122,6 +172,42 @@ export default function Page() {
 
             <p className="p2-hero__desc">{nb('Даём прочные знания по математике и развиваем мышление, логику и самостоятельность. Ребёнку становится легче учиться, выполнять домашние задания и справляться со сложными задачами не только в школе, но и в жизни.')}</p>
 
+            <div className="p2-hero__price-block">
+              <div className="p2-hero__price-top">
+                <span className="p2-hero__price-label">🍁 Спеццена до старта занятий</span>
+                <span className="p2-hero__price-save">−25%</span>
+              </div>
+              <div className="p2-hero__price-row">
+                <span className="p2-hero__price-main">4&thinsp;500&thinsp;₽</span>
+                <div className="p2-hero__price-aside">
+                  <span className="p2-hero__price-old">6&thinsp;000&thinsp;₽</span>
+                  <span className="p2-hero__price-unit">за 10 занятий</span>
+                </div>
+              </div>
+              <div className="p2-hero__price-per">450&thinsp;₽ за одно занятие</div>
+              <button className="p2-btn p2-btn--cta p2-btn--full" onClick={openPay}>Записаться по спеццене →</button>
+            </div>
+
+            <div className="p2-hero__btns">
+              <button className="p2-btn p2-btn--secondary" onClick={openSchedule}>Посмотреть расписание</button>
+            </div>
+          </div>
+
+          <div className="p2-hero__right">
+            <div className="p2-hero__photo-wrap">
+              <div className="p2-hero__photo">
+                <img
+                  src={heroPhotoImg}
+                  alt="Дети занимаются математикой онлайн"
+                  width="1280"
+                  height="854"
+                />
+              </div>
+              <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+              <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
+              <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
+            </div>
+
             <div className="p2-hero__icons">
               <div className="p2-hero__icon-item">
                 <div className="p2-hero__icon-box">
@@ -131,7 +217,7 @@ export default function Page() {
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <span>Мини-группы<br/>до 8 человек</span>
+                <span>Мини-группы</span>
               </div>
               <div className="p2-hero__icon-item">
                 <div className="p2-hero__icon-box">
@@ -140,7 +226,26 @@ export default function Page() {
                     <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <span>2 занятия<br/>в неделю</span>
+                <span>3 занятия в неделю</span>
+              </div>
+              <div className="p2-hero__icon-item">
+                <div className="p2-hero__icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                    <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <span>Удобный личный кабинет</span>
+              </div>
+              <div className="p2-hero__icon-item">
+                <div className="p2-hero__icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                    <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <span>Домашние задания</span>
               </div>
               <div className="p2-hero__icon-item">
                 <div className="p2-hero__icon-box">
@@ -149,49 +254,7 @@ export default function Page() {
                     <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
                   </svg>
                 </div>
-                <span>Запись каждого<br/>урока</span>
-              </div>
-            </div>
-
-            <ul className="p2-hero__features">
-              {[
-                'Урок-тренажёр',
-                'Домашние задания',
-                'Записи уроков',
-                'Личный кабинет',
-              ].map((f, i) => (
-                <li key={i}><span className="p2-hero__check">✓</span>{f}</li>
-              ))}
-            </ul>
-
-            <div className="p2-hero__btns">
-              <button className="p2-btn p2-btn--cta" onClick={openPay}>Оплатить место →</button>
-              <button className="p2-btn p2-btn--secondary" onClick={openSchedule}>Посмотреть расписание</button>
-            </div>
-          </div>
-
-          <div className="p2-hero__right">
-            <div className="p2-hero__photo-wrap">
-              <div className="p2-hero__photo">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="#9ca3af" strokeWidth="1.5"/>
-                  <circle cx="12" cy="12" r="3" stroke="#9ca3af" strokeWidth="1.5"/>
-                  <circle cx="17" cy="8" r="1" fill="#9ca3af"/>
-                </svg>
-                <span>Фото</span>
-              </div>
-              <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
-              <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
-              <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
-
-              <div className="p2-hero__price-block">
-                <div className="p2-hero__price-label">Специальная цена до начала занятий</div>
-                <div className="p2-hero__price-row">
-                  <span className="p2-hero__price-old">6&thinsp;000&thinsp;₽</span>
-                  <span className="p2-hero__price-main">4&thinsp;500&thinsp;₽</span>
-                  <span className="p2-hero__price-unit">за 10 занятий</span>
-                </div>
-                <div className="p2-hero__price-pill">450&thinsp;₽ за урок</div>
+                <span>Записи уроков</span>
               </div>
             </div>
           </div>
@@ -230,7 +293,14 @@ export default function Page() {
       {/* SCREEN 2 — HOW LESSONS WORK */}
       <section className="p2-how">
         <div className="os-wrap">
-          <div className="p2-section-badge">Формат занятий</div>
+          <div className="p2-section-badge p2-section-badge--icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="2"/>
+              <path d="M8 21h8M12 17v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            <span className="p2-section-badge__sep"/>
+            <span>Формат занятий</span>
+          </div>
           <h2 className="p2-section-title">Интерактивный формат, который нравится детям</h2>
 
           <div className="p2-how__grid">
@@ -244,83 +314,70 @@ export default function Page() {
                     <circle cx="12" cy="10" r="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
                   </svg>
                 </div>
-                <h3 className="p2-how__card-title">Интерактивные онлайн-занятия в мини-группах с преподавателем</h3>
+                <h3 className="p2-how__card-title">
+                  Интерактивные онлайн-занятия в мини-группах<br/>
+                  <span className="p2-how__card-title-accent">с преподавателем</span>
+                </h3>
                 <p className="p2-how__card-text">{nb('На уроке ребёнок не остаётся пассивным слушателем. Он отвечает на вопросы, предлагает свои решения, работает на платформе и участвует в обсуждении вместе с преподавателем и другими учениками.')}</p>
+                <span className="p2-how__star-bullet" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--p2-purple)">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </span>
                 <p className="p2-how__card-text">{nb('Каждое занятие проходит в формате увлекательного сюжета или квеста, поэтому дети не просто учатся, а становятся участниками настоящего приключения. Именно поэтому многие ученики сами напоминают родителям о занятиях и с удовольствием приходят на уроки.')}</p>
               </div>
-              <div className="p2-how__card-photo">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="#9ca3af" strokeWidth="1.5"/>
-                  <circle cx="12" cy="12" r="3" stroke="#9ca3af" strokeWidth="1.5"/>
-                  <circle cx="17" cy="8" r="1" fill="#9ca3af"/>
-                </svg>
-                <span>Фото</span>
-              </div>
+              <img
+                src={onlineLessonImg}
+                alt="Онлайн-занятие в мини-группе"
+                className="p2-how__card-photo"
+                width="760"
+                height="760"
+              />
             </div>
 
             <div className="p2-how__card">
-              <div className="p2-how__card-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
-                </svg>
-              </div>
-              <h3 className="p2-how__card-title">Урок-тренажёр для развития мышления</h3>
-              <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы. Ребёнок проходит его в удобном темпе, учится рассуждать, искать решения и развивать математическое мышление.')}</p>
-            </div>
-
-            <div className="p2-how__card">
-              <div className="p2-how__card-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <h3 className="p2-how__card-title">Домашние задания</h3>
-              <p className="p2-how__card-text">{nb('Помогают закрепить изученный материал и сформировать навык самостоятельной работы.')}</p>
-            </div>
-
-            <div className="p2-how__card">
-              <div className="p2-how__card-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                  <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <h3 className="p2-how__card-title">Личный кабинет</h3>
-              <p className="p2-how__card-text">{nb('В одном месте собраны записи уроков, домашние задания, уроки-тренажёры и все материалы курса.')}</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SCREEN 3 — RECORDINGS */}
-      <section className="p2-records">
-        <div className="os-wrap">
-          <div className="p2-records__inner">
-            <div className="p2-records__left">
-              <div className="p2-section-badge">Записи уроков</div>
-              <h2 className="p2-section-title">Ни один урок не потеряется</h2>
-              <p className="p2-records__desc">{nb('Каждый урок сохраняется в личном кабинете. Даже при просмотре записи ребёнок остаётся активным участником занятия:')}</p>
-              <ul className="p2-records__list">
-                {['выполняет задания', 'вводит ответы', 'получает звёзды за правильные решения', 'проходит урок в интерактивном формате'].map((item, i) => (
-                  <li key={i}><span className="p2-records__check">✓</span>{item}</li>
-                ))}
-              </ul>
-              <p className="p2-records__note">{nb('При этом запись сохраняет весь функционал урока, поэтому ребёнок получает практически тот же учебный опыт, что и на занятии в режиме реального времени.')}</p>
-            </div>
-            <div className="p2-records__right">
-              <div className="p2-records__visual">
-                <div className="p2-records__play">▶</div>
-                <div className="p2-records__stars">
-                  {[1,2,3].map(i => <span key={i} className="p2-records__star">⭐</span>)}
+              <div className="p2-how__card-body">
+                <div className="p2-how__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
+                    <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
+                  </svg>
                 </div>
-                <div className="p2-records__label">Запись урока доступна</div>
-                <div className="p2-records__sublabel">Интерактивный режим сохранён</div>
+                <h3 className="p2-how__card-title">Урок-тренажёр<br/>для развития мышления</h3>
+                <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы. Ребёнок проходит его в удобном темпе, учится рассуждать, искать решения и развивать математическое мышление.')}</p>
               </div>
+              <div className="p2-how__card-deco" aria-hidden="true">🧠</div>
             </div>
+
+            <div className="p2-how__card">
+              <div className="p2-how__card-body">
+                <div className="p2-how__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                    <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <h3 className="p2-how__card-title">Домашние задания</h3>
+                <p className="p2-how__card-text">{nb('Помогают закрепить изученный материал и сформировать навык самостоятельной работы.')}</p>
+              </div>
+              <div className="p2-how__card-deco" aria-hidden="true">📓</div>
+            </div>
+
+            <div className="p2-how__card">
+              <div className="p2-how__card-body">
+                <div className="p2-how__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                    <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <h3 className="p2-how__card-title">Личный кабинет</h3>
+                <p className="p2-how__card-text">{nb('В одном месте собраны записи уроков, домашние задания, уроки-тренажёры и все материалы курса.')}</p>
+              </div>
+              <div className="p2-how__card-deco" aria-hidden="true">📁</div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -357,50 +414,42 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SCREEN 5 — PROGRESS */}
-      <section className="p2-progress">
+      {/* SCREEN 3b — MISSED LESSON + TRANSPARENCY */}
+      <section className="p2-pu-section">
         <div className="os-wrap">
-          <div className="p2-progress__inner">
-            <div className="p2-progress__left">
-              <div className="p2-section-badge">Контроль прогресса</div>
-              <h2 className="p2-section-title">Родители всегда видят прогресс ребёнка</h2>
-              <p className="p2-progress__desc">{nb('В личном кабинете доступна подробная статистика обучения, которая помогает отслеживать вовлечённость ребёнка и его результаты.')}</p>
-              <p className="p2-progress__subdesc">Родители в любой момент могут посмотреть:</p>
-              <ul className="p2-progress__list">
-                {[
-                  'сколько заданий выполнил ребёнок',
-                  'сколько заданий решил правильно',
-                  'сколько попыток понадобилось для решения',
-                  'какие темы вызывают затруднения',
-                  'как меняются результаты от занятия к занятию',
-                ].map((item, i) => (
-                  <li key={i}><span className="p2-progress__star">⭐</span>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="p2-progress__right">
-              <div className="p2-progress__card">
-                <div className="p2-progress__card-title">Статистика за неделю</div>
-                <div className="p2-progress__stats">
-                  <div className="p2-progress__stat">
-                    <div className="p2-progress__stat-val">24</div>
-                    <div className="p2-progress__stat-label">задания выполнено</div>
-                  </div>
-                  <div className="p2-progress__stat">
-                    <div className="p2-progress__stat-val">92%</div>
-                    <div className="p2-progress__stat-label">верных ответов</div>
-                  </div>
-                  <div className="p2-progress__stat">
-                    <div className="p2-progress__stat-val">⭐ 18</div>
-                    <div className="p2-progress__stat-label">звёзд заработано</div>
-                  </div>
-                </div>
-                <div className="p2-progress__bar-wrap">
-                  <div className="p2-progress__bar-label">Прогресс курса</div>
-                  <div className="p2-progress__bar"><div className="p2-progress__bar-fill" style={{width:'62%'}} /></div>
-                  <div className="p2-progress__bar-pct">62%</div>
-                </div>
+          <div className="lk-cards-row">
+            <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <div className="lk-pu-card__title">{nb('Не получилось присутствовать онлайн? Не проблема')}</div>
               </div>
+              <div className="lk-pu-card__body">
+                <p className="lk-pu-card__text">Если ребёнок пропустил онлайн-урок:</p>
+                <ul className="lk-pu-checklist">
+                  {['он смотрит его в записи','сохраняется вся интерактивность','получает мгновенную обратную связь','статистика также доступна родителям'].map((t, i) => (
+                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                  ))}
+                </ul>
+                <div className="lk-pu-note lk-pu-note--row"><LkPlayIcon /><span>По эффективности это тот же полноценный урок.</span></div>
+              </div>
+            </div>
+
+            <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <div className="lk-pu-card__title">Полная прозрачность для родителей</div>
+              </div>
+              <div className="lk-pu-card__body lk-pu-card__body--row" style={{alignItems:'flex-start'}}>
+                <div className="lk-pu-card__body-left">
+                  <p className="lk-pu-card__text">После каждого урока вы получаете подробную статистику:</p>
+                  <ul className="lk-pu-checklist">
+                    {['сколько заданий решено','где были ошибки','сколько попыток понадобилось'].map((t, i) => (
+                      <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                    ))}
+                    <li><LkCheck /><span style={{whiteSpace:'nowrap'}}>какие темы вызвали сложности</span></li>
+                  </ul>
+                </div>
+                <LkStatsChart />
+              </div>
+              <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span>{nb('Вы не гадаете — вы точно понимаете уровень ребёнка.')}</span></div>
             </div>
           </div>
         </div>
