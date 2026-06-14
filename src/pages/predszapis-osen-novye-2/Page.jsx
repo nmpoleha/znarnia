@@ -176,7 +176,7 @@ function ScheduleModal({ onClose }) {
   )
 }
 
-const SUBJECTS = ['Математика', 'Физика', 'Информатика', 'Русский язык', 'Иностранный язык']
+const SUBJECTS = ['Физика', 'Информатика', 'Русский язык', 'Обществознание', 'Иностранный язык']
 
 function Modal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', grade: '' })
@@ -199,7 +199,8 @@ function Modal({ onClose }) {
           </div>
         ) : (
           <>
-            <div className="os-modal__title">Записаться на осень</div>
+            <div className="os-modal__title">Математика</div>
+            <div className="os-modal__subtitle">Запись на осень 2026</div>
             <div className="os-modal__price-line">
               <span className="os-price-old">6 000&thinsp;₽</span>
               <span className="os-price-new">4 500&thinsp;₽</span>
@@ -227,7 +228,8 @@ function Modal({ onClose }) {
                 </select>
               </div>
               <div className="os-modal__group">
-                <label>Предметы <span className="os-modal__subjects-hint">— можно выбрать несколько</span></label>
+                <label>Предметы</label>
+                <p className="os-modal__subjects-note">Вы также можете записаться на курсы по другим предметам — выберите интересующие вас:</p>
                 <div className="os-modal__subjects">
                   {SUBJECTS.map(s => (
                     <label key={s} className={`os-modal__subject${subjects.includes(s) ? ' os-modal__subject--on' : ''}`}>
@@ -287,13 +289,6 @@ export default function Page() {
               <span className="os-hv2__title-accent">Осенний набор</span>
             </h1>
             <p className="os-hv2__sub">Для учеников 1–11 классов</p>
-            <div className="os-hv2__subjects">
-              <span>📐 Математика</span>
-              <span>⚛️ Физика</span>
-              <span>💻 Информатика</span>
-              <span>📝 Русский язык</span>
-              <span>🌍 Иностранный язык</span>
-            </div>
           </div>
 
           {/* LEFT: steps, buttons — grid row 2, left column */}

@@ -1738,6 +1738,14 @@
   font-size: 20px;
   font-weight: 800;
   color: var(--os-text);
+  margin-bottom: 4px;
+}
+
+.os-modal__subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--os-muted);
   margin-bottom: 12px;
 }
 
@@ -1794,6 +1802,14 @@
   text-transform: none;
   letter-spacing: 0;
   font-family: 'Nunito', sans-serif;
+}
+
+.os-modal__subjects-note {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: var(--os-muted);
+  line-height: 1.5;
+  margin: 4px 0 8px;
 }
 
 .os-modal__subject-check {
