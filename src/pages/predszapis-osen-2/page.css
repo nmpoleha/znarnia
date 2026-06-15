@@ -1243,6 +1243,17 @@
   .p2-hero__price-block { order: 4; margin: 0; }
   .p2-hero__desc { order: 5; margin: 0; }
 
+  /* Feature icons: wrap into a grid (3 per row) instead of one nowrap row —
+     otherwise long labels like "Удобный личный кабинет" overlap their neighbour. */
+  .p2-hero__icons { gap: 14px 20px; }
+  .p2-hero__icon-item {
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: 0;
+    white-space: normal;
+    align-items: center;
+    line-height: 1.2;
+  }
+
   .p2-hero__photo-wrap {
     height: auto;
     display: block;
@@ -1300,6 +1311,14 @@
   .p2-learns__grid { grid-template-columns: 1fr; gap: 20px; }
 
   .p2-header-badge { display: none; }
+}
+
+/* Surface Pro 7 (912×1368) and similar large tablets: the wide-but-short hero
+   photo box crops the kids' bodies at the bottom. Anchor to the bottom so the
+   top of the original is cropped instead. Scoped to 769–960px so phones (≤768)
+   and desktop (>960) keep the original framing unchanged. */
+@media (min-width: 769px) and (max-width: 960px) {
+  .p2-hero__photo img { object-position: center 35%; }
 }
 
 /* ===== RESPONSIVE: tablet (720px) ===== */
