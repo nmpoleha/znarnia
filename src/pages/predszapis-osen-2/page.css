@@ -1280,12 +1280,22 @@
   .p2-how__card-photo {
     height: auto;
     min-height: 0;
+    /* Drop the desktop bleed margins — on mobile the image sits inside the
+       card so overflow:hidden no longer clips its bottom edge. */
+    margin: 0;
   }
   .p2-how__card-content .p2-how__card-icon {
     grid-row: span 1;
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
-  .p2-how__card-content .p2-how__card-text { grid-column: 2; }
+  /* Paragraphs (and the star) below the icon row span full width instead of
+     being indented to the title column. */
+  .p2-how__card-content .p2-how__card-text { grid-column: 1 / -1; }
+  .p2-how__card-content .p2-how__star-bullet {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-top: 0;
+  }
 
   .p2-learns__grid { grid-template-columns: 1fr; gap: 20px; }
 
@@ -1305,24 +1315,23 @@
   }
   .p2-stats__item:last-child { border-bottom: none; }
 
-  .p2-how { padding: 48px 0; }
+  .p2-how { padding: 36px 0 0; }
   .p2-how__grid { grid-template-columns: 1fr; gap: 20px; }
   .p2-how__card--wide { grid-column: 1 / -1; }
   .p2-how__card:not(.p2-how__card--wide):last-child { grid-column: auto; }
 
   .p2-section-title { font-size: 24px; }
 
-  .p2-records { padding: 48px 0; }
-  .p2-learns { padding: 48px 0; }
-  .p2-pu-section { padding: 48px 0; }
-  .p2-progress { padding: 48px 0; }
-  .p2-cta { padding: 48px 0; }
+  .p2-records { padding: 36px 0; }
+  .p2-learns { padding: 36px 0 0; }
+  .p2-progress { padding: 36px 0; }
+  .p2-cta { padding: 36px 0; }
 }
 
 /* ===== RESPONSIVE: mobile (480px) ===== */
 @media (max-width: 480px) {
   /* Hero — uniform spacing comes from .p2-hero__inner gap (set at <=960) */
-  .p2-hero { padding: 40px 0 56px; }
+  .p2-hero { padding: 40px 0 28px; }
   .p2-hero__inner { gap: 18px; }
   .p2-hero__title { font-size: 26px; }
   .p2-hero__badge { font-size: 12px; }
@@ -1354,11 +1363,12 @@
   .p2-stats__label { font-size: 12px; }
 
   /* Section labels */
-  .p2-section-badge { margin-bottom: 16px; }
-  .p2-section-title { font-size: 20px; margin-bottom: 32px; }
+  .p2-section-badge { margin-bottom: 12px; }
+  .p2-section-title { font-size: 20px; margin-bottom: 16px; }
 
-  /* How */
-  .p2-how { padding: 40px 0; }
+  /* How — no bottom padding so the gap to "Чему учится" badge is just the
+     learns section's top padding (28px), like the stats(purple)->how gap */
+  .p2-how { padding: 28px 0 0; }
   .p2-how__grid { gap: 16px; }
   .p2-how__card { padding: 28px 24px 24px; }
   .p2-how__card-icon { width: 48px; height: 48px; border-radius: var(--p2-radius-xs); margin-bottom: 16px; }
@@ -1367,7 +1377,7 @@
   .p2-how__card-deco { font-size: 56px; }
 
   /* Records */
-  .p2-records { padding: 40px 0; }
+  .p2-records { padding: 28px 0; }
   .p2-records__desc { font-size: 14px; margin-bottom: 16px; }
   .p2-records__list { gap: 12px; margin-bottom: 16px; }
   .p2-records__list li { font-size: 14px; }
@@ -1375,8 +1385,9 @@
   .p2-records__play { margin-bottom: 14px; }
   .p2-records__stars { margin-bottom: 18px; }
 
-  /* Learns */
-  .p2-learns { padding: 40px 0; }
+  /* Learns — no bottom padding so the gap to the "Не получилось" block is just
+     that section's top padding (28px) */
+  .p2-learns { padding: 28px 0 0; }
   .p2-learns__grid { gap: 16px; }
   .p2-learns__card { padding: 28px 24px 24px; }
   .p2-learns__card-num { font-size: 60px; bottom: 4px; right: 16px; }
@@ -1384,7 +1395,7 @@
   .p2-learns__card-title { font-size: 15px; margin-bottom: 10px; }
 
   /* Progress */
-  .p2-progress { padding: 40px 0; }
+  .p2-progress { padding: 28px 0; }
   .p2-progress__subdesc { margin: 20px 0 16px; }
   .p2-progress__list { gap: 16px; }
   .p2-progress__list li { font-size: 14px; }
@@ -1395,7 +1406,7 @@
   .p2-progress__stat-val { font-size: 16px; margin-bottom: 4px; }
 
   /* CTA */
-  .p2-cta { padding: 40px 0; }
+  .p2-cta { padding: 28px 0; }
   .p2-cta__inner { flex-direction: column; align-items: flex-start; gap: 32px; }
   .p2-cta__right { width: 100%; gap: 12px; }
   .p2-cta__title { font-size: 20px; margin-bottom: 16px; }
@@ -1403,11 +1414,8 @@
 
   .os-schedule__row { grid-template-columns: 1fr; gap: 3px; }
 
-  /* Equal section spacing */
-  .p2-stats  { padding: 40px 0; }
-  .p2-pu-section { padding: 40px 0; }
-  .lk-author-section { padding: 40px 0 0; }
-  .lk-social-section { padding: 0 0 40px; }
+  /* Equal section spacing (pu/author/social handled after their base defs) */
+  .p2-stats  { padding: 28px 0; }
 }
 
 /* ===== MISSED LESSON + TRANSPARENCY BLOCKS (copied from letnie-kursy) ===== */
@@ -1528,6 +1536,15 @@
 @media (max-width: 768px) {
   .lk-cards-row { grid-template-columns: 1fr; }
   .lk-pu-card__body--row { flex-direction: column; }
+  /* Full-width stats widget: donut on the left, legend to the right */
+  .lk-stats-widget {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: 16px 20px;
+  }
 }
 
 /* ===== AUTHOR + REVIEWS + LETTERS ===== */
@@ -1557,6 +1574,19 @@
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* Mobile spacing for the letnie-kursy-copied sections.
+   Placed AFTER their base defs so these overrides actually win. */
+@media (max-width: 720px) {
+  .p2-pu-section { padding: 36px 0 0; }
+  .lk-author-section { padding: 36px 0 0; }
+  .lk-social-section { padding: 0 0 36px; }
+}
+@media (max-width: 480px) {
+  .p2-pu-section { padding: 28px 0 0; }
+  .lk-author-section { padding: 28px 0 0; }
+  .lk-social-section { padding: 0 0 28px; }
+}
 
 .dg-author {
   margin-top: 0;
@@ -1998,6 +2028,7 @@
 }
 
 @media (max-width: 768px) {
+  .dg-author { margin-bottom: 28px; }
   .dg-author__top { grid-template-columns: minmax(0, 1fr); }
   .dg-author__name { font-size: 14px; letter-spacing: 0.02em; }
   .dg-author__photo-slot { height: auto; }

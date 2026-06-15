@@ -3,7 +3,17 @@ import heroPhotoImg from './hero-photo.png'
 import onlineLessonImg from './online-lesson.png'
 
 function nb(str) {
-  return str.replace(/ ([а-яёА-ЯЁ]{1,2}) /g, (_, w) => ` ${w} `)
+  // Не оставляем короткие предлоги/союзы в конце строки — приклеиваем их к
+  // следующему слову неразрывным пробелом. Токенами (без lookbehind), чтобы
+  // работало в старых браузерах и склеивало идущие подряд слова («и с радостью»).
+  const short = /^([а-яёА-ЯЁ]{1,2}|или|для|что|как|при|под|над|без|про|чем|так)$/i
+  const parts = str.split(' ')
+  let out = ''
+  for (let i = 0; i < parts.length; i++) {
+    out += parts[i]
+    if (i < parts.length - 1) out += short.test(parts[i]) ? '\u00A0' : ' '
+  }
+  return out
 }
 
 const REVIEWS = [
