@@ -25,6 +25,15 @@
   --p2-radius-lg:     24px;
 }
 
+/* ===== PAGE BACKGROUND ===== */
+.p2 {
+  background:
+    radial-gradient(ellipse at 8% 18%,  rgba(252,211,77,0.13) 0%, transparent 38%),
+    radial-gradient(ellipse at 90% 55%, rgba(245,158,11,0.20) 0%, transparent 32%),
+    radial-gradient(ellipse at 40% 82%, rgba(253,230,138,0.22) 0%, transparent 35%),
+    linear-gradient(145deg, #fffdf7 0%, #fffdf7 25%, #f2ebff 65%, #fff8ed 100%);
+}
+
 /* ===== HORIZONTAL WRAP OVERRIDE ===== */
 .p2 .os-wrap {
   padding-left: 100px;
@@ -41,6 +50,16 @@
 
 @media (max-width: 480px) {
   .p2 .os-wrap { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ===== SHARED LEAF DECORATION ===== */
+.p2-leaf {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.10;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
 }
 
 /* ===== HEADER BADGE ===== */
@@ -68,9 +87,16 @@
 /* ===== HERO ===== */
 .p2-hero {
   padding: 16px 0 24px;
-  background: var(--p2-hero-bg);
+  position: relative;
   overflow: hidden;
 }
+
+.p2-hero .p2-hero__inner { position: relative; z-index: 1; }
+
+.p2-hero .p2-leaf--1 { top: 5%;    right: 2%;  font-size: 56px; transform: rotate(22deg); }
+.p2-hero .p2-leaf--2 { top: 40%;   left: 0%;   font-size: 40px; transform: rotate(-18deg); opacity: 0.07; }
+.p2-hero .p2-leaf--3 { bottom: 8%; right: 10%; font-size: 44px; transform: rotate(-30deg); opacity: 0.08; }
+.p2-hero .p2-leaf--4 { top: 15%;   left: 8%;   font-size: 30px; transform: rotate(40deg);  opacity: 0.06; }
 
 .p2-hero__inner {
   display: grid;
@@ -114,9 +140,10 @@
 /* Description */
 .p2-hero__desc {
   font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  color: var(--p2-muted);
-  line-height: 1.6;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--p2-text);
+  line-height: 1.65;
   margin: 0 0 12px;
 }
 
@@ -408,7 +435,15 @@
 /* ===== STATS STRIP ===== */
 .p2-stats {
   background: var(--p2-purple-light);
+  position: relative;
+  overflow: hidden;
 }
+
+.p2-stats .os-wrap { position: relative; z-index: 1; }
+
+.p2-stats .p2-leaf--1 { top: 10%;   left: 1%;   font-size: 38px; transform: rotate(-20deg); }
+.p2-stats .p2-leaf--2 { top: 20%;   right: 2%;  font-size: 44px; transform: rotate(28deg);  opacity: 0.08; }
+.p2-stats .p2-leaf--3 { bottom: 5%; left: 30%;  font-size: 28px; transform: rotate(-35deg); opacity: 0.07; }
 
 .p2-stats__grid {
   display: flex;
@@ -486,7 +521,6 @@
 /* ===== HOW LESSONS WORK ===== */
 .p2-how {
   padding: 64px 0;
-  background: var(--p2-bg);
   position: relative;
   overflow: hidden;
 }
@@ -797,7 +831,6 @@
 /* ===== WHAT CHILD LEARNS ===== */
 .p2-learns {
   padding: 4px 0 64px;
-  background: var(--p2-bg);
   position: relative;
   overflow: hidden;
 }
@@ -929,7 +962,6 @@
 /* ===== PROGRESS ===== */
 .p2-progress {
   padding: 64px 0;
-  background: #fff;
 }
 
 .p2-progress__inner {
@@ -1059,7 +1091,15 @@
 .p2-cta {
   padding: 64px 0;
   background: var(--p2-purple-soft);
+  position: relative;
+  overflow: hidden;
 }
+
+.p2-cta .os-wrap { position: relative; z-index: 1; }
+
+.p2-cta .p2-leaf--1 { top: 10%;   left: 2%;   font-size: 50px; transform: rotate(-20deg); }
+.p2-cta .p2-leaf--2 { bottom: 8%; right: 3%;  font-size: 48px; transform: rotate(25deg);  }
+.p2-cta .p2-leaf--3 { top: 50%;   right: 22%; font-size: 32px; transform: rotate(-38deg); opacity: 0.07; }
 
 .p2-cta__inner {
   display: flex;
@@ -1350,7 +1390,17 @@
 }
 
 /* ===== MISSED LESSON + TRANSPARENCY BLOCKS (copied from letnie-kursy) ===== */
-.p2-pu-section { padding: 64px 0; }
+.p2-pu-section {
+  padding: 24px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-pu-section .os-wrap { position: relative; z-index: 1; }
+
+.p2-pu-section .p2-leaf--1 { top: 8%;    right: 3%;  font-size: 52px; transform: rotate(18deg); }
+.p2-pu-section .p2-leaf--2 { bottom: 6%; left: 1%;   font-size: 42px; transform: rotate(-22deg); opacity: 0.08; }
+.p2-pu-section .p2-leaf--3 { top: 45%;   right: 18%; font-size: 30px; transform: rotate(40deg);  opacity: 0.06; }
 
 .lk-cards-row {
   display: grid;

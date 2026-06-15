@@ -161,6 +161,10 @@ export default function Page() {
 
       {/* SCREEN 1 — HERO */}
       <section className="p2-hero">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--4" aria-hidden="true">🍂</span>
         <div className="p2-hero__inner os-wrap">
           <div className="p2-hero__left">
             <h1 className="p2-hero__title">
@@ -262,6 +266,9 @@ export default function Page() {
 
       {/* STATS STRIP */}
       <section className="p2-stats">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍂</span>
         <div className="os-wrap">
           <div className="p2-stats__grid">
             <div className="p2-stats__item">
@@ -443,6 +450,9 @@ export default function Page() {
 
       {/* SCREEN 3b — MISSED LESSON + TRANSPARENCY */}
       <section className="p2-pu-section">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
         <div className="os-wrap">
           <div className="lk-cards-row">
             <div className="lk-pu-card">
@@ -484,6 +494,9 @@ export default function Page() {
 
       {/* CTA FINAL */}
       <section className="p2-cta">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍂</span>
         <div className="os-wrap">
           <div className="p2-cta__inner">
             <div className="p2-cta__left">
