@@ -503,7 +503,7 @@
   background: var(--p2-card);
   border: 1.5px solid var(--p2-border);
   border-radius: var(--p2-radius);
-  padding: 40px 40px 36px;
+  padding: 12px 32px;
 }
 
 .p2-how__card--wide {
@@ -543,11 +543,10 @@
   padding-top: 4px;
 }
 
-/* Small cards: flex body + decorative emoji */
+/* Small cards: column layout, icon+title at top, deco at bottom-right */
 .p2-how__card:not(.p2-how__card--wide) {
   display: flex;
-  align-items: flex-end;
-  gap: 0;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -556,8 +555,23 @@
   min-width: 0;
 }
 
-.p2-how__card-deco {
+.p2-how__card-body__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.p2-how__card-body__header .p2-how__card-icon {
+  margin-bottom: 0;
   flex-shrink: 0;
+}
+
+.p2-how__card-body__header .p2-how__card-title {
+  margin: 0;
+}
+
+.p2-how__card-deco {
   font-size: 80px;
   line-height: 1;
   align-self: flex-end;

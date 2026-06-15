@@ -326,45 +326,48 @@ export default function Page() {
 
             <div className="p2-how__card">
               <div className="p2-how__card-body">
-                <div className="p2-how__card-icon">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
-                    <path d="M10 8l6 4-6 4V8z" fill="#fff"/>
-                  </svg>
+                <div className="p2-how__card-body__header">
+                  <div className="p2-how__card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
+                      <path d="M10 8l6 4-6 4V8z" fill="#fff"/>
+                    </svg>
+                  </div>
+                  <h3 className="p2-how__card-title">Урок-тренажёр для развития мышления</h3>
                 </div>
-                <h3 className="p2-how__card-title">Урок-тренажёр<br/>для развития мышления</h3>
                 <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы. Ребёнок проходит его в удобном темпе, учится рассуждать, искать решения и развивать математическое мышление.')}</p>
               </div>
-              <div className="p2-how__card-deco" aria-hidden="true">🧠</div>
             </div>
 
             <div className="p2-how__card">
               <div className="p2-how__card-body">
-                <div className="p2-how__card-icon">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="#fff" strokeWidth="2"/>
-                    <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                <div className="p2-how__card-body__header">
+                  <div className="p2-how__card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="2" width="14" height="20" rx="2" stroke="#fff" strokeWidth="2"/>
+                      <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 className="p2-how__card-title">Домашние задания</h3>
                 </div>
-                <h3 className="p2-how__card-title">Домашние задания</h3>
                 <p className="p2-how__card-text">{nb('Помогают закрепить изученный материал и сформировать навык самостоятельной работы.')}</p>
               </div>
-              <div className="p2-how__card-deco" aria-hidden="true">📓</div>
             </div>
 
             <div className="p2-how__card">
               <div className="p2-how__card-body">
-                <div className="p2-how__card-icon">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#fff" strokeWidth="2"/>
-                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M8 14h2M8 18h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                <div className="p2-how__card-body__header">
+                  <div className="p2-how__card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="4" width="18" height="17" rx="2" stroke="#fff" strokeWidth="2"/>
+                      <path d="M8 2v4M16 2v4M3 9h18" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M8 14h2M8 18h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 className="p2-how__card-title">Личный кабинет</h3>
                 </div>
-                <h3 className="p2-how__card-title">Личный кабинет</h3>
                 <p className="p2-how__card-text">{nb('В одном месте собраны записи уроков, домашние задания, уроки-тренажёры и все материалы курса.')}</p>
               </div>
-              <div className="p2-how__card-deco" aria-hidden="true">📁</div>
             </div>
 
           </div>
