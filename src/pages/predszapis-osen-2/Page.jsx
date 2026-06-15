@@ -383,29 +383,57 @@ export default function Page() {
 
       {/* SCREEN 4 — WHAT CHILD LEARNS */}
       <section className="p2-learns">
+        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--2" aria-hidden="true">🍂</span>
+        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--3" aria-hidden="true">🍁</span>
+        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--4" aria-hidden="true">🍂</span>
         <div className="os-wrap">
           <div className="p2-section-badge">Чему учится ребёнок</div>
           <h2 className="p2-section-title">Мы учим не только математике</h2>
           <div className="p2-learns__grid">
 
-            <div className="p2-learns__card">
-              <div className="p2-learns__card-num">01</div>
-              <div className="p2-learns__card-icon">🧱</div>
-              <h3 className="p2-learns__card-title">Даём прочную математическую базу</h3>
+            <div className="p2-learns__card p2-learns__card--c1">
+              <div className="p2-learns__card-num" aria-hidden="true">01</div>
+              <div className="p2-learns__card-header">
+                <div className="p2-learns__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="#fff" strokeWidth="2"/>
+                    <path d="M9 7h6M9 11h5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <h3 className="p2-learns__card-title">Даём прочную математическую базу</h3>
+              </div>
               <p className="p2-learns__card-text">{nb('Ребёнок начинает понимать предмет, а не просто запоминать правила и алгоритмы.')}</p>
             </div>
 
-            <div className="p2-learns__card">
-              <div className="p2-learns__card-num">02</div>
-              <div className="p2-learns__card-icon">🧩</div>
-              <h3 className="p2-learns__card-title">Учим думать, а не действовать по шаблону</h3>
+            <div className="p2-learns__card p2-learns__card--c2">
+              <div className="p2-learns__card-num" aria-hidden="true">02</div>
+              <div className="p2-learns__card-header">
+                <div className="p2-learns__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2a7 7 0 00-4 12.73V17a1 1 0 001 1h6a1 1 0 001-1v-2.27A7 7 0 0012 2z" stroke="#fff" strokeWidth="2"/>
+                    <path d="M9 21h6" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M12 8v4M10 12h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <h3 className="p2-learns__card-title">Учим думать, а не действовать по шаблону</h3>
+              </div>
               <p className="p2-learns__card-text">{nb('На занятиях дети знакомятся не только со школьными, но и с нестандартными задачами, учатся искать разные способы решения и рассуждать самостоятельно.')}</p>
             </div>
 
-            <div className="p2-learns__card">
-              <div className="p2-learns__card-num">03</div>
-              <div className="p2-learns__card-icon">🚀</div>
-              <h3 className="p2-learns__card-title">Развиваем логическое мышление и самостоятельность</h3>
+            <div className="p2-learns__card p2-learns__card--c3">
+              <div className="p2-learns__card-num" aria-hidden="true">03</div>
+              <div className="p2-learns__card-header">
+                <div className="p2-learns__card-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
+                    <circle cx="12" cy="12" r="5" stroke="#fff" strokeWidth="2"/>
+                    <circle cx="12" cy="12" r="2" fill="#fff"/>
+                  </svg>
+                </div>
+                <h3 className="p2-learns__card-title">Развиваем логическое мышление и самостоятельность</h3>
+              </div>
               <p className="p2-learns__card-text">{nb('Постепенно ребёнок начинает увереннее справляться со школьной программой и легче выполнять домашние задания.')}</p>
             </div>
 
