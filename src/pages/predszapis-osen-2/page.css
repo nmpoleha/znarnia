@@ -40,6 +40,12 @@
   padding-right: 100px;
 }
 
+/* Mid desktop / iPad Pro (961–1200): 100px side padding is too much and squeezes
+   3-column cards so titles overflow — give content more room. */
+@media (min-width: 961px) and (max-width: 1200px) {
+  .p2 .os-wrap { padding-left: 56px; padding-right: 56px; }
+}
+
 @media (max-width: 960px) {
   .p2 .os-wrap { padding-left: 48px; padding-right: 48px; }
 }
@@ -916,8 +922,11 @@
 
 .p2-learns__card-header {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;       /* icon above title -> title gets full card width,
+                                   so long words like "самостоятельность" never
+                                   overflow the narrow 3-column cards */
+  align-items: flex-start;
+  gap: 14px;
   margin-bottom: 16px;
 }
 
@@ -951,6 +960,8 @@
   color: var(--p2-text);
   line-height: 1.25;
   margin: 0 0 12px;
+  min-width: 0;            /* allow the flex child to shrink (§6) */
+  overflow-wrap: break-word;
 }
 
 .p2-learns__card-text {
