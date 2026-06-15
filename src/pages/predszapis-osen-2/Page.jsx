@@ -298,19 +298,18 @@ export default function Page() {
             <div className="p2-how__card p2-how__card--wide">
               <div className="p2-how__card-content">
                 <div className="p2-how__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M8 21h8M12 17v4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                    <circle cx="12" cy="10" r="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="#fff" strokeWidth="2"/>
+                    <path d="M8 21h8M12 17v4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                    <circle cx="12" cy="10" r="2.5" stroke="#fff" strokeWidth="2"/>
                   </svg>
                 </div>
                 <h3 className="p2-how__card-title">
-                  Интерактивные онлайн-занятия в мини-группах<br/>
-                  <span className="p2-how__card-title-accent">с преподавателем</span>
+                  Интерактивные онлайн-занятия в мини-группах <span className="p2-how__card-title-accent">с{' '}преподавателем</span>
                 </h3>
                 <p className="p2-how__card-text">{nb('На уроке ребёнок не остаётся пассивным слушателем. Он отвечает на вопросы, предлагает свои решения, работает на платформе и участвует в обсуждении вместе с преподавателем и другими учениками.')}</p>
                 <span className="p2-how__star-bullet" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--p2-purple)">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--p2-purple)">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                 </span>
@@ -328,9 +327,9 @@ export default function Page() {
             <div className="p2-how__card">
               <div className="p2-how__card-body">
                 <div className="p2-how__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
+                    <path d="M10 8l6 4-6 4V8z" fill="#fff"/>
                   </svg>
                 </div>
                 <h3 className="p2-how__card-title">Урок-тренажёр<br/>для развития мышления</h3>
@@ -342,9 +341,9 @@ export default function Page() {
             <div className="p2-how__card">
               <div className="p2-how__card-body">
                 <div className="p2-how__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="#fff" strokeWidth="2"/>
+                    <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </div>
                 <h3 className="p2-how__card-title">Домашние задания</h3>
@@ -356,10 +355,10 @@ export default function Page() {
             <div className="p2-how__card">
               <div className="p2-how__card-body">
                 <div className="p2-how__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                    <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#fff" strokeWidth="2"/>
+                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M8 14h2M8 18h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </div>
                 <h3 className="p2-how__card-title">Личный кабинет</h3>
