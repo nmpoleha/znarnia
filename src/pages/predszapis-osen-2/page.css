@@ -1225,12 +1225,23 @@
 
 /* ===== RESPONSIVE: tablet landscape (960px) ===== */
 @media (max-width: 960px) {
+  /* Flatten the two columns into one flow so desc <-> photo can be swapped.
+     A single flex gap drives the vertical rhythm — per-element margins are
+     zeroed so spacing stays uniform/harmonious. */
   .p2-hero__inner {
-    grid-template-columns: 1fr;
-    gap: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
+  .p2-hero__left,
+  .p2-hero__right { display: contents; }
 
-  .p2-hero__right { align-self: auto; }
+  /* Mobile order: title, badge, PHOTO, price+CTA, DESC (desc and photo swapped) */
+  .p2-hero__title { order: 1; margin: 0; }
+  .p2-hero__badge { order: 2; margin: 0; }
+  .p2-hero__photo-wrap { order: 3; margin: 0; }
+  .p2-hero__price-block { order: 4; margin: 0; }
+  .p2-hero__desc { order: 5; margin: 0; }
 
   .p2-hero__photo-wrap {
     height: auto;
@@ -1244,10 +1255,6 @@
     aspect-ratio: 4 / 3;
     min-height: 0;
     max-height: 360px;
-  }
-
-  .p2-hero__price-block {
-    margin-bottom: 16px;
   }
 
   /* Hide leaves on tablet/mobile — they're decorative and cause overflow */
@@ -1314,17 +1321,24 @@
 
 /* ===== RESPONSIVE: mobile (480px) ===== */
 @media (max-width: 480px) {
-  /* Hero */
+  /* Hero — uniform spacing comes from .p2-hero__inner gap (set at <=960) */
   .p2-hero { padding: 40px 0 56px; }
-  .p2-hero__inner { gap: 36px; }
-  .p2-hero__title { font-size: 26px; margin-bottom: 16px; }
-  .p2-hero__badge { font-size: 12px; margin-bottom: 20px; }
-  .p2-hero__desc { margin-bottom: 24px; font-size: 14px; }
+  .p2-hero__inner { gap: 18px; }
+  .p2-hero__title { font-size: 26px; }
+  .p2-hero__badge { font-size: 12px; }
+  .p2-hero__desc { font-size: 14px; }
 
-  .p2-hero__icons { gap: 10px 0; }
-  .p2-hero__icon-item { font-size: 11px; flex: 0 0 50%; }
+  .p2-hero__icons { gap: 14px 12px; }
+  .p2-hero__icon-item {
+    font-size: 11px;
+    flex: 0 0 calc(50% - 6px);
+    min-width: 0;
+    white-space: normal;
+    align-items: center;
+    line-height: 1.2;
+  }
 
-  .p2-hero__price-block { padding: 14px 16px 16px; margin-bottom: 20px; }
+  .p2-hero__price-block { padding: 14px 16px 16px; }
   .p2-hero__price-main { font-size: 30px; }
 
   .p2-hero__features { flex-direction: column; gap: 12px; margin-bottom: 24px; }
@@ -1353,7 +1367,7 @@
   .p2-how__card-deco { font-size: 56px; }
 
   /* Records */
-  .p2-records { padding: 48px 0; }
+  .p2-records { padding: 40px 0; }
   .p2-records__desc { font-size: 14px; margin-bottom: 16px; }
   .p2-records__list { gap: 12px; margin-bottom: 16px; }
   .p2-records__list li { font-size: 14px; }
@@ -1370,7 +1384,7 @@
   .p2-learns__card-title { font-size: 15px; margin-bottom: 10px; }
 
   /* Progress */
-  .p2-progress { padding: 56px 0; }
+  .p2-progress { padding: 40px 0; }
   .p2-progress__subdesc { margin: 20px 0 16px; }
   .p2-progress__list { gap: 16px; }
   .p2-progress__list li { font-size: 14px; }
@@ -1388,6 +1402,12 @@
   .p2-cta__price-main { font-size: 28px; }
 
   .os-schedule__row { grid-template-columns: 1fr; gap: 3px; }
+
+  /* Equal section spacing */
+  .p2-stats  { padding: 40px 0; }
+  .p2-pu-section { padding: 40px 0; }
+  .lk-author-section { padding: 40px 0 0; }
+  .lk-social-section { padding: 0 0 40px; }
 }
 
 /* ===== MISSED LESSON + TRANSPARENCY BLOCKS (copied from letnie-kursy) ===== */
@@ -1980,8 +2000,8 @@
 @media (max-width: 768px) {
   .dg-author__top { grid-template-columns: minmax(0, 1fr); }
   .dg-author__name { font-size: 14px; letter-spacing: 0.02em; }
-  .dg-author__photo-slot { height: 220px; }
-  .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; object-fit: cover; object-position: 50% 15%; }
+  .dg-author__photo-slot { height: auto; }
+  .dg-author__photo { width: 100%; height: auto; margin-top: 0; border-radius: 0; object-fit: contain; display: block; }
   .dg-author__stats { flex-wrap: wrap; }
   .dg-author__stat { flex: 1 1 45%; border-right: none; padding: 8px 16px; }
   .dg-reviews__thumb { flex: 0 0 calc((100% - 10px) / 2); }
