@@ -185,11 +185,10 @@ export default function Page() {
                 </div>
               </div>
               <div className="p2-hero__price-per">450&thinsp;₽ за одно занятие</div>
-              <button className="p2-btn p2-btn--cta p2-btn--full" onClick={openPay}>Записаться по спеццене →</button>
-            </div>
-
-            <div className="p2-hero__btns">
-              <button className="p2-btn p2-btn--secondary" onClick={openSchedule}>Посмотреть расписание</button>
+              <div className="p2-hero__price-btns">
+                <button className="p2-btn p2-btn--cta" onClick={openPay}>Записаться по спеццене →</button>
+                <button className="p2-btn p2-btn--secondary" onClick={openSchedule}>Посмотреть расписание</button>
+              </div>
             </div>
           </div>
 
@@ -207,56 +206,56 @@ export default function Page() {
               <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
               <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
             </div>
+          </div>
+        </div>
 
-            <div className="p2-hero__icons">
-              <div className="p2-hero__icon-item">
-                <div className="p2-hero__icon-box">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="9" cy="7" r="4" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <span>Мини-группы</span>
-              </div>
-              <div className="p2-hero__icon-item">
-                <div className="p2-hero__icon-box">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <span>3 занятия в неделю</span>
-              </div>
-              <div className="p2-hero__icon-item">
-                <div className="p2-hero__icon-box">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                    <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <span>Удобный личный кабинет</span>
-              </div>
-              <div className="p2-hero__icon-item">
-                <div className="p2-hero__icon-box">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <span>Домашние задания</span>
-              </div>
-              <div className="p2-hero__icon-item">
-                <div className="p2-hero__icon-box">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
-                    <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
-                  </svg>
-                </div>
-                <span>Записи уроков</span>
-              </div>
+        <div className="p2-hero__icons os-wrap">
+          <div className="p2-hero__icon-item">
+            <div className="p2-hero__icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="9" cy="7" r="4" stroke="#6d28d9" strokeWidth="1.8"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
             </div>
+            <span>Мини-группы</span>
+          </div>
+          <div className="p2-hero__icon-item">
+            <div className="p2-hero__icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <span>3 занятия в неделю</span>
+          </div>
+          <div className="p2-hero__icon-item">
+            <div className="p2-hero__icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="17" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                <path d="M8 2v4M16 2v4M3 9h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+                <path d="M8 14h2M8 18h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <span>Удобный личный кабинет</span>
+          </div>
+          <div className="p2-hero__icon-item">
+            <div className="p2-hero__icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6d28d9" strokeWidth="1.8"/>
+                <path d="M9 2v2h6V2M9 10h6M9 14h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <span>Домашние задания</span>
+          </div>
+          <div className="p2-hero__icon-item">
+            <div className="p2-hero__icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="#6d28d9" strokeWidth="1.8"/>
+                <path d="M10 8l6 4-6 4V8z" fill="#6d28d9"/>
+              </svg>
+            </div>
+            <span>Записи уроков</span>
           </div>
         </div>
       </section>

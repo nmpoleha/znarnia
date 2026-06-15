@@ -112,10 +112,13 @@
 
 /* ===== FEATURE ICONS (right column, below photo) ===== */
 .p2-hero__icons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 0;
+  padding: 16px 0 8px;
+  margin-top: 16px;
 }
 
 .p2-hero__icon-item {
@@ -124,12 +127,12 @@
   align-items: center;
   gap: 8px;
   font-family: 'Nunito', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--p2-text);
-  line-height: 1.35;
-  min-width: 0;
   white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 }
 
 .p2-hero__icon-box {
@@ -149,7 +152,7 @@
   border: 1.5px solid #fcd34d;
   border-radius: 16px;
   padding: 14px 20px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -264,8 +267,8 @@
 /* ===== BUTTONS ===== */
 .p2-hero__btns {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
 }
 
 .p2-btn {
@@ -320,6 +323,21 @@
 
 .p2-btn--full { width: 100%; }
 
+.p2-hero__price-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.p2-hero__price-btns .p2-btn {
+  flex: 1;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.p2-hero__price-btns .p2-btn--cta { flex: 2; }
+.p2-hero__price-btns .p2-btn--secondary { flex: 1; }
+
 .p2-btn--lg {
   font-size: 16px;
   padding: 16px 36px;
@@ -331,12 +349,14 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .p2-hero__photo-wrap {
   position: relative;
   width: 100%;
   flex: 1;
+  min-height: 0;
   border-radius: 24px;
   overflow: hidden;
   display: flex;
@@ -346,8 +366,7 @@
 /* Hero photo — flex item crops img to its own bounds */
 .p2-hero__photo {
   width: 100%;
-  flex: 1;
-  max-height: 52vh;
+  flex: 1 1 0;
   min-height: 220px;
   border-radius: var(--p2-radius-sm);
   overflow: hidden;
@@ -356,6 +375,7 @@
 .p2-hero__photo img {
   width: 100%;
   height: 100%;
+  min-height: 0;
   object-fit: cover;
   object-position: center top;
   display: block;
@@ -1094,9 +1114,8 @@
   .p2-hero__badge { font-size: 12px; margin-bottom: 20px; }
   .p2-hero__desc { margin-bottom: 24px; font-size: 14px; }
 
-  .p2-hero__icons { gap: 10px; flex-wrap: wrap; }
-  .p2-hero__icon-item { font-size: 11px; min-width: calc(33% - 8px); }
-  .p2-hero__icon-box { width: 38px; height: 38px; }
+  .p2-hero__icons { gap: 10px 0; }
+  .p2-hero__icon-item { font-size: 11px; flex: 0 0 50%; }
 
   .p2-hero__price-block { padding: 14px 16px 16px; margin-bottom: 20px; }
   .p2-hero__price-main { font-size: 30px; }
@@ -1104,7 +1123,7 @@
   .p2-hero__features { flex-direction: column; gap: 12px; margin-bottom: 24px; }
   .p2-hero__features li { font-size: 13px; }
 
-  .p2-hero__btns { flex-direction: column; gap: 10px; }
+  .p2-hero__btns { flex-direction: column; align-items: flex-start; gap: 10px; }
   .p2-hero__btns .p2-btn { width: 100%; justify-content: center; }
 
   .p2-hero__photo { aspect-ratio: 16 / 9; }
