@@ -153,7 +153,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 0;
+  gap: 12px 16px;
   padding: 16px 0 8px;
   margin-top: 16px;
 }
@@ -167,7 +167,9 @@
   font-size: 13px;
   font-weight: 800;
   color: var(--p2-text);
-  white-space: nowrap;
+  line-height: 1.2;
+  /* labels wrap inside their cell instead of overflowing onto the neighbour */
+  white-space: normal;
   flex: 1;
   min-width: 0;
 }
