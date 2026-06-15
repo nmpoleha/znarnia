@@ -2440,7 +2440,7 @@
 
   /* Author */
   .dg-author { margin-top: 28px; margin-bottom: 28px; overflow: hidden; }
-  .dg-author__top { grid-template-columns: 1fr; }
+  .dg-author__top { grid-template-columns: minmax(0, 1fr); }
   .dg-author__left { padding: 20px 16px; gap: 2px; }
   .dg-author__label, .dg-author__name { font-size: 13px; }
   .dg-author__item { font-size: 13px; white-space: normal; }

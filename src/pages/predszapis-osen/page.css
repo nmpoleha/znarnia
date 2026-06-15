@@ -2096,4 +2096,17 @@
 
   /* Footer */
   .os-footer__badges { gap: 24px; }
+
+  /* Author block */
+  .dg-author__name {
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+  .dg-author__photo-slot { height: 240px; }
+  .dg-author__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
 }

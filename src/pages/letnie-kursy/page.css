@@ -2718,7 +2718,7 @@
 
 @media (max-width: 640px) {
   .lk-author-section { padding: 0 0 28px; }
-  .dg-author__top { grid-template-columns: 1fr; }
+  .dg-author__top { grid-template-columns: minmax(0, 1fr); }
   .dg-author__left { padding: 20px 16px; gap: 2px; }
   .dg-author__label, .dg-author__name { font-size: 13px; }
   .dg-author__item { font-size: 13px; white-space: normal; }
@@ -3141,7 +3141,7 @@
   .lk-lesson-card__body { flex-direction: column; }
   .lk-lesson-card__right { width: 100%; }
 
-  .dg-author__top { grid-template-columns: 1fr; }
+  .dg-author__top { grid-template-columns: minmax(0, 1fr); }
   .dg-author__photo-slot { height: 260px; }
   .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; object-fit: cover; object-position: center top; }
 }

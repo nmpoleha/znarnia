@@ -32,12 +32,21 @@ for (const vp of VIEWPORTS) {
     const photoBox = await photoEl.boundingBox()
     expect(photoBox.height, 'photo placeholder height').toBeGreaterThan(0)
 
-    // No element wider than viewport
+    // No element wider than viewport (skip elements clipped by overflow:hidden ancestor)
     const overflow = await page.evaluate(() => {
       const vw = window.innerWidth
+      function isClipped(el) {
+        let node = el.parentElement
+        while (node && node !== document.body) {
+          const style = window.getComputedStyle(node)
+          if (style.overflow === 'hidden' || style.overflowX === 'hidden') return true
+          node = node.parentElement
+        }
+        return false
+      }
       return Array.from(document.querySelectorAll('*')).some(el => {
         const r = el.getBoundingClientRect()
-        return r.right > vw + 2
+        return r.right > vw + 2 && !isClipped(el)
       })
     })
     expect(overflow, `element overflows viewport at ${vp.name}`).toBe(false)

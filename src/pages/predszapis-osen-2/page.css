@@ -1280,6 +1280,8 @@
   }
   .p2-how__card-content .p2-how__card-text { grid-column: 2; }
 
+  .p2-learns__grid { grid-template-columns: 1fr; gap: 20px; }
+
   .p2-header-badge { display: none; }
 }
 
@@ -1306,7 +1308,6 @@
   .p2-records { padding: 48px 0; }
   .p2-learns { padding: 48px 0; }
   .p2-pu-section { padding: 48px 0; }
-  .p2-learns__grid { grid-template-columns: 1fr; gap: 20px; }
   .p2-progress { padding: 48px 0; }
   .p2-cta { padding: 48px 0; }
 }
@@ -1977,7 +1978,7 @@
 }
 
 @media (max-width: 768px) {
-  .dg-author__top { grid-template-columns: 1fr; }
+  .dg-author__top { grid-template-columns: minmax(0, 1fr); }
   .dg-author__photo-slot { height: 220px; }
   .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; }
   .dg-author__stats { flex-wrap: wrap; }
