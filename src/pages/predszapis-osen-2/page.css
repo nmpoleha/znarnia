@@ -1979,8 +1979,9 @@
 
 @media (max-width: 768px) {
   .dg-author__top { grid-template-columns: minmax(0, 1fr); }
+  .dg-author__name { font-size: 14px; letter-spacing: 0.02em; }
   .dg-author__photo-slot { height: 220px; }
-  .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; }
+  .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; object-fit: cover; object-position: center top; }
   .dg-author__stats { flex-wrap: wrap; }
   .dg-author__stat { flex: 1 1 45%; border-right: none; padding: 8px 16px; }
   .dg-reviews__thumb { flex: 0 0 calc((100% - 10px) / 2); }
