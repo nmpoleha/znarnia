@@ -265,25 +265,16 @@ export default function Page() {
         <div className="os-wrap">
           <div className="p2-stats__grid">
             <div className="p2-stats__item">
-              <div className="p2-stats__icon">🛡️</div>
-              <div className="p2-stats__text">
-                <div className="p2-stats__val">20+ лет</div>
-                <div className="p2-stats__label">опыта работы с детьми</div>
-              </div>
+              <span className="p2-stats__val">20+ лет</span>
+              <span className="p2-stats__label">опыта работы с детьми</span>
             </div>
             <div className="p2-stats__item">
-              <div className="p2-stats__icon">👥</div>
-              <div className="p2-stats__text">
-                <div className="p2-stats__val">10 000+</div>
-                <div className="p2-stats__label">проведённых диагностик</div>
-              </div>
+              <span className="p2-stats__val">10{' '}000+</span>
+              <span className="p2-stats__label">проведённых диагностик</span>
             </div>
             <div className="p2-stats__item">
-              <div className="p2-stats__icon">🎓</div>
-              <div className="p2-stats__text">
-                <div className="p2-stats__val">Тысячи учеников</div>
-                <div className="p2-stats__label">стали увереннее в своих знаниях</div>
-              </div>
+              <span className="p2-stats__val">Тысячи учеников</span>
+              <span className="p2-stats__label">довольны результатом</span>
             </div>
           </div>
         </div>
