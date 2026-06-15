@@ -583,6 +583,33 @@
   overflow: hidden;
 }
 
+.p2-how__card--purple { background: #fce7f3; border-color: #f9a8d4; }
+.p2-how__card--amber  { background: #dbeafe; border-color: #93c5fd; }
+.p2-how__card--mint   { background: #ffedd5; border-color: #fdba74; }
+
+.p2-how__card--purple .p2-how__card-icon { background: #db2777; }
+.p2-how__card--amber  .p2-how__card-icon { background: #2563eb; }
+.p2-how__card--mint   .p2-how__card-icon { background: #ea580c; }
+
+/* Background leaf pattern */
+.p2-how__bg-leaf {
+  position: absolute;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.13;
+}
+
+.p2-how__bg-leaf--1 { top: 4%;    left: 1%;   font-size: 52px; transform: rotate(-25deg); }
+.p2-how__bg-leaf--2 { top: 18%;   left: 14%;  font-size: 34px; transform: rotate(18deg);  opacity: 0.08; }
+.p2-how__bg-leaf--3 { top: 6%;    right: 3%;  font-size: 56px; transform: rotate(30deg);  }
+.p2-how__bg-leaf--4 { top: 50%;   left: 0%;   font-size: 40px; transform: rotate(-12deg); opacity: 0.09; }
+.p2-how__bg-leaf--5 { bottom: 8%; right: 2%;  font-size: 48px; transform: rotate(-30deg); }
+.p2-how__bg-leaf--6 { bottom: 14%; left: 22%; font-size: 36px; transform: rotate(22deg);  opacity: 0.08; }
+.p2-how__bg-leaf--7 { top: 38%;   right: 12%; font-size: 30px; transform: rotate(45deg);  opacity: 0.07; }
+
+
 .p2-how__card-body {
   flex: 1;
   min-width: 0;
@@ -662,7 +689,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
   color: var(--p2-text);
-  line-height: 1.65;
+  line-height: 1.6;
   margin: 0 0 10px;
 }
 

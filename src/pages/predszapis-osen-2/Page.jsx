@@ -282,6 +282,13 @@ export default function Page() {
 
       {/* SCREEN 2 — HOW LESSONS WORK */}
       <section className="p2-how">
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--2" aria-hidden="true">🍂</span>
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--3" aria-hidden="true">🍁</span>
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--4" aria-hidden="true">🍂</span>
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--5" aria-hidden="true">🍁</span>
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--6" aria-hidden="true">🍂</span>
+        <span className="p2-how__bg-leaf p2-how__bg-leaf--7" aria-hidden="true">🍁</span>
         <div className="os-wrap">
           <div className="p2-section-badge p2-section-badge--icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -324,7 +331,7 @@ export default function Page() {
               />
             </div>
 
-            <div className="p2-how__card">
+            <div className="p2-how__card p2-how__card--purple">
               <div className="p2-how__card-body">
                 <div className="p2-how__card-body__header">
                   <div className="p2-how__card-icon">
@@ -339,7 +346,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="p2-how__card">
+            <div className="p2-how__card p2-how__card--amber">
               <div className="p2-how__card-body">
                 <div className="p2-how__card-body__header">
                   <div className="p2-how__card-icon">
@@ -354,7 +361,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="p2-how__card">
+            <div className="p2-how__card p2-how__card--mint">
               <div className="p2-how__card-body">
                 <div className="p2-how__card-body__header">
                   <div className="p2-how__card-icon">
