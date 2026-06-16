@@ -620,11 +620,10 @@
   background: var(--p2-card);
   border: 1.5px solid var(--p2-border);
   border-radius: var(--p2-radius);
-  padding: 12px 32px;
+  padding: 28px 32px;
 }
 
 .p2-how__card--wide {
-  padding: 28px 32px;
   overflow: hidden;
 }
 
@@ -656,11 +655,17 @@
   padding-top: 4px;
 }
 
-/* Small cards: column layout, icon+title at top, deco at bottom-right */
-.p2-how__card:not(.p2-how__card--wide) {
+/* All cards: column layout, icon+title at top */
+.p2-how__card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+/* Equal height: both cards in a column split it evenly, so the top row and
+   the bottom row line up across columns — a clean 2×2 around the image. */
+.p2-how__col .p2-how__card {
+  flex: 1;
 }
 
 .p2-how__card--lilac  { background: #ede9fe; border-color: #c4b5fd; }
@@ -760,11 +765,6 @@
   color: var(--p2-text);
   margin: 0 0 12px;
   line-height: 1.25;
-}
-
-.p2-how__card--wide .p2-how__card-title {
-  font-size: 18px;
-  margin: 0 0 16px;
 }
 
 .p2-how__card-text {
