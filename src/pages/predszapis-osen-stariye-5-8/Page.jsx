@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import heroPhotoImg from './hero-photo.png'
-import onlineLessonImg from './online-lesson.png'
 
 function nb(str) {
   // Не оставляем короткие предлоги/союзы в конце строки — приклеиваем их к
@@ -449,12 +448,14 @@ export default function Page() {
             <span className="p2-section-badge__sep"/>
             <span>Формат занятий</span>
           </div>
-          <h2 className="p2-section-title">Интерактивный формат, который нравится детям</h2>
+          <h2 className="p2-section-title">Как проходят занятия</h2>
 
           <div className="p2-how__grid">
 
-            <div className="p2-how__card p2-how__card--wide">
-              <div className="p2-how__card-content">
+            <div className="p2-how__col">
+            <div className="p2-how__card p2-how__card--wide p2-how__card--lilac">
+              <div className="p2-how__card-body">
+                <div className="p2-how__card-body__header">
                 <div className="p2-how__card-icon">
                   <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                     <rect x="2" y="3" width="20" height="14" rx="2" stroke="#fff" strokeWidth="2"/>
@@ -465,35 +466,8 @@ export default function Page() {
                 <h3 className="p2-how__card-title">
                   Интерактивные онлайн-занятия в мини-группах <span className="p2-how__card-title-accent">с{' '}преподавателем</span>
                 </h3>
-                <p className="p2-how__card-text">{nb('На уроке ребёнок не остаётся пассивным слушателем. Он отвечает на вопросы, предлагает свои решения, работает на платформе и участвует в обсуждении вместе с преподавателем и другими учениками.')}</p>
-                <span className="p2-how__star-bullet" aria-hidden="true">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--p2-purple)">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </span>
-                <p className="p2-how__card-text">{nb('Каждое занятие проходит в формате увлекательного сюжета или квеста, поэтому дети не просто учатся, а становятся участниками настоящего приключения. Именно поэтому многие ученики сами напоминают родителям о занятиях и с удовольствием приходят на уроки.')}</p>
-              </div>
-              <img
-                src={onlineLessonImg}
-                alt="Онлайн-занятие в мини-группе"
-                className="p2-how__card-photo"
-                width="760"
-                height="760"
-              />
-            </div>
-
-            <div className="p2-how__card p2-how__card--purple">
-              <div className="p2-how__card-body">
-                <div className="p2-how__card-body__header">
-                  <div className="p2-how__card-icon">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
-                      <path d="M10 8l6 4-6 4V8z" fill="#fff"/>
-                    </svg>
-                  </div>
-                  <h3 className="p2-how__card-title">Урок-тренажёр для развития мышления</h3>
                 </div>
-                <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы. Ребёнок проходит его в удобном темпе, учится рассуждать, искать решения и развивать математическое мышление.')}</p>
+                <p className="p2-how__card-text">{nb('Ребёнок не остаётся пассивным слушателем. Во время урока он решает задачи на платформе, вводит ответы, получает мгновенную обратную связь и активно вовлекается в учебный процесс.')}</p>
               </div>
             </div>
 
@@ -511,6 +485,32 @@ export default function Page() {
                 <p className="p2-how__card-text">{nb('Помогают закрепить изученный материал и сформировать навык самостоятельной работы.')}</p>
               </div>
             </div>
+            </div>
+
+            <div className="p2-how__photo-slot" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                <circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M21 16l-5-5L5 20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span>Место для фото</span>
+            </div>
+
+            <div className="p2-how__col">
+            <div className="p2-how__card p2-how__card--purple">
+              <div className="p2-how__card-body">
+                <div className="p2-how__card-body__header">
+                  <div className="p2-how__card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
+                      <path d="M10 8l6 4-6 4V8z" fill="#fff"/>
+                    </svg>
+                  </div>
+                  <h3 className="p2-how__card-title">Урок-тренажёр для проработки сложных тем</h3>
+                </div>
+                <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы и проработки наиболее сложных тем школьной программы.')}</p>
+              </div>
+            </div>
 
             <div className="p2-how__card p2-how__card--mint">
               <div className="p2-how__card-body">
@@ -526,6 +526,7 @@ export default function Page() {
                 </div>
                 <p className="p2-how__card-text">{nb('В одном месте собраны записи уроков, домашние задания, уроки-тренажёры и все материалы курса.')}</p>
               </div>
+            </div>
             </div>
 
           </div>

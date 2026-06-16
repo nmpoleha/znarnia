@@ -565,13 +565,40 @@
 }
 
 .p2-how__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  align-items: stretch;
   gap: 32px;
 }
 
-.p2-how__card--wide {
-  grid-column: 1 / -1;
+/* Each side is an independent vertical stack of cards (column by column),
+   so a shorter card doesn't leave a gap under it. */
+.p2-how__col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Desktop-only photo placeholder, centred between the two card columns,
+   stretched to the full height of the block. */
+.p2-how__photo-slot {
+  width: clamp(240px, 22%, 320px);
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  border: 2px dashed #c4b5fd;
+  border-radius: var(--p2-radius);
+  background: rgba(237, 233, 254, 0.4);
+  color: #7c3aed;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
 }
 
 .p2-how__card {
@@ -582,11 +609,7 @@
 }
 
 .p2-how__card--wide {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 40px;
-  align-items: stretch;
-  padding: 32px 40px;
+  padding: 28px 32px;
   overflow: hidden;
 }
 
@@ -625,10 +648,12 @@
   overflow: hidden;
 }
 
+.p2-how__card--lilac  { background: #ede9fe; border-color: #c4b5fd; }
 .p2-how__card--purple { background: #fce7f3; border-color: #f9a8d4; }
 .p2-how__card--amber  { background: #dbeafe; border-color: #93c5fd; }
 .p2-how__card--mint   { background: #ffedd5; border-color: #fdba74; }
 
+.p2-how__card--lilac  .p2-how__card-icon { background: #7c3aed; }
 .p2-how__card--purple .p2-how__card-icon { background: #db2777; }
 .p2-how__card--amber  .p2-how__card-icon { background: #2563eb; }
 .p2-how__card--mint   .p2-how__card-icon { background: #ea580c; }
@@ -1296,7 +1321,7 @@
   }
 
   .p2-how__grid { grid-template-columns: repeat(2, 1fr); }
-  .p2-how__card:not(.p2-how__card--wide):last-child { grid-column: 1 / -1; }
+  .p2-how__photo-slot { display: none; }
 
   .p2-how__card--wide {
     grid-template-columns: 1fr;
@@ -1348,9 +1373,8 @@
   .p2-stats__item:last-child { border-bottom: none; }
 
   .p2-how { padding: 36px 0 0; }
-  .p2-how__grid { grid-template-columns: 1fr; gap: 20px; }
-  .p2-how__card--wide { grid-column: 1 / -1; }
-  .p2-how__card:not(.p2-how__card--wide):last-child { grid-column: auto; }
+  .p2-how__grid { flex-direction: column; gap: 20px; }
+  .p2-how__col { gap: 20px; }
 
   .p2-section-title { font-size: 24px; }
 
