@@ -2212,12 +2212,17 @@
   background: var(--p2-card);
   border: 1.5px solid var(--p2-border);
   border-radius: var(--p2-radius);
-  padding: 36px 40px;
+  padding: 36px;
   box-shadow: 0 10px 30px var(--p2-shadow);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
   gap: 36px;
   align-items: stretch;
+}
+
+.p2-results__content {
+  display: flex;
+  flex-direction: column;
 }
 
 .p2-results__lead {
@@ -2258,33 +2263,40 @@
 
 .p2-results__highlight {
   margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
-  border-radius: var(--p2-radius);
-  padding: 28px 36px;
+  border-radius: var(--p2-radius-sm);
+  padding: 18px 24px;
   color: #fff;
-  text-align: center;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.25);
+}
+
+.p2-results__highlight-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--p2-amber-badge);
+  flex-shrink: 0;
+}
+
+.p2-results__highlight-main {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .p2-results__highlight-label {
   font-family: 'Nunito', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.85;
-  margin-bottom: 8px;
-}
-
-.p2-results__highlight-main {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-.p2-results__highlight-num {
-  font-size: 32px;
-  color: var(--p2-amber-badge);
+  letter-spacing: 0.07em;
+  opacity: 0.8;
+  margin-top: 5px;
 }
 
 @media (max-width: 720px) {
@@ -2301,7 +2313,7 @@
   .p2-more__list li, .p2-results__list li, .p2-more__goal { font-size: 14px; }
   .p2-results__card { padding: 24px 20px; }
   .p2-results__lead { font-size: 16px; }
-  .p2-results__highlight { padding: 22px 20px; }
-  .p2-results__highlight-main { font-size: 18px; }
-  .p2-results__highlight-num { font-size: 28px; }
+  .p2-results__highlight { padding: 16px 18px; gap: 16px; }
+  .p2-results__highlight-main { font-size: 14px; }
+  .p2-results__highlight-num { font-size: 38px; }
 }

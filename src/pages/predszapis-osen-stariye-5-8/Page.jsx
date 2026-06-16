@@ -691,14 +691,17 @@ export default function Page() {
                 <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
               ))}
             </ul>
+            <div className="p2-results__highlight">
+              <div className="p2-results__highlight-num">90%</div>
+              <div className="p2-results__highlight-text">
+                <div className="p2-results__highlight-main">{nb('учеников улучшают результаты по математике минимум на 1 балл')}</div>
+                <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
+              </div>
+            </div>
             </div>
             <div className="p2-results__photo-slot p2-results__photo-slot--filled">
               <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
             </div>
-          </div>
-          <div className="p2-results__highlight">
-            <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
-            <div className="p2-results__highlight-main"><span className="p2-results__highlight-num">90%</span> {nb('учеников улучшают результаты по математике минимум на 1 балл')}</div>
           </div>
         </div>
       </section>
