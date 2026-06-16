@@ -637,6 +637,80 @@ export default function Page() {
         </div>
       </section>
 
+      {/* SCREEN 5 — MORE THAN A TUTOR */}
+      <section className="p2-more">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
+        <div className="os-wrap">
+          <h2 className="p2-section-title">Почему Знарния — это больше, чем репетитор</h2>
+          <div className="p2-more__card">
+            <div className="p2-more__content">
+            <p className="p2-more__lead">{nb('Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.')}</p>
+            <p className="p2-more__accent">Мы работаем иначе.</p>
+            <ul className="lk-pu-checklist p2-more__list">
+              {[
+                'Выявляем и устраняем пробелы в знаниях',
+                'Выстраиваем прочную математическую базу',
+                'Помогаем разобраться со сложными темами школьной программы',
+                'Развиваем умение рассуждать и находить решения',
+                'Учим ребёнка самостоятельно справляться с учебными задачами',
+              ].map((t, i) => (
+                <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+              ))}
+            </ul>
+            <p className="p2-more__goal">{nb('Наша цель — не временно улучшить результат, а создать фундамент для дальнейшего успешного обучения.')}</p>
+            </div>
+            <div className="p2-more__photo-slot" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                <circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M21 16l-5-5L5 20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span>Место для фото</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SCREEN 6 — RESULTS PARENTS NOTICE */}
+      <section className="p2-results">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
+        <div className="os-wrap">
+          <div className="p2-section-badge">Результаты</div>
+          <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
+          <div className="p2-results__card">
+            <div className="p2-results__content">
+            <p className="p2-results__lead">Уже через несколько месяцев занятий ребёнок:</p>
+            <ul className="p2-results__list">
+              {[
+                'начинает получать более высокие оценки по математике',
+                'увереннее чувствует себя на уроках',
+                'меньше переживает из-за контрольных и самостоятельных работ',
+                'перестаёт бояться ошибок',
+                'лучше понимает новые темы',
+                'легче справляется с домашними заданиями',
+              ].map((t, i) => (
+                <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
+              ))}
+            </ul>
+            </div>
+            <div className="p2-results__photo-slot" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                <circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M21 16l-5-5L5 20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span>Место для фото</span>
+            </div>
+          </div>
+          <div className="p2-results__highlight">
+            <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
+            <div className="p2-results__highlight-main"><span className="p2-results__highlight-num">90%</span> {nb('учеников улучшают результаты по математике минимум на 1 балл')}</div>
+          </div>
+        </div>
+      </section>
+
       {/* AUTHOR */}
       <section className="lk-author-section">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>

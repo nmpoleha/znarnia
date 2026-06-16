@@ -2097,3 +2097,185 @@
   .dg-lightbox__img { max-width: calc(100vw - 24px); }
   .dg-schools { padding: 20px 16px; gap: 14px; }
 }
+
+/* ===== SCREEN 5 — MORE THAN A TUTOR ===== */
+.p2-more {
+  padding: 4px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-more__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 40px;
+  box-shadow: 0 10px 30px var(--p2-shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 36px;
+  align-items: stretch;
+}
+
+/* Photo placeholder on the right, stretched to the card's height. */
+.p2-more__photo-slot,
+.p2-results__photo-slot {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  border: 2px dashed var(--p2-purple-border);
+  border-radius: var(--p2-radius-sm);
+  background: rgba(237, 233, 254, 0.4);
+  color: var(--p2-purple);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.p2-more__lead {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.p2-more__accent {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-purple);
+  margin: 0 0 24px;
+}
+
+.p2-more__list {
+  margin-bottom: 24px;
+  gap: 14px;
+}
+
+.p2-more__list li {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.p2-more__goal {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 18px 22px;
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-sm);
+  border-left: 4px solid var(--p2-purple);
+}
+
+/* ===== SCREEN 6 — RESULTS PARENTS NOTICE ===== */
+.p2-results {
+  padding: 4px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-results__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 36px 40px;
+  box-shadow: 0 10px 30px var(--p2-shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.p2-results__lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-text);
+  margin: 0 0 20px;
+}
+
+.p2-results__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 14px 28px;
+}
+
+.p2-results__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--p2-text);
+  line-height: 1.5;
+}
+
+.p2-results__star {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.p2-results__highlight {
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  border-radius: var(--p2-radius);
+  padding: 28px 36px;
+  color: #fff;
+  text-align: center;
+}
+
+.p2-results__highlight-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.p2-results__highlight-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.p2-results__highlight-num {
+  font-size: 32px;
+  color: var(--p2-amber-badge);
+}
+
+@media (max-width: 720px) {
+  .p2-more__card,
+  .p2-results__card { grid-template-columns: 1fr; gap: 0; }
+  .p2-more__photo-slot,
+  .p2-results__photo-slot { display: none; }
+  .p2-results__list { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .p2-more__card { padding: 24px 20px; }
+  .p2-more__accent { font-size: 16px; }
+  .p2-more__list li, .p2-results__list li, .p2-more__goal { font-size: 14px; }
+  .p2-results__card { padding: 24px 20px; }
+  .p2-results__lead { font-size: 16px; }
+  .p2-results__highlight { padding: 22px 20px; }
+  .p2-results__highlight-main { font-size: 18px; }
+  .p2-results__highlight-num { font-size: 28px; }
+}
