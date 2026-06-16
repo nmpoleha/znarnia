@@ -2,6 +2,7 @@ import { useState } from 'react'
 import heroPhotoImg from './hero-photo.png'
 import howIllustrationImg from './how-illustration.png'
 import resultsPhotoImg from './results-photo.png'
+import whyIllustrationImg from './why-illustration.png'
 
 function nb(str) {
   // Не оставляем короткие предлоги/союзы в конце строки — приклеиваем их к
@@ -655,16 +656,11 @@ export default function Page() {
                 <li key={i}><LkCheck /><span>{nb(t)}</span></li>
               ))}
             </ul>
-            <p className="p2-more__goal">{nb('Наша цель — не временно улучшить результат, а создать фундамент для дальнейшего успешного обучения.')}</p>
             </div>
-            <div className="p2-more__photo-slot" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
-                <circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/>
-                <path d="M21 16l-5-5L5 20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span>Место для фото</span>
+            <div className="p2-more__media">
+              <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
             </div>
+            <p className="p2-more__goal">{nb('Наша цель — не временно улучшить результат, а ')}<span className="p2-more__goal-accent">{nb('создать фундамент для дальнейшего успешного обучения')}</span>.</p>
           </div>
         </div>
       </section>
