@@ -601,6 +601,21 @@
   font-size: 15px;
 }
 
+/* Slot filled with a real illustration: image frame instead of placeholder. */
+.p2-how__photo-slot--filled {
+  padding: 0;
+  gap: 0;
+  border: 1.5px solid var(--p2-border);
+  background: var(--p2-purple-soft);
+  overflow: hidden;
+}
+
+.p2-how__photo-slot--filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .p2-how__card {
   background: var(--p2-card);
   border: 1.5px solid var(--p2-border);

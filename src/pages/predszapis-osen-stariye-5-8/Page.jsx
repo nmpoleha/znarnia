@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import heroPhotoImg from './hero-photo.png'
+import howIllustrationImg from './how-illustration.png'
 
 function nb(str) {
   // Не оставляем короткие предлоги/союзы в конце строки — приклеиваем их к
@@ -345,9 +346,9 @@ export default function Page() {
               <div className="p2-hero__photo">
                 <img
                   src={heroPhotoImg}
-                  alt="Дети занимаются математикой онлайн"
+                  alt="Мальчик и девочка занимаются математикой онлайн за ноутбуком"
                   width="1280"
-                  height="854"
+                  height="853"
                 />
               </div>
               <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
@@ -487,13 +488,8 @@ export default function Page() {
             </div>
             </div>
 
-            <div className="p2-how__photo-slot" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
-                <circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/>
-                <path d="M21 16l-5-5L5 20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span>Место для фото</span>
+            <div className="p2-how__photo-slot p2-how__photo-slot--filled">
+              <img src={howIllustrationImg} alt="Ученица решает линейные уравнения на интерактивной образовательной платформе" width="853" height="1280" loading="lazy" />
             </div>
 
             <div className="p2-how__col">
