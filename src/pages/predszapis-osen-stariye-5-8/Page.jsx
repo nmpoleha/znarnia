@@ -540,8 +540,8 @@ export default function Page() {
         <span className="p2-learns__bg-leaf p2-learns__bg-leaf--3" aria-hidden="true">🍁</span>
         <span className="p2-learns__bg-leaf p2-learns__bg-leaf--4" aria-hidden="true">🍂</span>
         <div className="os-wrap">
-          <div className="p2-section-badge">Чему учится ребёнок</div>
-          <h2 className="p2-section-title">Мы учим не только математике</h2>
+          <div className="p2-section-badge">Чему учится ребёнок в Знарнии</div>
+          <h2 className="p2-section-title">Мы помогаем не просто повысить оценки, а понять математику</h2>
           <div className="p2-learns__grid">
 
             <div className="p2-learns__card p2-learns__card--c1">
@@ -554,9 +554,9 @@ export default function Page() {
                     <path d="M9 7h6M9 11h5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <h3 className="p2-learns__card-title">Даём прочную математическую базу</h3>
+                <h3 className="p2-learns__card-title">Укрепляем математическую базу и закрываем пробелы</h3>
               </div>
-              <p className="p2-learns__card-text">{nb('Ребёнок начинает понимать предмет, а не просто запоминать правила и алгоритмы.')}</p>
+              <p className="p2-learns__card-text">{nb('Последовательно устраняем пробелы в знаниях, которые мешают ребёнку уверенно двигаться дальше и влияют на успеваемость.')}</p>
             </div>
 
             <div className="p2-learns__card p2-learns__card--c2">
@@ -569,9 +569,9 @@ export default function Page() {
                     <path d="M12 8v4M10 12h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <h3 className="p2-learns__card-title">Учим думать, а не действовать по шаблону</h3>
+                <h3 className="p2-learns__card-title">Разбираем самые сложные темы школьной программы</h3>
               </div>
-              <p className="p2-learns__card-text">{nb('На занятиях дети знакомятся не только со школьными, но и с нестандартными задачами, учатся искать разные способы решения и рассуждать самостоятельно.')}</p>
+              <p className="p2-learns__card-text">{nb('Особое внимание уделяем темам, которые чаще всего вызывают трудности у учеников и становятся причиной снижения успеваемости.')}</p>
             </div>
 
             <div className="p2-learns__card p2-learns__card--c3">
@@ -584,9 +584,9 @@ export default function Page() {
                     <circle cx="12" cy="12" r="2" fill="#fff"/>
                   </svg>
                 </div>
-                <h3 className="p2-learns__card-title">Развиваем логическое мышление и самостоятельность</h3>
+                <h3 className="p2-learns__card-title">Учим рассуждать и находить решения самостоятельно</h3>
               </div>
-              <p className="p2-learns__card-text">{nb('Постепенно ребёнок начинает увереннее справляться со школьной программой и легче выполнять домашние задания.')}</p>
+              <p className="p2-learns__card-text">{nb('Ребёнок учится понимать новые темы, анализировать задачи, выдвигать гипотезы и не теряться перед сложными заданиями.')}</p>
             </div>
 
           </div>
