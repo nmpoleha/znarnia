@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import heroPhotoImg from './hero-photo.png'
 import howIllustrationImg from './how-illustration.png'
+import resultsPhotoImg from './results-photo.png'
 
 function nb(str) {
   // Не оставляем короткие предлоги/союзы в конце строки — приклеиваем их к
@@ -691,13 +692,8 @@ export default function Page() {
               ))}
             </ul>
             </div>
-            <div className="p2-results__photo-slot" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
-                <circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/>
-                <path d="M21 16l-5-5L5 20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span>Место для фото</span>
+            <div className="p2-results__photo-slot p2-results__photo-slot--filled">
+              <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
             </div>
           </div>
           <div className="p2-results__highlight">
