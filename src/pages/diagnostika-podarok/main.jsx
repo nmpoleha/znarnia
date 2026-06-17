@@ -20,6 +20,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       heroVariant="v2"
       heroV2Image="/znarnia/images/hero-boy.png"
       pageClass="dg-page--podarok"
+      recordedFormat
+      heroBadges={[
+        { icon: 'icon-graduation', title: '1–10 класс', desc: 'для школьников' },
+        { icon: 'icon-clock', title: 'Прохождение в записи', desc: 'удобно из дома' },
+        { icon: 'icon-document', title: 'Готовый план', desc: 'после занятия' },
+      ]}
       hidePrice
       hideSchedule
       hideCta

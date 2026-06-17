@@ -403,7 +403,7 @@ const SCHEDULE_ITEMS = [
   { date: '30 мая (сб)', time: '11:30', grade: '10 класс' },
 ]
 
-export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVariant, heroV2Image, hideHero, hidePrice, hideSchedule, hideCta, hideReviews, hideAuthor, hideLetters, pageClass } = {}) {
+export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVariant, heroV2Image, hideHero, hidePrice, hideSchedule, hideCta, hideReviews, hideAuthor, hideLetters, pageClass, heroBadges, recordedFormat } = {}) {
   const [modalOpen, setModalOpen] = useState(false)
   const [scheduleOpen, setScheduleOpen] = useState(false)
   const openModal = e => { e.preventDefault(); setModalOpen(true) }
@@ -487,11 +487,11 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               </div>
               )}
               <div className="dg-hero__footer-badges">
-                {[
+                {(heroBadges ?? [
                   { icon: 'icon-graduation', title: '1–10 класс', desc: 'для школьников' },
                   { icon: 'icon-clock', title: 'Онлайн', desc: 'удобно из дома' },
                   { icon: 'icon-document', title: 'Готовый план', desc: 'после занятия' },
-                ].map((item, i) => (
+                ]).map((item, i) => (
                   <div key={i} className="dg-hero__footer-badge">
                     <img src={`/znarnia/images/icons/${item.icon}.png`} className="dg-hero__footer-badge-icon" alt="" />
                     <div>
@@ -614,7 +614,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
             <div className="dg-how__header">
               <div className="dg-how__header-left">
                 <h2 className="dg-how__title">Как проходит <span className="dg-how__title-accent">диагностика</span></h2>
-                <div className="dg-how__subtitle">Диагностика проходит онлайн в два этапа</div>
+                <div className="dg-how__subtitle">{recordedFormat ? 'Диагностика проходит в записи в два этапа' : 'Диагностика проходит онлайн в два этапа'}</div>
               </div>
               <div className="dg-how__author-badge">
                 <div className="dg-how__author-badge-conducts">Проводит</div>
@@ -644,7 +644,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   />
                   <div className="dg-how__stage1-body">
                     <div className="dg-how__stage1-left">
-                      <p className="dg-how__stage-intro">В онлайн-формате мы оцениваем три ключевых показателя:</p>
+                      <p className="dg-how__stage-intro">{recordedFormat ? 'В формате записи мы оцениваем три ключевых показателя:' : 'В онлайн-формате мы оцениваем три ключевых показателя:'}</p>
                       <div className="dg-how__items">
                         {[
                           { icon: 'brain_icon', title: 'КАК ОН ДУМАЕТ?', desc: 'Логика, мышление, умение рассуждать' },
@@ -663,7 +663,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                       <div className="dg-how__stage-callout">
                         ✏️ Ребёнок проходит <strong>авторскую диагностику</strong>, разработанную специально для школьников.
                       </div>
-                      <p className="dg-how__stage-intro dg-how__stage-intro--detail" style={{marginTop:'12px'}}>{nb('Диагностика проходит онлайн в реальном времени в назначенное время. Ребёнок последовательно решает специально подготовленные задания, а все его ответы фиксируются и анализируются.')}</p>
+                      <p className="dg-how__stage-intro dg-how__stage-intro--detail" style={{marginTop:'12px'}}>{nb(recordedFormat ? 'Диагностика проходит в записи в удобное время. Ребёнок последовательно решает специально подготовленные задания, а все его ответы фиксируются и анализируются.' : 'Диагностика проходит онлайн в реальном времени в назначенное время. Ребёнок последовательно решает специально подготовленные задания, а все его ответы фиксируются и анализируются.')}</p>
                     </div>
                     <img src="/znarnia/images/girl-thinking.png" alt="Девочка выполняет задания диагностики" width="269" height="336" className="dg-how__stage1-img" loading="lazy" decoding="async" />
                   </div>
@@ -678,17 +678,17 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   <div className="dg-how__stage2-body">
                     <img src="/znarnia/images/mom-child-laptop.png" alt="" className="dg-how__stage2-img" />
                     <div className="dg-how__stage2-text">
-                      <p className="dg-how__stage-intro dg-how__stage-intro--bold">{nb('К подключению приглашаются родители. Вы получите подробный разбор результатов диагностики и сможете:')}</p>
+                      <p className="dg-how__stage-intro dg-how__stage-intro--bold">{nb(recordedFormat ? 'После прохождения ребёнком заданий вы можете ознакомиться с результатами прохождения диагностического урока:' : 'К подключению приглашаются родители. Вы получите подробный разбор результатов диагностики и сможете:')}</p>
                       <ul className="dg-how__checklist">
                         {[
                           'увидеть сильные и слабые стороны ребёнка',
                           'понять причины трудностей в учёбе',
                           'получить рекомендации по развитию и обучению',
-                          'задать вопросы и получить ответы эксперта',
+                          recordedFormat ? 'увидеть подробный разбор по каждому заданию' : 'задать вопросы и получить ответы эксперта',
                         ].map((t, i) => <li key={i}>{t}</li>)}
                       </ul>
                       <div className="dg-how__stage-callout" style={{marginTop:'14px'}}>
-                        {nb('Сразу после диагностики подключается родитель. Мы вместе подробно разбираем результаты: какие задания вызвали сложности, о чём это говорит, какие есть пробелы и как дальше выстраивать обучение.')}
+                        {nb(recordedFormat ? 'После прохождения вы получаете подробные результаты: какие задания вызвали сложности, о чём это говорит, какие есть пробелы и как дальше выстраивать обучение.' : 'Сразу после диагностики подключается родитель. Мы вместе подробно разбираем результаты: какие задания вызвали сложности, о чём это говорит, какие есть пробелы и как дальше выстраивать обучение.')}
                       </div>
                     </div>
                   </div>
@@ -735,7 +735,9 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               <div className="dg-how__record-head">
                 <div className="dg-how__record-play">▶</div>
                 <div className="dg-how__record-title">
-                  Если не получится присутствовать онлайн — диагностику можно пройти <span className="dg-how__record-accent">в записи</span>
+                  {recordedFormat
+                    ? <>Диагностику можно пройти <span className="dg-how__record-accent">в записи</span> в любое удобное время</>
+                    : <>Если не получится присутствовать онлайн — диагностику можно пройти <span className="dg-how__record-accent">в записи</span></>}
                 </div>
               </div>
               <div className="dg-how__steps">
@@ -757,7 +759,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 ))}
               </div>
               <div className="dg-how__record-callout">
-                ⭐ <strong>Вы получите ту же точную картину</strong>, что и при онлайн-диагностике: удобно, информативно и максимально полезно.
+                ⭐ <strong>Вы получите ту же точную картину</strong>{recordedFormat ? '' : ', что и при онлайн-диагностике'}: удобно, информативно и максимально полезно.
               </div>
             </div>
 
