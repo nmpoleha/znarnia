@@ -620,6 +620,11 @@
   margin-bottom: 30px;
 }
 
+/* На планшетах две карточки в ряд не помещаются — стек в одну колонку */
+@media (max-width: 900px) {
+  .pu-cards-row { grid-template-columns: 1fr; }
+}
+
 /* ── STATS WIDGET ── */
 .pu-stats-widget {
   flex-shrink: 0;
