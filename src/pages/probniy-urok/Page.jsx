@@ -223,7 +223,44 @@ function ReviewsCarousel() {
   )
 }
 
+const SCHEDULE = [
+  { grade: '1 класс',  days: 'Понедельник + Среда',   time: '14:00' },
+  { grade: '2 класс',  days: 'Вторник + Четверг',     time: '14:30' },
+  { grade: '3 класс',  days: 'Среда + Пятница',       time: '15:00' },
+  { grade: '4 класс',  days: 'Понедельник + Пятница', time: '15:30' },
+  { grade: '5 класс',  days: 'Понедельник + Среда',   time: '16:00' },
+  { grade: '6 класс',  days: 'Вторник + Четверг',     time: '16:30' },
+  { grade: '7 класс',  days: 'Среда + Пятница',       time: '17:00' },
+  { grade: '8 класс',  days: 'Понедельник + Четверг', time: '17:30' },
+  { grade: '9 класс',  days: 'Вторник + Пятница',     time: '18:00' },
+  { grade: '10 класс', days: 'Понедельник + Среда',   time: '18:30' },
+  { grade: '11 класс', days: 'Вторник + Четверг',     time: '19:00' },
+]
+
+function ScheduleModal({ onClose }) {
+  return (
+    <div className="pu-sched-overlay" onClick={onClose}>
+      <div className="pu-sched" onClick={e => e.stopPropagation()}>
+        <div className="pu-sched__head">
+          <div className="pu-sched__title">Расписание на осень</div>
+          <button className="pu-sched__close" onClick={onClose} aria-label="Закрыть">×</button>
+        </div>
+        <div className="pu-sched__list">
+          {SCHEDULE.map((r, i) => (
+            <div key={i} className="pu-sched__row">
+              <div className="pu-sched__grade">{r.grade}</div>
+              <div className="pu-sched__days">{r.days}</div>
+              <div className="pu-sched__time">{r.time}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Page() {
+  const [scheduleOpen, setScheduleOpen] = useState(false)
   return (
     <div className="pu-page">
 
@@ -316,7 +353,7 @@ export default function Page() {
               <div className="pu-callout">
                 Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
               </div>
-              <a href="#" className="pu-btn-purple">Посмотреть расписание</a>
+              <button type="button" className="pu-btn-purple" onClick={() => setScheduleOpen(true)}>Посмотреть расписание</button>
             </div>
             <div className="pu-card__body-right">
               <div className="pu-lesson-preview">
@@ -533,6 +570,8 @@ export default function Page() {
 
         <footer className="pu-footer">© 2026 Школа Сотниковой Ольги</footer>
       </div>
+
+      {scheduleOpen && <ScheduleModal onClose={() => setScheduleOpen(false)} />}
     </div>
   )
 }

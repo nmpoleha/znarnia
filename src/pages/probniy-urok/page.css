@@ -214,6 +214,8 @@
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(109, 40, 217, 0.3);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -222,6 +224,93 @@
 .pu-btn-purple:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(109, 40, 217, 0.4);
+}
+
+/* ── SCHEDULE MODAL ── */
+.pu-sched-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 27, 75, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.pu-sched {
+  background: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.pu-sched__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.pu-sched__title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.pu-sched__close {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  color: #9ca3af;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.pu-sched__close:hover { color: #1e1b4b; }
+
+.pu-sched__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pu-sched__row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  background: #f3effe;
+  border-radius: 16px;
+  padding: 16px 22px;
+}
+
+.pu-sched__grade {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.pu-sched__days {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6d28d9;
+  line-height: 1.4;
+}
+
+.pu-sched__time {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #f97316;
 }
 
 /* ── CARDS ── */
