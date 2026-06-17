@@ -389,6 +389,17 @@
   padding: 16px 36px;
 }
 
+/* Standalone centered CTA between sections */
+.p2-mid-cta {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 44px;
+}
+@media (max-width: 640px) {
+  .p2-mid-cta { margin: 0 0 32px; padding: 0 20px; }
+  .p2-mid-cta .p2-btn { width: 100%; }
+}
+
 /* ===== HERO RIGHT — PHOTO + ICONS ===== */
 .p2-hero__right {
   position: relative;
@@ -407,6 +418,8 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(109, 40, 217, 0.14);
+  box-shadow: 0 14px 38px rgba(76, 29, 149, 0.18);
 }
 
 /* Hero photo — flex item crops img to its own bounds */

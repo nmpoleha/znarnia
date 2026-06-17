@@ -531,6 +531,11 @@ export default function Page() {
         </div>
       </section>
 
+      {/* CTA after "Как проходят занятия" */}
+      <div className="p2-mid-cta">
+        <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
+      </div>
+
       {/* SCREEN 4 — WHAT CHILD LEARNS */}
       <section className="p2-learns">
         <span className="p2-learns__bg-leaf p2-learns__bg-leaf--1" aria-hidden="true">🍁</span>
@@ -701,6 +706,11 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* CTA after "Результаты" */}
+      <div className="p2-mid-cta">
+        <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
+      </div>
 
       {/* AUTHOR */}
       <section className="lk-author-section">
