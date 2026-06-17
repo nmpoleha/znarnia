@@ -129,6 +129,23 @@
   mix-blend-mode: multiply;
 }
 
+/* Планшеты: фото абсолютное и текст налезает на него — стекаем колонкой */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .pu-hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+  }
+  .pu-hero__left { max-width: 100%; }
+  .pu-hero__right {
+    position: static;
+    top: auto;
+    width: 100%;
+    text-align: center;
+  }
+  .pu-hero__img { max-width: 360px; }
+}
+
 .pu-hero__tag {
   display: inline-block;
   background: #f3f0ff;
