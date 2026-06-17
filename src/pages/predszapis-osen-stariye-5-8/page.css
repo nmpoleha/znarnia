@@ -395,8 +395,11 @@
   justify-content: center;
   margin: 4px 0 44px;
 }
+/* When placed inside a section right after its card */
+.p2-mid-cta--in-section { margin: 28px 0 0; }
 @media (max-width: 640px) {
   .p2-mid-cta { margin: 0 0 32px; padding: 0 20px; }
+  .p2-mid-cta--in-section { margin: 24px 0 0; }
   .p2-mid-cta .p2-btn { width: 100%; }
 }
 
@@ -2365,4 +2368,54 @@
   .p2-results__highlight { padding: 16px 18px; gap: 16px; }
   .p2-results__highlight-main { font-size: 14px; }
   .p2-results__highlight-num { font-size: 38px; }
+}
+
+/* ============================================================
+   Унифицированный вертикальный ритм между секциями.
+   Контентные секции: padding-top: 0, padding-bottom: G.
+   Секция после цветной плашки (p2-how после p2-stats): pt = G.
+   Отступ перед плашкой p2-cta даёт padding-bottom соседней секции.
+   G = 64 (десктоп) / 40 (≤720) / 32 (≤480).
+   ============================================================ */
+.p2-how,
+.p2-learns,
+.p2-pu-section,
+.p2-more,
+.p2-results,
+.lk-author-section,
+.lk-social-section {
+  padding-top: 0;
+  padding-bottom: 64px;
+}
+.p2-how { padding-top: 64px; }
+.p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 64px; }
+
+@media (max-width: 720px) {
+  .p2-how,
+  .p2-learns,
+  .p2-pu-section,
+  .p2-more,
+  .p2-results,
+  .lk-author-section,
+  .lk-social-section {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+  .p2-how { padding-top: 40px; }
+  .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 40px; }
+}
+
+@media (max-width: 480px) {
+  .p2-how,
+  .p2-learns,
+  .p2-pu-section,
+  .p2-more,
+  .p2-results,
+  .lk-author-section,
+  .lk-social-section {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+  .p2-how { padding-top: 32px; }
+  .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 32px; }
 }

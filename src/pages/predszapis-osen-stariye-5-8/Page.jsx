@@ -704,13 +704,12 @@ export default function Page() {
               <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
             </div>
           </div>
+          {/* CTA inside "Результаты" */}
+          <div className="p2-mid-cta p2-mid-cta--in-section">
+            <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
+          </div>
         </div>
       </section>
-
-      {/* CTA after "Результаты" */}
-      <div className="p2-mid-cta">
-        <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
-      </div>
 
       {/* AUTHOR */}
       <section className="lk-author-section">
