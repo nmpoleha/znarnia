@@ -2376,9 +2376,13 @@
   /* Иллюстрация «Почему Знарния»: показываем целиком, без зум-кропа */
   .p2-more__media img { transform: none; }
 
-  /* Фото в «Результатах»: стопкой под текстом, аккуратная пропорция вместо растяжки */
+  /* Фото в «Результатах»: стопкой под текстом, ширина строго по карточке
+     (min-height сбрасываем повышенной специфичностью, иначе aspect-ratio
+     раздувает ширину и фото вылезает за границы) */
+  .p2-results__photo-slot.p2-results__photo-slot--filled,
   .p2-results__photo-slot {
-    align-self: auto;
+    align-self: stretch;
+    width: 100%;
     margin-top: 24px;
     min-height: 0;
     aspect-ratio: 16 / 10;
@@ -2444,4 +2448,11 @@
   }
   .p2-how { padding-top: 32px; }
   .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 32px; }
+}
+
+/* Планшеты: карточки «Как проходят занятия» растут под контент,
+   без принудительной равной высоты — иначе длинный текст обрезается */
+@media (min-width: 721px) and (max-width: 960px) {
+  .p2-how__grid { align-items: flex-start; }
+  .p2-how__col .p2-how__card { flex: none; }
 }
