@@ -297,12 +297,42 @@ export default function Page() {
           </div>
         </div>
 
-        {/* ── SECTION 1 ── */}
-        <section className="pu-card pu-card--s1">
+        {/* ── SECTION 1 (онлайн-урок с учителем) ── */}
+        <section className="pu-card pu-card--s1 pu-card--s3">
           <div className="pu-card__head">
             <Num n="1" />
             <div>
-              <div className="pu-card__title">Интерактивный урок-тренажёр</div>
+              <div className="pu-card__title">Интерактивный онлайн-урок с учителем</div>
+              <div className="pu-card__sub" style={{marginTop:'10px'}}>Живое участие вместо пассивного просмотра</div>
+            </div>
+          </div>
+          <div className="pu-card__body pu-card__body--row">
+            <div className="pu-card__body-left">
+              <CheckList items={[
+                'ребёнок отвечает на вопросы в процессе урока',
+                'сразу видит, правильно или нет',
+                'получает баллы за выполнение заданий',
+              ]} />
+              <div className="pu-callout">
+                Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
+              </div>
+              <a href="#" className="pu-btn-purple">Посмотреть расписание</a>
+            </div>
+            <div className="pu-card__body-right">
+              <div className="pu-lesson-preview">
+                <img src="/znarnia/images/online-lesson.png" alt="" className="pu-lesson-preview__img" style={{transform:'scale(1.1) translateY(-20px)'}} />
+                <div className="pu-lesson-preview__badge pu-lesson-preview__badge--lg"><DiamondIcon />+15 баллов</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 2 (урок-тренажёр) ── */}
+        <section className="pu-card">
+          <div className="pu-card__head">
+            <Num n="2" />
+            <div>
+              <div className="pu-card__title">Интерактивный урок-тренажёр по школьной математике</div>
               <div className="pu-card__sub">{nb('Системное освоение темы через цикл «теория → практика → закрепление»')}</div>
             </div>
           </div>
@@ -337,16 +367,16 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── SECTION 2 ── */}
+        {/* ── SECTION 3 (сюжетная линия) ── */}
         <section className="pu-card">
           <div className="pu-card__head pu-card__head--center">
-            <Num n="2" />
-            <div className="pu-card__title">Урок с сюжетной линией</div>
+            <Num n="3" />
+            <div className="pu-card__title">Интерактивный урок-тренажёр на развитие мышления</div>
           </div>
           <div className="pu-s2-body">
             <div className="pu-s2-left">
-              <p className="pu-s2-bold">{nb('Тема урока построена на реальной жизненной ситуации.')}</p>
-              <p className="pu-card__text">{nb('Ребёнок не просто изучает тему — он сразу видит, где и как она используется в реальной жизни.')}</p>
+              <p className="pu-card__text">{nb('На занятии ребёнок учится понимать прочитанное, рассуждать, анализировать информацию и самостоятельно находить решения.')}</p>
+              <p className="pu-card__text">{nb('Все задания объединены увлекательным сюжетом, который помогает сохранить интерес и вовлечённость на протяжении всего урока.')}</p>
             </div>
             <div className="pu-s2-mid">
               <img src="/znarnia/images/girl-tablet.png" alt="" className="pu-s2-img" />
@@ -357,35 +387,6 @@ export default function Page() {
                 'Повышает интерес к обучению',
                 <>Убирает вопрос:<br />«А зачем мне это нужно?»</>,
               ]} />
-            </div>
-          </div>
-        </section>
-
-        {/* ── SECTION 3 ── */}
-        <section className="pu-card pu-card--s3">
-          <div className="pu-card__head">
-            <Num n="3" />
-            <div>
-              <div className="pu-card__title">Интерактивный онлайн-урок с учителем</div>
-              <div className="pu-card__sub" style={{marginTop:'10px'}}>Живое участие вместо пассивного просмотра</div>
-            </div>
-          </div>
-          <div className="pu-card__body pu-card__body--row">
-            <div className="pu-card__body-left">
-              <CheckList items={[
-                'ребёнок отвечает на вопросы в процессе урока',
-                'сразу видит, правильно или нет',
-                'получает баллы за выполнение заданий',
-              ]} />
-              <div className="pu-callout">
-                Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
-              </div>
-            </div>
-            <div className="pu-card__body-right">
-              <div className="pu-lesson-preview">
-                <img src="/znarnia/images/online-lesson.png" alt="" className="pu-lesson-preview__img" style={{transform:'scale(1.1) translateY(-20px)'}} />
-                <div className="pu-lesson-preview__badge pu-lesson-preview__badge--lg"><DiamondIcon />+15 баллов</div>
-              </div>
             </div>
           </div>
         </section>

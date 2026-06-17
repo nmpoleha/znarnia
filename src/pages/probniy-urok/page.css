@@ -203,6 +203,27 @@
   box-shadow: 0 8px 28px rgba(249, 115, 22, 0.4);
 }
 
+.pu-btn-purple {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 14px 28px;
+  background: #6d28d9;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(109, 40, 217, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.pu-btn-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(109, 40, 217, 0.4);
+}
+
 /* ── CARDS ── */
 .pu-card--s1 { margin-top: 80px; }
 
@@ -648,6 +669,7 @@
     padding: 24px 20px;
   }
   .pu-btn-orange { width: 100%; justify-content: center; }
+  .pu-btn-purple { width: 100%; justify-content: center; }
 }
 
 /* ── REVIEWS + SCHOOLS SECTION ── */
