@@ -487,6 +487,18 @@
 .p2-stats__item:first-child { padding-left: 0; }
 .p2-stats__item:last-child  { border-right: none; padding-right: 0; }
 
+/* Планшеты: 3 ячейки «число над подписью», по центру — без тесного переноса */
+@media (min-width: 721px) and (max-width: 960px) {
+  .p2-stats__item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 0 16px;
+  }
+  .p2-stats__val { white-space: normal; }
+}
+
 .p2-stats__val {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
@@ -1304,7 +1316,9 @@
   .p2-hero__title { order: 1; margin: 0; }
   .p2-hero__badge { order: 2; margin: 0; }
   .p2-hero__photo-wrap { order: 3; margin: 0; }
-  .p2-hero__price-block { order: 4; margin: 0; }
+  /* На планшетах/мобилке прайс-блок растягиваем на всю ширину
+     (контейнер имеет align-items: start, поэтому нужен align-self: stretch) */
+  .p2-hero__price-block { order: 4; margin: 0; align-self: stretch; }
   .p2-hero__desc { order: 5; margin: 0; }
 
   /* Feature icons: wrap into a grid (3 per row) instead of one nowrap row —
@@ -2344,10 +2358,11 @@
   margin-top: 5px;
 }
 
-@media (max-width: 720px) {
+/* Планшеты и ниже: двухколоночные блоки more/results стекаются в одну колонку,
+   иначе текстовая колонка сжимается, а иллюстрация вылезает (721–960px) */
+@media (max-width: 960px) {
   .p2-more__card,
   .p2-results__card { grid-template-columns: 1fr; gap: 0; }
-  .p2-results__photo-slot { display: none; }
   .p2-results__list { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
 
   /* «Почему Знарния»: стопкой — текст, картинка целиком, цель без наложения */
@@ -2357,6 +2372,17 @@
   .p2-more__media { align-self: auto; margin-top: 24px; }
   .p2-more__media img { height: auto; }
   .p2-more__goal { margin-top: 24px; width: 100%; }
+
+  /* Иллюстрация «Почему Знарния»: показываем целиком, без зум-кропа */
+  .p2-more__media img { transform: none; }
+
+  /* Фото в «Результатах»: стопкой под текстом, аккуратная пропорция вместо растяжки */
+  .p2-results__photo-slot {
+    align-self: auto;
+    margin-top: 24px;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
 }
 
 @media (max-width: 480px) {
