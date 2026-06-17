@@ -427,13 +427,6 @@ export default function Page() {
             <div className="pu-s2-mid">
               <img src="/znarnia/images/girl-tablet.png" alt="" className="pu-s2-img" />
             </div>
-            <div className="pu-s2-right">
-              <CheckList items={[
-                'Делает материал понятнее',
-                'Повышает интерес к обучению',
-                <>Убирает вопрос:<br />«А зачем мне это нужно?»</>,
-              ]} />
-            </div>
           </div>
         </section>
 

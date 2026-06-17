@@ -506,11 +506,11 @@
 }
 
 .pu-s2-left {
-  flex: 0 0 34%;
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: -20px;
 }
 
 .pu-s2-bold {
@@ -522,7 +522,7 @@
 }
 
 .pu-s2-mid {
-  flex: 0 0 38%;
+  flex: 0 0 46%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -535,15 +535,9 @@
   border-radius: 48px;
 }
 
-.pu-s2-right {
-  flex: 1;
-  align-self: flex-start;
-  padding-top: 50px;
-}
-
 @media (max-width: 640px) {
   .pu-s2-body { flex-direction: column; }
-  .pu-s2-left, .pu-s2-mid, .pu-s2-right { flex: none; width: 100%; }
+  .pu-s2-left, .pu-s2-mid { flex: none; width: 100%; }
   .pu-s2-mid { min-height: 160px; }
 }
 
