@@ -334,6 +334,15 @@ export default function Page() {
           </div>
         </div>
 
+        {/* ── GIFT BANNER ── */}
+        <div className="pu-gift">
+          <div className="pu-gift__text">
+            <span className="pu-gift__icon" aria-hidden="true">🎁</span>
+            <span>{nb('При записи на пробную неделю вы получаете ')}<b>диагностический&nbsp;урок в&nbsp;подарок</b></span>
+          </div>
+          <a href="#" className="pu-gift__btn">Подробнее</a>
+        </div>
+
         {/* ── SECTION 1 (онлайн-урок с учителем) ── */}
         <section className="pu-card pu-card--s1 pu-card--s3">
           <div className="pu-card__head">

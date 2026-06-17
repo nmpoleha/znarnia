@@ -759,6 +759,14 @@
   }
   .pu-btn-orange { width: 100%; justify-content: center; }
   .pu-btn-purple { width: 100%; justify-content: center; }
+
+  .pu-gift {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px 20px;
+  }
+  .pu-gift__text { flex-direction: column; gap: 10px; font-size: 17px; }
+  .pu-gift__btn { width: 100%; justify-content: center; }
 }
 
 /* ── REVIEWS + SCHOOLS SECTION ── */
@@ -862,6 +870,55 @@
 }
 
 /* ── THESES BANNER ── */
+.pu-gift {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: linear-gradient(120deg, #7c3aed 0%, #a21caf 45%, #f97316 100%);
+  border-radius: 18px;
+  padding: 22px 32px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 34px rgba(124, 58, 237, 0.28);
+}
+
+.pu-gift__text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+}
+.pu-gift__text b { font-weight: 800; }
+
+.pu-gift__icon { font-size: 34px; flex-shrink: 0; line-height: 1; }
+
+.pu-gift__btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 32px;
+  background: #fff;
+  color: #6d28d9;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.pu-gift__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+}
+
 .pu-theses {
   background: rgba(237, 233, 254, 0.55);
   backdrop-filter: blur(8px);
