@@ -1,0 +1,6 @@
+/* Overrides specific to the diagnostika-podarok page */
+
+/* Сместить фото в герое ниже (исходно top: -260px) */
+.dg-page--podarok .dg-hero__v2-img {
+  top: -200px;
+}

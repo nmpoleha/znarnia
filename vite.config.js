@@ -32,6 +32,7 @@ export default defineConfig({
         'probniy-urok': resolve(__dirname, 'probniy-urok/index.html'),
         'diagnostika-finalnaya': resolve(__dirname, 'diagnostika-finalnaya/index.html'),
         'diagnostika-finalnaya-2': resolve(__dirname, 'diagnostika-finalnaya-2/index.html'),
+        'diagnostika-podarok': resolve(__dirname, 'diagnostika-podarok/index.html'),
         'letnie-kursy': resolve(__dirname, 'letnie-kursy/index.html'),
         'letnie-kursy-2': resolve(__dirname, 'letnie-kursy-2/index.html'),
         'glavnaya': resolve(__dirname, 'glavnaya/index.html'),
@@ -39,6 +40,7 @@ export default defineConfig({
         'predszapis-osen-novye': resolve(__dirname, 'predszapis-osen-novye/index.html'),
         'predszapis-osen-novye-2': resolve(__dirname, 'predszapis-osen-novye-2/index.html'),
         'predszapis-osen-2': resolve(__dirname, 'predszapis-osen-2/index.html'),
+        'predszapis-osen-srednyaya': resolve(__dirname, 'predszapis-osen-srednyaya/index.html'),
         'predszapis-osen-stariye-5-8': resolve(__dirname, 'predszapis-osen-stariye-5-8/index.html'),
       },
     },
@@ -46,5 +48,6 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true,
+    allowedHosts: ['.ts.net'],
   },
 })

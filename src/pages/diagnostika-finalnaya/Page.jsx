@@ -403,13 +403,13 @@ const SCHEDULE_ITEMS = [
   { date: '30 мая (сб)', time: '11:30', grade: '10 класс' },
 ]
 
-export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVariant, heroV2Image, hideHero } = {}) {
+export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVariant, heroV2Image, hideHero, hidePrice, hideSchedule, hideCta, hideReviews, hideAuthor, hideLetters, pageClass } = {}) {
   const [modalOpen, setModalOpen] = useState(false)
   const [scheduleOpen, setScheduleOpen] = useState(false)
   const openModal = e => { e.preventDefault(); setModalOpen(true) }
 
   return (
-    <div className={`dg-page${heroVariant === 'v2' ? ' dg-page--white' : ''}`}>
+    <div className={`dg-page${heroVariant === 'v2' ? ' dg-page--white' : ''}${pageClass ? ' ' + pageClass : ''}`}>
       {modalOpen && <Modal onClose={() => setModalOpen(false)} />}
       <ContactBar />
       {heroVariant !== 'v2' && <div className="dg-page__bg-glow dg-page__bg-glow--1" />}
@@ -455,8 +455,10 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                   </div>
                 ))}
               </div>
+              {(!hideCta || !hidePrice) && (
               <div className="dg-hero__v2-bottom">
                 <div className="dg-hero__cta-left">
+                  {!hideCta && (
                   <a href="#" className="dg-hero__cta-btn" onClick={openModal}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" strokeWidth="2"/>
@@ -467,6 +469,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                     </svg>
                     Записаться на онлайн-диагностику
                   </a>
+                  )}
                   <span className="dg-hero__cta-note">
                     <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
                       <path d="M2 2 C2 2 2 9 8 9 L8 9 L14 9 M11 6 L14 9 L11 12" stroke="#f97316" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -474,12 +477,15 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                     Всего 1 занятие — польза на месяцы вперёд
                   </span>
                 </div>
+                {!hidePrice && (
                 <div className="dg-hero__v2-price">
                   <span className="dg-price__old">590&thinsp;₽</span>
                   <span className="dg-price__new">290&thinsp;₽</span>
                   <span className="dg-price__deadline">цена действует до 16 мая</span>
                 </div>
+                )}
               </div>
+              )}
               <div className="dg-hero__footer-badges">
                 {[
                   { icon: 'icon-graduation', title: '1–10 класс', desc: 'для школьников' },
@@ -695,6 +701,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
 
 
             {/* ── RECORDING ── */}
+            {!hideSchedule && (
             <div className="dg-how__record-cta">
               <button className="dg-who__schedule-btn" onClick={() => setScheduleOpen(v => !v)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -723,6 +730,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
                 </div>
               )}
             </div>
+            )}
             <div className="dg-how__record">
               <div className="dg-how__record-head">
                 <div className="dg-how__record-play">▶</div>
@@ -886,7 +894,7 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
         </section>}
 
         {/* AUTHOR + STATS */}
-        <div className="dg-author">
+        {!hideAuthor && <div className="dg-author">
           <div className="dg-author__top">
             <div className="dg-author__left">
               <div className="dg-author__label">Основатель и руководитель<br/>Школы Знарния</div>
@@ -926,13 +934,13 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
               </div>
             ))}
           </div>
-        </div>
+        </div>}
 
         {/* REVIEWS */}
-        <ReviewsCarousel />
+        {!hideReviews && <ReviewsCarousel />}
 
         {/* SCHOOLS */}
-        <div className="dg-schools">
+        {!hideLetters && <div className="dg-schools">
           <div className="dg-schools__icon">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
               <path d="M14 3L3 9l11 6 11-6-11-6z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -945,14 +953,14 @@ export default function Page({ heroTitle, hideHeroRight, hideHeroDesc, heroVaria
             <p className="dg-schools__text">{nb('Опыт сотрудничества со школами — одно из подтверждений качества нашей диагностики. Мы проводили независимую оценку знаний для учеников из более 50 образовательных учреждений Москвы и получали благодарственные письма от школ и педагогов.')}</p>
             <LettersCarousel />
           </div>
-        </div>
+        </div>}
 
         {/* RESULT */}
         <section className="dg-result">
           <div className="dg-result__title">{nb('Вы уходите не с вопросами, а с готовым планом действий')}</div>
           <p className="dg-result__text">{nb('Один урок поможет понять больше, чем месяцы догадок и тревоги: что мешает ребёнку, с чего начать и как улучшить результат.')}</p>
           <img className="dg-result__image" src="/znarnia/lampochka.png" alt="" />
-          <a href="#" className="dg-result__btn" onClick={openModal}>Записаться на диагностический урок</a>
+          {!hideCta && <a href="#" className="dg-result__btn" onClick={openModal}>Записаться на диагностический урок</a>}
         </section>
 
         <footer className="dg-footer">

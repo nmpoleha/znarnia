@@ -340,7 +340,7 @@ export default function Page() {
             <span className="pu-gift__icon" aria-hidden="true">🎁</span>
             <span>{nb('При записи на пробную неделю вы получаете ')}<b>диагностический&nbsp;урок в&nbsp;подарок</b></span>
           </div>
-          <a href="#" className="pu-gift__btn">Подробнее</a>
+          <a href="/znarnia/diagnostika-podarok/" className="pu-gift__btn">Подробнее</a>
         </div>
 
         {/* ── SECTION 1 (онлайн-урок с учителем) ── */}
