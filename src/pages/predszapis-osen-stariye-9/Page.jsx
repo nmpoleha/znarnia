@@ -606,36 +606,39 @@ export default function Page() {
           <div className="lk-cards-row">
             <div className="lk-pu-card">
               <div className="lk-pu-card__head">
-                <div className="lk-pu-card__title">{nb('Не получилось присутствовать онлайн? Не проблема')}</div>
+                <div className="lk-pu-card__eyebrow">Все уроки доступны в записи</div>
+                <div className="lk-pu-card__title">Ни один урок не потеряется</div>
               </div>
               <div className="lk-pu-card__body">
-                <p className="lk-pu-card__text">Если ребёнок пропустил онлайн-урок:</p>
+                <p className="lk-pu-card__text">Каждый урок сохраняется в личном кабинете.</p>
+                <p className="lk-pu-card__text">{nb('Даже при просмотре записи ребёнок остаётся активным участником занятия:')}</p>
                 <ul className="lk-pu-checklist">
-                  {['он смотрит его в записи','сохраняется вся интерактивность','получает мгновенную обратную связь','статистика также доступна родителям'].map((t, i) => (
+                  {['выполняет задания','вводит ответы','получает звёзды за правильные решения','проходит урок в интерактивном формате'].map((t, i) => (
                     <li key={i}><LkCheck /><span>{nb(t)}</span></li>
                   ))}
                 </ul>
-                <div className="lk-pu-note lk-pu-note--row"><LkPlayIcon /><span>По эффективности это тот же полноценный урок.</span></div>
+                <div className="lk-pu-note lk-pu-note--row"><LkPlayIcon /><span>{nb('При этом запись сохраняет весь функционал урока, поэтому ребёнок получает практически тот же учебный опыт, что и на занятии в режиме реального времени.')}</span></div>
               </div>
             </div>
 
             <div className="lk-pu-card">
               <div className="lk-pu-card__head">
-                <div className="lk-pu-card__title">Полная прозрачность для родителей</div>
+                <div className="lk-pu-card__eyebrow">Контроль прогресса ребёнка</div>
+                <div className="lk-pu-card__title">Родители всегда видят прогресс подготовки</div>
               </div>
               <div className="lk-pu-card__body lk-pu-card__body--row" style={{alignItems:'flex-start'}}>
                 <div className="lk-pu-card__body-left">
-                  <p className="lk-pu-card__text">После каждого урока вы получаете подробную статистику:</p>
+                  <p className="lk-pu-card__text">{nb('В личном кабинете доступна подробная статистика обучения, которая помогает отслеживать вовлечённость ребёнка и его результаты.')}</p>
+                  <p className="lk-pu-card__text">Родители в любой момент могут посмотреть:</p>
                   <ul className="lk-pu-checklist">
-                    {['сколько заданий решено','где были ошибки','сколько попыток понадобилось'].map((t, i) => (
+                    {['сколько заданий выполнил ребёнок','сколько заданий решил правильно','сколько попыток понадобилось для решения','какие темы вызывают затруднения','как меняются результаты от занятия к занятию'].map((t, i) => (
                       <li key={i}><LkCheck /><span>{nb(t)}</span></li>
                     ))}
-                    <li><LkCheck /><span style={{whiteSpace:'nowrap'}}>какие темы вызвали сложности</span></li>
                   </ul>
                 </div>
                 <LkStatsChart />
               </div>
-              <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span>{nb('Вы не гадаете — вы точно понимаете уровень ребёнка.')}</span></div>
+              <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span><strong>Всё обучение прозрачно.</strong> {nb('Вы видите не только посещаемость занятий, но и то, насколько успешно ребёнок осваивает экзаменационные темы и продвигается к своей цели.')}</span></div>
             </div>
           </div>
         </div>
@@ -646,27 +649,69 @@ export default function Page() {
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
         <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
-          <h2 className="p2-section-title">Почему Знарния — это больше, чем репетитор</h2>
+          <div className="p2-section-badge">Что входит в подготовку к ОГЭ</div>
+          <h2 className="p2-section-title">{nb('Готовим именно к экзамену, а не просто занимаемся математикой')}</h2>
           <div className="p2-more__card">
             <div className="p2-more__content">
-            <p className="p2-more__lead">{nb('Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.')}</p>
-            <p className="p2-more__accent">Мы работаем иначе.</p>
-            <ul className="lk-pu-checklist p2-more__list">
-              {[
-                'Выявляем и устраняем пробелы в знаниях',
-                'Выстраиваем прочную математическую базу',
-                'Помогаем разобраться со сложными темами школьной программы',
-                'Развиваем умение рассуждать и находить решения',
-                'Учим ребёнка самостоятельно справляться с учебными задачами',
-              ].map((t, i) => (
-                <li key={i}><LkCheck /><span>{nb(t)}</span></li>
-              ))}
-            </ul>
+              <div className="p2-more__features">
+                {[
+                  { title: 'Прорабатываем все темы, которые будут на ОГЭ 2027', text: 'Выявляем и устраняем пробелы именно в тех разделах математики, которые проверяются на экзамене и влияют на итоговый результат.' },
+                  { title: 'Разбираем все типы заданий ОГЭ 2027', text: 'Последовательно проходим задания экзамена от первой до второй части, чтобы на экзамене не осталось незнакомых форматов и неожиданных вопросов.' },
+                  { title: 'Формируем уверенность и экзаменационные навыки', text: 'Ребёнок учится быстро ориентироваться в заданиях, правильно оформлять решения и спокойно чувствовать себя на экзамене.' },
+                ].map((f, i) => (
+                  <div className="p2-more__feature" key={i}>
+                    <div className="p2-more__feature-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                    <div className="p2-more__feature-body">
+                      <h3 className="p2-more__feature-title">{nb(f.title)}</h3>
+                      <p className="p2-more__feature-text">{nb(f.text)}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="p2-more__media">
               <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
             </div>
-            <p className="p2-more__goal">{nb('Наша цель — не временно улучшить результат, а ')}<span className="p2-more__goal-accent">{nb('создать фундамент для дальнейшего успешного обучения')}</span>.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* SCREEN 6 — WHY SCHOOL PROGRAM IS NOT ENOUGH */}
+      <section className="p2-more">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
+        <div className="os-wrap">
+          <h2 className="p2-section-title">Почему одной школьной программы недостаточно</h2>
+          <div className="p2-why__card">
+            <p className="p2-why__text">Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.</p>
+            <p className="p2-why__text">{nb('У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.')}</p>
+            <p className="p2-why__text">{nb('Поэтому даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.')}</p>
+            <p className="p2-more__goal">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* SCREEN 7 — WHY OUR STUDENTS PASS CONFIDENTLY */}
+      <section className="p2-more">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍁</span>
+        <div className="os-wrap">
+          <h2 className="p2-section-title">Почему наши ученики уверенно сдают ОГЭ</h2>
+          <div className="p2-more__card p2-more__card--solo">
+            <p className="p2-more__lead">{nb('Многие школьники изучают математику в школе, но не готовы к формату экзамена.')}</p>
+            <p className="p2-more__accent">Поэтому наша программа строится иначе.</p>
+            <ul className="lk-pu-checklist p2-more__list">
+              {[
+                'Прорабатываем все темы, которые будут на ОГЭ 2027',
+                'Разбираем каждый тип экзаменационных заданий',
+                'Регулярно проводим пробные экзамены',
+                'Выявляем и устраняем пробелы в знаниях',
+                'Формируем уверенность и экзаменационные навыки',
+              ].map((t, i) => (
+                <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+              ))}
+            </ul>
+            <p className="p2-more__goal">{nb('В результате ребёнок приходит на экзамен подготовленным и ')}<span className="p2-more__goal-accent">{nb('понимает, как решать каждое задание')}</span>.</p>
           </div>
         </div>
       </section>
