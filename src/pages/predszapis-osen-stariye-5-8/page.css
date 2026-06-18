@@ -690,10 +690,17 @@
   overflow: hidden;
 }
 
-/* Equal height: both cards in a column split it evenly, so the top row and
-   the bottom row line up across columns — a clean 2×2 around the image. */
+/* Карточки растут под контент (без принудительной равной высоты —
+   иначе длинный текст обрезается из-за overflow: hidden). */
 .p2-how__col .p2-how__card {
-  flex: 1;
+  flex: none;
+}
+
+/* На планшете/десктопе (грид в ряд) колонки естественной высоты,
+   фото по центру тянется по высоте за счёт align-self: stretch.
+   На телефоне (грид в колонку) этого правила нет — колонки на всю ширину. */
+@media (min-width: 721px) {
+  .p2-how__col { align-self: flex-start; }
 }
 
 .p2-how__card--lilac  .p2-how__card-icon { background: #7c3aed; }
@@ -2450,9 +2457,3 @@
   .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 32px; }
 }
 
-/* Планшеты: карточки «Как проходят занятия» растут под контент,
-   без принудительной равной высоты — иначе длинный текст обрезается */
-@media (min-width: 721px) and (max-width: 960px) {
-  .p2-how__grid { align-items: flex-start; }
-  .p2-how__col .p2-how__card { flex: none; }
-}
