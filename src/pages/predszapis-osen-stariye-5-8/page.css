@@ -42,11 +42,11 @@
 
 /* Mid desktop / iPad Pro (961–1200): 100px side padding is too much and squeezes
    3-column cards so titles overflow — give content more room. */
-@media (min-width: 961px) and (max-width: 1200px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
   .p2 .os-wrap { padding-left: 56px; padding-right: 56px; }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .p2 .os-wrap { padding-left: 48px; padding-right: 48px; }
 }
 
@@ -443,6 +443,18 @@
   display: block;
 }
 
+/* Десктоп: фиксируем горизонтальную пропорцию фото 3:2 (родная 1280×853),
+   иначе на узком десктопе фото-колонка растягивается на высоту текста
+   и горизонтальное фото кропается в вертикальное. Центрируем по вертикали. */
+@media (min-width: 1025px) {
+  .p2-hero__right { align-self: center; }
+  .p2-hero__photo-wrap {
+    flex: none;
+    aspect-ratio: 3 / 2;
+  }
+  .p2-hero__photo { min-height: 0; }
+}
+
 /* Decorative autumn leaves — §4 (decorative absolute, aria-hidden) */
 .p2-leaf {
   position: absolute;
@@ -488,7 +500,7 @@
 .p2-stats__item:last-child  { border-right: none; padding-right: 0; }
 
 /* Планшеты: 3 ячейки «число над подписью», по центру — без тесного переноса */
-@media (min-width: 721px) and (max-width: 960px) {
+@media (min-width: 721px) and (max-width: 1024px) {
   .p2-stats__item {
     flex-direction: column;
     align-items: center;
@@ -1306,8 +1318,8 @@
   margin: 6px 0 20px;
 }
 
-/* ===== RESPONSIVE: tablet landscape (960px) ===== */
-@media (max-width: 960px) {
+/* ===== RESPONSIVE: tablet landscape (≤1024px) ===== */
+@media (max-width: 1024px) {
   /* Flatten the two columns into one flow so desc <-> photo can be swapped.
      A single flex gap drives the vertical rhythm — per-element margins are
      zeroed so spacing stays uniform/harmonious. */
@@ -1400,9 +1412,9 @@
 
 /* Surface Pro 7 (912×1368) and similar large tablets: the wide-but-short hero
    photo box crops the kids' bodies at the bottom. Anchor to the bottom so the
-   top of the original is cropped instead. Scoped to 769–960px so phones (≤768)
-   and desktop (>960) keep the original framing unchanged. */
-@media (min-width: 769px) and (max-width: 960px) {
+   top of the original is cropped instead. Scoped to 769–1024px so phones (≤768)
+   and desktop (>1024) keep the original framing unchanged. */
+@media (min-width: 769px) and (max-width: 1024px) {
   .p2-hero__photo img { object-position: center 35%; }
 }
 
@@ -2366,8 +2378,8 @@
 }
 
 /* Планшеты и ниже: двухколоночные блоки more/results стекаются в одну колонку,
-   иначе текстовая колонка сжимается, а иллюстрация вылезает (721–960px) */
-@media (max-width: 960px) {
+   иначе текстовая колонка сжимается, а иллюстрация вылезает (721–1024px) */
+@media (max-width: 1024px) {
   .p2-more__card,
   .p2-results__card { grid-template-columns: 1fr; gap: 0; }
   .p2-results__list { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
@@ -2457,3 +2469,21 @@
   .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 32px; }
 }
 
+
+/* Планшеты (721–1024, фото скрыто): симметричная сетка 2×2.
+   Колонки-обёртки убираем (display: contents), 4 карточки становятся
+   прямыми элементами грида. Равные строки 1fr 1fr + auto-flow: column
+   дают одинаковую высоту всем карточкам (= самой высокой), текст помещается
+   без обрезки, порядок: слева сверху-вниз, затем справа. */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .p2-how__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .p2-how__col { display: contents; }
+  .p2-how__col .p2-how__card { height: 100%; }
+}
