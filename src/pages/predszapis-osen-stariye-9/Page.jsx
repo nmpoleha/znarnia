@@ -676,42 +676,45 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SCREEN 6 — WHY SCHOOL PROGRAM IS NOT ENOUGH */}
+      {/* SCREEN 6 + 7 — WHY (two cards side by side) */}
       <section className="p2-more">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
         <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
-          <h2 className="p2-section-title">Почему одной школьной программы недостаточно</h2>
-          <div className="p2-why__card">
-            <p className="p2-why__text">Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.</p>
-            <p className="p2-why__text">{nb('У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.')}</p>
-            <p className="p2-why__text">{nb('Поэтому даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.')}</p>
-            <p className="p2-more__goal">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</p>
-          </div>
-        </div>
-      </section>
+          <div className="lk-cards-row p2-why-row">
+            <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <div className="lk-pu-card__title">{nb('Почему одной школьной программы недостаточно')}</div>
+              </div>
+              <div className="lk-pu-card__body">
+                <p className="lk-pu-card__text">Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.</p>
+                <p className="lk-pu-card__text">{nb('У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.')}</p>
+                <p className="lk-pu-card__text">{nb('Поэтому даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.')}</p>
+                <p className="p2-more__goal p2-why-row__goal">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</p>
+              </div>
+            </div>
 
-      {/* SCREEN 7 — WHY OUR STUDENTS PASS CONFIDENTLY */}
-      <section className="p2-more">
-        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
-        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍁</span>
-        <div className="os-wrap">
-          <h2 className="p2-section-title">Почему наши ученики уверенно сдают ОГЭ</h2>
-          <div className="p2-more__card p2-more__card--solo">
-            <p className="p2-more__lead">{nb('Многие школьники изучают математику в школе, но не готовы к формату экзамена.')}</p>
-            <p className="p2-more__accent">Поэтому наша программа строится иначе.</p>
-            <ul className="lk-pu-checklist p2-more__list">
-              {[
-                'Прорабатываем все темы, которые будут на ОГЭ 2027',
-                'Разбираем каждый тип экзаменационных заданий',
-                'Регулярно проводим пробные экзамены',
-                'Выявляем и устраняем пробелы в знаниях',
-                'Формируем уверенность и экзаменационные навыки',
-              ].map((t, i) => (
-                <li key={i}><LkCheck /><span>{nb(t)}</span></li>
-              ))}
-            </ul>
-            <p className="p2-more__goal">{nb('В результате ребёнок приходит на экзамен подготовленным и ')}<span className="p2-more__goal-accent">{nb('понимает, как решать каждое задание')}</span>.</p>
+            <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <div className="lk-pu-card__title">Почему наши ученики уверенно сдают ОГЭ</div>
+              </div>
+              <div className="lk-pu-card__body">
+                <p className="lk-pu-card__text">{nb('Многие школьники изучают математику в школе, но не готовы к формату экзамена.')}</p>
+                <p className="p2-more__accent">Поэтому наша программа строится иначе.</p>
+                <ul className="lk-pu-checklist">
+                  {[
+                    'Прорабатываем все темы, которые будут на ОГЭ 2027',
+                    'Разбираем каждый тип экзаменационных заданий',
+                    'Регулярно проводим пробные экзамены',
+                    'Выявляем и устраняем пробелы в знаниях',
+                    'Формируем уверенность и экзаменационные навыки',
+                  ].map((t, i) => (
+                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                  ))}
+                </ul>
+                <p className="p2-more__goal p2-why-row__goal">{nb('В результате ребёнок приходит на экзамен подготовленным и ')}<span className="p2-more__goal-accent">{nb('понимает, как решать каждое задание')}</span>.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -725,24 +728,23 @@ export default function Page() {
           <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
           <div className="p2-results__card">
             <div className="p2-results__content">
-            <p className="p2-results__lead">Уже через несколько месяцев занятий ребёнок:</p>
+            <p className="p2-results__lead">Уже через несколько месяцев подготовки:</p>
             <ul className="p2-results__list">
               {[
-                'начинает получать более высокие оценки по математике',
-                'увереннее чувствует себя на уроках',
-                'меньше переживает из-за контрольных и самостоятельных работ',
-                'перестаёт бояться ошибок',
-                'лучше понимает новые темы',
-                'легче справляется с домашними заданиями',
+                'ребёнок увереннее решает экзаменационные задания',
+                'улучшаются результаты пробных экзаменов',
+                'снижается тревожность перед ОГЭ',
+                'появляется понимание структуры экзамена',
+                'ребёнок начинает верить в свои силы и свой результат',
               ].map((t, i) => (
                 <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
               ))}
             </ul>
             <div className="p2-results__highlight">
-              <div className="p2-results__highlight-num">90%</div>
+              <div className="p2-results__highlight-num">95%</div>
               <div className="p2-results__highlight-text">
-                <div className="p2-results__highlight-main">{nb('учеников улучшают результаты по математике минимум на 1 балл')}</div>
-                <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
+                <div className="p2-results__highlight-main">{nb('учеников сдают ОГЭ на уверенные 4 и 5')}</div>
+                <div className="p2-results__highlight-label">Наши результаты</div>
               </div>
             </div>
             </div>

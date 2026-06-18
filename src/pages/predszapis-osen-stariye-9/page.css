@@ -2255,28 +2255,12 @@
   font-size: 15px;
 }
 
-/* Одноколоночная карточка (без иллюстрации) — блок «Почему наши ученики…» */
-.p2-more__card--solo { display: flex; flex-direction: column; }
-
-/* Текстовая карточка «Почему одной школьной программы недостаточно» */
-.p2-why__card {
-  background: var(--p2-card);
-  border: 1.5px solid var(--p2-border);
-  border-radius: var(--p2-radius);
-  padding: 36px 40px;
-  box-shadow: 0 10px 30px var(--p2-shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.p2-why__text {
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  color: var(--p2-text);
-  line-height: 1.6;
-  margin: 0;
-}
+/* Блоки «Почему школьной программы недостаточно» / «Почему сдают ОГЭ» —
+   две карточки в ряд (стопкой ≤768px через lk-cards-row).
+   Тело растягиваем, итоговую плашку прижимаем к низу, чтобы плашки обеих
+   карточек были выровнены по одной линии независимо от длины текста. */
+.p2-why-row .lk-pu-card__body { flex: 1; }
+.p2-why-row__goal { margin-top: auto; }
 
 .p2-more__features {
   display: flex;
@@ -2506,8 +2490,6 @@
 
 @media (max-width: 480px) {
   .p2-more__card { padding: 24px 20px; }
-  .p2-why__card { padding: 24px 20px; }
-  .p2-why__text { font-size: 14px; }
   .p2-more__accent { font-size: 16px; }
   .p2-more__list li, .p2-results__list li, .p2-more__goal { font-size: 14px; }
   .p2-results__card { padding: 24px 20px; }
