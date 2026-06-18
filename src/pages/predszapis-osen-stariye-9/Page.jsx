@@ -451,7 +451,8 @@ export default function Page() {
             <span className="p2-section-badge__sep"/>
             <span>Формат занятий</span>
           </div>
-          <h2 className="p2-section-title">Как проходят занятия</h2>
+          <h2 className="p2-section-title p2-section-title--tight">Как проходят занятия</h2>
+          <p className="p2-section-sub">Подготовка, ориентированная на результат</p>
 
           <div className="p2-how__grid">
 
@@ -467,10 +468,10 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="p2-how__card-title">
-                  Интерактивные онлайн-занятия в мини-группах <span className="p2-how__card-title-accent">с{' '}преподавателем</span>
+                  Интерактивные онлайн-занятия <span className="p2-how__card-title-accent">с{' '}преподавателем</span>
                 </h3>
                 </div>
-                <p className="p2-how__card-text">{nb('Ребёнок не остаётся пассивным слушателем. Во время урока он решает задачи на платформе, вводит ответы, получает мгновенную обратную связь и активно вовлекается в учебный процесс.')}</p>
+                <p className="p2-how__card-text">{nb('Ребёнок не остаётся пассивным слушателем. Во время урока он решает задания на платформе, вводит ответы, получает мгновенную обратную связь и активно вовлекается в учебный процесс.')}</p>
               </div>
             </div>
 
@@ -485,7 +486,7 @@ export default function Page() {
                   </div>
                   <h3 className="p2-how__card-title">Домашние задания</h3>
                 </div>
-                <p className="p2-how__card-text">{nb('Помогают закрепить изученный материал и сформировать навык самостоятельной работы.')}</p>
+                <p className="p2-how__card-text">{nb('Помогают закрепить материал и отработать навыки решения экзаменационных задач.')}</p>
               </div>
             </div>
             </div>
@@ -504,9 +505,9 @@ export default function Page() {
                       <path d="M10 8l6 4-6 4V8z" fill="#fff"/>
                     </svg>
                   </div>
-                  <h3 className="p2-how__card-title">Урок-тренажёр для проработки сложных тем</h3>
+                  <h3 className="p2-how__card-title">Урок-тренажёр для подготовки к ОГЭ</h3>
                 </div>
-                <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы и проработки наиболее сложных тем школьной программы.')}</p>
+                <p className="p2-how__card-text">{nb('Дополнительный интерактивный урок для самостоятельной работы и проработки наиболее сложных экзаменационных заданий.')}</p>
               </div>
             </div>
 
@@ -522,7 +523,7 @@ export default function Page() {
                   </div>
                   <h3 className="p2-how__card-title">Личный кабинет</h3>
                 </div>
-                <p className="p2-how__card-text">{nb('В одном месте собраны записи уроков, домашние задания, уроки-тренажёры и все материалы курса.')}</p>
+                <p className="p2-how__card-text">{nb('В одном месте собраны записи уроков, домашние задания, уроки-тренажёры, статистика и все материалы подготовки.')}</p>
               </div>
             </div>
             </div>

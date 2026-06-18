@@ -565,6 +565,15 @@
   margin: 0 0 32px;
 }
 .p2-section-title--light { color: #fff; }
+.p2-section-title--tight { margin-bottom: 8px; }
+.p2-section-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--p2-muted);
+  line-height: 1.4;
+  margin: 0 0 32px;
+}
 
 /* ===== HOW LESSONS WORK ===== */
 .p2-how {
@@ -1436,6 +1445,7 @@
   .p2-how__col { gap: 20px; }
 
   .p2-section-title { font-size: 24px; }
+  .p2-section-sub { font-size: 16px; }
 
   .p2-records { padding: 36px 0; }
   .p2-learns { padding: 36px 0 0; }
@@ -1480,6 +1490,8 @@
   /* Section labels */
   .p2-section-badge { margin-bottom: 12px; }
   .p2-section-title { font-size: 20px; margin-bottom: 16px; }
+  .p2-section-title--tight { margin-bottom: 6px; }
+  .p2-section-sub { font-size: 15px; margin-bottom: 16px; }
 
   /* How — no bottom padding so the gap to "Чему учится" badge is just the
      learns section's top padding (28px), like the stats(purple)->how gap */
