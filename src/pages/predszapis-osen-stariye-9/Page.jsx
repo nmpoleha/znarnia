@@ -537,62 +537,34 @@ export default function Page() {
         <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
       </div>
 
-      {/* SCREEN 4 — WHAT CHILD LEARNS */}
-      <section className="p2-learns">
-        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--1" aria-hidden="true">🍁</span>
-        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--2" aria-hidden="true">🍂</span>
-        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--3" aria-hidden="true">🍁</span>
-        <span className="p2-learns__bg-leaf p2-learns__bg-leaf--4" aria-hidden="true">🍂</span>
+      {/* SCREEN 4 — WHAT THE PREP INCLUDES */}
+      <section className="p2-more">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
-          <div className="p2-section-badge">Чему учится ребёнок в Знарнии</div>
-          <h2 className="p2-section-title">Мы помогаем не просто повысить оценки, а понять математику</h2>
-          <div className="p2-learns__grid">
-
-            <div className="p2-learns__card p2-learns__card--c1">
-              <div className="p2-learns__card-num" aria-hidden="true">01</div>
-              <div className="p2-learns__card-header">
-                <div className="p2-learns__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="#fff" strokeWidth="2"/>
-                    <path d="M9 7h6M9 11h5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <h3 className="p2-learns__card-title">Укрепляем математическую базу и закрываем пробелы</h3>
+          <div className="p2-section-badge">Что входит в подготовку к ОГЭ</div>
+          <h2 className="p2-section-title">{nb('Готовим именно к экзамену, а не просто занимаемся математикой')}</h2>
+          <div className="p2-more__card">
+            <div className="p2-more__content">
+              <div className="p2-more__features">
+                {[
+                  { title: 'Прорабатываем все темы, которые будут на ОГЭ 2027', text: 'Выявляем и устраняем пробелы именно в тех разделах математики, которые проверяются на экзамене и влияют на итоговый результат.' },
+                  { title: 'Разбираем все типы заданий ОГЭ 2027', text: 'Последовательно проходим задания экзамена от первой до второй части, чтобы на экзамене не осталось незнакомых форматов и неожиданных вопросов.' },
+                  { title: 'Формируем уверенность и экзаменационные навыки', text: 'Ребёнок учится быстро ориентироваться в заданиях, правильно оформлять решения и спокойно чувствовать себя на экзамене.' },
+                ].map((f, i) => (
+                  <div className="p2-more__feature" key={i}>
+                    <div className="p2-more__feature-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                    <div className="p2-more__feature-body">
+                      <h3 className="p2-more__feature-title">{nb(f.title)}</h3>
+                      <p className="p2-more__feature-text">{nb(f.text)}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <p className="p2-learns__card-text">{nb('Последовательно устраняем пробелы в знаниях, которые мешают ребёнку уверенно двигаться дальше и влияют на успеваемость.')}</p>
             </div>
-
-            <div className="p2-learns__card p2-learns__card--c2">
-              <div className="p2-learns__card-num" aria-hidden="true">02</div>
-              <div className="p2-learns__card-header">
-                <div className="p2-learns__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 2a7 7 0 00-4 12.73V17a1 1 0 001 1h6a1 1 0 001-1v-2.27A7 7 0 0012 2z" stroke="#fff" strokeWidth="2"/>
-                    <path d="M9 21h6" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M12 8v4M10 12h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <h3 className="p2-learns__card-title">Разбираем самые сложные темы школьной программы</h3>
-              </div>
-              <p className="p2-learns__card-text">{nb('Особое внимание уделяем темам, которые чаще всего вызывают трудности у учеников и становятся причиной снижения успеваемости.')}</p>
+            <div className="p2-more__media">
+              <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
             </div>
-
-            <div className="p2-learns__card p2-learns__card--c3">
-              <div className="p2-learns__card-num" aria-hidden="true">03</div>
-              <div className="p2-learns__card-header">
-                <div className="p2-learns__card-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="5" stroke="#fff" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="2" fill="#fff"/>
-                  </svg>
-                </div>
-                <h3 className="p2-learns__card-title">Учим рассуждать и находить решения самостоятельно</h3>
-              </div>
-              <p className="p2-learns__card-text">{nb('Ребёнок учится понимать новые темы, анализировать задачи, выдвигать гипотезы и не теряться перед сложными заданиями.')}</p>
-            </div>
-
           </div>
         </div>
       </section>
@@ -644,38 +616,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SCREEN 5 — MORE THAN A TUTOR */}
-      <section className="p2-more">
-        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
-        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
-        <div className="os-wrap">
-          <div className="p2-section-badge">Что входит в подготовку к ОГЭ</div>
-          <h2 className="p2-section-title">{nb('Готовим именно к экзамену, а не просто занимаемся математикой')}</h2>
-          <div className="p2-more__card">
-            <div className="p2-more__content">
-              <div className="p2-more__features">
-                {[
-                  { title: 'Прорабатываем все темы, которые будут на ОГЭ 2027', text: 'Выявляем и устраняем пробелы именно в тех разделах математики, которые проверяются на экзамене и влияют на итоговый результат.' },
-                  { title: 'Разбираем все типы заданий ОГЭ 2027', text: 'Последовательно проходим задания экзамена от первой до второй части, чтобы на экзамене не осталось незнакомых форматов и неожиданных вопросов.' },
-                  { title: 'Формируем уверенность и экзаменационные навыки', text: 'Ребёнок учится быстро ориентироваться в заданиях, правильно оформлять решения и спокойно чувствовать себя на экзамене.' },
-                ].map((f, i) => (
-                  <div className="p2-more__feature" key={i}>
-                    <div className="p2-more__feature-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
-                    <div className="p2-more__feature-body">
-                      <h3 className="p2-more__feature-title">{nb(f.title)}</h3>
-                      <p className="p2-more__feature-text">{nb(f.text)}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="p2-more__media">
-              <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SCREEN 6 + 7 — WHY (two cards side by side) */}
       <section className="p2-more">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
@@ -690,7 +630,7 @@ export default function Page() {
                 <p className="lk-pu-card__text">Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.</p>
                 <p className="lk-pu-card__text">{nb('У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.')}</p>
                 <p className="lk-pu-card__text">{nb('Поэтому даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.')}</p>
-                <p className="p2-more__goal p2-why-row__goal">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</p>
+                <p className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature"><span className="p2-why-row__goal-text">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</span></p>
               </div>
             </div>
 
