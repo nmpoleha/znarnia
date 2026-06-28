@@ -110,6 +110,13 @@ const pages = [
     date: 'Май 2026',
   },
   {
+    slug: 'probniy-urok-2',
+    title: 'Пробный урок 2',
+    client: 'Школа Сотниковой Ольги',
+    description: 'Пробная неделя обучения — обновлённая версия страницы',
+    date: 'Июнь 2026',
+  },
+  {
     slug: 'diagnostika-finalnaya',
     title: 'Диагностика финальная',
     client: 'Школа Сотниковой Ольги',
