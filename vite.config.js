@@ -30,6 +30,7 @@ export default defineConfig({
         'sobranie': resolve(__dirname, 'sobranie/index.html'),
         'sobranie-thanks': resolve(__dirname, 'sobranie-thanks/index.html'),
         'probniy-urok': resolve(__dirname, 'probniy-urok/index.html'),
+        'probniy-urok-2': resolve(__dirname, 'probniy-urok-2/index.html'),
         'diagnostika-finalnaya': resolve(__dirname, 'diagnostika-finalnaya/index.html'),
         'diagnostika-finalnaya-2': resolve(__dirname, 'diagnostika-finalnaya-2/index.html'),
         'diagnostika-podarok': resolve(__dirname, 'diagnostika-podarok/index.html'),
