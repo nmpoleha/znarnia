@@ -380,7 +380,6 @@ export default function Page() {
               <div className="pu-callout">
                 Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
               </div>
-              <button type="button" className="pu-btn-purple" onClick={() => setScheduleOpen(true)}>Посмотреть расписание</button>
             </div>
             <div className="pu-card__body-right">
               <div className="pu-lesson-preview">
