@@ -363,7 +363,7 @@ export default function Page() {
         <section className="pu-card pu-card--s1 pu-card--s3">
           <div className="pu-card__head">
             <div>
-              <div className="pu-card__title">Интерактивный онлайн-урок с учителем</div>
+              <div className="pu-card__title">Интерактивный урок с учителем</div>
             </div>
           </div>
           <div className="pu-card__body pu-card__body--row">
