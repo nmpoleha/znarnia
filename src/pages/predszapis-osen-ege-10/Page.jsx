@@ -519,28 +519,31 @@ export default function Page() {
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
         <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
-          <div className="p2-section-badge">Что входит в подготовку к ОГЭ</div>
-          <h2 className="p2-section-title">{nb('Готовим именно к экзамену, а не просто занимаемся математикой')}</h2>
+          <div className="p2-section-badge">Что входит в подготовку к ЕГЭ в 10 классе</div>
+          <h2 className="p2-section-title">{nb('Прорабатываем самые объёмные темы экзамена заранее')}</h2>
           <div className="p2-more__card">
             <div className="p2-more__content">
-              <div className="p2-more__features">
+              <p className="p2-more__lead">{nb('В течение года подробно разбираем темы, которые составляют значительную часть заданий ЕГЭ и требуют серьёзной подготовки.')}</p>
+              <ul className="lk-pu-checklist p2-more__topics">
                 {[
-                  { title: 'Прорабатываем все темы, которые будут на ОГЭ 2027', text: 'Выявляем и устраняем пробелы именно в тех разделах математики, которые проверяются на экзамене и влияют на итоговый результат.' },
-                  { title: 'Разбираем все типы заданий ОГЭ 2027', text: 'Последовательно проходим задания экзамена от первой до второй части, чтобы на экзамене не осталось незнакомых форматов и неожиданных вопросов.' },
-                  { title: 'Формируем уверенность и экзаменационные навыки', text: 'Ребёнок учится быстро ориентироваться в заданиях, правильно оформлять решения и спокойно чувствовать себя на экзамене.' },
-                ].map((f, i) => (
-                  <div className="p2-more__feature" key={i}>
-                    <div className="p2-more__feature-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
-                    <div className="p2-more__feature-body">
-                      <h3 className="p2-more__feature-title">{nb(f.title)}</h3>
-                      <p className="p2-more__feature-text">{nb(f.text)}</p>
-                    </div>
-                  </div>
+                  'логарифмы',
+                  'тригонометрию',
+                  'функции и графики',
+                  'производную',
+                  'текстовые задачи',
+                  'планиметрию',
+                  'стереометрию',
+                  'неравенства',
+                  'теорию вероятности',
+                  'другие фундаментальные разделы экзамена',
+                ].map((t, i) => (
+                  <li key={i}><LkCheck /><span>{nb(t)}</span></li>
                 ))}
-              </div>
+              </ul>
+              <p className="p2-more__topics-note">{nb('Каждая тема изучается не только с точки зрения школьной программы, но и через призму заданий ЕГЭ.')}</p>
             </div>
             <div className="p2-more__media">
-              <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
+              <img src={whyIllustrationImg} alt="Ученики разбирают темы ЕГЭ по математике онлайн" width="1536" height="1024" loading="lazy" />
             </div>
           </div>
         </div>
@@ -593,49 +596,48 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SCREEN 6 + 7 — WHY (two cards side by side) */}
+      {/* SCREEN 6 — WHY START IN GRADE 10 */}
       <section className="p2-more">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
         <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
+          <div className="p2-section-badge">Почему подготовку к ЕГЭ важно начинать в 10 классе</div>
+          <h2 className="p2-section-title">{nb('Высокий балл невозможно получить за счёт подготовки в последний момент')}</h2>
           <div className="lk-cards-row p2-why-row">
             <div className="lk-pu-card">
-              <div className="lk-pu-card__head">
-                <div className="lk-pu-card__title">{nb('Почему одной школьной программы недостаточно')}</div>
-              </div>
               <div className="lk-pu-card__body">
+                <p className="lk-pu-card__text">{nb('ЕГЭ по математике включает большое количество объёмных тем, каждая из которых требует времени на понимание и практику.')}</p>
+                <p className="lk-pu-card__text">{nb('Если начинать подготовку только в 11 классе, ребёнку приходится одновременно:')}</p>
                 <ul className="lk-pu-problems">
                   {[
-                    'Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.',
-                    'У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.',
-                    'Даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.',
+                    'готовиться к текущей школьной программе',
+                    'осваивать новые темы ЕГЭ',
+                    'устранять пробелы прошлых лет',
+                    'писать пробные экзамены',
+                    'готовиться к поступлению',
                   ].map((t, i) => (
                     <li key={i}><LkWarn /><span>{nb(t)}</span></li>
                   ))}
                 </ul>
-                <p className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature"><span className="p2-why-row__goal-text">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</span></p>
+                <p className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature"><span className="p2-why-row__goal-text">{nb('Поэтому многим ученикам просто не хватает времени качественно проработать весь необходимый материал.')}</span></p>
               </div>
             </div>
 
             <div className="lk-pu-card">
               <div className="lk-pu-card__head">
-                <div className="lk-pu-card__title">Почему наши ученики уверенно сдают ОГЭ</div>
+                <div className="lk-pu-card__title">Мы делим подготовку на два этапа</div>
               </div>
               <div className="lk-pu-card__body">
-                <p className="lk-pu-card__text">{nb('Многие школьники изучают математику в школе, но не готовы к формату экзамена.')}</p>
-                <p className="p2-more__accent">Поэтому наша программа строится иначе.</p>
-                <ul className="lk-pu-checklist">
-                  {[
-                    'Прорабатываем все темы, которые будут на ОГЭ 2027',
-                    'Разбираем каждый тип экзаменационных заданий',
-                    'Регулярно проводим пробные экзамены',
-                    'Выявляем и устраняем пробелы в знаниях',
-                    'Формируем уверенность и экзаменационные навыки',
-                  ].map((t, i) => (
-                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
-                  ))}
-                </ul>
-                <p className="p2-more__goal p2-why-row__goal">{nb('В результате ребёнок приходит на экзамен подготовленным и ')}<span className="p2-more__goal-accent">{nb('понимает, как решать каждое задание')}</span>.</p>
+                <div className="p2-stages">
+                  <div className="p2-stage">
+                    <div className="p2-stage__badge">10 класс</div>
+                    <p className="p2-stage__text">{nb('Прорабатываем фундаментальные темы ЕГЭ и создаём необходимую базу.')}</p>
+                  </div>
+                  <div className="p2-stage p2-stage--alt">
+                    <div className="p2-stage__badge p2-stage__badge--alt">11 класс</div>
+                    <p className="p2-stage__text">{nb('Систематизируем знания, работаем со сложными заданиями, пробниками и повышаем итоговый результат.')}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
