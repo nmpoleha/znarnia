@@ -28,7 +28,7 @@ const StatsChart = () => {
   const red   = 0.08 * circ
   return (
     <div className="pu-stats-widget">
-      <svg viewBox="0 0 100 100" width="90" height="90">
+      <svg viewBox="0 0 100 100" width="140" height="140">
         <g transform="rotate(-90 50 50)">
           <circle cx={cx} cy={cy} r={r} fill="none" stroke="#22c55e" strokeWidth="13"
             strokeDasharray={`${green} ${circ}`} strokeDashoffset="0" strokeLinecap="butt"/>
@@ -364,21 +364,20 @@ export default function Page() {
           <div className="pu-card__head">
             <div>
               <div className="pu-card__title">Интерактивный онлайн-урок с учителем</div>
-              <div className="pu-meta" style={{marginTop:'12px'}}>
-                <div className="pu-meta__item">⏱ Длительность: 60 минут</div>
-                <div className="pu-meta__item">Урок можно проходить в удобное время</div>
-              </div>
             </div>
           </div>
           <div className="pu-card__body pu-card__body--row">
-            <div className="pu-card__body-left">
-              <CheckList items={[
-                'ребёнок отвечает на вопросы в процессе урока',
-                'сразу видит, правильно или нет',
-                'получает баллы за выполнение заданий',
-              ]} />
-              <div className="pu-callout">
-                Важно: ответы видны только самому ребёнку —<br />никакого стресса и страха ошибиться.
+            <div className="pu-card__body-left" style={{marginTop:'15px'}}>
+              <div className="pu-meta">
+                <div className="pu-meta__item">⏱ Длительность: 60 минут</div>
+                <div className="pu-meta__item">⏰ Урок можно проходить в удобное время</div>
+              </div>
+              <div style={{marginTop:'10px'}}>
+                <CheckList items={[
+                  'ребёнок отвечает на вопросы в процессе урока',
+                  'сразу видит, правильно или нет',
+                  'получает баллы за выполнение заданий',
+                ]} />
               </div>
             </div>
             <div className="pu-card__body-right">
@@ -433,23 +432,7 @@ export default function Page() {
         <div className="pu-cards-row">
           <section className="pu-card">
             <div className="pu-card__head">
-              <div className="pu-card__title">{nb('Не получилось присутствовать онлайн? Не проблема')}</div>
-            </div>
-            <div className="pu-card__body">
-              <p className="pu-card__text">Если ребёнок пропустил онлайн-урок:</p>
-              <CheckList items={[
-                'он смотрит его в записи',
-                'сохраняется вся интерактивность',
-                'получает мгновенную обратную связь',
-                'статистика также доступна родителям',
-              ]} />
-              <div className="pu-note pu-note--row"><PlayIcon /><span>По эффективности это<br />тот же полноценный урок.</span></div>
-            </div>
-          </section>
-
-          <section className="pu-card">
-            <div className="pu-card__head">
-              <div className="pu-card__title">Полная прозрачность<br />для родителей</div>
+              <div className="pu-card__title">Полная прозрачность для родителей</div>
             </div>
             <div className="pu-card__body pu-card__body--row" style={{alignItems:'flex-start'}}>
               <div className="pu-card__body-left">
