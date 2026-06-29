@@ -1629,6 +1629,28 @@
 
 .lk-pu-checklist li svg { flex-shrink: 0; margin-top: 2px; }
 
+/* «Проблемный» список — янтарные маркеры-«!» как контраст к зелёным галочкам */
+.lk-pu-problems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lk-pu-problems li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.6;
+}
+
+.lk-pu-problems li svg { flex-shrink: 0; margin-top: 3px; }
+
 .lk-pu-note {
   background: var(--p2-purple-soft);
   border-radius: var(--p2-radius-xs);

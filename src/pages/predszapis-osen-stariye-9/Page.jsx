@@ -160,6 +160,14 @@ const LkCheck = () => (
   </svg>
 )
 
+const LkWarn = () => (
+  <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+    <circle cx="10" cy="10" r="10" fill="#fef3c7"/>
+    <path d="M10 5.4v5.2" stroke="#d97706" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="10" cy="14.1" r="1.1" fill="#d97706"/>
+  </svg>
+)
+
 const LkStatsChart = () => {
   const r = 32, cx = 50, cy = 50
   const circ = 2 * Math.PI * r
@@ -627,9 +635,15 @@ export default function Page() {
                 <div className="lk-pu-card__title">{nb('Почему одной школьной программы недостаточно')}</div>
               </div>
               <div className="lk-pu-card__body">
-                <p className="lk-pu-card__text">Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.</p>
-                <p className="lk-pu-card__text">{nb('У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.')}</p>
-                <p className="lk-pu-card__text">{nb('Поэтому даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.')}</p>
+                <ul className="lk-pu-problems">
+                  {[
+                    'Высокая оценка в школе ещё не гарантирует высокий результат на ОГЭ.',
+                    'У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.',
+                    'Даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.',
+                  ].map((t, i) => (
+                    <li key={i}><LkWarn /><span>{nb(t)}</span></li>
+                  ))}
+                </ul>
                 <p className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature"><span className="p2-why-row__goal-text">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ОГЭ 2027 года, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</span></p>
               </div>
             </div>
