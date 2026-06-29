@@ -418,6 +418,12 @@
   display: block;
 }
 
+/* На планшетах/телефонах увеличенная картинка налезает на заголовок и за боковые
+   границы карточки — убираем сдвиг вверх и уменьшаем масштаб */
+@media (max-width: 900px) {
+  .pu-card--s3 .pu-lesson-preview__img { transform: scale(1.05) !important; }
+}
+
 /* ── SECTION 3 ── */
 .pu-card--s3 {
   position: relative;
