@@ -168,6 +168,31 @@ const LkWarn = () => (
   </svg>
 )
 
+const AlertCircle = () => (
+  <svg viewBox="0 0 44 44" width="44" height="44" fill="none">
+    <circle cx="22" cy="22" r="14" fill="#fee2e2"/>
+    <circle cx="22" cy="22" r="19" stroke="#ef4444" strokeWidth="2.2"/>
+    <path d="M22 14v9" stroke="#ef4444" strokeWidth="2.6" strokeLinecap="round"/>
+    <circle cx="22" cy="29" r="1.7" fill="#ef4444"/>
+  </svg>
+)
+
+const SadFace = () => (
+  <svg viewBox="0 0 48 48" width="46" height="46" fill="none">
+    <circle cx="24" cy="24" r="21" stroke="#fff" strokeWidth="2.4"/>
+    <circle cx="17" cy="20" r="2.2" fill="#fff"/>
+    <circle cx="31" cy="20" r="2.2" fill="#fff"/>
+    <path d="M16 33c2.4-3.4 5-5.1 8-5.1s5.6 1.7 8 5.1" stroke="#fff" strokeWidth="2.4" strokeLinecap="round"/>
+  </svg>
+)
+
+const CheckCircleBig = () => (
+  <svg viewBox="0 0 44 44" width="44" height="44" fill="none">
+    <circle cx="22" cy="22" r="21" fill="#ede9fe"/>
+    <path d="M14 22.5l5.5 5.5L31 16.5" stroke="#6d28d9" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
 const LkStatsChart = () => {
   const r = 32, cx = 50, cy = 50
   const circ = 2 * Math.PI * r
@@ -606,8 +631,11 @@ export default function Page() {
           <div className="lk-cards-row p2-why-row">
             <div className="lk-pu-card">
               <div className="lk-pu-card__body">
-                <p className="lk-pu-card__text">{nb('ЕГЭ по математике включает большое количество объёмных тем, каждая из которых требует времени на понимание и практику.')}</p>
-                <p className="lk-pu-card__text">{nb('Если начинать подготовку только в 11 классе, ребёнку приходится одновременно:')}</p>
+                <div className="p2-why-intro">
+                  <span className="p2-why-intro__icon" aria-hidden="true"><AlertCircle /></span>
+                  <p className="lk-pu-card__text">{nb('ЕГЭ по математике включает большое количество объёмных тем, каждая из которых требует времени на понимание и практику.')}</p>
+                </div>
+                <p className="lk-pu-card__text p2-why-accent">{nb('Если начинать подготовку только в 11 классе, ребёнку приходится одновременно:')}</p>
                 <ul className="lk-pu-problems">
                   {[
                     'готовиться к текущей школьной программе',
@@ -619,23 +647,37 @@ export default function Page() {
                     <li key={i}><LkWarn /><span>{nb(t)}</span></li>
                   ))}
                 </ul>
-                <p className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature"><span className="p2-why-row__goal-text">{nb('Поэтому многим ученикам просто не хватает времени качественно проработать весь необходимый материал.')}</span></p>
+                <div className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature">
+                  <span className="p2-why-row__goal-icon" aria-hidden="true"><SadFace /></span>
+                  <span className="p2-why-row__goal-text">{nb('Поэтому многим ученикам просто не хватает времени качественно проработать весь необходимый материал.')}</span>
+                </div>
               </div>
             </div>
 
+            <span className="p2-why-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
+
             <div className="lk-pu-card">
               <div className="lk-pu-card__head">
+                <span className="p2-why-head-icon" aria-hidden="true"><CheckCircleBig /></span>
                 <div className="lk-pu-card__title">Мы делим подготовку на два этапа</div>
               </div>
               <div className="lk-pu-card__body">
                 <div className="p2-stages">
                   <div className="p2-stage">
-                    <div className="p2-stage__badge">10 класс</div>
-                    <p className="p2-stage__text">{nb('Прорабатываем фундаментальные темы ЕГЭ и создаём необходимую базу.')}</p>
+                    <div className="p2-stage__content">
+                      <div className="p2-stage__badge">10 класс</div>
+                      <p className="p2-stage__text">{nb('Прорабатываем фундаментальные темы ЕГЭ и создаём необходимую базу.')}</p>
+                    </div>
+                    <span className="p2-stage__ill" aria-hidden="true">📚</span>
                   </div>
                   <div className="p2-stage p2-stage--alt">
-                    <div className="p2-stage__badge p2-stage__badge--alt">11 класс</div>
-                    <p className="p2-stage__text">{nb('Систематизируем знания, работаем со сложными заданиями, пробниками и повышаем итоговый результат.')}</p>
+                    <div className="p2-stage__content">
+                      <div className="p2-stage__badge p2-stage__badge--alt">11 класс</div>
+                      <p className="p2-stage__text">{nb('Систематизируем знания, работаем со сложными заданиями, пробниками и повышаем итоговый результат.')}</p>
+                    </div>
+                    <span className="p2-stage__ill" aria-hidden="true">🎯</span>
                   </div>
                 </div>
               </div>
@@ -650,27 +692,33 @@ export default function Page() {
         <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
         <div className="os-wrap">
           <div className="p2-section-badge">Результаты</div>
-          <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
+          <h2 className="p2-section-title">{nb('Результаты, которые замечают родители и ученики')}</h2>
           <div className="p2-results__card">
             <div className="p2-results__content">
-            <p className="p2-results__lead">Уже через несколько месяцев подготовки:</p>
+            <p className="p2-results__lead">Уже через несколько месяцев занятий:</p>
             <ul className="p2-results__list">
               {[
-                'ребёнок увереннее решает экзаменационные задания',
-                'улучшаются результаты пробных экзаменов',
-                'снижается тревожность перед ОГЭ',
-                'появляется понимание структуры экзамена',
-                'ребёнок начинает верить в свои силы и свой результат',
+                'ребёнок начинает лучше понимать сложные темы',
+                'становится увереннее в своих знаниях',
+                'улучшаются результаты по математике в школе',
+                'появляется понимание формата ЕГЭ',
+                'формируется база для дальнейшей подготовки к высоким баллам',
               ].map((t, i) => (
                 <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
               ))}
             </ul>
-            <div className="p2-results__highlight">
-              <div className="p2-results__highlight-num">95%</div>
-              <div className="p2-results__highlight-text">
-                <div className="p2-results__highlight-main">{nb('учеников сдают ОГЭ на уверенные 4 и 5')}</div>
-                <div className="p2-results__highlight-label">Наши результаты</div>
-              </div>
+            <div className="p2-results__extra">
+              <div className="p2-results__extra-title">Подготовка помогает не только на ЕГЭ</div>
+              <p className="p2-results__extra-text">{nb('Темы, которые мы изучаем в 10 классе, входят и в школьную программу.')}</p>
+              <p className="p2-results__extra-text">Поэтому ребёнок одновременно:</p>
+              <ul className="p2-results__list p2-results__list--compact">
+                {[
+                  'улучшает результаты в школе',
+                  'готовится к ЕГЭ без перегрузки в 11 классе',
+                ].map((t, i) => (
+                  <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
+                ))}
+              </ul>
             </div>
             </div>
             <div className="p2-results__photo-slot p2-results__photo-slot--filled">

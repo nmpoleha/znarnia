@@ -2288,6 +2288,17 @@
   border-radius: var(--p2-radius-sm);
   background: var(--p2-purple-soft);
   padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.p2-stage__content { flex: 1; min-width: 0; }
+
+.p2-stage__ill {
+  flex-shrink: 0;
+  font-size: 48px;
+  line-height: 1;
 }
 
 .p2-stage--alt {
@@ -2319,6 +2330,54 @@
 
 @media (max-width: 640px) {
   .p2-more__topics { grid-template-columns: 1fr; }
+}
+
+/* Экран 6 — иконки, акцент, стрелка-связка */
+.p2-why-row { position: relative; }
+
+.p2-why-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.p2-why-intro__icon { flex-shrink: 0; line-height: 0; margin-top: 2px; }
+
+.p2-why-accent {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+.p2-why-row__goal--feature {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.p2-why-row__goal-icon { flex-shrink: 0; line-height: 0; }
+
+.p2-why-head-icon { flex-shrink: 0; line-height: 0; }
+
+/* Круглая стрелка между карточками (декоративная, в зазоре грида) */
+.p2-why-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.3);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .p2-why-arrow { display: none; }
 }
 
 .p2-results__photo-slot.p2-results__photo-slot--filled {
@@ -2539,6 +2598,41 @@
   font-size: 18px;
   line-height: 1.35;
 }
+
+/* Под-блок «Подготовка помогает не только на ЕГЭ» */
+.p2-results__extra {
+  margin-top: 24px;
+  background: var(--p2-purple-soft);
+  border: 1.5px solid var(--p2-purple-border);
+  border-radius: var(--p2-radius-sm);
+  padding: 20px 24px;
+}
+
+.p2-results__extra-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--p2-purple);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.p2-results__extra-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.p2-results__list--compact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.p2-results__list--compact li { font-size: 15px; }
 
 .p2-results__highlight {
   margin-top: 24px;
