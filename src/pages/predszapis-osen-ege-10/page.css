@@ -2252,7 +2252,9 @@
   margin: 0 0 20px;
 }
 
-.p2-more__topics {
+/* Составной селектор (0,2,0) — чтобы grid гарантированно перебивал
+   display:flex из .lk-pu-checklist в продакшен-бандле независимо от порядка. */
+.lk-pu-checklist.p2-more__topics {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px 28px;
@@ -2329,7 +2331,7 @@
 }
 
 @media (max-width: 640px) {
-  .p2-more__topics { grid-template-columns: 1fr; }
+  .lk-pu-checklist.p2-more__topics { grid-template-columns: 1fr; }
 }
 
 /* Экран 6 — иконки, акцент, стрелка-связка */
