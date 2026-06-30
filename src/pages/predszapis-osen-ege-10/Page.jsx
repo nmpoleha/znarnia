@@ -486,14 +486,14 @@ export default function Page() {
                       <div className="p2-stage__badge">10 класс</div>
                       <p className="p2-stage__text">{nb('Прорабатываем фундаментальные темы ЕГЭ и создаём необходимую базу.')}</p>
                     </div>
-                    <img className="p2-stage__ill" src={stageBooksImg} alt="" aria-hidden="true" width="280" height="187" loading="lazy" decoding="async" />
+                    <img className="p2-stage__ill" src={stageBooksImg} alt="" aria-hidden="true" width="540" height="360" loading="lazy" decoding="async" />
                   </div>
                   <div className="p2-stage p2-stage--alt">
                     <div className="p2-stage__content">
                       <div className="p2-stage__badge p2-stage__badge--alt">11 класс</div>
                       <p className="p2-stage__text">{nb('Систематизируем знания, работаем со сложными заданиями, пробниками и повышаем итоговый результат.')}</p>
                     </div>
-                    <img className="p2-stage__ill" src={stageTargetImg} alt="" aria-hidden="true" width="280" height="187" loading="lazy" decoding="async" />
+                    <img className="p2-stage__ill" src={stageTargetImg} alt="" aria-hidden="true" width="540" height="360" loading="lazy" decoding="async" />
                   </div>
                 </div>
               </div>
