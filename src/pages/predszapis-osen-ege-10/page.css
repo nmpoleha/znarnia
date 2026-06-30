@@ -2299,8 +2299,14 @@
 
 .p2-stage__ill {
   flex-shrink: 0;
-  font-size: 48px;
-  line-height: 1;
+  width: 92px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .p2-stage__ill { width: 68px; }
 }
 
 .p2-stage--alt {
@@ -2719,7 +2725,7 @@
 /* ============================================================
    Унифицированный вертикальный ритм между секциями.
    Контентные секции: padding-top: 0, padding-bottom: G.
-   Секция после цветной плашки (p2-how после p2-stats): pt = G.
+   Секция сразу после цветной плашки .p2-stats: pt = G (.p2-stats + section).
    Отступ перед плашкой p2-cta даёт padding-bottom соседней секции.
    G = 64 (десктоп) / 40 (≤720) / 32 (≤480).
    ============================================================ */
@@ -2733,7 +2739,9 @@
   padding-top: 0;
   padding-bottom: 64px;
 }
-.p2-how { padding-top: 64px; }
+/* Первая секция после цветной плашки .p2-stats получает верхний отступ G,
+   чтобы её бейдж/заголовок не наезжал на плашку (не зависит от порядка блоков). */
+.p2-stats + section { padding-top: 64px; }
 .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 64px; }
 
 @media (max-width: 720px) {
@@ -2747,7 +2755,7 @@
     padding-top: 0;
     padding-bottom: 40px;
   }
-  .p2-how { padding-top: 40px; }
+  .p2-stats + section { padding-top: 40px; }
   .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 40px; }
 }
 
@@ -2762,7 +2770,7 @@
     padding-top: 0;
     padding-bottom: 32px;
   }
-  .p2-how { padding-top: 32px; }
+  .p2-stats + section { padding-top: 32px; }
   .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 32px; }
 }
 
