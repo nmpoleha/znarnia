@@ -2339,6 +2339,7 @@
 .p2-stage__text {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
+  font-weight: 700;
   color: var(--p2-text);
   line-height: 1.6;
   margin: 0;
