@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import heroPhotoImg from './hero-photo.png'
 import howIllustrationImg from './how-illustration.png'
-import resultsPhotoImg from './results-photo.png'
+import resultsPhotoImg from './results-photo.jpg'
 import whyIllustrationImg from './why-illustration.png'
 import stageBooksImg from './stage-books.png'
 import stageTargetImg from './stage-target.png'
@@ -192,6 +192,47 @@ const CheckCircleBig = () => (
   <svg viewBox="0 0 44 44" width="44" height="44" fill="none">
     <circle cx="22" cy="22" r="21" fill="#ede9fe"/>
     <path d="M14 22.5l5.5 5.5L31 16.5" stroke="#6d28d9" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+/* Тематические контурные иконки справа от пунктов «Результаты» */
+const RIBulb = () => (
+  <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.9 1 1 1.7l.1.5h5l.1-.5c.1-.7.5-1.3 1-1.7A6 6 0 0 0 12 3z"/>
+    <path d="M9.4 19h5.2M10.4 21.5h3.2"/>
+  </svg>
+)
+
+const RIUserCheck = () => (
+  <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="10" cy="8" r="3.3"/>
+    <path d="M4.2 19.4c.5-3.1 2.9-5.4 5.8-5.4 1.2 0 2.3.4 3.2 1.1"/>
+    <path d="M15 18.2l1.7 1.7 3.3-3.7"/>
+  </svg>
+)
+
+const RIBars = () => (
+  <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3.5 20.5h17"/>
+    <rect x="5" y="12" width="3" height="6.5" rx="0.8"/>
+    <rect x="10.5" y="8.5" width="3" height="10" rx="0.8"/>
+    <rect x="16" y="5" width="3" height="13.5" rx="0.8"/>
+  </svg>
+)
+
+const RIClipboard = () => (
+  <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="5" y="4" width="14" height="17" rx="2.5"/>
+    <rect x="9" y="2.5" width="6" height="3.4" rx="1.2"/>
+    <path d="M8.5 12.2l2 2 4.3-4.4"/>
+  </svg>
+)
+
+const RITarget = () => (
+  <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="8"/>
+    <circle cx="12" cy="12" r="4.4"/>
+    <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
   </svg>
 )
 
@@ -514,31 +555,37 @@ export default function Page() {
             <p className="p2-results__lead">Уже через несколько месяцев занятий:</p>
             <ul className="p2-results__list">
               {[
-                'ребёнок начинает лучше понимать сложные темы',
-                'становится увереннее в своих знаниях',
-                'улучшаются результаты по математике в школе',
-                'появляется понимание формата ЕГЭ',
-                'формируется база для дальнейшей подготовки к высоким баллам',
-              ].map((t, i) => (
-                <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
+                { t: 'ребёнок начинает лучше понимать сложные темы', Icon: RIBulb },
+                { t: 'становится увереннее в своих знаниях', Icon: RIUserCheck },
+                { t: 'улучшаются результаты по математике в школе', Icon: RIBars },
+                { t: 'появляется понимание формата ЕГЭ', Icon: RIClipboard },
+                { t: 'формируется база для дальнейшей подготовки к высоким баллам', Icon: RITarget },
+              ].map(({ t, Icon }, i) => (
+                <li key={i}>
+                  <span className="p2-results__li-icon" aria-hidden="true"><Icon /></span>
+                  <span className="p2-results__li-text">{nb(t)}</span>
+                </li>
               ))}
             </ul>
             <div className="p2-results__extra">
-              <div className="p2-results__extra-title">Подготовка помогает не только на ЕГЭ</div>
-              <p className="p2-results__extra-text">{nb('Темы, которые мы изучаем в 10 классе, входят и в школьную программу.')}</p>
-              <p className="p2-results__extra-text">Поэтому ребёнок одновременно:</p>
-              <ul className="p2-results__list p2-results__list--compact">
-                {[
-                  'улучшает результаты в школе',
-                  'готовится к ЕГЭ без перегрузки в 11 классе',
-                ].map((t, i) => (
-                  <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
-                ))}
-              </ul>
+              <img className="p2-results__extra-ill" src="/znarnia/images/icons/icon-graduation.png" alt="" aria-hidden="true" width="200" height="200" loading="lazy" decoding="async" />
+              <div className="p2-results__extra-body">
+                <div className="p2-results__extra-title">Подготовка помогает не только на ЕГЭ</div>
+                <p className="p2-results__extra-text">{nb('Темы, которые мы изучаем в 10 классе, входят и в школьную программу.')}</p>
+                <p className="p2-results__extra-text">Поэтому ребёнок одновременно:</p>
+                <ul className="p2-results__list p2-results__list--compact">
+                  {[
+                    'улучшает результаты в школе',
+                    'готовится к ЕГЭ без перегрузки в 11 классе',
+                  ].map((t, i) => (
+                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
+                  ))}
+                </ul>
+              </div>
             </div>
             </div>
             <div className="p2-results__photo-slot p2-results__photo-slot--filled">
-              <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
+              <img src={resultsPhotoImg} alt="Улыбающийся выпускник в костюме с лентой «Выпускник» у здания школы" width="1100" height="733" loading="lazy" />
             </div>
           </div>
           {/* CTA inside "Результаты" */}
