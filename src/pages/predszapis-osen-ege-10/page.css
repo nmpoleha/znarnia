@@ -1364,7 +1364,7 @@
      otherwise long labels like "Удобный личный кабинет" overlap their neighbour. */
   .p2-hero__icons { gap: 14px 20px; }
   .p2-hero__icon-item {
-    flex: 0 0 calc((100% - 40px) / 3);
+    flex: 0 0 calc(50% - 10px);
     min-width: 0;
     white-space: normal;
     align-items: center;
@@ -1571,11 +1571,18 @@
 
 .lk-cards-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 30px;
 }
 
+/* На планшетах и ниже карточки слишком узкие для 2 колонок (текст крошится
+   в столбики) — стекаем в одну колонку (как и другие 2-колоночные блоки). */
+@media (max-width: 1024px) {
+  .lk-cards-row { grid-template-columns: minmax(0, 1fr); }
+}
+
 .lk-pu-card {
+  min-width: 0;
   background: #fff;
   border: 1.5px solid var(--p2-border);
   border-radius: var(--p2-radius);
@@ -1599,6 +1606,14 @@
 .lk-pu-card__body { display: flex; flex-direction: column; gap: 16px; }
 .lk-pu-card__body--row { flex-direction: row; gap: 24px; }
 .lk-pu-card__body-left { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+
+/* Прогресс ребёнка: интро-текст + диаграмма в одной строке сверху,
+   а список «что видно» идёт на всю ширину карточки (пункты в одну строку). */
+.lk-pu-progress-top { display: flex; gap: 20px; align-items: flex-start; }
+.lk-pu-progress-top > .lk-pu-card__text { flex: 1; min-width: 0; margin: 0; }
+@media (max-width: 768px) {
+  .lk-pu-progress-top { flex-direction: column; align-items: stretch; gap: 16px; }
+}
 
 .lk-pu-card__text {
   font-family: 'Nunito', sans-serif;
@@ -1694,7 +1709,7 @@
 }
 
 @media (max-width: 768px) {
-  .lk-cards-row { grid-template-columns: 1fr; }
+  .lk-cards-row { grid-template-columns: minmax(0, 1fr); }
   .lk-pu-card__body--row { flex-direction: column; }
   /* Full-width stats widget: donut on the left, legend to the right */
   .lk-stats-widget {
@@ -2315,7 +2330,7 @@
 
 @media (max-width: 480px) {
   .p2-stage { padding: 16px 18px; }
-  .p2-stage__ill { width: 120px; margin-right: -4px; }
+  .p2-stage__ill { width: 96px; margin-right: -4px; }
 }
 
 .p2-stage--alt {
@@ -2325,6 +2340,7 @@
 
 .p2-stage__badge {
   display: inline-block;
+  white-space: nowrap;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 14px;
@@ -2394,7 +2410,8 @@
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
+/* Стрелка-связка видна только когда карточки стоят в 2 колонки (≥1025px) */
+@media (max-width: 1024px) {
   .p2-why-arrow { display: none; }
 }
 
@@ -2748,8 +2765,9 @@
   .p2-more__accent { font-size: 16px; }
   .p2-more__list li, .p2-results__list li, .p2-more__goal { font-size: 14px; }
   .p2-results__card { padding: 24px 20px; }
-  .p2-results__extra { gap: 16px; }
-  .p2-results__extra-ill { width: 92px; }
+  /* Карточки «Почему…» и «записи/прогресс» — те же отступы до краёв, что и у
+     карточек ниже (Результаты), чтобы внутренние элементы были на одной линии */
+  .lk-pu-card { padding: 24px 20px; }
   .p2-results__lead { font-size: 16px; }
   .p2-results__highlight { padding: 16px 18px; gap: 16px; }
   .p2-results__highlight-main { font-size: 14px; }
@@ -2825,4 +2843,44 @@
   }
   .p2-how__col { display: contents; }
   .p2-how__col .p2-how__card { height: 100%; }
+}
+
+/* ============================================================
+   Узкие телефоны: чтобы текст не зажимался рядом с иллюстрацией,
+   на узкой ширине иллюстрация уходит в верхнюю строку рядом с
+   плашкой/заголовком, а описание занимает всю ширину под ними.
+   ============================================================ */
+@media (max-width: 560px) {
+  /* Этапы 10/11 класс */
+  .p2-stage {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 10px;
+  }
+  .p2-stage__content { display: contents; }
+  .p2-stage__badge { order: 1; margin-bottom: 0; }
+  .p2-stage__ill {
+    order: 2;
+    width: 60px;
+    margin: 0 0 0 auto;
+  }
+  .p2-stage__text { order: 3; flex-basis: 100%; }
+
+  /* Плашка «Подготовка помогает не только на ЕГЭ»: на мобилках без шапочки —
+     заголовок и текст на всю ширину */
+  .p2-results__extra-ill { display: none; }
+
+  /* Плашка «Поэтому многим ученикам…»: смайлик слева сверху, текст начинается
+     справа от него и переносится ниже под смайликом, занимая всю ширину */
+  .p2-why-row__goal--feature { display: block; }
+  .p2-why-row__goal--feature .p2-why-row__goal-icon {
+    float: left;
+    margin: 2px 14px 4px 0;
+  }
+
+  /* Чек-лист в герое: на маленьких экранах строго одна колонка, чтобы
+     длинные подписи не дробились на столбики из отдельных слов */
+  .p2-hero__icon-item { flex: 0 0 100%; }
 }

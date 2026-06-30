@@ -763,17 +763,17 @@ export default function Page() {
                 <div className="lk-pu-card__eyebrow">Контроль прогресса ребёнка</div>
                 <div className="lk-pu-card__title">Родители всегда видят прогресс подготовки</div>
               </div>
-              <div className="lk-pu-card__body lk-pu-card__body--row" style={{alignItems:'flex-start'}}>
-                <div className="lk-pu-card__body-left">
+              <div className="lk-pu-card__body">
+                <div className="lk-pu-progress-top">
                   <p className="lk-pu-card__text">{nb('В личном кабинете доступна подробная статистика обучения, которая помогает отслеживать вовлечённость ребёнка и его результаты.')}</p>
-                  <p className="lk-pu-card__text">Родители в любой момент могут посмотреть:</p>
-                  <ul className="lk-pu-checklist">
-                    {['сколько заданий выполнил ребёнок','сколько заданий решил правильно','сколько попыток понадобилось для решения','какие темы вызывают затруднения','как меняются результаты от занятия к занятию'].map((t, i) => (
-                      <li key={i}><LkCheck /><span>{nb(t)}</span></li>
-                    ))}
-                  </ul>
+                  <LkStatsChart />
                 </div>
-                <LkStatsChart />
+                <p className="lk-pu-card__text">Родители в любой момент могут посмотреть:</p>
+                <ul className="lk-pu-checklist">
+                  {['сколько заданий выполнил ребёнок','сколько заданий решил правильно','сколько попыток понадобилось для решения','какие темы вызывают затруднения','как меняются результаты от занятия к занятию'].map((t, i) => (
+                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                  ))}
+                </ul>
               </div>
               <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span><strong>Всё обучение прозрачно.</strong> {nb('Вы видите не только посещаемость занятий, но и то, насколько успешно ребёнок осваивает экзаменационные темы и продвигается к своей цели.')}</span></div>
             </div>
