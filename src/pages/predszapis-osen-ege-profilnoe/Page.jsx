@@ -3,8 +3,6 @@ import heroPhotoImg from './hero-photo.png'
 import howIllustrationImg from './how-illustration.png'
 import resultsPhotoImg from './results-photo.jpg'
 import whyIllustrationImg from './why-illustration.png'
-import stageBooksImg from './stage-books.png'
-import stageTargetImg from './stage-target.png'
 
 function nb(str) {
   // Не оставляем короткие предлоги/союзы в конце строки — приклеиваем их к
@@ -478,35 +476,42 @@ export default function Page() {
         </div>
       </section>
 
-      {/* WHY START IN GRADE 10 */}
+      {/* WHY JUST SOLVING VARIANTS ISN'T ENOUGH + TWO STAGES */}
       <section className="p2-more">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
         <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
-          <div className="p2-section-badge">Почему подготовку к ЕГЭ важно начинать в 10 классе</div>
-          <h2 className="p2-section-title">{nb('Высокий балл невозможно получить за счёт подготовки в последний момент')}</h2>
+          <div className="p2-section-badge">Наш подход к подготовке</div>
+          <h2 className="p2-section-title">{nb('Как мы готовим к ЕГЭ на высокий балл')}</h2>
           <div className="lk-cards-row p2-why-row">
+            {/* LEFT — почему недостаточно + как мы работаем */}
             <div className="lk-pu-card">
+              <div className="lk-pu-card__head">
+                <span className="p2-why-head-icon" aria-hidden="true"><AlertCircle /></span>
+                <div className="lk-pu-card__title">Почему недостаточно просто решать варианты</div>
+              </div>
               <div className="lk-pu-card__body">
-                <div className="p2-why-intro">
-                  <span className="p2-why-intro__icon" aria-hidden="true"><AlertCircle /></span>
-                  <p className="lk-pu-card__text">{nb('ЕГЭ по математике включает большое количество объёмных тем, каждая из которых требует времени на понимание и практику.')}</p>
+                <p className="lk-pu-card__text">{nb('Многие школьники решают десятки пробников, но продолжают терять баллы в одних и тех же заданиях.')}</p>
+                <p className="lk-pu-card__text p2-why-cause">{nb('Причина проста — знания остаются несистемными.')}</p>
+                <div className="lk-pu-card__head p2-why-turn">
+                  <span className="p2-why-head-icon" aria-hidden="true"><CheckCircleBig /></span>
+                  <div className="lk-pu-card__title">Поэтому мы работаем иначе</div>
                 </div>
-                <p className="lk-pu-card__text p2-why-accent">{nb('Если начинать подготовку только в 11 классе, ребёнку приходится одновременно:')}</p>
-                <ul className="lk-pu-problems">
+                <p className="lk-pu-card__text">{nb('Сначала ученик последовательно осваивает каждый номер ЕГЭ:')}</p>
+                <ul className="lk-pu-checklist p2-why-checklist">
                   {[
-                    'готовиться к текущей школьной программе',
-                    'осваивать новые темы ЕГЭ',
-                    'устранять пробелы прошлых лет',
-                    'писать пробные экзамены',
-                    'готовиться к поступлению',
+                    'изучает теорию',
+                    'разбирает все типы задач',
+                    'закрепляет решения на практике',
+                    'доводит навык до уверенного уровня',
                   ].map((t, i) => (
-                    <li key={i}><LkWarn /><span>{nb(t)}</span></li>
+                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
                   ))}
                 </ul>
+                <p className="lk-pu-card__text p2-why-after">{nb('И только после этого переходит к полноценным вариантам.')}</p>
                 <div className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature">
-                  <span className="p2-why-row__goal-icon" aria-hidden="true"><SadFace /></span>
-                  <span className="p2-why-row__goal-text">{nb('Поэтому многим ученикам просто не хватает времени качественно проработать весь необходимый материал.')}</span>
+                  <span className="p2-why-row__goal-icon" aria-hidden="true"><CheckCircleBig /></span>
+                  <span className="p2-why-row__goal-text">{nb('Такой подход позволяет не угадывать решения, а действительно понимать каждое задание экзамена.')}</span>
                 </div>
               </div>
             </div>
@@ -515,26 +520,45 @@ export default function Page() {
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
 
+            {/* RIGHT — два этапа подготовки */}
             <div className="lk-pu-card">
               <div className="lk-pu-card__head">
                 <span className="p2-why-head-icon" aria-hidden="true"><CheckCircleBig /></span>
-                <div className="lk-pu-card__title">Мы делим подготовку на два этапа</div>
+                <div className="lk-pu-card__title">Подготовку мы строим в два этапа</div>
               </div>
               <div className="lk-pu-card__body">
                 <div className="p2-stages">
                   <div className="p2-stage">
-                    <div className="p2-stage__content">
-                      <div className="p2-stage__badge">10 класс</div>
-                      <p className="p2-stage__text">{nb('Прорабатываем фундаментальные темы ЕГЭ и создаём необходимую базу.')}</p>
+                    <div className="p2-stage__badge">Этап 1</div>
+                    <div className="p2-stage__row">
+                      <span className="p2-stage__icon" aria-hidden="true">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 6.5C10.4 5.3 8.3 4.8 5.8 5.1c-.7.1-1.3.2-1.8.4v12.9c.5-.2 1.1-.3 1.8-.4 2.5-.3 4.6.2 6.2 1.4 1.6-1.2 3.7-1.7 6.2-1.4.7.1 1.3.2 1.8.4V5.5c-.5-.2-1.1-.3-1.8-.4-2.5-.3-4.6.2-6.2 1.4z"/>
+                          <path d="M12 6.5v12.3"/>
+                        </svg>
+                      </span>
+                      <div className="p2-stage__content">
+                        <div className="p2-stage__title">{nb('Создаём надёжную основу результата')}</div>
+                        <p className="p2-stage__text">{nb('Систематизируем знания по первой части и доводим решение базовых заданий до автоматизма. Именно первая часть становится надёжной основой будущего результата. Даже ученики с не самой сильной подготовкой начинают уверенно решать задания, которые раньше вызывали затруднения.')}</p>
+                      </div>
                     </div>
-                    <img className="p2-stage__ill" src={stageBooksImg} alt="" aria-hidden="true" width="540" height="360" loading="lazy" decoding="async" />
                   </div>
                   <div className="p2-stage p2-stage--alt">
-                    <div className="p2-stage__content">
-                      <div className="p2-stage__badge p2-stage__badge--alt">11 класс</div>
-                      <p className="p2-stage__text">{nb('Систематизируем знания, работаем со сложными заданиями, пробниками и повышаем итоговый результат.')}</p>
+                    <div className="p2-stage__badge p2-stage__badge--alt">Этап 2</div>
+                    <div className="p2-stage__row">
+                      <span className="p2-stage__icon" aria-hidden="true">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M4 20h16"/>
+                          <path d="M7.5 20v-4"/>
+                          <path d="M12 20v-7.5"/>
+                          <path d="M16.5 20v-11"/>
+                        </svg>
+                      </span>
+                      <div className="p2-stage__content">
+                        <div className="p2-stage__title">{nb('Повышаем результат за счёт второй части')}</div>
+                        <p className="p2-stage__text">{nb('После уверенного освоения первой части переходим к заданиям повышенного уровня сложности. Разбираем методы решения, оформление и стратегии выполнения сложных задач. Именно здесь формируется результат 80+ баллов.')}</p>
+                      </div>
                     </div>
-                    <img className="p2-stage__ill" src={stageTargetImg} alt="" aria-hidden="true" width="540" height="360" loading="lazy" decoding="async" />
                   </div>
                 </div>
               </div>

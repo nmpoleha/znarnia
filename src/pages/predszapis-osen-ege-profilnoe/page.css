@@ -2317,30 +2317,44 @@
   background: var(--p2-purple-soft);
   padding: 20px 24px;
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
   overflow: hidden;
+}
+
+/* Строка «круглая иконка + текст этапа» */
+.p2-stage__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+}
+
+.p2-stage__icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6def9;
+  color: var(--p2-purple);
+}
+
+.p2-stage--alt .p2-stage__icon {
+  background: #fce3bf;
+  color: #ea580c;
 }
 
 .p2-stage__content { flex: 1; min-width: 0; }
 
-/* Книги и мишень нормализованы на одинаковый холст 540×360 (одинаковая высота
-   объекта), поэтому при равной ширине выглядят равнозначно. */
-.p2-stage__ill {
-  flex-shrink: 0;
-  width: 200px;
-  height: auto;
-  object-fit: contain;
-  margin: -6px -10px -6px 0;   /* лёгкий вынос иллюстрации к правому краю карточки */
-}
-
-@media (max-width: 600px) {
-  .p2-stage__ill { width: 150px; }
-}
-
 @media (max-width: 480px) {
   .p2-stage { padding: 16px 18px; }
-  .p2-stage__ill { width: 96px; margin-right: -4px; }
+  .p2-stage__row { gap: 14px; }
+  .p2-stage__icon { width: 50px; height: 50px; }
+  .p2-stage__icon svg { width: 26px; height: 26px; }
 }
 
 .p2-stage--alt {
@@ -2358,10 +2372,18 @@
   background: var(--p2-purple);
   border-radius: 100px;
   padding: 4px 16px;
-  margin-bottom: 10px;
 }
 
 .p2-stage__badge--alt { background: #ea580c; }
+
+.p2-stage__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--p2-text);
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
 
 .p2-stage__text {
   font-family: 'Nunito', sans-serif;
@@ -2370,6 +2392,42 @@
   color: var(--p2-text);
   line-height: 1.6;
   margin: 0;
+}
+
+/* Этапы внутри правой карточки (узкая колонка) — только текст, без иллюстраций. */
+.p2-why-row .p2-stage {
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.p2-why-row .p2-stage__text {
+  font-weight: 600;
+}
+
+/* Чек-лист «Поэтому мы работаем иначе» — компактно, в одну колонку. */
+.lk-pu-checklist.p2-why-checklist {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 12px 0 4px;
+}
+
+.p2-why-after {
+  font-weight: 700 !important;
+}
+
+/* «Причина проста…» — акцентный текст, а не плашка. */
+.p2-why-cause {
+  font-weight: 800;
+  color: var(--p2-purple);
+}
+
+/* Переход «Поэтому мы работаем иначе» внутри левой карточки — отделяем
+   от блока с проблемой линией и отступом. */
+.p2-why-turn {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--p2-border);
 }
 
 @media (max-width: 640px) {
@@ -2861,22 +2919,10 @@
    плашкой/заголовком, а описание занимает всю ширину под ними.
    ============================================================ */
 @media (max-width: 560px) {
-  /* Этапы 10/11 класс */
-  .p2-stage {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    column-gap: 14px;
-    row-gap: 10px;
-  }
-  .p2-stage__content { display: contents; }
-  .p2-stage__badge { order: 1; margin-bottom: 0; }
-  .p2-stage__ill {
-    order: 2;
-    width: 60px;
-    margin: 0 0 0 auto;
-  }
-  .p2-stage__text { order: 3; flex-basis: 100%; }
+  /* Этапы: круглая иконка + текст — на узких экранах чуть плотнее */
+  .p2-stage__row { gap: 14px; }
+  .p2-stage__icon { width: 52px; height: 52px; }
+  .p2-stage__icon svg { width: 26px; height: 26px; }
 
   /* Плашка «Подготовка помогает не только на ЕГЭ»: на мобилках без шапочки —
      заголовок и текст на всю ширину */
