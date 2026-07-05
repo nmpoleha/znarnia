@@ -1,0 +1,2896 @@
+/* ===== PAGE-2 root scope ===== */
+.p2 {
+  --p2-purple:        #6d28d9;
+  --p2-purple-soft:   #ede9fe;
+  --p2-purple-mid:    #8b5cf6;
+  --p2-purple-light:  #f0ebff;
+  --p2-purple-border: #c4b5fd;
+  --p2-autumn:        #f59e0b;
+  --p2-autumn-dark:   #d97706;
+  --p2-autumn-soft:   #fef3c7;
+  --p2-autumn-line:   #fde68a;
+  --p2-amber-badge:   #fcd34d;
+  --p2-amber-text:    #92400e;
+  --p2-text:          #1e1b4b;
+  --p2-muted:         #6b7280;
+  --p2-bg:            #fafaf8;
+  --p2-hero-bg:       #fffdf7;
+  --p2-price-bg:      #fef9ec;
+  --p2-card:          #ffffff;
+  --p2-border:        #e5e7eb;
+  --p2-shadow:        rgba(109,40,217,0.08);
+  --p2-radius-xs:     8px;
+  --p2-radius-sm:     12px;
+  --p2-radius:        20px;
+  --p2-radius-lg:     24px;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+.p2 {
+  background:
+    radial-gradient(ellipse at 8% 18%,  rgba(252,211,77,0.13) 0%, transparent 38%),
+    radial-gradient(ellipse at 90% 55%, rgba(245,158,11,0.20) 0%, transparent 32%),
+    radial-gradient(ellipse at 40% 82%, rgba(253,230,138,0.22) 0%, transparent 35%),
+    linear-gradient(145deg, #fffdf7 0%, #fffdf7 25%, #f2ebff 65%, #fff8ed 100%);
+}
+
+/* ===== HORIZONTAL WRAP OVERRIDE ===== */
+.p2 .os-wrap {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* Mid desktop / iPad Pro (961–1200): 100px side padding is too much and squeezes
+   3-column cards so titles overflow — give content more room. */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .p2 .os-wrap { padding-left: 56px; padding-right: 56px; }
+}
+
+@media (max-width: 1024px) {
+  .p2 .os-wrap { padding-left: 48px; padding-right: 48px; }
+}
+
+@media (max-width: 720px) {
+  .p2 .os-wrap { padding-left: 28px; padding-right: 28px; }
+}
+
+@media (max-width: 480px) {
+  .p2 .os-wrap { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ===== SHARED LEAF DECORATION ===== */
+.p2-leaf {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.10;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ===== HEADER BADGE ===== */
+.p2-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p2-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--p2-autumn-dark);
+  background: var(--p2-autumn-soft);
+  border: 1.5px solid var(--p2-amber-badge);
+  border-radius: 100px;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+/* ===== HERO ===== */
+.p2-hero {
+  padding: 16px 0 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-hero .p2-hero__inner { position: relative; z-index: 1; }
+
+.p2-hero .p2-leaf--1 { top: 5%;    right: 2%;  font-size: 56px; transform: rotate(22deg); }
+.p2-hero .p2-leaf--2 { top: 40%;   left: 0%;   font-size: 40px; transform: rotate(-18deg); opacity: 0.07; }
+.p2-hero .p2-leaf--3 { bottom: 8%; right: 10%; font-size: 44px; transform: rotate(-30deg); opacity: 0.08; }
+.p2-hero .p2-leaf--4 { top: 15%;   left: 8%;   font-size: 30px; transform: rotate(40deg);  opacity: 0.06; }
+
+.p2-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+  gap: 64px;
+  align-items: start;
+}
+
+/* Title */
+.p2-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--p2-text);
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+
+.p2-hero__title-grade {
+  color: var(--p2-autumn);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Badge — below title */
+.p2-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--p2-autumn-dark);
+  background: var(--p2-autumn-soft);
+  border: 1.5px solid var(--p2-amber-badge);
+  border-radius: 100px;
+  padding: 4px 14px;
+  margin-bottom: 8px;
+}
+
+/* Description */
+.p2-hero__desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--p2-text);
+  line-height: 1.65;
+  margin: 0 0 12px;
+}
+
+/* ===== FEATURE ICONS (right column, below photo) ===== */
+.p2-hero__icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 16px 0 8px;
+  margin-top: 16px;
+}
+
+.p2-hero__icon-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--p2-text);
+  line-height: 1.2;
+  /* labels wrap inside their cell instead of overflowing onto the neighbour */
+  white-space: normal;
+  flex: 1;
+  min-width: 0;
+}
+
+.p2-hero__icon-box {
+  width: 34px;
+  height: 34px;
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ===== PRICE BLOCK (left column, redesigned) ===== */
+.p2-hero__price-block {
+  background: linear-gradient(135deg, var(--p2-price-bg) 0%, var(--p2-hero-bg) 100%);
+  border: 1.5px solid var(--p2-amber-badge);
+  border-radius: var(--p2-radius-sm);
+  padding: 14px 20px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p2-hero__price-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.p2-hero__price-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--p2-amber-text);
+  letter-spacing: 0.02em;
+}
+
+.p2-hero__price-save {
+  background: var(--p2-autumn);
+  color: #fff;
+  border-radius: var(--p2-radius-xs);
+  padding: 2px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.p2-hero__price-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.p2-hero__price-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--p2-text);
+  line-height: 1;
+}
+
+.p2-hero__price-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.p2-hero__price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--p2-muted);
+  text-decoration: line-through;
+}
+
+.p2-hero__price-unit {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  color: var(--p2-muted);
+  line-height: 1.3;
+}
+
+.p2-hero__price-per {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  color: var(--p2-muted);
+  border-top: 1px solid var(--p2-autumn-line);
+  padding-top: 8px;
+}
+
+/* ===== FEATURES CHECKLIST ===== */
+.p2-hero__features {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.p2-hero__features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--p2-text);
+  line-height: 1.3;
+}
+
+.p2-hero__check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--p2-purple);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  margin-top: 1px;
+}
+
+/* ===== BUTTONS ===== */
+.p2-hero__btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.p2-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--p2-radius-sm);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.p2-btn:active { transform: scale(0.97); }
+.p2-btn:focus-visible { outline: 2px solid var(--p2-purple); outline-offset: 2px; }
+
+/* Autumn-orange CTA button */
+.p2-btn--cta {
+  background: var(--p2-autumn);
+  color: #fff;
+  font-size: 15px;
+  padding: 14px 28px;
+  gap: 8px;
+}
+.p2-btn--cta:hover { background: var(--p2-autumn-dark); }
+
+.p2-btn--primary {
+  background: var(--p2-purple);
+  color: #fff;
+  font-size: 15px;
+  padding: 14px 28px;
+}
+.p2-btn--primary:hover { opacity: 0.88; }
+
+.p2-btn--secondary {
+  background: #fff;
+  color: var(--p2-purple);
+  font-size: 15px;
+  padding: 13px 22px;
+  border: 1.5px solid var(--p2-purple);
+}
+.p2-btn--secondary:hover { background: var(--p2-purple-soft); }
+
+.p2-btn--ghost {
+  background: transparent;
+  color: var(--p2-purple);
+  font-size: 15px;
+  padding: 14px 24px;
+  border: 1.5px solid var(--p2-purple);
+}
+.p2-btn--ghost:hover { background: var(--p2-purple-soft); }
+
+.p2-btn--full { width: 100%; }
+
+.p2-hero__price-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.p2-hero__price-btns .p2-btn {
+  flex: 1;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.p2-hero__price-btns .p2-btn--cta { flex: 2; }
+.p2-hero__price-btns .p2-btn--secondary { flex: 1; }
+
+.p2-btn--lg {
+  font-size: 16px;
+  padding: 16px 36px;
+}
+
+/* Standalone centered CTA between sections */
+.p2-mid-cta {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 44px;
+}
+/* When placed inside a section right after its card */
+.p2-mid-cta--in-section { margin: 28px 0 0; }
+@media (max-width: 640px) {
+  .p2-mid-cta { margin: 0 0 32px; padding: 0 20px; }
+  .p2-mid-cta--in-section { margin: 24px 0 0; }
+  .p2-mid-cta .p2-btn { width: 100%; }
+}
+
+/* ===== HERO RIGHT — PHOTO + ICONS ===== */
+.p2-hero__right {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.p2-hero__photo-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border-radius: var(--p2-radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(109, 40, 217, 0.14);
+  box-shadow: 0 14px 38px rgba(76, 29, 149, 0.18);
+}
+
+/* Hero photo — flex item crops img to its own bounds */
+.p2-hero__photo {
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 220px;
+  border-radius: var(--p2-radius-sm);
+  overflow: hidden;
+}
+
+.p2-hero__photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Десктоп: фиксируем горизонтальную пропорцию фото 3:2 (родная 1280×853),
+   иначе на узком десктопе фото-колонка растягивается на высоту текста
+   и горизонтальное фото кропается в вертикальное. Центрируем по вертикали. */
+@media (min-width: 1025px) {
+  .p2-hero__right { align-self: center; }
+  .p2-hero__photo-wrap {
+    flex: none;
+    aspect-ratio: 3 / 2;
+  }
+  .p2-hero__photo { min-height: 0; }
+}
+
+/* Decorative autumn leaves — §4 (decorative absolute, aria-hidden) */
+.p2-leaf {
+  position: absolute;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+.p2-leaf--1 { top: 16px; right: 20px;  font-size: 56px; transform: rotate(20deg);  }
+.p2-leaf--2 { top: 56px; right: 64px;  font-size: 36px; transform: rotate(-22deg); }
+.p2-leaf--3 { top: 12px; left:  28px;  font-size: 44px; transform: rotate(-35deg); }
+
+/* ===== STATS STRIP ===== */
+.p2-stats {
+  background: var(--p2-purple-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-stats .os-wrap { position: relative; z-index: 1; }
+
+.p2-stats .p2-leaf--1 { top: 10%;   left: 1%;   font-size: 38px; transform: rotate(-20deg); }
+.p2-stats .p2-leaf--2 { top: 20%;   right: 2%;  font-size: 44px; transform: rotate(28deg);  opacity: 0.08; }
+.p2-stats .p2-leaf--3 { bottom: 5%; left: 30%;  font-size: 28px; transform: rotate(-35deg); opacity: 0.07; }
+
+.p2-stats__grid {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  gap: 0;
+}
+
+.p2-stats__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  padding: 0 28px;
+  border-right: 1px solid var(--p2-purple-border);
+}
+.p2-stats__item:first-child { padding-left: 0; }
+.p2-stats__item:last-child  { border-right: none; padding-right: 0; }
+
+/* Планшеты: 3 ячейки «число над подписью», по центру — без тесного переноса */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .p2-stats__item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 0 16px;
+  }
+  .p2-stats__val { white-space: normal; }
+}
+
+.p2-stats__val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-purple);
+  white-space: nowrap;
+}
+
+.p2-stats__label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--p2-text);
+  line-height: 1.3;
+}
+
+/* ===== SECTION HELPERS ===== */
+.p2-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--p2-purple);
+  background: var(--p2-purple-soft);
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-bottom: 24px;
+}
+.p2-section-badge--light {
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.18);
+}
+.p2-section-badge__sep {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: currentColor;
+  opacity: 0.35;
+  flex-shrink: 0;
+}
+
+.p2-section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--p2-text);
+  line-height: 1.15;
+  margin: 0 0 32px;
+}
+.p2-section-title--light { color: #fff; }
+.p2-section-title--tight { margin-bottom: 8px; }
+
+/* Эйбрау-заголовок экрана в карточках блока «в записи / контроль прогресса» */
+.p2-pu-section .lk-pu-card__head { flex-direction: column; gap: 7px; }
+.p2-pu-section .lk-pu-card__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6d28d9;
+}
+.p2-section-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--p2-muted);
+  line-height: 1.4;
+  margin: 0 0 32px;
+}
+
+/* ===== HOW LESSONS WORK ===== */
+.p2-how {
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-how::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, var(--p2-purple-soft) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.p2-how::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--p2-autumn-soft) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.p2-how .os-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.p2-how__grid {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+}
+
+/* Each side is an independent vertical stack of cards (column by column),
+   so a shorter card doesn't leave a gap under it. */
+.p2-how__col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Desktop-only photo placeholder, centred between the two card columns,
+   stretched to the full height of the block. */
+.p2-how__photo-slot {
+  width: clamp(240px, 22%, 320px);
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  border: 2px dashed #c4b5fd;
+  border-radius: var(--p2-radius);
+  background: rgba(237, 233, 254, 0.4);
+  color: #7c3aed;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Slot filled with a real illustration: image frame instead of placeholder. */
+.p2-how__photo-slot--filled {
+  padding: 0;
+  gap: 0;
+  border: 1.5px solid var(--p2-border);
+  background: var(--p2-purple-soft);
+  overflow: hidden;
+}
+
+.p2-how__photo-slot--filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p2-how__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 28px 32px;
+}
+
+.p2-how__card--wide {
+  overflow: hidden;
+}
+
+/* Inner: icon column + text column */
+.p2-how__card-content {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  column-gap: 20px;
+  row-gap: 12px;
+  align-items: start;
+  align-content: start;
+}
+
+.p2-how__card-content .p2-how__card-title { align-self: center; margin-bottom: 0; }
+.p2-how__card-content .p2-how__card-text  { grid-column: 2; margin-bottom: 0; }
+
+/* Purple accent sub-line in wide card title */
+.p2-how__card-title-accent {
+  color: var(--p2-purple);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Star bullet for second paragraph */
+.p2-how__star-bullet {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+/* All cards: column layout, icon+title at top */
+.p2-how__card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Карточки растут под контент (без принудительной равной высоты —
+   иначе длинный текст обрезается из-за overflow: hidden). */
+.p2-how__col .p2-how__card {
+  flex: none;
+}
+
+/* На планшете/десктопе (грид в ряд) колонки естественной высоты,
+   фото по центру тянется по высоте за счёт align-self: stretch.
+   На телефоне (грид в колонку) этого правила нет — колонки на всю ширину. */
+@media (min-width: 721px) {
+  .p2-how__col { align-self: flex-start; }
+}
+
+.p2-how__card--lilac  .p2-how__card-icon { background: #7c3aed; }
+.p2-how__card--purple .p2-how__card-icon { background: #db2777; }
+.p2-how__card--amber  .p2-how__card-icon { background: #2563eb; }
+.p2-how__card--mint   .p2-how__card-icon { background: #ea580c; }
+
+/* Background leaf pattern */
+.p2-how__bg-leaf {
+  position: absolute;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.13;
+}
+
+.p2-how__bg-leaf--1 { top: 4%;    left: 1%;   font-size: 52px; transform: rotate(-25deg); }
+.p2-how__bg-leaf--2 { top: 18%;   left: 14%;  font-size: 34px; transform: rotate(18deg);  opacity: 0.08; }
+.p2-how__bg-leaf--3 { top: 6%;    right: 3%;  font-size: 56px; transform: rotate(30deg);  }
+.p2-how__bg-leaf--4 { top: 50%;   left: 0%;   font-size: 40px; transform: rotate(-12deg); opacity: 0.09; }
+.p2-how__bg-leaf--5 { bottom: 8%; right: 2%;  font-size: 48px; transform: rotate(-30deg); }
+.p2-how__bg-leaf--6 { bottom: 14%; left: 22%; font-size: 36px; transform: rotate(22deg);  opacity: 0.08; }
+.p2-how__bg-leaf--7 { top: 38%;   right: 12%; font-size: 30px; transform: rotate(45deg);  opacity: 0.07; }
+
+
+.p2-how__card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.p2-how__card-body__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.p2-how__card-body__header .p2-how__card-icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.p2-how__card-body__header .p2-how__card-title {
+  margin: 0;
+}
+
+.p2-how__card-deco {
+  font-size: 80px;
+  line-height: 1;
+  align-self: flex-end;
+  margin-bottom: -8px;
+  margin-right: -8px;
+  opacity: 0.88;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Content image — in flow, right column (§1.2) */
+.p2-how__card-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 256px;
+  border-radius: 0;
+  object-fit: contain;
+  align-self: stretch;
+  margin: -32px -40px -32px 0;
+}
+
+.p2-how__card-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--p2-purple);
+  border-radius: var(--p2-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.p2-how__card-content .p2-how__card-icon {
+  margin-bottom: 0;
+  grid-row: span 2;
+  align-self: start;
+}
+
+.p2-how__card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--p2-text);
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.p2-how__card-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+/* ===== RECORDINGS ===== */
+.p2-records {
+  padding: 64px 0;
+  background: var(--p2-purple-soft);
+}
+
+.p2-records__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 64px;
+  align-items: center;
+}
+
+.p2-records__desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-muted);
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+
+.p2-records__list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p2-records__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--p2-text);
+  line-height: 1.45;
+}
+
+.p2-records__check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--p2-purple);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+  margin-top: 1px;
+}
+
+.p2-records__note {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: var(--p2-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.p2-records__visual {
+  background: #fff;
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 4px 24px var(--p2-shadow);
+}
+
+.p2-records__play {
+  font-size: 40px;
+  line-height: 1;
+  color: var(--p2-purple);
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.p2-records__stars {
+  font-size: 20px;
+  letter-spacing: 6px;
+  margin-bottom: 24px;
+}
+
+.p2-records__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--p2-text);
+  margin-bottom: 8px;
+}
+
+.p2-records__sublabel {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  color: var(--p2-muted);
+}
+
+/* ===== WHAT CHILD LEARNS ===== */
+.p2-learns {
+  padding: 4px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-learns::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, var(--p2-autumn-soft) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.p2-learns::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--p2-purple-soft) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.p2-learns .os-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.p2-learns__bg-leaf {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.10;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.p2-learns__bg-leaf--1 { top: 8%;    right: 6%;  font-size: 50px; transform: rotate(20deg); }
+.p2-learns__bg-leaf--2 { top: 55%;   left: 2%;   font-size: 38px; transform: rotate(-18deg); opacity: 0.07; }
+.p2-learns__bg-leaf--3 { bottom: 10%; right: 18%; font-size: 44px; transform: rotate(35deg);  opacity: 0.08; }
+.p2-learns__bg-leaf--4 { top: 28%;   right: 32%; font-size: 28px; transform: rotate(-40deg); opacity: 0.06; }
+
+.p2-learns__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.p2-learns__card {
+  border: 1.5px solid;
+  border-radius: var(--p2-radius);
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.p2-learns__card--c1,
+.p2-learns__card--c2,
+.p2-learns__card--c3 { background: var(--p2-card); border-color: var(--p2-border); }
+
+.p2-learns__card-num {
+  position: absolute;
+  bottom: 8px;
+  right: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 76px;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.p2-learns__card--c1 .p2-learns__card-num { color: rgba(234,88,12,0.10); }
+.p2-learns__card--c2 .p2-learns__card-num { color: rgba(147,51,234,0.08); }
+.p2-learns__card--c3 .p2-learns__card-num { color: rgba(15,118,110,0.09); }
+
+.p2-learns__card-header {
+  display: flex;
+  flex-direction: column;       /* icon above title -> title gets full card width,
+                                   so long words like "самостоятельность" never
+                                   overflow the narrow 3-column cards */
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.p2-learns__card-header .p2-learns__card-icon {
+  margin-bottom: 0;
+}
+
+.p2-learns__card-header .p2-learns__card-title {
+  margin: 0;
+}
+
+.p2-learns__card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--p2-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.p2-learns__card--c1 .p2-learns__card-icon { background: #ea580c; }
+.p2-learns__card--c2 .p2-learns__card-icon { background: #7c3aed; }
+.p2-learns__card--c3 .p2-learns__card-icon { background: #0d9488; }
+
+.p2-learns__card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--p2-text);
+  line-height: 1.25;
+  margin: 0 0 12px;
+  min-width: 0;            /* allow the flex child to shrink (§6) */
+  overflow-wrap: break-word;
+}
+
+.p2-learns__card-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== PROGRESS ===== */
+.p2-progress {
+  padding: 64px 0;
+}
+
+.p2-progress__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 64px;
+  align-items: start;
+}
+
+.p2-progress__desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-muted);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.p2-progress__subdesc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--p2-text);
+  margin: 32px 0 20px;
+}
+
+.p2-progress__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p2-progress__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.45;
+}
+
+.p2-progress__star {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.p2-progress__card {
+  background: #fff;
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 36px 32px;
+  box-shadow: 0 8px 40px var(--p2-shadow);
+}
+
+.p2-progress__card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--p2-text);
+  margin-bottom: 28px;
+}
+
+.p2-progress__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.p2-progress__stat {
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-sm);
+  padding: 20px 12px;
+  text-align: center;
+}
+
+.p2-progress__stat-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--p2-purple);
+  margin-bottom: 6px;
+}
+
+.p2-progress__stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: var(--p2-muted);
+  line-height: 1.35;
+}
+
+.p2-progress__bar-wrap { display: flex; flex-direction: column; gap: 10px; }
+
+.p2-progress__bar-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--p2-muted);
+}
+
+.p2-progress__bar {
+  height: 10px;
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-xs);
+  overflow: hidden;
+}
+
+.p2-progress__bar-fill {
+  height: 100%;
+  background: var(--p2-purple);
+  border-radius: var(--p2-radius-xs);
+}
+
+.p2-progress__bar-pct {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--p2-purple);
+  text-align: right;
+}
+
+/* ===== CTA FINAL ===== */
+.p2-cta {
+  padding: 64px 0;
+  background: var(--p2-purple-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-cta .os-wrap { position: relative; z-index: 1; }
+
+.p2-cta .p2-leaf--1 { top: 10%;   left: 2%;   font-size: 50px; transform: rotate(-20deg); }
+.p2-cta .p2-leaf--2 { bottom: 8%; right: 3%;  font-size: 48px; transform: rotate(25deg);  }
+.p2-cta .p2-leaf--3 { top: 50%;   right: 22%; font-size: 32px; transform: rotate(-38deg); opacity: 0.07; }
+
+.p2-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.p2-cta__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--p2-text);
+  line-height: 1.15;
+  margin: 0 0 24px;
+}
+
+.p2-cta__price {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.p2-cta__price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--p2-muted);
+  text-decoration: line-through;
+}
+
+.p2-cta__price-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--p2-purple);
+}
+
+.p2-cta__price-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: var(--p2-muted);
+}
+
+.p2-cta__right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+  min-width: 240px;
+}
+
+/* ===== SCHEDULE MODAL ===== */
+.os-modal--schedule { max-width: 520px; }
+
+.os-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.os-schedule__row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-sm);
+  padding: 12px 16px;
+}
+
+.os-schedule__grade {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--p2-text);
+}
+
+.os-schedule__days {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--p2-muted);
+}
+
+.os-schedule__sep { color: var(--p2-border); font-weight: 400; }
+
+.os-schedule__time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--p2-purple);
+}
+
+/* ===== PRICE LINES IN MODAL ===== */
+.os-price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--p2-muted);
+  text-decoration: line-through;
+}
+
+.os-price-new {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--p2-purple);
+}
+
+.os-modal__price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 6px 0 20px;
+}
+
+/* ===== RESPONSIVE: tablet landscape (≤1024px) ===== */
+@media (max-width: 1024px) {
+  /* Flatten the two columns into one flow so desc <-> photo can be swapped.
+     A single flex gap drives the vertical rhythm — per-element margins are
+     zeroed so spacing stays uniform/harmonious. */
+  .p2-hero__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .p2-hero__left,
+  .p2-hero__right { display: contents; }
+
+  /* Mobile order: title, badge, PHOTO, price+CTA, DESC (desc and photo swapped) */
+  .p2-hero__title { order: 1; margin: 0; }
+  .p2-hero__badge { order: 2; margin: 0; }
+  .p2-hero__photo-wrap { order: 3; margin: 0; }
+  /* На планшетах/мобилке прайс-блок растягиваем на всю ширину
+     (контейнер имеет align-items: start, поэтому нужен align-self: stretch) */
+  .p2-hero__price-block { order: 4; margin: 0; align-self: stretch; }
+  .p2-hero__desc { order: 5; margin: 0; }
+
+  /* Feature icons: wrap into a grid (3 per row) instead of one nowrap row —
+     otherwise long labels like "Удобный личный кабинет" overlap their neighbour. */
+  .p2-hero__icons { gap: 14px 20px; }
+  .p2-hero__icon-item {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 0;
+    white-space: normal;
+    align-items: center;
+    line-height: 1.2;
+  }
+
+  .p2-hero__photo-wrap {
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  .p2-hero__photo {
+    flex: none;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    max-height: 360px;
+  }
+
+  /* Hide leaves on tablet/mobile — they're decorative and cause overflow */
+  .p2-leaf { display: none; }
+
+  .p2-stats__item { padding: 0 16px; }
+
+  .p2-records__inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .p2-progress__inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .p2-how__grid { grid-template-columns: repeat(2, 1fr); }
+  .p2-how__photo-slot { display: none; }
+
+  .p2-how__card--wide {
+    grid-template-columns: 1fr;
+  }
+  .p2-how__card-photo {
+    height: auto;
+    min-height: 0;
+    /* Drop the desktop bleed margins — on mobile the image sits inside the
+       card so overflow:hidden no longer clips its bottom edge. */
+    margin: 0;
+  }
+  .p2-how__card-content .p2-how__card-icon {
+    grid-row: span 1;
+    margin-bottom: 0;
+  }
+  /* Paragraphs (and the star) below the icon row span full width instead of
+     being indented to the title column. */
+  .p2-how__card-content .p2-how__card-text { grid-column: 1 / -1; }
+  .p2-how__card-content .p2-how__star-bullet {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .p2-learns__grid { grid-template-columns: 1fr; gap: 20px; }
+
+  .p2-header-badge { display: none; }
+}
+
+/* Surface Pro 7 (912×1368) and similar large tablets: the wide-but-short hero
+   photo box crops the kids' bodies at the bottom. Anchor to the bottom so the
+   top of the original is cropped instead. Scoped to 769–1024px so phones (≤768)
+   and desktop (>1024) keep the original framing unchanged. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .p2-hero__photo img { object-position: center 35%; }
+}
+
+/* ===== RESPONSIVE: tablet (720px) ===== */
+@media (max-width: 720px) {
+  .p2-hero { padding: 56px 0 72px; }
+  .p2-hero__title { font-size: 34px; }
+
+  .p2-stats__grid { flex-direction: column; }
+  .p2-stats__item {
+    padding: 10px 0;
+    border-right: none;
+    border-bottom: 1px solid var(--p2-purple-border);
+  }
+  .p2-stats__item:last-child { border-bottom: none; }
+
+  .p2-how { padding: 36px 0 0; }
+  .p2-how__grid { flex-direction: column; gap: 20px; }
+  .p2-how__col { gap: 20px; }
+
+  .p2-section-title { font-size: 24px; }
+  .p2-section-sub { font-size: 16px; }
+
+  .p2-records { padding: 36px 0; }
+  .p2-learns { padding: 36px 0 0; }
+  .p2-progress { padding: 36px 0; }
+  .p2-cta { padding: 36px 0; }
+}
+
+/* ===== RESPONSIVE: mobile (480px) ===== */
+@media (max-width: 480px) {
+  /* Hero — uniform spacing comes from .p2-hero__inner gap (set at <=960) */
+  .p2-hero { padding: 40px 0 28px; }
+  .p2-hero__inner { gap: 18px; }
+  .p2-hero__title { font-size: 26px; }
+  .p2-hero__badge { font-size: 12px; }
+  .p2-hero__desc { font-size: 14px; }
+
+  .p2-hero__icons { gap: 14px 12px; }
+  .p2-hero__icon-item {
+    font-size: 11px;
+    flex: 0 0 calc(50% - 6px);
+    min-width: 0;
+    white-space: normal;
+    align-items: center;
+    line-height: 1.2;
+  }
+
+  .p2-hero__price-block { padding: 14px 16px 16px; }
+  .p2-hero__price-main { font-size: 30px; }
+
+  .p2-hero__features { flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .p2-hero__features li { font-size: 13px; }
+
+  .p2-hero__btns { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .p2-hero__btns .p2-btn { width: 100%; justify-content: center; }
+
+  .p2-hero__photo { aspect-ratio: 16 / 9; }
+
+  /* Stats */
+  .p2-stats__val { font-size: 14px; }
+  .p2-stats__label { font-size: 12px; }
+
+  /* Section labels */
+  .p2-section-badge { margin-bottom: 12px; }
+  .p2-section-title { font-size: 20px; margin-bottom: 16px; }
+  .p2-section-title--tight { margin-bottom: 6px; }
+  .p2-section-sub { font-size: 15px; margin-bottom: 16px; }
+
+  /* How — no bottom padding so the gap to "Чему учится" badge is just the
+     learns section's top padding (28px), like the stats(purple)->how gap */
+  .p2-how { padding: 28px 0 0; }
+  .p2-how__grid { gap: 16px; }
+  .p2-how__card { padding: 28px 24px 24px; }
+  .p2-how__card-icon { width: 48px; height: 48px; border-radius: var(--p2-radius-xs); margin-bottom: 16px; }
+  .p2-how__card-title { font-size: 15px; margin-bottom: 10px; }
+  .p2-how__card-text { font-size: 13px; }
+  .p2-how__card-deco { font-size: 56px; }
+
+  /* Records */
+  .p2-records { padding: 28px 0; }
+  .p2-records__desc { font-size: 14px; margin-bottom: 16px; }
+  .p2-records__list { gap: 12px; margin-bottom: 16px; }
+  .p2-records__list li { font-size: 14px; }
+  .p2-records__visual { padding: 32px 24px; }
+  .p2-records__play { margin-bottom: 14px; }
+  .p2-records__stars { margin-bottom: 18px; }
+
+  /* Learns — no bottom padding so the gap to the "Не получилось" block is just
+     that section's top padding (28px) */
+  .p2-learns { padding: 28px 0 0; }
+  .p2-learns__grid { gap: 16px; }
+  .p2-learns__card { padding: 28px 24px 24px; }
+  .p2-learns__card-num { font-size: 60px; bottom: 4px; right: 16px; }
+  .p2-learns__card-icon { width: 48px; height: 48px; border-radius: var(--p2-radius-xs); margin-bottom: 16px; }
+  .p2-learns__card-title { font-size: 15px; margin-bottom: 10px; }
+
+  /* Progress */
+  .p2-progress { padding: 28px 0; }
+  .p2-progress__subdesc { margin: 20px 0 16px; }
+  .p2-progress__list { gap: 16px; }
+  .p2-progress__list li { font-size: 14px; }
+  .p2-progress__card { padding: 28px 24px; }
+  .p2-progress__card-title { margin-bottom: 20px; }
+  .p2-progress__stats { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+  .p2-progress__stat { padding: 16px 12px; }
+  .p2-progress__stat-val { font-size: 16px; margin-bottom: 4px; }
+
+  /* CTA */
+  .p2-cta { padding: 28px 0; }
+  .p2-cta__inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .p2-cta__right { width: 100%; gap: 12px; }
+  .p2-cta__title { font-size: 20px; margin-bottom: 16px; }
+  .p2-cta__price-main { font-size: 28px; }
+
+  .os-schedule__row { grid-template-columns: 1fr; gap: 3px; }
+
+  /* Equal section spacing (pu/author/social handled after their base defs) */
+  .p2-stats  { padding: 28px 0; }
+}
+
+/* ===== MISSED LESSON + TRANSPARENCY BLOCKS (copied from letnie-kursy) ===== */
+.p2-pu-section {
+  padding: 24px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-pu-section .os-wrap { position: relative; z-index: 1; }
+
+.p2-pu-section .p2-leaf--1 { top: 8%;    right: 3%;  font-size: 52px; transform: rotate(18deg); }
+.p2-pu-section .p2-leaf--2 { bottom: 6%; left: 1%;   font-size: 42px; transform: rotate(-22deg); opacity: 0.08; }
+.p2-pu-section .p2-leaf--3 { top: 45%;   right: 18%; font-size: 30px; transform: rotate(40deg);  opacity: 0.06; }
+
+.lk-cards-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 30px;
+}
+
+/* На планшетах и ниже карточки слишком узкие для 2 колонок (текст крошится
+   в столбики) — стекаем в одну колонку (как и другие 2-колоночные блоки). */
+@media (max-width: 1024px) {
+  .lk-cards-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+.lk-pu-card {
+  min-width: 0;
+  background: #fff;
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 28px 32px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lk-pu-card__head { display: flex; align-items: flex-start; gap: 16px; }
+
+.lk-pu-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--p2-text);
+  line-height: 1.3;
+}
+
+.lk-pu-card__body { display: flex; flex-direction: column; gap: 16px; }
+.lk-pu-card__body--row { flex-direction: row; gap: 24px; }
+.lk-pu-card__body-left { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+
+/* Прогресс ребёнка: интро-текст + диаграмма в одной строке сверху,
+   а список «что видно» идёт на всю ширину карточки (пункты в одну строку). */
+.lk-pu-progress-top { display: flex; gap: 20px; align-items: flex-start; }
+.lk-pu-progress-top > .lk-pu-card__text { flex: 1; min-width: 0; margin: 0; }
+@media (max-width: 768px) {
+  .lk-pu-progress-top { flex-direction: column; align-items: stretch; gap: 16px; }
+}
+
+.lk-pu-card__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.lk-pu-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lk-pu-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--p2-text);
+  line-height: 1.5;
+}
+
+.lk-pu-checklist li svg { flex-shrink: 0; margin-top: 2px; }
+
+/* «Проблемный» список — янтарные маркеры-«!» как контраст к зелёным галочкам */
+.lk-pu-problems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lk-pu-problems li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.6;
+}
+
+.lk-pu-problems li svg { flex-shrink: 0; margin-top: 3px; }
+
+.lk-pu-note {
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-xs);
+  padding: 12px 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--p2-text);
+  line-height: 1.6;
+}
+
+.lk-pu-note--row { display: flex; align-items: center; gap: 12px; }
+
+.lk-stats-widget {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--p2-purple-soft);
+  border-radius: var(--p2-radius-sm);
+  padding: 12px 14px;
+}
+
+.lk-stats-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: var(--p2-muted);
+}
+
+.lk-stats-legend div { display: flex; align-items: center; gap: 5px; }
+
+.lk-stats-legend span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .lk-cards-row { grid-template-columns: minmax(0, 1fr); }
+  .lk-pu-card__body--row { flex-direction: column; }
+  /* Full-width stats widget: donut on the left, legend to the right */
+  .lk-stats-widget {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: 16px 20px;
+  }
+}
+
+/* ===== AUTHOR + REVIEWS + LETTERS ===== */
+.lk-author-section {
+  padding: 24px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.lk-author-section .os-wrap { position: relative; z-index: 1; }
+
+.lk-author-section .p2-leaf--1 { top: 6%;    right: 4%;  font-size: 52px; transform: rotate(22deg); }
+.lk-author-section .p2-leaf--2 { bottom: 8%; left: 1%;   font-size: 40px; transform: rotate(-18deg); opacity: 0.07; }
+.lk-author-section .p2-leaf--3 { top: 40%;   left: 10%;  font-size: 30px; transform: rotate(38deg);  opacity: 0.06; }
+
+.lk-social-section {
+  padding: 0 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lk-social-section .os-wrap { position: relative; z-index: 1; }
+
+.lk-social-section .p2-leaf--1 { top: 5%;    left: 2%;   font-size: 48px; transform: rotate(-22deg); }
+.lk-social-section .p2-leaf--2 { bottom: 6%; right: 3%;  font-size: 44px; transform: rotate(28deg);  }
+.lk-social-section .p2-leaf--3 { top: 50%;   right: 15%; font-size: 32px; transform: rotate(-40deg); opacity: 0.07; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* Mobile spacing for the letnie-kursy-copied sections.
+   Placed AFTER their base defs so these overrides actually win. */
+@media (max-width: 720px) {
+  .p2-pu-section { padding: 36px 0 0; }
+  .lk-author-section { padding: 36px 0 0; }
+  .lk-social-section { padding: 0 0 36px; }
+}
+@media (max-width: 480px) {
+  .p2-pu-section { padding: 28px 0 0; }
+  .lk-author-section { padding: 28px 0 0; }
+  .lk-social-section { padding: 0 0 28px; }
+}
+
+.dg-author {
+  margin-top: 0;
+  margin-bottom: 40px;
+  border-radius: var(--p2-radius-lg);
+  border: 1.5px solid var(--p2-border);
+  background: #fff;
+  box-shadow: 0 2px 16px var(--p2-shadow);
+  overflow: hidden;
+}
+
+.dg-author__top {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+}
+
+.dg-author__left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px 24px 22px 28px;
+}
+
+.dg-author__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--p2-muted);
+}
+
+.dg-author__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--p2-purple);
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.dg-author__items {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.dg-author__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--p2-text);
+  line-height: 1.6;
+}
+
+.dg-author__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--p2-purple-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dg-author__photo-slot {
+  align-self: stretch;
+  overflow: hidden;
+  position: relative;
+}
+
+.dg-author__photo {
+  width: 100%;
+  height: calc(100% + 40px);
+  margin-top: -40px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50% 0 0 50%;
+}
+
+.dg-author__stats {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--p2-border);
+  padding: 18px 0;
+  background: var(--p2-purple-soft);
+}
+
+.dg-author__stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  padding: 0 24px;
+  border-right: 1px solid var(--p2-purple-border);
+}
+
+.dg-author__stat:last-child { border-right: none; }
+
+.dg-author__stat-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dg-author__stat-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--p2-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.dg-author__stat-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: var(--p2-muted);
+  line-height: 1.4;
+  margin-top: 3px;
+}
+
+/* ── REVIEWS ── */
+.dg-reviews { margin-bottom: 40px; }
+
+.dg-reviews__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dg-reviews__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--p2-text);
+}
+
+.dg-reviews__nav { display: flex; gap: 8px; }
+
+.dg-reviews__arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--p2-border);
+  background: #fff;
+  color: var(--p2-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.dg-reviews__arrow:hover:not(.dg-reviews__arrow--disabled) {
+  border-color: var(--p2-purple);
+  color: var(--p2-purple);
+}
+
+.dg-reviews__arrow--disabled { opacity: 0.35; cursor: default; }
+.dg-reviews__track-wrap { overflow: hidden; }
+
+.dg-reviews__track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.35s ease;
+}
+
+.dg-reviews__thumb {
+  flex: 0 0 calc((100% - 40px) / 5);
+  border-radius: var(--p2-radius-sm);
+  overflow: hidden;
+  border: 1.5px solid var(--p2-border);
+  cursor: pointer;
+  position: relative;
+  background: var(--p2-purple-soft);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.dg-reviews__thumb:hover {
+  box-shadow: 0 4px 16px rgba(109,40,217,0.18);
+  transform: translateY(-2px);
+}
+
+.dg-reviews__thumb-img { width: 100%; height: auto; display: block; }
+
+.dg-reviews__thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(109,40,217,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.dg-reviews__thumb:hover .dg-reviews__thumb-overlay { opacity: 1; }
+
+.dg-reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.dg-reviews__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: var(--p2-border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.18s, width 0.18s;
+}
+
+.dg-reviews__dot--active {
+  background: var(--p2-purple);
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* ── SCHOOLS / LETTERS ── */
+.dg-schools {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #fff;
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius-lg);
+  padding: 24px 28px;
+  margin-bottom: 0;
+  box-shadow: 0 2px 16px var(--p2-shadow);
+}
+
+.dg-schools__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: var(--p2-purple-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.dg-schools__body { display: flex; flex-direction: column; gap: 8px; }
+
+.dg-schools__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--p2-text);
+}
+
+.dg-schools__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--p2-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.dg-letters {
+  margin-top: 16px;
+  position: relative;
+}
+
+.dg-letters__track-wrap { overflow: hidden; }
+
+.dg-letters__track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.35s ease;
+}
+
+.dg-letters__thumb {
+  flex: 0 0 calc((100% - 30px) / 4);
+  aspect-ratio: 3 / 4;
+  border-radius: var(--p2-radius-sm);
+  overflow: hidden;
+  border: 1.5px solid var(--p2-border);
+  cursor: pointer;
+  position: relative;
+  background: var(--p2-purple-soft);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.dg-letters__thumb:hover {
+  box-shadow: 0 4px 16px rgba(109,40,217,0.18);
+  transform: translateY(-2px);
+}
+
+.dg-letters__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.dg-letters__thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(109,40,217,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.dg-letters__thumb:hover .dg-letters__thumb-overlay { opacity: 1; }
+
+.dg-letters__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dg-letters__arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--p2-border);
+  background: #fff;
+  color: var(--p2-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.dg-letters__arrow:hover:not(.dg-letters__arrow--disabled) {
+  border-color: var(--p2-purple);
+  color: var(--p2-purple);
+}
+
+.dg-letters__arrow--disabled { opacity: 0.35; cursor: default; }
+
+/* ── LIGHTBOX ── */
+.dg-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,0,20,0.88);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.18s ease both;
+}
+
+.dg-lightbox__img {
+  max-width: min(700px, calc(100vw - 120px));
+  max-height: calc(100vh - 80px);
+  width: auto;
+  height: auto;
+  border-radius: var(--p2-radius);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  display: block;
+  object-fit: contain;
+  animation: fadeUp 0.22s ease both;
+}
+
+.dg-lightbox__close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+  padding: 0;
+}
+
+.dg-lightbox__close:hover { background: rgba(255,255,255,0.22); }
+
+.dg-lightbox__prev,
+.dg-lightbox__next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+  padding: 0;
+  z-index: 1;
+}
+
+.dg-lightbox__prev { left: 16px; }
+.dg-lightbox__next { right: 16px; }
+.dg-lightbox__prev:hover,
+.dg-lightbox__next:hover { background: rgba(255,255,255,0.22); }
+.dg-lightbox__nav--hidden { opacity: 0; pointer-events: none; }
+
+.dg-lightbox__counter {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.65);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .dg-author { margin-bottom: 28px; }
+  .dg-author__top { grid-template-columns: minmax(0, 1fr); }
+  .dg-author__name { font-size: 14px; letter-spacing: 0.02em; }
+  .dg-author__photo-slot { height: auto; }
+  .dg-author__photo { width: 100%; height: auto; margin-top: 0; border-radius: 0; object-fit: contain; display: block; }
+  .dg-author__stats { flex-wrap: wrap; }
+  .dg-author__stat { flex: 1 1 45%; border-right: none; padding: 8px 16px; }
+  .dg-reviews__thumb { flex: 0 0 calc((100% - 10px) / 2); }
+  .dg-letters__thumb { flex: 0 0 calc((100% - 10px) / 2); }
+  .dg-lightbox { padding: 60px 12px 40px; }
+  .dg-lightbox__img { max-width: calc(100vw - 24px); }
+  .dg-schools { padding: 20px 16px; gap: 14px; }
+}
+
+/* ===== SCREEN 5 — MORE THAN A TUTOR ===== */
+.p2-more {
+  padding: 4px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-more__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 40px;
+  box-shadow: 0 10px 30px var(--p2-shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+  column-gap: 36px;
+  align-items: start;
+}
+
+.p2-more__content { grid-column: 1; grid-row: 1; }
+
+/* Illustration on the right — keep its natural 3:2 proportions so the two
+   video-call panels aren't cropped by the narrow column. */
+.p2-more__media {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--p2-radius-sm);
+  overflow: hidden;
+  border: 1.5px solid var(--p2-border);
+}
+
+.p2-more__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Trim only the illustration's light outer frame; both panels stay visible. */
+  transform: scale(1.1);
+}
+
+/* Экран 5 — лид, чек-лист тем (2 колонки), завершающая заметка */
+.p2-more__lead {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--p2-text);
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+.p2-more__topics-intro {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+/* Составной селектор (0,2,0) — чтобы grid гарантированно перебивал
+   display:flex из .lk-pu-checklist в продакшен-бандле независимо от порядка. */
+.lk-pu-checklist.p2-more__topics {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px 28px;
+  margin: 0 0 20px;
+}
+
+.p2-more__topics li {
+  font-size: 15px;
+  color: var(--p2-text);
+}
+
+.p2-more__topics-note {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--p2-purple);
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--p2-border);
+}
+
+/* Экран 6 — два этапа подготовки (10 и 11 класс) */
+.p2-stages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.p2-stage {
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius-sm);
+  background: var(--p2-purple-soft);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.p2-stage__content { flex: 1; min-width: 0; }
+
+/* Книги и мишень нормализованы на одинаковый холст 540×360 (одинаковая высота
+   объекта), поэтому при равной ширине выглядят равнозначно. */
+.p2-stage__ill {
+  flex-shrink: 0;
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  margin: -6px -10px -6px 0;   /* лёгкий вынос иллюстрации к правому краю карточки */
+}
+
+@media (max-width: 600px) {
+  .p2-stage__ill { width: 150px; }
+}
+
+@media (max-width: 480px) {
+  .p2-stage { padding: 16px 18px; }
+  .p2-stage__ill { width: 96px; margin-right: -4px; }
+}
+
+.p2-stage--alt {
+  background: #fef3c7;
+  border-color: #fcd9a6;
+}
+
+.p2-stage__badge {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+  background: var(--p2-purple);
+  border-radius: 100px;
+  padding: 4px 16px;
+  margin-bottom: 10px;
+}
+
+.p2-stage__badge--alt { background: #ea580c; }
+
+.p2-stage__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .lk-pu-checklist.p2-more__topics { grid-template-columns: 1fr; }
+}
+
+/* Экран 6 — иконки, акцент, стрелка-связка */
+.p2-why-row { position: relative; }
+
+.p2-why-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.p2-why-intro__icon { flex-shrink: 0; line-height: 0; margin-top: 2px; }
+
+.p2-why-accent {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+.p2-why-row__goal--feature {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.p2-why-row__goal-icon { flex-shrink: 0; line-height: 0; }
+
+.p2-why-head-icon { flex-shrink: 0; line-height: 0; }
+
+/* Круглая стрелка между карточками (декоративная, в зазоре грида) */
+.p2-why-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.3);
+  pointer-events: none;
+}
+
+/* Стрелка-связка видна только когда карточки стоят в 2 колонки (≥1025px) */
+@media (max-width: 1024px) {
+  .p2-why-arrow { display: none; }
+}
+
+.p2-results__photo-slot.p2-results__photo-slot--filled {
+  padding: 0;
+  gap: 0;
+  border: 1.5px solid var(--p2-border);
+  background: var(--p2-purple-soft);
+  overflow: hidden;
+  min-height: 260px;
+}
+
+.p2-results__photo-slot--filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Photo placeholder on the right, stretched to the card's height. */
+.p2-more__photo-slot,
+.p2-results__photo-slot {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  border: 2px dashed var(--p2-purple-border);
+  border-radius: var(--p2-radius-sm);
+  background: rgba(237, 233, 254, 0.4);
+  color: var(--p2-purple);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Блоки «Почему школьной программы недостаточно» / «Почему сдают ОГЭ» —
+   две карточки в ряд (стопкой ≤768px через lk-cards-row).
+   Тело растягиваем, итоговую плашку прижимаем к низу, чтобы плашки обеих
+   карточек были выровнены по одной линии независимо от длины текста. */
+.p2-why-row .lk-pu-card__body { flex: 1; }
+.p2-why-row__goal { margin-top: auto; }
+
+/* ПК и планшеты (≥769px, карточки в ряд): итоговая плашка ТОЛЬКО в левой
+   карточке («Почему школьной программы недостаточно») — крупное цветовое
+   пятно. Остаётся ВНУТРИ карточки с отступами от краёв, но растягивается по
+   высоте свободного места и центрирует крупный текст. Правая карточка и
+   мобильная версия (стопка) — без изменений. */
+@media (min-width: 769px) {
+  .p2-why-row .p2-why-row__goal--feature {
+    margin-top: 16px;
+    padding: 20px 26px;
+  }
+  .p2-why-row .p2-why-row__goal--feature .p2-why-row__goal-text {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+}
+
+.p2-more__features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.p2-more__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.p2-more__feature-num {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+}
+
+.p2-more__feature-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.p2-more__feature-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--p2-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.p2-more__feature-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.p2-more__lead {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.p2-more__accent {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-purple);
+  margin: 0 0 24px;
+}
+
+.p2-more__list {
+  margin-bottom: 24px;
+  gap: 14px;
+}
+
+.p2-more__list li {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.p2-more__goal {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: 28px;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  border-radius: var(--p2-radius-sm);
+  box-shadow: 0 10px 26px rgba(109, 40, 217, 0.25);
+}
+
+.p2-more__goal-accent {
+  color: var(--p2-amber-badge);
+  font-weight: 800;
+}
+
+/* ===== SCREEN 6 — RESULTS PARENTS NOTICE ===== */
+.p2-results {
+  padding: 4px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p2-results__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 36px;
+  box-shadow: 0 10px 30px var(--p2-shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.p2-results__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.p2-results__lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-text);
+  margin: 0 0 20px;
+}
+
+.p2-results__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 32px;
+}
+
+.p2-results__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--p2-text);
+  line-height: 1.5;
+}
+
+.p2-results__star {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1.35;
+  align-self: flex-start;
+  margin-top: 1px;
+}
+
+.p2-results__li-text { flex: 1; min-width: 0; }
+
+.p2-results__li-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: #8b5cf6;
+}
+.p2-results__li-icon svg { width: 30px; height: 30px; }
+
+/* Под-блок «Подготовка помогает не только на ЕГЭ» */
+.p2-results__extra {
+  margin-top: 24px;
+  background: var(--p2-purple-soft);
+  border: 1.5px solid var(--p2-purple-border);
+  border-radius: var(--p2-radius-sm);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.p2-results__extra-ill {
+  flex-shrink: 0;
+  width: 116px;
+  height: auto;
+}
+
+.p2-results__extra-body { flex: 1; min-width: 0; }
+
+.p2-results__extra-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--p2-purple);
+  line-height: 1.3;
+  margin-bottom: 7px;
+}
+
+.p2-results__extra-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: var(--p2-text);
+  line-height: 1.5;
+  margin: 0 0 5px;
+}
+
+.p2-results__list--compact {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.p2-results__list--compact li {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--p2-text);
+}
+
+.p2-results__highlight {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  border-radius: var(--p2-radius-sm);
+  padding: 18px 24px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.25);
+}
+
+.p2-results__highlight-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--p2-amber-badge);
+  flex-shrink: 0;
+}
+
+.p2-results__highlight-main {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.p2-results__highlight-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+/* Планшеты и ниже: двухколоночные блоки more/results стекаются в одну колонку,
+   иначе текстовая колонка сжимается, а иллюстрация вылезает (721–1024px) */
+@media (max-width: 1024px) {
+  .p2-more__card,
+  .p2-results__card { grid-template-columns: 1fr; gap: 0; }
+  .p2-results__list { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
+
+  /* «Почему Знарния»: стопкой — текст, картинка целиком, цель без наложения */
+  .p2-more__content,
+  .p2-more__media,
+  .p2-more__goal { grid-column: 1; grid-row: auto; }
+  .p2-more__media { align-self: auto; margin-top: 24px; }
+  .p2-more__media img { height: auto; }
+  .p2-more__goal { margin-top: 24px; width: 100%; }
+
+  /* Иллюстрация «Почему Знарния»: показываем целиком, без зум-кропа */
+  .p2-more__media img { transform: none; }
+
+  /* Фото в «Результатах»: стопкой под текстом, ширина строго по карточке
+     (min-height сбрасываем повышенной специфичностью, иначе aspect-ratio
+     раздувает ширину и фото вылезает за границы) */
+  .p2-results__photo-slot.p2-results__photo-slot--filled,
+  .p2-results__photo-slot {
+    align-self: stretch;
+    width: 100%;
+    margin-top: 24px;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 480px) {
+  .p2-more__card { padding: 24px 20px; }
+  .p2-more__accent { font-size: 16px; }
+  .p2-more__list li, .p2-results__list li, .p2-more__goal { font-size: 14px; }
+  .p2-results__card { padding: 24px 20px; }
+  /* Карточки «Почему…» и «записи/прогресс» — те же отступы до краёв, что и у
+     карточек ниже (Результаты), чтобы внутренние элементы были на одной линии */
+  .lk-pu-card { padding: 24px 20px; }
+  .p2-results__lead { font-size: 16px; }
+  .p2-results__highlight { padding: 16px 18px; gap: 16px; }
+  .p2-results__highlight-main { font-size: 14px; }
+  .p2-results__highlight-num { font-size: 38px; }
+}
+
+/* ============================================================
+   Унифицированный вертикальный ритм между секциями.
+   Контентные секции: padding-top: 0, padding-bottom: G.
+   Секция сразу после цветной плашки .p2-stats: pt = G (.p2-stats + section).
+   Отступ перед плашкой p2-cta даёт padding-bottom соседней секции.
+   G = 64 (десктоп) / 40 (≤720) / 32 (≤480).
+   ============================================================ */
+.p2-how,
+.p2-learns,
+.p2-pu-section,
+.p2-more,
+.p2-results,
+.lk-author-section,
+.lk-social-section {
+  padding-top: 0;
+  padding-bottom: 64px;
+}
+/* Первая секция после цветной плашки .p2-stats получает верхний отступ G,
+   чтобы её бейдж/заголовок не наезжал на плашку (не зависит от порядка блоков). */
+.p2-stats + section { padding-top: 64px; }
+.p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 64px; }
+
+@media (max-width: 720px) {
+  .p2-how,
+  .p2-learns,
+  .p2-pu-section,
+  .p2-more,
+  .p2-results,
+  .lk-author-section,
+  .lk-social-section {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+  .p2-stats + section { padding-top: 40px; }
+  .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 40px; }
+}
+
+@media (max-width: 480px) {
+  .p2-how,
+  .p2-learns,
+  .p2-pu-section,
+  .p2-more,
+  .p2-results,
+  .lk-author-section,
+  .lk-social-section {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+  .p2-stats + section { padding-top: 32px; }
+  .p2-mid-cta:not(.p2-mid-cta--in-section) { margin: 0 0 32px; }
+}
+
+
+/* Планшеты (721–1024, фото скрыто): симметричная сетка 2×2.
+   Колонки-обёртки убираем (display: contents), 4 карточки становятся
+   прямыми элементами грида. Равные строки 1fr 1fr + auto-flow: column
+   дают одинаковую высоту всем карточкам (= самой высокой), текст помещается
+   без обрезки, порядок: слева сверху-вниз, затем справа. */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .p2-how__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .p2-how__col { display: contents; }
+  .p2-how__col .p2-how__card { height: 100%; }
+}
+
+/* ============================================================
+   Узкие телефоны: чтобы текст не зажимался рядом с иллюстрацией,
+   на узкой ширине иллюстрация уходит в верхнюю строку рядом с
+   плашкой/заголовком, а описание занимает всю ширину под ними.
+   ============================================================ */
+@media (max-width: 560px) {
+  /* Этапы 10/11 класс */
+  .p2-stage {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 10px;
+  }
+  .p2-stage__content { display: contents; }
+  .p2-stage__badge { order: 1; margin-bottom: 0; }
+  .p2-stage__ill {
+    order: 2;
+    width: 60px;
+    margin: 0 0 0 auto;
+  }
+  .p2-stage__text { order: 3; flex-basis: 100%; }
+
+  /* Плашка «Подготовка помогает не только на ЕГЭ»: на мобилках без шапочки —
+     заголовок и текст на всю ширину */
+  .p2-results__extra-ill { display: none; }
+
+  /* Плашка «Поэтому многим ученикам…»: смайлик слева сверху, текст начинается
+     справа от него и переносится ниже под смайликом, занимая всю ширину */
+  .p2-why-row__goal--feature { display: block; }
+  .p2-why-row__goal--feature .p2-why-row__goal-icon {
+    float: left;
+    margin: 2px 14px 4px 0;
+  }
+
+  /* Чек-лист в герое: на маленьких экранах строго одна колонка, чтобы
+     длинные подписи не дробились на столбики из отдельных слов */
+  .p2-hero__icon-item { flex: 0 0 100%; }
+}

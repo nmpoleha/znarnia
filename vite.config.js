@@ -45,6 +45,7 @@ export default defineConfig({
         'predszapis-osen-stariye-5-8': resolve(__dirname, 'predszapis-osen-stariye-5-8/index.html'),
         'predszapis-osen-stariye-9': resolve(__dirname, 'predszapis-osen-stariye-9/index.html'),
         'predszapis-osen-ege-10': resolve(__dirname, 'predszapis-osen-ege-10/index.html'),
+        'predszapis-osen-ege-profilnoe': resolve(__dirname, 'predszapis-osen-ege-profilnoe/index.html'),
       },
     },
   },
