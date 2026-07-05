@@ -567,23 +567,127 @@ export default function Page() {
         </div>
       </section>
 
-      {/* RESULTS PARENTS NOTICE */}
+      {/* SCREEN 8 — TRANSPARENT PROGRESS PLAN */}
+      <section className="p2-more p2-plan">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍁</span>
+        <div className="os-wrap">
+          <div className="p2-plan__head">
+            <div className="p2-plan__head-text">
+              <span className="p2-section-badge p2-plan__badge">Прозрачный прогресс</span>
+              <h2 className="p2-plan__title">{nb('Подготовка по понятному плану')}</h2>
+            </div>
+          </div>
+          <p className="p2-plan__lead">{nb('Каждый месяц ученик видит свой прогресс. Подготовка к ЕГЭ проходит по чёткой траектории.')}</p>
+          <div className="p2-plan__grid">
+            <div className="p2-plan__left">
+              <div className="p2-plan__box">
+                <p className="p2-plan__box-title">Ученик и родители всегда понимают:</p>
+                <ul className="p2-plan__list">
+                  {[
+                    'какие задания уже освоены',
+                    'какие темы проработаны',
+                    'какие номера ещё впереди',
+                    'как постепенно растёт потенциальный результат на экзамене',
+                  ].map((t, i) => (
+                    <li key={i}>
+                      <span className="p2-plan__star" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>
+                      </span>
+                      <span>{nb(t)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p2-more__goal p2-why-row__goal--feature p2-plan__goal">
+                <span className="p2-why-row__goal-icon" aria-hidden="true"><CheckCircleBig /></span>
+                <span className="p2-why-row__goal-text">{nb('Подготовка становится понятной, управляемой и прогнозируемой.')}</span>
+              </div>
+            </div>
+
+            <div className="p2-plan__right">
+              <div className="p2-dash">
+                <div className="p2-dash__head">
+                  <span className="p2-dash__title">Ваш прогресс</span>
+                  <span className="p2-dash__month">Месяц: Май
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </div>
+                <div className="p2-dash__chart">
+                  <svg viewBox="0 0 380 105" width="100%" role="img" aria-label="График роста потенциального балла до 82">
+                    <defs>
+                      <linearGradient id="dashArea" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.22"/>
+                        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    {[88,73,59,44,30,15].map((y, i) => (
+                      <line key={i} x1="45" y1={y} x2="362" y2={y} stroke="#edeaf6" strokeWidth="1"/>
+                    ))}
+                    {[[88,'0'],[73,'20'],[59,'40'],[44,'60'],[30,'80'],[15,'100']].map(([y,l], i) => (
+                      <text key={i} x="34" y={y+3.5} textAnchor="end" fontSize="10" fill="#9aa0ad" fontFamily="Nunito, sans-serif">{l}</text>
+                    ))}
+                    <path d="M70,88 L70,77 L116,63 L162,55 L208,49 L254,43 L300,36 L300,88 Z" fill="url(#dashArea)"/>
+                    <path d="M70,77 L116,63 L162,55 L208,49 L254,43 L300,36" fill="none" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M300,36 L352,28" fill="none" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" strokeDasharray="2 7"/>
+                    {[[70,77],[116,63],[162,55],[208,49],[254,43],[300,36]].map(([x,y], i) => (
+                      <circle key={i} cx={x} cy={y} r="4.5" fill="#fff" stroke="#7c3aed" strokeWidth="2.4"/>
+                    ))}
+                    <g>
+                      <rect x="338" y="16" width="34" height="24" rx="7" fill="#7c3aed"/>
+                      <text x="355" y="32" textAnchor="middle" fontSize="13" fontWeight="800" fill="#fff" fontFamily="Montserrat, sans-serif">82</text>
+                    </g>
+                  </svg>
+                </div>
+                <div className="p2-dash__topics">
+                  <span className="p2-dash__topics-title">Темы</span>
+                  {[
+                    { n: 'Алгебра', c: '#22c55e', v: '16 / 20', p: 80 },
+                    { n: 'Геометрия', c: '#3b82f6', v: '12 / 18', p: 67 },
+                    { n: 'Уравнения и неравенства', c: '#f59e0b', v: '10 / 15', p: 67 },
+                    { n: 'Функции', c: '#7c3aed', v: '8 / 12', p: 67 },
+                    { n: 'Текстовые задачи', c: '#fb7185', v: '6 / 10', p: 60 },
+                  ].map((t, i) => (
+                    <div className="p2-dash__topic" key={i}>
+                      <span className="p2-dash__topic-dot" style={{ background: t.c }} aria-hidden="true"/>
+                      <span className="p2-dash__topic-name">{t.n}</span>
+                      <span className="p2-dash__topic-bar">
+                        <span className="p2-dash__topic-fill" style={{ width: t.p + '%', background: t.c }}/>
+                      </span>
+                      <span className="p2-dash__topic-val">{t.v}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="p2-dash__result">
+                  <span className="p2-dash__result-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17l6-6 4 4 6-7"/><path d="M16 8h4v4"/></svg>
+                  </span>
+                  <span className="p2-dash__result-label">Потенциальный результат</span>
+                  <span className="p2-dash__result-val">82+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SCREEN 9 — RESULTS PARENTS & STUDENTS NOTICE */}
       <section className="p2-results">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
         <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
         <div className="os-wrap">
           <div className="p2-section-badge">Результаты</div>
-          <h2 className="p2-section-title">{nb('Результаты, которые замечают родители и ученики')}</h2>
+          <h2 className="p2-section-title">{nb('Результаты, которые замечают ученики и родители')}</h2>
           <div className="p2-results__card">
             <div className="p2-results__content">
             <p className="p2-results__lead">Уже через несколько месяцев занятий:</p>
             <ul className="p2-results__list">
               {[
-                { t: 'ребёнок начинает лучше понимать сложные темы', Icon: RIBulb },
-                { t: 'становится увереннее в своих знаниях', Icon: RIUserCheck },
-                { t: 'улучшаются результаты по математике в школе', Icon: RIBars },
-                { t: 'появляется понимание формата ЕГЭ', Icon: RIClipboard },
-                { t: 'формируется база для дальнейшей подготовки к высоким баллам', Icon: RITarget },
+                { t: 'появляется уверенность в своих знаниях', Icon: RIUserCheck },
+                { t: 'ребёнок лучше ориентируется в заданиях ЕГЭ', Icon: RIClipboard },
+                { t: 'исчезает страх перед экзаменом', Icon: RITarget },
+                { t: 'становятся понятны даже сложные темы', Icon: RIBulb },
+                { t: 'растут результаты пробных экзаменов', Icon: RIBars },
               ].map(({ t, Icon }, i) => (
                 <li key={i}>
                   <span className="p2-results__li-icon" aria-hidden="true"><Icon /></span>
@@ -594,17 +698,8 @@ export default function Page() {
             <div className="p2-results__extra">
               <img className="p2-results__extra-ill" src="/znarnia/images/icons/icon-graduation.png" alt="" aria-hidden="true" width="200" height="200" loading="lazy" decoding="async" />
               <div className="p2-results__extra-body">
-                <div className="p2-results__extra-title">Подготовка помогает не только на ЕГЭ</div>
-                <p className="p2-results__extra-text">{nb('Темы, которые мы изучаем в 10 классе, входят и в школьную программу.')}</p>
-                <p className="p2-results__extra-text">Поэтому ребёнок одновременно:</p>
-                <ul className="p2-results__list p2-results__list--compact">
-                  {[
-                    'улучшает результаты в школе',
-                    'готовится к ЕГЭ без перегрузки в 11 классе',
-                  ].map((t, i) => (
-                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
-                  ))}
-                </ul>
+                <div className="p2-results__extra-title">Даже слабый ученик может выйти на достойный результат</div>
+                <p className="p2-results__extra-text">{nb('Благодаря системной проработке первой части большинство учеников получают прочную основу для дальнейшего роста баллов. Это позволяет уверенно двигаться к высоким результатам и постепенно выходить на уровень 80+ баллов.')}</p>
               </div>
             </div>
             </div>
