@@ -159,152 +159,10 @@ const LkCheck = () => (
   </svg>
 )
 
-const LkWarn = () => (
-  <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
-    <circle cx="10" cy="10" r="10" fill="#fef3c7"/>
-    <path d="M10 5.4v5.2" stroke="#d97706" strokeWidth="2" strokeLinecap="round"/>
-    <circle cx="10" cy="14.1" r="1.1" fill="#d97706"/>
-  </svg>
-)
-
 const EbCheck = () => (
   <svg className="eb-scr__check" viewBox="0 0 20 20" width="20" height="20" fill="none" aria-hidden="true">
     <circle cx="10" cy="10" r="10" fill="#6d28d9"/>
     <polyline points="5.5 10.4 8.6 13.5 14.6 6.8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-
-/* Illustration for «Что входит в подготовку» — интерфейс урока на ноутбуке */
-const EbLessonIllustration = () => (
-  <svg className="eb-ill" viewBox="0 0 660 460" fill="none" role="img" aria-label="Интерфейс образовательной платформы: разбор задания с объяснением, типами задач и тренажёром">
-    {/* растение */}
-    <g>
-      <path d="M596 250c0-22 10-40 24-48-4 20-6 36-6 48z" fill="#8fbf8f"/>
-      <path d="M614 250c2-24 16-42 34-46-10 18-22 32-28 46z" fill="#7bb27b"/>
-      <path d="M614 250c-2-20-14-34-30-38 8 16 18 26 22 38z" fill="#9ecb9e"/>
-      <path d="M598 250h34l-4 34a6 6 0 0 1-6 5h-14a6 6 0 0 1-6-5z" fill="#efefff" stroke="#d9d5ea" strokeWidth="2"/>
-    </g>
-    {/* стопка книг */}
-    <g>
-      <rect x="560" y="300" width="86" height="16" rx="4" fill="#ede9fe" stroke="#c4b5fd" strokeWidth="1.5"/>
-      <rect x="552" y="316" width="94" height="16" rx="4" fill="#ddd6fe" stroke="#c4b5fd" strokeWidth="1.5"/>
-      <rect x="566" y="332" width="80" height="16" rx="4" fill="#c7bdf7" stroke="#a78bda" strokeWidth="1.5"/>
-    </g>
-    {/* блокнот и ручка */}
-    <g>
-      <rect x="40" y="322" width="120" height="96" rx="8" transform="rotate(-8 100 370)" fill="#efeaff" stroke="#c4b5fd" strokeWidth="2"/>
-      <line x1="60" y1="410" x2="150" y2="360" stroke="#8b5cf6" strokeWidth="4" strokeLinecap="round"/>
-      <path d="M150 360l10-6-3 11z" fill="#6d28d9"/>
-    </g>
-    {/* корпус ноутбука */}
-    <path d="M60 344h500l34 46H26z" fill="#e9e6f4" stroke="#d3cde8" strokeWidth="2" strokeLinejoin="round"/>
-    <rect x="262" y="352" width="96" height="9" rx="4.5" fill="#d3cde8"/>
-    {/* экран */}
-    <rect x="80" y="40" width="460" height="300" rx="14" fill="#ffffff" stroke="#d9d5ea" strokeWidth="2"/>
-    <g transform="translate(80 40)">
-      <text x="26" y="40" fontFamily="Montserrat, sans-serif" fontSize="17" fontWeight="800" fill="#1e1b4b">Задание 14</text>
-      {/* вкладки */}
-      <rect x="26" y="54" width="96" height="27" rx="13.5" fill="#6d28d9"/>
-      <text x="74" y="72" textAnchor="middle" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="700" fill="#fff">Объяснение</text>
-      <text x="140" y="72" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="600" fill="#9ca3af">Примеры</text>
-      <text x="210" y="72" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="600" fill="#9ca3af">Алгоритм</text>
-      <text x="285" y="72" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="600" fill="#9ca3af">Практика</text>
-      <text x="356" y="72" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="600" fill="#9ca3af">Тренажёр</text>
-      {/* теория */}
-      <text x="26" y="112" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="700" fill="#6b7280">Рассмотрим теорию</text>
-      <rect x="26" y="122" width="150" height="6" rx="3" fill="#e9e7f2"/>
-      <rect x="26" y="136" width="112" height="6" rx="3" fill="#eeecf6"/>
-      {/* треугольник */}
-      <polygon points="60,250 200,250 130,150" fill="#f3f0ff" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round"/>
-      <line x1="130" y1="150" x2="130" y2="250" stroke="#8b5cf6" strokeWidth="1.6" strokeDasharray="4 4"/>
-      <path d="M130 242h8v8" fill="none" stroke="#8b5cf6" strokeWidth="1.4"/>
-      <text x="50" y="266" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="700" fill="#1e1b4b">A</text>
-      <text x="126" y="144" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="700" fill="#1e1b4b">B</text>
-      <text x="204" y="266" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="700" fill="#1e1b4b">C</text>
-      <text x="122" y="266" fontFamily="Nunito, sans-serif" fontSize="12" fontWeight="700" fill="#6b7280">H</text>
-      {/* панель «Типы задач» */}
-      <rect x="292" y="96" width="146" height="176" rx="12" fill="#faf9ff" stroke="#ece9f6" strokeWidth="1.5"/>
-      <text x="308" y="120" fontFamily="Montserrat, sans-serif" fontSize="12.5" fontWeight="800" fill="#1e1b4b">Типы задач</text>
-      {[136, 158, 180, 202].map((y, i) => (
-        <g key={i}>
-          <circle cx="314" cy={y} r="7" fill="#ede9fe"/>
-          <polyline points={`310.5,${y} 313,${y + 2.6} 317.5,${y - 3}`} fill="none" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-          <rect x="328" y={y - 3} width="92" height="6" rx="3" fill="#e9e7f2"/>
-        </g>
-      ))}
-      <rect x="308" y="226" width="122" height="28" rx="8" fill="#6d28d9"/>
-      <text x="369" y="244" textAnchor="middle" fontFamily="Nunito, sans-serif" fontSize="12.5" fontWeight="700" fill="#fff">Тренажёр</text>
-    </g>
-  </svg>
-)
-
-/* Illustration for «Сложные темы» — пирамида, формулы и графики */
-const EbTopicsIllustration = () => (
-  <svg className="eb-ill" viewBox="0 0 660 520" fill="none" role="img" aria-label="Стереометрия, тригонометрия, логарифмы и графики функций вокруг объёмной пирамиды">
-    {/* связующие пунктирные дуги */}
-    <g stroke="#d8cff2" strokeWidth="1.6" strokeDasharray="5 6" fill="none">
-      <path d="M150 200q120 -70 360 -60"/>
-      <path d="M604 250q40 60 -20 150"/>
-      <path d="M150 415q140 90 320 55"/>
-      <path d="M112 360q-30 -90 30 -180"/>
-    </g>
-    {/* пирамида */}
-    <g>
-      <polygon points="360,175 250,380 370,455" fill="#8b5cf6" fillOpacity="0.32" stroke="#7c3aed" strokeWidth="2.2" strokeLinejoin="round"/>
-      <polygon points="360,175 370,455 505,375" fill="#7c3aed" fillOpacity="0.42" stroke="#7c3aed" strokeWidth="2.2" strokeLinejoin="round"/>
-      <line x1="360" y1="175" x2="378" y2="300" stroke="#b9a6ea" strokeWidth="1.6" strokeDasharray="5 5"/>
-      <line x1="250" y1="380" x2="378" y2="300" stroke="#b9a6ea" strokeWidth="1.6" strokeDasharray="5 5"/>
-      <line x1="505" y1="375" x2="378" y2="300" stroke="#b9a6ea" strokeWidth="1.6" strokeDasharray="5 5"/>
-      <text x="352" y="163" fontFamily="Nunito, sans-serif" fontSize="16" fontWeight="700" fill="#1e1b4b">S</text>
-      <text x="228" y="390" fontFamily="Nunito, sans-serif" fontSize="16" fontWeight="700" fill="#1e1b4b">A</text>
-      <text x="516" y="372" fontFamily="Nunito, sans-serif" fontSize="16" fontWeight="700" fill="#1e1b4b">B</text>
-      <text x="362" y="480" fontFamily="Nunito, sans-serif" fontSize="16" fontWeight="700" fill="#1e1b4b">C</text>
-      <text x="386" y="306" fontFamily="Nunito, sans-serif" fontSize="16" fontWeight="700" fill="#8b5cf6">D</text>
-    </g>
-    {/* круг: треугольник (планиметрия) */}
-    <g>
-      <circle cx="118" cy="150" r="48" fill="#faf9ff" stroke="#cabff0" strokeWidth="1.6"/>
-      <polygon points="98,168 148,168 98,130" fill="none" stroke="#7c3aed" strokeWidth="2" strokeLinejoin="round"/>
-      <path d="M98 160v8h8" fill="none" stroke="#7c3aed" strokeWidth="1.4"/>
-      <text x="88" y="182" fontFamily="Nunito, sans-serif" fontSize="11" fontWeight="700" fill="#6b7280">A</text>
-      <text x="150" y="182" fontFamily="Nunito, sans-serif" fontSize="11" fontWeight="700" fill="#6b7280">C</text>
-      <text x="90" y="126" fontFamily="Nunito, sans-serif" fontSize="11" fontWeight="700" fill="#6b7280">B</text>
-    </g>
-    {/* круг: sin */}
-    <g>
-      <circle cx="556" cy="148" r="50" fill="#faf9ff" stroke="#cabff0" strokeWidth="1.6"/>
-      <text x="524" y="152" fontFamily="Nunito, sans-serif" fontSize="15" fontWeight="600" fill="#1e1b4b">sin α =</text>
-      <text x="576" y="140" textAnchor="middle" fontFamily="Nunito, sans-serif" fontStyle="italic" fontSize="15" fontWeight="600" fill="#6d28d9">a</text>
-      <line x1="566" y1="146" x2="586" y2="146" stroke="#6d28d9" strokeWidth="1.5"/>
-      <text x="576" y="162" textAnchor="middle" fontFamily="Nunito, sans-serif" fontStyle="italic" fontSize="15" fontWeight="600" fill="#6d28d9">c</text>
-    </g>
-    {/* круг: логарифм */}
-    <g>
-      <circle cx="600" cy="300" r="50" fill="#faf9ff" stroke="#cabff0" strokeWidth="1.6"/>
-      <text x="600" y="306" textAnchor="middle" fontFamily="Nunito, sans-serif" fontSize="15" fontWeight="600" fill="#1e1b4b">
-        log<tspan dy="4" fontSize="10" fill="#6d28d9">b</tspan><tspan dy="-4" fill="#1e1b4b"> x = y</tspan>
-      </text>
-    </g>
-    {/* круг: график (тригонометрия / функции) */}
-    <g>
-      <circle cx="120" cy="360" r="50" fill="#faf9ff" stroke="#cabff0" strokeWidth="1.6"/>
-      <line x1="88" y1="360" x2="152" y2="360" stroke="#9ca3af" strokeWidth="1.4"/>
-      <line x1="120" y1="392" x2="120" y2="330" stroke="#9ca3af" strokeWidth="1.4"/>
-      <path d="M92 360q14 -26 28 0t28 0" fill="none" stroke="#6d28d9" strokeWidth="2.2" strokeLinecap="round"/>
-      <text x="150" y="374" fontFamily="Nunito, sans-serif" fontSize="10" fontWeight="700" fill="#9ca3af">x</text>
-      <text x="124" y="332" fontFamily="Nunito, sans-serif" fontSize="10" fontWeight="700" fill="#9ca3af">y</text>
-    </g>
-    {/* круг: чек-лист (текстовые задачи) */}
-    <g>
-      <circle cx="468" cy="472" r="48" fill="#faf9ff" stroke="#cabff0" strokeWidth="1.6"/>
-      {[458, 474, 490].map((y, i) => (
-        <g key={i}>
-          <rect x="450" y={y - 6} width="12" height="12" rx="3" fill="none" stroke="#7c3aed" strokeWidth="1.6"/>
-          <polyline points={`452.5,${y} 455,${y + 2.5} 459.5,${y - 3.5}`} fill="none" stroke="#7c3aed" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-          <rect x="470" y={y - 3} width="26" height="5" rx="2.5" fill="#d9d3ee"/>
-        </g>
-      ))}
-    </g>
   </svg>
 )
 
@@ -690,6 +548,7 @@ export default function Page() {
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
         <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
         <div className="os-wrap">
+          <div className="eb-screens__row">
 
           {/* Экран 5 — Что входит в подготовку */}
           <div className="eb-scr">
@@ -719,9 +578,6 @@ export default function Page() {
                 <p className="eb-scr__p eb-scr__close">{nb('В результате каждое задание прорабатывается ')}<strong>до&nbsp;уверенного решения.</strong></p>
               </div>
             </div>
-            <div className="eb-scr__media">
-              <EbLessonIllustration />
-            </div>
           </div>
 
           {/* Экран 6 — Особое внимание сложным темам */}
@@ -745,11 +601,49 @@ export default function Page() {
                 <p className="eb-scr__p eb-scr__close">{nb('Именно качественная проработка этих тем помогает нашим ученикам ')}<strong>{nb('уверенно чувствовать себя на экзамене и получать высокие результаты.')}</strong></p>
               </div>
             </div>
-            <div className="eb-scr__media">
-              <EbTopicsIllustration />
-            </div>
           </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* SCREEN 6 — RESULTS PARENTS NOTICE */}
+      <section className="p2-results">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
+        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
+        <div className="os-wrap">
+          <div className="p2-section-badge">Результаты</div>
+          <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
+          <div className="p2-results__card">
+            <div className="p2-results__content">
+            <p className="p2-results__lead">Уже через несколько месяцев подготовки:</p>
+            <ul className="p2-results__list">
+              {[
+                'ребёнок увереннее решает задания ЕГЭ',
+                'лучше понимает сложные темы',
+                'перестаёт бояться экзамена',
+                'допускает меньше ошибок',
+                'увереннее чувствует себя на пробниках',
+              ].map((t, i) => (
+                <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
+              ))}
+            </ul>
+            <div className="p2-results__highlight">
+              <div className="p2-results__highlight-num">98%</div>
+              <div className="p2-results__highlight-text">
+                <div className="p2-results__highlight-main">{nb('учеников сдают ЕГЭ по базовой математике на 4 и 5')}</div>
+                <div className="p2-results__highlight-label">Наши результаты</div>
+              </div>
+            </div>
+            </div>
+            <div className="p2-results__photo-slot p2-results__photo-slot--filled">
+              <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
+            </div>
+          </div>
+          {/* CTA inside "Результаты" */}
+          <div className="p2-mid-cta p2-mid-cta--in-section">
+            <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
+          </div>
         </div>
       </section>
 
@@ -796,95 +690,6 @@ export default function Page() {
               </div>
               <div className="lk-pu-note lk-pu-note--row" style={{marginTop:'16px'}}><LkPeopleIcon /><span><strong>Всё обучение прозрачно.</strong> {nb('Вы видите не только посещаемость занятий, но и то, насколько успешно ребёнок осваивает экзаменационные темы и продвигается к своей цели.')}</span></div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SCREEN 6 + 7 — WHY (two cards side by side) */}
-      <section className="p2-more">
-        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
-        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
-        <div className="os-wrap">
-          <div className="lk-cards-row p2-why-row">
-            <div className="lk-pu-card">
-              <div className="lk-pu-card__head">
-                <div className="lk-pu-card__title">{nb('Почему одной школьной программы недостаточно')}</div>
-              </div>
-              <div className="lk-pu-card__body">
-                <ul className="lk-pu-problems">
-                  {[
-                    'Высокая оценка в школе ещё не гарантирует высокий результат на ЕГЭ.',
-                    'У экзамена свой формат, свои типы заданий и свои требования к оформлению решений.',
-                    'Даже ученики с хорошими школьными оценками часто испытывают трудности при написании пробников.',
-                  ].map((t, i) => (
-                    <li key={i}><LkWarn /><span>{nb(t)}</span></li>
-                  ))}
-                </ul>
-                <p className="p2-more__goal p2-why-row__goal p2-why-row__goal--feature"><span className="p2-why-row__goal-text">{nb('На занятиях мы целенаправленно готовим ребёнка именно к формату ЕГЭ по базовой математике, чтобы на экзамене не осталось незнакомых заданий и неожиданных ситуаций.')}</span></p>
-              </div>
-            </div>
-
-            <div className="lk-pu-card">
-              <div className="lk-pu-card__head">
-                <div className="lk-pu-card__title">Почему наши ученики уверенно сдают ЕГЭ</div>
-              </div>
-              <div className="lk-pu-card__body">
-                <p className="lk-pu-card__text">{nb('Многие школьники изучают математику в школе, но не готовы к формату экзамена.')}</p>
-                <p className="p2-more__accent">Поэтому наша программа строится иначе.</p>
-                <ul className="lk-pu-checklist">
-                  {[
-                    'Прорабатываем все темы, которые будут на ЕГЭ по базовой математике',
-                    'Разбираем каждый тип экзаменационных заданий',
-                    'Регулярно проводим пробные экзамены',
-                    'Выявляем и устраняем пробелы в знаниях',
-                    'Формируем уверенность и экзаменационные навыки',
-                  ].map((t, i) => (
-                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
-                  ))}
-                </ul>
-                <p className="p2-more__goal p2-why-row__goal">{nb('В результате ребёнок приходит на экзамен подготовленным и ')}<span className="p2-more__goal-accent">{nb('понимает, как решать каждое задание')}</span>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SCREEN 6 — RESULTS PARENTS NOTICE */}
-      <section className="p2-results">
-        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
-        <span className="p2-leaf p2-leaf--3" aria-hidden="true">🍁</span>
-        <div className="os-wrap">
-          <div className="p2-section-badge">Результаты</div>
-          <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
-          <div className="p2-results__card">
-            <div className="p2-results__content">
-            <p className="p2-results__lead">Уже через несколько месяцев подготовки:</p>
-            <ul className="p2-results__list">
-              {[
-                'ребёнок увереннее решает экзаменационные задания',
-                'улучшаются результаты пробных экзаменов',
-                'снижается тревожность перед ЕГЭ',
-                'появляется понимание структуры экзамена',
-                'ребёнок начинает верить в свои силы и свой результат',
-              ].map((t, i) => (
-                <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
-              ))}
-            </ul>
-            <div className="p2-results__highlight">
-              <div className="p2-results__highlight-num">95%</div>
-              <div className="p2-results__highlight-text">
-                <div className="p2-results__highlight-main">{nb('учеников сдают ЕГЭ на уверенные 4 и 5')}</div>
-                <div className="p2-results__highlight-label">Наши результаты</div>
-              </div>
-            </div>
-            </div>
-            <div className="p2-results__photo-slot p2-results__photo-slot--filled">
-              <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
-            </div>
-          </div>
-          {/* CTA inside "Результаты" */}
-          <div className="p2-mid-cta p2-mid-cta--in-section">
-            <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
           </div>
         </div>
       </section>

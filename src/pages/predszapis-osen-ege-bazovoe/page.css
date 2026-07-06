@@ -2617,37 +2617,23 @@
   position: relative;
   overflow: hidden;
 }
-.eb-scr {
+.eb-screens__row {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: 44px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.eb-scr {
   background: var(--p2-card);
   border: 1px solid #ece9f6;
   border-radius: 28px;
-  padding: 44px 48px;
+  padding: 40px 40px;
   box-shadow: 0 12px 44px rgba(109, 40, 217, 0.06);
 }
-.eb-scr + .eb-scr { margin-top: 28px; }
-.eb-scr--reverse .eb-scr__text { order: 2; }
-.eb-scr--reverse .eb-scr__media { order: 1; }
 
 .eb-scr__head {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
-.eb-scr__icon {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--p2-purple-soft);
-  display: grid;
-  place-items: center;
-}
-.eb-scr__heading { padding-top: 0; }
 .eb-scr__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
@@ -2709,39 +2695,18 @@
 }
 .eb-scr__check { flex-shrink: 0; }
 
-.eb-scr__media {
-  background: linear-gradient(160deg, #f6f3ff 0%, #efeaff 100%);
-  border: 1px solid #e7e0fb;
-  border-radius: 22px;
-  padding: 22px;
-  display: grid;
-  place-items: center;
-}
-.eb-ill {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .eb-screens { padding: 40px 0; }
-  .eb-scr {
+  .eb-screens__row {
     grid-template-columns: 1fr;
-    gap: 26px;
-    padding: 32px 26px;
+    gap: 20px;
   }
-  .eb-scr--reverse .eb-scr__text { order: 1; }
-  .eb-scr--reverse .eb-scr__media { order: 2; }
-  .eb-scr__body { padding-left: 0; }
+  .eb-scr { padding: 32px 30px; }
   .eb-scr__title { font-size: 23px; }
-  .eb-scr__media { padding: 18px; }
 }
 @media (max-width: 480px) {
   .eb-scr { padding: 26px 18px; border-radius: 22px; }
-  .eb-scr__head { gap: 13px; margin-bottom: 14px; }
-  .eb-scr__icon { width: 44px; height: 44px; }
-  .eb-scr__icon svg { width: 22px; height: 22px; }
+  .eb-scr__head { margin-bottom: 12px; }
   .eb-scr__title { font-size: 20px; }
   .eb-scr__box { padding: 16px 16px; }
-  .eb-scr__media { padding: 12px; border-radius: 18px; }
 }
