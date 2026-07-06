@@ -1473,14 +1473,15 @@
   .p2-hero__badge { font-size: 12px; }
   .p2-hero__desc { font-size: 14px; }
 
-  .p2-hero__icons { gap: 14px 12px; }
+  .p2-hero__icons { flex-direction: column; align-items: stretch; gap: 12px; }
   .p2-hero__icon-item {
-    font-size: 11px;
-    flex: 0 0 calc(50% - 6px);
+    font-size: 13px;
+    flex: 0 0 100%;
+    width: 100%;
     min-width: 0;
     white-space: normal;
     align-items: center;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .p2-hero__price-block { padding: 14px 16px 16px; }
