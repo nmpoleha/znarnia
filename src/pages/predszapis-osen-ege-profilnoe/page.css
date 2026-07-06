@@ -2919,26 +2919,50 @@
    плашкой/заголовком, а описание занимает всю ширину под ними.
    ============================================================ */
 @media (max-width: 560px) {
-  /* Этапы: круглая иконка + текст — на узких экранах чуть плотнее */
-  .p2-stage__row { gap: 14px; }
+  /* Этапы: круглая иконка + заголовок в строку, а описание — на всю ширину
+     под иконкой (текст выровнен по левому краю карточки, а не по иконке). */
+  .p2-stage__row { flex-wrap: wrap; column-gap: 14px; row-gap: 12px; }
   .p2-stage__icon { width: 52px; height: 52px; }
   .p2-stage__icon svg { width: 26px; height: 26px; }
+  .p2-stage__content { display: contents; }
+  .p2-stage__title { flex: 1; min-width: 0; margin-bottom: 0; font-size: 16px; line-height: 1.3; }
+  .p2-stage__text { flex-basis: 100%; }
 
   /* Плашка «Подготовка помогает не только на ЕГЭ»: на мобилках без шапочки —
      заголовок и текст на всю ширину */
   .p2-results__extra-ill { display: none; }
 
-  /* Плашка «Поэтому многим ученикам…»: смайлик слева сверху, текст начинается
-     справа от него и переносится ниже под смайликом, занимая всю ширину */
-  .p2-why-row__goal--feature { display: block; }
-  .p2-why-row__goal--feature .p2-why-row__goal-icon {
-    float: left;
-    margin: 2px 14px 4px 0;
+  /* Плашка с итогом: иконка слева, текст — колонкой рядом, все строки
+     выровнены по одному левому краю (без float, чтобы не было «лесенки»). */
+  .p2-why-row__goal--feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
   }
+  .p2-why-row__goal--feature .p2-why-row__goal-icon {
+    float: none;
+    margin: 2px 0 0;
+  }
+  .p2-why-row__goal--feature .p2-why-row__goal-text { text-align: left; }
 
   /* Чек-лист в герое: на маленьких экранах строго одна колонка, чтобы
      длинные подписи не дробились на столбики из отдельных слов */
   .p2-hero__icon-item { flex: 0 0 100%; }
+}
+
+/* Узкие телефоны: меньше иконка/заголовок и плотнее зазор, чтобы название
+   рядом с иконкой не ломалось «стопочкой» по одному слову в строке. */
+@media (max-width: 400px) {
+  .p2-stage__row { column-gap: 12px; }
+  .p2-stage__icon { width: 44px; height: 44px; }
+  .p2-stage__icon svg { width: 23px; height: 23px; }
+  .p2-stage__title { font-size: 14px; line-height: 1.25; }
+}
+
+@media (max-width: 340px) {
+  .p2-stage__icon { width: 40px; height: 40px; }
+  .p2-stage__icon svg { width: 21px; height: 21px; }
+  .p2-stage__title { font-size: 13px; }
 }
 
 /* ============================================================
