@@ -547,11 +547,9 @@ export default function Page() {
                     <div className="p2-stage__badge p2-stage__badge--alt">Этап 2</div>
                     <div className="p2-stage__row">
                       <span className="p2-stage__icon" aria-hidden="true">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M4 20h16"/>
-                          <path d="M7.5 20v-4"/>
-                          <path d="M12 20v-7.5"/>
-                          <path d="M16.5 20v-11"/>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M7 17 17 7"/>
+                          <path d="M8 7h9v9"/>
                         </svg>
                       </span>
                       <div className="p2-stage__content">
@@ -671,6 +669,37 @@ export default function Page() {
         </div>
       </section>
 
+      {/* WHAT THE PREP INCLUDES */}
+      <section className="p2-more">
+        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
+        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
+        <div className="os-wrap">
+          <div className="p2-section-badge">Что входит в подготовку к ЕГЭ</div>
+          <h2 className="p2-section-title">{nb('Системно прорабатываем каждое задание экзамена')}</h2>
+          <div className="p2-more__card">
+            <div className="p2-more__content">
+              <p className="p2-more__lead">{nb('Мы не просто решаем варианты ЕГЭ. Наша задача — добиться такого уровня подготовки, при котором ученик уверенно ориентируется в каждом номере экзамена.')}</p>
+              <p className="p2-more__topics-intro">{nb('Для каждого задания ЕГЭ ученик получает:')}</p>
+              <ul className="lk-pu-checklist p2-more__topics">
+                {[
+                  'подробный разбор теории',
+                  'все типы задач, которые могут встретиться на экзамене',
+                  'листы с решениями и алгоритмами',
+                  'дополнительные задания для практики',
+                  'интерактивный тренажёр на платформе',
+                ].map((t, i) => (
+                  <li key={i}><LkCheck /><span>{nb(t)}</span></li>
+                ))}
+              </ul>
+              <p className="p2-more__topics-note">{nb('В результате каждое задание прорабатывается до уверенного решения.')}</p>
+            </div>
+            <div className="p2-more__media">
+              <img src={whyIllustrationImg} alt="Ученики разбирают темы ЕГЭ по математике онлайн" width="1536" height="1024" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SCREEN 9 — RESULTS PARENTS & STUDENTS NOTICE */}
       <section className="p2-results">
         <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍂</span>
@@ -710,37 +739,6 @@ export default function Page() {
           {/* CTA inside "Результаты" */}
           <div className="p2-mid-cta p2-mid-cta--in-section">
             <button className="p2-btn p2-btn--cta p2-btn--lg" onClick={openPay}>Записаться по спеццене →</button>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT THE PREP INCLUDES */}
-      <section className="p2-more">
-        <span className="p2-leaf p2-leaf--1" aria-hidden="true">🍁</span>
-        <span className="p2-leaf p2-leaf--2" aria-hidden="true">🍂</span>
-        <div className="os-wrap">
-          <div className="p2-section-badge">Что входит в подготовку к ЕГЭ</div>
-          <h2 className="p2-section-title">{nb('Системно прорабатываем каждое задание экзамена')}</h2>
-          <div className="p2-more__card">
-            <div className="p2-more__content">
-              <p className="p2-more__lead">{nb('Мы не просто решаем варианты ЕГЭ. Наша задача — добиться такого уровня подготовки, при котором ученик уверенно ориентируется в каждом номере экзамена.')}</p>
-              <p className="p2-more__topics-intro">{nb('Для каждого задания ЕГЭ ученик получает:')}</p>
-              <ul className="lk-pu-checklist p2-more__topics">
-                {[
-                  'подробный разбор теории',
-                  'все типы задач, которые могут встретиться на экзамене',
-                  'листы с решениями и алгоритмами',
-                  'дополнительные задания для практики',
-                  'интерактивный тренажёр на платформе',
-                ].map((t, i) => (
-                  <li key={i}><LkCheck /><span>{nb(t)}</span></li>
-                ))}
-              </ul>
-              <p className="p2-more__topics-note">{nb('В результате каждое задание прорабатывается до уверенного решения.')}</p>
-            </div>
-            <div className="p2-more__media">
-              <img src={whyIllustrationImg} alt="Ученики разбирают темы ЕГЭ по математике онлайн" width="1536" height="1024" loading="lazy" />
-            </div>
           </div>
         </div>
       </section>
