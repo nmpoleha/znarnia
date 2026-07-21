@@ -40,6 +40,7 @@ export default defineConfig({
         'predszapis-osen': resolve(__dirname, 'predszapis-osen/index.html'),
         'predszapis-osen-novye': resolve(__dirname, 'predszapis-osen-novye/index.html'),
         'predszapis-osen-novye-2': resolve(__dirname, 'predszapis-osen-novye-2/index.html'),
+        'predszapis-osen-3-podarka': resolve(__dirname, 'predszapis-osen-3-podarka/index.html'),
         'predszapis-osen-2': resolve(__dirname, 'predszapis-osen-2/index.html'),
         'predszapis-osen-srednyaya': resolve(__dirname, 'predszapis-osen-srednyaya/index.html'),
         'predszapis-osen-stariye-5-8': resolve(__dirname, 'predszapis-osen-stariye-5-8/index.html'),
