@@ -1241,6 +1241,15 @@
   .os-hv2__giftbox-item { padding: 12px 0; }
   .os-hv2__giftbox-name { font-size: 14px; }
   .os-hv2__giftbox-desc { font-size: 13px; }
+  /* Компактный заголовок «3 подарка»: разрешаем перенос, чтобы не растягивать блок шире экрана */
+  .os-hv2__giftbox-title--compact { gap: 12px; }
+  .os-hv2__giftbox-title--compact .os-hv2__giftbox-title-emoji { left: 0; }
+  .os-hv2__giftbox-title--compact .os-hv2__giftbox-title-text {
+    white-space: normal;
+    font-size: 15px;
+    left: 0;
+    top: 0;
+  }
 }
 
 /* ── GIFTS ── */
