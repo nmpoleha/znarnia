@@ -355,9 +355,9 @@ export default function Page() {
           <div className="os-hv2__right">
 
           <div className="os-hv2__giftbox">
-            <div className="os-hv2__giftbox-title">
+            <div className="os-hv2__giftbox-title os-hv2__giftbox-title--compact">
               <span className="os-hv2__giftbox-title-emoji">🎁</span>
-              <span className="os-hv2__giftbox-title-text">Три подарка за заполнение анкеты</span>
+              <span className="os-hv2__giftbox-title-text">Подарки за заполнение анкеты</span>
             </div>
             <div className="os-hv2__giftbox-body">
               <div className="os-hv2__giftbox-item">
@@ -380,7 +380,7 @@ export default function Page() {
                 <div className="os-hv2__giftbox-num">3</div>
                 <div>
                   <div className="os-hv2__giftbox-name">Доступ к онлайн-уроку в записи</div>
-                  <div className="os-hv2__giftbox-desc">Для знакомства с платформой и форматом занятий.</div>
+                  <div className="os-hv2__giftbox-desc">Полноценный урок, который сохраняет всю функциональность платформы.</div>
                 </div>
               </div>
             </div>

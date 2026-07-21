@@ -983,6 +983,31 @@
   margin-bottom: 0;
 }
 
+/* Компактный заголовок подарков — только для страницы «3 подарка» */
+.os-hv2__giftbox-title--compact {
+  padding-top: 14px; /* -10px по высоте относительно базовых 24px */
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 16px;
+}
+
+.os-hv2__giftbox-title--compact .os-hv2__giftbox-title-emoji {
+  font-size: 48px;
+  position: relative;
+  left: -8px;
+}
+
+.os-hv2__giftbox-title--compact .os-hv2__giftbox-title-text {
+  position: relative;
+  top: 5px;
+  left: -15px;
+  font-size: 17px;
+  white-space: nowrap;
+  color: var(--os-sienna);
+}
+
 .os-hv2__giftbox-title-emoji {
   font-size: 64px;
   line-height: 1;
