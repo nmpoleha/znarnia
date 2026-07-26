@@ -128,25 +128,48 @@ function Details() {
       <div className="sh-wrap sh-reveal__body">
 
         {/* Про обучение */}
-        <div className="sh-learn__lead">Это не очередной скучный Zoom!</div>
+        <div className="sh-learn">
+          <div className="sh-learn__head">
+            <span className="sh-learn__mark" aria-hidden="true">
+              <svg width="34" height="26" viewBox="0 0 34 26" fill="none"><path d="M4 22L12 4M14 22L22 4M24 22L32 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round"/></svg>
+            </span>
+            <h2 className="sh-learn__lead">Это не очередной скучный Zoom!</h2>
+            <span className="sh-learn__mark" aria-hidden="true">
+              <svg width="34" height="26" viewBox="0 0 34 26" fill="none"><path d="M4 22L12 4M14 22L22 4M24 22L32 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round"/></svg>
+            </span>
+          </div>
+          <div className="sh-learn__accent" aria-hidden="true" />
 
-        <div className="sh-learn__card">
-          <div className="sh-learn__card-title">🎮 Урок — это как квест в любимой игре!</div>
-          <p className="sh-learn__card-text">
-            Забудь про скучные уроки. Здесь они становятся интерактивными и динамичными.
-            За каждый правильный ответ — получаешь звёзды и баллы мгновенно! Никто не видит,
-            как ответили другие, так что можно не стесняться.
-          </p>
-        </div>
+          <div className="sh-learn__card">
+            <div className="sh-learn__icon">
+              <img src="/znarnia/images/learn-gamepad.png" alt="" aria-hidden="true" className="sh-learn__icon-img" width="1536" height="1024" loading="lazy" decoding="async" />
+            </div>
+            <div className="sh-learn__body">
+              <h3 className="sh-learn__card-title">Урок — это как квест в любимой игре!</h3>
+              <p className="sh-learn__text">
+                Забудь про скучные уроки. Здесь они становятся интерактивными и динамичными.
+                За каждый правильный ответ — получаешь звёзды и баллы мгновенно! Никто не видит,
+                как ответили другие, так что можно не стесняться.
+              </p>
+            </div>
+            <img src="/znarnia/images/learn-star.png" alt="" aria-hidden="true" className="sh-learn__deco sh-learn__deco--star" width="617" height="623" loading="lazy" decoding="async" />
+          </div>
 
-        <div className="sh-learn__card">
-          <div className="sh-learn__card-title">🏆 Копи баллы и получай реальные подарки!</div>
-          <p className="sh-learn__card-text">Эти звёзды — не просто циферки. На них можно:</p>
-          <ul className="sh-learn__list">
-            <li>Прокачать своего крутого аватара — сделать его самым стильным в классе.</li>
-            <li>Выбрать и заказать реальный подарок — игрушку, книгу, гаджет — и забрать его из пункта выдачи.</li>
-          </ul>
-          <p className="sh-learn__card-text sh-learn__card-text--accent">Учишься = получаешь призы. Честно!</p>
+          <div className="sh-learn__card">
+            <div className="sh-learn__icon">
+              <img src="/znarnia/images/learn-trophy.png" alt="" aria-hidden="true" className="sh-learn__icon-img" width="1536" height="1024" loading="lazy" decoding="async" />
+            </div>
+            <div className="sh-learn__body">
+              <h3 className="sh-learn__card-title">Копи баллы и получай реальные подарки!</h3>
+              <p className="sh-learn__text">Эти звёзды — не просто циферки. На них можно:</p>
+              <ul className="sh-learn__list">
+                <li>Прокачать своего крутого аватара — сделать его самым стильным в классе.</li>
+                <li>Выбрать и заказать реальный подарок — игрушку, книгу, гаджет — и забрать его из пункта выдачи.</li>
+              </ul>
+              <p className="sh-learn__win">Учишься = получаешь призы. Честно!</p>
+            </div>
+            <img src="/znarnia/images/learn-gift.png" alt="" aria-hidden="true" className="sh-learn__deco sh-learn__deco--present" width="1024" height="1057" loading="lazy" decoding="async" />
+          </div>
         </div>
 
         {/* Про занятия */}
