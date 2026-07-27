@@ -7,12 +7,21 @@ import { useState } from 'react'
    ───────────────────────────────────────────────────────────── */
 
 function nb(str) {
-  const short = /^([а-яёА-ЯЁ]{1,2}|или|для|что|как|при|под|над|без|про|чем|так)$/i
+  const NBSP = String.fromCharCode(160)
+  const short = /^([а-яёА-ЯЁ]{1,2}|или|для|что|как|при|под|над|без|про|чем|так|это|уже|обо|изо|ото)$/i
   const parts = str.split(' ')
   let out = ''
   for (let i = 0; i < parts.length; i++) {
     out += parts[i]
-    if (i < parts.length - 1) out += short.test(parts[i]) ? ' ' : ' '
+    if (i === parts.length - 1) break
+    const next = parts[i + 1]
+    // тире не должно ни начинать, ни заканчивать строку — приклеиваем его
+    // неразрывными пробелами и к предыдущему, и к следующему слову
+    if (next === '—' || next === '–') out += NBSP
+    else if (parts[i] === '—' || parts[i] === '–') out += NBSP
+    // короткие предлоги/союзы не оставляем в конце строки — клеим к следующему слову
+    else if (short.test(parts[i])) out += NBSP
+    else out += ' '
   }
   return out
 }
@@ -46,7 +55,7 @@ function ReviewsCarousel() {
     <>
       <div className="dg-reviews">
         <div className="dg-reviews__head">
-          <div className="dg-reviews__title">Родители о нас</div>
+          <div className="dg-reviews__title">{nb('Родители о нас')}</div>
           <div className="dg-reviews__nav">
             <button className={`dg-reviews__arrow${!canPrev ? ' dg-reviews__arrow--disabled' : ''}`} onClick={() => canPrev && setIndex(i => i - 1)} aria-label="Назад">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -198,7 +207,7 @@ function RegForm() {
       <div className="sh-form sh-form--success">
         <div className="sh-form__success-icon">✓</div>
         <div className="sh-form__success-title">Вы зарегистрированы!</div>
-        <div className="sh-form__success-text">Мы свяжемся с вами для уточнения деталей.</div>
+        <div className="sh-form__success-text">{nb('Мы свяжемся с вами для уточнения деталей.')}</div>
       </div>
     )
   }
@@ -206,7 +215,7 @@ function RegForm() {
   return (
     <form className="sh-form" onSubmit={submit} noValidate>
       <div className="sh-form__head">
-        <div className="sh-form__head-title">{PRODUCT.name}</div>
+        <div className="sh-form__head-title">{nb(PRODUCT.name)}</div>
         <div className="sh-form__head-sub">Регистрация на продукт</div>
       </div>
 
@@ -238,7 +247,7 @@ function RegForm() {
       </div>
 
       <button type="submit" className="sh-form__submit">Зарегистрироваться</button>
-      <p className="sh-form__note">Заполнение формы ни к чему не обязывает</p>
+      <p className="sh-form__note">{nb('Заполнение формы ни к чему не обязывает')}</p>
     </form>
   )
 }
@@ -282,21 +291,11 @@ function Details() {
         <div className="sh-lessons__head">
           <div className="sh-lessons__head-text">
             <h2 className="sh-lessons__title">
-              Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка
+              {nb('Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка')}
             </h2>
             <p className="sh-lessons__intro">
-              Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был
-              максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы,
-              на которых строится обучение.
+              {nb('Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.')}
             </p>
-          </div>
-          <div className="sh-lessons__shield" aria-hidden="true">
-            <span className="sh-lessons__shield-star">★</span>
-            <svg width="88" height="96" viewBox="0 0 88 96" fill="none">
-              <path d="M44 6l30 11v24c0 20-13 33-30 42C27 74 14 61 14 41V17L44 6z" fill="#7c3aed"/>
-              <path d="M44 6l30 11v24c0 20-13 33-30 42V6z" fill="#6d28d9"/>
-              <path d="M32 47l9 9 17-19" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
           </div>
         </div>
 
@@ -308,8 +307,8 @@ function Details() {
               </div>
               <div className="sh-principle__num">{i + 1}</div>
               <div className="sh-principle__body">
-                <h3 className="sh-principle__title">{p.title}</h3>
-                <p className="sh-principle__text">{p.text}</p>
+                <h3 className="sh-principle__title">{nb(p.title)}</h3>
+                <p className="sh-principle__text">{nb(p.text)}</p>
               </div>
             </div>
           ))}
@@ -326,20 +325,34 @@ function Details() {
           <div className="sh-guarantee__body">
             <div className="sh-guarantee__title">Безопасность решения</div>
             <p className="sh-guarantee__text">
-              Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней
-              после начала занятий вам что-то не понравится — вернём деньги в полном объёме.
+              {nb('Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.')}
             </p>
           </div>
         </div>
 
         <div className="sh-result">
-          <div className="sh-result__title">Главный результат: персонализированное обучение</div>
-          <p className="sh-result__text">
-            Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть
-            слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по
-            программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных.
-            Мы учим осознанно, делая процесс эффективным для вашего ребёнка.
-          </p>
+          <span className="sh-result__dots" aria-hidden="true" />
+          <span className="sh-result__ring" aria-hidden="true" />
+
+          <div className="sh-result__icon">
+            <svg className="sh-result__hex" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+              <path d="M100 8l73 42v100l-73 42-73-42V50z" stroke="#fff" strokeOpacity="0.16" strokeWidth="2"/>
+              <path d="M100 26l58 33v82l-58 33-58-33V59z" stroke="#fff" strokeOpacity="0.10" strokeWidth="2"/>
+            </svg>
+            <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
+          </div>
+
+          <div className="sh-result__content">
+            <div className="sh-result__head">
+              <span className="sh-result__badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#6d28d9" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>
+              <h2 className="sh-result__title">Главный результат:<br />персонализированное обучение</h2>
+            </div>
+            <p className="sh-result__text">
+              {nb('Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.')}
+            </p>
+          </div>
         </div>
 
       </div>
@@ -372,14 +385,14 @@ export default function Page() {
       <section className="sh-hero">
         <div className="sh-wrap sh-hero__inner">
           <div className="sh-hero__left">
-            <h1 className="sh-hero__title">{PRODUCT.name}</h1>
-            <p className="sh-hero__sub">{PRODUCT.subtitle}</p>
+            <h1 className="sh-hero__title">{nb(PRODUCT.name)}</h1>
+            <p className="sh-hero__sub">{nb(PRODUCT.subtitle)}</p>
 
             <ul className="sh-hero__theses">
               {THESES.map((t, i) => (
                 <li key={i} className="sh-hero__thesis">
                   <span className="sh-hero__thesis-check" aria-hidden="true">✓</span>
-                  <span>{t}</span>
+                  <span>{nb(t)}</span>
                 </li>
               ))}
             </ul>
@@ -410,7 +423,7 @@ export default function Page() {
           <div className="dg-author">
             <div className="dg-author__top">
               <div className="dg-author__left">
-                <div className="dg-author__label">Основатель и руководитель Школы Знарния</div>
+                <div className="dg-author__label">{nb('Основатель и руководитель Школы Знарния')}</div>
                 <div className="dg-author__name">Сотникова Ольга Александровна</div>
                 <div className="dg-author__items">
                   {[
@@ -422,7 +435,7 @@ export default function Page() {
                   ].map((item, i) => (
                     <div key={i} className="dg-author__item">
                       <span className="dg-author__icon">{item.icon}</span>
-                      <span>{item.text}</span>
+                      <span>{nb(item.text)}</span>
                     </div>
                   ))}
                 </div>
@@ -464,7 +477,7 @@ export default function Page() {
               </svg>
             </div>
             <div className="dg-schools__body">
-              <div className="dg-schools__title">Сотрудничество со школами</div>
+              <div className="dg-schools__title">{nb('Сотрудничество со школами')}</div>
               <p className="dg-schools__text">{nb('Мы проводили независимую оценку знаний для учеников из более 50 образовательных учреждений Москвы и получали благодарственные письма от школ и педагогов.')}</p>
               <LettersCarousel />
             </div>
