@@ -244,75 +244,29 @@ function RegForm() {
 }
 
 /* ── Принципы работы занятий ── */
-const ICON = {
-  shield: (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-      <path d="M12 3L4 6v5c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-3z" stroke="#6d28d9" strokeWidth="1.7" strokeLinejoin="round"/>
-      <rect x="9" y="11" width="6" height="5" rx="1" stroke="#6d28d9" strokeWidth="1.6"/>
-      <path d="M10 11V9.5a2 2 0 0 1 4 0V11" stroke="#6d28d9" strokeWidth="1.6"/>
-    </svg>
-  ),
-  trophy: (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-      <path d="M7 4h10v4a5 5 0 0 1-10 0V4z" stroke="#6d28d9" strokeWidth="1.7" strokeLinejoin="round"/>
-      <path d="M7 6H4.5a2.5 2.5 0 0 0 3 2.4M17 6h2.5a2.5 2.5 0 0 1-3 2.4" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round"/>
-      <path d="M12 13v3M9 20h6M10 20l.5-4h3l.5 4" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  chart: (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-      <path d="M4 20V5" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round"/>
-      <rect x="7" y="12" width="3" height="6" rx="1" stroke="#6d28d9" strokeWidth="1.6"/>
-      <rect x="12" y="8" width="3" height="10" rx="1" stroke="#6d28d9" strokeWidth="1.6"/>
-      <rect x="17" y="5" width="3" height="13" rx="1" stroke="#6d28d9" strokeWidth="1.6"/>
-    </svg>
-  ),
-  search: (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-      <circle cx="11" cy="11" r="7" stroke="#6d28d9" strokeWidth="1.7"/>
-      <path d="M11 7.5v3.5l2.5 1.5" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M16.5 16.5L21 21" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-    </svg>
-  ),
-  headset: (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-      <path d="M5 13v-1a7 7 0 0 1 14 0v1" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round"/>
-      <rect x="3" y="12" width="4" height="6" rx="2" stroke="#6d28d9" strokeWidth="1.6"/>
-      <rect x="17" y="12" width="4" height="6" rx="2" stroke="#6d28d9" strokeWidth="1.6"/>
-      <path d="M19 18v1a3 3 0 0 1-3 3h-3" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round"/>
-    </svg>
-  ),
-  guarantee: (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-      <path d="M12 3L4 6v5c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-3z" stroke="#6d28d9" strokeWidth="1.7" strokeLinejoin="round"/>
-      <path d="M8.5 12l2.5 2.5 4.5-5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-}
-
 const PRINCIPLES = [
   {
-    icon: ICON.shield,
+    img: '/znarnia/images/lesson-shield.png',
     title: 'Полная концентрация и безопасная среда',
     text: 'Каждый ученик работает в своём личном пространстве на платформе. Ответы ребёнка видны только ему и педагогу — так мы снимаем ненужный стресс и страх ошибиться «на виду у всех». Интерактивные задания (ввести ответ, переместить объект, построить график) и мгновенное поощрение баллами держат внимание и интерес на протяжении всего урока.',
   },
   {
-    icon: ICON.chart,
+    img: '/znarnia/images/lesson-chart.png',
     title: 'Педагог видит прогресс каждого, а не только группы',
     text: 'Наш инструментарий для педагога — это «цифровая панель управления» классом в реальном времени. Учитель видит, кто и как выполняет задание, с какой попытки даёт ответ, кому нужна помощь. Это позволяет точечно поддерживать каждого ученика здесь и сейчас, а после урока анализировать статистику для совершенствования материалов.',
   },
   {
-    icon: ICON.search,
+    img: '/znarnia/images/lesson-search.png',
     title: 'Для вас — полная прозрачность прогресса',
     text: 'Вы в любой момент можете зайти в личный кабинет и увидеть детальную аналитику по занятиям вашего ребёнка: активность на уроке, процент правильных ответов, темы, которые вызвали вопросы. Вы всегда в курсе его успехов и областей роста, чтобы поддержать его своевременно.',
   },
   {
-    icon: ICON.headset,
+    img: '/znarnia/images/lesson-headset.png',
     title: 'Домашняя работа с интеллектуальной поддержкой',
     text: 'Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
   },
   {
-    icon: ICON.trophy,
+    img: '/znarnia/images/lesson-trophy.png',
     title: 'Наши результаты',
     text: 'Уже через 2 месяца занятий у учеников заметно повышается интерес к учёбе и мотивация, а школьная оценка вырастает в среднем на 1 балл.',
   },
@@ -349,7 +303,9 @@ function Details() {
         <div className="sh-lessons__grid">
           {PRINCIPLES.map((p, i) => (
             <div key={i} className="sh-principle">
-              <div className="sh-principle__icon">{p.icon}</div>
+              <div className="sh-principle__icon">
+                <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
+              </div>
               <div className="sh-principle__num">{i + 1}</div>
               <div className="sh-principle__body">
                 <h3 className="sh-principle__title">{p.title}</h3>
