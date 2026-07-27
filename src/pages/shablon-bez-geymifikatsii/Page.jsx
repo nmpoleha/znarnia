@@ -15,10 +15,9 @@ function nb(str) {
     out += parts[i]
     if (i === parts.length - 1) break
     const next = parts[i + 1]
-    // тире не должно ни начинать, ни заканчивать строку — приклеиваем его
-    // неразрывными пробелами и к предыдущему, и к следующему слову
+    // тире не должно начинать строку — приклеиваем его к предыдущему слову
+    // неразрывным пробелом (по правилам оно может заканчивать строку, но не начинать)
     if (next === '—' || next === '–') out += NBSP
-    else if (parts[i] === '—' || parts[i] === '–') out += NBSP
     // короткие предлоги/союзы не оставляем в конце строки — клеим к следующему слову
     else if (short.test(parts[i])) out += NBSP
     else out += ' '
@@ -258,7 +257,7 @@ function RegForm() {
         <input type="checkbox" className="sh-form__check-input" checked={form.agree} onChange={e => set('agree', e.target.checked)} />
         <span className="sh-form__check-box" aria-hidden="true" />
         <span className="sh-form__check-text">
-          Согласен с обработкой персональных данных в соответствии с <a href="#" className="sh-form__link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a> <span className="sh-form__req">*</span>
+          {nb('Согласен с обработкой персональных данных в соответствии с')}{' '}<a href="#" className="sh-form__link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a>{' '}<span className="sh-form__req">*</span>
         </span>
       </label>
 
@@ -320,32 +319,32 @@ function Details() {
         <div className="sh-lessons__grid">
           {PRINCIPLES.map((p, i) => (
             <div key={i} className="sh-principle">
-              <div className="sh-principle__icon">
-                <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
+              <div className="sh-principle__media">
+                <div className="sh-principle__icon">
+                  <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
+                </div>
+                <span className="sh-principle__num">{i + 1}</span>
               </div>
-              <div className="sh-principle__num">{i + 1}</div>
-              <div className="sh-principle__body">
-                <h3 className="sh-principle__title">{nb(p.title)}</h3>
-                <p className="sh-principle__text">{nb(p.text)}</p>
-              </div>
+              <h3 className="sh-principle__title">{nb(p.title)}</h3>
+              <p className="sh-principle__text">{nb(p.text)}</p>
             </div>
           ))}
         </div>
 
         {/* Плашка гарантии */}
         <div className="sh-guarantee">
-          <div className="sh-guarantee__icon" aria-hidden="true">
-            <svg width="34" height="36" viewBox="0 0 34 36" fill="none">
-              <path d="M17 3l12 4.5v9C29 26 22 32 17 34 12 32 5 26 5 16.5v-9L17 3z" fill="#fff" fillOpacity="0.18" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
-              <path d="M11.5 17.5l4 4 7-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <div className="sh-guarantee__body">
+          <div className="sh-guarantee__head">
+            <div className="sh-guarantee__icon" aria-hidden="true">
+              <svg width="30" height="32" viewBox="0 0 34 36" fill="none">
+                <path d="M17 3l12 4.5v9C29 26 22 32 17 34 12 32 5 26 5 16.5v-9L17 3z" fill="#fff" fillOpacity="0.18" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
+                <path d="M11.5 17.5l4 4 7-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
             <div className="sh-guarantee__title">Безопасность решения</div>
-            <p className="sh-guarantee__text">
-              {nb('Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.')}
-            </p>
           </div>
+          <p className="sh-guarantee__text">
+            {nb('Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.')}
+          </p>
         </div>
 
         <div className="sh-result">
@@ -360,17 +359,10 @@ function Details() {
             <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
           </div>
 
-          <div className="sh-result__content">
-            <div className="sh-result__head">
-              <span className="sh-result__badge" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#6d28d9" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </span>
-              <h2 className="sh-result__title">Главный результат:<br />персонализированное обучение</h2>
-            </div>
-            <p className="sh-result__text">
-              {nb('Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.')}
-            </p>
-          </div>
+          <h2 className="sh-result__title">Главный результат:<br className="sh-br-desktop" /> персонализированное обучение</h2>
+          <p className="sh-result__text">
+            {nb('Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.')}
+          </p>
         </div>
 
       </div>
