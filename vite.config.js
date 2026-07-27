@@ -49,6 +49,7 @@ export default defineConfig({
         'predszapis-osen-ege-profilnoe': resolve(__dirname, 'predszapis-osen-ege-profilnoe/index.html'),
         'predszapis-osen-ege-bazovoe': resolve(__dirname, 'predszapis-osen-ege-bazovoe/index.html'),
         'shablon': resolve(__dirname, 'shablon/index.html'),
+        'shablon-bez-geymifikatsii': resolve(__dirname, 'shablon-bez-geymifikatsii/index.html'),
       },
     },
   },
