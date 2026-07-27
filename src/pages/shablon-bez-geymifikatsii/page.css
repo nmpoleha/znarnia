@@ -137,14 +137,14 @@
 .sh-hero__more {
   margin-top: 28px;
   border-color: transparent;
-  background: linear-gradient(135deg, #f97316 0%, #ef6c1a 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
   color: #fff;
-  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.28);
+  box-shadow: 0 12px 26px rgba(109, 40, 217, 0.3);
 }
 
 .sh-hero__more:hover,
 .sh-hero__more.sh-reveal__btn--open {
-  background: linear-gradient(135deg, #fb8a3c 0%, #f97316 100%);
+  background: linear-gradient(135deg, #8b4ff5 0%, #7c3aed 100%);
   color: #fff;
 }
 
