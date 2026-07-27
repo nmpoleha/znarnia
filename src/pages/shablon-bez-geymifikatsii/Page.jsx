@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 /* ─────────────────────────────────────────────────────────────
    ШАБЛОН РЕКЛАМНОГО ПРЕДЛОЖЕНИЯ
@@ -176,7 +176,7 @@ const THESES = [
 
 /* ── Форма регистрации ── */
 function RegForm() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', grade: '' })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -192,6 +192,7 @@ function RegForm() {
     if (!form.email.trim()) e.email = 'Введите email'
     else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Некорректный email'
     if (!form.grade) e.grade = 'Выберите класс'
+    if (!form.agree) e.agree = 'Необходимо согласие'
     return e
   }
 
@@ -206,7 +207,7 @@ function RegForm() {
     return (
       <div className="sh-form sh-form--success">
         <div className="sh-form__success-icon">✓</div>
-        <div className="sh-form__success-title">Вы зарегистрированы!</div>
+        <div className="sh-form__success-title">Заявка принята!</div>
         <div className="sh-form__success-text">{nb('Мы свяжемся с вами для уточнения деталей.')}</div>
       </div>
     )
@@ -215,29 +216,36 @@ function RegForm() {
   return (
     <form className="sh-form" onSubmit={submit} noValidate>
       <div className="sh-form__head">
-        <div className="sh-form__head-title">{nb(PRODUCT.name)}</div>
-        <div className="sh-form__head-sub">Регистрация на продукт</div>
+        <div className="sh-form__head-title">Оставьте заявку</div>
+        <div className="sh-form__head-sub">{nb('Мы перезвоним, расскажем о программе и ответим на все ваши вопросы')}</div>
       </div>
 
-      <div className="sh-form__field">
-        <label className="sh-form__label">Ваше имя</label>
-        <input className={`sh-form__input${errors.name ? ' sh-form__input--err' : ''}`} type="text" placeholder="Иван Иванов" value={form.name} onChange={e => set('name', e.target.value)} />
-        {errors.name && <span className="sh-form__err">{errors.name}</span>}
+      <div className="sh-form__grid">
+        <div className="sh-form__field">
+          <label className="sh-form__label">Фамилия и имя <span className="sh-form__req">*</span></label>
+          <input className={`sh-form__input${errors.name ? ' sh-form__input--err' : ''}`} type="text" placeholder="Иванов Иван" value={form.name} onChange={e => set('name', e.target.value)} />
+          {errors.name && <span className="sh-form__err">{errors.name}</span>}
+        </div>
+
+        <div className="sh-form__field">
+          <label className="sh-form__label">Телефон <span className="sh-form__req">*</span></label>
+          <input className={`sh-form__input${errors.phone ? ' sh-form__input--err' : ''}`} type="tel" placeholder="+7 (___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
+          {errors.phone && <span className="sh-form__err">{errors.phone}</span>}
+        </div>
+
+        <div className="sh-form__field">
+          <label className="sh-form__label">Email <span className="sh-form__req">*</span></label>
+          <input className={`sh-form__input${errors.email ? ' sh-form__input--err' : ''}`} type="email" placeholder="ivan@example.com" value={form.email} onChange={e => set('email', e.target.value)} />
+          {errors.email && <span className="sh-form__err">{errors.email}</span>}
+        </div>
+
+        <div className="sh-form__field">
+          <label className="sh-form__label">Ник в Telegram</label>
+          <input className="sh-form__input" type="text" placeholder="@username" value={form.telegram} onChange={e => set('telegram', e.target.value)} />
+        </div>
       </div>
 
-      <div className="sh-form__field">
-        <label className="sh-form__label">Телефон</label>
-        <input className={`sh-form__input${errors.phone ? ' sh-form__input--err' : ''}`} type="tel" placeholder="+7 (___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
-        {errors.phone && <span className="sh-form__err">{errors.phone}</span>}
-      </div>
-
-      <div className="sh-form__field">
-        <label className="sh-form__label">Email</label>
-        <input className={`sh-form__input${errors.email ? ' sh-form__input--err' : ''}`} type="email" placeholder="ivan@example.com" value={form.email} onChange={e => set('email', e.target.value)} />
-        {errors.email && <span className="sh-form__err">{errors.email}</span>}
-      </div>
-
-      <div className="sh-form__field">
+      <div className="sh-form__field sh-form__field--half">
         <label className="sh-form__label">Класс ребёнка</label>
         <select className={`sh-form__input sh-form__select${errors.grade ? ' sh-form__input--err' : ''}`} value={form.grade} onChange={e => set('grade', e.target.value)}>
           <option value="">Выберите класс</option>
@@ -246,8 +254,18 @@ function RegForm() {
         {errors.grade && <span className="sh-form__err">{errors.grade}</span>}
       </div>
 
-      <button type="submit" className="sh-form__submit">Зарегистрироваться</button>
-      <p className="sh-form__note">{nb('Заполнение формы ни к чему не обязывает')}</p>
+      <label className={`sh-form__check${errors.agree ? ' sh-form__check--err' : ''}`}>
+        <input type="checkbox" className="sh-form__check-input" checked={form.agree} onChange={e => set('agree', e.target.checked)} />
+        <span className="sh-form__check-box" aria-hidden="true" />
+        <span className="sh-form__check-text">
+          Согласен с обработкой персональных данных в соответствии с <a href="#" className="sh-form__link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a> <span className="sh-form__req">*</span>
+        </span>
+      </label>
+
+      <button type="submit" className="sh-form__submit">
+        Записаться на консультацию
+      </button>
+      <p className="sh-form__note">{nb('* заполнение формы ни к чему не обязывает')}</p>
     </form>
   )
 }
@@ -362,6 +380,13 @@ function Details() {
 
 export default function Page() {
   const [detailsOpen, setDetailsOpen] = useState(false)
+  const detailsRef = useRef(null)
+
+  useEffect(() => {
+    if (detailsOpen && detailsRef.current) {
+      detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [detailsOpen])
 
   return (
     <div className="sh-page">
@@ -415,7 +440,9 @@ export default function Page() {
       </section>
 
       {/* ── РАСКРЫВАЮЩИЙСЯ ПОДРОБНЫЙ БЛОК ── */}
-      {detailsOpen && <Details />}
+      <div ref={detailsRef} style={{ scrollMarginTop: '16px' }}>
+        {detailsOpen && <Details />}
+      </div>
 
       {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
       <section className="lk-author-section">
