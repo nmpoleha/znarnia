@@ -149,10 +149,12 @@ function RegForm() {
 }
 
 export default function Page() {
-  const scrollToForm = (e) => {
+  const scrollTo = (id) => (e) => {
     e.preventDefault()
-    document.getElementById('reg')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+  const scrollToForm = scrollTo('reg')
+  const scrollToSubjects = scrollTo('subjects')
 
   return (
     <div className="oge-page">
@@ -170,26 +172,28 @@ export default function Page() {
       {/* ── HERO ── */}
       <section className="oge-hero">
         <div className="oge-wrap oge-hero__inner">
-          <div className="oge-hero__badge">🎓 Набор на 2025–2026 учебный год</div>
-          <h1 className="oge-hero__title">
-            Подготовка к ОГЭ 2026:<br />дополнительные предметы
-          </h1>
-          <p className="oge-hero__sub">
-            Физика · Информатика · Русский язык · Обществознание. Разбираем только те задания,
-            которые будут на ОГЭ 2026, — уверенно и без лишнего.
-          </p>
-          <div className="oge-hero__actions">
-            <button className="oge-btn oge-btn--primary" onClick={scrollToForm}>Записаться на занятия</button>
-            <div className="oge-hero__price">
-              <span className="oge-hero__price-main">{PRICE_MAIN}</span>
-              <span className="oge-hero__price-sub">{PRICE_SUB} за один предмет</span>
+          <div className="oge-hero__left">
+            <div className="oge-hero__badge">🎓 ОГЭ 2025–2026</div>
+            <h1 className="oge-hero__title">
+              Подготовка к ОГЭ<br />на 5 — уверенно и без стресса
+            </h1>
+            <p className="oge-hero__sub">
+              Физика, информатика, русский язык и обществознание. Системная подготовка,
+              поддержка преподавателей и практика, которая даёт результат.
+            </p>
+            <div className="oge-hero__actions">
+              <button className="oge-btn oge-btn--primary" onClick={scrollToForm}>Записаться на курс →</button>
+              <button className="oge-btn oge-btn--ghost" onClick={scrollToSubjects}>Узнать программу</button>
             </div>
+          </div>
+          <div className="oge-hero__media">
+            <img src="/znarnia/images/oge-books.png" alt="Учебники для подготовки к ОГЭ" className="oge-hero__img" width="820" height="820" loading="eager" decoding="async" />
           </div>
         </div>
       </section>
 
       {/* ── SUBJECTS ── */}
-      <section className="oge-section">
+      <section className="oge-section" id="subjects">
         <div className="oge-wrap">
           <h2 className="oge-section__title">Предметы и расписание</h2>
           <p className="oge-section__sub">Занятия проходят {FORMAT.toLowerCase()}.</p>
