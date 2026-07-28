@@ -51,6 +51,7 @@ export default defineConfig({
         'shablon': resolve(__dirname, 'shablon/index.html'),
         'shablon-bez-geymifikatsii': resolve(__dirname, 'shablon-bez-geymifikatsii/index.html'),
         'dop-predmety-oge': resolve(__dirname, 'dop-predmety-oge/index.html'),
+        'predzapis-avgust': resolve(__dirname, 'predzapis-avgust/index.html'),
       },
     },
   },
