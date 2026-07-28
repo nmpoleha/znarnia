@@ -84,55 +84,56 @@ export default function Page() {
 
       {/* ── ГЕРОЙ ── */}
       <section className="ag-hero">
-        <div className="ag-hero__pill">Август · 1–11 классы</div>
-        <h1 className="ag-hero__title">Подготовка к школе</h1>
-        <p className="ag-hero__lead">Начните новый учебный год уверенно</p>
-        <p className="ag-hero__sub">
-          Август — хорошее время, чтобы спокойно повторить материал прошлого года,
-          восстановить знания после летних каникул и вернуть ребёнка в&nbsp;учебный ритм.
-        </p>
+        <div className="ag-hero__panel">
+          {/* декор — блок полностью читается и без него */}
+          <span className="ag-hero__blob ag-hero__blob--tr" aria-hidden="true" />
+          <span className="ag-hero__blob ag-hero__blob--bl" aria-hidden="true" />
+          <span className="ag-hero__dots" aria-hidden="true" />
+          <span className="ag-hero__star" aria-hidden="true" />
+          <img
+            className="ag-hero__deco ag-hero__deco--books"
+            src="/znarnia/images/avgust-books.png"
+            alt=""
+            aria-hidden="true"
+            width="470"
+            height="420"
+          />
+          <img
+            className="ag-hero__deco ag-hero__deco--bag"
+            src="/znarnia/images/avgust-backpack.png"
+            alt=""
+            aria-hidden="true"
+            width="269"
+            height="330"
+          />
 
-        <ul className="ag-hero__promises">
-          {PROMISES.map((t, i) => <li key={i}>{t}</li>)}
-        </ul>
+          <div className="ag-hero__content">
+            <div className="ag-hero__pill">Август · 1–11 классы</div>
+            <h1 className="ag-hero__title">Подготовка к школе</h1>
+            <p className="ag-hero__lead">Начните новый учебный год уверенно</p>
+            <p className="ag-hero__sub">
+              Август — хорошее время, чтобы спокойно повторить материал прошлого года,
+              восстановить знания после летних каникул и вернуть ребёнка в&nbsp;учебный ритм.
+            </p>
 
-        <a href="#registration" className="ag-hero__cta">Оставить заявку на консультацию</a>
+            <ul className="ag-hero__promises">
+              {PROMISES.map((t, i) => <li key={i}>{t}</li>)}
+            </ul>
+
+            <a href="#registration" className="ag-hero__cta">Оставить заявку на консультацию</a>
+          </div>
+        </div>
       </section>
 
       <div className="page__inner">
 
-        {/* ── ФОРМАТЫ ── */}
+        {/* ── СРАВНЕНИЕ ПРОГРАММ ── */}
         <section className="ag-section">
           <h2 className="ag-h2">Выберите программу подготовки</h2>
           <p className="ag-section__lead">
             Качество обучения и формат занятий одинаковы. Отличается только объём подготовки
             и&nbsp;дата начала обучения.
           </p>
-
-          <div className="ag-formats">
-            {FORMATS.map((f, i) => (
-              <article className="ag-format" key={i}>
-                <img
-                  className="ag-format__img"
-                  src={f.img}
-                  alt={f.alt}
-                  width={f.w}
-                  height={f.h}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="ag-format__body">
-                  <h3 className="ag-format__title">{f.title}</h3>
-                  <p className="ag-format__desc">{f.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* ── СРАВНЕНИЕ ПРОГРАММ ── */}
-        <section className="ag-section">
-          <h2 className="ag-h2">Сравнение программ</h2>
 
           <div className="ag-programs">
             {PROGRAMS.map((p, i) => (
@@ -158,6 +159,41 @@ export default function Page() {
                 </dl>
 
                 <p className="ag-program__desc">{p.desc}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="ag-price">
+            <div className="ag-price__value">от 240&nbsp;₽</div>
+            <div className="ag-price__text">
+              <span className="ag-price__title">Стоимость одного урока</span>
+              <span className="ag-price__note">
+                Итоговая цена зависит от выбранной программы — расскажем на консультации
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── ФОРМАТЫ ── */}
+        <section className="ag-section">
+          <h2 className="ag-h2">Как проходят занятия</h2>
+
+          <div className="ag-formats">
+            {FORMATS.map((f, i) => (
+              <article className="ag-format" key={i}>
+                <img
+                  className="ag-format__img"
+                  src={f.img}
+                  alt={f.alt}
+                  width={f.w}
+                  height={f.h}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="ag-format__body">
+                  <h3 className="ag-format__title">{f.title}</h3>
+                  <p className="ag-format__desc">{f.desc}</p>
+                </div>
               </article>
             ))}
           </div>
