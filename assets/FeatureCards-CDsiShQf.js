@@ -1,0 +1,1 @@
+import{j as s}from"./client-DYDkQYN6.js";function d({features:a}){return s.jsx("div",{className:"fcards",children:a.map((c,e)=>s.jsxs("div",{className:"fcard",style:{"--c":c.color},children:[s.jsx("span",{className:"fcard__icon",children:c.icon}),s.jsx("div",{className:"fcard__title",children:c.title}),s.jsx("div",{className:"fcard__desc",children:c.desc})]},e))})}export{d as F};
