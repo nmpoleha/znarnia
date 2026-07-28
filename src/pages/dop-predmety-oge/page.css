@@ -22,7 +22,7 @@
 .oge-wrap {
   max-width: var(--oge-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 4px;
 }
 
 /* ── HEADER ── */
@@ -86,28 +86,27 @@
 
 /* ── HERO ── */
 .oge-hero {
-  background: linear-gradient(160deg, #f6f2ff 0%, #efeaff 100%);
-  padding: 44px 0 48px;
+  background: linear-gradient(115deg, #f1ecfb 0%, #f6f3fd 55%, #fdfcfe 100%);
+  padding: 40px 0 44px;
 }
 .oge-hero__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 20px;
   align-items: center;
 }
 .oge-hero__media {
-  border-radius: 24px;
-  overflow: hidden;
-  background: linear-gradient(160deg, #b79bf0 0%, #9a7ae6 100%);
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 24px 50px rgba(76, 29, 149, 0.18);
+  display: flex;
+  justify-content: center;
 }
 .oge-hero__img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
+  max-width: 440px;
+  height: auto;
   display: block;
+  /* мягкое растворение краёв кадра в фон шапки */
+  -webkit-mask-image: radial-gradient(130% 130% at 50% 46%, #000 72%, transparent 100%);
+  mask-image: radial-gradient(130% 130% at 50% 46%, #000 72%, transparent 100%);
 }
 .oge-hero__badge {
   display: inline-block;
@@ -124,9 +123,15 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: clamp(28px, 6vw, 46px);
-  line-height: 1.1;
+  line-height: 1.12;
   color: #3b1f6e;
   margin-bottom: 16px;
+}
+.oge-hero__title-sub {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  color: #3b1f6e;
 }
 .oge-hero__sub {
   font-size: 18px;
@@ -532,12 +537,13 @@
 }
 
 @media (min-width: 860px) {
-  .oge-hero { padding: 56px 0 60px; }
+  .oge-hero { padding: 52px 0 56px; }
   .oge-hero__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
-    gap: 44px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 46%);
+    gap: 32px;
   }
-  .oge-hero__media { aspect-ratio: 1 / 1; }
+  .oge-hero__media { justify-content: flex-end; }
+  .oge-hero__img { max-width: 480px; }
 }
 
 @container (min-width: 480px) {

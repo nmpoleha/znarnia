@@ -165,7 +165,6 @@ export default function Page() {
             <img src="/znarnia/images/logo.png" alt="Школа Сотниковой Ольги" className="oge-header__logo" width="80" height="80" />
             <span className="oge-header__brand-name">Школа Сотниковой Ольги</span>
           </div>
-          <span className="oge-header__center">Образовательный центр СТК</span>
         </div>
       </header>
 
@@ -175,7 +174,8 @@ export default function Page() {
           <div className="oge-hero__left">
             <div className="oge-hero__badge">🎓 ОГЭ 2025–2026</div>
             <h1 className="oge-hero__title">
-              Подготовка к ОГЭ<br />на 5 — уверенно и без стресса
+              Подготовка к ОГЭ
+              <span className="oge-hero__title-sub">на 5 — уверенно и без стресса</span>
             </h1>
             <p className="oge-hero__sub">
               Физика, информатика, русский язык и обществознание. Системная подготовка,
@@ -269,7 +269,7 @@ export default function Page() {
       {/* ── FOOTER ── */}
       <footer className="oge-footer">
         <div className="oge-wrap">
-          <div className="oge-footer__copy">© 2026 Образовательный центр СТК · Школа Сотниковой Ольги</div>
+          <div className="oge-footer__copy">© 2026 Школа Сотниковой Ольги</div>
         </div>
       </footer>
     </div>
