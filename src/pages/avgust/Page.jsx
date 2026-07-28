@@ -28,6 +28,39 @@ const FORMATS = [
   },
 ]
 
+const IconCalendar = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="16" rx="4" stroke="currentColor" strokeWidth="1.7" />
+    <path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    <circle cx="8.5" cy="14.5" r="1.1" fill="currentColor" />
+    <circle cx="12" cy="14.5" r="1.1" fill="currentColor" />
+    <circle cx="15.5" cy="14.5" r="1.1" fill="currentColor" />
+  </svg>
+)
+
+const IconScreen = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="2.5" y="4" width="19" height="14" rx="4" stroke="currentColor" strokeWidth="1.7" />
+    <path d="M8 21h8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    <path d="M10.6 8.6l4.2 2.4-4.2 2.4V8.6z" fill="currentColor" />
+  </svg>
+)
+
+const IconDumbbell = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="5" y="7.5" width="3.4" height="9" rx="1.3" stroke="currentColor" strokeWidth="1.7" />
+    <rect x="15.6" y="7.5" width="3.4" height="9" rx="1.3" stroke="currentColor" strokeWidth="1.7" />
+    <path d="M8.4 12h7.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    <path d="M2.6 10v4M21.4 10v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+  </svg>
+)
+
+const ROWS = [
+  { key: 'start', label: 'Старт', icon: <IconCalendar /> },
+  { key: 'live', label: 'Живые онлайн-уроки', icon: <IconScreen />, num: true },
+  { key: 'trainers', label: 'Интерактивные уроки-тренажёры', icon: <IconDumbbell />, num: true },
+]
+
 const PROGRAMS = [
   {
     name: 'Умный август',
@@ -144,18 +177,19 @@ export default function Page() {
                 </div>
 
                 <dl className="ag-program__rows">
-                  <div className="ag-program__row">
-                    <dt>Старт</dt>
-                    <dd>{p.start}</dd>
-                  </div>
-                  <div className="ag-program__row">
-                    <dt>Живые онлайн-уроки</dt>
-                    <dd><span className="ag-program__num">{p.live}</span></dd>
-                  </div>
-                  <div className="ag-program__row">
-                    <dt>Интерактивные уроки-тренажёры</dt>
-                    <dd><span className="ag-program__num">{p.trainers}</span></dd>
-                  </div>
+                  {ROWS.map((row) => (
+                    <div className="ag-program__row" key={row.key}>
+                      <dt>
+                        <span className="ag-program__icon">{row.icon}</span>
+                        {row.label}
+                      </dt>
+                      <dd>
+                        {row.num
+                          ? <span className="ag-program__num">{p[row.key]}</span>
+                          : p[row.key]}
+                      </dd>
+                    </div>
+                  ))}
                 </dl>
 
                 <p className="ag-program__desc">{p.desc}</p>
@@ -164,7 +198,15 @@ export default function Page() {
           </div>
 
           <div className="ag-price">
-            <div className="ag-price__value">от 240&nbsp;₽</div>
+            <img
+              className="ag-price__img"
+              src="/znarnia/images/avgust-price-tag.png"
+              alt="от 240 ₽"
+              width="340"
+              height="134"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="ag-price__text">
               <span className="ag-price__title">Стоимость одного урока</span>
               <span className="ag-price__note">
