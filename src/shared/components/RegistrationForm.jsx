@@ -3,7 +3,12 @@ import './RegistrationForm.css'
 
 const grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
-export default function RegistrationForm({ successText = 'Мы свяжемся с вами для уточнения деталей. До встречи этим летом!' }) {
+export default function RegistrationForm({
+  successText = 'Мы свяжемся с вами для уточнения деталей. До встречи этим летом!',
+  subtitle,
+  nameLabel = 'Ваше имя *',
+  namePlaceholder = 'Иван Иванов',
+}) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -42,10 +47,11 @@ export default function RegistrationForm({ successText = 'Мы свяжемся 
         </div>
       ) : (
         <form className="form" onSubmit={handleSubmit} noValidate>
+          {subtitle && <p className="form__subtitle">{subtitle}</p>}
           <div className="form__grid">
             <div className="form__field">
-              <label className="form__label">Ваше имя *</label>
-              <input className={`form__input${errors.name ? ' err' : ''}`} name="name" type="text" placeholder="Иван Иванов" value={form.name} onChange={handleChange} />
+              <label className="form__label">{nameLabel}</label>
+              <input className={`form__input${errors.name ? ' err' : ''}`} name="name" type="text" placeholder={namePlaceholder} value={form.name} onChange={handleChange} />
               {errors.name && <span className="form__err">{errors.name}</span>}
             </div>
             <div className="form__field">

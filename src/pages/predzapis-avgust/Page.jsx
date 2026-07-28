@@ -5,19 +5,39 @@ import RegistrationForm from '../../shared/components/RegistrationForm'
 
 const features = [
   {
-    icon: '🎯',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#7028e8" strokeWidth="1.8"/>
+        <circle cx="12" cy="12" r="5" stroke="#7028e8" strokeWidth="1.8"/>
+        <circle cx="12" cy="12" r="1.6" fill="#7028e8"/>
+      </svg>
+    ),
     title: 'Точечно по тесту',
     desc: 'Подбираем темы по результатам тестирования — работаем именно с пробелами ребёнка',
     color: '#ea580c',
   },
   {
-    icon: '🚀',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2.5c2.6 2.1 4 5.1 4 8.5 0 1.7-.4 3.2-1 4.5H9c-.6-1.3-1-2.8-1-4.5 0-3.4 1.4-6.4 4-8.5z" stroke="#7028e8" strokeWidth="1.7" strokeLinejoin="round"/>
+        <circle cx="12" cy="9.5" r="1.7" stroke="#7028e8" strokeWidth="1.7"/>
+        <path d="M8 13.5l-3 2.2 1.3 1.8L9 16" stroke="#7028e8" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M16 13.5l3 2.2-1.3 1.8L15 16" stroke="#7028e8" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.5 16.8c0 1.9 1.5 3.7 1.5 3.7s1.5-1.8 1.5-3.7" stroke="#7028e8" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
     title: 'Готовность к сентябрю',
     desc: 'Восстанавливаем базу и учебный ритм, чтобы новый год начался уверенно',
     color: '#f97316',
   },
   {
-    icon: '🎁',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M4 11h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9z" stroke="#7028e8" strokeWidth="1.8" strokeLinejoin="round"/>
+        <path d="M3 7.5h18V11H3V7.5zM12 7.5V21" stroke="#7028e8" strokeWidth="1.8" strokeLinejoin="round"/>
+        <path d="M12 7.5S9.5 3 7.5 4s.5 3.5 4.5 3.5zM12 7.5S14.5 3 16.5 4s-.5 3.5-4.5 3.5z" stroke="#7028e8" strokeWidth="1.8" strokeLinejoin="round"/>
+      </svg>
+    ),
     title: 'Скидка 3000 ₽',
     desc: 'Специальная цена только для тех, кто оставит заявку на предзапись',
     color: '#7c3aed',
@@ -57,38 +77,34 @@ export default function Page() {
 
   return (
     <div className="page">
-      <div className="page__bg-glow page__bg-glow--1" />
-      <div className="page__bg-glow page__bg-glow--2" />
-
-      <div className="page__inner">
-
+      <div className="page__inner page__inner--head">
         <SchoolHeader
           logoUrl="/znarnia/images/logo.png"
           name="Школа Сотниковой Ольги"
         />
+      </div>
 
-        <section className="hero">
-          <div className="hero__tag">Предзапись · Август</div>
-          <h1 className="hero__title">Умный <span>август</span></h1>
-          <p className="hero__sub">
-            Чтобы в сентябре ребёнок не растерялся на первых уроках, важно заранее восстановить
-            базу и учебный ритм. Курс помогает мягко вернуться в обучение, закрыть пробелы
-            и почувствовать уверенность перед школой.
-          </p>
+      <section className="av-hero">
+        <div className="av-hero__pill">Предзапись · Август</div>
+        <h1 className="av-hero__title">Умный август</h1>
+        <p className="av-hero__sub">
+          Чтобы в сентябре ребёнок не растерялся на первых уроках, важно заранее восстановить
+          базу и учебный ритм. Курс помогает мягко вернуться в обучение, закрыть пробелы
+          и почувствовать уверенность перед школой.
+        </p>
 
-          <div className="av-price">
-            <span className="av-price__old">10&thinsp;800&nbsp;₽</span>
-            <span className="av-price__badge">−3000&nbsp;₽ по предзаписи</span>
-          </div>
+        <div className="av-hero__offer">
+          <span className="av-hero__price-old">13&thinsp;800&nbsp;₽</span>
+          <span className="av-hero__price">10&thinsp;800&nbsp;₽</span>
+          <a href="#registration" className="av-hero__cta">Оставить заявку</a>
+        </div>
 
-          <a href="#registration" className="hero__cta">Оставить заявку — скидка 3000&nbsp;₽</a>
-          <p className="hero__quote">
-            Оставьте заявку, чтобы получить скидку 3000&nbsp;₽. А если узнаете подробнее
-            о программе — дополнительная скидка ещё 3000&nbsp;₽.
-          </p>
-        </section>
+        <div className="av-hero__divider" aria-hidden="true" />
 
-        <div className="offer-label">Оставьте заявку сейчас, чтобы получить скидку 3000&nbsp;₽</div>
+        <div className="av-hero__label">Оставьте заявку сейчас, чтобы получить скидку 3000&nbsp;₽</div>
+      </section>
+
+      <div className="page__inner">
 
         <FeatureCards features={features} />
 
@@ -137,7 +153,6 @@ export default function Page() {
             aria-expanded={open}
           >
             {open ? 'Свернуть программу' : 'Узнать подробнее о программе'}
-            <span className="av-more__bonus">+3000&nbsp;₽ к скидке</span>
           </button>
 
           {open && (
@@ -158,7 +173,12 @@ export default function Page() {
           )}
         </div>
 
-        <RegistrationForm successText="Мы свяжемся с вами, расскажем о курсе «Умный август» и зафиксируем вашу скидку." />
+        <RegistrationForm
+          subtitle="Мы перезвоним, расскажем о программе и ответим на все ваши вопросы"
+          nameLabel="Фамилия и имя *"
+          namePlaceholder="Иванов Иван"
+          successText="Мы свяжемся с вами, расскажем о курсе «Умный август» и зафиксируем вашу скидку."
+        />
 
         <footer className="footer">
           <span>© 2026 Школа Сотниковой Ольги</span>

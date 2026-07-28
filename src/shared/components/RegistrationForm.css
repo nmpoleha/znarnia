@@ -13,6 +13,13 @@
   gap: 14px;
 }
 
+.form__subtitle {
+  margin: -2px 0 2px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #6b5a8e;
+}
+
 .form__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
