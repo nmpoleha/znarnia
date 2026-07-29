@@ -625,12 +625,41 @@
    ФИНАЛЬНЫЙ БЛОК
    ───────────────────────────────────────────── */
 .ag-final {
-  background: linear-gradient(135deg, #7028e8 0%, #9333ea 55%, #d83b9c 100%);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 6px;
+  background: linear-gradient(100deg, #5b21b6 0%, #7c3aed 46%, #a78bfa 100%);
   border-radius: 22px;
-  padding: 32px;
+  padding: 26px 24px 30px;
   margin-bottom: 24px;
   color: #fff;
   text-align: center;
+}
+
+.ag-final__img {
+  width: 176px;
+  height: auto;
+  filter: drop-shadow(0 16px 24px rgba(38, 8, 84, 0.28));
+}
+
+.ag-final__body { position: relative; z-index: 1; min-width: 0; }
+
+.ag-final__star {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  right: 44px;
+  bottom: 34px;
+  width: 66px;
+  height: 66px;
+  color: rgba(255, 255, 255, 0.32);
+}
+/* узкие экраны: звезда наезжала бы на текст */
+@media (max-width: 999px) {
+  .ag-final__star { display: none; }
 }
 
 .ag-final__title {
@@ -646,9 +675,23 @@
   margin: 0 auto 12px;
   font-size: 15px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
 }
 .ag-final__text:last-child { margin-bottom: 0; }
+
+@media (min-width: 760px) {
+  .ag-final {
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: center;
+    justify-items: stretch;
+    gap: 20px;
+    padding: 30px 40px 32px;
+    text-align: left;
+  }
+  .ag-final__img { width: 100%; }
+  .ag-final__title { margin-bottom: 12px; }
+  .ag-final__text { max-width: 720px; margin: 0 0 10px; }
+}
 
 /* ─────────────────────────────────────────────
    ФУТЕР
@@ -698,6 +741,7 @@
   .ag-price { padding: 14px 16px; gap: 14px; border-radius: 18px; }
   .ag-price__img { width: 130px; }
   .ag-diag { padding: 24px 18px; }
-  .ag-final { padding: 26px 20px; }
+  .ag-final { padding: 22px 18px 26px; }
+  .ag-final__img { width: 138px; }
   .form-section { padding: 20px 18px; }
 }

@@ -280,15 +280,38 @@ export default function Page() {
 
         {/* ── ФИНАЛЬНЫЙ CTA ── */}
         <section className="ag-final">
-          <h2 className="ag-final__title">Начните подготовку уже сегодня</h2>
-          <p className="ag-final__text">
-            Несколько недель занятий в августе помогут ребёнку легче включиться в учебный
-            процесс уже с первых дней сентября.
-          </p>
-          <p className="ag-final__text">
-            Оставьте заявку на консультацию — получите доступ к экспресс-диагностике и узнайте,
-            с чего лучше начать подготовку именно вашему ребёнку.
-          </p>
+          {/* декор — блок полностью читается и без него */}
+          <svg className="ag-final__star" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 2.6l2.6 6.1 6.6.6-5 4.4 1.5 6.5L12 16.7l-5.7 3.5 1.5-6.5-5-4.4 6.6-.6L12 2.6z"
+              stroke="currentColor"
+              strokeWidth="1.1"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <img
+            className="ag-final__img"
+            src="/znarnia/images/avgust-calendar.png"
+            alt=""
+            aria-hidden="true"
+            width="420"
+            height="379"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div className="ag-final__body">
+            <h2 className="ag-final__title">Начните подготовку уже сегодня</h2>
+            <p className="ag-final__text">
+              Несколько недель занятий в августе помогут ребёнку легче включиться в учебный
+              процесс уже с первых дней сентября.
+            </p>
+            <p className="ag-final__text">
+              Оставьте заявку на консультацию — получите доступ к экспресс-диагностике и узнайте,
+              с чего лучше начать подготовку именно вашему ребёнку.
+            </p>
+          </div>
         </section>
 
         <RegistrationForm
