@@ -1,5 +1,6 @@
 import SchoolHeader from '../../shared/components/SchoolHeader'
 import RegistrationForm from '../../shared/components/RegistrationForm'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
 const PROMISES = [
   'Восстановим базовые знания.',
@@ -343,6 +344,23 @@ export default function Page() {
           namePlaceholder="Иванов Иван"
           successText="Мы свяжемся с вами, откроем доступ к экспресс-диагностике и поможем выбрать программу подготовки."
         />
+
+        {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
+        <section className="ag-section ag-section--after-form">
+          <h2 className="ag-h2">О преподавателе</h2>
+          <AuthorCard />
+        </section>
+
+        {/* ── ОТЗЫВЫ РОДИТЕЛЕЙ ── */}
+        <section className="ag-section">
+          <ReviewsCarousel />
+        </section>
+
+        {/* ── НАГРАДЫ И БЛАГОДАРНОСТИ ── */}
+        <section className="ag-section">
+          <h2 className="ag-h2">Награды и благодарности</h2>
+          <SchoolsCard />
+        </section>
 
         <footer className="footer">
           <span>© 2026 Школа Сотниковой Ольги</span>

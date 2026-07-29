@@ -1,0 +1,512 @@
+/* ─────────────────────────────────────────────
+   SOCIAL PROOF: преподаватель, отзывы, благодарности
+   Вёрстка перенесена со страницы shablon-bez-geymifikatsii,
+   шрифт наследуется от страницы.
+   ───────────────────────────────────────────── */
+
+/* ── ПРЕПОДАВАТЕЛЬ ── */
+.dg-author {
+  border-radius: 24px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.dg-author__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 0;
+}
+
+.dg-author__left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px 24px 22px 28px;
+  min-width: 0;
+}
+
+.dg-author__label {
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: #1e1b4b;
+}
+
+.dg-author__name {
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: #6d28d9;
+}
+
+.dg-author__items {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.dg-author__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #1e1b4b;
+  line-height: 1.7;
+}
+
+.dg-author__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: #f5f3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dg-author__photo-slot {
+  align-self: stretch;
+  overflow: hidden;
+  position: relative;
+}
+
+.dg-author__photo {
+  width: 100%;
+  height: calc(100% + 40px);
+  margin-top: -40px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50% 0 0 50%;
+}
+
+.dg-author__stats {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid #e5e7eb;
+  padding: 18px 0;
+  background: #f5f3ff;
+}
+
+.dg-author__stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  padding: 0 24px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.dg-author__stat:last-child { border-right: none; }
+
+.dg-author__stat-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dg-author__stat-val {
+  font-size: 16px;
+  font-weight: 900;
+  color: #1e1b4b;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.dg-author__stat-desc {
+  font-size: 11px;
+  color: #4b5563;
+  line-height: 1.4;
+  margin-top: 3px;
+}
+
+/* ── ОТЗЫВЫ ── */
+.dg-reviews__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dg-reviews__title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #1e1b4b;
+  letter-spacing: -0.01em;
+}
+
+.dg-reviews__nav {
+  display: flex;
+  gap: 8px;
+}
+
+.dg-reviews__arrow {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.dg-reviews__arrow:hover:not(.dg-reviews__arrow--disabled) {
+  border-color: #6d28d9;
+  color: #6d28d9;
+}
+
+.dg-reviews__arrow--disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.dg-reviews__track-wrap { overflow: hidden; }
+
+.dg-reviews__track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.35s ease;
+}
+
+.dg-reviews__thumb {
+  flex: 0 0 calc((100% - 40px) / 5);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid #e5e7eb;
+  cursor: pointer;
+  position: relative;
+  background: #f5f3ff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.dg-reviews__thumb:hover {
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.18);
+  transform: translateY(-2px);
+}
+
+.dg-reviews__thumb-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dg-reviews__thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(109, 40, 217, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dg-reviews__thumb:hover .dg-reviews__thumb-overlay { opacity: 1; }
+
+.dg-reviews__dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.dg-reviews__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.18s;
+}
+
+.dg-reviews__dot--active {
+  background: #6d28d9;
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* ── БЛАГОДАРНОСТИ ШКОЛ ── */
+.dg-schools {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.dg-schools__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: #f5f3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.dg-schools__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.dg-schools__title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: -0.01em;
+}
+
+.dg-schools__text {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.dg-letters {
+  margin-top: 16px;
+  position: relative;
+}
+
+.dg-letters__track-wrap { overflow: hidden; }
+
+.dg-letters__track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.35s ease;
+}
+
+.dg-letters__thumb {
+  flex: 0 0 calc((100% - 30px) / 4);
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid #e5e7eb;
+  cursor: pointer;
+  position: relative;
+  background: #f5f3ff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.dg-letters__thumb:hover {
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.18);
+  transform: translateY(-2px);
+}
+
+.dg-letters__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.dg-letters__thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(109, 40, 217, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dg-letters__thumb:hover .dg-letters__thumb-overlay { opacity: 1; }
+
+.dg-letters__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dg-letters__arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.dg-letters__arrow:hover:not(.dg-letters__arrow--disabled) {
+  border-color: #6d28d9;
+  color: #6d28d9;
+}
+
+.dg-letters__arrow--disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ── ЛАЙТБОКС ── */
+.dg-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 0, 20, 0.88);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.dg-lightbox__img {
+  max-width: min(700px, calc(100vw - 120px));
+  max-height: calc(100vh - 80px);
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  display: block;
+  object-fit: contain;
+}
+
+.dg-lightbox__close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+  padding: 0;
+}
+
+.dg-lightbox__close:hover { background: rgba(255, 255, 255, 0.22); }
+
+.dg-lightbox__prev,
+.dg-lightbox__next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+  padding: 0;
+  z-index: 1;
+}
+
+.dg-lightbox__prev { left: 16px; }
+.dg-lightbox__next { right: 16px; }
+
+.dg-lightbox__prev:hover,
+.dg-lightbox__next:hover { background: rgba(255, 255, 255, 0.22); }
+
+.dg-lightbox__nav--hidden { opacity: 0; pointer-events: none; }
+
+.dg-lightbox__counter {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── ПЛАНШЕТ ── */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .dg-author__top { grid-template-columns: minmax(0, 1fr) 220px; }
+  .dg-author__stats { flex-wrap: wrap; }
+  .dg-author__stat {
+    flex: 0 0 50%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 20px;
+  }
+  .dg-author__stat:nth-child(odd) { border-right: 1px solid #e5e7eb; }
+  .dg-author__stat:nth-last-child(-n + 2) { border-bottom: none; }
+
+  .dg-reviews__thumb { flex: 0 0 calc((100% - 20px) / 3); }
+  .dg-letters__thumb { flex: 0 0 calc((100% - 20px) / 3); }
+}
+
+/* ── МОБИЛЬНЫЙ ── */
+@media (max-width: 640px) {
+  .dg-author__top { grid-template-columns: minmax(0, 1fr); }
+  .dg-author__left { padding: 20px 16px; gap: 2px; }
+  .dg-author__label,
+  .dg-author__name { font-size: 13px; }
+  .dg-author__item { font-size: 13px; }
+  .dg-author__items { margin-top: 12px; gap: 8px; }
+  .dg-author__photo-slot { height: 240px; }
+  .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; }
+  .dg-author__stats { flex-direction: column; padding: 0; }
+  .dg-author__stat {
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 16px;
+  }
+  .dg-author__stat:last-child { border-bottom: none; }
+  .dg-author__stat-val { font-size: 15px; }
+
+  .dg-reviews__thumb { flex: 0 0 calc((100% - 10px) / 2); }
+
+  .dg-schools { padding: 20px 16px; gap: 14px; }
+  .dg-schools__icon { width: 40px; height: 40px; }
+  .dg-schools__title { font-size: 14px; }
+  .dg-schools__text { font-size: 13px; }
+  .dg-letters__thumb { flex: 0 0 calc((100% - 10px) / 2); }
+
+  .dg-lightbox { padding: 60px 12px 40px; }
+  .dg-lightbox__img { max-width: calc(100vw - 24px); max-height: calc(100vh - 120px); }
+  .dg-lightbox__prev { left: 8px; width: 40px; height: 40px; }
+  .dg-lightbox__next { right: 8px; width: 40px; height: 40px; }
+}
