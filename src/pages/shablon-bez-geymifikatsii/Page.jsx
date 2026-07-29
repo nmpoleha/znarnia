@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import RegistrationForm from '../../shared/components/RegistrationForm'
 
 /* ─────────────────────────────────────────────────────────────
    ШАБЛОН РЕКЛАМНОГО ПРЕДЛОЖЕНИЯ
@@ -609,6 +610,16 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── CTA К ФОРМЕ КОНСУЛЬТАЦИИ ── */}
+      <section className="sh-cta">
+        <div className="sh-wrap">
+          <a href="#consult" className="sh-cta__btn">
+            {nb('Получить консультацию по обучению в Знарнии')}
+          </a>
+          <p className="sh-cta__note">{nb('Бесплатно и ни к чему не обязывает')}</p>
+        </div>
+      </section>
+
       {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
       <section className="lk-author-section">
         <div className="sh-wrap">
@@ -674,6 +685,22 @@ export default function Page() {
               <LettersCarousel />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── ФОРМА КОНСУЛЬТАЦИИ ── */}
+      <section className="sh-consult" id="consult">
+        <div className="sh-wrap">
+          <h2 className="sh-consult__title">{nb('Запишитесь на консультацию')}</h2>
+          <p className="sh-consult__lead">
+            {nb('Подберём программу под цели ребёнка, покажем платформу и ответим на все вопросы.')}
+          </p>
+          <RegistrationForm
+            subtitle={nb('После заполнения формы наши консультанты свяжутся с вами')}
+            nameLabel={nb('Фамилия и имя *')}
+            namePlaceholder="Иванов Иван"
+            successText={nb('После заполнения формы наши консультанты свяжутся с вами и ответят на все вопросы.')}
+          />
         </div>
       </section>
 

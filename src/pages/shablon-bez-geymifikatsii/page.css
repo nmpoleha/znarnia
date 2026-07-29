@@ -477,7 +477,7 @@
 
 /* ── REVEAL SECTIONS ── */
 .sh-reveal {
-  padding: 36px 0;
+  padding: 72px 0 56px;
 }
 
 .sh-reveal--alt {
@@ -486,7 +486,7 @@
 
 /* ── ОБРАЗОВАТЕЛЬНАЯ СРЕДА ── */
 .sh-env {
-  padding: 56px 0 0;
+  padding: 76px 0 0;
 }
 
 .sh-env__title {
@@ -560,13 +560,85 @@
   .sh-env__item:nth-last-child(-n + 2) { border-bottom: none; }
 }
 
+/* ── CTA К ФОРМЕ КОНСУЛЬТАЦИИ ── */
+.sh-cta {
+  padding: 56px 0 0;
+}
+
+.sh-cta__note {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--sh-muted);
+}
+
+.sh-cta__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 18px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.25;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.32);
+  transition: filter 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+
+.sh-cta__btn:hover { filter: brightness(1.05); box-shadow: 0 14px 30px rgba(234, 88, 12, 0.4); }
+.sh-cta__btn:active { transform: translateY(1px); }
+
+/* ── ФОРМА КОНСУЛЬТАЦИИ ВНИЗУ ── */
+.sh-consult {
+  padding: 64px 0 8px;
+  scroll-margin-top: 20px;
+}
+
+.sh-consult__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(20px, 3.4vw, 30px);
+  line-height: 1.2;
+  color: #3b1f6e;
+  margin-bottom: 10px;
+}
+
+.sh-consult__lead {
+  font-size: clamp(15px, 1.8vw, 19px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--sh-purple-mid);
+  margin-bottom: 22px;
+}
+
+.sh-consult .form-section {
+  margin-bottom: 0;
+}
+
 /* ── ПОЛОСА ДОВЕРИЯ ── */
 .sh-trust {
   background: #f3effc;
   border-top: 1px solid #e3daf7;
   border-bottom: 1px solid #e3daf7;
-  padding: 10px 0;
+  padding: 18px 0;
 }
+
+/* воздух вокруг блоков ниже героя.
+   Скоуп .sh-page нужен, чтобы перебить общие стили из letnie-kursy
+   и diagnostika-finalnaya — там у секций свои отступы и margin у карточек. */
+.sh-page .lk-author-section { padding: 64px 0 0; }
+.sh-page .lk-social-section { padding: 64px 0 0; }
+.sh-page .dg-author { margin: 0; }
+.sh-page .dg-reviews { margin-bottom: 40px; }
+.sh-page .dg-schools { margin-bottom: 0; }
 
 .sh-trust__grid {
   list-style: none;
@@ -851,10 +923,13 @@
   margin-bottom: 12px;
 }
 
+/* подзаголовок секции — как лид в блоке «Знарния» */
 .sh-lessons__intro {
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--sh-muted);
+  font-size: clamp(15px, 1.8vw, 19px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--sh-purple-mid);
 }
 
 .sh-lessons__shield {
@@ -864,7 +939,7 @@
 .sh-lessons__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 18px;
 }
 
 .sh-principle {
@@ -978,7 +1053,7 @@
 
 /* ── ПЛАШКА ГАРАНТИИ ── */
 .sh-guarantee {
-  margin-top: 22px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1020,7 +1095,7 @@
 .sh-result {
   position: relative;
   overflow: hidden;
-  margin-top: 22px;
+  margin-top: 40px;
   background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
   border-radius: 24px;
   padding: 26px 24px;
@@ -1236,13 +1311,16 @@
 /* ── ЕДИНЫЙ ВЕРТИКАЛЬНЫЙ РИТМ НА МОБИЛЬНЫХ/ПЛАНШЕТАХ ── */
 @media (max-width: 859px) {
   .sh-hero { padding: 36px 0; }
-  .sh-reveal { padding: 36px 0; }
-  .lk-author-section { padding: 36px 0; }
-  .lk-social-section { padding: 36px 0; }
+  .sh-env { padding: 52px 0 0; }
+  .sh-reveal { padding: 52px 0 44px; }
+  .sh-page .lk-author-section { padding: 48px 0 0; }
+  .sh-page .lk-social-section { padding: 48px 0 0; }
+  .sh-cta { padding: 44px 0 0; }
+  .sh-consult { padding: 48px 0 8px; }
   .sh-footer { padding: 36px 0 24px; }
 
   /* убираем «плавающие» отступы карточек из общих стилей — расстояние задаёт секция */
-  .dg-author { margin: 0; }
-  .dg-reviews { margin-bottom: 24px; }
-  .dg-schools { margin-bottom: 0; }
+  .sh-page .dg-author { margin: 0; }
+  .sh-page .dg-reviews { margin-bottom: 28px; }
+  .sh-page .dg-schools { margin-bottom: 0; }
 }
