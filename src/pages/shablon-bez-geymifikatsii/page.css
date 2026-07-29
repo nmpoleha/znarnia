@@ -111,6 +111,28 @@
   gap: 14px;
 }
 
+/* 3D-подарок — приподнят под тезисы, текст ложится поверх него */
+.sh-hero__gift {
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  width: 160px;
+  max-width: 52%;
+  height: auto;
+  margin: 4px auto 0;
+  opacity: 0.5;
+  filter: drop-shadow(0 18px 28px rgba(109, 40, 217, 0.12));
+}
+
+/* текст героя — над подарком */
+.sh-hero__title,
+.sh-hero__sub,
+.sh-hero__theses {
+  position: relative;
+  z-index: 1;
+}
+
 .sh-hero__thesis {
   display: flex;
   align-items: flex-start;
@@ -134,20 +156,6 @@
   margin-top: 1px;
 }
 
-.sh-reveal__btn.sh-hero__more {
-  margin-top: 28px;
-  border: none;
-  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-  color: #fff;
-  box-shadow: 0 12px 26px rgba(109, 40, 217, 0.3);
-}
-
-.sh-reveal__btn.sh-hero__more:hover,
-.sh-reveal__btn.sh-hero__more.sh-reveal__btn--open {
-  background: linear-gradient(135deg, #8b4ff5 0%, #7c3aed 100%);
-  color: #fff;
-}
-
 /* ── REGISTRATION FORM ── */
 .sh-form {
   container-type: inline-size;
@@ -162,7 +170,21 @@
 }
 
 .sh-form__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   margin-bottom: 4px;
+}
+
+.sh-form__head-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f3ecff 0%, #e9dcfe 100%);
+  color: var(--sh-purple);
 }
 
 .sh-form__head-title {
@@ -315,26 +337,47 @@
   border: none;
   border-radius: 12px;
   padding: 16px 20px;
-  background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 55%, #a855f7 100%);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 16px;
   cursor: pointer;
   transition: filter 0.15s, transform 0.1s, box-shadow 0.15s;
-  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.32);
+  box-shadow: 0 12px 26px rgba(109, 40, 217, 0.32);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.sh-form__submit:hover { filter: brightness(1.05); box-shadow: 0 14px 30px rgba(234, 88, 12, 0.4); }
+.sh-form__submit:hover { filter: brightness(1.06); box-shadow: 0 14px 30px rgba(109, 40, 217, 0.42); }
 .sh-form__submit:active { transform: translateY(1px); }
+
+/* подпись под кнопкой: данные не передаются третьим лицам */
+.sh-form__secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -4px;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--sh-muted);
+}
+
+.sh-form__secure-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--sh-purple);
+}
 
 .sh-form__note {
   text-align: center;
   font-size: 12px;
+  line-height: 1.45;
   color: var(--sh-muted);
 }
 
@@ -378,54 +421,6 @@
 
 .sh-reveal--alt {
   background: var(--sh-purple-lt);
-}
-
-.sh-reveal__btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  border: 2px solid var(--sh-purple);
-  background: #fff;
-  color: var(--sh-purple);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: clamp(15px, 3.5vw, 18px);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  padding: 16px 24px;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-
-.sh-reveal__btn:hover {
-  background: var(--sh-purple);
-  color: #fff;
-}
-
-.sh-reveal__btn--open {
-  background: var(--sh-purple);
-  color: #fff;
-}
-
-.sh-reveal__chevron {
-  font-size: 14px;
-  transition: transform 0.2s;
-}
-
-.sh-reveal__btn--open .sh-reveal__chevron {
-  transform: rotate(180deg);
-}
-
-.sh-reveal__body {
-  animation: sh-fade 0.25s ease;
-}
-
-@keyframes sh-fade {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── LEARN CONTENT ── */
@@ -982,11 +977,26 @@
   .sh-hero__inner {
     grid-template-columns: minmax(0, 1fr) minmax(340px, 42%);
     gap: 48px;
-    align-items: start;
+    /* растягиваем колонки, чтобы низ подарка совпал с низом формы */
+    align-items: stretch;
+  }
+
+  .sh-hero__left {
+    position: relative;
   }
 
   .sh-hero {
     padding: 56px 0 64px;
+  }
+
+  /* подарок у правого края колонки, низом вровень с формой */
+  .sh-hero__gift {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    max-width: none;
+    margin: 0;
   }
 
   .sh-lessons__grid {

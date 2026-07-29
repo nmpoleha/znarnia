@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 
 /* ─────────────────────────────────────────────────────────────
    ШАБЛОН РЕКЛАМНОГО ПРЕДЛОЖЕНИЯ
@@ -173,7 +173,23 @@ const THESES = [
   'Тезис 3 — коротко опишите третью плюшку от учёбы в одном предложении.',
 ]
 
-/* ── Форма регистрации ── */
+/* ── Форма получения подарка ── */
+const IconGift = ({ size = 22 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M3.5 11h17v8.5a1.5 1.5 0 0 1-1.5 1.5H5a1.5 1.5 0 0 1-1.5-1.5V11z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+    <rect x="2.5" y="7" width="19" height="4" rx="1.3" stroke="currentColor" strokeWidth="1.8"/>
+    <path d="M12 7v14" stroke="currentColor" strokeWidth="1.8"/>
+    <path d="M12 7S10.8 3 8.6 3a2.3 2.3 0 0 0 0 4.6H12zm0 0s1.2-4 3.4-4a2.3 2.3 0 0 1 0 4.6H12z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+  </svg>
+)
+
+const IconShield = () => (
+  <svg width="15" height="16" viewBox="0 0 24 26" fill="none" aria-hidden="true">
+    <path d="M12 2l9 3.4v7C21 19.5 16.7 22.9 12 24.4 7.3 22.9 3 19.5 3 12.4v-7L12 2z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+    <path d="M8.4 12.8l2.7 2.7 4.5-5.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
 function RegForm() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
   const [errors, setErrors] = useState({})
@@ -205,9 +221,9 @@ function RegForm() {
   if (submitted) {
     return (
       <div className="sh-form sh-form--success">
-        <div className="sh-form__success-icon">✓</div>
-        <div className="sh-form__success-title">Заявка принята!</div>
-        <div className="sh-form__success-text">{nb('Мы свяжемся с вами для уточнения деталей.')}</div>
+        <div className="sh-form__success-icon"><IconGift size={30} /></div>
+        <div className="sh-form__success-title">Подарок закреплён за вами!</div>
+        <div className="sh-form__success-text">{nb('Мы свяжемся с вами, передадим подарок и расскажем, как им воспользоваться.')}</div>
       </div>
     )
   }
@@ -215,8 +231,11 @@ function RegForm() {
   return (
     <form className="sh-form" onSubmit={submit} noValidate>
       <div className="sh-form__head">
-        <div className="sh-form__head-title">Оставьте заявку</div>
-        <div className="sh-form__head-sub">{nb('Мы перезвоним, расскажем о программе и ответим на все ваши вопросы')}</div>
+        <span className="sh-form__head-icon" aria-hidden="true"><IconGift size={24} /></span>
+        <div>
+          <div className="sh-form__head-title">Получить подарок</div>
+          <div className="sh-form__head-sub">{nb('Заполните форму — и мы отправим вам полезный материал для обучения.')}</div>
+        </div>
       </div>
 
       <div className="sh-form__grid">
@@ -257,14 +276,20 @@ function RegForm() {
         <input type="checkbox" className="sh-form__check-input" checked={form.agree} onChange={e => set('agree', e.target.checked)} />
         <span className="sh-form__check-box" aria-hidden="true" />
         <span className="sh-form__check-text">
-          {nb('Согласен с обработкой персональных данных в соответствии с')}{' '}<a href="#" className="sh-form__link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a>{' '}<span className="sh-form__req">*</span>
+          {nb('Согласен с обработкой персональных данных в соответствии с')}{' '}
+          <a href="#" className="sh-form__link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a> <span className="sh-form__req">*</span>
         </span>
       </label>
 
       <button type="submit" className="sh-form__submit">
-        Записаться на консультацию
+        <IconGift />
+        Получить подарок
       </button>
-      <p className="sh-form__note">{nb('* заполнение формы ни к чему не обязывает')}</p>
+
+      <p className="sh-form__secure">
+        <span className="sh-form__secure-icon" aria-hidden="true"><IconShield /></span>
+        {nb('Мы не передаём ваши данные третьим лицам')}
+      </p>
     </form>
   )
 }
@@ -298,7 +323,7 @@ const PRINCIPLES = [
   },
 ]
 
-/* ── Раскрывающийся подробный блок (обучение + занятия) ── */
+/* ── Подробный блок (обучение + занятия) ── */
 function Details() {
   return (
     <section className="sh-reveal">
@@ -371,15 +396,6 @@ function Details() {
 }
 
 export default function Page() {
-  const [detailsOpen, setDetailsOpen] = useState(false)
-  const detailsRef = useRef(null)
-
-  useEffect(() => {
-    if (detailsOpen && detailsRef.current) {
-      detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }, [detailsOpen])
-
   return (
     <div className="sh-page">
       {/* ── HEADER ── */}
@@ -414,15 +430,17 @@ export default function Page() {
               ))}
             </ul>
 
-            <button
-              type="button"
-              className={`sh-reveal__btn sh-hero__more${detailsOpen ? ' sh-reveal__btn--open' : ''}`}
-              onClick={() => setDetailsOpen(o => !o)}
-              aria-expanded={detailsOpen}
-            >
-              <span>Узнать подробнее</span>
-              <span className="sh-reveal__chevron" aria-hidden="true">▾</span>
-            </button>
+            {/* декор — блок полностью читается и без него */}
+            <img
+              className="sh-hero__gift"
+              src="/znarnia/images/gift-box.png"
+              alt=""
+              aria-hidden="true"
+              width="460"
+              height="500"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           <div className="sh-hero__right">
@@ -431,10 +449,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── РАСКРЫВАЮЩИЙСЯ ПОДРОБНЫЙ БЛОК ── */}
-      <div ref={detailsRef} style={{ scrollMarginTop: '16px' }}>
-        {detailsOpen && <Details />}
-      </div>
+      {/* ── ПОДРОБНЫЙ БЛОК ── */}
+      <Details />
 
       {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
       <section className="lk-author-section">
