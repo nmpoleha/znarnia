@@ -8,6 +8,7 @@ export default function RegistrationForm({
   subtitle,
   nameLabel = 'Ваше имя *',
   namePlaceholder = 'Иван Иванов',
+  gradeLabel = 'Класс ребёнка (который оканчивает сейчас) *',
 }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
   const [errors, setErrors] = useState({})
@@ -71,7 +72,7 @@ export default function RegistrationForm({
           </div>
 
           <div className="form__field form__field--half">
-            <label className="form__label">Класс ребёнка (который оканчивает сейчас) *</label>
+            <label className="form__label">{gradeLabel}</label>
             <select className={`form__input form__select${errors.grade ? ' err' : ''}`} name="grade" value={form.grade} onChange={handleChange}>
               <option value="">Выберите класс</option>
               {grades.map(g => <option key={g} value={g}>{g} класс</option>)}
