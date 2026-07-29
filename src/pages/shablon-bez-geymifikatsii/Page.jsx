@@ -430,17 +430,28 @@ export default function Page() {
               ))}
             </ul>
 
-            {/* декор — блок полностью читается и без него */}
-            <img
-              className="sh-hero__gift"
-              src="/znarnia/images/gift-box.png"
-              alt=""
-              aria-hidden="true"
-              width="460"
-              height="500"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="sh-hero__gift-wrap">
+              <div className="sh-hero__gift-note">
+                <span className="sh-hero__gift-title">Ваш подарок</span>
+                <span className="sh-hero__gift-text">{nb('Материал сразу после заполнения формы')}</span>
+                <svg className="sh-hero__gift-arrow" viewBox="0 0 110 34" fill="none" aria-hidden="true">
+                  <path d="M4 5c22 17 54 22 97 13" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                  <path d="M101 18l-12-4m12 4l-9 9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              {/* декор — блок полностью читается и без него */}
+              <img
+                className="sh-hero__gift"
+                src="/znarnia/images/gift-box.png"
+                alt=""
+                aria-hidden="true"
+                width="460"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
 
           <div className="sh-hero__right">

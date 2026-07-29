@@ -111,18 +111,54 @@
   gap: 14px;
 }
 
-/* 3D-подарок — приподнят под тезисы, текст ложится поверх него */
-.sh-hero__gift {
+/* подпись «Ваш подарок» + 3D-коробка */
+.sh-hero__gift-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sh-hero__gift-note {
   position: relative;
-  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  color: var(--sh-purple);
+}
+
+.sh-hero__gift-title {
+  font-family: 'Caveat', 'Nunito', cursive;
+  font-weight: 700;
+  font-size: clamp(26px, 6vw, 34px);
+  line-height: 1.1;
+  color: var(--sh-purple);
+}
+
+.sh-hero__gift-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--sh-muted);
+  max-width: 22ch;
+}
+
+.sh-hero__gift-arrow {
+  width: 100px;
+  height: 32px;
+  margin-top: 4px;
+  color: var(--sh-purple-mid);
+}
+
+.sh-hero__gift {
+  flex-shrink: 0;
   pointer-events: none;
   display: block;
   width: 160px;
-  max-width: 52%;
   height: auto;
-  margin: 4px auto 0;
-  opacity: 0.5;
-  filter: drop-shadow(0 18px 28px rgba(109, 40, 217, 0.12));
+  opacity: 0.9;
+  filter: drop-shadow(0 18px 28px rgba(109, 40, 217, 0.16));
 }
 
 /* текст героя — над подарком */
@@ -989,15 +1025,16 @@
     padding: 56px 0 64px;
   }
 
-  /* подарок у правого края колонки, низом вровень с формой */
-  .sh-hero__gift {
+  /* подпись с подарком — у правого края колонки, низом вровень с формой */
+  .sh-hero__gift-wrap {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 200px;
-    max-width: none;
     margin: 0;
+    gap: 4px;
   }
+
+  .sh-hero__gift { width: 200px; }
 
   .sh-lessons__grid {
     gap: 16px;
