@@ -486,8 +486,22 @@
   .dg-author__name { font-size: 13px; }
   .dg-author__item { font-size: 13px; }
   .dg-author__items { margin-top: 12px; gap: 8px; }
-  .dg-author__photo-slot { height: 240px; }
-  .dg-author__photo { height: 100%; margin-top: 0; border-radius: 0; }
+  /* на мобильном показываем фото целиком, без кадрирования */
+  .dg-author__photo-slot {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: #efe9fb;
+  }
+  .dg-author__photo {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1190 / 1322;
+    object-fit: contain;
+    margin-top: 0;
+    border-radius: 0;
+  }
   .dg-author__stats { flex-direction: column; padding: 0; }
   .dg-author__stat {
     border-right: none;
