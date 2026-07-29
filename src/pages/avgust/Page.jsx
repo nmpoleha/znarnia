@@ -1,6 +1,7 @@
 import SchoolHeader from '../../shared/components/SchoolHeader'
 import RegistrationForm from '../../shared/components/RegistrationForm'
 import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
+import { nb } from '../../shared/utils/nb'
 
 const PROMISES = [
   'Восстановим базовые знания.',
@@ -163,18 +164,17 @@ export default function Page() {
 
           <div className="ag-hero__content">
             <div className="ag-hero__pill">Август · 1–11 классы</div>
-            <h1 className="ag-hero__title">Подготовка к школе</h1>
-            <p className="ag-hero__lead">Начните новый учебный год уверенно</p>
+            <h1 className="ag-hero__title">{nb('Подготовка к школе')}</h1>
+            <p className="ag-hero__lead">{nb('Начните новый учебный год уверенно')}</p>
             <p className="ag-hero__sub">
-              Август — хорошее время, чтобы спокойно повторить материал прошлого года,
-              восстановить знания после летних каникул и вернуть ребёнка в&nbsp;учебный ритм.
+              {nb('Август — хорошее время, чтобы спокойно повторить материал прошлого года, восстановить знания после летних каникул и вернуть ребёнка в учебный ритм.')}
             </p>
 
             <ul className="ag-hero__promises">
-              {PROMISES.map((t, i) => <li key={i}>{t}</li>)}
+              {PROMISES.map((t, i) => <li key={i}>{nb(t)}</li>)}
             </ul>
 
-            <a href="#registration" className="ag-hero__cta">Оставить заявку на консультацию</a>
+            <a href="#registration" className="ag-hero__cta">{nb('Оставить заявку на консультацию')}</a>
           </div>
         </div>
       </section>
@@ -183,18 +183,17 @@ export default function Page() {
 
         {/* ── СРАВНЕНИЕ ПРОГРАММ ── */}
         <section className="ag-section">
-          <h2 className="ag-h2">Выберите программу подготовки</h2>
+          <h2 className="ag-h2">{nb('Выберите программу подготовки')}</h2>
           <p className="ag-section__lead">
-            Качество обучения и формат занятий одинаковы. Отличается только объём подготовки
-            и&nbsp;дата начала обучения.
+            {nb('Качество обучения и формат занятий одинаковы. Отличается только объём подготовки и дата начала обучения.')}
           </p>
 
           <div className="ag-programs">
             {PROGRAMS.map((p, i) => (
               <article className={`ag-program ag-program--${p.accent}`} key={i}>
                 <div className="ag-program__head">
-                  <h3 className="ag-program__name">{p.name}</h3>
-                  <span className="ag-program__tag">{p.tag}</span>
+                  <h3 className="ag-program__name">{nb(p.name)}</h3>
+                  <span className="ag-program__tag">{nb(p.tag)}</span>
                 </div>
 
                 <dl className="ag-program__rows">
@@ -202,18 +201,18 @@ export default function Page() {
                     <div className="ag-program__row" key={row.key}>
                       <dt>
                         <span className="ag-program__icon">{row.icon}</span>
-                        {row.label}
+                        {nb(row.label)}
                       </dt>
                       <dd>
                         {row.num
                           ? <span className="ag-program__num">{p[row.key]}</span>
-                          : p[row.key]}
+                          : nb(p[row.key])}
                       </dd>
                     </div>
                   ))}
                 </dl>
 
-                <p className="ag-program__desc">{p.desc}</p>
+                <p className="ag-program__desc">{nb(p.desc)}</p>
               </article>
             ))}
           </div>
@@ -229,9 +228,9 @@ export default function Page() {
               decoding="async"
             />
             <div className="ag-price__text">
-              <span className="ag-price__title">Стоимость одного урока</span>
+              <span className="ag-price__title">{nb('Стоимость одного урока')}</span>
               <span className="ag-price__note">
-                Итоговая цена зависит от выбранной программы — расскажем на консультации
+                {nb('Итоговая цена зависит от выбранной программы — расскажем на консультации')}
               </span>
             </div>
           </div>
@@ -239,7 +238,7 @@ export default function Page() {
 
         {/* ── ФОРМАТЫ ── */}
         <section className="ag-section">
-          <h2 className="ag-h2">Как проходят занятия</h2>
+          <h2 className="ag-h2">{nb('Как проходят занятия')}</h2>
 
           <div className="ag-formats">
             {FORMATS.map((f, i) => (
@@ -256,9 +255,9 @@ export default function Page() {
                 <div className="ag-format__body">
                   <div className="ag-format__head">
                     <span className="ag-format__icon">{f.icon}</span>
-                    <h3 className="ag-format__title">{f.title}</h3>
+                    <h3 className="ag-format__title">{nb(f.title)}</h3>
                   </div>
-                  <p className="ag-format__desc">{f.desc}</p>
+                  <p className="ag-format__desc">{nb(f.desc)}</p>
                 </div>
               </article>
             ))}
@@ -269,33 +268,33 @@ export default function Page() {
         <section className="ag-diag">
           <div className="ag-diag__badge">Экспресс-диагностика</div>
           <h2 className="ag-diag__title">
-            Не знаете, какая программа подойдёт вашему ребёнку?
+            {nb('Не знаете, какая программа подойдёт вашему ребёнку?')}
           </h2>
           <p className="ag-diag__lead">
-            Начните с экспресс-диагностики — всего <strong>5 заданий</strong> помогут:
+            {nb('Начните с экспресс-диагностики — всего')}{' '}
+            <strong>{nb('5 заданий')}</strong>{' '}помогут:
           </p>
 
           <ul className="ag-list">
-            {DIAGNOSTIC.map((t, i) => <li key={i}>{t}</li>)}
+            {DIAGNOSTIC.map((t, i) => <li key={i}>{nb(t)}</li>)}
           </ul>
 
           <p className="ag-diag__note">
-            После прохождения диагностики наш специалист свяжется с вами, поможет разобраться
-            с результатами и порекомендует программу, которая лучше всего подойдёт вашему ребёнку.
+            {nb('После прохождения диагностики наш специалист свяжется с вами, поможет разобраться с результатами и порекомендует программу, которая лучше всего подойдёт вашему ребёнку.')}
           </p>
         </section>
 
         {/* ── КАК НАЧАТЬ ── */}
         <section className="ag-section">
-          <h2 className="ag-h2">Как начать обучение?</h2>
+          <h2 className="ag-h2">{nb('Как начать обучение?')}</h2>
 
           <ol className="ag-steps">
             {STEPS.map((s, i) => (
               <li className="ag-step" key={i}>
                 <div className="ag-step__num">{i + 1}</div>
                 <div>
-                  <div className="ag-step__title">{s.title}</div>
-                  <p className="ag-step__desc">{s.desc}</p>
+                  <div className="ag-step__title">{nb(s.title)}</div>
+                  <p className="ag-step__desc">{nb(s.desc)}</p>
                 </div>
               </li>
             ))}
@@ -326,24 +325,22 @@ export default function Page() {
           />
 
           <div className="ag-final__body">
-            <h2 className="ag-final__title">Начните подготовку уже сегодня</h2>
+            <h2 className="ag-final__title">{nb('Начните подготовку уже сегодня')}</h2>
             <p className="ag-final__text">
-              Несколько недель занятий в августе помогут ребёнку легче включиться в учебный
-              процесс уже с первых дней сентября.
+              {nb('Несколько недель занятий в августе помогут ребёнку легче включиться в учебный процесс уже с первых дней сентября.')}
             </p>
             <p className="ag-final__text">
-              Оставьте заявку на консультацию — получите доступ к экспресс-диагностике и узнайте,
-              с чего лучше начать подготовку именно вашему ребёнку.
+              {nb('Оставьте заявку на консультацию — получите доступ к экспресс-диагностике и узнайте, с чего лучше начать подготовку именно вашему ребёнку.')}
             </p>
           </div>
         </section>
 
         <RegistrationForm
-          subtitle="Мы перезвоним, откроем доступ к экспресс-диагностике и поможем выбрать программу"
-          nameLabel="Фамилия и имя *"
+          subtitle={nb('Мы перезвоним, откроем доступ к экспресс-диагностике и поможем выбрать программу')}
+          nameLabel={nb('Фамилия и имя *')}
           namePlaceholder="Иванов Иван"
-          gradeLabel="Класс (который ребёнок окончил) *"
-          successText="Мы свяжемся с вами, откроем доступ к экспресс-диагностике и поможем выбрать программу подготовки."
+          gradeLabel={nb('Класс (который ребёнок окончил) *')}
+          successText={nb('Мы свяжемся с вами, откроем доступ к экспресс-диагностике и поможем выбрать программу подготовки.')}
         />
 
         {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
@@ -359,7 +356,7 @@ export default function Page() {
 
         {/* ── НАГРАДЫ И БЛАГОДАРНОСТИ ── */}
         <section className="ag-section">
-          <h2 className="ag-h2">Награды и благодарности</h2>
+          <h2 className="ag-h2">{nb('Награды и благодарности')}</h2>
           <SchoolsCard />
         </section>
 

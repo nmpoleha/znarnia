@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { nb } from '../utils/nb'
 import './SocialProof.css'
 
 /* ─────────────────────────────────────────────────────────────
@@ -6,22 +7,6 @@ import './SocialProof.css'
    благодарности школ. Вёрстка перенесена со страницы
    shablon-bez-geymifikatsii.
    ───────────────────────────────────────────────────────────── */
-
-function nb(str) {
-  const NBSP = String.fromCharCode(160)
-  const short = /^([а-яёА-ЯЁ]{1,2}|или|для|что|как|при|под|над|без|про|чем|так|это|уже|обо|изо|ото)$/i
-  const parts = str.split(' ')
-  let out = ''
-  for (let i = 0; i < parts.length; i++) {
-    out += parts[i]
-    if (i === parts.length - 1) break
-    const next = parts[i + 1]
-    if (next === '—' || next === '–') out += NBSP
-    else if (short.test(parts[i])) out += NBSP
-    else out += ' '
-  }
-  return out
-}
 
 /* Сколько карточек помещается в ряд — совпадает с брейкпоинтами CSS */
 function useVisible(wide, mid, narrow) {

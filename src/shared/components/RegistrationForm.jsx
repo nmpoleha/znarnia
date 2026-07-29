@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { nb } from '../utils/nb'
 import './RegistrationForm.css'
 
 const grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
@@ -83,13 +84,13 @@ export default function RegistrationForm({
           <label className="form__check">
             <input type="checkbox" name="agree" checked={form.agree} onChange={handleChange} className="form__check-input" />
             <span className="form__check-box" />
-            <span className="form__check-text">Согласен с обработкой персональных данных в соответствии с политикой конфиденциальности</span>
+            <span className="form__check-text">{nb('Согласен с обработкой персональных данных в соответствии с политикой конфиденциальности')}</span>
           </label>
           {errors.agree && <span className="form__err">{errors.agree}</span>}
 
           <button type="submit" className="form__submit">Оставить заявку</button>
 
-          <p className="form__note">* заполнение формы ни к чему не обязывает, вы можете отказаться от записи на курс в любой момент</p>
+          <p className="form__note">{nb('* заполнение формы ни к чему не обязывает, вы можете отказаться от записи на курс в любой момент')}</p>
         </form>
       )}
     </section>
