@@ -348,25 +348,47 @@
 
 .ag-format__body { padding: 22px 24px 24px; }
 
+.ag-format__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ag-format__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #f1ebfe;
+  color: #7c3aed;
+}
+.ag-format__icon svg { width: 22px; height: 22px; }
+
 .ag-format__title {
   font-size: clamp(17px, 2.2vw, 20px);
   font-weight: 800;
   color: #2d1760;
   letter-spacing: -0.02em;
   line-height: 1.25;
-  margin-bottom: 10px;
+  min-width: 0;
+  margin-bottom: 0;
 }
 
 .ag-format__desc {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #6b5a8e;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #5f4d85;
   margin: 0;
 }
 
 @media (min-width: 720px) {
   .ag-format { grid-template-columns: minmax(0, 46%) minmax(0, 1fr); }
   .ag-format__img { aspect-ratio: auto; min-height: 260px; }
+  .ag-format__desc { font-size: 16px; }
 }
 
 /* ─────────────────────────────────────────────
@@ -548,13 +570,16 @@
   margin-bottom: 12px;
 }
 
+/* подзаголовок блока диагностики */
 .ag-diag__lead {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #55447d;
-  margin-bottom: 16px;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: #3d2a6f;
+  margin-bottom: 18px;
 }
-.ag-diag__lead strong { color: #7c3aed; }
+.ag-diag__lead strong { font-weight: 800; color: #7c3aed; }
 
 .ag-diag__note {
   font-size: 14px;
@@ -737,6 +762,9 @@
 
   .ag-section { margin-bottom: 28px; }
   .ag-format__body { padding: 18px; }
+  .ag-format__head { gap: 10px; }
+  .ag-format__icon { width: 38px; height: 38px; border-radius: 12px; }
+  .ag-format__icon svg { width: 20px; height: 20px; }
   .ag-program { padding: 20px 18px; }
   .ag-price { padding: 14px 16px; gap: 14px; border-radius: 18px; }
   .ag-price__img { width: 130px; }
