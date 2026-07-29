@@ -64,10 +64,17 @@
 }
 
 /* ── HERO ── */
+/* белая подложка — отделяет герой от кремовых блоков ниже */
 .sh-hero {
-  background: linear-gradient(160deg, var(--sh-cream) 0%, var(--sh-cream-warm) 100%);
+  background: #fff;
+  border-bottom: 1px solid var(--sh-border);
   padding: 40px 0 48px;
 }
+
+/* на белом фоне тёплый коричневый текст выглядит грязным */
+.sh-hero .sh-hero__sub { color: #5b4a7d; }
+.sh-hero .sh-hero__thesis { color: #2b1b4d; }
+.sh-hero .sh-hero__gift-text { color: #5b4a7d; }
 
 .sh-hero__inner {
   display: grid;
@@ -116,7 +123,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 14px;
   margin-top: 10px;
 }
 
@@ -141,7 +148,24 @@
   font-size: 14px;
   line-height: 1.4;
   color: var(--sh-muted);
-  max-width: 22ch;
+  white-space: nowrap;
+}
+
+/* узкие экраны: подпись не помещается рядом с коробкой — ставим её сверху */
+@media (max-width: 480px) {
+  .sh-hero__gift-wrap {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sh-hero__gift-note {
+    align-items: center;
+    text-align: center;
+  }
+  .sh-hero__gift-text { font-size: 13px; }
+  .sh-hero__gift-arrow {
+    width: 74px;
+    transform: rotate(48deg);
+  }
 }
 
 .sh-hero__gift-arrow {
@@ -193,13 +217,14 @@
 }
 
 /* ── REGISTRATION FORM ── */
+/* герой белый, поэтому карточку формы выделяем светло-сиреневой подложкой */
 .sh-form {
   container-type: inline-size;
-  background: #fff;
-  border: 1px solid var(--sh-border);
+  background: linear-gradient(165deg, #faf7ff 0%, #f4efff 100%);
+  border: 1px solid #e4d9fa;
   border-radius: 20px;
   padding: 28px;
-  box-shadow: 0 18px 44px rgba(76, 29, 149, 0.12);
+  box-shadow: 0 18px 44px rgba(76, 29, 149, 0.1);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -373,21 +398,21 @@
   border: none;
   border-radius: 12px;
   padding: 16px 20px;
-  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 55%, #a855f7 100%);
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 16px;
   cursor: pointer;
   transition: filter 0.15s, transform 0.1s, box-shadow 0.15s;
-  box-shadow: 0 12px 26px rgba(109, 40, 217, 0.32);
+  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.32);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.sh-form__submit:hover { filter: brightness(1.06); box-shadow: 0 14px 30px rgba(109, 40, 217, 0.42); }
+.sh-form__submit:hover { filter: brightness(1.05); box-shadow: 0 14px 30px rgba(234, 88, 12, 0.4); }
 .sh-form__submit:active { transform: translateY(1px); }
 
 /* подпись под кнопкой: данные не передаются третьим лицам */
@@ -457,6 +482,146 @@
 
 .sh-reveal--alt {
   background: var(--sh-purple-lt);
+}
+
+/* ── ОБРАЗОВАТЕЛЬНАЯ СРЕДА ── */
+.sh-env {
+  padding: 56px 0 0;
+}
+
+.sh-env__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(20px, 3.4vw, 30px);
+  line-height: 1.2;
+  color: #3b1f6e;
+  margin-bottom: 12px;
+}
+
+.sh-env__lead {
+  font-size: clamp(15px, 1.8vw, 17px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--sh-purple-mid);
+  margin-bottom: 22px;
+}
+
+.sh-env__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #fff;
+  border: 1.5px solid var(--sh-border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(76, 29, 149, 0.06);
+}
+
+.sh-env__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--sh-border);
+}
+
+.sh-env__item:last-child { border-bottom: none; }
+
+.sh-env__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: var(--sh-purple-soft);
+  color: var(--sh-purple);
+}
+
+.sh-env__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sh-env__text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.35;
+  color: #2b1b4d;
+}
+
+@media (min-width: 760px) {
+  .sh-env__grid { grid-template-columns: 1fr 1fr; }
+  /* вертикальная линия между колонками */
+  .sh-env__item:nth-child(odd) { border-right: 1px solid var(--sh-border); }
+  /* у последней строки нижней линии нет */
+  .sh-env__item:nth-last-child(-n + 2) { border-bottom: none; }
+}
+
+/* ── ПОЛОСА ДОВЕРИЯ ── */
+.sh-trust {
+  background: #f3effc;
+  border-top: 1px solid #e3daf7;
+  border-bottom: 1px solid #e3daf7;
+  padding: 10px 0;
+}
+
+.sh-trust__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.sh-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px 8px;
+  border-bottom: 1px solid #e3daf7;
+}
+
+.sh-trust__item:last-child { border-bottom: none; }
+
+.sh-trust__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e7ddfb;
+  color: var(--sh-purple);
+}
+
+.sh-trust__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sh-trust__text {
+  font-size: 15px;
+  line-height: 1.35;
+  color: #2b1b4d;
+}
+
+@media (min-width: 700px) {
+  .sh-trust__grid { grid-template-columns: 1fr 1fr; }
+  .sh-trust__item { padding: 16px 20px; }
+  .sh-trust__item:nth-child(odd) { border-right: 1px solid #e3daf7; }
+  .sh-trust__item:nth-last-child(-n + 2) { border-bottom: none; }
+}
+
+@media (min-width: 1000px) {
+  .sh-trust__grid { grid-template-columns: repeat(3, 1fr); }
+  .sh-trust__item { border-right: 1px solid #e3daf7; }
+  /* правая колонка — без вертикальной линии */
+  .sh-trust__item:nth-child(3n) { border-right: none; }
+  .sh-trust__item:nth-child(odd) { border-right: 1px solid #e3daf7; }
+  .sh-trust__item:nth-child(3n):nth-child(odd) { border-right: none; }
+  .sh-trust__item:nth-last-child(-n + 3) { border-bottom: none; }
 }
 
 /* ── LEARN CONTENT ── */
@@ -1025,20 +1190,47 @@
     padding: 56px 0 64px;
   }
 
-  /* подпись с подарком — у правого края колонки, низом вровень с формой */
+  /* средние экраны: рядом подпись и коробка не помещаются — подпись сверху */
   .sh-hero__gift-wrap {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 0;
+    flex-direction: column;
     gap: 4px;
+    margin-top: 22px;
   }
-
-  .sh-hero__gift { width: 200px; }
+  .sh-hero__gift-note {
+    align-items: center;
+    text-align: center;
+  }
+  .sh-hero__gift-arrow {
+    width: 74px;
+    transform: rotate(48deg);
+  }
+  .sh-hero__gift { width: 180px; }
 
   .sh-lessons__grid {
     gap: 16px;
   }
+}
+
+/* ── ШИРОКИЙ ДЕСКТОП: подпись слева от коробки, низом вровень с формой ── */
+@media (min-width: 1100px) {
+  .sh-hero__gift-wrap {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+  }
+  .sh-hero__gift-note {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .sh-hero__gift-arrow {
+    width: 100px;
+    transform: none;
+  }
+  .sh-hero__gift { width: 200px; }
 }
 
 /* ── ЕДИНЫЙ ВЕРТИКАЛЬНЫЙ РИТМ НА МОБИЛЬНЫХ/ПЛАНШЕТАХ ── */

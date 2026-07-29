@@ -294,6 +294,117 @@ function RegForm() {
   )
 }
 
+/* ── Образовательная среда: что входит в платформу ── */
+const ENV_ITEMS = [
+  {
+    text: 'Собственная платформа',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19v-8.5z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+        <path d="M9.6 20.5v-5.4a1 1 0 0 1 1-1h2.8a1 1 0 0 1 1 1v5.4" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Интерактивная онлайн-доска',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M4 20l1-4.2L15.6 5.2a1.8 1.8 0 0 1 2.6 0l.6.6a1.8 1.8 0 0 1 0 2.6L8.2 19 4 20z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+        <path d="M14.4 6.6l3 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Задания и проверка в реальном времени',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M13.2 2.6L5 13.4h5.6L9.8 21.4 18.6 10h-6l.6-7.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Игровая система мотивации',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 3.4l2.7 5.6 6.1.8-4.5 4.2 1.2 6-5.5-3-5.5 3 1.2-6L3.2 9.8l6.1-.8L12 3.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Аналитика для родителей',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 20v-6M12 20V6M18 20v-9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Возможность пересматривать уроки в записи',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="3.2" y="4.6" width="17.6" height="14.8" rx="4" stroke="currentColor" strokeWidth="1.7"/>
+        <path d="M10.4 9.4l4.8 2.6-4.8 2.6V9.4z" fill="currentColor"/>
+      </svg>
+    ),
+  },
+]
+
+/* ── Полоса доверия перед блоком о преподавателе ── */
+const TRUST_ITEMS = [
+  {
+    text: 'Качественное образование и забота о каждом ребёнке',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2.8l7.6 2.9v6.1c0 5.4-3.4 8.7-7.6 9.9-4.2-1.2-7.6-4.5-7.6-9.9V5.7L12 2.8z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+        <path d="M8.8 11.9l2.3 2.3 4-4.6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Тысячи учеников доверяют Знарнии',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.4c4-4.2 6-7.3 6-10a6 6 0 1 0-12 0c0 2.7 2 5.8 6 10z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+        <circle cx="12" cy="11.2" r="2.4" stroke="currentColor" strokeWidth="1.7"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Опытные преподаватели и проверенная методика',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 3.4l2.7 5.6 6.1.8-4.5 4.2 1.2 6-5.5-3-5.5 3 1.2-6L3.2 9.8l6.1-.8L12 3.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Безопасная образовательная среда',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="10" width="16" height="10.5" rx="2.4" stroke="currentColor" strokeWidth="1.7"/>
+        <path d="M7.8 10V7.4a4.2 4.2 0 0 1 8.4 0V10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+        <circle cx="12" cy="15.2" r="1.5" fill="currentColor"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Видимый результат уже за 1–2 месяца',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 20v-6M12 20V6M18 20v-9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Поддержка и обратная связь для родителей',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 20.6S3.8 15.7 3.8 10.2a4.7 4.7 0 0 1 8.2-3.1 4.7 4.7 0 0 1 8.2 3.1c0 5.5-8.2 10.4-8.2 10.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+]
+
 /* ── Принципы работы занятий ── */
 const PRINCIPLES = [
   {
@@ -460,8 +571,43 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── ОБРАЗОВАТЕЛЬНАЯ СРЕДА ── */}
+      <section className="sh-env">
+        <div className="sh-wrap">
+          <h2 className="sh-env__title">
+            {nb('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}
+          </h2>
+          <p className="sh-env__lead">
+            {nb('Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.')}
+          </p>
+
+          <ul className="sh-env__grid">
+            {ENV_ITEMS.map((item, i) => (
+              <li key={i} className="sh-env__item">
+                <span className="sh-env__icon" aria-hidden="true">{item.icon}</span>
+                <span className="sh-env__text">{nb(item.text)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* ── ПОДРОБНЫЙ БЛОК ── */}
       <Details />
+
+      {/* ── ПОЛОСА ДОВЕРИЯ ── */}
+      <section className="sh-trust">
+        <div className="sh-wrap">
+          <ul className="sh-trust__grid">
+            {TRUST_ITEMS.map((item, i) => (
+              <li key={i} className="sh-trust__item">
+                <span className="sh-trust__icon" aria-hidden="true">{item.icon}</span>
+                <span className="sh-trust__text">{nb(item.text)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
       <section className="lk-author-section">
