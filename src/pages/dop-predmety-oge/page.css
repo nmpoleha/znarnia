@@ -20,9 +20,12 @@
 }
 
 .oge-wrap {
-  max-width: var(--oge-max);
+  max-width: calc(var(--oge-max) + 40px);
   margin: 0 auto;
-  padding: 0 4px;
+  padding: 0 20px;
+}
+@media (max-width: 480px) {
+  .oge-wrap { padding: 0 16px; }
 }
 
 /* ── HEADER ── */
