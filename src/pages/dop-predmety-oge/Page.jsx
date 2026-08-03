@@ -34,13 +34,12 @@ const IconSociety = () => (
 )
 
 const SUBJECTS = [
-  { Icon: IconPhysics, name: 'Физика', day: 'Четверг', time: '18:00 МСК' },
-  { Icon: IconInformatics, name: 'Информатика', day: 'Понедельник', time: '18:00 МСК' },
-  { Icon: IconRussian, name: 'Русский язык', day: 'Воскресенье', time: '12:45 МСК' },
-  { Icon: IconSociety, name: 'Обществознание', day: 'Суббота', time: '12:45 МСК' },
+  { Icon: IconPhysics, name: 'Физика', day: 'Четверг', time: '18:00 МСК', accent: 'violet' },
+  { Icon: IconInformatics, name: 'Информатика', day: 'Понедельник', time: '18:00 МСК', accent: 'blue' },
+  { Icon: IconRussian, name: 'Русский язык', day: 'Воскресенье', time: '12:45 МСК', accent: 'green' },
+  { Icon: IconSociety, name: 'Обществознание', day: 'Суббота', time: '12:45 МСК', accent: 'amber' },
 ]
 
-const FORMAT = '1 раз в неделю по 90 минут в групповом формате'
 const PRICE_MAIN = '5 800 ₽'
 const PRICE_SUB = '4 урока в месяц'
 
@@ -229,28 +228,47 @@ export default function Page() {
       <section className="oge-section" id="subjects">
         <div className="oge-wrap">
           <h2 className="oge-section__title">Предметы и расписание</h2>
-          <p className="oge-section__sub">Занятия проходят {FORMAT.toLowerCase()}.</p>
+          <p className="oge-section__sub">
+            <svg className="oge-section__sub-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3.5" y="5" width="17" height="15.5" rx="3.5" stroke="currentColor" strokeWidth="1.75"/>
+              <path d="M3.5 9.5h17" stroke="currentColor" strokeWidth="1.75"/>
+              <path d="M8 3.25v3.5M16 3.25v3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+            </svg>
+            <span>Занятия проходят <span className="oge-section__sub-hl">1 раз в неделю по 90 минут</span> в групповом формате.</span>
+          </p>
 
           <div className="oge-subjects">
             {SUBJECTS.map(s => (
-              <div key={s.name} className="oge-subject">
-                <div className="oge-subject__head">
-                  <div className="oge-subject__name">{s.name}</div>
+              <div key={s.name} className={`oge-subject oge-subject--${s.accent}`}>
+                <div className="oge-subject__top">
                   <div className="oge-subject__icon"><s.Icon /></div>
+                  <span className="oge-subject__tag">Группа</span>
                 </div>
-                <div className="oge-subject__row">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#6d28d9" strokeWidth="1.7"/><path d="M4 9h16M8 3v4M16 3v4" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round"/></svg>
-                  <span>{s.day}, {s.time}</span>
+                <div className="oge-subject__name">{s.name}</div>
+                <div className="oge-subject__meta">
+                  <div className="oge-subject__row">
+                    <svg className="oge-subject__lico" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <rect x="3.5" y="5" width="17" height="15.5" rx="3.5" stroke="currentColor" strokeWidth="1.75"/>
+                      <path d="M3.5 9.5h17" stroke="currentColor" strokeWidth="1.75"/>
+                      <path d="M8 3.25v3.5M16 3.25v3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+                    </svg>
+                    <span>{s.day}, {s.time}</span>
+                  </div>
+                  <div className="oge-subject__row">
+                    <svg className="oge-subject__lico" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="8.25" stroke="currentColor" strokeWidth="1.75"/>
+                      <path d="M12 7.5V12l3 1.75" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span>90 минут, группа</span>
+                  </div>
                 </div>
-                <div className="oge-subject__row">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#6d28d9" strokeWidth="1.7"/><path d="M12 8v4l2.5 2" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  <span>90 минут, группа</span>
+                <div className="oge-subject__foot">
+                  <div className="oge-subject__price">
+                    <span className="oge-subject__price-main">{PRICE_MAIN}</span>
+                    <span className="oge-subject__price-sub">/ {PRICE_SUB}</span>
+                  </div>
+                  <button className="oge-subject__btn" onClick={scrollToForm}>Записаться</button>
                 </div>
-                <div className="oge-subject__price">
-                  <span className="oge-subject__price-main">{PRICE_MAIN}</span>
-                  <span className="oge-subject__price-sub">/ {PRICE_SUB}</span>
-                </div>
-                <button className="oge-btn oge-btn--ghost oge-subject__btn" onClick={scrollToForm}>Записаться</button>
               </div>
             ))}
           </div>
