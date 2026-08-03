@@ -1,30 +1,12 @@
 import { useState } from 'react'
 import RegistrationForm from '../../shared/components/RegistrationForm'
+import { nb } from '../../shared/utils/nb'
 
 /* ─────────────────────────────────────────────────────────────
    ШАБЛОН РЕКЛАМНОГО ПРЕДЛОЖЕНИЯ
    Меняйте плейсхолдеры (PRODUCT / THESES / цена) под конкретный
    продукт — вся вёрстка и логика остаются прежними.
    ───────────────────────────────────────────────────────────── */
-
-function nb(str) {
-  const NBSP = String.fromCharCode(160)
-  const short = /^([а-яёА-ЯЁ]{1,2}|или|для|что|как|при|под|над|без|про|чем|так|это|уже|обо|изо|ото)$/i
-  const parts = str.split(' ')
-  let out = ''
-  for (let i = 0; i < parts.length; i++) {
-    out += parts[i]
-    if (i === parts.length - 1) break
-    const next = parts[i + 1]
-    // тире не должно начинать строку — приклеиваем его к предыдущему слову
-    // неразрывным пробелом (по правилам оно может заканчивать строку, но не начинать)
-    if (next === '—' || next === '–') out += NBSP
-    // короткие предлоги/союзы не оставляем в конце строки — клеим к следующему слову
-    else if (short.test(parts[i])) out += NBSP
-    else out += ' '
-  }
-  return out
-}
 
 const REVIEWS = [
   { src: '/znarnia/images/reviews/photo_2026-05-08_20-30-04.jpg' },
@@ -569,6 +551,14 @@ export default function Page() {
           <div className="sh-hero__right">
             <RegForm />
           </div>
+        </div>
+
+        {/* подсказка-переход к описанию обучения */}
+        <div className="sh-wrap sh-hint">
+          <span className="sh-hint__text">
+            {nb('Хотите узнать, как устроено обучение?')}
+            <span className="sh-hint__arrow" aria-hidden="true">↓</span>
+          </span>
         </div>
       </section>
 

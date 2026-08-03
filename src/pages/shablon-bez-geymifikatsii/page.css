@@ -68,7 +68,7 @@
 .sh-hero {
   background: #fff;
   border-bottom: 1px solid var(--sh-border);
-  padding: 40px 0 48px;
+  padding: 40px 0 28px;
 }
 
 /* на белом фоне тёплый коричневый текст выглядит грязным */
@@ -162,10 +162,8 @@
     text-align: center;
   }
   .sh-hero__gift-text { font-size: 13px; }
-  .sh-hero__gift-arrow {
-    width: 74px;
-    transform: rotate(48deg);
-  }
+  /* повёрнутая стрелка выходила за свою строку и налезала на текст */
+  .sh-hero__gift-arrow { display: none; }
 }
 
 .sh-hero__gift-arrow {
@@ -484,9 +482,31 @@
   background: var(--sh-purple-lt);
 }
 
+/* ── ПОДСКАЗКА В НИЗУ ГЕРОЯ ── */
+.sh-hint {
+  margin-top: 41px;
+  text-align: center;
+}
+
+.sh-hint__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.3;
+  color: var(--sh-purple-mid);
+}
+
+.sh-hint__arrow {
+  font-size: 1.15em;
+  line-height: 1;
+}
+
 /* ── ОБРАЗОВАТЕЛЬНАЯ СРЕДА ── */
 .sh-env {
-  padding: 76px 0 0;
+  padding: 64px 0 0;
 }
 
 .sh-env__title {
@@ -1101,13 +1121,14 @@
   padding: 26px 24px;
   color: #fff;
   display: grid;
-  grid-template-columns: 1fr;
+  /* иконка слева, заголовок сразу справа от неё */
+  grid-template-columns: auto minmax(0, 1fr);
   grid-template-areas:
-    "icon"
-    "title"
-    "text";
-  row-gap: 10px;
-  align-items: start;
+    "icon title"
+    "text text";
+  column-gap: 16px;
+  row-gap: 12px;
+  align-items: center;
 }
 
 /* декор */
@@ -1262,7 +1283,7 @@
   }
 
   .sh-hero {
-    padding: 56px 0 64px;
+    padding: 56px 0 44px;
   }
 
   /* средние экраны: рядом подпись и коробка не помещаются — подпись сверху */
@@ -1310,8 +1331,9 @@
 
 /* ── ЕДИНЫЙ ВЕРТИКАЛЬНЫЙ РИТМ НА МОБИЛЬНЫХ/ПЛАНШЕТАХ ── */
 @media (max-width: 859px) {
-  .sh-hero { padding: 36px 0; }
-  .sh-env { padding: 52px 0 0; }
+  .sh-hero { padding: 36px 0 16px; }
+  .sh-hint { margin-top: 33px; }
+  .sh-env { padding: 48px 0 0; }
   .sh-reveal { padding: 52px 0 44px; }
   .sh-page .lk-author-section { padding: 48px 0 0; }
   .sh-page .lk-social-section { padding: 48px 0 0; }
@@ -1323,4 +1345,80 @@
   .sh-page .dg-author { margin: 0; }
   .sh-page .dg-reviews { margin-bottom: 28px; }
   .sh-page .dg-schools { margin-bottom: 0; }
+}
+
+/* ── ЗАГОЛОВКИ: РОВНЫЕ СТРОКИ ── */
+/* balance выравнивает длину строк — заголовки не рассыпаются «лесенкой» */
+.sh-hero__title,
+.sh-env__title,
+.sh-lessons__title,
+.sh-result__title,
+.sh-principle__title,
+.sh-guarantee__title,
+.sh-consult__title,
+.sh-form__head-title,
+.sh-hint__text,
+.dg-schools__title,
+.dg-reviews__title,
+.dg-author__label,
+.dg-author__name {
+  text-wrap: balance;
+}
+
+/* заголовки не переносим по слогам — в заголовках это выглядит неряшливо */
+.sh-hero__title,
+.sh-env__title,
+.sh-lessons__title,
+.sh-result__title,
+.sh-principle__title,
+.sh-consult__title,
+.sh-form__head-title {
+  hyphens: manual;
+}
+
+/* текст внутри flex-контейнеров сжимался до min-content и вставал столбиком */
+.sh-form__head > div { flex: 1; min-width: 0; }
+.sh-hint__text { display: inline; }
+.sh-hint__arrow { margin-left: 8px; }
+.sh-form__submit { white-space: nowrap; }
+
+/* узкие экраны: уменьшаем кегль, иначе заголовки встают столбиком */
+@media (max-width: 480px) {
+  .sh-hero__title { font-size: clamp(21px, 6.4vw, 30px); }
+  .sh-env__title,
+  .sh-lessons__title,
+  .sh-consult__title { font-size: 18px; }
+  .sh-principle__title { font-size: 16px; }
+  /* уменьшаем иконку — заголовку рядом нужна ширина */
+  .sh-principle { column-gap: 12px; padding: 18px 16px; }
+  .sh-principle__media { width: 48px; height: 48px; }
+  .sh-principle__icon { border-radius: 13px; }
+  .sh-principle__num { width: 22px; height: 22px; font-size: 12px; top: -7px; left: -7px; }
+  .sh-guarantee { padding: 20px 18px; }
+
+  .sh-result { column-gap: 12px; padding: 22px 18px; }
+  .sh-result__icon-img { width: 44px; height: 44px; }
+  .sh-result__title { font-size: 17px; }
+
+  .sh-form { padding: 20px 18px; }
+  .sh-form__head { gap: 10px; }
+  .sh-form__head-icon { width: 40px; height: 40px; border-radius: 12px; }
+  .sh-form__head-title { font-size: 18px; }
+  .sh-form__submit { font-size: 15px; padding: 15px 12px; gap: 8px; }
+
+  .sh-hint__text { font-size: 13px; }
+}
+
+/* самые узкие экраны — длинные слова вроде «персонализированное» */
+@media (max-width: 360px) {
+  .sh-result { column-gap: 8px; }
+  .sh-result__icon-img { width: 34px; height: 34px; }
+  .sh-result__title { font-size: 14px; }
+  .sh-principle__title { font-size: 15px; }
+  .sh-principle__media { width: 42px; height: 42px; }
+  .sh-form__head-icon { width: 36px; height: 36px; border-radius: 11px; }
+  .sh-form__head-title { font-size: 17px; }
+  .sh-env__title,
+  .sh-lessons__title,
+  .sh-consult__title { font-size: 17px; }
 }
