@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
 /* Иконки предметов — inline SVG, наследуют размер от .oge-ico */
 const IconPhysics = () => (
@@ -50,6 +51,8 @@ const INCLUDES = [
     ),
     title: 'Только задания ОГЭ 2026',
     text: 'Разбираем только те задания, которые будут на ОГЭ 2026 — без лишнего.',
+    accent: 'violet',
+    badge: 'check',
   },
   {
     icon: (
@@ -57,6 +60,8 @@ const INCLUDES = [
     ),
     title: 'Записи всех занятий',
     text: 'Пропустил урок или хочешь повторить — доступна запись каждого занятия.',
+    accent: 'blue',
+    badge: 'star',
   },
   {
     icon: (
@@ -64,6 +69,8 @@ const INCLUDES = [
     ),
     title: 'Домашние задания с проверкой',
     text: 'После каждого урока — домашняя работа, которую проверяет преподаватель.',
+    accent: 'amber',
+    badge: 'check',
   },
   {
     icon: (
@@ -71,8 +78,17 @@ const INCLUDES = [
     ),
     title: 'Обратная связь от куратора',
     text: 'Куратор на связи: подскажет, поддержит и ответит на вопросы по учёбе.',
+    accent: 'green',
+    badge: 'heart',
   },
 ]
+
+/* Маленькие бейджи в углу иконки */
+const BADGE_ICON = {
+  check: <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l3.5 3.5L18 8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  star: <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 4l2.3 4.9 5.2.7-3.8 3.6 1 5.2L12 15.9 7.3 18.4l1-5.2L4.5 9.6l5.2-.7L12 4z"/></svg>,
+  heart: <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 20S4 14.5 4 9.2A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 8 2.2C20 14.5 12 20 12 20z"/></svg>,
+}
 
 const GRADES = ['5', '6', '7', '8', '9']
 
@@ -276,14 +292,30 @@ export default function Page() {
       </section>
 
       {/* ── INCLUDES ── */}
-      <section className="oge-section oge-section--soft">
+      <section className="oge-section oge-section--soft oge-includes-section">
+        <span className="oge-includes-glow oge-includes-glow--1" aria-hidden="true" />
+        <span className="oge-includes-glow oge-includes-glow--2" aria-hidden="true" />
         <div className="oge-wrap">
-          <h2 className="oge-section__title">Что входит в обучение</h2>
+          <div className="oge-includes-head">
+            <h2 className="oge-section__title oge-includes__h2">
+              Что входит в обучение
+              <svg className="oge-includes__sparks" width="52" height="40" viewBox="0 0 52 40" fill="none" aria-hidden="true">
+                <path className="oge-includes__spark" d="M34 6c.6 3.2 1.9 4.5 5.1 5.1-3.2.6-4.5 1.9-5.1 5.1-.6-3.2-1.9-4.5-5.1-5.1 3.2-.6 4.5-1.9 5.1-5.1Z" fill="#7c3aed"/>
+                <path className="oge-includes__spark" d="M46 16c.4 2.2 1.3 3.1 3.5 3.5-2.2.4-3.1 1.3-3.5 3.5-.4-2.2-1.3-3.1-3.5-3.5 2.2-.4 3.1-1.3 3.5-3.5Z" fill="#a78bfa"/>
+                <circle className="oge-includes__spark" cx="44" cy="7" r="2.2" fill="#c4b5fd"/>
+              </svg>
+            </h2>
+            <span className="oge-includes__underline" aria-hidden="true" />
+          </div>
           <div className="oge-includes">
             {INCLUDES.map((it, i) => (
-              <div key={i} className="oge-include">
-                <div className="oge-include__icon">{it.icon}</div>
-                <div>
+              <div key={i} className={`oge-include oge-include--${it.accent}`}>
+                <div className="oge-include__media">
+                  <div className="oge-include__icon">{it.icon}</div>
+                  <span className="oge-include__badge">{BADGE_ICON[it.badge]}</span>
+                </div>
+                <span className="oge-include__divider" aria-hidden="true" />
+                <div className="oge-include__body">
                   <div className="oge-include__title">{it.title}</div>
                   <p className="oge-include__text">{it.text}</p>
                 </div>
@@ -293,22 +325,18 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── TEACHER ── */}
+      {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
       <section className="oge-section">
         <div className="oge-wrap">
-          <div className="oge-teacher">
-            <img src="/znarnia/images/author-sotnikova.png" alt="Сотникова Ольга Александровна" className="oge-teacher__photo" width="290" height="360" loading="lazy" />
-            <div className="oge-teacher__body">
-              <div className="oge-teacher__label">Основатель и руководитель школы</div>
-              <div className="oge-teacher__name">Сотникова Ольга Александровна</div>
-              <ul className="oge-teacher__list">
-                <li>Опыт преподавания — более 20 лет</li>
-                <li>Посетила с проверками более 200 школ в качестве эксперта</li>
-                <li>Лично провела независимую диагностику у 10&nbsp;000+ школьников</li>
-                <li>Разработала уникальную методику обучения</li>
-              </ul>
-            </div>
-          </div>
+          <AuthorCard />
+        </div>
+      </section>
+
+      {/* ── ОТЗЫВЫ + ГРАМОТЫ ── */}
+      <section className="oge-section oge-social">
+        <div className="oge-wrap">
+          <ReviewsCarousel />
+          <SchoolsCard />
         </div>
       </section>
 

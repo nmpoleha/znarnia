@@ -373,99 +373,178 @@
 }
 
 /* ── INCLUDES ── */
+.oge-includes-section { position: relative; overflow: hidden; }
+/* мягкие полупрозрачные круги-подсветки на фоне секции */
+.oge-includes-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(10px);
+}
+.oge-includes-glow--1 {
+  width: 340px; height: 340px;
+  top: -120px; right: -80px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.10), transparent 68%);
+}
+.oge-includes-glow--2 {
+  width: 300px; height: 300px;
+  bottom: -110px; left: -70px;
+  background: radial-gradient(circle, rgba(47, 107, 239, 0.08), transparent 68%);
+}
+.oge-includes-section .oge-wrap { position: relative; z-index: 1; }
+
+/* заголовок с подчёркиванием и искрами */
+.oge-includes-head { margin-bottom: 34px; }
+.oge-includes__h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.oge-includes__sparks {
+  position: absolute;
+  top: -14px;
+  right: -46px;
+  pointer-events: none;
+}
+.oge-includes__spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: oge-twinkle 3.4s ease-in-out infinite;
+}
+.oge-includes__spark:nth-child(2) { animation-delay: -1.1s; }
+.oge-includes__spark:nth-child(3) { animation-delay: -2.2s; }
+@keyframes oge-twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.82); }
+  50%      { opacity: 1;   transform: scale(1.12); }
+}
+.oge-includes__underline {
+  display: block;
+  width: 64px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
+}
+
 .oge-includes {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 20px;
 }
 .oge-include {
+  /* акцент карточки (по умолчанию фиолетовый) */
+  --acc: #7c3aed;
+  --acc-glow: rgba(124, 58, 237, 0.14);
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px;
-  align-items: start;
-  background: #fff;
-  border: 1px solid #efeafc;
-  border-radius: 16px;
-  padding: 20px 22px;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 22px;
+  padding: 30px 30px 30px 34px;
+  border-radius: 26px;
+  overflow: hidden;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(150deg, var(--acc-glow), rgba(124, 58, 237, 0.02) 60%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 18px 40px -24px rgba(76, 29, 149, 0.20),
+    0 6px 16px -12px rgba(76, 29, 149, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.oge-include__icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: var(--oge-purple-soft);
-  display: grid;
-  place-items: center;
+/* цветная полоска слева */
+.oge-include::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 5px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, var(--acc), color-mix(in srgb, var(--acc) 55%, #ffffff));
+}
+.oge-include:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 30px 54px -22px var(--acc-glow),
+    0 12px 26px -16px rgba(76, 29, 149, 0.16);
+}
+
+/* иконка в «стеклянном» квадрате + бейдж в углу */
+.oge-include__media {
+  position: relative;
   flex-shrink: 0;
 }
+.oge-include__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 19px;
+  background: linear-gradient(150deg, #f5f0ff 0%, #e7ddff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: grid;
+  place-items: center;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -4px 10px rgba(124, 58, 237, 0.12),
+    0 8px 18px -10px rgba(124, 58, 237, 0.30);
+  transition: transform 0.25s ease;
+}
+.oge-include__icon svg { width: 30px; height: 30px; }
+.oge-include:hover .oge-include__icon { transform: scale(1.06); }
+.oge-include__badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b2be0 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 10px -2px rgba(109, 40, 217, 0.5);
+  border: 2px solid #fff;
+}
+.oge-include__badge svg { width: 14px; height: 14px; }
+
+/* вертикальная разделительная линия */
+.oge-include__divider {
+  width: 1px;
+  align-self: stretch;
+  margin: 4px 0;
+  background: linear-gradient(180deg, transparent, #e6ddfa 18%, #e6ddfa 82%, transparent);
+}
+
 .oge-include__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 17px;
-  color: #3b1f6e;
-  margin-bottom: 4px;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #2b1a6b;
+  margin-bottom: 7px;
 }
 .oge-include__text {
   font-size: 15px;
-  line-height: 1.5;
-  color: var(--oge-muted);
+  line-height: 1.6;
+  color: #6f6091;
 }
 
-/* ── TEACHER ── */
-.oge-teacher {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  align-items: center;
-  background: #fff;
-  border: 1px solid #efeafc;
-  border-radius: 22px;
-  padding: 24px;
-  box-shadow: 0 12px 30px rgba(76, 29, 149, 0.06);
+/* цветовые акценты карточек */
+.oge-include--blue  { --acc: #2f6bef; --acc-glow: rgba(47, 107, 239, 0.16); }
+.oge-include--amber { --acc: #dd8b1f; --acc-glow: rgba(221, 139, 31, 0.18); }
+.oge-include--green { --acc: #1f9d63; --acc-glow: rgba(31, 157, 99, 0.16); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oge-include { transition: none; }
+  .oge-include:hover { transform: none; }
+  .oge-include:hover .oge-include__icon { transform: none; }
+  .oge-includes__spark { animation: none; }
 }
-.oge-teacher__photo {
-  width: 100%;
-  max-width: 260px;
-  height: auto;
-  border-radius: 16px;
-  object-fit: cover;
-  justify-self: center;
-}
-.oge-teacher__label {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--oge-purple);
-  margin-bottom: 4px;
-}
-.oge-teacher__name {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: clamp(19px, 3.5vw, 24px);
-  color: #3b1f6e;
-  margin-bottom: 14px;
-}
-.oge-teacher__list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.oge-teacher__list li {
-  position: relative;
-  padding-left: 26px;
-  font-size: 16px;
-  line-height: 1.45;
-}
-.oge-teacher__list li::before {
-  content: '';
-  position: absolute;
-  left: 2px;
-  top: 7px;
-  width: 12px;
-  height: 8px;
-  border-left: 2.4px solid var(--oge-purple);
-  border-bottom: 2.4px solid var(--oge-purple);
-  transform: rotate(-45deg);
-}
+
+/* ── ОТЗЫВЫ + ГРАМОТЫ ── */
+.oge-social .dg-reviews { margin-bottom: 40px; }
 
 /* ── FORM ── */
 .oge-form-wrap {
@@ -669,8 +748,6 @@
 @media (min-width: 720px) {
   .oge-subjects { grid-template-columns: repeat(2, 1fr); }
   .oge-includes { grid-template-columns: repeat(2, 1fr); }
-  .oge-teacher { grid-template-columns: 260px 1fr; }
-  .oge-teacher__photo { justify-self: start; }
 }
 
 @media (min-width: 860px) {
