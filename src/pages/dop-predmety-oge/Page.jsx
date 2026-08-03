@@ -220,17 +220,7 @@ export default function Page() {
             </div>
           </div>
           <div className="oge-hero__media">
-            <div className="oge-hero__art">
-              <span className="oge-hero__glow" aria-hidden="true" />
-              <span className="oge-hero__ring" aria-hidden="true" />
-              <img src="/znarnia/images/oge-hero-books.webp" alt="Учебники для подготовки к ОГЭ" className="oge-hero__img" width="760" height="632" loading="eager" decoding="async" />
-              {SUBJECTS.map((s, i) => (
-                <span key={s.name} className={`oge-hero__pill oge-hero__pill--${i + 1}`} aria-hidden="true">
-                  <span className="oge-hero__pill-ico"><s.Icon /></span>
-                  <span className="oge-hero__pill-text">{s.name}</span>
-                </span>
-              ))}
-            </div>
+            <img src="/znarnia/images/oge-hero-scene.webp" alt="Предметы ОГЭ: физика, информатика, русский язык, математика" className="oge-hero__img" width="1000" height="681" loading="eager" decoding="async" />
           </div>
         </div>
       </section>
