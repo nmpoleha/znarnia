@@ -1,10 +1,43 @@
 import { useState } from 'react'
 
+/* Иконки предметов — inline SVG, наследуют размер от .oge-ico */
+const IconPhysics = () => (
+  <svg className="oge-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="2.1" fill="currentColor" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.2" stroke="currentColor" strokeWidth="1.6" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.2" stroke="currentColor" strokeWidth="1.6" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.2" stroke="currentColor" strokeWidth="1.6" transform="rotate(120 12 12)" />
+  </svg>
+)
+const IconInformatics = () => (
+  <svg className="oge-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="2.6" y="4" width="18.8" height="13" rx="2.6" stroke="currentColor" strokeWidth="1.8" />
+    <rect x="5.8" y="7.2" width="12.4" height="6.6" rx="1.2" fill="currentColor" opacity="0.32" />
+    <path d="M12 17v2.4M8 20.4h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+)
+const IconRussian = () => (
+  <svg className="oge-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <text
+      x="12" y="17.6" textAnchor="middle" fill="currentColor"
+      fontFamily="Montserrat, sans-serif" fontSize="15" fontWeight="800" letterSpacing="-0.4"
+    >Aa</text>
+  </svg>
+)
+const IconSociety = () => (
+  <svg className="oge-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="8.6" cy="8.4" r="3.5" fill="currentColor" />
+    <circle cx="16.6" cy="9.4" r="2.7" fill="currentColor" opacity="0.62" />
+    <path d="M2.4 19.2c0-3.4 2.8-5.6 6.2-5.6s6.2 2.2 6.2 5.6a.9.9 0 0 1-.9.9H3.3a.9.9 0 0 1-.9-.9z" fill="currentColor" />
+    <path d="M16.4 13.9c3 .1 5.2 2.1 5.2 5.1a1 1 0 0 1-1 1h-3.4c.1-2.3-.5-4.3-1.8-5.7l1-.4z" fill="currentColor" opacity="0.62" />
+  </svg>
+)
+
 const SUBJECTS = [
-  { icon: '⚛️', name: 'Физика', day: 'Четверг', time: '18:00 МСК' },
-  { icon: '💻', name: 'Информатика', day: 'Понедельник', time: '18:00 МСК' },
-  { icon: '✍️', name: 'Русский язык', day: 'Воскресенье', time: '12:45 МСК' },
-  { icon: '🏛️', name: 'Обществознание', day: 'Суббота', time: '12:45 МСК' },
+  { Icon: IconPhysics, name: 'Физика', day: 'Четверг', time: '18:00 МСК' },
+  { Icon: IconInformatics, name: 'Информатика', day: 'Понедельник', time: '18:00 МСК' },
+  { Icon: IconRussian, name: 'Русский язык', day: 'Воскресенье', time: '12:45 МСК' },
+  { Icon: IconSociety, name: 'Обществознание', day: 'Суббота', time: '12:45 МСК' },
 ]
 
 const FORMAT = '1 раз в неделю по 90 минут в групповом формате'
@@ -128,7 +161,7 @@ function RegForm() {
               className={`oge-form__chip${form.subjects.includes(s.name) ? ' oge-form__chip--on' : ''}`}
               onClick={() => toggleSubject(s.name)}
             >
-              <span>{s.icon}</span> {s.name}
+              <span className="oge-form__chip-ico"><s.Icon /></span> {s.name}
             </button>
           ))}
         </div>
@@ -187,7 +220,17 @@ export default function Page() {
             </div>
           </div>
           <div className="oge-hero__media">
-            <img src="/znarnia/images/oge-books.png" alt="Учебники для подготовки к ОГЭ" className="oge-hero__img" width="820" height="820" loading="eager" decoding="async" />
+            <div className="oge-hero__art">
+              <span className="oge-hero__glow" aria-hidden="true" />
+              <span className="oge-hero__ring" aria-hidden="true" />
+              <img src="/znarnia/images/oge-hero-books.webp" alt="Учебники для подготовки к ОГЭ" className="oge-hero__img" width="760" height="632" loading="eager" decoding="async" />
+              {SUBJECTS.map((s, i) => (
+                <span key={s.name} className={`oge-hero__pill oge-hero__pill--${i + 1}`} aria-hidden="true">
+                  <span className="oge-hero__pill-ico"><s.Icon /></span>
+                  <span className="oge-hero__pill-text">{s.name}</span>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -201,8 +244,10 @@ export default function Page() {
           <div className="oge-subjects">
             {SUBJECTS.map(s => (
               <div key={s.name} className="oge-subject">
-                <div className="oge-subject__icon" aria-hidden="true">{s.icon}</div>
-                <div className="oge-subject__name">{s.name}</div>
+                <div className="oge-subject__head">
+                  <div className="oge-subject__name">{s.name}</div>
+                  <div className="oge-subject__icon"><s.Icon /></div>
+                </div>
                 <div className="oge-subject__row">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#6d28d9" strokeWidth="1.7"/><path d="M4 9h16M8 3v4M16 3v4" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round"/></svg>
                   <span>{s.day}, {s.time}</span>

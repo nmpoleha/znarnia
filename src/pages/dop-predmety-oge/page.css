@@ -59,6 +59,14 @@
   color: var(--oge-muted);
 }
 
+/* ── ICONS ── */
+.oge-ico {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
 /* ── BUTTONS ── */
 .oge-btn {
   border: none;
@@ -99,14 +107,106 @@
   display: flex;
   justify-content: center;
 }
-.oge-hero__img {
+/* сцена: книги + ореол + плавающие бейджи предметов */
+.oge-hero__art {
+  position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+.oge-hero__img {
+  position: relative;
+  z-index: 2;
+  width: 86%;
   height: auto;
+  object-fit: contain;
   display: block;
-  /* мягкое растворение краёв кадра в фон шапки */
-  -webkit-mask-image: radial-gradient(130% 130% at 50% 46%, #000 72%, transparent 100%);
-  mask-image: radial-gradient(130% 130% at 50% 46%, #000 72%, transparent 100%);
+  /* немного опускаем книги, чтобы они сели по центру круга */
+  transform: translateY(36px);
+  filter: drop-shadow(0 24px 34px rgba(76, 29, 149, 0.26));
+}
+/* мягкое фиолетовое свечение — «дом» для иллюстрации */
+.oge-hero__glow {
+  position: absolute;
+  z-index: 0;
+  width: 82%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%,
+    rgba(124, 58, 237, 0.42) 0%,
+    rgba(139, 92, 246, 0.26) 34%,
+    rgba(167, 139, 250, 0.10) 60%,
+    transparent 72%);
+  filter: blur(6px);
+}
+/* тонкое концентрическое кольцо для глубины */
+.oge-hero__ring {
+  position: absolute;
+  z-index: 1;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124, 58, 237, 0.16);
+}
+.oge-hero__ring::before {
+  content: '';
+  position: absolute;
+  inset: 13%;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(124, 58, 237, 0.12);
+}
+/* плавающие бейджи предметов */
+.oge-hero__pill {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 7px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(124, 58, 237, 0.10);
+  border-radius: 999px;
+  box-shadow: 0 12px 26px rgba(76, 29, 149, 0.14);
+  backdrop-filter: blur(4px);
+  animation: oge-float 6s ease-in-out infinite;
+}
+.oge-hero__pill-ico {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #efeaff 0%, #e5dcff 100%);
+  color: var(--oge-purple-mid);
+  flex-shrink: 0;
+}
+.oge-hero__pill-ico .oge-ico { width: 18px; height: 18px; }
+.oge-hero__pill-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #3b1f6e;
+  white-space: nowrap;
+}
+.oge-hero__pill--1 { top: 13%; left: 2%;  animation-delay: 0s;    }
+.oge-hero__pill--2 { top: 24%; right: 0%; animation-delay: -1.5s; }
+.oge-hero__pill--3 { bottom: 22%; right: 2%; animation-delay: -3s;  }
+.oge-hero__pill--4 { bottom: 11%; left: 2%; animation-delay: -4.5s; }
+
+/* на узких экранах — компактные значки только с иконкой */
+@media (max-width: 559px) {
+  .oge-hero__pill { padding: 6px; }
+  .oge-hero__pill-text { display: none; }
+}
+
+@keyframes oge-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oge-hero__pill { animation: none; }
 }
 .oge-hero__badge {
   display: inline-block;
@@ -198,20 +298,29 @@
   flex-direction: column;
   gap: 10px;
 }
+/* название слева, иконка справа */
+.oge-subject__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
 .oge-subject__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #efeaff 0%, #e5dcff 100%);
   display: grid;
   place-items: center;
-  font-size: 30px;
-  margin-bottom: 4px;
+  color: var(--oge-purple-mid);
 }
+.oge-subject__icon .oge-ico { width: 26px; height: 26px; }
 .oge-subject__name {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 20px;
+  line-height: 1.2;
   color: #3b1f6e;
 }
 .oge-subject__row {
@@ -410,6 +519,9 @@
   gap: 8px;
 }
 .oge-form__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   border: 1.5px solid var(--oge-border);
   background: #fff;
   border-radius: 999px;
@@ -420,11 +532,18 @@
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
+.oge-form__chip-ico {
+  display: inline-flex;
+  color: var(--oge-purple-mid);
+  transition: color 0.15s;
+}
+.oge-form__chip-ico .oge-ico { width: 18px; height: 18px; }
 .oge-form__chip--on {
   background: var(--oge-purple);
   border-color: var(--oge-purple);
   color: #fff;
 }
+.oge-form__chip--on .oge-form__chip-ico { color: #fff; }
 
 .oge-form__check {
   display: grid;
@@ -543,7 +662,12 @@
     gap: 32px;
   }
   .oge-hero__media { justify-content: flex-end; }
-  .oge-hero__img { max-width: 480px; }
+  .oge-hero__art { max-width: 500px; }
+  /* на десктопе выводим бейджи немного за пределы кадра */
+  .oge-hero__pill--1 { top: 15%; left: -5%;  }
+  .oge-hero__pill--2 { top: 26%; right: -8%; }
+  .oge-hero__pill--3 { bottom: 24%; right: -5%; }
+  .oge-hero__pill--4 { bottom: 12%; left: -6%; }
 }
 
 @container (min-width: 480px) {
