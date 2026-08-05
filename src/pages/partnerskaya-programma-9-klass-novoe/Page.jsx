@@ -96,6 +96,31 @@ const PRICE_INCLUDES = [
   'записи всех уроков.',
 ]
 
+/* ── Специальные материалы для родителей 9 класса ── */
+const PARENTS = [
+  {
+    title: 'Поступление в колледж после 9 класса',
+    text: 'Что действительно влияет на зачисление и как повысить шансы на поступление.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3L2 8h20L12 3z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/><path d="M4 8v9M9 8v9M15 8v9M20 8v9M2.5 17h19M2 20.5h20" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/></svg>
+    ),
+  },
+  {
+    title: 'Средний балл аттестата',
+    text: 'Как он рассчитывается, какие оценки влияют на него больше всего и можно ли его улучшить.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l3 3v15H6z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 11h6M9 14.5h4" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/><circle cx="15.5" cy="18" r="2.4" stroke="#6d28d9" strokeWidth="1.6"/><path d="M14 20l-.6 2 2.1-1 2.1 1-.6-2" stroke="#6d28d9" strokeWidth="1.4" strokeLinejoin="round"/></svg>
+    ),
+  },
+  {
+    title: 'ОГЭ без путаницы',
+    text: 'Самые важные ответы на вопросы родителей: как готовиться эффективнее, что действительно влияет на результат и какие ошибки чаще всего допускают выпускники.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9.6 9.2a2.4 2.4 0 1 1 3.1 2.3c-.75.28-1.2.85-1.2 1.5v.2" stroke="#6d28d9" strokeWidth="1.7" strokeLinecap="round"/><circle cx="11.5" cy="15.2" r="0.95" fill="#6d28d9"/></svg>
+    ),
+  },
+]
+
 export default function Page() {
   return (
     <div className="pp-page">
@@ -343,6 +368,56 @@ export default function Page() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── МАТЕРИАЛЫ ДЛЯ РОДИТЕЛЕЙ 9 КЛАССА ── */}
+      <section className="pp-parents">
+        <div className="pp-wrap">
+          <div className="pp-parents__inner">
+            {/* Левая колонка */}
+            <div className="pp-parents__left">
+              <span className="pp-parents__badge">
+                <span className="pp-parents__badge-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 4L2 8.5 12 13l10-4.5L12 4z" stroke="#fff" strokeWidth="1.8" strokeLinejoin="round"/><path d="M6 11v4c0 .6.3 1.1.8 1.4 1.4.9 3.2 1.4 5.2 1.4s3.8-.5 5.2-1.4c.5-.3.8-.8.8-1.4v-4" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </span>
+                Специально для родителей 9 класса
+              </span>
+              <h2 className="pp-parents__title">
+                Полезные материалы<br />для родителей выпускников
+              </h2>
+              <p className="pp-parents__sub">
+                Помимо диагностики и уроков вы получите материалы, которые помогут
+                принять верные решения и поддержать ребёнка.
+              </p>
+
+              <div className="pp-parents__cards">
+                {PARENTS.map((p, i) => (
+                  <div key={i} className="pp-pcard">
+                    <span className="pp-pcard__icon" aria-hidden="true">{p.icon}</span>
+                    <div className="pp-pcard__body">
+                      <div className="pp-pcard__title">{p.title}</div>
+                      <p className="pp-pcard__text">{p.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Правая колонка — иллюстрация */}
+            <div className="pp-parents__media">
+              <img src="/znarnia/images/parents-materials-3d.png" alt="Папка с материалами: ОГЭ, колледж после 9 класса, средний балл аттестата" className="pp-parents__img" width="1413" height="1113" loading="lazy" decoding="async" />
+            </div>
+          </div>
+
+          {/* Нижняя плашка */}
+          <div className="pp-parents__foot">
+            <span className="pp-parents__foot-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.5v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V5.5L12 3z" stroke="#7c3aed" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 12l2 2 4-4.5" stroke="#7c3aed" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
+            Все материалы подготовлены экспертами и основаны на актуальных требованиях
+            и реальном опыте подготовки к ОГЭ.
           </div>
         </div>
       </section>
