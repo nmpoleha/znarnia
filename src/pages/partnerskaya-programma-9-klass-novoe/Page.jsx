@@ -3,6 +3,7 @@
    Только герой (взят с partnerskaya-programma-9-klass)
    + плашка «Интеллектуальный клуб ОГЭ».
    ───────────────────────────────────────────────────────────── */
+import RegistrationForm from '../../shared/components/RegistrationForm'
 
 /* ── Почему нам доверяют ── */
 const TRUST = [
@@ -121,6 +122,13 @@ const PARENTS = [
   },
 ]
 
+/* ── Как получить доступ ── */
+const ACCESS = [
+  'Заполните короткую форму.',
+  'Пройдите диагностику.',
+  'Получите доступ ко всем подаркам и специальной стоимости обучения.',
+]
+
 export default function Page() {
   return (
     <div className="pp-page">
@@ -161,7 +169,7 @@ export default function Page() {
               <div className="pp-plashka__body">
                 <div className="pp-plashka__title">Интеллектуальный клуб ОГЭ</div>
                 <p className="pp-plashka__text">
-                  Не просто занятия раз в неделю.<br />
+                  Не просто занятия.<br />
                   Это пространство, где школьник регулярно занимается, получает поддержку
                   и постепенно выходит на уверенную подготовку к экзамену.
                 </p>
@@ -169,8 +177,8 @@ export default function Page() {
             </div>
 
             <div className="pp-hero__actions">
-              <button className="pp-btn pp-btn--primary">Узнать подробнее →</button>
-              <button className="pp-btn pp-btn--ghost">Хочу участвовать</button>
+              <a href="#step1" className="pp-btn pp-btn--primary">Узнать подробнее →</a>
+              <a href="#registration" className="pp-btn pp-btn--ghost">Хочу участвовать</a>
             </div>
           </div>
           <div className="pp-hero__media">
@@ -239,7 +247,7 @@ export default function Page() {
       </section>
 
       {/* ── ШАГ 1. ДИАГНОСТИКА В ФОРМАТЕ ОГЭ ── */}
-      <section className="pp-step">
+      <section className="pp-step" id="step1">
         <div className="pp-wrap pp-step__inner">
           {/* Левая колонка */}
           <div className="pp-step__left">
@@ -419,6 +427,40 @@ export default function Page() {
             Все материалы подготовлены экспертами и основаны на актуальных требованиях
             и реальном опыте подготовки к ОГЭ.
           </div>
+        </div>
+      </section>
+
+      {/* ── КАК ПОЛУЧИТЬ ДОСТУП ── */}
+      <section className="pp-access">
+        <div className="pp-wrap">
+          <h2 className="pp-access__title">Как получить доступ?</h2>
+          <div className="pp-access__steps">
+            {ACCESS.map((s, i) => (
+              <div key={i} className="pp-astep">
+                <span className="pp-astep__num">{i + 1}</span>
+                <p className="pp-astep__text">{s}</p>
+              </div>
+            ))}
+          </div>
+          <p className="pp-access__lead">
+            Начните подготовку к ОГЭ с понимания реального уровня знаний ребёнка.
+          </p>
+        </div>
+      </section>
+
+      {/* ── ФОРМА ── */}
+      <section className="pp-form" id="registration">
+        <div className="pp-wrap">
+          <h2 className="pp-form__title">Оставьте заявку на участие</h2>
+          <p className="pp-form__lead">
+            Заполните короткую форму — мы откроем доступ к диагностике, подаркам
+            и специальной стоимости обучения.
+          </p>
+          <RegistrationForm
+            subtitle="После заполнения формы мы свяжемся с вами и откроем доступ к диагностике."
+            gradeLabel="Класс ребёнка *"
+            successText="Мы свяжемся с вами, чтобы открыть доступ к диагностике, подаркам и специальной стоимости обучения."
+          />
         </div>
       </section>
     </div>

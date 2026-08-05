@@ -12,6 +12,7 @@
   --pp-max:         1100px;
 }
 
+html { scroll-behavior: smooth; }
 .pp-page {
   font-family: 'Nunito', sans-serif;
   color: var(--pp-text);
@@ -32,6 +33,7 @@
 
 /* ── BUTTONS ── */
 .pp-btn {
+  display: inline-block;
   border: none;
   border-radius: 14px;
   font-family: 'Montserrat', sans-serif;
@@ -39,6 +41,8 @@
   font-size: 15px;
   padding: 14px 24px;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
   transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
 }
 .pp-btn--primary {
@@ -675,9 +679,94 @@
 }
 .pp-parents__foot-ico svg { width: 22px; height: 22px; }
 
+/* ── КАК ПОЛУЧИТЬ ДОСТУП ── */
+.pp-access {
+  background: var(--pp-purple-lt);
+  padding: 52px 0;
+}
+.pp-access__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.6vw, 30px);
+  color: var(--pp-ink);
+  text-align: center;
+  margin-bottom: 32px;
+}
+.pp-access__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.pp-astep {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #efeafc;
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 16px 36px -28px rgba(76, 29, 149, 0.28);
+}
+.pp-astep__num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #5b2be0);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-astep__text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--pp-text);
+  font-weight: 600;
+}
+.pp-access__lead {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2.6vw, 20px);
+  line-height: 1.4;
+  color: var(--pp-ink);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* ── ФОРМА ── */
+.pp-form {
+  background: #fff;
+  padding: 52px 0;
+}
+.pp-form .pp-wrap { max-width: 760px; }
+.pp-form__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.6vw, 30px);
+  color: var(--pp-ink);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.pp-form__lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--pp-muted);
+  text-align: center;
+  max-width: 52ch;
+  margin: 0 auto 28px;
+}
+
 /* ── DESKTOP ── */
 @media (min-width: 620px) {
   .pp-trust__grid { grid-template-columns: repeat(5, 1fr); }
+  .pp-access__steps { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .pp-astep { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 14px; }
 }
 @media (min-width: 860px) {
   .pp-step__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
