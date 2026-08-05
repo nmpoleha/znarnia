@@ -1,0 +1,227 @@
+/* ─────────────────────────────────────────────
+   Партнёрская программа 9 класс — новое (только герой + плашка)
+   ───────────────────────────────────────────── */
+:root {
+  --pp-purple:      #6d28d9;
+  --pp-purple-mid:  #7c3aed;
+  --pp-purple-soft: #ede9fe;
+  --pp-purple-lt:   #f3efff;
+  --pp-ink:         #2b1a6b;
+  --pp-text:        #3b2f52;
+  --pp-muted:       #6f6091;
+  --pp-max:         1100px;
+}
+
+.pp-page {
+  font-family: 'Nunito', sans-serif;
+  color: var(--pp-text);
+  background: #fbfaff;
+}
+.pp-wrap {
+  max-width: calc(var(--pp-max) + 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 480px) {
+  .pp-wrap { padding: 0 16px; }
+  .pp-header__logo { height: 38px; }
+  .pp-header__badge { font-size: 11.5px; padding: 6px 10px; }
+}
+
+.pp-accent { color: var(--pp-purple-mid); }
+
+/* ── BUTTONS ── */
+.pp-btn {
+  border: none;
+  border-radius: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+}
+.pp-btn--primary {
+  background: linear-gradient(135deg, #7B4DFF 0%, #5B2BE0 100%);
+  color: #fff;
+  box-shadow: 0 12px 26px -8px rgba(123, 77, 255, 0.55);
+}
+.pp-btn--primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.pp-btn--ghost {
+  background: var(--pp-purple-soft);
+  color: var(--pp-purple);
+}
+.pp-btn--ghost:hover { background: #e2d9fb; }
+
+/* ── HEADER ── */
+.pp-header {
+  background: #fff;
+  border-bottom: 1px solid #efeafc;
+  padding: 10px 0;
+}
+.pp-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+  flex-wrap: wrap;
+}
+.pp-header__brand { display: flex; align-items: center; gap: 10px; }
+.pp-header__logo { height: 44px; width: auto; }
+.pp-header__brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--pp-ink);
+  letter-spacing: 0.02em;
+}
+.pp-header__badge {
+  background: var(--pp-purple-soft);
+  color: var(--pp-purple);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ── HERO ── */
+.pp-hero {
+  background: linear-gradient(160deg, #efe9fd 0%, #f6f2fe 60%, #fdfcff 100%);
+  padding: 44px 0 52px;
+}
+.pp-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.pp-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 5.4vw, 44px);
+  line-height: 1.14;
+  color: var(--pp-ink);
+  margin-bottom: 24px;
+}
+.pp-hero__sub {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--pp-muted);
+  max-width: 46ch;
+  margin-bottom: 24px;
+}
+.pp-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.pp-hero__media { display: flex; justify-content: center; }
+.pp-hero__img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  border-radius: 24px;
+  filter: drop-shadow(0 24px 40px rgba(76, 29, 149, 0.16));
+}
+
+/* ── ПЛАШКА: Интеллектуальный клуб ОГЭ ── */
+.pp-plashka {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  background: linear-gradient(150deg, #efe8fd 0%, #f5f0ff 100%);
+  border: 1px solid #e4d9fb;
+  border-radius: 20px;
+  padding: 20px 22px;
+  margin-bottom: 26px;
+  box-shadow: 0 18px 40px -28px rgba(76, 29, 149, 0.28);
+}
+.pp-plashka__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #f4efff, #e7ddff);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 2px 3px rgba(255,255,255,0.9), inset 0 -3px 8px rgba(124,58,237,0.10);
+}
+.pp-plashka__icon svg { width: 26px; height: 26px; }
+.pp-plashka__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--pp-purple);
+  margin-bottom: 6px;
+}
+.pp-plashka__text {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--pp-text);
+}
+
+/* ── ПОЧЕМУ НАМ ДОВЕРЯЮТ ── */
+.pp-trust {
+  background: #fff;
+  padding: 40px 0 48px;
+  border-top: 1px solid #efeafc;
+}
+.pp-trust__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(20px, 3.4vw, 28px);
+  color: var(--pp-ink);
+  margin-bottom: 32px;
+}
+.pp-trust__title-ico {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-trust__title-ico svg { width: 30px; height: 30px; }
+.pp-trust__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 16px;
+}
+.pp-trust__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+.pp-trust__icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(120% 120% at 30% 25%, #f4efff 0%, #e9e0fb 100%);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.9), inset 0 -4px 10px rgba(124,58,237,0.10);
+}
+.pp-trust__icon svg { width: 36px; height: 36px; }
+.pp-trust__text {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--pp-text);
+  font-weight: 600;
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 620px) {
+  .pp-trust__grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (min-width: 900px) {
+  .pp-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 46%); align-items: center; }
+  .pp-hero__media { justify-content: flex-end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-btn { transition: none; }
+  .pp-btn:hover { transform: none; }
+}
