@@ -212,6 +212,71 @@
   font-weight: 600;
 }
 
+/* ── ДИАГНОСТИКА ── */
+.pp-diag {
+  background: var(--pp-purple-lt);
+  padding: 52px 0;
+}
+.pp-diag__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.pp-diag__target {
+  font-size: 30px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pp-diag__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.6vw, 30px);
+  line-height: 1.2;
+  color: var(--pp-ink);
+}
+.pp-diag__lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--pp-text);
+  max-width: 62ch;
+  margin-bottom: 28px;
+}
+.pp-diag__why {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: start;
+  background: #fff;
+  border: 1px solid #f4e4c6;
+  border-left: 5px solid #dd8b1f;
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 18px 40px -28px rgba(76, 29, 149, 0.25);
+}
+.pp-diag__why-ico {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #fff6e6, #fdeccb);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-diag__why-ico svg { width: 30px; height: 30px; }
+.pp-diag__why-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--pp-ink);
+  margin-bottom: 8px;
+}
+.pp-diag__why-text {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--pp-text);
+}
+
 /* ── DESKTOP ── */
 @media (min-width: 620px) {
   .pp-trust__grid { grid-template-columns: repeat(5, 1fr); }

@@ -139,6 +139,40 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* ── ДИАГНОСТИКА ── */}
+      <section className="pp-diag">
+        <div className="pp-wrap">
+          <div className="pp-diag__head">
+            <span className="pp-diag__target" aria-hidden="true">🎯</span>
+            <h2 className="pp-diag__title">
+              Подготовка к ОГЭ начинается с честной диагностики
+            </h2>
+          </div>
+          <p className="pp-diag__lead">
+            Проверьте уровень знаний ребёнка уже сейчас и получите материалы, которые
+            помогут подготовиться к экзамену без лишнего стресса.
+          </p>
+
+          <div className="pp-diag__why">
+            <div className="pp-diag__why-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3.5L2.5 20h19L12 3.5z" stroke="#dd8b1f" strokeWidth="1.8" strokeLinejoin="round" />
+                <path d="M12 10v4.5" stroke="#dd8b1f" strokeWidth="1.9" strokeLinecap="round" />
+                <circle cx="12" cy="17.3" r="1.1" fill="#dd8b1f" />
+              </svg>
+            </div>
+            <div className="pp-diag__why-body">
+              <div className="pp-diag__why-title">Почему это важно?</div>
+              <p className="pp-diag__why-text">
+                В профильные 10-е классы учеников с тройками не принимают.
+                Поэтому важно заранее понять уровень подготовки ребёнка и успеть
+                устранить пробелы до экзамена.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
