@@ -41,7 +41,8 @@ const SUBJECTS = [
   { Icon: IconSociety, name: 'Обществознание', day: 'Суббота', time: '12:45 МСК', accent: 'amber' },
 ]
 
-const PRICE_MAIN = '5 800 ₽'
+const PRICE_MAIN = '4 200 ₽'
+const PRICE_OLD = '5 800 ₽'
 const PRICE_SUB = '4 урока в месяц'
 
 const INCLUDES = [
@@ -233,6 +234,13 @@ export default function Page() {
               <button className="oge-btn oge-btn--primary" onClick={scrollToForm}>Записаться на курс →</button>
               <button className="oge-btn oge-btn--ghost" onClick={scrollToSubjects}>Узнать программу</button>
             </div>
+            <div className="oge-hero__promo">
+              <span className="oge-hero__promo-tag">Только в сентябре</span>
+              <div className="oge-hero__promo-body">
+                <span className="oge-hero__promo-price">2 100 ₽</span>
+                <span className="oge-hero__promo-text">за 2-й урок в сентябре — можно попробовать формат</span>
+              </div>
+            </div>
           </div>
           <div className="oge-hero__media">
             <img src="/znarnia/images/oge-hero-scene.webp" alt="Предметы ОГЭ: физика, информатика, русский язык, математика" className="oge-hero__img" width="1000" height="681" loading="eager" decoding="async" />
@@ -252,6 +260,19 @@ export default function Page() {
             </svg>
             <span>Занятия проходят <span className="oge-section__sub-hl">1 раз в неделю по 90 минут</span> в групповом формате.</span>
           </p>
+
+          <div className="oge-pricebar">
+            <img className="oge-pricebar__gift" src="/znarnia/images/gift-box.png" alt="" aria-hidden="true" width="56" height="56" loading="lazy" decoding="async" />
+            <div className="oge-pricebar__copy">
+              <div className="oge-pricebar__title">Зафиксируйте выгодную цену до 1 сентября!</div>
+              <div className="oge-pricebar__text">Оплатите сейчас — и цена за 4 занятия (сентябрь + дальше) останется 4 200 ₽</div>
+            </div>
+            <div className="oge-pricebar__price">
+              <span className="oge-pricebar__old">5 800 ₽</span>
+              <span className="oge-pricebar__new">4 200 ₽</span>
+            </div>
+            <div className="oge-pricebar__save">Выгода<br />1 600 ₽</div>
+          </div>
 
           <div className="oge-subjects">
             {SUBJECTS.map(s => (
@@ -280,6 +301,7 @@ export default function Page() {
                 </div>
                 <div className="oge-subject__foot">
                   <div className="oge-subject__price">
+                    <span className="oge-subject__price-old">{PRICE_OLD}</span>
                     <span className="oge-subject__price-main">{PRICE_MAIN}</span>
                     <span className="oge-subject__price-sub">/ {PRICE_SUB}</span>
                   </div>
