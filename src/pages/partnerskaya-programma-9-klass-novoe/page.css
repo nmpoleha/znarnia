@@ -277,9 +277,298 @@
   color: var(--pp-text);
 }
 
+/* ── ШАГ 1. ДИАГНОСТИКА В ФОРМАТЕ ОГЭ ── */
+.pp-step {
+  background: #fff;
+  padding: 52px 0;
+}
+.pp-step__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.pp-step__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.pp-step__num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #5b2be0);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-step__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(21px, 3.2vw, 28px);
+  line-height: 1.2;
+  color: var(--pp-ink);
+}
+.pp-step__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--pp-text);
+  margin-bottom: 22px;
+}
+.pp-step__note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  background: linear-gradient(150deg, #efe8fd 0%, #f5f0ff 100%);
+  border: 1px solid #e4d9fb;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+.pp-step__note-ico {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-step__note-ico svg { width: 34px; height: 34px; }
+.pp-step__note-text { font-size: 15px; line-height: 1.5; color: var(--pp-text); }
+.pp-step__after {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--pp-ink);
+  margin-bottom: 14px;
+}
+.pp-step__list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.pp-step__li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15.5px;
+  color: var(--pp-text);
+}
+.pp-step__check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #5b2be0);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-step__check svg { width: 16px; height: 16px; }
+
+/* ── ШКАЛА ОЦЕНИВАНИЯ ── */
+.pp-scale {
+  background: #faf8ff;
+  border: 1px solid #eadffb;
+  border-radius: 22px;
+  padding: 26px 24px;
+}
+.pp-scale__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--pp-purple);
+  margin-bottom: 18px;
+}
+.pp-scale__table {
+  background: #fff;
+  border: 1px solid #efeafc;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pp-scale__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1ecfb;
+  font-size: 15.5px;
+  color: var(--pp-text);
+}
+.pp-scale__row:last-child { border-bottom: none; }
+.pp-scale__row--head {
+  background: #f6f2fe;
+  font-weight: 700;
+  color: var(--pp-muted);
+  font-size: 14px;
+}
+.pp-scale__range { font-weight: 600; }
+.pp-scale__grade {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+}
+.pp-scale__mark { font-size: 16px; line-height: 1; }
+.pp-scale__grade--red    { color: #dc2626; }
+.pp-scale__grade--amber  { color: #dd8b1f; }
+.pp-scale__grade--green  { color: #1f9d63; }
+.pp-scale__grade--violet { color: #7c3aed; }
+.pp-scale__important {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-top: 18px;
+}
+.pp-scale__imp-ico {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #5b2be0);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.pp-scale__imp-text { font-size: 14.5px; line-height: 1.55; color: var(--pp-text); }
+
+/* ── ЧТО ПОЛУЧИТЕ ПОСЛЕ ДИАГНОСТИКИ ── */
+.pp-gifts {
+  background: var(--pp-purple-lt);
+  padding: 52px 0;
+}
+.pp-gifts__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(21px, 3.4vw, 30px);
+  line-height: 1.2;
+  color: var(--pp-ink);
+  margin-bottom: 30px;
+}
+.pp-gifts__title-ico { font-size: 30px; line-height: 1; flex-shrink: 0; }
+.pp-gifts__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.pp-gcard {
+  background: #fff;
+  border: 1px solid #efeafc;
+  border-radius: 22px;
+  padding: 26px 24px;
+  box-shadow: 0 18px 40px -26px rgba(76, 29, 149, 0.22);
+}
+.pp-gcard--price {
+  border: 1px solid #e4d9fb;
+  background: linear-gradient(160deg, #fbf9ff 0%, #f4efff 100%);
+}
+.pp-gcard__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.pp-gcard__emoji {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #f4efff, #e7ddff);
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+.pp-gcard__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--pp-ink);
+}
+.pp-gcard__lead {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--pp-muted);
+  margin-bottom: 16px;
+}
+.pp-gcard__lead--foot { margin: 14px 0 0; }
+.pp-gcard__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.pp-gcard__li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--pp-text);
+}
+.pp-gcard__check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e7f7ee;
+  color: #1f9d63;
+  font-size: 12px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.pp-gcard__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  background: #fff;
+  border: 1px dashed #c9b6f5;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.pp-gcard__price-now {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--pp-purple);
+}
+.pp-gcard__price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--pp-muted);
+  text-decoration: line-through;
+}
+.pp-gcard__price-note {
+  flex-basis: 100%;
+  font-size: 14px;
+  color: var(--pp-muted);
+}
+.pp-gcard__includes {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--pp-ink);
+  margin-bottom: 12px;
+}
+
 /* ── DESKTOP ── */
 @media (min-width: 620px) {
   .pp-trust__grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (min-width: 860px) {
+  .pp-step__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .pp-gifts__grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 900px) {
   .pp-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 46%); align-items: center; }

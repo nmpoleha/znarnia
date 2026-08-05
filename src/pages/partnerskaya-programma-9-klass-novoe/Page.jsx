@@ -57,6 +57,45 @@ const TRUST = [
   },
 ]
 
+/* ── Шаг 1: что увидите после проверки ── */
+const STEP1_RESULTS = [
+  'текущий уровень подготовки;',
+  'основные пробелы;',
+  'рекомендации по дальнейшей подготовке.',
+]
+
+/* ── Шкала оценивания ── */
+const SCALE = [
+  { range: '0–7',   grade: '2', mark: '✗', cls: 'red' },
+  { range: '8–14',  grade: '3', mark: '★', cls: 'amber' },
+  { range: '15–21', grade: '4', mark: '⬆', cls: 'green' },
+  { range: '22–31', grade: '5', mark: '★', cls: 'violet' },
+]
+
+/* ── Что получите после диагностики ── */
+const LIBRARY = [
+  'официальные работы СтатГрад;',
+  'тренировочные варианты ОГЭ;',
+  'еженедельные материалы по подготовке;',
+  'разборы сложных заданий и рекомендации экспертов;',
+  'подборки материалов по ключевым темам;',
+  'гайд «Как подготовиться к ОГЭ без лишнего стресса».',
+]
+
+const LESSONS = [
+  'Онлайн-урок с преподавателем.',
+  'Интерактивный урок-тренажёр с автоматической проверкой.',
+]
+
+const PRICE_INCLUDES = [
+  '10 занятий;',
+  'небольшие группы;',
+  'домашние задания;',
+  'проверка работ;',
+  'обратная связь преподавателя;',
+  'записи всех уроков.',
+]
+
 export default function Page() {
   return (
     <div className="pp-page">
@@ -169,6 +208,140 @@ export default function Page() {
                 Поэтому важно заранее понять уровень подготовки ребёнка и успеть
                 устранить пробелы до экзамена.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ШАГ 1. ДИАГНОСТИКА В ФОРМАТЕ ОГЭ ── */}
+      <section className="pp-step">
+        <div className="pp-wrap pp-step__inner">
+          {/* Левая колонка */}
+          <div className="pp-step__left">
+            <div className="pp-step__head">
+              <span className="pp-step__num">1</span>
+              <h2 className="pp-step__title">Шаг 1. Диагностика в формате ОГЭ</h2>
+            </div>
+            <p className="pp-step__text">
+              Вы получите диагностическую работу по формату ФИПИ.<br />
+              Она включает <b>первые 19 заданий ОГЭ.</b>
+            </p>
+
+            <div className="pp-step__note">
+              <span className="pp-step__note-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3.6l2.5 5.1 5.6.8-4.05 3.95.96 5.55L12 16.35 6.03 19l.96-5.55L2.94 9.5l5.6-.8z" fill="#7c3aed" />
+                </svg>
+              </span>
+              <p className="pp-step__note-text">
+                В начале 9 класса ученик должен уверенно решать <b>17–18 заданий из 19.</b>
+              </p>
+            </div>
+
+            <div className="pp-step__after">После проверки вы увидите:</div>
+            <ul className="pp-step__list">
+              {STEP1_RESULTS.map((r, i) => (
+                <li key={i} className="pp-step__li">
+                  <span className="pp-step__check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Правая колонка — шкала */}
+          <div className="pp-scale">
+            <div className="pp-scale__title">Шкала оценивания</div>
+            <div className="pp-scale__table">
+              <div className="pp-scale__row pp-scale__row--head">
+                <span>Первичные баллы</span>
+                <span>Оценка</span>
+              </div>
+              {SCALE.map((s, i) => (
+                <div key={i} className="pp-scale__row">
+                  <span className="pp-scale__range">{s.range}</span>
+                  <span className={`pp-scale__grade pp-scale__grade--${s.cls}`}>
+                    <span className="pp-scale__mark" aria-hidden="true">{s.mark}</span>
+                    {s.grade}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="pp-scale__important">
+              <span className="pp-scale__imp-ico" aria-hidden="true">!</span>
+              <p className="pp-scale__imp-text">
+                <b>Важно.</b> Для получения положительной оценки необходимо решить
+                минимум 2 задания по геометрии.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ЧТО ПОЛУЧИТЕ ПОСЛЕ ДИАГНОСТИКИ ── */}
+      <section className="pp-gifts">
+        <div className="pp-wrap">
+          <h2 className="pp-gifts__title">
+            <span className="pp-gifts__title-ico" aria-hidden="true">🎁</span>
+            После прохождения диагностики вы получите
+          </h2>
+
+          <div className="pp-gifts__grid">
+            {/* Карточка 1 — библиотека */}
+            <div className="pp-gcard">
+              <div className="pp-gcard__head">
+                <span className="pp-gcard__emoji" aria-hidden="true">📚</span>
+                <div className="pp-gcard__title">Годовой доступ к библиотеке материалов</div>
+              </div>
+              <p className="pp-gcard__lead">
+                Мы собрали всё необходимое для подготовки к ОГЭ в одном месте.
+                В библиотеке будут доступны:
+              </p>
+              <ul className="pp-gcard__list">
+                {LIBRARY.map((x, i) => (
+                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Карточка 2 — уроки */}
+            <div className="pp-gcard">
+              <div className="pp-gcard__head">
+                <span className="pp-gcard__emoji" aria-hidden="true">💻</span>
+                <div className="pp-gcard__title">Два полноценных урока нашей платформы</div>
+              </div>
+              <ul className="pp-gcard__list">
+                {LESSONS.map((x, i) => (
+                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
+                ))}
+              </ul>
+              <p className="pp-gcard__lead pp-gcard__lead--foot">
+                Познакомьтесь с нашей методикой и оцените формат обучения.
+              </p>
+            </div>
+
+            {/* Карточка 3 — цена */}
+            <div className="pp-gcard pp-gcard--price">
+              <div className="pp-gcard__head">
+                <span className="pp-gcard__emoji" aria-hidden="true">🎓</span>
+                <div className="pp-gcard__title">Специальная стоимость обучения</div>
+              </div>
+              <p className="pp-gcard__lead">
+                После прохождения диагностики для вас откроется специальная цена.
+              </p>
+              <div className="pp-gcard__price">
+                <span className="pp-gcard__price-now">4 500 ₽</span>
+                <span className="pp-gcard__price-old">6 000 ₽</span>
+                <span className="pp-gcard__price-note">за первый месяц обучения</span>
+              </div>
+              <div className="pp-gcard__includes">В стоимость входят:</div>
+              <ul className="pp-gcard__list">
+                {PRICE_INCLUDES.map((x, i) => (
+                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
