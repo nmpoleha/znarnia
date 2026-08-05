@@ -234,16 +234,63 @@ export default function Page() {
               <button className="oge-btn oge-btn--primary" onClick={scrollToForm}>Записаться на курс →</button>
               <button className="oge-btn oge-btn--ghost" onClick={scrollToSubjects}>Узнать программу</button>
             </div>
-            <div className="oge-hero__promo">
-              <span className="oge-hero__promo-tag">Только в сентябре</span>
-              <div className="oge-hero__promo-body">
-                <span className="oge-hero__promo-price">2 100 ₽</span>
-                <span className="oge-hero__promo-text">за 2-й урок в сентябре — можно попробовать формат</span>
-              </div>
-            </div>
           </div>
           <div className="oge-hero__media">
             <img src="/znarnia/images/oge-hero-scene.webp" alt="Предметы ОГЭ: физика, информатика, русский язык, математика" className="oge-hero__img" width="1000" height="681" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── СЕНТЯБРЬ ── */}
+      <section className="oge-sept">
+        <div className="oge-wrap">
+          <div className="oge-sept__card">
+            <div className="oge-sept__body">
+              <div className="oge-sept__top">
+                <div className="oge-sept__head">
+                  <h2 className="oge-sept__title">Занятия в сентябре</h2>
+                  <p className="oge-sept__lead">
+                    Проходят <b>1 раз в неделю по 90 минут</b> в групповом формате.
+                  </p>
+                </div>
+                <div className="oge-sept__hint">
+                  <span className="oge-sept__hint-ico" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 4l2.3 4.9 5.2.7-3.8 3.6 1 5.2L12 15.9 7.3 18.4l1-5.2L4.5 9.6l5.2-.7L12 4z"/>
+                    </svg>
+                  </span>
+                  <span className="oge-sept__hint-text">
+                    <b>2 урока</b> — идеальная возможность<br />познакомиться с форматом и преподавателем
+                  </span>
+                </div>
+              </div>
+              <div className="oge-sept__pill">
+                <span className="oge-sept__pill-ico" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="3.5" stroke="currentColor" strokeWidth="1.75"/>
+                    <path d="M3.5 9.5h17" stroke="currentColor" strokeWidth="1.75"/>
+                    <path d="M8 3.25v3.5M16 3.25v3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+                  </svg>
+                </span>
+                <div className="oge-sept__pill-copy">
+                  <div className="oge-sept__pill-title">В сентябре — всего 2 урока</div>
+                  <div className="oge-sept__pill-sub">Вы платите только за фактические занятия</div>
+                </div>
+                <div className="oge-sept__pill-price">
+                  <span className="oge-sept__pill-amount">2 100 ₽</span>
+                  <span className="oge-sept__pill-note">за 2 урока в сентябре</span>
+                </div>
+              </div>
+            </div>
+            <img
+              className="oge-sept__img"
+              src="/znarnia/images/september-calendar.webp"
+              alt="Календарь: сентябрь"
+              width="480"
+              height="519"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
@@ -265,7 +312,7 @@ export default function Page() {
             <img className="oge-pricebar__gift" src="/znarnia/images/gift-box.png" alt="" aria-hidden="true" width="56" height="56" loading="lazy" decoding="async" />
             <div className="oge-pricebar__copy">
               <div className="oge-pricebar__title">Зафиксируйте выгодную цену до 1 сентября!</div>
-              <div className="oge-pricebar__text">Оплатите сейчас — и цена за 4 занятия (сентябрь + дальше) останется 4 200 ₽</div>
+              <div className="oge-pricebar__text">Оплата до 1 сентября закрепляет стоимость 4 200 ₽ за 4 занятия на весь учебный год</div>
             </div>
             <div className="oge-pricebar__price">
               <span className="oge-pricebar__old">5 800 ₽</span>
