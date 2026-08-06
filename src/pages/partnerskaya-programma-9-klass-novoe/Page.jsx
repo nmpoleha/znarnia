@@ -84,9 +84,9 @@ const PARENTS = [
 
 /* ── Как получить доступ ── */
 const ACCESS = [
-  'Заполните короткую форму.',
-  'Пройдите диагностику.',
-  'Получите доступ ко всем подаркам и специальной стоимости обучения.',
+  { cls: 'violet', img: 'access-form', text: 'Заполните короткую форму.' },
+  { cls: 'green',  img: 'access-diag', text: 'Пройдите диагностику.' },
+  { cls: 'orange', img: 'access-gift', text: 'Получите доступ ко всем подаркам и специальной стоимости обучения.' },
 ]
 
 export default function Page() {
@@ -464,13 +464,36 @@ export default function Page() {
 
       {/* ── КАК ПОЛУЧИТЬ ДОСТУП ── */}
       <section className="pp-access">
+        {/* декоративный слой */}
+        <div className="pp-access-decor" aria-hidden="true">
+          <span className="pp-adeco pp-adeco--dots-tl" />
+          <span className="pp-adeco pp-adeco--dots-tr" />
+          <span className="pp-adeco pp-adeco--circle" />
+          <svg className="pp-adeco pp-adeco--star pp-adeco--star-1" viewBox="0 0 24 24"><path d="M12 2c.5 4.6 4.8 8.9 9.4 9.4-4.6.5-8.9 4.8-9.4 9.4-.5-4.6-4.8-8.9-9.4-9.4C7.2 10.9 11.5 6.6 12 2z" fill="#39C97A"/></svg>
+          <svg className="pp-adeco pp-adeco--star pp-adeco--star-2" viewBox="0 0 24 24"><path d="M12 2c.5 4.6 4.8 8.9 9.4 9.4-4.6.5-8.9 4.8-9.4 9.4-.5-4.6-4.8-8.9-9.4-9.4C7.2 10.9 11.5 6.6 12 2z" fill="#FF9F43"/></svg>
+          <svg className="pp-adeco pp-adeco--rays" viewBox="0 0 40 40" fill="none">
+            <path d="M6 22L2 30M14 16L12 6M22 20L30 14" stroke="#8b5cf6" strokeWidth="3" strokeLinecap="round"/>
+          </svg>
+          <svg className="pp-adeco pp-adeco--wave" viewBox="0 0 900 40" fill="none" preserveAspectRatio="none">
+            <path d="M4 20C120 4 200 36 320 20s200-16 300 0 180 12 276 0" stroke="#c4b5fd" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 12"/>
+          </svg>
+        </div>
+
         <div className="pp-wrap">
           <h2 className="pp-access__title">Как получить доступ?</h2>
           <div className="pp-access__steps">
-            {ACCESS.map((s, i) => (
-              <div key={i} className="pp-astep">
+            {ACCESS.map((a, i) => (
+              <div key={i} className={`pp-astep pp-astep--${a.cls}`}>
                 <span className="pp-astep__num">{i + 1}</span>
-                <p className="pp-astep__text">{s}</p>
+                <div className="pp-astep__media">
+                  <img src={`/znarnia/images/${a.img}.webp`} alt="" loading="lazy" decoding="async" />
+                </div>
+                <p className="pp-astep__text">{a.text}</p>
+                <div className="pp-astep__bar" aria-hidden="true">
+                  {[0, 1, 2].map((s) => (
+                    <span key={s} className={s === i ? 'is-active' : ''} />
+                  ))}
+                </div>
               </div>
             ))}
           </div>
