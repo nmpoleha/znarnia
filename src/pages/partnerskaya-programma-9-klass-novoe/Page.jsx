@@ -410,27 +410,6 @@ export default function Page() {
 
       {/* ── МАТЕРИАЛЫ ДЛЯ РОДИТЕЛЕЙ 9 КЛАССА ── */}
       <section className="pp-parents">
-        {/* декоративный слой */}
-        <div className="pp-parents-decor" aria-hidden="true">
-          <span className="pp-pdeco pp-pdeco--circle-tr" />
-          <span className="pp-pdeco pp-pdeco--dots-tr" />
-          <span className="pp-pdeco pp-pdeco--dots-bl" />
-          <svg className="pp-pdeco pp-pdeco--rays" viewBox="0 0 40 40" fill="none">
-            <path d="M6 22L2 30" stroke="#6B3DF0" strokeWidth="3" strokeLinecap="round" />
-            <path d="M14 16L12 6" stroke="#6B3DF0" strokeWidth="3" strokeLinecap="round" />
-            <path d="M22 20L30 14" stroke="#6B3DF0" strokeWidth="3" strokeLinecap="round" />
-          </svg>
-          <svg className="pp-pdeco pp-pdeco--star pp-pdeco--star-g" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2c.5 4.6 4.8 8.9 9.4 9.4-4.6.5-8.9 4.8-9.4 9.4-.5-4.6-4.8-8.9-9.4-9.4C7.2 10.9 11.5 6.6 12 2z" fill="#39C97A" />
-          </svg>
-          <svg className="pp-pdeco pp-pdeco--cross pp-pdeco--cross-o" viewBox="0 0 16 16" fill="none">
-            <path d="M4 4l8 8M12 4l-8 8" stroke="#FF9F43" strokeWidth="2.4" strokeLinecap="round" />
-          </svg>
-          <svg className="pp-pdeco pp-pdeco--dash" viewBox="0 0 160 12" fill="none" preserveAspectRatio="none">
-            <path d="M2 6H158" stroke="#c9b8f7" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 9" />
-          </svg>
-        </div>
-
         <div className="pp-wrap">
           {/* Шапка на всю ширину */}
           <div className="pp-parents__head">
@@ -459,9 +438,6 @@ export default function Page() {
                     <div className="pp-pcard__title">{p.title}</div>
                     <p className="pp-pcard__text">{p.text}</p>
                   </div>
-                  <span className="pp-pcard__arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </span>
                 </div>
               ))}
             </div>
