@@ -237,15 +237,19 @@ export default function Page() {
       <section className="pp-diag">
         <div className="pp-wrap">
           <div className="pp-diag__head">
-            <span className="pp-diag__target" aria-hidden="true">🎯</span>
-            <h2 className="pp-diag__title">
-              Подготовка к ОГЭ начинается с честной диагностики
-            </h2>
+            <span className="pp-diag__target" aria-hidden="true">
+              <img src="/znarnia/images/lesson-target.png" alt="" width="440" height="440" loading="lazy" decoding="async" />
+            </span>
+            <div className="pp-diag__head-body">
+              <h2 className="pp-diag__title">
+                Подготовка к ОГЭ начинается с <span className="pp-accent">честной диагностики</span>
+              </h2>
+              <p className="pp-diag__lead">
+                Проверьте уровень знаний ребёнка <span className="pp-accent">уже&nbsp;сейчас</span> и получите материалы, которые
+                помогут подготовиться к экзамену <span className="pp-accent">без&nbsp;лишнего&nbsp;стресса</span>.
+              </p>
+            </div>
           </div>
-          <p className="pp-diag__lead">
-            Проверьте уровень знаний ребёнка уже сейчас и получите материалы, которые
-            помогут подготовиться к экзамену без лишнего стресса.
-          </p>
 
           <div className="pp-diag__why">
             <div className="pp-diag__why-ico" aria-hidden="true">
@@ -327,7 +331,7 @@ export default function Page() {
               <span className="pp-scale__imp-ico" aria-hidden="true">!</span>
               <p className="pp-scale__imp-text">
                 <b>Важно.</b> Для получения положительной оценки необходимо решить
-                минимум 2 задания по геометрии.
+                <b> минимум 2 задания</b> по геометрии.
               </p>
             </div>
           </div>
