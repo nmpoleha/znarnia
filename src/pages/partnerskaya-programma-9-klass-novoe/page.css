@@ -269,52 +269,129 @@ html { scroll-behavior: smooth; }
   padding: 40px 0 48px;
   border-top: 1px solid #efeafc;
 }
+.pp-trust__panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: 34px 30px 38px;
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(196,181,253,0.16) 0%, rgba(196,181,253,0) 55%),
+    radial-gradient(60% 80% at 0% 100%, rgba(255,214,107,0.10) 0%, rgba(255,214,107,0) 55%),
+    linear-gradient(160deg, #f7f4ff 0%, #fbfaff 55%, #fdfcff 100%);
+  border: 1px solid #efeafc;
+  box-shadow: 0 30px 60px -40px rgba(76, 29, 149, 0.22);
+}
+
+/* декор панели */
+.pp-trust-decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.pp-tdeco { position: absolute; pointer-events: none; }
+.pp-tdeco--glow-tr {
+  top: -90px; right: -70px; width: 260px; height: 260px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(167,139,250,0.22) 0%, rgba(167,139,250,0) 70%);
+}
+.pp-tdeco--circle-tr {
+  top: -40px; right: 60px; width: 140px; height: 140px; border-radius: 50%;
+  background: linear-gradient(160deg, rgba(196,181,253,0.22), rgba(221,214,254,0.05));
+}
+.pp-tdeco--circle-bl {
+  bottom: -46px; left: -30px; width: 120px; height: 120px; border-radius: 50%;
+  border: 1.5px dashed rgba(167,139,250,0.28);
+}
+.pp-tdeco--dot { border-radius: 50%; background: #FFC857; }
+.pp-tdeco--dot-1 { top: 40px; right: 30%; width: 14px; height: 14px; box-shadow: 0 0 0 5px rgba(255,200,87,0.16); }
+.pp-tdeco--dot-2 { bottom: 44px; right: 46px; width: 10px; height: 10px; box-shadow: 0 0 0 4px rgba(255,200,87,0.14); }
+.pp-tdeco--dots {
+  left: 30px; bottom: 24px; width: 90px; height: 40px;
+  background-image: radial-gradient(rgba(124,58,237,0.22) 1.5px, transparent 1.6px);
+  background-size: 15px 15px;
+  -webkit-mask-image: linear-gradient(90deg, #000 20%, transparent 90%);
+  mask-image: linear-gradient(90deg, #000 20%, transparent 90%);
+}
+.pp-tdeco--arc { top: 24px; right: 22px; width: 70px; height: 70px; opacity: 0.7; }
+
+/* заголовок */
 .pp-trust__title {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: clamp(20px, 3.4vw, 28px);
   color: var(--pp-ink);
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 .pp-trust__title-ico {
-  width: 40px;
-  height: 40px;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  background: radial-gradient(120% 120% at 30% 25%, #f4efff 0%, #e7ddfb 100%);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.9), inset 0 -5px 12px rgba(124,58,237,0.12), 0 10px 22px -12px rgba(124,58,237,0.35);
 }
-.pp-trust__title-ico svg { width: 30px; height: 30px; }
+.pp-trust__cup { width: 34px; height: 34px; }
+.pp-trust__title-spark { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; }
+.pp-trust__title-text { flex-shrink: 0; }
+.pp-trust__title-line { flex: 1; min-width: 40px; height: 12px; opacity: 0.8; }
+
 .pp-trust__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px 16px;
+  gap: 18px;
 }
-.pp-trust__item {
+.pp-trust__card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 14px;
+  gap: 12px;
+  padding: 26px 16px 22px;
+  border-radius: 24px;
+  background: linear-gradient(165deg, #ffffff 0%, #faf8ff 100%);
+  border: 1px solid #eee7fb;
+  box-shadow: 0 18px 40px -30px rgba(76, 29, 149, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.pp-trust__card:hover {
+  transform: translateY(-4px);
+  border-color: #e0d3fb;
+  box-shadow: 0 26px 50px -26px rgba(76, 29, 149, 0.34);
 }
 .pp-trust__icon {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: radial-gradient(120% 120% at 30% 25%, #f4efff 0%, #e9e0fb 100%);
+  width: 92px;
+  height: 92px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.9), inset 0 -4px 10px rgba(124,58,237,0.10);
 }
-.pp-trust__icon svg { width: 36px; height: 36px; }
+.pp-trust__icon img { width: 100%; height: 100%; object-fit: contain; }
 .pp-trust__text {
   font-size: 15px;
-  line-height: 1.4;
-  color: var(--pp-text);
+  line-height: 1.35;
+  color: var(--pp-muted);
   font-weight: 600;
+}
+.pp-trust__strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--pp-ink);
+  margin-bottom: 4px;
+}
+.pp-trust__rest { display: block; }
+
+@media (max-width: 480px) {
+  .pp-trust__panel { padding: 26px 16px 30px; border-radius: 26px; }
+  .pp-trust__title { gap: 12px; }
+  .pp-trust__title-line { display: none; }
 }
 
 /* ── ДИАГНОСТИКА ── */

@@ -7,55 +7,11 @@ import RegistrationForm from '../../shared/components/RegistrationForm'
 
 /* ── Почему нам доверяют ── */
 const TRUST = [
-  {
-    text: 'Более 23 лет<br />в образовании',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M9 3l1.5 6M15 3l-1.5 6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="12" cy="15" r="5" stroke="#6d28d9" strokeWidth="1.8" />
-        <path d="M12 12.6l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 14.7l2-.3z" fill="#6d28d9" />
-      </svg>
-    ),
-  },
-  {
-    text: 'Получатель гранта<br />Правительства<br />Москвы',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="9" r="5" stroke="#6d28d9" strokeWidth="1.8" />
-        <path d="M12 6.7l.7 1.4 1.5.2-1.1 1.05.27 1.5L12 10.15l-1.34.7.26-1.5L9.8 8.3l1.5-.2z" fill="#6d28d9" />
-        <path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    text: 'Собственная<br />образовательная<br />платформа',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="4" y="5" width="16" height="11" rx="2" stroke="#6d28d9" strokeWidth="1.8" />
-        <path d="M3 19h18" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M10.5 8.3l4 2.2-4 2.2z" fill="#6d28d9" />
-      </svg>
-    ),
-  },
-  {
-    text: 'Тысячи учеников<br />подготовлены<br />к экзаменам',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="9" cy="8.5" r="2.8" stroke="#6d28d9" strokeWidth="1.8" />
-        <circle cx="16.5" cy="9.5" r="2.2" stroke="#6d28d9" strokeWidth="1.8" />
-        <path d="M3.5 18c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M15 13.4c2.6.2 5 2.1 5 4.6" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    text: 'Высокие<br />результаты<br />выпускников',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M5 20V13M12 20V7M19 20V10" stroke="#6d28d9" strokeWidth="2.4" strokeLinecap="round" />
-      </svg>
-    ),
-  },
+  { img: 'trust-medal',   alt: 'Медаль',        strong: 'Более 23 лет',       rest: 'в образовании' },
+  { img: 'trust-rosette', alt: 'Награда',       strong: 'Получатель гранта',  rest: 'Правительства<br />Москвы' },
+  { img: 'trust-laptop',  alt: 'Онлайн-платформа', strong: 'Собственная',     rest: 'образовательная<br />платформа' },
+  { img: 'trust-people',  alt: 'Ученики',       strong: 'Тысячи учеников',    rest: 'подготовлены<br />к экзаменам' },
+  { img: 'trust-chart',   alt: 'Результаты',    strong: 'Высокие',            rest: 'результаты<br />выпускников' },
 ]
 
 /* ── Шаг 1: что увидите после проверки ── */
@@ -229,24 +185,50 @@ export default function Page() {
       {/* ── ПОЧЕМУ НАМ ДОВЕРЯЮТ ── */}
       <section className="pp-trust">
         <div className="pp-wrap">
-          <h2 className="pp-trust__title">
-            <span className="pp-trust__title-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M7 4h10v3.5a5 5 0 0 1-10 0V4z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round" />
-                <path d="M7 5.5H4.5V7a3 3 0 0 0 3 3M17 5.5h2.5V7a3 3 0 0 1-3 3" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M12 12.5V16M9 20h6M10 16h4l-.5 2h-3z" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <div className="pp-trust__panel">
+            {/* декоративный слой */}
+            <div className="pp-trust-decor" aria-hidden="true">
+              <span className="pp-tdeco pp-tdeco--glow-tr" />
+              <span className="pp-tdeco pp-tdeco--circle-tr" />
+              <span className="pp-tdeco pp-tdeco--circle-bl" />
+              <span className="pp-tdeco pp-tdeco--dot pp-tdeco--dot-1" />
+              <span className="pp-tdeco pp-tdeco--dot pp-tdeco--dot-2" />
+              <span className="pp-tdeco pp-tdeco--dots" />
+              <svg className="pp-tdeco pp-tdeco--arc" viewBox="0 0 80 80" fill="none">
+                <path d="M6 74A68 68 0 0 1 74 6" stroke="#FFD36B" strokeWidth="4" strokeLinecap="round" />
               </svg>
-            </span>
-            Почему нам доверяют?
-          </h2>
+            </div>
 
-          <div className="pp-trust__grid">
-            {TRUST.map((t, i) => (
-              <div key={i} className="pp-trust__item">
-                <span className="pp-trust__icon" aria-hidden="true">{t.icon}</span>
-                <p className="pp-trust__text" dangerouslySetInnerHTML={{ __html: t.text }} />
-              </div>
-            ))}
+            <h2 className="pp-trust__title">
+              <span className="pp-trust__title-ico" aria-hidden="true">
+                <svg className="pp-trust__cup" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 4h10v3.5a5 5 0 0 1-10 0V4z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round" />
+                  <path d="M7 5.5H4.5V7a3 3 0 0 0 3 3M17 5.5h2.5V7a3 3 0 0 1-3 3" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 12.5V16M9 20h6M10 16h4l-.5 2h-3z" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <svg className="pp-trust__title-spark" viewBox="0 0 20 20" fill="none">
+                  <path d="M6 9L3 12M11 6L10 2M13 11L17 9" stroke="#FFC857" strokeWidth="2.2" strokeLinecap="round" />
+                </svg>
+              </span>
+              <span className="pp-trust__title-text">Почему нам доверяют?</span>
+              <svg className="pp-trust__title-line" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
+                <path d="M2 6H198" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 9" />
+              </svg>
+            </h2>
+
+            <div className="pp-trust__grid">
+              {TRUST.map((t, i) => (
+                <div key={i} className="pp-trust__card">
+                  <span className="pp-trust__icon" aria-hidden="true">
+                    <img src={`/znarnia/images/${t.img}.webp`} alt="" width="256" height="256" loading="lazy" decoding="async" />
+                  </span>
+                  <p className="pp-trust__text">
+                    <b className="pp-trust__strong">{t.strong}</b>
+                    <span className="pp-trust__rest" dangerouslySetInnerHTML={{ __html: t.rest }} />
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
