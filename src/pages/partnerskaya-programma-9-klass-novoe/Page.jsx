@@ -4,6 +4,7 @@
    + плашка «Интеллектуальный клуб ОГЭ».
    ───────────────────────────────────────────────────────────── */
 import RegistrationForm from '../../shared/components/RegistrationForm'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
 /* ── Почему нам доверяют ── */
 const TRUST = [
@@ -476,6 +477,24 @@ export default function Page() {
           <p className="pp-access__lead">
             Начните подготовку к ОГЭ с понимания реального уровня знаний ребёнка.
           </p>
+          <div className="pp-access__cta">
+            <a href="#registration" className="pp-btn pp-btn--ghost">Оставить заявку</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
+      <section className="pp-social">
+        <div className="pp-wrap">
+          <AuthorCard />
+        </div>
+      </section>
+
+      {/* ── ОТЗЫВЫ + ГРАМОТЫ ── */}
+      <section className="pp-social pp-social--alt">
+        <div className="pp-wrap pp-social__stack">
+          <ReviewsCarousel />
+          <SchoolsCard />
         </div>
       </section>
 

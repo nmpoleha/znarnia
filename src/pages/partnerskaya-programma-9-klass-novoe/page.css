@@ -60,15 +60,16 @@ html { scroll-behavior: smooth; }
   border-color: #b9a3ec;
 }
 .pp-btn--ghost {
-  background: linear-gradient(135deg, #FFD36B 0%, #FFB347 100%);
-  color: #7a4a00;
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
+  color: #fff;
   border: 1.5px solid transparent;
-  box-shadow: 0 10px 24px -10px rgba(255, 165, 0, 0.5);
+  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.32);
 }
 .pp-btn--ghost:hover {
-  filter: brightness(1.03);
-  box-shadow: 0 14px 28px -10px rgba(255, 165, 0, 0.55);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 30px rgba(234, 88, 12, 0.4);
 }
+.pp-btn--ghost:active { transform: translateY(1px); }
 
 /* ── HEADER ── */
 .pp-header {
@@ -792,8 +793,8 @@ html { scroll-behavior: smooth; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #efe6ff;
-  color: var(--pp-purple);
+  background: #FFF1E2;
+  color: #d97a13;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -805,7 +806,7 @@ html { scroll-behavior: smooth; }
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed, #5b2be0);
+  background: linear-gradient(135deg, #f5a623, #e07f12);
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -1000,11 +1001,20 @@ html { scroll-behavior: smooth; }
   font-size: clamp(17px, 2.6vw, 20px);
   line-height: 1.4;
   color: var(--pp-ink);
-  max-width: 46ch;
+  max-width: none;
   margin: 0 auto;
 }
+.pp-access__cta { display: flex; justify-content: center; margin-top: 22px; }
 
 /* ── ФОРМА ── */
+/* ── СОЦИАЛЬНЫЕ ДОКАЗАТЕЛЬСТВА (преподаватель / отзывы / грамоты) ── */
+.pp-social {
+  background: #fff;
+  padding: 52px 0;
+}
+.pp-social--alt { background: var(--pp-purple-lt); }
+.pp-social__stack { display: flex; flex-direction: column; gap: 36px; }
+
 .pp-form {
   background: #fff;
   padding: 52px 0;
