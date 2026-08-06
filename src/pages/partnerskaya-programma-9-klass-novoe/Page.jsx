@@ -137,7 +137,7 @@ export default function Page() {
         <div className="pp-wrap pp-header__inner">
           <div className="pp-header__brand">
             <img src="/znarnia/images/logo.png" alt="Знарния" className="pp-header__logo" width="80" height="80" />
-            <span className="pp-header__brand-name">Знарния</span>
+            <span className="pp-header__brand-name">Школа Сотниковой Ольги</span>
           </div>
           <span className="pp-header__badge">🎓 Для родителей 9 класса</span>
         </div>
@@ -145,6 +145,45 @@ export default function Page() {
 
       {/* ── HERO ── */}
       <section className="pp-hero">
+        {/* Декоративный слой (не влияет на контент) */}
+        <div className="pp-hero-decor" aria-hidden="true">
+          <span className="pp-deco pp-deco--glow-tr" />
+          <span className="pp-deco pp-deco--glow-bl" />
+          <span className="pp-deco pp-deco--circle-tr" />
+          <span className="pp-deco pp-deco--dots-left" />
+          <span className="pp-deco pp-deco--ring" />
+
+          {/* жёлтые лучики сверху слева */}
+          <svg className="pp-deco pp-deco--rays" viewBox="0 0 40 40" fill="none">
+            <path d="M6 22L2 30" stroke="#FFC857" strokeWidth="3" strokeLinecap="round" />
+            <path d="M14 16L12 6" stroke="#FFC857" strokeWidth="3" strokeLinecap="round" />
+            <path d="M22 20L30 14" stroke="#FFC857" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+
+          {/* сиреневый крестик */}
+          <svg className="pp-deco pp-deco--cross" viewBox="0 0 16 16" fill="none">
+            <path d="M4 4l8 8M12 4l-8 8" stroke="#a78bfa" strokeWidth="2.4" strokeLinecap="round" />
+          </svg>
+
+          {/* жёлтая дуга снизу справа */}
+          <svg className="pp-deco pp-deco--arc" viewBox="0 0 80 80" fill="none">
+            <path d="M6 74A68 68 0 0 1 74 6" stroke="#FFD36B" strokeWidth="4" strokeLinecap="round" />
+          </svg>
+
+          {/* маленькие звёздочки */}
+          <svg className="pp-deco pp-deco--star pp-deco--star-1" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2c.6 4.8 4.6 8.8 9.4 9.4-4.8.6-8.8 4.6-9.4 9.4-.6-4.8-4.6-8.8-9.4-9.4C7.4 10.8 11.4 6.8 12 2z" fill="#FFC857" />
+          </svg>
+          <svg className="pp-deco pp-deco--star pp-deco--star-2" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2c.6 4.8 4.6 8.8 9.4 9.4-4.8.6-8.8 4.6-9.4 9.4-.6-4.8-4.6-8.8-9.4-9.4C7.4 10.8 11.4 6.8 12 2z" fill="#c4b5fd" />
+          </svg>
+
+          {/* пунктирная соединяющая линия */}
+          <svg className="pp-deco pp-deco--link" viewBox="0 0 200 20" fill="none" preserveAspectRatio="none">
+            <path d="M0 10H200" stroke="#c4b5fd" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 8" />
+          </svg>
+        </div>
+
         <div className="pp-wrap">
           <h1 className="pp-hero__title">
             Готовимся к ОГЭ вместе — <span className="pp-accent">легко,</span> уверенно, эффективно
