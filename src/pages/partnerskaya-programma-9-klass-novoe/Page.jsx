@@ -3,8 +3,17 @@
    Только герой (взят с partnerskaya-programma-9-klass)
    + плашка «Интеллектуальный клуб ОГЭ».
    ───────────────────────────────────────────────────────────── */
+import { useState } from 'react'
 import RegistrationForm from '../../shared/components/RegistrationForm'
 import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
+
+/* ── Пункты мобильного меню ── */
+const NAV = [
+  { href: '#diag', label: 'Диагностика' },
+  { href: '#gifts', label: 'Что вы получите' },
+  { href: '#access', label: 'Как получить доступ' },
+  { href: '#registration', label: 'Оставить заявку' },
+]
 
 /* ── Почему нам доверяют ── */
 const TRUST = [
@@ -106,6 +115,7 @@ function SectionDecor() {
 }
 
 export default function Page() {
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     <div className="pp-page">
       {/* ── HEADER ── */}
@@ -116,7 +126,30 @@ export default function Page() {
             <span className="pp-header__brand-name">Школа Сотниковой Ольги</span>
           </div>
           <span className="pp-header__badge">🎓 Для родителей 9 класса</span>
+          <button
+            type="button"
+            className="pp-header__burger"
+            aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+            aria-expanded={menuOpen}
+            aria-controls="pp-mobile-nav"
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <span className={`pp-burger${menuOpen ? ' pp-burger--open' : ''}`} aria-hidden="true">
+              <span /><span /><span />
+            </span>
+          </button>
         </div>
+        <nav
+          id="pp-mobile-nav"
+          className={`pp-header__nav${menuOpen ? ' pp-header__nav--open' : ''}`}
+          hidden={!menuOpen}
+        >
+          {NAV.map((n) => (
+            <a key={n.href} href={n.href} className="pp-header__nav-link" onClick={() => setMenuOpen(false)}>
+              {n.label}
+            </a>
+          ))}
+        </nav>
       </header>
 
       {/* ── HERO ── */}
@@ -154,12 +187,13 @@ export default function Page() {
         </div>
 
         <div className="pp-wrap">
+          <span className="pp-hero__eyebrow">🎓 Для родителей 9 класса</span>
           <h1 className="pp-hero__title">
             Готовимся к ОГЭ вместе — <span className="pp-accent">легко,</span> уверенно, эффективно
           </h1>
         </div>
         <div className="pp-wrap pp-hero__inner">
-          <div className="pp-hero__left">
+          <div className="pp-hero__copy">
             <p className="pp-hero__sub">
               Специальная программа для родителей 9 класса:{' '}
               <b className="pp-hero__sub-hl">диагностика знаний, подарки и скидки на обучение в сентябре.</b>
@@ -178,14 +212,15 @@ export default function Page() {
                 и постепенно выходит на уверенную подготовку к экзамену.
               </p>
             </div>
-
-            <div className="pp-hero__actions">
-              <a href="#step1" className="pp-btn pp-btn--primary">Узнать подробнее →</a>
-              <a href="#registration" className="pp-btn pp-btn--ghost">Хочу участвовать</a>
-            </div>
           </div>
+
           <div className="pp-hero__media">
             <img src="/znarnia/images/oge-hero-scene.webp" alt="Предметы ОГЭ для 9 класса" className="pp-hero__img" width="1000" height="681" loading="eager" decoding="async" />
+          </div>
+
+          <div className="pp-hero__actions">
+            <a href="#step1" className="pp-btn pp-btn--primary">Узнать подробнее →</a>
+            <a href="#registration" className="pp-btn pp-btn--ghost">Хочу участвовать</a>
           </div>
         </div>
       </section>
@@ -224,6 +259,15 @@ export default function Page() {
               </svg>
             </h2>
 
+            {/* Пунктирная линия с точкой и дугой — под заголовком (моб.) */}
+            <div className="pp-trust__rule" aria-hidden="true">
+              <span className="pp-trust__rule-line" />
+              <span className="pp-trust__rule-dot" />
+              <svg className="pp-trust__rule-arc" viewBox="0 0 40 40" fill="none">
+                <path d="M5 35A30 30 0 0 1 35 5" stroke="#FFD36B" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+
             <div className="pp-trust__grid">
               {TRUST.map((t, i) => (
                 <div key={i} className="pp-trust__card">
@@ -242,7 +286,7 @@ export default function Page() {
       </section>
 
       {/* ── ДИАГНОСТИКА ── */}
-      <section className="pp-diag">
+      <section className="pp-diag" id="diag">
         <SectionDecor />
         <div className="pp-wrap">
           <div className="pp-diag__head">
@@ -348,7 +392,7 @@ export default function Page() {
       </section>
 
       {/* ── ЧТО ПОЛУЧИТЕ ПОСЛЕ ДИАГНОСТИКИ ── */}
-      <section className="pp-gifts">
+      <section className="pp-gifts" id="gifts">
         <SectionDecor />
         <div className="pp-wrap">
           <h2 className="pp-gifts__title">
@@ -447,7 +491,7 @@ export default function Page() {
       </section>
 
       {/* ── КАК ПОЛУЧИТЬ ДОСТУП ── */}
-      <section className="pp-access">
+      <section className="pp-access" id="access">
         {/* декоративный слой */}
         <div className="pp-access-decor" aria-hidden="true">
           <span className="pp-adeco pp-adeco--dots-tl" />

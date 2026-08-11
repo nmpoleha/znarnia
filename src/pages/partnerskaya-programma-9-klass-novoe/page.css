@@ -103,6 +103,75 @@ html { scroll-behavior: smooth; }
   white-space: nowrap;
 }
 
+/* Гамбургер — только на мобильных */
+.pp-header__burger {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(150deg, #8b5cf6 0%, #6d28d9 100%);
+  box-shadow: 0 8px 18px -8px rgba(109, 40, 217, 0.6);
+  cursor: pointer;
+  padding: 0;
+  place-items: center;
+}
+.pp-burger {
+  display: grid;
+  gap: 4px;
+  width: 20px;
+}
+.pp-burger span {
+  display: block;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform 0.22s ease, opacity 0.18s ease;
+}
+.pp-burger--open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.pp-burger--open span:nth-child(2) { opacity: 0; }
+.pp-burger--open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.pp-header__nav {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  max-width: calc(var(--pp-max) + 40px);
+  margin: 8px auto 0;
+  padding: 8px;
+  border: 1px solid #ece5fb;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 40px -22px rgba(76, 29, 149, 0.35);
+}
+.pp-header__nav--open { display: flex; animation: pp-nav-in 0.2s ease; }
+@keyframes pp-nav-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.pp-header__nav-link {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--pp-ink);
+  text-decoration: none;
+}
+.pp-header__nav-link:hover,
+.pp-header__nav-link:focus-visible { background: var(--pp-purple-soft); color: var(--pp-purple); }
+
+@media (max-width: 640px) {
+  .pp-header { padding: 8px 0; }
+  .pp-header__inner { flex-wrap: nowrap; gap: 12px; }
+  .pp-header__badge { display: none; }
+  .pp-header__burger { display: grid; }
+  .pp-header__logo { height: 46px; }
+  .pp-header__brand { gap: 8px; min-width: 0; }
+  .pp-header__brand-name { font-size: 15px; line-height: 1.2; }
+}
+
 /* ── HERO ── */
 .pp-hero {
   position: relative;
@@ -232,8 +301,33 @@ html { scroll-behavior: smooth; }
 .pp-hero__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  grid-template-areas:
+    "copy"
+    "media"
+    "actions";
+  gap: 26px;
   align-items: center;
+}
+.pp-hero__copy    { grid-area: copy; }
+.pp-hero__media   { grid-area: media; }
+.pp-hero__actions { grid-area: actions; }
+
+.pp-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  background: var(--pp-purple-soft);
+  color: var(--pp-purple);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+@media (min-width: 641px) {
+  .pp-hero__eyebrow { display: none; }
 }
 .pp-hero__title {
   font-family: 'Montserrat', sans-serif;
@@ -258,7 +352,8 @@ html { scroll-behavior: smooth; }
   .pp-hero__sub { max-width: none; }
   .pp-hero__sub-hl { white-space: nowrap; }
 }
-.pp-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.pp-hero__actions { display: flex; flex-direction: column; gap: 12px; }
+.pp-hero__actions .pp-btn { width: 100%; }
 .pp-hero__media { display: flex; justify-content: center; }
 .pp-hero__img {
   width: 100%;
@@ -283,7 +378,6 @@ html { scroll-behavior: smooth; }
   border-radius: 22px;
   overflow: hidden;
   padding: 22px 24px;
-  margin-bottom: 26px;
   box-shadow:
     0 22px 50px -26px rgba(76, 29, 149, 0.34),
     0 0 0 1px rgba(255,255,255,0.5) inset;
@@ -457,10 +551,56 @@ html { scroll-behavior: smooth; }
 }
 .pp-trust__rest { display: block; }
 
-@media (max-width: 480px) {
-  .pp-trust__panel { padding: 26px 16px 30px; border-radius: 26px; }
-  .pp-trust__title { gap: 12px; }
+/* Пунктирная линия под заголовком — только на мобильных */
+.pp-trust__rule { display: none; }
+
+@media (max-width: 619px) {
+  .pp-trust__panel { padding: 24px 14px 26px; border-radius: 24px; }
+
+  /* заголовок: трофей + текст в строку, пунктир — отдельной строкой ниже */
+  .pp-trust__title { gap: 12px; margin-bottom: 0; font-size: clamp(19px, 5.2vw, 23px); }
+  .pp-trust__title-ico { width: 50px; height: 50px; border-radius: 15px; }
+  .pp-trust__cup { width: 28px; height: 28px; }
+  .pp-trust__title-text { flex-shrink: 1; min-width: 0; }
   .pp-trust__title-line { display: none; }
+
+  .pp-trust__rule {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 2px 22px;
+  }
+  .pp-trust__rule-line { flex: 1; height: 0; border-top: 2px dashed #c9b8f3; }
+  .pp-trust__rule-dot {
+    flex-shrink: 0;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #FFC857;
+    box-shadow: 0 0 0 4px rgba(255,200,87,0.18);
+  }
+  .pp-trust__rule-arc { flex-shrink: 0; width: 26px; height: 26px; }
+
+  /* карточки — одна колонка, горизонтальная раскладка */
+  .pp-trust__grid { grid-template-columns: 1fr; gap: 14px; }
+  .pp-trust__card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 18px;
+    padding: 16px 20px;
+    border-radius: 20px;
+  }
+  .pp-trust__icon { width: 74px; height: 74px; }
+  .pp-trust__strong { font-size: 18px; margin-bottom: 3px; }
+  .pp-trust__text { font-size: 15px; }
+
+  /* убираем мелкий декор, оставляем мягкое пятно */
+  .pp-tdeco--dot,
+  .pp-tdeco--dots,
+  .pp-tdeco--arc,
+  .pp-tdeco--circle-bl { display: none; }
 }
 
 /* ── ДИАГНОСТИКА ── */
@@ -1167,8 +1307,18 @@ html { scroll-behavior: smooth; }
   .pp-parents__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 42%); gap: 44px; }
 }
 @media (min-width: 900px) {
-  .pp-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 46%); align-items: center; }
-  .pp-hero__media { justify-content: flex-end; }
+  .pp-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 46%);
+    grid-template-areas:
+      "copy media"
+      "actions media";
+    column-gap: 44px;
+    row-gap: 24px;
+    align-items: start;
+  }
+  .pp-hero__media { justify-content: flex-end; align-self: center; }
+  .pp-hero__actions { flex-direction: row; gap: 14px; align-self: start; }
+  .pp-hero__actions .pp-btn { width: auto; }
 }
 @media (min-width: 980px) {
   .pp-step__inner { grid-template-columns: minmax(0, 1fr) 410px; gap: 44px; }
@@ -1178,4 +1328,6 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .pp-btn { transition: none; }
   .pp-btn:hover { transform: none; }
+  .pp-burger span { transition: none; }
+  .pp-header__nav--open { animation: none; }
 }
