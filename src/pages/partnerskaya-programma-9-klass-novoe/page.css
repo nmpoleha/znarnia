@@ -665,35 +665,29 @@ html { scroll-behavior: smooth; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 .pp-gcard {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid #efeafc;
   border-radius: 22px;
   padding: 26px 24px;
   box-shadow: 0 18px 40px -26px rgba(76, 29, 149, 0.22);
 }
-.pp-gcard--price {
-  border: 1px solid #e4d9fb;
-  background: linear-gradient(160deg, #fbf9ff 0%, #f4efff 100%);
-}
 .pp-gcard__head {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 14px;
+  gap: 18px;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
-.pp-gcard__emoji {
-  width: 52px;
-  height: 52px;
-  border-radius: 15px;
-  background: linear-gradient(145deg, #f4efff, #e7ddff);
-  display: grid;
-  place-items: center;
-  font-size: 26px;
+.pp-gcard__ico {
+  width: 92px;
+  height: auto;
   flex-shrink: 0;
+  object-fit: contain;
 }
 .pp-gcard__title {
   font-family: 'Montserrat', sans-serif;
@@ -708,7 +702,22 @@ html { scroll-behavior: smooth; }
   color: var(--pp-muted);
   margin-bottom: 16px;
 }
-.pp-gcard__lead--foot { margin: 14px 0 0; }
+.pp-gcard__note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-top: auto;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #f4efff, #ece2ff);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--pp-purple);
+}
+.pp-gcard__note-ico { font-size: 26px; line-height: 1; flex-shrink: 0; }
 .pp-gcard__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .pp-gcard__li {
   display: grid;
@@ -732,42 +741,6 @@ html { scroll-behavior: smooth; }
   flex-shrink: 0;
   margin-top: 1px;
 }
-.pp-gcard__price {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 12px;
-  background: #fff;
-  border: 1px dashed #c9b6f5;
-  border-radius: 16px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-}
-.pp-gcard__price-now {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 28px;
-  color: var(--pp-purple);
-}
-.pp-gcard__price-old {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--pp-muted);
-  text-decoration: line-through;
-}
-.pp-gcard__price-note {
-  flex-basis: 100%;
-  font-size: 14px;
-  color: var(--pp-muted);
-}
-.pp-gcard__includes {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--pp-ink);
-  margin-bottom: 12px;
-}
-
 /* ── МАТЕРИАЛЫ ДЛЯ РОДИТЕЛЕЙ 9 КЛАССА ── */
 .pp-parents {
   --c-purple: #6B3DF0;
@@ -1101,7 +1074,7 @@ html { scroll-behavior: smooth; }
   .pp-access__steps { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 }
 @media (min-width: 860px) {
-  .pp-gifts__grid { grid-template-columns: repeat(3, 1fr); }
+  .pp-gifts__grid { grid-template-columns: repeat(2, 1fr); }
   .pp-parents__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 42%); gap: 44px; }
 }
 @media (min-width: 900px) {

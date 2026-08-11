@@ -45,15 +45,6 @@ const LESSONS = [
   'Интерактивный урок-тренажёр с автоматической проверкой.',
 ]
 
-const PRICE_INCLUDES = [
-  '10 занятий;',
-  'небольшие группы;',
-  'домашние задания;',
-  'проверка работ;',
-  'обратная связь преподавателя;',
-  'записи всех уроков.',
-]
-
 /* ── Специальные материалы для родителей 9 класса ── */
 const PARENTS = [
   {
@@ -354,7 +345,7 @@ export default function Page() {
             {/* Карточка 1 — библиотека */}
             <div className="pp-gcard">
               <div className="pp-gcard__head">
-                <span className="pp-gcard__emoji" aria-hidden="true">📚</span>
+                <img className="pp-gcard__ico" src="/znarnia/images/library-books-3d.png" alt="" width="887" height="790" loading="lazy" decoding="async" />
                 <div className="pp-gcard__title">Годовой доступ к библиотеке материалов</div>
               </div>
               <p className="pp-gcard__lead">
@@ -371,7 +362,7 @@ export default function Page() {
             {/* Карточка 2 — уроки */}
             <div className="pp-gcard">
               <div className="pp-gcard__head">
-                <span className="pp-gcard__emoji" aria-hidden="true">💻</span>
+                <img className="pp-gcard__ico" src="/znarnia/images/library-laptop-3d.png" alt="" width="1174" height="979" loading="lazy" decoding="async" />
                 <div className="pp-gcard__title">Два полноценных урока нашей платформы</div>
               </div>
               <ul className="pp-gcard__list">
@@ -379,31 +370,10 @@ export default function Page() {
                   <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
                 ))}
               </ul>
-              <p className="pp-gcard__lead pp-gcard__lead--foot">
+              <p className="pp-gcard__note">
+                <span className="pp-gcard__note-ico" aria-hidden="true">🎓</span>
                 Познакомьтесь с нашей методикой и оцените формат обучения.
               </p>
-            </div>
-
-            {/* Карточка 3 — цена */}
-            <div className="pp-gcard pp-gcard--price">
-              <div className="pp-gcard__head">
-                <span className="pp-gcard__emoji" aria-hidden="true">🎓</span>
-                <div className="pp-gcard__title">Специальная стоимость обучения</div>
-              </div>
-              <p className="pp-gcard__lead">
-                После прохождения диагностики для вас откроется специальная цена.
-              </p>
-              <div className="pp-gcard__price">
-                <span className="pp-gcard__price-now">4 500 ₽</span>
-                <span className="pp-gcard__price-old">6 000 ₽</span>
-                <span className="pp-gcard__price-note">за первый месяц обучения</span>
-              </div>
-              <div className="pp-gcard__includes">В стоимость входят:</div>
-              <ul className="pp-gcard__list">
-                {PRICE_INCLUDES.map((x, i) => (
-                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
