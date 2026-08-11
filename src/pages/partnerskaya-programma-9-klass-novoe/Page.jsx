@@ -80,6 +80,31 @@ const ACCESS = [
   { cls: 'orange', img: 'access-gift', text: 'Получите доступ ко всем подаркам и специальной стоимости обучения.' },
 ]
 
+/* ── Декоративный слой для цветных секций (как в герое) ── */
+function SectionDecor() {
+  return (
+    <div className="pp-sdecor" aria-hidden="true">
+      <span className="pp-deco pp-sdecor--glow-tr" />
+      <span className="pp-deco pp-sdecor--glow-bl" />
+      <span className="pp-deco pp-sdecor--ring" />
+      <span className="pp-deco pp-sdecor--dots" />
+
+      <svg className="pp-deco pp-sdecor--cross" viewBox="0 0 16 16" fill="none">
+        <path d="M4 4l8 8M12 4l-8 8" stroke="#a78bfa" strokeWidth="2.4" strokeLinecap="round" />
+      </svg>
+      <svg className="pp-deco pp-sdecor--arc" viewBox="0 0 80 80" fill="none">
+        <path d="M6 74A68 68 0 0 1 74 6" stroke="#FFD36B" strokeWidth="4" strokeLinecap="round" />
+      </svg>
+      <svg className="pp-deco pp-sdecor--star pp-sdecor--star-1" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2c.6 4.8 4.6 8.8 9.4 9.4-4.8.6-8.8 4.6-9.4 9.4-.6-4.8-4.6-8.8-9.4-9.4C7.4 10.8 11.4 6.8 12 2z" fill="#FFC857" />
+      </svg>
+      <svg className="pp-deco pp-sdecor--star pp-sdecor--star-2" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2c.6 4.8 4.6 8.8 9.4 9.4-4.8.6-8.8 4.6-9.4 9.4-.6-4.8-4.6-8.8-9.4-9.4C7.4 10.8 11.4 6.8 12 2z" fill="#c4b5fd" />
+      </svg>
+    </div>
+  )
+}
+
 export default function Page() {
   return (
     <div className="pp-page">
@@ -103,13 +128,6 @@ export default function Page() {
           <span className="pp-deco pp-deco--circle-tr" />
           <span className="pp-deco pp-deco--dots-left" />
           <span className="pp-deco pp-deco--ring" />
-
-          {/* жёлтые лучики сверху слева */}
-          <svg className="pp-deco pp-deco--rays" viewBox="0 0 40 40" fill="none">
-            <path d="M6 22L2 30" stroke="#FFC857" strokeWidth="3" strokeLinecap="round" />
-            <path d="M14 16L12 6" stroke="#FFC857" strokeWidth="3" strokeLinecap="round" />
-            <path d="M22 20L30 14" stroke="#FFC857" strokeWidth="3" strokeLinecap="round" />
-          </svg>
 
           {/* сиреневый крестик */}
           <svg className="pp-deco pp-deco--cross" viewBox="0 0 16 16" fill="none">
@@ -230,6 +248,7 @@ export default function Page() {
 
       {/* ── ДИАГНОСТИКА ── */}
       <section className="pp-diag">
+        <SectionDecor />
         <div className="pp-wrap">
           <div className="pp-diag__head">
             <span className="pp-diag__target" aria-hidden="true">
@@ -335,6 +354,7 @@ export default function Page() {
 
       {/* ── ЧТО ПОЛУЧИТЕ ПОСЛЕ ДИАГНОСТИКИ ── */}
       <section className="pp-gifts">
+        <SectionDecor />
         <div className="pp-wrap">
           <h2 className="pp-gifts__title">
             <span className="pp-gifts__title-ico" aria-hidden="true">🎁</span>
@@ -348,7 +368,7 @@ export default function Page() {
                 <img className="pp-gcard__ico" src="/znarnia/images/library-books-3d.png" alt="" width="1004" height="929" loading="lazy" decoding="async" />
                 <div className="pp-gcard__title">Годовой доступ к библиотеке материалов</div>
               </div>
-              <p className="pp-gcard__lead">
+              <p className="pp-gcard__subhead">
                 Мы собрали всё необходимое для подготовки к ОГЭ в одном месте.
                 В библиотеке будут доступны:
               </p>
@@ -441,9 +461,6 @@ export default function Page() {
           <span className="pp-adeco pp-adeco--circle" />
           <svg className="pp-adeco pp-adeco--star pp-adeco--star-1" viewBox="0 0 24 24"><path d="M12 2c.5 4.6 4.8 8.9 9.4 9.4-4.6.5-8.9 4.8-9.4 9.4-.5-4.6-4.8-8.9-9.4-9.4C7.2 10.9 11.5 6.6 12 2z" fill="#39C97A"/></svg>
           <svg className="pp-adeco pp-adeco--star pp-adeco--star-2" viewBox="0 0 24 24"><path d="M12 2c.5 4.6 4.8 8.9 9.4 9.4-4.6.5-8.9 4.8-9.4 9.4-.5-4.6-4.8-8.9-9.4-9.4C7.2 10.9 11.5 6.6 12 2z" fill="#FF9F43"/></svg>
-          <svg className="pp-adeco pp-adeco--rays" viewBox="0 0 40 40" fill="none">
-            <path d="M6 22L2 30M14 16L12 6M22 20L30 14" stroke="#8b5cf6" strokeWidth="3" strokeLinecap="round"/>
-          </svg>
           <svg className="pp-adeco pp-adeco--wave" viewBox="0 0 900 40" fill="none" preserveAspectRatio="none">
             <path d="M4 20C120 4 200 36 320 20s200-16 300 0 180 12 276 0" stroke="#c4b5fd" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 12"/>
           </svg>
@@ -485,6 +502,7 @@ export default function Page() {
 
       {/* ── ОТЗЫВЫ + ГРАМОТЫ ── */}
       <section className="pp-social pp-social--alt">
+        <SectionDecor />
         <div className="pp-wrap pp-social__stack">
           <ReviewsCarousel />
           <SchoolsCard />
