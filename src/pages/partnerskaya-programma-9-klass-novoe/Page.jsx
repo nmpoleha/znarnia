@@ -7,6 +7,23 @@ import { useState } from 'react'
 import RegistrationForm from '../../shared/components/RegistrationForm'
 import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
+/* ── Типографика: неразрывные пробелы, чтобы на мобильных не рвались строки
+   на предлогах, союзах, тире и дефисах ── */
+const NBSP_SHORT =
+  'без|перед|через|после|около|между|кроме|среди|чтобы|если|когда|чем|во|ко|со|об|из|от|до|по|за|на|под|над|для|при|про|что|как|или|же|ли|бы|то|не|ни|в|к|с|о|у|и|а|но'
+function typo(s) {
+  if (typeof s !== 'string') return s
+  return s
+    // короткое слово (предлог/союз/частица) прилипает к следующему слову
+    .replace(new RegExp('(?<=^|[\\s(«„])(' + NBSP_SHORT + ')\\s+', 'gi'), '$1 ')
+    // число не отрывается от следующего слова
+    .replace(/(\d)\s+(?=[«"А-Яа-яЁёA-Za-z])/g, '$1 ')
+    // тире не переносится в начало строки
+    .replace(/\s+—/g, ' —')
+    // дефис внутри слова — неразрывный
+    .replace(/([А-Яа-яЁёA-Za-z0-9])-(?=[А-Яа-яЁёA-Za-z])/g, '$1‑')
+}
+
 /* ── Пункты мобильного меню ── */
 const NAV = [
   { href: '#diag', label: 'Диагностика' },
@@ -187,16 +204,16 @@ export default function Page() {
         </div>
 
         <div className="pp-wrap">
-          <span className="pp-hero__eyebrow">🎓 Для родителей 9 класса</span>
+          <span className="pp-hero__eyebrow">{typo('🎓 Для родителей 9 класса')}</span>
           <h1 className="pp-hero__title">
-            Готовимся к ОГЭ вместе — <span className="pp-accent">легко,</span> уверенно, эффективно
+            {typo('Готовимся к ОГЭ вместе — ')}<span className="pp-accent">легко,</span>{typo(' уверенно, эффективно')}
           </h1>
         </div>
         <div className="pp-wrap pp-hero__inner">
           <div className="pp-hero__copy">
             <p className="pp-hero__sub">
-              Специальная программа для родителей 9 класса:{' '}
-              <b className="pp-hero__sub-hl">диагностика знаний, подарки и скидки на обучение в сентябре.</b>
+              {typo('Специальная программа для родителей 9 класса: ')}
+              <b className="pp-hero__sub-hl">{typo('диагностика знаний, подарки и скидки на обучение в сентябре.')}</b>
             </p>
 
             {/* ── ПЛАШКА: Интеллектуальный клуб ОГЭ ── */}
@@ -207,9 +224,8 @@ export default function Page() {
                 <div className="pp-plashka__title">Интеллектуальный клуб ОГЭ</div>
               </div>
               <p className="pp-plashka__text">
-                Не просто занятия.<br />
-                Это пространство, где школьник регулярно занимается, получает поддержку
-                и постепенно выходит на уверенную подготовку к экзамену.
+                {typo('Не просто занятия.')}<br />
+                {typo('Это пространство, где школьник регулярно занимается, получает поддержку и постепенно выходит на уверенную подготовку к экзамену.')}
               </p>
             </div>
           </div>
@@ -276,7 +292,7 @@ export default function Page() {
                   </span>
                   <p className="pp-trust__text">
                     <b className="pp-trust__strong">{t.strong}</b>
-                    <span className="pp-trust__rest" dangerouslySetInnerHTML={{ __html: t.rest }} />
+                    <span className="pp-trust__rest" dangerouslySetInnerHTML={{ __html: typo(t.rest) }} />
                   </p>
                 </div>
               ))}
@@ -295,11 +311,10 @@ export default function Page() {
             </span>
             <div className="pp-diag__head-body">
               <h2 className="pp-diag__title">
-                Подготовка к ОГЭ начинается с <span className="pp-accent">честной диагностики</span>
+                {typo('Подготовка к ОГЭ начинается с ')}<span className="pp-accent">честной диагностики</span>
               </h2>
               <p className="pp-diag__lead">
-                Проверьте уровень знаний ребёнка <span className="pp-accent">уже&nbsp;сейчас</span> и получите материалы, которые
-                помогут подготовиться к экзамену <span className="pp-accent">без&nbsp;лишнего&nbsp;стресса</span>.
+                {typo('Проверьте уровень знаний ребёнка ')}<span className="pp-accent">уже&nbsp;сейчас</span>{typo(' и получите материалы, которые помогут подготовиться к экзамену ')}<span className="pp-accent">без&nbsp;лишнего&nbsp;стресса</span>.
               </p>
             </div>
           </div>
@@ -313,11 +328,9 @@ export default function Page() {
               </svg>
             </div>
             <div className="pp-diag__why-body">
-              <div className="pp-diag__why-title">Почему это важно?</div>
+              <div className="pp-diag__why-title">{typo('Почему это важно?')}</div>
               <p className="pp-diag__why-text">
-                В профильные 10-е классы учеников с тройками не принимают.
-                Поэтому важно заранее понять уровень подготовки ребёнка и успеть
-                устранить пробелы до экзамена.
+                {typo('В профильные 10-е классы учеников с тройками не принимают. Поэтому важно заранее понять уровень подготовки ребёнка и успеть устранить пробелы до экзамена.')}
               </p>
             </div>
           </div>
@@ -331,11 +344,11 @@ export default function Page() {
           <div className="pp-step__left">
             <div className="pp-step__head">
               <span className="pp-step__num">1</span>
-              <h2 className="pp-step__title">Шаг 1. Диагностика в формате ОГЭ</h2>
+              <h2 className="pp-step__title">{typo('Шаг 1. Диагностика в формате ОГЭ')}</h2>
             </div>
             <p className="pp-step__text">
-              Вы получите диагностическую работу по формату ФИПИ.<br />
-              Она включает <b>первые 19 заданий ОГЭ.</b>
+              {typo('Вы получите диагностическую работу по формату ФИПИ.')}<br />
+              {typo('Она включает ')}<b>{typo('первые 19 заданий ОГЭ.')}</b>
             </p>
 
             <div className="pp-step__note">
@@ -345,7 +358,7 @@ export default function Page() {
                 </svg>
               </span>
               <p className="pp-step__note-text">
-                В начале 9 класса ученик должен уверенно решать <b>17–18 заданий из 19.</b>
+                {typo('В начале 9 класса ученик должен уверенно решать ')}<b>{typo('17–18 заданий из 19.')}</b>
               </p>
             </div>
 
@@ -356,7 +369,7 @@ export default function Page() {
                   <span className="pp-step__check" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </span>
-                  {r}
+                  {typo(r)}
                 </li>
               ))}
             </ul>
@@ -383,8 +396,8 @@ export default function Page() {
             <div className="pp-scale__important">
               <span className="pp-scale__imp-ico" aria-hidden="true">!</span>
               <p className="pp-scale__imp-text">
-                <b>Важно.</b> Для получения положительной оценки необходимо решить
-                <b> минимум 2 задания</b> по геометрии.
+                <b>Важно.</b>{typo(' Для получения положительной оценки необходимо решить')}
+                <b>{typo(' минимум 2 задания')}</b>{typo(' по геометрии.')}
               </p>
             </div>
           </div>
@@ -404,15 +417,14 @@ export default function Page() {
             <div className="pp-gcard">
               <div className="pp-gcard__head">
                 <img className="pp-gcard__ico" src="/znarnia/images/library-books-3d.png" alt="" width="1004" height="929" loading="lazy" decoding="async" />
-                <div className="pp-gcard__title">Годовой доступ к библиотеке материалов</div>
+                <div className="pp-gcard__title">{typo('Годовой доступ к библиотеке материалов')}</div>
               </div>
               <p className="pp-gcard__subhead">
-                Мы собрали всё необходимое для подготовки к ОГЭ в одном месте.
-                В библиотеке будут доступны:
+                {typo('Мы собрали всё необходимое для подготовки к ОГЭ в одном месте. В библиотеке будут доступны:')}
               </p>
               <ul className="pp-gcard__list">
                 {LIBRARY.map((x, i) => (
-                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
+                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{typo(x)}</li>
                 ))}
               </ul>
             </div>
@@ -421,16 +433,16 @@ export default function Page() {
             <div className="pp-gcard">
               <div className="pp-gcard__head">
                 <img className="pp-gcard__ico" src="/znarnia/images/library-laptop-3d.png" alt="" width="1174" height="979" loading="lazy" decoding="async" />
-                <div className="pp-gcard__title">Два полноценных урока нашей платформы</div>
+                <div className="pp-gcard__title">{typo('Два полноценных урока нашей платформы')}</div>
               </div>
               <ul className="pp-gcard__list">
                 {LESSONS.map((x, i) => (
-                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{x}</li>
+                  <li key={i} className="pp-gcard__li"><span className="pp-gcard__check" aria-hidden="true">✓</span>{typo(x)}</li>
                 ))}
               </ul>
               <p className="pp-gcard__note">
                 <span className="pp-gcard__note-ico" aria-hidden="true">🎓</span>
-                Познакомьтесь с нашей методикой и оцените формат обучения.
+                {typo('Познакомьтесь с нашей методикой и оцените формат обучения.')}
               </p>
             </div>
           </div>
@@ -446,14 +458,13 @@ export default function Page() {
               <span className="pp-parents__badge-ico" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M12 4L2 8.5 12 13l10-4.5L12 4z" stroke="#fff" strokeWidth="1.8" strokeLinejoin="round"/><path d="M6 11v4c0 .6.3 1.1.8 1.4 1.4.9 3.2 1.4 5.2 1.4s3.8-.5 5.2-1.4c.5-.3.8-.8.8-1.4v-4" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </span>
-              Специально для родителей 9 класса
+              {typo('Специально для родителей 9 класса')}
             </span>
             <h2 className="pp-parents__title">
-              Полезные материалы для <span className="pp-accent">родителей</span> выпускников
+              {typo('Полезные материалы для ')}<span className="pp-accent">родителей</span> выпускников
             </h2>
             <p className="pp-parents__sub">
-              Помимо диагностики и уроков вы получите материалы, которые помогут
-              принять верные решения и поддержать ребёнка.
+              {typo('Помимо диагностики и уроков вы получите материалы, которые помогут принять верные решения и поддержать ребёнка.')}
             </p>
           </div>
 
@@ -464,8 +475,8 @@ export default function Page() {
                 <div key={i} className={`pp-pcard pp-pcard--${p.cls}`}>
                   <span className="pp-pcard__icon" aria-hidden="true">{p.icon}</span>
                   <div className="pp-pcard__body">
-                    <div className="pp-pcard__title">{p.title}</div>
-                    <p className="pp-pcard__text">{p.text}</p>
+                    <div className="pp-pcard__title">{typo(p.title)}</div>
+                    <p className="pp-pcard__text">{typo(p.text)}</p>
                   </div>
                 </div>
               ))}
@@ -483,8 +494,7 @@ export default function Page() {
               <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.5v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V5.5L12 3z" stroke="#fff" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 12l2 2 4-4.5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
             <span className="pp-parents__foot-text">
-              Все материалы подготовлены экспертами и основаны на актуальных требованиях
-              и реальном опыте подготовки к ОГЭ.
+              {typo('Все материалы подготовлены экспертами и основаны на актуальных требованиях и реальном опыте подготовки к ОГЭ.')}
             </span>
           </div>
         </div>
@@ -513,7 +523,7 @@ export default function Page() {
                 <div className="pp-astep__media">
                   <img src={`/znarnia/images/${a.img}.webp`} alt="" loading="lazy" decoding="async" />
                 </div>
-                <p className="pp-astep__text">{a.text}</p>
+                <p className="pp-astep__text">{typo(a.text)}</p>
                 <div className="pp-astep__bar" aria-hidden="true">
                   {[0, 1, 2].map((s) => (
                     <span key={s} className={s === i ? 'is-active' : ''} />
@@ -523,7 +533,7 @@ export default function Page() {
             ))}
           </div>
           <p className="pp-access__lead">
-            Начните подготовку к ОГЭ с понимания реального уровня знаний ребёнка.
+            {typo('Начните подготовку к ОГЭ с понимания реального уровня знаний ребёнка.')}
           </p>
           <div className="pp-access__cta">
             <a href="#registration" className="pp-btn pp-btn--ghost">Оставить заявку</a>
@@ -550,15 +560,14 @@ export default function Page() {
       {/* ── ФОРМА ── */}
       <section className="pp-form" id="registration">
         <div className="pp-wrap">
-          <h2 className="pp-form__title">Оставьте заявку на участие</h2>
+          <h2 className="pp-form__title">{typo('Оставьте заявку на участие')}</h2>
           <p className="pp-form__lead">
-            Заполните короткую форму — мы откроем доступ к диагностике, подаркам
-            и специальной стоимости обучения.
+            {typo('Заполните короткую форму — мы откроем доступ к диагностике, подаркам и специальной стоимости обучения.')}
           </p>
           <RegistrationForm
-            subtitle="После заполнения формы мы свяжемся с вами и откроем доступ к диагностике."
+            subtitle={typo('После заполнения формы мы свяжемся с вами и откроем доступ к диагностике.')}
             gradeLabel="Класс ребёнка *"
-            successText="Мы свяжемся с вами, чтобы открыть доступ к диагностике, подаркам и специальной стоимости обучения."
+            successText={typo('Мы свяжемся с вами, чтобы открыть доступ к диагностике, подаркам и специальной стоимости обучения.')}
           />
         </div>
       </section>

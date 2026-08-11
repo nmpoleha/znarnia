@@ -71,6 +71,11 @@ html { scroll-behavior: smooth; }
 }
 .pp-btn--ghost:active { transform: translateY(1px); }
 
+/* На мобильных кнопки — во всю ширину экрана (как в герое) */
+@media (max-width: 640px) {
+  .pp-btn { width: 100%; }
+}
+
 /* ── HEADER ── */
 .pp-header {
   background: #fff;
@@ -680,6 +685,20 @@ html { scroll-behavior: smooth; }
   color: var(--pp-text);
 }
 
+@media (max-width: 640px) {
+  .pp-diag { padding: 40px 0 44px; }
+  /* иконка-мишень над заголовком */
+  .pp-diag__head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .pp-diag__target { width: 64px; height: 64px; }
+  .pp-diag__title .pp-accent { white-space: nowrap; }
+  .pp-diag__lead { font-weight: 600; }
+  .pp-diag__why { padding: 22px 22px 24px; gap: 16px; }
+}
+
 /* ── ШАГ 1. ДИАГНОСТИКА В ФОРМАТЕ ОГЭ ── */
 .pp-step {
   background: #fff;
@@ -933,7 +952,7 @@ html { scroll-behavior: smooth; }
   grid-template-columns: auto 1fr;
   gap: 12px;
   align-items: center;
-  margin-top: auto;
+  margin-top: 18px;
   padding: 16px 18px;
   border-radius: 16px;
   background: linear-gradient(145deg, #eafaf0, #d8f4e4);
@@ -1011,6 +1030,16 @@ html { scroll-behavior: smooth; }
   flex-shrink: 0;
 }
 .pp-parents__badge-ico svg { width: 18px; height: 18px; }
+@media (max-width: 640px) {
+  .pp-parents__badge {
+    white-space: nowrap;
+    font-size: 12.5px;
+    gap: 8px;
+    padding: 6px 14px 6px 6px;
+  }
+  .pp-parents__badge-ico { width: 26px; height: 26px; }
+  .pp-parents__badge-ico svg { width: 16px; height: 16px; }
+}
 .pp-parents__head { margin-bottom: 34px; }
 .pp-parents__title {
   font-family: 'Montserrat', sans-serif;
@@ -1304,6 +1333,7 @@ html { scroll-behavior: smooth; }
 }
 @media (min-width: 860px) {
   .pp-gifts__grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-gcard__note { margin-top: auto; }
   .pp-parents__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 42%); gap: 44px; }
 }
 @media (min-width: 900px) {
