@@ -161,27 +161,22 @@ export default function Page() {
         <div className="pp-wrap pp-hero__inner">
           <div className="pp-hero__left">
             <p className="pp-hero__sub">
-              Специальная программа для родителей 9 класса: диагностика знаний, подарки и скидки
-              на обучение в сентябре.
+              Специальная программа для родителей 9 класса:{' '}
+              <b className="pp-hero__sub-hl">диагностика знаний, подарки и скидки на обучение в сентябре.</b>
             </p>
 
             {/* ── ПЛАШКА: Интеллектуальный клуб ОГЭ ── */}
             <div className="pp-plashka">
-              <span className="pp-plashka__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 4L2 8.5 12 13l10-4.5L12 4z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round" />
-                  <path d="M6 11v4.2c0 .6.3 1.1.8 1.4 1.4.9 3.2 1.4 5.2 1.4s3.8-.5 5.2-1.4c.5-.3.8-.8.8-1.4V11" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M20 8.5V14" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" />
-                </svg>
-              </span>
-              <div className="pp-plashka__body">
+              <img className="pp-plashka__icon" src="/znarnia/images/plashka-cap-3d.png" alt="" width="903" height="922" loading="lazy" decoding="async" />
+              <div className="pp-plashka__head">
+                <span className="pp-plashka__badge">Для учеников 9 класса</span>
                 <div className="pp-plashka__title">Интеллектуальный клуб ОГЭ</div>
-                <p className="pp-plashka__text">
-                  Не просто занятия.<br />
-                  Это пространство, где школьник регулярно занимается, получает поддержку
-                  и постепенно выходит на уверенную подготовку к экзамену.
-                </p>
               </div>
+              <p className="pp-plashka__text">
+                Не просто занятия.<br />
+                Это пространство, где школьник регулярно занимается, получает поддержку
+                и постепенно выходит на уверенную подготовку к экзамену.
+              </p>
             </div>
 
             <div className="pp-hero__actions">
@@ -357,7 +352,6 @@ export default function Page() {
         <SectionDecor />
         <div className="pp-wrap">
           <h2 className="pp-gifts__title">
-            <span className="pp-gifts__title-ico" aria-hidden="true">🎁</span>
             После прохождения диагностики вы получите
           </h2>
 
