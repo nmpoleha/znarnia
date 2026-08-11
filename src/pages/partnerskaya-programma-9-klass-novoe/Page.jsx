@@ -345,7 +345,7 @@ export default function Page() {
             {/* Карточка 1 — библиотека */}
             <div className="pp-gcard">
               <div className="pp-gcard__head">
-                <img className="pp-gcard__ico" src="/znarnia/images/library-books-3d.png" alt="" width="887" height="790" loading="lazy" decoding="async" />
+                <img className="pp-gcard__ico" src="/znarnia/images/library-books-3d.png" alt="" width="1004" height="929" loading="lazy" decoding="async" />
                 <div className="pp-gcard__title">Годовой доступ к библиотеке материалов</div>
               </div>
               <p className="pp-gcard__lead">
