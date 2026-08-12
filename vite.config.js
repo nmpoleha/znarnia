@@ -55,6 +55,7 @@ export default defineConfig({
         'avgust': resolve(__dirname, 'avgust/index.html'),
         'partnerskaya-programma-9-klass': resolve(__dirname, 'partnerskaya-programma-9-klass/index.html'),
         'partnerskaya-programma-9-klass-novoe': resolve(__dirname, 'partnerskaya-programma-9-klass-novoe/index.html'),
+        'partnerskaya-programma-9-klass-bez-2-urokov': resolve(__dirname, 'partnerskaya-programma-9-klass-bez-2-urokov/index.html'),
         'podgotovka-k-oge': resolve(__dirname, 'podgotovka-k-oge/index.html'),
       },
     },
