@@ -89,13 +89,18 @@
   right: clamp(-150px, -9vw, -80px);
   width: clamp(300px, 40vw, 600px);
 }
-/* нижняя фигура «плавает» в пустой зоне слева-внизу:
-   не касается нижнего края секции (нет резкого обрыва) и не заходит под контент героя */
-.sh-hero__blob--bl {
-  left: clamp(-180px, -13vw, -120px);
-  bottom: clamp(14px, 2.4vw, 36px);
-  width: clamp(200px, 26vw, 360px);
+
+/* очень прозрачные кубики по нижним углам — лёгкий фоновый акцент */
+.sh-hero__cubes {
+  position: absolute;
+  bottom: -34px;
+  width: clamp(220px, 26vw, 380px);
+  height: auto;
+  opacity: 0.1;
+  pointer-events: none;
 }
+.sh-hero__cubes--bl { left: -46px; transform: rotate(-6deg); }
+.sh-hero__cubes--br { right: -46px; transform: scaleX(-1) rotate(-6deg); }
 
 /* контент героя — над фигурами */
 .sh-hero__inner,
@@ -1392,8 +1397,6 @@
 /* ── ЗАГОЛОВКИ: РОВНЫЕ СТРОКИ ── */
 /* balance выравнивает длину строк — заголовки не рассыпаются «лесенкой» */
 .sh-hero__title,
-.sh-env__title,
-.sh-lessons__title,
 .sh-result__title,
 .sh-principle__title,
 .sh-guarantee__title,
@@ -1405,6 +1408,12 @@
 .dg-author__label,
 .dg-author__name {
   text-wrap: balance;
+}
+
+/* эти заголовки — на всю ширину блока (обычный перенос, строка заполняется до края) */
+.sh-env__title,
+.sh-lessons__title {
+  text-wrap: wrap;
 }
 
 /* заголовки не переносим по слогам — в заголовках это выглядит неряшливо */
