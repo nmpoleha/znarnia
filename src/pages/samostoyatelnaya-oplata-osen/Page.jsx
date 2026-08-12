@@ -98,8 +98,73 @@ const SUBJECTS = [
   { cls: 'green',  icon: 'bank',   title: 'Обществознание' },
 ]
 
+/* ── Частые вопросы ── */
+const FAQ_ICONS = {
+  card: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="15" height="11" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M2.5 10h15" stroke="currentColor" strokeWidth="1.8"/><path d="M5.5 13.5h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><circle cx="18" cy="16.5" r="4.2" fill="#16a34a"/><path d="M16.3 16.6l1.2 1.2 2.1-2.3" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  ),
+  calclock: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5" width="14" height="14" rx="2.4" stroke="currentColor" strokeWidth="1.8"/><path d="M2.5 9h14M7 3.5v3M12 3.5v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><circle cx="17.5" cy="16" r="4.4" fill="#fff" stroke="currentColor" strokeWidth="1.8"/><path d="M17.5 14v2l1.3 1.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
+  ),
+  chat: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H9l-4 3.5V15H4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><circle cx="9" cy="10" r="1.1" fill="currentColor"/><circle cx="12.5" cy="10" r="1.1" fill="currentColor"/><circle cx="16" cy="10" r="1.1" fill="currentColor"/></svg>
+  ),
+  refresh: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9a7 7 0 0 1 12-2M19 15a7 7 0 0 1-12 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M17 3v4h-4M7 21v-4h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="18" cy="17" r="4.2" fill="#16a34a"/><path d="M16.3 17.1l1.2 1.2 2.1-2.3" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  ),
+  shield: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5l7.5 2.7v6c0 4.6-3.1 8.4-7.5 10.3C7.6 19.6 4.5 15.8 4.5 11.2v-6L12 2.5z" fill="currentColor"/><path d="M8.4 12l2.4 2.4 4.6-4.8" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  ),
+  person: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+  ),
+  headset: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="3" y="13" width="4" height="6" rx="1.6" stroke="currentColor" strokeWidth="1.8"/><rect x="17" y="13" width="4" height="6" rx="1.6" stroke="currentColor" strokeWidth="1.8"/><path d="M20 19a3 3 0 0 1-3 3h-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+  ),
+}
+const FAQ = [
+  { icon: 'card',     q: 'Можно ли самостоятельно оплатить сентябрь?', a: 'Да, выберите программу и оплатите прямо на странице.' },
+  { icon: 'calclock', q: 'Что именно я оплачиваю сейчас?',            a: 'При оплате в сентябре вы оплачиваете 10 уроков за 4 500 ₽. По дополнительным предметам ОГЭ — 2 сентябрьских занятия.' },
+  { icon: 'chat',     q: 'Как узнать расписание по математике?',       a: 'После оплаты с вами свяжется менеджер и предложит варианты расписания для вашего класса.' },
+  { icon: 'refresh',  q: 'Что если расписание не подойдёт?',           a: 'Мы вернём полную оплату без каких-либо удержаний.' },
+  { icon: 'shield',   q: 'Что если ребёнок откажется продолжать занятия?', a: 'При расторжении в течение 7 дней с начала занятий полный возврат.' },
+  { icon: 'person',   q: 'Можно ли заниматься индивидуально?',         a: 'При возможности. Мы оставляем за собой право отказать в связи с расписанием и стоимостью.' },
+  { icon: 'headset',  q: 'Можно сначала задать вопросы?',              a: 'Конечно! Вы можете написать нам в любой мессенджер или получить консультацию.' },
+]
+
+/* ── Блок о платформе ── */
+const PLATFORM_ICONS = {
+  video: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="12" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M10 9l4 3-4 3V9z" fill="currentColor"/><path d="M7 20h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+  ),
+  board: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H9l-4 3.5V15H4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><circle cx="9" cy="10" r="1.1" fill="currentColor"/><circle cx="12.5" cy="10" r="1.1" fill="currentColor"/><circle cx="16" cy="10" r="1.1" fill="currentColor"/></svg>
+  ),
+  lock: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2.2" stroke="currentColor" strokeWidth="1.8"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" stroke="currentColor" strokeWidth="1.8"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></svg>
+  ),
+  list: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="5" cy="7" r="1.4" fill="currentColor"/><circle cx="5" cy="12" r="1.4" fill="currentColor"/><circle cx="5" cy="17" r="1.4" fill="currentColor"/><path d="M9.5 7h10M9.5 12h10M9.5 17h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+  ),
+  chart: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 20V13M12 20V6M19 20v-9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/></svg>
+  ),
+  ai: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M18.5 3l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6L16.3 5l1.6-.6.6-1.4z" fill="currentColor"/></svg>
+  ),
+}
+const PLATFORM = [
+  { icon: 'video', label: ['Собственная', 'видеосвязь'] },
+  { icon: 'board', label: ['Интерактивная', 'доска'] },
+  { icon: 'lock',  label: ['Автопроверка'] },
+  { icon: 'list',  label: ['Записи с', 'интерактивом'] },
+  { icon: 'chart', label: ['Мотивация', 'и баллы'] },
+  { icon: 'ai',    label: ['AI помощник /', 'аналитика'] },
+]
+
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [openFaq, setOpenFaq] = useState(null)
   return (
     <div className="so-page">
       {/* ── HEADER (как на partnerskaya-programma-9-klass-novoe) ── */}
@@ -309,6 +374,82 @@ export default function Page() {
               </label>
               <button type="submit" className="so-btn so-btn--primary so-form__submit">[ Оставить заявку ]</button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ЧАСТЫЕ ВОПРОСЫ ── */}
+      <section className="so-faq" id="faq">
+        <div className="so-wrap">
+          <h2 className="so-section__title">
+            <span className="so-section__num">5.</span> {typo('Частые вопросы')}
+          </h2>
+          <p className="so-section__lead">
+            {typo('Здесь мы собрали ответы на вопросы, которые нам задают чаще всего.')}
+          </p>
+
+          <div className="so-faq__list">
+            {FAQ.map((f, i) => {
+              const open = openFaq === i
+              return (
+                <div key={f.q} className={`so-faq__item${open ? ' so-faq__item--open' : ''}`}>
+                  <button
+                    type="button"
+                    className="so-faq__q"
+                    aria-expanded={open}
+                    onClick={() => setOpenFaq(open ? null : i)}
+                  >
+                    <span className="so-faq__toggle" aria-hidden="true" />
+                    <span className="so-faq__qtext">
+                      <span className="so-faq__question">{typo(f.q)}</span>
+                      <span className="so-faq__answer">{typo('Ответ: ' + f.a)}</span>
+                    </span>
+                    <span className="so-faq__icon" aria-hidden="true">{FAQ_ICONS[f.icon]}</span>
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── БЛОК О ПЛАТФОРМЕ ── */}
+      <section className="so-platform" id="platform">
+        <div className="so-wrap">
+          <h2 className="so-section__title">
+            <span className="so-section__num">6.</span> {typo('Блок о платформе')}
+          </h2>
+          <div className="so-platform__grid">
+            {PLATFORM.map((p) => (
+              <div key={p.label.join(' ')} className="so-platform__item">
+                <span className="so-platform__icon" aria-hidden="true">{PLATFORM_ICONS[p.icon]}</span>
+                <span className="so-platform__label">
+                  {p.label.map((l, i) => (<span key={i}>{l}</span>))}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ФИНАЛЬНЫЙ CTA ── */}
+      <section className="so-final" id="final">
+        <div className="so-wrap">
+          <div className="so-final__panel">
+            <div className="so-final__decor" aria-hidden="true">
+              <span className="so-final__dots" />
+            </div>
+            <div className="so-final__body">
+              <h2 className="so-final__title">{typo('Готовы записаться на осень?')}</h2>
+              <p className="so-final__text">
+                {typo('Математика — 4 500 ₽ / 10 уроков в сентябре.')}<br />
+                {typo('После оплаты менеджер поможет подобрать расписание.')}
+              </p>
+              <div className="so-final__actions">
+                <a href="#programs" className="so-btn so-btn--primary">Выбрать программу</a>
+                <a href="#individual" className="so-btn so-btn--outline">Получить консультацию</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
