@@ -239,9 +239,17 @@ export default function Page() {
             </p>
           </div>
 
-          {/* Место под фото справа */}
-          <div className="so-hero__media" role="img" aria-label="Место для фото">
-            <span className="so-hero__media-label">Место для фото</span>
+          {/* Иллюстрация справа */}
+          <div className="so-hero__media">
+            <img
+              className="so-hero__img"
+              src="/znarnia/images/math-hero-scene.png"
+              alt="Математические фигуры и формула"
+              width="1516"
+              height="1038"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
