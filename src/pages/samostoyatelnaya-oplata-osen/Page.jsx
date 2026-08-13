@@ -37,44 +37,17 @@ const PROGRAMS = [
 
 /* ── Как проходит запись ── */
 const STEPS = [
-  { n: '1', title: 'Выберите программу',   text: 'Класс или направление и оплатите сентябрь.', icon: 'checklist' },
-  { n: '2', title: 'Мы свяжемся с вами',   text: 'Менеджер предложит варианты расписания.',   icon: 'headset' },
-  { n: '3', title: 'Выберите удобное время', text: 'Для каждого класса будет несколько групп.', icon: 'calendar' },
+  { n: '1', title: 'Выберите программу',   text: 'Класс или направление и оплатите сентябрь.', img: 'step-checklist' },
+  { n: '2', title: 'Мы свяжемся с вами',   text: 'Менеджер предложит варианты расписания.',   img: 'step-headset' },
+  { n: '3', title: 'Выберите удобное время', text: 'Для каждого класса будет несколько групп.', img: 'step-calendar' },
 ]
 
-/* ── Иконки для шагов записи ── */
-const STEP_ICONS = {
-  checklist: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.8"/><path d="M7.5 8l1.3 1.3L11.2 7M7.5 13l1.3 1.3L11.2 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><path d="M14 8h3M14 13h3M8 18h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  headset: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="3" y="13" width="4" height="6" rx="1.6" stroke="currentColor" strokeWidth="1.8"/><rect x="17" y="13" width="4" height="6" rx="1.6" stroke="currentColor" strokeWidth="1.8"/><path d="M20 19a3 3 0 0 1-3 3h-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  calendar: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.8"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><circle cx="15.5" cy="15" r="3.4" fill="#fff" stroke="currentColor" strokeWidth="1.8"/><path d="M15.5 13.4V15l1.1 1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
-  ),
-}
-
 /* ── Дополнительные предметы — подготовка к ОГЭ ── */
-const SUBJECT_ICONS = {
-  book: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2 2 0 0 1 6 3.5h13v15H6a2 2 0 0 0-2 2V5.5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><path d="M4 18.5A2 2 0 0 0 6 20.5h13" stroke="currentColor" strokeWidth="1.8"/><path d="M9 3.5v15" stroke="currentColor" strokeWidth="1.8"/></svg>
-  ),
-  atom: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="currentColor"/><ellipse cx="12" cy="12" rx="10" ry="4.4" stroke="currentColor" strokeWidth="1.6"/><ellipse cx="12" cy="12" rx="10" ry="4.4" stroke="currentColor" strokeWidth="1.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.4" stroke="currentColor" strokeWidth="1.6" transform="rotate(120 12 12)"/></svg>
-  ),
-  laptop: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.8" stroke="currentColor" strokeWidth="1.8"/><path d="M2.5 19h19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  bank: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 5H3l9-5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><path d="M5 10v7M9.3 10v7M14.7 10v7M19 10v7M3 20h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-}
 const SUBJECTS = [
-  { cls: 'violet', icon: 'book',   title: 'Русский язык' },
-  { cls: 'green',  icon: 'atom',   title: 'Физика' },
-  { cls: 'violet', icon: 'laptop', title: 'Информатика' },
-  { cls: 'green',  icon: 'bank',   title: 'Обществознание' },
+  { img: 'subj-book',   title: 'Русский язык' },
+  { img: 'subj-atom',   title: 'Физика' },
+  { img: 'subj-laptop', title: 'Информатика' },
+  { img: 'subj-bank',   title: 'Обществознание' },
 ]
 
 /* ── Частые вопросы ── */
@@ -270,11 +243,11 @@ export default function Page() {
             <span className="so-section__num">2.</span> {typo('Как проходит запись')}
           </h2>
           <div className="so-steps__grid">
-            {STEPS.map((s) => (
+            {STEPS.map((s, i) => (
               <div key={s.n} className="so-step">
                 <div className="so-step__top">
-                  <span className="so-step__num">{s.n}</span>
-                  <span className="so-step__icon" aria-hidden="true">{STEP_ICONS[s.icon]}</span>
+                  <span className={`so-step__num so-step__num--${['violet', 'green', 'orange'][i]}`}>{s.n}</span>
+                  <img className="so-step__icon" src={`/znarnia/images/${s.img}.png`} alt="" width="200" height="200" loading="lazy" decoding="async" />
                 </div>
                 <h3 className="so-step__title">{typo(s.title)}</h3>
                 <p className="so-step__text">{typo(s.text)}</p>
@@ -283,11 +256,13 @@ export default function Page() {
           </div>
 
           <div className="so-guarantee">
-            <span className="so-guarantee__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l7.5 2.7v6c0 4.6-3.1 8.4-7.5 10.3C7.6 19.6 4.5 15.8 4.5 11.2v-6L12 2.5z" fill="currentColor"/><path d="M8.4 12l2.4 2.4 4.6-4.8" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </span>
-            <div className="so-guarantee__body">
+            <div className="so-guarantee__head">
+              <span className="so-guarantee__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l7.5 2.7v6c0 4.6-3.1 8.4-7.5 10.3C7.6 19.6 4.5 15.8 4.5 11.2v-6L12 2.5z" stroke="#fff" strokeWidth="1.8" strokeLinejoin="round"/><path d="M8.4 12l2.4 2.4 4.6-4.8" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>
               <h3 className="so-guarantee__title">{typo('Можно оплачивать сейчас — без риска')}</h3>
+            </div>
+            <div className="so-guarantee__body">
               <p>{typo('Если предложенное расписание не подойдёт или позже изменится — вернём полную стоимость без удержаний.')}</p>
               <p>{typo('7 дней с начала занятий: если ребёнок откажется продолжать обучение, также сделаем полный возврат.')}</p>
             </div>
@@ -301,14 +276,11 @@ export default function Page() {
           <h2 className="so-section__title">
             <span className="so-section__num">3.</span> {typo('Дополнительные предметы — подготовка к ОГЭ')}
           </h2>
-          <p className="so-section__lead">
-            {typo('Формат: 1 раз в неделю, 50 минут. Обычная стоимость — 4 200 ₽ за 4 занятия. В сентябре только 2 занятия, поэтому оплата за сентябрь — 2 100 ₽.')}
-          </p>
 
           <div className="so-subjects">
             {SUBJECTS.map((s) => (
-              <article key={s.title} className={`so-subject so-subject--${s.cls}`}>
-                <span className="so-subject__icon" aria-hidden="true">{SUBJECT_ICONS[s.icon]}</span>
+              <article key={s.title} className="so-subject">
+                <img className="so-subject__icon" src={`/znarnia/images/${s.img}.png`} alt="" width="200" height="200" loading="lazy" decoding="async" />
                 <h3 className="so-subject__title">{typo(s.title)}</h3>
                 <p className="so-subject__meta">{typo('1 раз в неделю • 50 минут')}</p>
                 <p className="so-subject__meta">{typo('Расписание: [день / время]')}</p>
@@ -317,6 +289,10 @@ export default function Page() {
               </article>
             ))}
           </div>
+
+          <p className="so-extra__note">
+            {typo('Формат: 1 раз в неделю, 50 минут. Обычная стоимость — 4 200 ₽ за 4 занятия. В сентябре только 2 занятия, поэтому оплата за сентябрь — 2 100 ₽.')}
+          </p>
         </div>
       </section>
 
@@ -330,11 +306,17 @@ export default function Page() {
           <div className="so-individual__panel">
             <div className="so-individual__aside">
               <p className="so-individual__lead">
-                {typo('Нужны индивидуальные занятия? Материалы или другие школьные предметы. Стоимость на педагога по указанию.')}
+                {typo('Нужны индивидуальные занятия? Материалы или другие школьные предметы.')}
               </p>
-              <div className="so-individual__media" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2 2 0 0 1 6 3.5h13v11H6a2 2 0 0 0-2 2V5.5z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/><path d="M9 3.5v11" stroke="currentColor" strokeWidth="1.6"/><path d="M3 18h14a2 2 0 0 0 2-2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
-              </div>
+              <img
+                className="so-individual__media"
+                src="/znarnia/images/individual-scene.png"
+                alt="Онлайн-урок с преподавателем"
+                width="1314"
+                height="1197"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <form className="so-form" onSubmit={(e) => e.preventDefault()}>
