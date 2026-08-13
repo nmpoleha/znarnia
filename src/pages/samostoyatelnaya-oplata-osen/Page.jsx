@@ -25,35 +25,14 @@ const NAV = [
 ]
 
 /* ── SVG-иконки для карточек программ ── */
-const ICONS = {
-  abacus: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M3 10h18M3 15h18" stroke="currentColor" strokeWidth="1.8"/><circle cx="8" cy="7" r="1.4" fill="currentColor"/><circle cx="13" cy="7" r="1.4" fill="currentColor"/><circle cx="10" cy="12.5" r="1.4" fill="currentColor"/><circle cx="15" cy="12.5" r="1.4" fill="currentColor"/><circle cx="7" cy="17.5" r="1.4" fill="currentColor"/><circle cx="16" cy="17.5" r="1.4" fill="currentColor"/></svg>
-  ),
-  backpack: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 5.5a3 3 0 0 1 6 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M9 13h6v4H9z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/></svg>
-  ),
-  pie: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.8"/><path d="M12 12V3.5A8.5 8.5 0 0 1 19.5 9L12 12z" fill="currentColor"/></svg>
-  ),
-  cap: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4L2 8.5 12 13l10-4.5L12 4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><path d="M21 9v4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  target: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.8"/><circle cx="12" cy="12" r="4.8" stroke="currentColor" strokeWidth="1.8"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>
-  ),
-  clipboard: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M9 4a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 4v1H9V4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><path d="M8.5 11l1.5 1.5 2.5-2.5M8.5 16l1.5 1.5 2.5-2.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-  ),
-}
-
 /* ── Программы по математике ── */
 const PROGRAMS = [
-  { cls: 'violet', icon: 'abacus',    title: '1–4 классы',            desc: 'Математика + развитие математического мышления', href: '#' },
-  { cls: 'green',  icon: 'backpack',  title: '5–8 классы',            desc: 'Сильная школьная база и работа с проблемами',    href: '#' },
-  { cls: 'orange', icon: 'pie',       title: '9 класс',               desc: 'Математика + подготовка к ОГЭ',                  href: '#' },
-  { cls: 'violet', icon: 'cap',       title: '10 класс',              desc: 'Математика и систематизация знаний',             href: '#' },
-  { cls: 'green',  icon: 'target',    title: '11 класс — ЕГЭ база',   desc: 'Подготовка к базовому ЕГЭ',                      href: '#' },
-  { cls: 'orange', icon: 'clipboard', title: '11 класс — ЕГЭ профиль', desc: 'Подготовка к профильному ЕГЭ',                  href: '#' },
+  { img: 'prog-abacus',    title: '1–4 классы',            desc: 'Математика + развитие математического мышления', href: '#' },
+  { img: 'prog-backpack',  title: '5–8 классы',            desc: 'Сильная школьная база и работа с проблемами',    href: '#' },
+  { img: 'prog-pie',       title: '9 класс',               desc: 'Математика + подготовка к ОГЭ',                  href: '#' },
+  { img: 'prog-cap',       title: '10 класс',              desc: 'Математика и систематизация знаний',             href: '#' },
+  { img: 'prog-target',    title: '11 класс — ЕГЭ база',   desc: 'Подготовка к базовому ЕГЭ',                      href: '#' },
+  { img: 'prog-clipboard', title: '11 класс — ЕГЭ профиль', desc: 'Подготовка к профильному ЕГЭ',                  href: '#' },
 ]
 
 /* ── Как проходит запись ── */
@@ -213,9 +192,11 @@ export default function Page() {
         <div className="so-wrap so-hero__inner">
           <div className="so-hero__copy">
             <span className="so-hero__eyebrow">{typo('Самостоятельная оплата занятий')}</span>
-            <h1 className="so-hero__title">{typo('Запись на осень открыта')}</h1>
+            <h1 className="so-hero__title">
+              {typo('Запись на ')}<span className="so-hero__accent">{typo('осень')}</span>{typo(' открыта')}
+            </h1>
             <p className="so-hero__sub">
-              {typo('Выберите программу для ребёнка и оплатите сентябрь онлайн. ')}
+              <span className="so-hero__sub-line">{typo('Выберите программу для ребёнка и оплатите сентябрь онлайн.')}</span>{' '}
               {typo('Математика 1–11 классы, ОГЭ, ЕГЭ и дополнительные предметы.')}
             </p>
 
@@ -230,7 +211,7 @@ export default function Page() {
             </div>
 
             <div className="so-hero__actions">
-              <a href="#programs" className="so-btn so-btn--primary">Выбрать программу →</a>
+              <a href="#programs" className="so-btn so-btn--orange">Выбрать программу →</a>
             </div>
 
             <p className="so-hero__fine">
@@ -245,7 +226,7 @@ export default function Page() {
               className="so-hero__img"
               src="/znarnia/images/math-hero-scene.png"
               alt="Математические фигуры и формула"
-              width="1516"
+              width="1515"
               height="1038"
               loading="eager"
               decoding="async"
@@ -260,15 +241,12 @@ export default function Page() {
           <h2 className="so-section__title">
             <span className="so-section__num">1.</span> {typo('Выберите программу по математике')}
           </h2>
-          <p className="so-section__lead">
-            {typo('Оплатить сентябрь можно сразу. Кнопка «Подробнее» ведёт на отдельный лендинг программы.')}
-          </p>
 
           <div className="so-cards">
             {PROGRAMS.map((p) => (
-              <article key={p.title} className={`so-card so-card--${p.cls}`}>
+              <article key={p.title} className="so-card">
                 <div className="so-card__head">
-                  <span className="so-card__icon" aria-hidden="true">{ICONS[p.icon]}</span>
+                  <img className="so-card__icon" src={`/znarnia/images/${p.img}.png`} alt="" width="408" height="412" loading="lazy" decoding="async" />
                   <div className="so-card__heading">
                     <h3 className="so-card__title">{typo(p.title)}</h3>
                     <p className="so-card__desc">{typo(p.desc)}</p>
