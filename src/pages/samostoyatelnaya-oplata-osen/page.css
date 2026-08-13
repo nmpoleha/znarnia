@@ -12,7 +12,9 @@
   --so-green:       #16a34a;
   --so-orange:      #ea580c;
   --so-max:         1100px;
+  --so-gap:         60px;   /* расстояние между блоками */
 }
+@media (min-width: 1000px) { :root { --so-gap: 68px; } }
 
 html { scroll-behavior: smooth; }
 .so-page {
@@ -191,7 +193,7 @@ html { scroll-behavior: smooth; }
     radial-gradient(60% 55% at 12% 8%, rgba(196,181,253,0.28) 0%, rgba(196,181,253,0) 60%),
     radial-gradient(50% 60% at 96% 92%, rgba(255,214,107,0.16) 0%, rgba(255,214,107,0) 60%),
     linear-gradient(160deg, #efe9fd 0%, #f6f2fe 60%, #fdfcff 100%);
-  padding: 40px 0 48px;
+  padding: 40px 0 32px;
 }
 .so-hero-decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .so-deco { position: absolute; pointer-events: none; }
@@ -323,7 +325,7 @@ html { scroll-behavior: smooth; }
   font-weight: 800;
   font-size: clamp(22px, 3.6vw, 30px);
   color: var(--so-ink);
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 .so-section__num { color: var(--so-purple-mid); }
 .so-section__lead {
@@ -331,12 +333,12 @@ html { scroll-behavior: smooth; }
   font-weight: 600;
   line-height: 1.5;
   color: var(--so-text);
-  margin-bottom: 26px;
+  margin-bottom: 20px;
   max-width: 780px;
 }
 
 /* ── ПРОГРАММЫ ── */
-.so-programs { padding: 52px 0; }
+.so-programs { padding: var(--so-gap) 0 0; }
 .so-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -431,7 +433,7 @@ html { scroll-behavior: smooth; }
   text-transform: uppercase;
   margin-bottom: 8px;
 }
-.so-card__desc { font-size: 14.5px; line-height: 1.5; color: var(--so-text); }
+.so-card__desc { font-size: 14.5px; font-weight: 700; line-height: 1.5; color: var(--so-text); }
 .so-card__price {
   font-weight: 700;
   font-size: 14px;
@@ -439,11 +441,11 @@ html { scroll-behavior: smooth; }
   margin-top: auto;
   padding-top: 4px;
 }
-.so-card__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.so-card__actions { display: flex; flex-wrap: wrap; gap: 16px; }
 .so-card__actions .so-btn { flex: 1 1 auto; }
 
 /* ── КАК ПРОХОДИТ ЗАПИСЬ ── */
-.so-steps { padding: 8px 0 52px; }
+.so-steps { padding: var(--so-gap) 0 0; }
 .so-steps__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -532,7 +534,7 @@ html { scroll-behavior: smooth; }
 }
 
 /* ── ДОПОЛНИТЕЛЬНЫЕ ПРЕДМЕТЫ ── */
-.so-extra { padding: 44px 0; }
+.so-extra { padding: var(--so-gap) 0 0; }
 .so-subjects {
   display: grid;
   grid-template-columns: 1fr;
@@ -628,7 +630,7 @@ html { scroll-behavior: smooth; }
 .so-format__price-suffix { font-size: 14px; font-weight: 700; }
 
 /* ── ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ ── */
-.so-individual { padding: 8px 0 60px; }
+.so-individual { padding: var(--so-gap) 0 0; }
 .so-individual__panel {
   display: grid;
   grid-template-columns: 1fr;
@@ -705,7 +707,7 @@ html { scroll-behavior: smooth; }
 @media (min-width: 560px) { .so-form__submit { margin-left: 154px; } }
 
 /* ── ЧАСТЫЕ ВОПРОСЫ ── */
-.so-faq { padding: 44px 0; }
+.so-faq { padding: var(--so-gap) 0 0; }
 .so-faq__list { display: flex; flex-direction: column; gap: 14px; }
 .so-faq__item {
   background: #fff;
@@ -785,7 +787,7 @@ html { scroll-behavior: smooth; }
 }
 
 /* ── БЛОК О ПЛАТФОРМЕ ── */
-.so-platform { padding: 24px 0 44px; }
+.so-platform { padding: var(--so-gap) 0 0; }
 .so-platform__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -834,7 +836,7 @@ html { scroll-behavior: smooth; }
 }
 
 /* ── ФИНАЛЬНЫЙ CTA ── */
-.so-final { padding: 8px 0 60px; }
+.so-final { padding: var(--so-gap) 0 60px; }
 .so-final__panel {
   position: relative;
   overflow: hidden;
