@@ -344,6 +344,61 @@ html { scroll-behavior: smooth; }
 }
 @media (min-width: 620px)  { .so-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 940px)  { .so-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.so-programs__consult { margin-top: 28px; display: flex; justify-content: center; }
+.so-programs__consult .so-btn { min-width: 440px; max-width: 100%; }
+@media (max-width: 520px) { .so-programs__consult .so-btn { min-width: 0; width: 100%; } }
+
+/* ── Модальное окно с формой консультации ── */
+.so-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+  background: rgba(43, 26, 107, 0.5);
+  backdrop-filter: blur(2px);
+  animation: so-modal-fade 0.18s ease;
+}
+@keyframes so-modal-fade { from { opacity: 0; } to { opacity: 1; } }
+.so-modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+  background: #fff;
+  border-radius: 22px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 30px 80px -30px rgba(43, 26, 107, 0.55);
+  animation: so-modal-pop 0.2s ease;
+}
+@keyframes so-modal-pop { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.so-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--so-purple-lt);
+  color: var(--so-ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.so-modal__close:hover { background: var(--so-purple-soft); }
+.so-modal__title {
+  margin: 0 40px 14px 0;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--so-ink);
+}
+.so-modal__dialog .form-section { background: transparent; border: none; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+@media (max-width: 560px) { .so-modal__dialog { padding: 22px 18px 20px; } }
 
 .so-card {
   display: flex;
@@ -600,6 +655,17 @@ html { scroll-behavior: smooth; }
   height: auto;
   aspect-ratio: 1314 / 1197;
   object-fit: contain;
+}
+
+/* Общая форма регистрации внутри панели — убираем вложенную карточку */
+.so-individual__form { min-width: 0; align-self: center; }
+.so-individual__form .form-section {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
 }
 
 .so-form { display: flex; flex-direction: column; gap: 14px; min-width: 0; }

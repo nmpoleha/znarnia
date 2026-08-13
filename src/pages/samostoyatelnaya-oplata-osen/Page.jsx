@@ -3,7 +3,8 @@
    Герой (место под фото справа) + блок выбора программы по математике.
    Шапка — как на partnerskaya-programma-9-klass-novoe.
    ───────────────────────────────────────────────────────────── */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import RegistrationForm from '../../shared/components/RegistrationForm'
 import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
 /* ── Типографика: неразрывные пробелы, чтобы на мобильных не рвались строки ── */
@@ -95,6 +96,19 @@ const PLATFORM = [
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
+  const [consultOpen, setConsultOpen] = useState(false)
+
+  useEffect(() => {
+    if (!consultOpen) return
+    const onKey = (e) => { if (e.key === 'Escape') setConsultOpen(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [consultOpen])
+
   return (
     <div className="so-page">
       {/* ── HEADER (как на partnerskaya-programma-9-klass-novoe) ── */}
@@ -166,7 +180,7 @@ export default function Page() {
             </div>
 
             <p className="so-hero__fine">
-              {typo('После оплаты менеджер продолжит расписание.')}<br />
+              {typo('После оплаты менеджер предложит расписание.')}<br />
               {typo('Если оно не подойдёт — полный возврат без удержаний.')}
             </p>
           </div>
@@ -210,6 +224,12 @@ export default function Page() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="so-programs__consult">
+            <button type="button" className="so-btn so-btn--primary" onClick={() => setConsultOpen(true)}>
+              Получить консультацию
+            </button>
           </div>
         </div>
       </section>
@@ -308,7 +328,7 @@ export default function Page() {
             <div className="so-individual__aside">
               <p className="so-individual__lead">
                 {typo('Нужны индивидуальные занятия?')}<br />
-                {typo('Материалы или другие школьные предметы.')}
+                {typo('Математика или другие школьные предметы.')}
               </p>
               <img
                 className="so-individual__media"
@@ -321,29 +341,16 @@ export default function Page() {
               />
             </div>
 
-            <form className="so-form" onSubmit={(e) => e.preventDefault()}>
-              <label className="so-form__row">
-                <span className="so-form__label">ФИО родителя</span>
-                <input className="so-form__input" type="text" name="name" placeholder="Ваше имя" autoComplete="name" />
-              </label>
-              <label className="so-form__row">
-                <span className="so-form__label">Телефон</span>
-                <input className="so-form__input" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autoComplete="tel" />
-              </label>
-              <label className="so-form__row">
-                <span className="so-form__label">Класс ребёнка</span>
-                <input className="so-form__input" type="text" name="grade" placeholder="Например, 9 класс" />
-              </label>
-              <label className="so-form__row">
-                <span className="so-form__label">Предмет</span>
-                <input className="so-form__input" type="text" name="subject" placeholder="Например, физика" />
-              </label>
-              <label className="so-form__row">
-                <span className="so-form__label">Комментарий</span>
-                <textarea className="so-form__input so-form__textarea" name="comment" rows="3" placeholder="Ваш комментарий (необязательно)" />
-              </label>
-              <button type="submit" className="so-btn so-btn--primary so-form__submit">Оставить заявку</button>
-            </form>
+            <div className="so-individual__form">
+              <RegistrationForm
+                subtitle={typo('После заполнения формы наши консультанты свяжутся с вами')}
+                nameLabel="Фамилия и имя *"
+                namePlaceholder="Иванов Иван"
+                showSubject
+                subjectPlaceholder="Например, математика"
+                successText={typo('Мы свяжемся с вами для уточнения деталей и подберём формат занятий.')}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -435,6 +442,23 @@ export default function Page() {
           <p>© Школа Сотниковой Ольги · Знарния</p>
         </div>
       </footer>
+
+      {consultOpen && (
+        <div className="so-modal" onClick={() => setConsultOpen(false)}>
+          <div className="so-modal__dialog" role="dialog" aria-modal="true" aria-label="Получить консультацию" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="so-modal__close" aria-label="Закрыть" onClick={() => setConsultOpen(false)}>×</button>
+            <h3 className="so-modal__title">{typo('Получить консультацию')}</h3>
+            <RegistrationForm
+              subtitle={typo('Оставьте заявку — подберём программу и ответим на все вопросы.')}
+              nameLabel="Фамилия и имя *"
+              namePlaceholder="Иванов Иван"
+              showSubject
+              subjectPlaceholder="Например, математика"
+              successText={typo('Мы свяжемся с вами для уточнения деталей и подберём формат занятий.')}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

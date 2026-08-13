@@ -10,8 +10,11 @@ export default function RegistrationForm({
   nameLabel = 'Ваше имя *',
   namePlaceholder = 'Иван Иванов',
   gradeLabel = 'Класс ребёнка (который оканчивает сейчас) *',
+  showSubject = false,
+  subjectLabel = 'Предмет',
+  subjectPlaceholder = 'Например, математика',
 }) {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', subject: '', agree: false })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -72,14 +75,31 @@ export default function RegistrationForm({
             </div>
           </div>
 
-          <div className="form__field form__field--half">
-            <label className="form__label">{gradeLabel}</label>
-            <select className={`form__input form__select${errors.grade ? ' err' : ''}`} name="grade" value={form.grade} onChange={handleChange}>
-              <option value="">Выберите класс</option>
-              {grades.map(g => <option key={g} value={g}>{g} класс</option>)}
-            </select>
-            {errors.grade && <span className="form__err">{errors.grade}</span>}
-          </div>
+          {showSubject ? (
+            <div className="form__grid">
+              <div className="form__field">
+                <label className="form__label">{gradeLabel}</label>
+                <select className={`form__input form__select${errors.grade ? ' err' : ''}`} name="grade" value={form.grade} onChange={handleChange}>
+                  <option value="">Выберите класс</option>
+                  {grades.map(g => <option key={g} value={g}>{g} класс</option>)}
+                </select>
+                {errors.grade && <span className="form__err">{errors.grade}</span>}
+              </div>
+              <div className="form__field">
+                <label className="form__label">{subjectLabel}</label>
+                <input className="form__input" name="subject" type="text" placeholder={subjectPlaceholder} value={form.subject} onChange={handleChange} />
+              </div>
+            </div>
+          ) : (
+            <div className="form__field form__field--half">
+              <label className="form__label">{gradeLabel}</label>
+              <select className={`form__input form__select${errors.grade ? ' err' : ''}`} name="grade" value={form.grade} onChange={handleChange}>
+                <option value="">Выберите класс</option>
+                {grades.map(g => <option key={g} value={g}>{g} класс</option>)}
+              </select>
+              {errors.grade && <span className="form__err">{errors.grade}</span>}
+            </div>
+          )}
 
           <label className="form__check">
             <input type="checkbox" name="agree" checked={form.agree} onChange={handleChange} className="form__check-input" />
