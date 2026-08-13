@@ -626,7 +626,7 @@ html { scroll-behavior: smooth; }
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: var(--so-purple-mid);
+  background: var(--so-green);
   flex-shrink: 0;
 }
 .so-faq__toggle::before,
@@ -692,6 +692,13 @@ html { scroll-behavior: smooth; }
 }
 @media (min-width: 560px) { .so-platform__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 900px) { .so-platform__grid { grid-template-columns: repeat(3, 1fr); } }
+.so-social {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (max-width: 640px) { .so-social { margin-top: 28px; gap: 28px; } }
 .so-platform__item {
   display: flex;
   align-items: center;

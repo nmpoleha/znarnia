@@ -4,6 +4,7 @@
    Шапка — как на partnerskaya-programma-9-klass-novoe.
    ───────────────────────────────────────────────────────────── */
 import { useState } from 'react'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
 /* ── Типографика: неразрывные пробелы, чтобы на мобильных не рвались строки ── */
 const NBSP_SHORT =
@@ -374,6 +375,12 @@ export default function Page() {
                 </span>
               </div>
             ))}
+          </div>
+
+          <div className="so-social">
+            <AuthorCard />
+            <ReviewsCarousel />
+            <SchoolsCard />
           </div>
         </div>
       </section>
