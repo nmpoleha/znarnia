@@ -468,7 +468,7 @@ html { scroll-behavior: smooth; }
   margin: 0;
 }
 .so-guarantee__body { min-width: 0; }
-.so-guarantee__body p { font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.92); }
+.so-guarantee__body p { font-size: 16.5px; font-weight: 700; line-height: 1.5; color: #fff; }
 .so-guarantee__body p + p { margin-top: 10px; }
 @media (max-width: 560px) {
   .so-guarantee { padding: 24px; }
@@ -520,17 +520,57 @@ html { scroll-behavior: smooth; }
 .so-subject .so-btn { width: 100%; margin-top: auto; }
 
 /* Плашка с форматом — во всю ширину под карточками */
-.so-extra__note {
+.so-format {
   margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: stretch;
   background: var(--so-purple-lt);
   border: 1px solid #e7defb;
   border-radius: 18px;
-  padding: 20px 26px;
-  font-size: clamp(15px, 1.9vw, 17px);
-  font-weight: 600;
-  line-height: 1.55;
+  padding: 10px 18px;
+}
+@media (min-width: 720px) {
+  .so-format { grid-template-columns: minmax(0, 1fr) 250px; gap: 24px; padding: 8px 22px; align-items: center; }
+}
+.so-format__info { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.so-format__icon { flex-shrink: 0; width: 64px; height: 64px; }
+.so-format__icon svg { width: 100%; height: 100%; }
+.so-format__body { min-width: 0; }
+.so-format__title { font-size: 16px; font-weight: 800; color: var(--so-ink); }
+.so-format__meta {
+  margin-top: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
   color: var(--so-text);
 }
+.so-format__sep { color: var(--so-muted); }
+.so-format__old { color: var(--so-muted); }
+.so-format__old s { color: var(--so-muted); text-decoration-thickness: 1.5px; }
+
+.so-format__price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+  padding: 7px 16px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #ffedd8 0%, #ffe0c2 100%);
+  border: 1px solid #ffd3a8;
+}
+.so-format__price-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--so-orange);
+}
+.so-format__price-val { font-size: 25px; font-weight: 900; line-height: 1; color: var(--so-orange); white-space: nowrap; }
+.so-format__price-suffix { font-size: 14px; font-weight: 700; }
 
 /* ── ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ ── */
 .so-individual { padding: 8px 0 60px; }

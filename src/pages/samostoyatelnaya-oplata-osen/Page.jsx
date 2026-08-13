@@ -268,9 +268,32 @@ export default function Page() {
             ))}
           </div>
 
-          <p className="so-extra__note">
-            {typo('Формат: 1 раз в неделю, 50 минут. Обычная стоимость — 4 200 ₽ за 4 занятия. В сентябре только 2 занятия, поэтому оплата за сентябрь — 2 100 ₽.')}
-          </p>
+          <div className="so-format">
+            <div className="so-format__info">
+              <span className="so-format__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <rect x="6" y="10" width="27" height="26" rx="4" stroke="#7c3aed" strokeWidth="2.4"/>
+                  <path d="M6 17h27" stroke="#7c3aed" strokeWidth="2.4"/>
+                  <path d="M13 6v7M26 6v7" stroke="#7c3aed" strokeWidth="2.4" strokeLinecap="round"/>
+                  <path d="M11 23h3M18 23h3M11 29h3" stroke="#7c3aed" strokeWidth="2.4" strokeLinecap="round"/>
+                  <circle cx="34" cy="33" r="9.5" fill="#fff" stroke="#7c3aed" strokeWidth="2.4"/>
+                  <path d="M34 28v5.2l3.2 2" stroke="#7c3aed" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+              <div className="so-format__body">
+                <div className="so-format__title">{typo('Формат занятий')}</div>
+                <div className="so-format__meta">
+                  <span>{typo('1 раз в неделю • 50 минут')}</span>
+                  <span className="so-format__sep" aria-hidden="true">•</span>
+                  <span className="so-format__old">{typo('Обычная стоимость —')} <s>4 200 ₽</s> {typo('за 4 занятия')}</span>
+                </div>
+              </div>
+            </div>
+            <div className="so-format__price">
+              <span className="so-format__price-label">В сентябре</span>
+              <span className="so-format__price-val">2 100 ₽ <span className="so-format__price-suffix">{typo('за 2 занятия')}</span></span>
+            </div>
+          </div>
         </div>
       </section>
 
