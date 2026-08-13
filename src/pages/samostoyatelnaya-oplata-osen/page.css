@@ -549,9 +549,10 @@ html { scroll-behavior: smooth; }
 }
 .so-individual__aside { min-width: 0; }
 .so-individual__lead {
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: var(--so-text);
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--so-ink);
   margin-bottom: 20px;
 }
 .so-individual__media {
@@ -667,10 +668,11 @@ html { scroll-behavior: smooth; }
 
 .so-faq__icon {
   justify-self: end;
-  color: var(--so-purple);
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
   flex-shrink: 0;
 }
-.so-faq__icon svg { width: 44px; height: 44px; }
 @media (max-width: 560px) {
   .so-faq__q { grid-template-columns: 28px 1fr; padding: 18px; gap: 12px; }
   .so-faq__icon { display: none; }

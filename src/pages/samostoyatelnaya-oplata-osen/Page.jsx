@@ -51,37 +51,14 @@ const SUBJECTS = [
 ]
 
 /* ── Частые вопросы ── */
-const FAQ_ICONS = {
-  card: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="15" height="11" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M2.5 10h15" stroke="currentColor" strokeWidth="1.8"/><path d="M5.5 13.5h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><circle cx="18" cy="16.5" r="4.2" fill="#16a34a"/><path d="M16.3 16.6l1.2 1.2 2.1-2.3" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-  ),
-  calclock: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5" width="14" height="14" rx="2.4" stroke="currentColor" strokeWidth="1.8"/><path d="M2.5 9h14M7 3.5v3M12 3.5v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><circle cx="17.5" cy="16" r="4.4" fill="#fff" stroke="currentColor" strokeWidth="1.8"/><path d="M17.5 14v2l1.3 1.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
-  ),
-  chat: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H9l-4 3.5V15H4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><circle cx="9" cy="10" r="1.1" fill="currentColor"/><circle cx="12.5" cy="10" r="1.1" fill="currentColor"/><circle cx="16" cy="10" r="1.1" fill="currentColor"/></svg>
-  ),
-  refresh: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9a7 7 0 0 1 12-2M19 15a7 7 0 0 1-12 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M17 3v4h-4M7 21v-4h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="18" cy="17" r="4.2" fill="#16a34a"/><path d="M16.3 17.1l1.2 1.2 2.1-2.3" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-  ),
-  shield: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5l7.5 2.7v6c0 4.6-3.1 8.4-7.5 10.3C7.6 19.6 4.5 15.8 4.5 11.2v-6L12 2.5z" fill="currentColor"/><path d="M8.4 12l2.4 2.4 4.6-4.8" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>
-  ),
-  person: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  headset: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="3" y="13" width="4" height="6" rx="1.6" stroke="currentColor" strokeWidth="1.8"/><rect x="17" y="13" width="4" height="6" rx="1.6" stroke="currentColor" strokeWidth="1.8"/><path d="M20 19a3 3 0 0 1-3 3h-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-}
 const FAQ = [
-  { icon: 'card',     q: 'Можно ли самостоятельно оплатить сентябрь?', a: 'Да, выберите программу и оплатите прямо на странице.' },
-  { icon: 'calclock', q: 'Что именно я оплачиваю сейчас?',            a: 'При оплате в сентябре вы оплачиваете 10 уроков за 4 500 ₽. По дополнительным предметам ОГЭ — 2 сентябрьских занятия.' },
-  { icon: 'chat',     q: 'Как узнать расписание по математике?',       a: 'После оплаты с вами свяжется менеджер и предложит варианты расписания для вашего класса.' },
-  { icon: 'refresh',  q: 'Что если расписание не подойдёт?',           a: 'Мы вернём полную оплату без каких-либо удержаний.' },
-  { icon: 'shield',   q: 'Что если ребёнок откажется продолжать занятия?', a: 'При расторжении в течение 7 дней с начала занятий полный возврат.' },
-  { icon: 'person',   q: 'Можно ли заниматься индивидуально?',         a: 'При возможности. Мы оставляем за собой право отказать в связи с расписанием и стоимостью.' },
-  { icon: 'headset',  q: 'Можно сначала задать вопросы?',              a: 'Конечно! Вы можете написать нам в любой мессенджер или получить консультацию.' },
+  { img: 'faq-card',     q: 'Можно ли самостоятельно оплатить сентябрь?', a: 'Да, выберите программу и оплатите прямо на странице.' },
+  { img: 'faq-calclock', q: 'Что именно я оплачиваю сейчас?',            a: 'При оплате в сентябре вы оплачиваете 10 уроков за 4 500 ₽. По дополнительным предметам ОГЭ — 2 сентябрьских занятия.' },
+  { img: 'faq-chat',     q: 'Как узнать расписание по математике?',       a: 'После оплаты с вами свяжется менеджер и предложит варианты расписания для вашего класса.' },
+  { img: 'faq-refresh',  q: 'Что если расписание не подойдёт?',           a: 'Мы вернём полную оплату без каких-либо удержаний.' },
+  { img: 'faq-shield',   q: 'Что если ребёнок откажется продолжать занятия?', a: 'При расторжении в течение 7 дней с начала занятий полный возврат.' },
+  { img: 'faq-person',   q: 'Можно ли заниматься индивидуально?',         a: 'При возможности. Мы оставляем за собой право отказать в связи с расписанием и стоимостью.' },
+  { img: 'faq-headset',  q: 'Можно сначала задать вопросы?',              a: 'Конечно! Вы можете написать нам в любой мессенджер или получить консультацию.' },
 ]
 
 /* ── Блок о платформе ── */
@@ -306,7 +283,8 @@ export default function Page() {
           <div className="so-individual__panel">
             <div className="so-individual__aside">
               <p className="so-individual__lead">
-                {typo('Нужны индивидуальные занятия? Материалы или другие школьные предметы.')}
+                {typo('Нужны индивидуальные занятия?')}<br />
+                {typo('Материалы или другие школьные предметы.')}
               </p>
               <img
                 className="so-individual__media"
@@ -340,7 +318,7 @@ export default function Page() {
                 <span className="so-form__label">Комментарий</span>
                 <textarea className="so-form__input so-form__textarea" name="comment" rows="3" placeholder="Ваш комментарий (необязательно)" />
               </label>
-              <button type="submit" className="so-btn so-btn--primary so-form__submit">[ Оставить заявку ]</button>
+              <button type="submit" className="so-btn so-btn--primary so-form__submit">Оставить заявку</button>
             </form>
           </div>
         </div>
@@ -372,7 +350,7 @@ export default function Page() {
                       <span className="so-faq__question">{typo(f.q)}</span>
                       <span className="so-faq__answer">{typo('Ответ: ' + f.a)}</span>
                     </span>
-                    <span className="so-faq__icon" aria-hidden="true">{FAQ_ICONS[f.icon]}</span>
+                    <img className="so-faq__icon" src={`/znarnia/images/${f.img}.png`} alt="" width="180" height="180" loading="lazy" decoding="async" />
                   </button>
                 </div>
               )
