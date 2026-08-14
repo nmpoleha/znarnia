@@ -14,6 +14,7 @@
   --so-max:         1100px;
   --so-gap:         60px;   /* расстояние между блоками */
 }
+@media (max-width: 640px)  { :root { --so-gap: 42px; } }  /* моб: −30% */
 @media (min-width: 1000px) { :root { --so-gap: 68px; } }
 
 html { scroll-behavior: smooth; }
@@ -179,7 +180,8 @@ html { scroll-behavior: smooth; }
   .so-header { padding: 8px 0; }
   .so-header__inner { flex-wrap: nowrap; gap: 12px; }
   .so-header__badge { display: none; }
-  .so-header__burger { display: grid; }
+  .so-header__burger { display: none; }
+  .so-deco--ring { display: none; }
   .so-header__logo { height: 46px; }
   .so-header__brand { gap: 8px; min-width: 0; }
   .so-header__brand-name { font-size: 15px; line-height: 1.2; }
@@ -323,11 +325,13 @@ html { scroll-behavior: smooth; }
 .so-section__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(22px, 3.6vw, 30px);
+  font-size: clamp(18px, 5.2vw, 30px);
   color: var(--so-ink);
   margin-bottom: 20px;
+  text-wrap: balance;
 }
-.so-section__num { color: var(--so-purple-mid); }
+/* Заголовок с подзаголовком (лид) идут парой — зазор между ними меньше */
+.so-section__title:has(+ .so-section__lead) { margin-bottom: 8px; }
 .so-section__lead {
   font-size: clamp(16px, 2vw, 19px);
   font-weight: 600;
@@ -575,6 +579,29 @@ html { scroll-behavior: smooth; }
   margin-bottom: 6px;
 }
 .so-subject .so-btn { width: 100%; margin-top: auto; }
+
+/* Мобильные: иконка и название предмета в одну строку (название справа) */
+@media (max-width: 559px) {
+  .so-subject {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+  }
+  .so-subject__icon { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  .so-subject__title { grid-column: 2; grid-row: 1; align-self: center; }
+  .so-subject__meta,
+  .so-subject__price,
+  .so-subject .so-btn { grid-column: 1 / -1; }
+}
+
+/* Мобильные: заголовок «Индивидуальные занятия / консультация» в одну строку */
+@media (max-width: 640px) {
+  .so-individual .so-section__title {
+    white-space: nowrap;
+    font-size: clamp(12px, 3.8vw, 22px);
+  }
+}
 
 /* Плашка с форматом — во всю ширину под карточками */
 .so-format {

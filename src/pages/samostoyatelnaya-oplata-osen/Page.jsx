@@ -13,9 +13,9 @@ const NBSP_SHORT =
 function typo(s) {
   if (typeof s !== 'string') return s
   return s
-    .replace(new RegExp('(?<=^|[\\s(«„])(' + NBSP_SHORT + ')\\s+', 'gi'), '$1 ')
-    .replace(/(\d)\s+(?=[«"А-Яа-яЁёA-Za-z])/g, '$1 ')
-    .replace(/\s+—/g, ' —')
+    .replace(new RegExp('(?<=^|[\\s(«„])(' + NBSP_SHORT + ')\\s+', 'gi'), '$1 ')
+    .replace(/(\d)\s+(?=[«"А-Яа-яЁёA-Za-z])/g, '$1 ')
+    .replace(/\s+—/g, ' —')
     .replace(/([А-Яа-яЁёA-Za-z0-9])-(?=[А-Яа-яЁёA-Za-z])/g, '$1‑')
 }
 
@@ -184,7 +184,7 @@ export default function Page() {
       <section className="so-programs" id="programs">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">1.</span> {typo('Выберите программу по математике')}
+            {typo('Выберите программу по математике')}
           </h2>
 
           <div className="so-cards">
@@ -218,7 +218,7 @@ export default function Page() {
       <section className="so-steps" id="how">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">2.</span> {typo('Как проходит запись')}
+            {typo('Как проходит запись')}
           </h2>
           <div className="so-steps__grid">
             {STEPS.map((s, i) => (
@@ -252,7 +252,7 @@ export default function Page() {
       <section className="so-extra" id="extra">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">3.</span> {typo('Дополнительные предметы — подготовка к ОГЭ')}
+            {typo('Дополнительные предметы — подготовка к ОГЭ')}
           </h2>
 
           <div className="so-subjects">
@@ -301,7 +301,7 @@ export default function Page() {
       <section className="so-individual" id="individual">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">4.</span> {typo('Индивидуальные занятия / консультация')}
+            {typo('Индивидуальные занятия / консультация')}
           </h2>
 
           <div className="so-individual__panel">
@@ -339,7 +339,7 @@ export default function Page() {
       <section className="so-faq" id="faq">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">5.</span> {typo('Частые вопросы')}
+            {typo('Частые вопросы')}
           </h2>
           <p className="so-section__lead">
             {typo('Здесь мы собрали ответы на вопросы, которые нам задают чаще всего.')}
@@ -374,7 +374,7 @@ export default function Page() {
       <section className="so-platform" id="platform">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">6.</span> {typo('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}
+            {typo('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}
           </h2>
           <p className="so-section__lead">
             {typo('Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.')}
