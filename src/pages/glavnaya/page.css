@@ -477,8 +477,14 @@
 }
 
 .gv-page .gv-results {
-  margin-top: 40px;
+  margin-top: 72px;
   position: relative;
+}
+
+/* Больше воздуха между блоками ниже героя */
+.gv-page .sh-guarantee,
+.gv-page .sh-result {
+  margin-top: 72px;
 }
 
 .gv-page .p2-section-title {
@@ -627,7 +633,7 @@
 
 /* ── Блок «Почему Знарния — это больше, чем репетитор» (как на predszapis-osen-stariye-5-8) ── */
 .gv-page .gv-more {
-  margin-top: 40px;
+  margin-top: 72px;
 }
 
 .gv-page .lk-pu-checklist {
@@ -745,3 +751,216 @@
   .gv-page .p2-more__list li,
   .gv-page .p2-more__goal { font-size: 14px; }
 }
+
+/* ── Блоки «Выберите программу» и «Доп. предметы» (как на samostoyatelnaya-oplata-osen) ── */
+.gv-page {
+  --so-purple:      #6d28d9;
+  --so-purple-soft: #ede9fe;
+  --so-purple-lt:   #f3efff;
+  --so-ink:         #2b1a6b;
+  --so-text:        #3b2f52;
+  --so-muted:       #6f6091;
+  --so-orange:      #ea580c;
+  --so-gap:         72px;
+}
+
+.gv-page .so-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.2;
+  padding: 14px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+}
+.gv-page .so-btn--pay {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
+  color: #fff;
+  font-size: 14px;
+  padding: 12px 18px;
+  box-shadow: 0 10px 22px -12px rgba(234, 88, 12, 0.5);
+}
+.gv-page .so-btn--pay:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 12px 26px -12px rgba(234, 88, 12, 0.6); }
+.gv-page .so-btn--link {
+  background: transparent;
+  color: var(--so-purple);
+  border: 1.5px solid #cdbdf2;
+  font-size: 14px;
+  padding: 12px 18px;
+}
+.gv-page .so-btn--link:hover { background: rgba(124, 58, 237, 0.06); border-color: #b9a3ec; }
+
+.gv-page .so-section__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(18px, 5.2vw, 30px);
+  color: var(--so-ink);
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+/* ── Программы ── */
+.gv-page .so-programs { padding: var(--so-gap) 0 0; }
+.gv-page .so-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+@media (min-width: 620px) { .gv-page .so-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 940px) { .gv-page .so-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.gv-page .so-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid #ece5fb;
+  border-radius: 22px;
+  padding: 30px 28px;
+  box-shadow: 0 20px 44px -30px rgba(76, 29, 149, 0.4);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.gv-page .so-card:hover { transform: translateY(-3px); box-shadow: 0 26px 52px -28px rgba(76, 29, 149, 0.45); }
+.gv-page .so-card__head { display: flex; gap: 16px; align-items: flex-start; }
+.gv-page .so-card__icon {
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  object-fit: contain;
+}
+.gv-page .so-card__heading { min-width: 0; }
+.gv-page .so-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--so-ink);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.gv-page .so-card__desc { font-size: 14.5px; font-weight: 700; line-height: 1.5; color: var(--so-text); }
+.gv-page .so-card__price {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--so-muted);
+  margin-top: auto;
+  padding-top: 4px;
+}
+.gv-page .so-card__actions { display: flex; flex-wrap: wrap; gap: 16px; }
+.gv-page .so-card__actions .so-btn { flex: 1 1 auto; }
+
+/* ── Доп. предметы ── */
+.gv-page .so-extra { padding: var(--so-gap) 0 0; }
+.gv-page .so-subjects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 560px) { .gv-page .so-subjects { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 940px) { .gv-page .so-subjects { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.gv-page .so-subject {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ece5fb;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 20px 44px -30px rgba(76, 29, 149, 0.4);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.gv-page .so-subject:hover { transform: translateY(-3px); box-shadow: 0 26px 52px -28px rgba(76, 29, 149, 0.45); }
+.gv-page .so-subject__icon {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+.gv-page .so-subject__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--so-ink);
+}
+.gv-page .so-subject__meta { font-size: 14px; line-height: 1.45; color: var(--so-muted); }
+.gv-page .so-subject__price {
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--so-ink);
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.gv-page .so-subject .so-btn { width: 100%; margin-top: auto; }
+
+@media (max-width: 559px) {
+  .gv-page .so-subject {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+  }
+  .gv-page .so-subject__icon { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  .gv-page .so-subject__title { grid-column: 2; grid-row: 1; align-self: center; }
+  .gv-page .so-subject__meta,
+  .gv-page .so-subject__price,
+  .gv-page .so-subject .so-btn { grid-column: 1 / -1; }
+}
+
+/* Плашка формата */
+.gv-page .so-format {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: stretch;
+  background: var(--so-purple-lt);
+  border: 1px solid #e7defb;
+  border-radius: 18px;
+  padding: 10px 18px;
+}
+@media (min-width: 720px) {
+  .gv-page .so-format { grid-template-columns: minmax(0, 1fr) 250px; gap: 24px; padding: 8px 22px; align-items: center; }
+}
+.gv-page .so-format__info { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.gv-page .so-format__icon { flex-shrink: 0; width: 64px; height: 64px; }
+.gv-page .so-format__icon svg { width: 100%; height: 100%; }
+.gv-page .so-format__body { min-width: 0; }
+.gv-page .so-format__title { font-size: 16px; font-weight: 800; color: var(--so-ink); }
+.gv-page .so-format__meta {
+  margin-top: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--so-text);
+}
+.gv-page .so-format__sep { color: var(--so-muted); }
+.gv-page .so-format__old { color: var(--so-muted); }
+.gv-page .so-format__old s { color: var(--so-muted); text-decoration-thickness: 1.5px; }
+.gv-page .so-format__price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+  padding: 7px 16px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #ffedd8 0%, #ffe0c2 100%);
+  border: 1px solid #ffd3a8;
+}
+.gv-page .so-format__price-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--so-orange);
+}
+.gv-page .so-format__price-val { font-size: 25px; font-weight: 900; line-height: 1; color: var(--so-orange); white-space: nowrap; }
+.gv-page .so-format__price-suffix { font-size: 14px; font-weight: 700; }

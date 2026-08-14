@@ -41,6 +41,24 @@ const FEATURES = [
 
 import { useState } from 'react'
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
+
+/* ── Программы по математике (как на samostoyatelnaya-oplata-osen) ── */
+const PROGRAMS = [
+  { img: 'prog-abacus',    title: '1–4 классы',            desc: 'Математика + развитие математического мышления', href: '#' },
+  { img: 'prog-backpack',  title: '5–8 классы',            desc: 'Сильная школьная база и работа с проблемами',    href: '#' },
+  { img: 'prog-pie',       title: '9 класс',               desc: 'Математика + подготовка к ОГЭ',                  href: '#' },
+  { img: 'prog-cap',       title: '10 класс',              desc: 'Математика и систематизация знаний',             href: '#' },
+  { img: 'prog-target',    title: '11 класс — ЕГЭ база',   desc: 'Подготовка к базовому ЕГЭ',                      href: '#' },
+  { img: 'prog-clipboard', title: '11 класс — ЕГЭ профиль', desc: 'Подготовка к профильному ЕГЭ',                  href: '#' },
+]
+
+/* ── Дополнительные предметы — подготовка к ОГЭ ── */
+const SUBJECTS = [
+  { img: 'subj-book',   title: 'Русский язык' },
+  { img: 'subj-atom',   title: 'Физика' },
+  { img: 'subj-laptop', title: 'Информатика' },
+  { img: 'subj-bank',   title: 'Обществознание' },
+]
 import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
 
 const LkCheck = () => (
@@ -392,6 +410,48 @@ export default function GlavnayaPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ── ВЫБОР ПРОГРАММЫ ПО МАТЕМАТИКЕ (как на samostoyatelnaya-oplata-osen) ── */}
+      <section className="so-programs">
+        <div className="sh-wrap">
+          <h2 className="so-section__title">Выберите программу по математике</h2>
+          <div className="so-cards">
+            {PROGRAMS.map((p) => (
+              <article key={p.title} className="so-card">
+                <div className="so-card__head">
+                  <img className="so-card__icon" src={`/znarnia/images/${p.img}.png`} alt="" width="408" height="412" loading="lazy" decoding="async" />
+                  <div className="so-card__heading">
+                    <h3 className="so-card__title">{p.title}</h3>
+                    <p className="so-card__desc">{p.desc}</p>
+                  </div>
+                </div>
+                <p className="so-card__price">Сентябрь: 10 уроков / 4 500 ₽</p>
+                <div className="so-card__actions">
+                  <a href={p.href} className="so-btn so-btn--link">Подробнее о программе →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ДОПОЛНИТЕЛЬНЫЕ ПРЕДМЕТЫ — ПОДГОТОВКА К ОГЭ (как на samostoyatelnaya-oplata-osen) ── */}
+      <section className="so-extra">
+        <div className="sh-wrap">
+          <h2 className="so-section__title">Дополнительные предметы — подготовка к ОГЭ</h2>
+          <div className="so-subjects">
+            {SUBJECTS.map((s) => (
+              <article key={s.title} className="so-subject">
+                <img className="so-subject__icon" src={`/znarnia/images/${s.img}.png`} alt="" width="200" height="200" loading="lazy" decoding="async" />
+                <h3 className="so-subject__title">{s.title}</h3>
+                <p className="so-subject__meta">1 раз в неделю • 50 минут</p>
+                <p className="so-subject__meta">Расписание: [день / время]</p>
+                <p className="so-subject__price">Сентябрь: 2 100 ₽</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
