@@ -169,10 +169,10 @@ export default function Page() {
           <div className="so-hero__media">
             <img
               className="so-hero__img"
-              src="/znarnia/images/math-hero-scene.png"
+              src="/znarnia/images/math-hero-2.png"
               alt="Математические фигуры и формула"
-              width="1515"
-              height="1038"
+              width="1396"
+              height="924"
               loading="eager"
               decoding="async"
             />
