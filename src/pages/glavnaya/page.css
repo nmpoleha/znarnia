@@ -389,3 +389,359 @@
     object-position: center top;
   }
 }
+
+/* ── Контейнер перенесённых блоков (sh-*) выравниваем по геро ── */
+.gv-page .sh-wrap {
+  max-width: var(--gv-max);
+  padding-left: clamp(16px, 5vw, 80px);
+  padding-right: clamp(16px, 5vw, 80px);
+}
+
+/* ── Карточки-принципы: раскрываемое описание по кнопке-плюсу ── */
+.gv-page .sh-principle {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "media title btn"
+    "text  text  text";
+  align-items: center;
+}
+
+.gv-page .gv-principle__toggle {
+  grid-area: btn;
+  align-self: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--sh-purple-soft);
+  background: var(--sh-purple-lt);
+  color: var(--sh-purple);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.gv-page .gv-principle__toggle:hover {
+  background: #e5dcff;
+}
+
+.gv-page .gv-principle__toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.gv-page .gv-principle--open .gv-principle__toggle {
+  background: linear-gradient(135deg, var(--sh-purple-mid) 0%, var(--sh-purple) 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.gv-page .gv-principle--open .gv-principle__toggle svg {
+  transform: rotate(45deg);
+}
+
+.gv-page .sh-principle__text {
+  padding-top: 4px;
+}
+
+@media (min-width: 760px) {
+  .gv-page .sh-lessons__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .gv-page .sh-principle {
+    grid-template-areas:
+      "media title btn"
+      "media text  text";
+    align-items: start;
+  }
+
+  .gv-page .gv-principle__toggle {
+    align-self: start;
+  }
+}
+
+/* ── Блок «Результаты, которые замечают родители» (как на predszapis-osen-stariye-5-8) ── */
+.gv-page {
+  --p2-purple:        #6d28d9;
+  --p2-purple-soft:   #ede9fe;
+  --p2-purple-mid:    #8b5cf6;
+  --p2-amber-badge:   #fcd34d;
+  --p2-text:          #1e1b4b;
+  --p2-card:          #ffffff;
+  --p2-border:        #e5e7eb;
+  --p2-shadow:        rgba(109, 40, 217, 0.08);
+  --p2-radius-sm:     12px;
+  --p2-radius:        20px;
+}
+
+.gv-page .gv-results {
+  margin-top: 40px;
+  position: relative;
+}
+
+.gv-page .p2-section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--p2-text);
+  line-height: 1.15;
+  margin: 0 0 32px;
+}
+
+.gv-page .p2-results__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 36px;
+  box-shadow: 0 10px 30px var(--p2-shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.gv-page .p2-results__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.gv-page .p2-results__lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-text);
+  margin: 0 0 20px;
+}
+
+.gv-page .p2-results__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 14px 28px;
+}
+
+.gv-page .p2-results__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--p2-text);
+  line-height: 1.5;
+}
+
+.gv-page .p2-results__star {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.gv-page .p2-results__highlight {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  border-radius: var(--p2-radius-sm);
+  padding: 18px 24px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.25);
+}
+
+.gv-page .p2-results__highlight-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--p2-amber-badge);
+  flex-shrink: 0;
+}
+
+.gv-page .p2-results__highlight-main {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.gv-page .p2-results__highlight-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+.gv-page .p2-results__photo-slot {
+  align-self: stretch;
+  min-height: 260px;
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius-sm);
+  background: var(--p2-purple-soft);
+  overflow: hidden;
+}
+
+.gv-page .p2-results__photo-slot--filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .gv-page .p2-results__card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .gv-page .p2-results__list {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: 1fr;
+  }
+  .gv-page .p2-results__photo-slot {
+    align-self: stretch;
+    width: 100%;
+    margin-top: 24px;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 480px) {
+  .gv-page .p2-results__list li { font-size: 14px; }
+  .gv-page .p2-results__card { padding: 24px 20px; }
+  .gv-page .p2-results__lead { font-size: 16px; }
+  .gv-page .p2-results__highlight { padding: 16px 18px; gap: 16px; }
+  .gv-page .p2-results__highlight-main { font-size: 14px; }
+  .gv-page .p2-results__highlight-num { font-size: 38px; }
+}
+
+/* ── Блок «Почему Знарния — это больше, чем репетитор» (как на predszapis-osen-stariye-5-8) ── */
+.gv-page .gv-more {
+  margin-top: 40px;
+}
+
+.gv-page .lk-pu-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gv-page .lk-pu-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--p2-text);
+  line-height: 1.5;
+}
+
+.gv-page .lk-pu-checklist li svg { flex-shrink: 0; margin-top: 2px; }
+
+.gv-page .p2-more__card {
+  background: var(--p2-card);
+  border: 1.5px solid var(--p2-border);
+  border-radius: var(--p2-radius);
+  padding: 40px;
+  box-shadow: 0 10px 30px var(--p2-shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+  column-gap: 36px;
+  align-items: start;
+}
+
+.gv-page .p2-more__content { grid-column: 1; grid-row: 1; }
+
+.gv-page .p2-more__lead {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--p2-text);
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.gv-page .p2-more__accent {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--p2-purple);
+  margin: 0 0 24px;
+}
+
+.gv-page .p2-more__list {
+  margin-bottom: 24px;
+  gap: 14px;
+}
+
+.gv-page .p2-more__list li {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.gv-page .p2-more__media {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: stretch;
+  border-radius: var(--p2-radius-sm);
+  overflow: hidden;
+  border: 1.5px solid var(--p2-border);
+}
+
+.gv-page .p2-more__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.22);
+}
+
+.gv-page .p2-more__goal {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: 28px;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, var(--p2-purple) 0%, var(--p2-purple-mid) 100%);
+  border-radius: var(--p2-radius-sm);
+  box-shadow: 0 10px 26px rgba(109, 40, 217, 0.25);
+}
+
+.gv-page .p2-more__goal-accent {
+  color: var(--p2-amber-badge);
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .gv-page .p2-more__card { grid-template-columns: 1fr; gap: 0; }
+  .gv-page .p2-more__content,
+  .gv-page .p2-more__media,
+  .gv-page .p2-more__goal { grid-column: 1; grid-row: auto; }
+  .gv-page .p2-more__media { align-self: auto; margin-top: 24px; }
+  .gv-page .p2-more__media img { transform: none; height: auto; }
+  .gv-page .p2-more__goal { margin-top: 24px; width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .gv-page .p2-more__card { padding: 24px 20px; }
+  .gv-page .p2-more__accent { font-size: 16px; }
+  .gv-page .p2-more__list li,
+  .gv-page .p2-more__goal { font-size: 14px; }
+}

@@ -40,9 +40,106 @@ const FEATURES = [
 ]
 
 import { useState } from 'react'
+import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
+import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
+
+const LkCheck = () => (
+  <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+    <circle cx="10" cy="10" r="10" fill="#ede9fe"/>
+    <polyline points="5.5 10.5 8.5 13.5 14.5 7" stroke="#6d28d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+/* ── Принципы построения занятий (как на intellektualnyy-klub) ── */
+const PRINCIPLES = [
+  {
+    img: '/znarnia/images/lesson-shield.png',
+    title: 'Полная концентрация и безопасная среда',
+    text: 'Каждый ученик работает в своём личном пространстве на платформе. Ответы ребёнка видны только ему и педагогу — так мы снимаем ненужный стресс и страх ошибиться «на виду у всех». Интерактивные задания (ввести ответ, переместить объект, построить график) и мгновенное поощрение баллами держат внимание и интерес на протяжении всего урока.',
+  },
+  {
+    img: '/znarnia/images/lesson-chart.png',
+    title: 'Педагог видит прогресс каждого, а не только группы',
+    text: 'Наш инструментарий для педагога — это «цифровая панель управления» классом в реальном времени. Учитель видит, кто и как выполняет задание, с какой попытки даёт ответ, кому нужна помощь. Это позволяет точечно поддерживать каждого ученика здесь и сейчас, а после урока анализировать статистику для совершенствования материалов.',
+  },
+  {
+    img: '/znarnia/images/lesson-search.png',
+    title: 'Для вас — полная прозрачность прогресса',
+    text: 'Вы в любой момент можете зайти в личный кабинет и увидеть детальную аналитику по занятиям вашего ребёнка: активность на уроке, процент правильных ответов, темы, которые вызвали вопросы. Вы всегда в курсе его успехов и областей роста, чтобы поддержать его своевременно.',
+  },
+  {
+    img: '/znarnia/images/lesson-headset.png',
+    title: 'Домашняя работа с интеллектуальной поддержкой',
+    text: 'Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
+  },
+]
+
+/* ── Полоса доверия (как на intellektualnyy-klub) ── */
+const TRUST_ITEMS = [
+  {
+    text: 'Качественное образование и забота о каждом ребёнке',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2.8l7.6 2.9v6.1c0 5.4-3.4 8.7-7.6 9.9-4.2-1.2-7.6-4.5-7.6-9.9V5.7L12 2.8z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+        <path d="M8.8 11.9l2.3 2.3 4-4.6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Тысячи учеников доверяют Знарнии',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.4c4-4.2 6-7.3 6-10a6 6 0 1 0-12 0c0 2.7 2 5.8 6 10z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+        <circle cx="12" cy="11.2" r="2.4" stroke="currentColor" strokeWidth="1.7"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Опытные преподаватели и проверенная методика',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 3.4l2.7 5.6 6.1.8-4.5 4.2 1.2 6-5.5-3-5.5 3 1.2-6L3.2 9.8l6.1-.8L12 3.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Безопасная образовательная среда',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="10" width="16" height="10.5" rx="2.4" stroke="currentColor" strokeWidth="1.7"/>
+        <path d="M7.8 10V7.4a4.2 4.2 0 0 1 8.4 0V10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+        <circle cx="12" cy="15.2" r="1.5" fill="currentColor"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Видимый результат уже за 1–2 месяца',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 20v-6M12 20V6M18 20v-9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    text: 'Поддержка и обратная связь для родителей',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 20.6S3.8 15.7 3.8 10.2a4.7 4.7 0 0 1 8.2-3.1 4.7 4.7 0 0 1 8.2 3.1c0 5.5-8.2 10.4-8.2 10.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+]
 
 export default function GlavnayaPage() {
   const [contactsOpen, setContactsOpen] = useState(false)
+  const [openCards, setOpenCards] = useState(() => new Set())
+
+  const toggleCard = (i) => setOpenCards((prev) => {
+    const next = new Set(prev)
+    if (next.has(i)) next.delete(i)
+    else next.add(i)
+    return next
+  })
 
   return (
     <div className="gv-page">
@@ -145,6 +242,156 @@ export default function GlavnayaPage() {
               height="450"
             />
           </div>
+        </div>
+      </section>
+
+      {/* ── КАК ПОСТРОЕНЫ ЗАНЯТИЯ (как на intellektualnyy-klub) ── */}
+      <section className="sh-reveal">
+        <div className="sh-wrap sh-reveal__body">
+          <div className="sh-lessons__head">
+            <div className="sh-lessons__head-text">
+              <h2 className="sh-lessons__title">
+                Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка
+              </h2>
+              <p className="sh-lessons__intro">
+                Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.
+              </p>
+            </div>
+          </div>
+
+          <div className="sh-lessons__grid">
+            {PRINCIPLES.map((p, i) => {
+              const isOpen = openCards.has(i)
+              return (
+                <div key={i} className={`sh-principle gv-principle${isOpen ? ' gv-principle--open' : ''}`}>
+                  <div className="sh-principle__media">
+                    <div className="sh-principle__icon">
+                      <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
+                    </div>
+                    <span className="sh-principle__num">{i + 1}</span>
+                  </div>
+                  <h3 className="sh-principle__title">{p.title}</h3>
+                  <button
+                    type="button"
+                    className="gv-principle__toggle"
+                    aria-expanded={isOpen}
+                    aria-label={isOpen ? 'Свернуть описание' : 'Показать описание'}
+                    onClick={() => toggleCard(i)}
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
+                    </svg>
+                  </button>
+                  {isOpen && <p className="sh-principle__text">{p.text}</p>}
+                </div>
+              )
+            })}
+          </div>
+
+          {/* ── Результаты, которые замечают родители (как на predszapis-osen-stariye-5-8) ── */}
+          <div className="p2-results gv-results">
+            <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
+            <div className="p2-results__card">
+              <div className="p2-results__content">
+                <p className="p2-results__lead">Уже через несколько месяцев занятий ребёнок:</p>
+                <ul className="p2-results__list">
+                  {[
+                    'начинает получать более высокие оценки по математике',
+                    'увереннее чувствует себя на уроках',
+                    'меньше переживает из-за контрольных и самостоятельных работ',
+                    'перестаёт бояться ошибок',
+                    'лучше понимает новые темы',
+                    'легче справляется с домашними заданиями',
+                  ].map((t, i) => (
+                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{t}</span></li>
+                  ))}
+                </ul>
+                <div className="p2-results__highlight">
+                  <div className="p2-results__highlight-num">90%</div>
+                  <div className="p2-results__highlight-text">
+                    <div className="p2-results__highlight-main">учеников улучшают результаты по математике минимум на 1 балл</div>
+                    <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p2-results__photo-slot p2-results__photo-slot--filled">
+                <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          {/* ── Почему Знарния — это больше, чем репетитор (как на predszapis-osen-stariye-5-8) ── */}
+          <div className="p2-more gv-more">
+            <h2 className="p2-section-title">Почему Знарния — это больше, чем репетитор</h2>
+            <div className="p2-more__card">
+              <div className="p2-more__content">
+                <p className="p2-more__lead">Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.</p>
+                <p className="p2-more__accent">Мы работаем иначе.</p>
+                <ul className="lk-pu-checklist p2-more__list">
+                  {[
+                    'Выявляем и устраняем пробелы в знаниях',
+                    'Выстраиваем прочную математическую базу',
+                    'Помогаем разобраться со сложными темами школьной программы',
+                    'Развиваем умение рассуждать и находить решения',
+                    'Учим ребёнка самостоятельно справляться с учебными задачами',
+                  ].map((t, i) => (
+                    <li key={i}><LkCheck /><span>{t}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p2-more__media">
+                <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
+              </div>
+              <p className="p2-more__goal">Наша цель — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
+            </div>
+          </div>
+
+          <div className="sh-guarantee">
+            <div className="sh-guarantee__head">
+              <div className="sh-guarantee__icon" aria-hidden="true">
+                <svg width="30" height="32" viewBox="0 0 34 36" fill="none">
+                  <path d="M17 3l12 4.5v9C29 26 22 32 17 34 12 32 5 26 5 16.5v-9L17 3z" fill="#fff" fillOpacity="0.18" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M11.5 17.5l4 4 7-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <div className="sh-guarantee__title">Безопасность решения</div>
+            </div>
+            <p className="sh-guarantee__text">
+              Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.
+            </p>
+          </div>
+
+          <div className="sh-result">
+            <span className="sh-result__dots" aria-hidden="true" />
+            <span className="sh-result__ring" aria-hidden="true" />
+
+            <div className="sh-result__icon">
+              <svg className="sh-result__hex" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                <path d="M100 8l73 42v100l-73 42-73-42V50z" stroke="#fff" strokeOpacity="0.16" strokeWidth="2"/>
+                <path d="M100 26l58 33v82l-58 33-58-33V59z" stroke="#fff" strokeOpacity="0.10" strokeWidth="2"/>
+              </svg>
+              <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
+            </div>
+
+            <h2 className="sh-result__title">Главный результат:<br className="sh-br-desktop" /> персонализированное обучение</h2>
+            <p className="sh-result__text">
+              Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ПОЛОСА ДОВЕРИЯ (как на intellektualnyy-klub) ── */}
+      <section className="sh-trust">
+        <div className="sh-wrap">
+          <ul className="sh-trust__grid">
+            {TRUST_ITEMS.map((item, i) => (
+              <li key={i} className="sh-trust__item">
+                <span className="sh-trust__icon" aria-hidden="true">{item.icon}</span>
+                <span className="sh-trust__text">{item.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
