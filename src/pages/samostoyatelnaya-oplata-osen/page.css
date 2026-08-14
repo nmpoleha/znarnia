@@ -788,6 +788,7 @@ html { scroll-behavior: smooth; }
 
 /* ── БЛОК О ПЛАТФОРМЕ ── */
 .so-platform { padding: var(--so-gap) 0 0; }
+.so-platform .so-section__lead { max-width: none; }
 .so-platform__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -816,13 +817,10 @@ html { scroll-behavior: smooth; }
 }
 .so-platform__icon {
   flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  color: var(--so-purple);
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
 }
-.so-platform__icon svg { width: 34px; height: 34px; }
 .so-platform__label {
   display: flex;
   flex-direction: column;
@@ -840,25 +838,41 @@ html { scroll-behavior: smooth; }
 .so-final__panel {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(155deg, #ede9fe 0%, #f3efff 60%, #f7f4ff 100%);
-  border: 1px solid #ddd0fb;
+  background: #f3effc;
+  border: 1px solid #e4dbf7;
   border-radius: 26px;
-  padding: 34px 32px;
+  padding: 34px 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
 }
-@media (min-width: 760px) {
-  .so-final__panel { padding: 44px 48px; }
+@media (min-width: 860px) {
+  .so-final__panel {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 44%);
+    padding: 48px 24px 48px 52px;
+    gap: 20px;
+  }
 }
-.so-final__decor { position: absolute; inset: 0; pointer-events: none; }
-.so-final__dots {
-  position: absolute;
-  top: 26px; right: 34px;
-  width: 90px; height: 54px;
-  background-image: radial-gradient(rgba(124,58,237,0.22) 1.6px, transparent 1.6px);
-  background-size: 15px 15px;
-  display: none;
-}
-@media (min-width: 760px) { .so-final__dots { display: block; } }
 .so-final__body { position: relative; z-index: 1; min-width: 0; }
+.so-final__art {
+  width: 100%;
+  height: auto;
+  max-width: 360px;
+  justify-self: center;
+  display: block;
+}
+@media (min-width: 860px) {
+  .so-final__art { max-width: 480px; justify-self: end; }
+}
+.so-final__rule {
+  display: block;
+  width: 46px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--so-purple);
+  margin: 0 0 20px;
+}
 .so-final__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -866,7 +880,7 @@ html { scroll-behavior: smooth; }
   text-transform: uppercase;
   color: var(--so-ink);
   line-height: 1.08;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 .so-final__text {
   font-size: clamp(15px, 2.2vw, 18px);

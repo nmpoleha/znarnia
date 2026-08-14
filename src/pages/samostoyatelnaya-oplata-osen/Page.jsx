@@ -64,26 +64,6 @@ const FAQ = [
 ]
 
 /* ── Блок о платформе ── */
-const PLATFORM_ICONS = {
-  video: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="12" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M10 9l4 3-4 3V9z" fill="currentColor"/><path d="M7 20h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  board: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H9l-4 3.5V15H4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><circle cx="9" cy="10" r="1.1" fill="currentColor"/><circle cx="12.5" cy="10" r="1.1" fill="currentColor"/><circle cx="16" cy="10" r="1.1" fill="currentColor"/></svg>
-  ),
-  lock: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2.2" stroke="currentColor" strokeWidth="1.8"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" stroke="currentColor" strokeWidth="1.8"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></svg>
-  ),
-  list: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="5" cy="7" r="1.4" fill="currentColor"/><circle cx="5" cy="12" r="1.4" fill="currentColor"/><circle cx="5" cy="17" r="1.4" fill="currentColor"/><path d="M9.5 7h10M9.5 12h10M9.5 17h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-  ),
-  chart: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 20V13M12 20V6M19 20v-9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/></svg>
-  ),
-  ai: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M18.5 3l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6L16.3 5l1.6-.6.6-1.4z" fill="currentColor"/></svg>
-  ),
-}
 const PLATFORM = [
   { icon: 'video', label: ['Собственная', 'видеосвязь'] },
   { icon: 'board', label: ['Интерактивная', 'доска'] },
@@ -394,12 +374,24 @@ export default function Page() {
       <section className="so-platform" id="platform">
         <div className="so-wrap">
           <h2 className="so-section__title">
-            <span className="so-section__num">6.</span> {typo('Блок о платформе')}
+            <span className="so-section__num">6.</span> {typo('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}
           </h2>
+          <p className="so-section__lead">
+            {typo('Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.')}
+          </p>
           <div className="so-platform__grid">
             {PLATFORM.map((p) => (
               <div key={p.label.join(' ')} className="so-platform__item">
-                <span className="so-platform__icon" aria-hidden="true">{PLATFORM_ICONS[p.icon]}</span>
+                <img
+                  className="so-platform__icon"
+                  src={`/znarnia/images/platform-${p.icon}.png`}
+                  alt=""
+                  aria-hidden="true"
+                  width="120"
+                  height="120"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="so-platform__label">
                   {p.label.map((l, i) => (<span key={i}>{l}</span>))}
                 </span>
@@ -419,20 +411,28 @@ export default function Page() {
       <section className="so-final" id="final">
         <div className="so-wrap">
           <div className="so-final__panel">
-            <div className="so-final__decor" aria-hidden="true">
-              <span className="so-final__dots" />
-            </div>
             <div className="so-final__body">
               <h2 className="so-final__title">{typo('Готовы записаться на осень?')}</h2>
+              <span className="so-final__rule" aria-hidden="true" />
               <p className="so-final__text">
                 {typo('Математика — 4 500 ₽ / 10 уроков в сентябре.')}<br />
                 {typo('После оплаты менеджер поможет подобрать расписание.')}
               </p>
               <div className="so-final__actions">
                 <a href="#programs" className="so-btn so-btn--primary">Выбрать программу</a>
-                <a href="#individual" className="so-btn so-btn--outline">Получить консультацию</a>
+                <button type="button" className="so-btn so-btn--outline" onClick={() => setConsultOpen(true)}>Получить консультацию</button>
               </div>
             </div>
+            <img
+              className="so-final__art"
+              src="/znarnia/images/final-calendar.png"
+              alt=""
+              aria-hidden="true"
+              width="456"
+              height="440"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
