@@ -46,10 +46,10 @@ const STEPS = [
 
 /* ── Дополнительные предметы — подготовка к ОГЭ ── */
 const SUBJECTS = [
-  { img: 'subj-book',   title: 'Русский язык' },
-  { img: 'subj-atom',   title: 'Физика' },
-  { img: 'subj-laptop', title: 'Информатика' },
-  { img: 'subj-bank',   title: 'Обществознание' },
+  { img: 'subj-book',   title: 'Русский язык',    schedule: 'Воскресенье, 12:45 МСК' },
+  { img: 'subj-atom',   title: 'Физика',          schedule: 'Четверг, 18:00 МСК' },
+  { img: 'subj-laptop', title: 'Информатика',     schedule: 'Понедельник, 18:00 МСК' },
+  { img: 'subj-bank',   title: 'Обществознание',  schedule: 'Суббота, 12:45 МСК' },
 ]
 
 /* ── Частые вопросы ── */
@@ -261,7 +261,7 @@ export default function Page() {
                 <img className="so-subject__icon" src={`/znarnia/images/${s.img}.png`} alt="" width="200" height="200" loading="lazy" decoding="async" />
                 <h3 className="so-subject__title">{typo(s.title)}</h3>
                 <p className="so-subject__meta">{typo('1 раз в неделю • 50 минут')}</p>
-                <p className="so-subject__meta">{typo('Расписание: [день / время]')}</p>
+                <p className="so-subject__meta">{typo('Расписание: ' + s.schedule)}</p>
                 <p className="so-subject__price">{typo('Сентябрь: 2 100 ₽')}</p>
                 <a href="#" className="so-btn so-btn--pay">Оплатить</a>
               </article>
