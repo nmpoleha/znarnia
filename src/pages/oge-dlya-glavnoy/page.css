@@ -1,0 +1,222 @@
+/* ── TOKENS ── */
+:root {
+  --gv-purple:      #6d28d9;
+  --gv-purple-lt:   #f5f3ff;
+  --gv-text:        #1e1b4b;
+  --gv-text-2:      #5b5775;
+  --gv-max:         100%;
+  --so-gap:         72px;
+}
+
+/* ── BASE ── */
+.gv-page {
+  font-family: 'Nunito', sans-serif;
+  color: var(--gv-text);
+  background: #fff;
+  min-height: 100vh;
+}
+
+.gv-page .sh-wrap {
+  max-width: var(--gv-max);
+  margin: 0 auto;
+  padding-left: clamp(21px, 6.6vw, 90px);
+  padding-right: clamp(21px, 6.6vw, 90px);
+}
+
+/* ── Дополнительные предметы (gv-dop) ── */
+.gv-page .gv-dop { padding: var(--so-gap) 0; }
+
+.gv-page .gv-dop__top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .gv-page .gv-dop__top { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 36px; }
+}
+
+.gv-page .gv-dop__badge {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.gv-page .gv-dop__title {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--gv-text);
+  margin: 0 0 16px;
+}
+
+.gv-page .gv-dop__title-accent { color: #6d28d9; }
+
+.gv-page .gv-dop__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gv-text-2);
+  margin: 0;
+}
+
+/* Карточки предметов */
+.gv-page .gv-dop__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 560px) {
+  .gv-page .gv-dop__cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .gv-page .gv-dop__cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+.gv-page .gv-dop__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 24px 18px;
+  background: #fff;
+  border: 1.5px solid #eee7fb;
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(109, 40, 217, 0.06);
+}
+
+.gv-page .gv-dop__card-icon {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.gv-page .gv-dop__card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--gv-text);
+  margin: 4px 0 0;
+}
+
+.gv-page .gv-dop__card-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--gv-text-2);
+  margin: 0;
+  flex: 1;
+}
+
+.gv-page .gv-dop__card-pill {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+}
+
+.gv-page .gv-dop__card--purple .gv-dop__card-pill { background: #ede9fe; color: #6d28d9; }
+.gv-page .gv-dop__card--green  .gv-dop__card-pill { background: #dcfce7; color: #15803d; }
+.gv-page .gv-dop__card--orange .gv-dop__card-pill { background: #ffedd5; color: #c2410c; }
+
+/* Полоса преимуществ */
+.gv-page .gv-dop__strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 22px;
+  padding: 26px clamp(20px, 3vw, 34px);
+  background: #f5f3ff;
+  border-radius: 20px;
+}
+
+@media (min-width: 780px) {
+  .gv-page .gv-dop__strip { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+}
+
+.gv-page .gv-dop__feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.gv-page .gv-dop__feat-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gv-page .gv-dop__feat--purple .gv-dop__feat-icon { background: #ede9fe; color: #6d28d9; }
+.gv-page .gv-dop__feat--green  .gv-dop__feat-icon { background: #dcfce7; color: #15803d; }
+.gv-page .gv-dop__feat--orange .gv-dop__feat-icon { background: #ffedd5; color: #c2410c; }
+
+.gv-page .gv-dop__feat-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--gv-text);
+  margin-bottom: 4px;
+}
+
+.gv-page .gv-dop__feat-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--gv-text-2);
+  margin: 0;
+}
+
+/* Нижняя плашка CTA */
+.gv-page .gv-dop__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 22px;
+  padding: 24px clamp(20px, 3vw, 34px);
+  background: #fff;
+  border: 1.5px solid #eee7fb;
+  border-radius: 20px;
+}
+
+.gv-page .gv-dop__cta-icon { flex-shrink: 0; display: flex; }
+
+.gv-page .gv-dop__cta-text {
+  flex: 1;
+  min-width: 220px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--gv-text);
+  margin: 0;
+}
+
+.gv-page .gv-dop__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(109, 40, 217, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gv-page .gv-dop__cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(109, 40, 217, 0.34);
+}

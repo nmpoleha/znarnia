@@ -37,6 +37,7 @@ export default defineConfig({
         'letnie-kursy': resolve(__dirname, 'letnie-kursy/index.html'),
         'letnie-kursy-2': resolve(__dirname, 'letnie-kursy-2/index.html'),
         'glavnaya': resolve(__dirname, 'glavnaya/index.html'),
+        'oge-dlya-glavnoy': resolve(__dirname, 'oge-dlya-glavnoy/index.html'),
         'predszapis-osen': resolve(__dirname, 'predszapis-osen/index.html'),
         'predszapis-osen-novye': resolve(__dirname, 'predszapis-osen-novye/index.html'),
         'predszapis-osen-novye-2': resolve(__dirname, 'predszapis-osen-novye-2/index.html'),

@@ -71,13 +71,6 @@ const PROGRAMS = [
   { img: 'prog-clipboard', title: '11 класс — ЕГЭ профиль', desc: 'Подготовка к профильному ЕГЭ',                  href: '#' },
 ]
 
-/* ── Дополнительные предметы — подготовка к ОГЭ ── */
-const SUBJECTS = [
-  { img: 'subj-book',   title: 'Русский язык' },
-  { img: 'subj-atom',   title: 'Физика' },
-  { img: 'subj-laptop', title: 'Информатика' },
-  { img: 'subj-bank',   title: 'Обществознание' },
-]
 import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
 
 const LkCheck = () => (
@@ -167,9 +160,137 @@ const TRUST_ITEMS = [
   },
 ]
 
+/* ── «Узнаёте свою ситуацию?» — проблема → решение ── */
+const SitIconCap = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 4l10 4-10 4L2 8l10-4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
+    <path d="M6 10.5V15c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8v-4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M22 8v5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+  </svg>
+)
+const SitIconCalendar = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.7"/>
+    <path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+  </svg>
+)
+const SitIconPuzzle = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M10 4.5c0-1 .9-1.5 1.8-1.2.7.2 1.1.9 1 1.6-.1.6.3 1.1.9 1.1h2.1c.6 0 1.1.5 1.1 1.1v2.1c0 .6.5 1 1.1.9.7-.1 1.4.3 1.6 1 .3.9-.2 1.8-1.2 1.8-.7 0-1.5.4-1.5 1.2v2.9c0 .6-.5 1.1-1.1 1.1h-2.9c-.8 0-1.2-.8-1.2-1.5 0-1-.9-1.5-1.8-1.2-.7.2-1.1.9-1 1.6.1.7-.4 1.4-1.1 1.4H5.6c-.6 0-1.1-.5-1.1-1.1v-3c0-.6-.5-1-1.1-.9-.7.1-1.4-.3-1.6-1-.3-.9.2-1.8 1.2-1.8.7 0 1.5-.4 1.5-1.2V6.1c0-.6.5-1.1 1.1-1.1h3c.7 0 1.1-.6 1-1.2" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
+  </svg>
+)
+const SitIconSad = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7"/>
+    <path d="M8.5 15.5c1-1.2 5-1.2 7 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+    <path d="M9 9.5h.01M15 9.5h.01" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
+  </svg>
+)
+const SitIconGrade = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" strokeWidth="1.7"/>
+    <path d="M14 8.5h-3.2l-.4 3c.5-.4 1.1-.6 1.8-.6 1.4 0 2.5 1 2.5 2.4S13.5 15.5 12 15.5c-1.1 0-2-.5-2.4-1.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const SitIconHourglass = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M7 3.5h10M7 20.5h10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+    <path d="M8 3.5c0 4 8 4.5 8 8.5s-8 4.5-8 8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+    <path d="M16 3.5c0 4-8 4.5-8 8.5s8 4.5 8 8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+  </svg>
+)
+
+/* Иконки для трёх слотов в карточке решения (как на референсе) */
+const SolIconChart = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 20h16" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
+    <rect x="6" y="12" width="3" height="6" rx="1" fill="#6d28d9"/>
+    <rect x="11" y="8" width="3" height="10" rx="1" fill="#a78bfa"/>
+    <rect x="16" y="5" width="3" height="13" rx="1" fill="#6d28d9"/>
+  </svg>
+)
+const SolIconPlay = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3.5" y="5" width="17" height="14" rx="3" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M10.5 9.5l4 2.5-4 2.5v-5z" fill="#6d28d9"/>
+  </svg>
+)
+const SolIconCheck = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="5" y="4" width="14" height="16" rx="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
+    <path d="M9 3.5h6v3H9z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
+    <path d="M8.5 12.5l2.2 2.2 4-4.2" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const SOLUTION_SLOT_ICONS = [<SolIconChart />, <SolIconPlay />, <SolIconCheck />]
+
+const PROBLEMS = [
+  {
+    icon: <SitIconCap />,
+    title: ['У ребёнка есть пробелы', 'и новые темы даются всё сложнее'],
+    points: [
+      { title: 'Находим и закрываем пробелы', text: 'Определяем слабые места и выстраиваем понятную систему.' },
+      { title: 'Объясняем простым языком',    text: 'Живые уроки + записи, чтобы всегда можно было пересмотреть.' },
+      { title: 'Много практики',              text: 'Тренируем навыки на интересных и понятных заданиях.' },
+    ],
+    result: 'В результате ребёнок снова понимает темы, справляется с заданиями и становится увереннее в себе.',
+  },
+  {
+    icon: <SitIconCalendar />,
+    title: ['Пропускает уроки', 'и потом не может догнать класс'],
+    points: [
+      { title: 'Запись каждого занятия',   text: 'Пропущенную тему можно пересмотреть в удобное время.' },
+      { title: 'Разбираем пропущенное',    text: 'Помогаем нагнать класс и закрыть пробел по теме.' },
+      { title: 'Педагог видит отставание', text: 'Замечает, где ребёнок отстал, и даёт дополнительные задания.' },
+    ],
+    result: 'В результате ребёнок быстро догоняет класс и не выпадает из программы.',
+  },
+  {
+    icon: <SitIconPuzzle />,
+    title: ['Знает правило, но не может', 'самостоятельно решить задачу'],
+    points: [
+      { title: 'Разбираем логику решения',       text: 'Показываем, как рассуждать, а не заучивать алгоритм.' },
+      { title: 'Учим применять знания',          text: 'Ребёнок понимает, где и как использовать правило.' },
+      { title: 'Практика от простого к сложному', text: 'Постепенно доводим навык до уверенного уровня.' },
+    ],
+    result: 'В результате ребёнок сам решает задачи, а не заучивает готовые шаги.',
+  },
+  {
+    icon: <SitIconSad />,
+    title: ['Боится ошибаться', 'и не верит в свои силы'],
+    points: [
+      { title: 'Маленькие группы',        text: 'Спокойная и безопасная среда без страха ошибиться «на виду».' },
+      { title: 'Ответы видит только педагог', text: 'Ребёнок отвечает без давления со стороны группы.' },
+      { title: 'Внимание к каждому',      text: 'Преподаватель видит работу каждого ученика и поддерживает.' },
+    ],
+    result: 'В результате ребёнок перестаёт бояться ошибок и верит в свои силы.',
+  },
+  {
+    icon: <SitIconGrade />,
+    title: ['Нужно успешно сдать ОГЭ', 'по дополнительным предметам'],
+    points: [
+      { title: 'Готовим по 4 предметам', text: 'Русский язык, физика, информатика и обществознание.' },
+      { title: 'Системная подготовка',  text: 'Разбираем все разделы и работаем со сложными темами.' },
+      { title: 'Практика формата ОГЭ',  text: 'Тренируемся на экзаменационных заданиях.' },
+    ],
+    result: 'Ребёнок подходит к экзамену подготовленным и понимает, чего ожидать на ОГЭ.',
+  },
+  {
+    icon: <SitIconHourglass />,
+    title: ['Домашние задания превращаются', 'в стресс для всей семьи'],
+    points: [
+      { title: 'Персональный куратор',  text: 'Помогает ребёнку с домашним заданием, когда возникают сложности.' },
+      { title: 'Умные подсказки',       text: 'Направляют к решению, но не дают готовый ответ.' },
+      { title: 'Дополнительный разбор', text: 'При необходимости ребёнок получает пошаговое объяснение.' },
+    ],
+    result: 'В результате домашние задания перестают быть стрессом для всей семьи.',
+  },
+]
+
 export default function GlavnayaPage() {
   const [contactsOpen, setContactsOpen] = useState(false)
   const [openCards, setOpenCards] = useState(() => new Set())
+  const [activeProblem, setActiveProblem] = useState(0)
 
   const toggleCard = (i) => setOpenCards((prev) => {
     const next = new Set(prev)
@@ -286,6 +407,111 @@ export default function GlavnayaPage() {
               width="1536"
               height="1024"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* ── УЗНАЁТЕ СВОЮ СИТУАЦИЮ? (проблема → решение) ── */}
+      <section className="gv-sit">
+        <div className="sh-wrap">
+          <div className="gv-sit__panel">
+            <div className="gv-sit__head">
+              <div className="gv-sit__heading">
+                <h2 className="gv-sit__title">
+                  Узнаёте <span className="gv-sit__accent">свою</span> ситуацию?
+                </h2>
+                <p className="gv-sit__subtitle">Скорее всего, мы уже знаем, как помочь.</p>
+              </div>
+              <p className="gv-sit__note">
+                Наши методики и формат занятий созданы
+                для реальных задач современных школьников.
+              </p>
+            </div>
+
+            <div className="gv-sit__body">
+              {/* 1 — Проблемы */}
+              <div className="gv-sit__problems" role="tablist" aria-label="Ситуации">
+                {PROBLEMS.map((p, i) => {
+                  const isActive = activeProblem === i
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      className={`gv-sit__problem${isActive ? ' gv-sit__problem--active' : ''}`}
+                      onClick={() => setActiveProblem(i)}
+                    >
+                      <span className="gv-sit__problem-icon">{p.icon}</span>
+                      <span className="gv-sit__problem-text">
+                        {p.title[0]}<br/>{p.title[1]}
+                      </span>
+                      <svg className="gv-sit__problem-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                  )
+                })}
+              </div>
+
+              {/* Связка проблема → решение */}
+              <div className="gv-sit__connector" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 12h14M12 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              {/* 2 — Решение Знарнии */}
+              <div className="gv-sit__solution">
+                <span className="gv-sit__badge">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3l1.9 4.6L18.5 9l-3.5 3.1.9 5.4L12 15l-3.9 2.5.9-5.4L5.5 9l4.6-1.4L12 3z" fill="currentColor"/>
+                  </svg>
+                  Решение Знарнии
+                </span>
+
+                <div className="gv-sit__points">
+                  {PROBLEMS[activeProblem].points.map((pt, j) => (
+                    <div key={j} className="gv-sit__point">
+                      <span className="gv-sit__point-icon">{SOLUTION_SLOT_ICONS[j]}</span>
+                      <div className="gv-sit__point-body">
+                        <div className="gv-sit__point-title">{pt.title}</div>
+                        <p className="gv-sit__point-text">{pt.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="gv-sit__result">
+                  <svg className="gv-sit__result-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3l1.7 4.1L18 8.4l-3.2 2.8.8 4.8L12 13.6 8.4 16l.8-4.8L6 8.4l4.3-1.3L12 3z" fill="#16a34a"/>
+                  </svg>
+                  <p className="gv-sit__result-text">{PROBLEMS[activeProblem].result}</p>
+                </div>
+              </div>
+
+              {/* 3 — Иллюстрация */}
+              <div className="gv-sit__media">
+                <img
+                  src="/znarnia/images/situation-lesson.png"
+                  alt="Онлайн-занятие: преподаватель на экране ноутбука, ученики, тетрадь и книги"
+                  className="gv-sit__img"
+                  width="1392"
+                  height="1130"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div className="gv-sit__cta">
+              <a href="#" className="gv-sit__cta-btn">
+                Посмотреть программы по предметам
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -458,24 +684,6 @@ export default function GlavnayaPage() {
                 <div className="so-card__actions">
                   <a href={p.href} className="so-btn so-btn--link">Подробнее о программе →</a>
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── ДОПОЛНИТЕЛЬНЫЕ ПРЕДМЕТЫ — ПОДГОТОВКА К ОГЭ (как на samostoyatelnaya-oplata-osen) ── */}
-      <section className="so-extra">
-        <div className="sh-wrap">
-          <h2 className="so-section__title">Дополнительные предметы — подготовка к ОГЭ</h2>
-          <div className="so-subjects">
-            {SUBJECTS.map((s) => (
-              <article key={s.title} className="so-subject">
-                <img className="so-subject__icon" src={`/znarnia/images/${s.img}.png`} alt="" width="200" height="200" loading="lazy" decoding="async" />
-                <h3 className="so-subject__title">{s.title}</h3>
-                <p className="so-subject__meta">1 раз в неделю • 50 минут</p>
-                <p className="so-subject__meta">Расписание: [день / время]</p>
-                <p className="so-subject__price">Сентябрь: 2 100 ₽</p>
               </article>
             ))}
           </div>
