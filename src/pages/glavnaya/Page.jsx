@@ -61,14 +61,13 @@ const HERO_PILLS = [
 import { useState } from 'react'
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
 
-/* ── Программы по математике (как на samostoyatelnaya-oplata-osen) ── */
+/* ── Программы (3 возрастных направления + 2 варианта для 9 класса) ── */
 const PROGRAMS = [
-  { img: 'prog-abacus',    title: '1–4 классы',            desc: 'Математика + развитие математического мышления', href: '#' },
-  { img: 'prog-backpack',  title: '5–8 классы',            desc: 'Сильная школьная база и работа с проблемами',    href: '#' },
-  { img: 'prog-pie',       title: '9 класс',               desc: 'Математика + подготовка к ОГЭ',                  href: '#' },
-  { img: 'prog-cap',       title: '10 класс',              desc: 'Математика и систематизация знаний',             href: '#' },
-  { img: 'prog-target',    title: '11 класс — ЕГЭ база',   desc: 'Подготовка к базовому ЕГЭ',                      href: '#' },
-  { img: 'prog-clipboard', title: '11 класс — ЕГЭ профиль', desc: 'Подготовка к профильному ЕГЭ',                  href: '#' },
+  { img: 'prog-abacus',   title: 'Начальная школа',           tag: '1–4 классы',  desc: 'Математика и развитие математического мышления', href: '#' },
+  { img: 'prog-backpack', title: 'Средняя школа',             tag: '5–8 классы',  desc: 'Сильная школьная база и работа с пробелами',      href: '#' },
+  { img: 'prog-cap',      title: 'Старшая школа',             tag: '10–11 классы', desc: 'Математика, систематизация знаний и подготовка к ЕГЭ', href: '#' },
+  { img: 'prog-pie',      title: '9 класс — математика',      tag: '9 класс',     desc: 'Математика + подготовка к ОГЭ',                   badge: 'Подготовка к ОГЭ', href: '#' },
+  { img: 'subj-book',     title: '9 класс — дополнительные предметы', tag: '9 класс', desc: 'Русский язык, физика, информатика, обществознание — подготовка к ОГЭ', badge: 'Подготовка к ОГЭ', href: '#' },
 ]
 
 import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
@@ -666,24 +665,26 @@ export default function GlavnayaPage() {
         </div>
       </section>
 
-      {/* ── ВЫБОР ПРОГРАММЫ ПО МАТЕМАТИКЕ (как на samostoyatelnaya-oplata-osen) ── */}
-      <section className="so-programs">
+      {/* ── ВЫБОР ПРОГРАММЫ ── */}
+      <section className="gv-prog">
         <div className="sh-wrap">
-          <h2 className="so-section__title">Выберите программу по математике</h2>
-          <div className="so-cards">
+          <h2 className="gv-prog__title">Выберите программу</h2>
+          <p className="gv-prog__subtitle">Подберём подходящий формат и поможем достичь результата</p>
+          <div className="gv-prog__grid">
             {PROGRAMS.map((p) => (
-              <article key={p.title} className="so-card">
-                <div className="so-card__head">
-                  <img className="so-card__icon" src={`/znarnia/images/${p.img}.png`} alt="" width="408" height="412" loading="lazy" decoding="async" />
-                  <div className="so-card__heading">
-                    <h3 className="so-card__title">{p.title}</h3>
-                    <p className="so-card__desc">{p.desc}</p>
+              <article key={p.title} className="gv-prog-card">
+                <div className="gv-prog-card__head">
+                  <span className="gv-prog-card__icon">
+                    <img src={`/znarnia/images/${p.img}.png`} alt="" width="408" height="412" loading="lazy" decoding="async" />
+                  </span>
+                  <div className="gv-prog-card__heading">
+                    <h3 className="gv-prog-card__title">{p.title}</h3>
+                    <span className="gv-prog-card__tag">{p.tag}</span>
                   </div>
                 </div>
-                <p className="so-card__price">Сентябрь: 10 уроков / 4 500 ₽</p>
-                <div className="so-card__actions">
-                  <a href={p.href} className="so-btn so-btn--link">Подробнее о программе →</a>
-                </div>
+                {p.badge && <span className="gv-prog-card__badge">{p.badge}</span>}
+                <p className="gv-prog-card__desc">{p.desc}</p>
+                <a href={p.href} className="gv-prog-card__btn">Подробнее о программе →</a>
               </article>
             ))}
           </div>
