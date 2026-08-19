@@ -40,7 +40,7 @@
 .gv-topbar__inner {
   max-width: var(--gv-max);
   margin: 0 auto;
-  padding: 0 clamp(16px, 5vw, 80px);
+  padding: 0 clamp(21px, 6.6vw, 90px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -110,7 +110,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  padding: 8px clamp(16px, 5vw, 80px);
+  padding: 8px clamp(21px, 6.6vw, 90px);
   background: #f9f8ff;
   border-top: 1px solid #e5e7eb;
 }
@@ -142,7 +142,7 @@
 .gv-hero__inner {
   max-width: var(--gv-max);
   margin: 0 auto;
-  padding: clamp(20px, 4vh, 48px) clamp(16px, 5vw, 80px) 0;
+  padding: clamp(20px, 4vh, 48px) clamp(21px, 6.6vw, 90px) 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(380px, 52%, 660px);
   align-items: stretch;
@@ -285,16 +285,10 @@
 
 .gv-hero__img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   height: auto;
-  object-fit: cover;
-  border-radius: 20px;
+  object-fit: contain;
   display: block;
-  clip-path: inset(10px 0 30px 0 round 20px);
-  box-shadow:
-    0 2px 6px rgba(109, 40, 217, 0.06),
-    0 10px 32px rgba(109, 40, 217, 0.12),
-    0 32px 72px rgba(109, 40, 217, 0.10);
 }
 
 /* ── ANIMATIONS ── */
@@ -381,20 +375,15 @@
   }
 
   .gv-hero__img {
-    aspect-ratio: 4 / 3;
-    border-radius: 16px;
-    box-shadow:
-      0 4px 16px rgba(109, 40, 217, 0.12),
-      0 16px 40px rgba(109, 40, 217, 0.10);
-    object-position: center top;
+    aspect-ratio: 3 / 2;
   }
 }
 
 /* ── Контейнер перенесённых блоков (sh-*) выравниваем по геро ── */
 .gv-page .sh-wrap {
   max-width: var(--gv-max);
-  padding-left: clamp(16px, 5vw, 80px);
-  padding-right: clamp(16px, 5vw, 80px);
+  padding-left: clamp(21px, 6.6vw, 90px);
+  padding-right: clamp(21px, 6.6vw, 90px);
 }
 
 /* ── Карточки-принципы: раскрываемое описание по кнопке-плюсу ── */

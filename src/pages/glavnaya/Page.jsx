@@ -253,11 +253,11 @@ export default function GlavnayaPage() {
           {/* RIGHT: hero image */}
           <div className="gv-hero__media">
             <img
-              src="/znarnia/images/hero-main.png"
-              alt="Ученик занимается математикой"
+              src="/znarnia/images/hero-math.png"
+              alt="Ноутбук с формулами, геометрические фигуры и математические символы"
               className="gv-hero__img"
-              width="700"
-              height="450"
+              width="1536"
+              height="1024"
             />
           </div>
         </div>
