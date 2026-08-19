@@ -24,19 +24,38 @@ const IconMonitor = () => (
   </svg>
 )
 
-const IconBulb = () => (
+const IconStar = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-    <path d="M16 4a7 7 0 0 1 4 12.7V20a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-3.3A7 7 0 0 1 16 4z" stroke="#6d28d9" strokeWidth="1.9" strokeLinejoin="round"/>
-    <path d="M13 24h6M14 27h4" stroke="#6d28d9" strokeWidth="1.9" strokeLinecap="round"/>
-    <path d="M16 9v4M13.5 11.5l2.5 2.5" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round"/>
+    <path d="M16 4l3.5 7.1 7.8 1.1-5.65 5.5 1.34 7.8L16 28.8l-7-3.67 1.34-7.8L4.7 12.2l7.8-1.1L16 4z" stroke="#6d28d9" strokeWidth="1.9" strokeLinejoin="round"/>
+  </svg>
+)
+
+const IconCap = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 4l10 4-10 4L2 8l10-4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+    <path d="M6 10.5V15c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8v-4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M22 8v5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+  </svg>
+)
+
+const IconBookMini = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4V5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+    <path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6V5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
   </svg>
 )
 
 const FEATURES = [
-  { icon: <IconPeople />, text: 'Маленькие\nгруппы 4–8 детей' },
-  { icon: <IconBook />,   text: 'Авторская методика\nОльги Сотниковой' },
-  { icon: <IconMonitor />, text: 'Живые занятия\n+ записи уроков' },
-  { icon: <IconBulb />,  text: 'Ребёнок начинает\nпонимать математику' },
+  { icon: <IconPeople />,  title: 'Маленькие группы',       sub: '4–8 детей' },
+  { icon: <IconBook />,    title: 'Авторская методика',     sub: 'Ольги Сотниковой' },
+  { icon: <IconMonitor />, title: 'Живые занятия',          sub: '+ записи уроков' },
+  { icon: <IconStar />,    title: 'От школьной базы до ЕГЭ', sub: '1–11 классы' },
+]
+
+const HERO_PILLS = [
+  { icon: <IconCap />,      label: '1–11 классы', variant: 'purple' },
+  { icon: <IconBookMini />, label: 'ОГЭ',         variant: 'green' },
+  { icon: <IconBookMini />, label: 'ЕГЭ',         variant: 'orange' },
 ]
 
 import { useState } from 'react'
@@ -87,8 +106,8 @@ const PRINCIPLES = [
   },
   {
     img: '/znarnia/images/lesson-headset.png',
-    title: 'Домашняя работа с интеллектуальной поддержкой',
-    text: 'Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
+    title: 'Персональная помощь с домашними заданиями',
+    text: 'За ребёнком закреплён персональный куратор, к которому можно обратиться, если возникли сложности с домашним заданием. Он поможет найти ошибку, обратит внимание на оформление решения, подскажет, в каком направлении двигаться, и разберёт непонятный момент. Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
   },
 ]
 
@@ -225,9 +244,18 @@ export default function GlavnayaPage() {
             </h1>
 
             <p className="gv-hero__sub">
-              Авторские курсы для школьников 1–10 классов:<br/>
-              логика, школьная математика, развитие мышления и уверенность в решении задач.
+              Авторские курсы по математике для 1–11 классов: школьная программа,
+              развитие математического мышления, подготовка к ОГЭ и ЕГЭ.
             </p>
+
+            <div className="gv-hero__pills">
+              {HERO_PILLS.map((p, i) => (
+                <span key={i} className={`gv-hero__pill gv-hero__pill--${p.variant}`}>
+                  {p.icon}
+                  {p.label}
+                </span>
+              ))}
+            </div>
 
             <div className="gv-hero__features-panel">
               <div className="gv-hero__features">
@@ -235,9 +263,8 @@ export default function GlavnayaPage() {
                   <div key={i} className="gv-hero__feature">
                     <div className="gv-hero__feature-icon">{f.icon}</div>
                     <p className="gv-hero__feature-text">
-                      {f.text.split('\n').map((line, j) => (
-                        <span key={j}>{line}{j === 0 && <br/>}</span>
-                      ))}
+                      <span className="gv-hero__feature-title">{f.title}</span>
+                      <span className="gv-hero__feature-sub">{f.sub}</span>
                     </p>
                   </div>
                 ))}

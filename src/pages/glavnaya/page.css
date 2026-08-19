@@ -218,11 +218,61 @@
 }
 
 .gv-hero__feature-text {
-  font-size: 12px;
-  color: var(--gv-text-2);
-  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   margin: 0;
-  font-weight: 600;
+  line-height: 1.35;
+}
+
+.gv-hero__feature-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gv-text);
+}
+
+.gv-hero__feature-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gv-text-2);
+  opacity: 0.85;
+}
+
+/* Pills (уровни / экзамены) */
+.gv-hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: clamp(12px, 2vh, 24px);
+  animation: gv-fade-up 0.55s 0.12s ease both;
+}
+
+.gv-hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gv-hero__pill svg { flex-shrink: 0; }
+
+.gv-hero__pill--purple {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.gv-hero__pill--green {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.gv-hero__pill--orange {
+  background: #ffedd5;
+  color: #c2410c;
 }
 
 /* CTA */
