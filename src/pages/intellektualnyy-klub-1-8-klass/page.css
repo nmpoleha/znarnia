@@ -517,6 +517,37 @@
   padding-right: 36px;
 }
 
+/* ── поле «Ваш класс» ── */
+.sh-form__label--grade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sh-form__badge {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 12px;
+  color: #db2777;
+  background: #fce7f3;
+  border: 1px solid #fbcfe8;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.sh-form__select--grade {
+  max-width: 260px;
+}
+
+.sh-form__hint {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sh-muted);
+}
+
 .sh-form__err {
   font-size: 12px;
   color: #dc2626;
@@ -670,6 +701,96 @@
   max-width: 30ch;
 }
 
+/* ── ПОЛЕ ТЕЛЕФОНА С КОДОМ СТРАНЫ ── */
+.sh-phone {
+  display: flex;
+  align-items: stretch;
+  border: 1.5px solid var(--sh-border);
+  border-radius: 12px;
+  background: #fff;
+  transition: border-color 0.15s;
+}
+.sh-phone:focus-within { border-color: var(--sh-purple); }
+.sh-phone--err { border-color: #dc2626; }
+
+.sh-phone__cc {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sh-phone__cc-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 100%;
+  padding: 0 12px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--sh-border);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--sh-text);
+}
+
+.sh-phone__cc-flag { font-size: 18px; line-height: 1; }
+.sh-phone__cc-dial { font-weight: 700; white-space: nowrap; }
+
+.sh-phone__cc-chev {
+  width: 12px;
+  height: 8px;
+  color: #9b8bbd;
+}
+
+.sh-phone__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--sh-text);
+  border-radius: 0 11px 11px 0;
+}
+.sh-phone__input:focus { outline: none; }
+
+.sh-phone__cc-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  list-style: none;
+  width: 250px;
+  max-height: 264px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  box-shadow: 0 18px 44px rgba(76, 29, 149, 0.18);
+  padding: 6px;
+}
+
+.sh-phone__cc-opt {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--sh-text);
+}
+.sh-phone__cc-opt:hover { background: var(--sh-purple-lt); }
+.sh-phone__cc-opt.is-active { background: var(--sh-purple-soft); }
+.sh-phone__cc-opt .sh-phone__cc-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sh-phone__cc-opt .sh-phone__cc-dial { color: var(--sh-muted); }
+
 /* ── REVEAL SECTIONS ── */
 .sh-reveal {
   padding: 72px 0 56px;
@@ -710,78 +831,18 @@
 }
 
 .sh-join__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  align-items: start;
-}
-
-.sh-join__title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: clamp(22px, 3.6vw, 32px);
-  line-height: 1.15;
-  color: #211432;
-  margin-bottom: 12px;
-}
-
-.sh-join__lead {
-  font-size: clamp(15px, 1.8vw, 18px);
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--sh-purple-mid);
-  margin-bottom: 24px;
-  max-width: 46ch;
-}
-
-.sh-join__points {
-  list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
 }
 
-.sh-join__point {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.sh-join__point-icon {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 15px;
-  background: var(--sh-purple-soft);
-  color: var(--sh-purple);
-  display: grid;
-  place-items: center;
-}
-.sh-join__point-icon svg { width: 27px; height: 27px; }
-
-.sh-join__point-body { min-width: 0; }
-
-.sh-join__point-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.25;
-  color: #211432;
-  margin-bottom: 4px;
-}
-
-.sh-join__point-text {
-  font-size: 15.5px;
-  line-height: 1.45;
-  color: #5b4a7d;
+/* форма по центру, заметно шире прежней узкой колонки */
+.sh-join__form {
+  width: 100%;
+  max-width: 760px;
 }
 
 @media (min-width: 860px) {
   .sh-join { padding: 64px 0; }
-  .sh-join__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 44%);
-    gap: 48px;
-  }
 }
 
 @media (max-width: 859px) {

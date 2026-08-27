@@ -1,6 +1,62 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import RegistrationForm from '../../shared/components/RegistrationForm'
 import { nb } from '../../shared/utils/nb'
+
+/* ── Коды стран для поля телефона ── */
+const COUNTRIES = [
+  { code: 'RU', flag: '🇷🇺', name: 'Россия', dial: '+7' },
+  { code: 'KZ', flag: '🇰🇿', name: 'Казахстан', dial: '+7' },
+  { code: 'BY', flag: '🇧🇾', name: 'Беларусь', dial: '+375' },
+  { code: 'UA', flag: '🇺🇦', name: 'Украина', dial: '+380' },
+  { code: 'UZ', flag: '🇺🇿', name: 'Узбекистан', dial: '+998' },
+  { code: 'KG', flag: '🇰🇬', name: 'Кыргызстан', dial: '+996' },
+  { code: 'TJ', flag: '🇹🇯', name: 'Таджикистан', dial: '+992' },
+  { code: 'AM', flag: '🇦🇲', name: 'Армения', dial: '+374' },
+  { code: 'AZ', flag: '🇦🇿', name: 'Азербайджан', dial: '+994' },
+  { code: 'GE', flag: '🇬🇪', name: 'Грузия', dial: '+995' },
+  { code: 'MD', flag: '🇲🇩', name: 'Молдова', dial: '+373' },
+  { code: 'IL', flag: '🇮🇱', name: 'Израиль', dial: '+972' },
+  { code: 'DE', flag: '🇩🇪', name: 'Германия', dial: '+49' },
+  { code: 'US', flag: '🇺🇸', name: 'США / Канада', dial: '+1' },
+]
+
+function CountrySelect({ value, onChange }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', onDoc)
+    return () => document.removeEventListener('mousedown', onDoc)
+  }, [open])
+  const sel = COUNTRIES.find(c => c.code === value) || COUNTRIES[0]
+  return (
+    <div className="sh-phone__cc" ref={ref}>
+      <button type="button" className="sh-phone__cc-btn" onClick={() => setOpen(o => !o)} aria-haspopup="listbox" aria-expanded={open} aria-label="Код страны">
+        <span className="sh-phone__cc-flag">{sel.flag}</span>
+        <span className="sh-phone__cc-dial">{sel.dial}</span>
+        <svg className="sh-phone__cc-chev" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </button>
+      {open && (
+        <ul className="sh-phone__cc-list" role="listbox">
+          {COUNTRIES.map(c => (
+            <li
+              key={c.code}
+              role="option"
+              aria-selected={c.code === value}
+              className={`sh-phone__cc-opt${c.code === value ? ' is-active' : ''}`}
+              onClick={() => { onChange(c.code); setOpen(false) }}
+            >
+              <span className="sh-phone__cc-flag">{c.flag}</span>
+              <span className="sh-phone__cc-name">{c.name}</span>
+              <span className="sh-phone__cc-dial">{c.dial}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
 
 /* nb + жёсткая привязка тире к обоим соседям: строка не рвётся ни до, ни после «—» */
 const nbd = (s) => nb(s).replace(/([—–]) /g, '$1 ')
@@ -405,7 +461,7 @@ const IconShield = () => (
 )
 
 function RegForm() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
+  const [form, setForm] = useState({ name: '', country: 'RU', phone: '', email: '', telegram: '', grade: '', agree: false })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -461,7 +517,10 @@ function RegForm() {
 
         <div className="sh-form__field">
           <label className="sh-form__label">Телефон <span className="sh-form__req">*</span></label>
-          <input className={`sh-form__input${errors.phone ? ' sh-form__input--err' : ''}`} type="tel" placeholder="+7 (___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
+          <div className={`sh-phone${errors.phone ? ' sh-phone--err' : ''}`}>
+            <CountrySelect value={form.country} onChange={v => set('country', v)} />
+            <input className="sh-phone__input" type="tel" inputMode="tel" placeholder="(___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
+          </div>
           {errors.phone && <span className="sh-form__err">{errors.phone}</span>}
         </div>
 
@@ -477,13 +536,17 @@ function RegForm() {
         </div>
       </div>
 
-      <div className="sh-form__field sh-form__field--half">
-        <label className="sh-form__label">Класс ребёнка</label>
-        <select className={`sh-form__input sh-form__select${errors.grade ? ' sh-form__input--err' : ''}`} value={form.grade} onChange={e => set('grade', e.target.value)}>
+      <div className="sh-form__field">
+        <label className="sh-form__label sh-form__label--grade">
+          Ваш класс
+          <span className="sh-form__badge">{nb('на 2026–2027 учебный год')}</span>
+        </label>
+        <select className={`sh-form__input sh-form__select sh-form__select--grade${errors.grade ? ' sh-form__input--err' : ''}`} value={form.grade} onChange={e => set('grade', e.target.value)}>
           <option value="">Выберите класс</option>
-          {Array.from({ length: 11 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1} класс</option>)}
+          {Array.from({ length: 8 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1} класс</option>)}
         </select>
         {errors.grade && <span className="sh-form__err">{errors.grade}</span>}
+        <span className="sh-form__hint">{nbd('Определяет, какие материалы клуба вы будете получать. Класс можно сменить позже.')}</span>
       </div>
 
       <label className={`sh-form__check${errors.agree ? ' sh-form__check--err' : ''}`}>
@@ -941,23 +1004,6 @@ export default function Page() {
       {/* ── ФОРМА ВСТУПЛЕНИЯ ── */}
       <section className="sh-join" id="join">
         <div className="sh-wrap sh-join__inner">
-          <div className="sh-join__intro">
-            <h2 className="sh-join__title">{nb('Вступите в клуб — это бесплатно')}</h2>
-            <p className="sh-join__lead">
-              {nbd('Заполните форму — и мы откроем доступ к клубу и пришлём первый полезный материал для обучения.')}
-            </p>
-            <ul className="sh-join__points">
-              {THESES.map((t, i) => (
-                <li key={i} className="sh-join__point">
-                  <span className="sh-join__point-icon" aria-hidden="true">{t.icon}</span>
-                  <div className="sh-join__point-body">
-                    <div className="sh-join__point-title">{nb(t.title)}</div>
-                    <div className="sh-join__point-text">{nbd(t.text)}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
           <div className="sh-join__form">
             <RegForm />
           </div>
