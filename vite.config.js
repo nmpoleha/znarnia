@@ -59,6 +59,7 @@ export default defineConfig({
         'partnerskaya-programma-9-klass-bez-2-urokov': resolve(__dirname, 'partnerskaya-programma-9-klass-bez-2-urokov/index.html'),
         'podgotovka-k-oge': resolve(__dirname, 'podgotovka-k-oge/index.html'),
         'intellektualnyy-klub': resolve(__dirname, 'intellektualnyy-klub/index.html'),
+        'intellektualnyy-klub-1-8-klass': resolve(__dirname, 'intellektualnyy-klub-1-8-klass/index.html'),
         'samostoyatelnaya-oplata-osen': resolve(__dirname, 'samostoyatelnaya-oplata-osen/index.html'),
       },
     },
