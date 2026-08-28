@@ -373,7 +373,7 @@ function WatchVideo() {
         playsInline
         preload="metadata"
         controls={playing}
-        onEnded={() => setPlaying(false)}
+        onEnded={() => { setPlaying(false); const v = ref.current; if (v) v.load() }}
       />
       {!playing && (
         <button type="button" className="sh-watch__play" onClick={start} aria-label="Смотреть, как проходит занятие">
@@ -968,8 +968,9 @@ export default function Page() {
                 <li key={i} className={`sh-watch__item sh-watch__item--${item.tone}`}>
                   <span className="sh-watch__icon" aria-hidden="true">{item.icon}</span>
                   <div className="sh-watch__text">
-                    <div className="sh-watch__item-title">{nb(item.title)}</div>
-                    <p className="sh-watch__item-desc">{nb(item.text)}</p>
+                    <span className="sh-watch__item-title">{nb(item.title)}</span>
+                    <span className="sh-watch__item-sep" aria-hidden="true"> · </span>
+                    <span className="sh-watch__item-desc">{nb(item.text)}</span>
                   </div>
                 </li>
               ))}
@@ -984,7 +985,6 @@ export default function Page() {
             <div className="sh-watch__stage">
               <span className="sh-watch__glow" aria-hidden="true" />
               <WatchVideo />
-              <span className="sh-watch__bubble" aria-hidden="true">{nbd('21 секунда — и всё понятно')}</span>
             </div>
           </div>
         </div>

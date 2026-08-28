@@ -2360,9 +2360,10 @@
 
 .sh-watch__lead {
   font-size: 16px;
+  font-weight: 600;
   line-height: 1.55;
-  color: var(--sh-muted);
-  max-width: 480px;
+  color: #362654;
+  max-width: 760px;
   margin-bottom: 22px;
 }
 
@@ -2380,7 +2381,7 @@
   flex-direction: column;
   gap: 14px;
 }
-.sh-watch__item { display: flex; align-items: flex-start; gap: 14px; }
+.sh-watch__item { display: flex; align-items: center; gap: 14px; }
 .sh-watch__item--violet { --tone: #6d28d9; --tone-soft: #ece6fb; }
 .sh-watch__item--amber  { --tone: #d97706; --tone-soft: #fdecc8; }
 .sh-watch__item--green  { --tone: #059669; --tone-soft: #d6f5e5; }
@@ -2396,15 +2397,15 @@
   color: var(--tone);
 }
 .sh-watch__icon svg { width: 24px; height: 24px; }
-.sh-watch__text { min-width: 0; padding-top: 2px; }
+.sh-watch__text { min-width: 0; }
 .sh-watch__item-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 16px;
   color: #211432;
-  margin-bottom: 2px;
 }
-.sh-watch__item-desc { font-size: 14px; line-height: 1.45; color: #5b4a7d; }
+.sh-watch__item-sep { color: #c4b5fd; font-weight: 700; }
+.sh-watch__item-desc { font-size: 15px; color: #5b4a7d; }
 
 .sh-watch__right { position: relative; }
 .sh-watch__caption {
@@ -2491,7 +2492,7 @@
 @media (min-width: 860px) {
   .sh-watch { padding: 56px 0; }
   .sh-watch__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
-    gap: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 36%);
+    gap: 40px;
   }
 }
