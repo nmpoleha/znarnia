@@ -261,64 +261,35 @@ const CLUB_ITEMS = [
     tone: 'violet',
     title: 'Новый урок-тренажёр',
     text: 'Математика + мышление в одном занятии. Сюжет, интерактивные задания и никакой скучной страницы с примерами.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 3.5a1.6 1.6 0 0 1 3.2 0c0 .5-.2.9-.2 1.3 0 .5.4.9.9.9h1.7a1.4 1.4 0 0 1 1.4 1.4v1.7c0 .5.4.9.9.9.4 0 .8-.2 1.3-.2a1.6 1.6 0 0 1 0 3.2c-.5 0-.9-.2-1.3-.2-.5 0-.9.4-.9.9v3.1a1.4 1.4 0 0 1-1.4 1.4h-3.1c-.5 0-.9-.4-.9-.9 0-.4.2-.8.2-1.3a1.6 1.6 0 0 0-3.2 0c0 .5.2.9.2 1.3 0 .5-.4.9-.9.9H4.8a1.4 1.4 0 0 1-1.4-1.4v-3.1c0-.5.4-.9.9-.9.4 0 .8.2 1.3.2a1.6 1.6 0 0 0 0-3.2c-.5 0-.9.2-1.3.2-.5 0-.9-.4-.9-.9V7a1.4 1.4 0 0 1 1.4-1.4h1.7c.5 0 .9-.4.9-.9 0-.4-.2-.8-.2-1.3z"/>
-      </svg>
-    ),
+    img: '/znarnia/images/klub-ic-puzzle.png',
   },
   {
     tag: 'В течение года',
     tone: 'green',
     title: 'Диагностики знаний',
     text: 'Покажут, что ребёнок уже знает хорошо и какие темы стоит повторить.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="10.5" cy="10.5" r="6.5" />
-        <path d="M15.2 15.2L20 20" />
-        <path d="M7.6 10.6l2 2 3.4-4" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-ic-search.png',
   },
   {
     tag: 'Перед контрольными',
     tone: 'orange',
     title: 'Самостоятельные и контрольные',
     text: 'Можно потренироваться заранее и увереннее чувствовать себя в школе.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="4" width="14" height="17" rx="2.4" />
-        <rect x="9" y="2.4" width="6" height="3.6" rx="1.3" />
-        <path d="M8.3 11.1l1 1 1.7-1.9M13 11.2h3M8.3 15.6l1 1 1.7-1.9M13 15.7h3" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-ic-checklist.png',
   },
   {
     tag: 'Всегда под рукой',
     tone: 'violet',
     title: 'Шпаргалки и памятки',
     text: 'Формулы, правила и короткие подсказки по школьной математике.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 5.5A2 2 0 0 1 6 3.5h5v15H6a2 2 0 0 0-2 2z" />
-        <path d="M20 5.5a2 2 0 0 0-2-2h-5v15h5a2 2 0 0 1 2 2z" />
-        <path d="M7 8h2M7 11h2M15 8h2M15 11h2" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-ic-book.png',
   },
   {
     tag: 'Периодически',
     tone: 'green',
     title: 'Открытые уроки и подарки',
     text: 'Дополнительные занятия, новые материалы, сюрпризы и подарки для участников клуба.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 11h16v8.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" />
-        <rect x="3" y="7.5" width="18" height="3.5" rx="1" />
-        <path d="M12 7.5v13" />
-        <path d="M12 7.5S10.8 3.5 8.7 3.5a2.2 2.2 0 1 0 0 4.4H12zm0 0s1.2-4 3.3-4a2.2 2.2 0 1 1 0 4.4H12z" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-ic-gift.png',
   },
 ]
 
@@ -883,8 +854,12 @@ export default function Page() {
           <ul className="sh-club2__grid">
             {CLUB_ITEMS.map((item, i) => (
               <li key={i} className={`sh-club2__card sh-club2__card--${item.tone}`}>
-                <span className="sh-club2__icon" aria-hidden="true">{item.icon}</span>
-                <span className="sh-club2__tag">{nb(item.tag)}</span>
+                <span className="sh-club2__tagrow">
+                  <span className="sh-club2__tag">{nb(item.tag)}</span>
+                </span>
+                <span className="sh-club2__icon" aria-hidden="true">
+                  <img src={item.img} alt="" className="sh-club2__icon-img" width="128" height="128" loading="lazy" decoding="async" />
+                </span>
                 <h3 className="sh-club2__card-title">{nb(item.title)}</h3>
                 <p className="sh-club2__card-text">{nbd(item.text)}</p>
               </li>

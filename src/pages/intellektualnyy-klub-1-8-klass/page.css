@@ -937,31 +937,42 @@
   box-shadow: 0 14px 34px rgba(76, 29, 149, 0.06);
 }
 
+/* объёмная 3D-иконка лежит прямо на карточке, без белой плашки;
+   по центру карточки и на одном уровне во всех карточках */
 .sh-club2__icon {
+  align-self: center;
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 16px;
-  background: #fff;
-  color: var(--tone);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--tone) 22%, transparent);
-  margin-bottom: 16px;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 14px;
 }
-.sh-club2__icon svg { width: 32px; height: 32px; }
+.sh-club2__icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 9px 16px rgba(76, 29, 149, 0.2));
+}
+
+/* строка плашки одинаковой высоты во всех карточках — иконки встают на один уровень */
+.sh-club2__tagrow {
+  width: 100%;
+  text-align: center;      /* плашка по центру карточки */
+  margin-bottom: 12px;
+}
 
 .sh-club2__tag {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 11.5px;
-  letter-spacing: 0.03em;
+  font-size: 10px;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap;         /* «Перед контрольными» — в одну строку */
   color: var(--tone);
   background: var(--tone-soft);
-  padding: 4px 11px;
+  padding: 4px 9px;
   border-radius: 999px;
-  margin-bottom: 12px;
 }
 
 .sh-club2__card-title {
@@ -970,6 +981,9 @@
   font-size: clamp(16px, 1.5vw, 18px);
   line-height: 1.25;
   color: #211432;
+  /* опущены и на одной высоте во всех карточках (резерв под 2 строки) */
+  margin-top: 10px;
+  min-height: 2.5em;
   margin-bottom: 10px;
 }
 
