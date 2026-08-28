@@ -318,38 +318,19 @@ const NOTJUST_ITEMS = [
 /* ── «Посмотрите, как это работает»: преимущества интерактивной платформы ── */
 const WATCH_ITEMS = [
   {
-    tone: 'violet',
     title: 'Сюжетные задания',
     text: 'Интересно узнать, что будет дальше.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 5.4A1.6 1.6 0 0 1 5.6 3.8h9.8a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 0-1.6-1.6H5.6A1.6 1.6 0 0 1 4 16.8z" />
-        <path d="M13.4 7.3l.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6-1.2-1.1 1.6-.2z" fill="currentColor" stroke="none" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-w-book.png',
   },
   {
-    tone: 'amber',
     title: 'Сразу виден результат',
     text: 'Ребёнок получает обратную связь.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M7 4.5h10v3.2a5 5 0 0 1-10 0z" />
-        <path d="M7 5.5H4.4v1.3A3 3 0 0 0 7 9.7M17 5.5h2.6v1.3A3 3 0 0 1 17 9.7" />
-        <path d="M12 12.7v3.1M9 19.5h6M9.6 19.5c0-1.4 1.1-2.2 2.4-2.2s2.4.8 2.4 2.2" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-w-trophy.png',
   },
   {
-    tone: 'green',
     title: 'Можно проходить самостоятельно',
     text: 'В удобное время и своём темпе.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12.5" r="8" />
-        <path d="M12 8v4.5l2.8 1.7" />
-      </svg>
-    ),
+    img: '/znarnia/images/klub-w-clock.png',
   },
 ]
 
@@ -965,8 +946,10 @@ export default function Page() {
             <div className="sh-watch__subhead">{nb('Никаких скучных листочков с примерами')}</div>
             <ul className="sh-watch__list">
               {WATCH_ITEMS.map((item, i) => (
-                <li key={i} className={`sh-watch__item sh-watch__item--${item.tone}`}>
-                  <span className="sh-watch__icon" aria-hidden="true">{item.icon}</span>
+                <li key={i} className="sh-watch__item">
+                  <span className="sh-watch__icon" aria-hidden="true">
+                    <img src={item.img} alt="" className="sh-watch__icon-img" width="128" height="128" loading="lazy" decoding="async" />
+                  </span>
                   <div className="sh-watch__text">
                     <span className="sh-watch__item-title">{nb(item.title)}</span>
                     <span className="sh-watch__item-sep" aria-hidden="true"> · </span>
@@ -1058,15 +1041,49 @@ export default function Page() {
                   </li>
                 ))}
               </ul>
+
+              <div className="sh-final__decor" aria-hidden="true">
+                <svg className="sh-final__deco sh-final__deco--cap" viewBox="0 0 64 58" fill="none">
+                  <rect x="12" y="42" width="42" height="7" rx="2.2" fill="#a78bfa" />
+                  <rect x="9" y="49" width="46" height="7" rx="2.2" fill="#7c3aed" />
+                  <path d="M32 20l24 9.5-24 9.5-24-9.5z" fill="#8b5cf6" />
+                  <path d="M18 32v6.5c0 3.2 6.3 5.5 14 5.5s14-2.3 14-5.5V32l-14 5.6z" fill="#6d28d9" />
+                  <path d="M56 29.5v9.5" stroke="#c4b5fd" strokeWidth="2.4" strokeLinecap="round" />
+                  <circle cx="56" cy="41" r="2.8" fill="#fbbf24" />
+                </svg>
+                <svg className="sh-final__deco sh-final__deco--star" viewBox="0 0 48 48" fill="none">
+                  <path d="M24 3.5l5.4 11.9L42 17l-9.2 8.8 2.4 13L24 32.7 12.8 38.8l2.4-13L6 17l12.6-1.6z" fill="#a78bfa" />
+                  <circle cx="20" cy="22" r="1.9" fill="#4c1d95" />
+                  <circle cx="28" cy="22" r="1.9" fill="#4c1d95" />
+                  <path d="M20.4 26c1.7 1.9 5.5 1.9 7.2 0" stroke="#4c1d95" strokeWidth="1.9" strokeLinecap="round" />
+                </svg>
+                <svg className="sh-final__deco sh-final__deco--dots" viewBox="0 0 50 42" fill="none">
+                  <path d="M9 6h32a7 7 0 0 1 7 7v11a7 7 0 0 1-7 7H21l-8 6.5V31H9a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7z" fill="#fff" stroke="#ddd2f7" strokeWidth="1.6" />
+                  <circle cx="17" cy="18.5" r="2.5" fill="#7c3aed" />
+                  <circle cx="25" cy="18.5" r="2.5" fill="#7c3aed" />
+                  <circle cx="33" cy="18.5" r="2.5" fill="#7c3aed" />
+                </svg>
+              </div>
             </div>
 
             <div className="sh-final__cta">
+              <span className="sh-final__gift" aria-hidden="true">
+                <svg viewBox="0 0 64 60" fill="none">
+                  <ellipse cx="32" cy="55" rx="21" ry="3" fill="#6d28d9" opacity="0.12" />
+                  <rect x="12" y="27" width="40" height="25" rx="3" fill="#8b5cf6" />
+                  <rect x="9" y="18.5" width="46" height="10.5" rx="3" fill="#a78bfa" />
+                  <rect x="28" y="18.5" width="8" height="33.5" fill="#6d28d9" />
+                  <ellipse cx="24" cy="13.5" rx="6.6" ry="5.2" transform="rotate(-20 24 13.5)" fill="#7c3aed" />
+                  <ellipse cx="40" cy="13.5" rx="6.6" ry="5.2" transform="rotate(20 40 13.5)" fill="#7c3aed" />
+                  <circle cx="32" cy="16.5" r="3.8" fill="#6d28d9" />
+                </svg>
+              </span>
               <div className="sh-final__cta-title">{nb('Сейчас участие бесплатно')}</div>
               <p className="sh-final__cta-text">
-                {nbd('Все, кто вступит в клуб в августе, смогут пользоваться им бесплатно весь учебный год.')}
+                {nbd('Все, кто вступит в клуб сейчас, смогут пользоваться им бесплатно весь учебный год.')}
               </p>
               <p className="sh-final__cta-note">
-                {nbd('С сентября условия для новых участников могут измениться.')}
+                {nbd('Создаём прочные основы уверенности и интереса.')}
               </p>
               <a href="#join" className="sh-final__cta-btn">
                 {nb('Вступить в интеллектуальный клуб')}

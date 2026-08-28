@@ -1248,11 +1248,16 @@
 }
 
 .sh-final__kicker {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e3daf7;
+  border-radius: 999px;
+  padding: 7px 16px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: clamp(16px, 2vw, 20px);
-  color: #211432;
-  margin-bottom: 6px;
+  font-size: clamp(13px, 1.4vw, 15px);
+  color: #3a2b5c;
+  margin-bottom: 16px;
 }
 
 .sh-final__title {
@@ -1300,14 +1305,38 @@
 }
 .sh-final__check svg { width: 100%; height: 100%; }
 
+/* декор под пунктами: шапочка, звезда-смайл, облачко */
+.sh-final__decor {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 28px;
+}
+.sh-final__deco { width: auto; height: 52px; }
+.sh-final__deco--cap { height: 60px; filter: drop-shadow(0 8px 12px rgba(109, 40, 217, 0.18)); }
+.sh-final__deco--star { height: 46px; filter: drop-shadow(0 8px 12px rgba(109, 40, 217, 0.16)); }
+.sh-final__deco--dots { height: 42px; filter: drop-shadow(0 8px 14px rgba(76, 29, 149, 0.1)); }
+
 /* карточка «Сейчас участие бесплатно» */
 .sh-final__cta {
+  position: relative;
   background: #fff;
   border: 1px solid #e7ddfb;
   border-radius: 20px;
   padding: 26px 24px;
   box-shadow: 0 20px 44px rgba(76, 29, 149, 0.1);
 }
+
+/* 3D-подарок, свисающий с правого верхнего угла карточки */
+.sh-final__gift {
+  position: absolute;
+  top: -24px;
+  right: -8px;
+  width: 82px;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 20px rgba(109, 40, 217, 0.28));
+}
+.sh-final__gift svg { display: block; width: 100%; height: auto; }
 
 .sh-final__cta-title {
   font-family: 'Montserrat', sans-serif;
@@ -2381,22 +2410,16 @@
   flex-direction: column;
   gap: 14px;
 }
-.sh-watch__item { display: flex; align-items: center; gap: 14px; }
-.sh-watch__item--violet { --tone: #6d28d9; --tone-soft: #ece6fb; }
-.sh-watch__item--amber  { --tone: #d97706; --tone-soft: #fdecc8; }
-.sh-watch__item--green  { --tone: #059669; --tone-soft: #d6f5e5; }
+.sh-watch__item { display: flex; align-items: center; gap: 12px; }
 
 .sh-watch__icon {
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 13px;
+  width: 54px;
+  height: 54px;
   display: grid;
   place-items: center;
-  background: var(--tone-soft);
-  color: var(--tone);
 }
-.sh-watch__icon svg { width: 24px; height: 24px; }
+.sh-watch__icon-img { width: 100%; height: 100%; object-fit: contain; }
 .sh-watch__text { min-width: 0; }
 .sh-watch__item-title {
   font-family: 'Montserrat', sans-serif;
