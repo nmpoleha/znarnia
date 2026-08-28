@@ -1055,18 +1055,19 @@
 .sh-notjust__item--green  { --tone: #22c55e; --tone-2: #16a34a; }
 .sh-notjust__item--orange { --tone: #f59e0b; --tone-2: #f97316; }
 
+/* цветной кружок-бейдж уже нарисован в самой картинке — контейнер без фона */
 .sh-notjust__icon {
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(140deg, var(--tone) 0%, var(--tone-2) 100%);
-  color: #fff;
-  box-shadow: 0 12px 24px color-mix(in srgb, var(--tone) 34%, transparent);
+  width: 58px;
+  height: 58px;
 }
-.sh-notjust__icon svg { width: 30px; height: 30px; }
+.sh-notjust__icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .sh-notjust__text { min-width: 0; padding-top: 2px; }
 
@@ -2312,4 +2313,185 @@
   .sh-env__title,
   .sh-lessons__title,
   .sh-consult__title { font-size: 17px; }
+}
+
+/* ── ПОСМОТРИТЕ, КАК ЭТО РАБОТАЕТ (видео занятия) ── */
+.sh-watch {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid var(--sh-border);
+  padding: 40px 0;
+}
+.sh-watch__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.sh-watch__badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  background: var(--sh-purple-soft);
+  color: var(--sh-purple);
+  border: 1px solid #ddd2f7;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.sh-watch__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(24px, 3.4vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #211432;
+  margin-bottom: 14px;
+}
+.sh-watch__heart { font-size: 0.92em; }
+
+.sh-watch__lead {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--sh-muted);
+  max-width: 480px;
+  margin-bottom: 22px;
+}
+
+.sh-watch__subhead {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 1.7vw, 17px);
+  color: var(--sh-purple-mid);
+  margin-bottom: 16px;
+}
+
+.sh-watch__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sh-watch__item { display: flex; align-items: flex-start; gap: 14px; }
+.sh-watch__item--violet { --tone: #6d28d9; --tone-soft: #ece6fb; }
+.sh-watch__item--amber  { --tone: #d97706; --tone-soft: #fdecc8; }
+.sh-watch__item--green  { --tone: #059669; --tone-soft: #d6f5e5; }
+
+.sh-watch__icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--tone-soft);
+  color: var(--tone);
+}
+.sh-watch__icon svg { width: 24px; height: 24px; }
+.sh-watch__text { min-width: 0; padding-top: 2px; }
+.sh-watch__item-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #211432;
+  margin-bottom: 2px;
+}
+.sh-watch__item-desc { font-size: 14px; line-height: 1.45; color: #5b4a7d; }
+
+.sh-watch__right { position: relative; }
+.sh-watch__caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--sh-purple);
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+.sh-watch__caption svg { width: 18px; height: 18px; }
+.sh-watch__caption:hover { text-decoration: underline; }
+
+.sh-watch__stage { position: relative; display: flex; justify-content: center; }
+.sh-watch__glow {
+  position: absolute;
+  z-index: 0;
+  inset: -6% -2%;
+  background:
+    radial-gradient(52% 46% at 60% 40%, rgba(196, 181, 253, 0.5) 0%, rgba(196, 181, 253, 0) 62%),
+    radial-gradient(44% 42% at 32% 72%, rgba(221, 214, 254, 0.45) 0%, rgba(221, 214, 254, 0) 62%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.sh-watch__device {
+  position: relative;
+  z-index: 1;
+  width: min(360px, 100%);
+  border-radius: 26px;
+  background: #fff;
+  border: 1px solid #e8e0f8;
+  box-shadow: 0 24px 60px rgba(76, 29, 149, 0.16);
+  padding: 10px;
+}
+.sh-watch__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #f0eeff;
+}
+.sh-watch__play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 74px;
+  height: 74px;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(109, 40, 217, 0.42);
+  transition: transform 0.12s, filter 0.12s;
+}
+.sh-watch__play svg { width: 30px; height: 30px; margin-left: 3px; }
+.sh-watch__play:hover { filter: brightness(1.06); transform: scale(1.04); }
+
+.sh-watch__bubble {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 13%;
+  background: #fff;
+  color: var(--sh-purple);
+  font-family: 'Caveat', 'Nunito', cursive;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.1;
+  text-align: center;
+  padding: 9px 14px;
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 12px 26px rgba(76, 29, 149, 0.16);
+  max-width: 150px;
+}
+
+@media (min-width: 860px) {
+  .sh-watch { padding: 56px 0; }
+  .sh-watch__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+    gap: 48px;
+  }
 }

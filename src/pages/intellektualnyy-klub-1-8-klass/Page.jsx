@@ -299,41 +299,90 @@ const NOTJUST_ITEMS = [
     tone: 'violet',
     title: 'Сюжет вместо однообразных примеров',
     text: 'Ребёнок не просто решает задания — он движется по истории.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 6.2C10.4 5 8.3 4.4 5.5 4.4c-.8 0-1.5.1-2 .2v13c.5-.1 1.2-.2 2-.2 2.8 0 4.9.6 6.5 1.8 1.6-1.2 3.7-1.8 6.5-1.8.8 0 1.5.1 2 .2v-13c-.5-.1-1.2-.2-2-.2-2.8 0-4.9.6-6.5 1.8z"/>
-        <path d="M12 6.2V19"/>
-      </svg>
-    ),
+    img: '/znarnia/images/klub-nj-book.png',
   },
   {
     tone: 'green',
     title: 'Интерактив вместо листочка',
     text: 'Ответил → сразу получил обратную связь → двигается дальше.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 4.5l12.5 6.2-5.2 1.6-1.8 5.4z"/>
-        <path d="M13.6 13.6L18 18"/>
-      </svg>
-    ),
+    img: '/znarnia/images/klub-nj-cursor.png',
   },
   {
     tone: 'orange',
     title: 'ИИ-помощник рядом',
     text: 'Если возникла сложность, поможет разобраться и подскажет направление, но не выдаст готовый ответ.',
+    img: '/znarnia/images/klub-nj-robot.png',
+  },
+]
+
+/* ── «Посмотрите, как это работает»: преимущества интерактивной платформы ── */
+const WATCH_ITEMS = [
+  {
+    tone: 'violet',
+    title: 'Сюжетные задания',
+    text: 'Интересно узнать, что будет дальше.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="8" width="14" height="10.5" rx="3" />
-        <path d="M12 4.5V8" />
-        <circle cx="12" cy="3.4" r="1.1" fill="currentColor" stroke="none" />
-        <path d="M2.5 12v2.5M21.5 12v2.5" />
-        <circle cx="9.4" cy="13.2" r="1.15" fill="currentColor" stroke="none" />
-        <circle cx="14.6" cy="13.2" r="1.15" fill="currentColor" stroke="none" />
-        <path d="M9.5 16h5" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 5.4A1.6 1.6 0 0 1 5.6 3.8h9.8a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 0-1.6-1.6H5.6A1.6 1.6 0 0 1 4 16.8z" />
+        <path d="M13.4 7.3l.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6-1.2-1.1 1.6-.2z" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    tone: 'amber',
+    title: 'Сразу виден результат',
+    text: 'Ребёнок получает обратную связь.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 4.5h10v3.2a5 5 0 0 1-10 0z" />
+        <path d="M7 5.5H4.4v1.3A3 3 0 0 0 7 9.7M17 5.5h2.6v1.3A3 3 0 0 1 17 9.7" />
+        <path d="M12 12.7v3.1M9 19.5h6M9.6 19.5c0-1.4 1.1-2.2 2.4-2.2s2.4.8 2.4 2.2" />
+      </svg>
+    ),
+  },
+  {
+    tone: 'green',
+    title: 'Можно проходить самостоятельно',
+    text: 'В удобное время и своём темпе.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12.5" r="8" />
+        <path d="M12 8v4.5l2.8 1.7" />
       </svg>
     ),
   },
 ]
+
+/* видео занятия: постер + большая кнопка «play», после старта — родные контролы */
+function WatchVideo() {
+  const ref = useRef(null)
+  const [playing, setPlaying] = useState(false)
+  const start = () => {
+    const v = ref.current
+    if (!v) return
+    v.play()
+    setPlaying(true)
+  }
+  return (
+    <div className="sh-watch__device">
+      <video
+        ref={ref}
+        className="sh-watch__video"
+        src="/znarnia/videos/klub-lesson.mp4"
+        poster="/znarnia/images/klub-lesson-poster.jpg"
+        playsInline
+        preload="metadata"
+        controls={playing}
+        onEnded={() => setPlaying(false)}
+      />
+      {!playing && (
+        <button type="button" className="sh-watch__play" onClick={start} aria-label="Смотреть, как проходит занятие">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5.4v13.2l11-6.6z" fill="currentColor" /></svg>
+        </button>
+      )}
+    </div>
+  )
+}
 
 /* ── «В своём темпе»: варианты времени занятий ── */
 const PACE_CHIPS = [
@@ -887,7 +936,9 @@ export default function Page() {
             <ul className="sh-notjust__list">
               {NOTJUST_ITEMS.map((item, i) => (
                 <li key={i} className={`sh-notjust__item sh-notjust__item--${item.tone}`}>
-                  <span className="sh-notjust__icon" aria-hidden="true">{item.icon}</span>
+                  <span className="sh-notjust__icon" aria-hidden="true">
+                    <img src={item.img} alt="" className="sh-notjust__icon-img" width="128" height="128" loading="lazy" decoding="async" />
+                  </span>
                   <div className="sh-notjust__text">
                     <div className="sh-notjust__item-title">{nb(item.title)}</div>
                     <p className="sh-notjust__item-desc">{nbd(item.text)}</p>
@@ -895,6 +946,46 @@ export default function Page() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ПОСМОТРИТЕ, КАК ЭТО РАБОТАЕТ (видео занятия) ── */}
+      <section className="sh-watch">
+        <div className="sh-wrap sh-watch__inner">
+          <div className="sh-watch__left">
+            <span className="sh-watch__badge">{nb('Посмотрите, как это работает')}</span>
+            <h2 className="sh-watch__title">
+              {nb('Не просто решать задачи.')}<br />
+              {nb('Вовлекаться в них')} <span className="sh-watch__heart" aria-hidden="true">💜</span>
+            </h2>
+            <p className="sh-watch__lead">
+              {nbd('Ребёнок проходит задания прямо на интерактивной платформе: двигается по сюжету, отвечает на вопросы и сразу видит результат.')}
+            </p>
+            <div className="sh-watch__subhead">{nb('Никаких скучных листочков с примерами')}</div>
+            <ul className="sh-watch__list">
+              {WATCH_ITEMS.map((item, i) => (
+                <li key={i} className={`sh-watch__item sh-watch__item--${item.tone}`}>
+                  <span className="sh-watch__icon" aria-hidden="true">{item.icon}</span>
+                  <div className="sh-watch__text">
+                    <div className="sh-watch__item-title">{nb(item.title)}</div>
+                    <p className="sh-watch__item-desc">{nb(item.text)}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="sh-watch__right">
+            <a href="#join" className="sh-watch__caption">
+              {nb('Так выглядит занятие на платформе Знарнии')}
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </a>
+            <div className="sh-watch__stage">
+              <span className="sh-watch__glow" aria-hidden="true" />
+              <WatchVideo />
+              <span className="sh-watch__bubble" aria-hidden="true">{nbd('21 секунда — и всё понятно')}</span>
+            </div>
           </div>
         </div>
       </section>
