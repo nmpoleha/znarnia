@@ -404,44 +404,9 @@ const PACE_CHIPS = [
 
 /* ── Финальный блок: 4 преимущества снизу ── */
 const FINAL_FEATURES = [
-  {
-    title: 'Безопасная среда',
-    text: 'Материалы клуба созданы педагогами «Знарнии»',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2.6l7.6 2.9v6.1c0 5.4-3.4 8.7-7.6 9.9-4.2-1.2-7.6-4.5-7.6-9.9V5.5L12 2.6z" />
-        <path d="M8.8 12l2.3 2.3 4-4.6" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Удобно заниматься',
-    text: 'с любого устройства в любое время',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3.5" y="5" width="17" height="11" rx="2" />
-        <path d="M2 19.5h20" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Для любого уровня',
-    text: 'Подойдёт и отличникам, и тем, кто хочет подтянуться',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3.4l2.7 5.6 6.1.8-4.5 4.2 1.2 6-5.5-3-5.5 3 1.2-6L3.2 9.8l6.1-.8L12 3.4z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'С заботой о детях',
-    text: 'Развиваем не только знания, но и уверенность в себе',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 20.6S3.8 15.7 3.8 10.2a4.7 4.7 0 0 1 8.2-3.1 4.7 4.7 0 0 1 8.2 3.1c0 5.5-8.2 10.4-8.2 10.4z" />
-      </svg>
-    ),
-  },
+  { img: '/znarnia/images/klub-w-book.png', title: 'Новые задания', text: 'каждую неделю' },
+  { img: '/znarnia/images/klub-w-clock.png', title: 'В удобное время', text: 'и в своём темпе' },
+  { img: '/znarnia/images/klub-w-trophy.png', title: 'Развитие и уверенность', text: 'на каждом этапе' },
 ]
 
 /* ── Форма получения подарка ── */
@@ -1018,91 +983,96 @@ export default function Page() {
       {/* ── ФИНАЛЬНЫЙ CTA ── */}
       <section className="sh-final">
         <div className="sh-wrap">
-          <div className="sh-final__panel">
-            <div className="sh-final__left">
-              <div className="sh-final__kicker">{nb('Чтобы всё чаще было:')}</div>
-              <h2 className="sh-final__title">
-                «О! А&nbsp;я&nbsp;могу!»
+          {/* верхняя часть: текст + плейсхолдер под иллюстрацию */}
+          <div className="sh-final__hero">
+            <div className="sh-final__hero-left">
+              <span className="sh-final__badge">
+                <span className="sh-final__badge-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.5" r="3.6" fill="currentColor"/><path d="M4.8 20c0-3.6 3.2-6 7.2-6s7.2 2.4 7.2 6" fill="currentColor"/></svg>
+                </span>
+                {nb('Интеллектуальный клуб Знарнии')}
+              </span>
+              <h2 className="sh-final__htitle">
+                {nb('Вступите бесплатно —')}{' '}
+                <span className="sh-final__htitle-accent">{nb('доступ на весь год')}</span>
                 <span className="sh-final__heart" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.8S3.6 15.6 3.6 9.9A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.4 3.3c0 5.7-8.4 10.9-8.4 10.9z"/></svg>
                 </span>
               </h2>
-              <ul className="sh-final__points">
-                {[
-                  'Математика становится понятнее.',
-                  'Задачи — интереснее.',
-                  'А ребёнок — увереннее в своих силах.',
-                ].map((t, i) => (
-                  <li key={i} className="sh-final__point">
-                    <span className="sh-final__check" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.5 12.4l3 3 6-6.4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </span>
-                    {nbd(t)}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="sh-final__decor" aria-hidden="true">
-                <svg className="sh-final__deco sh-final__deco--cap" viewBox="0 0 64 58" fill="none">
-                  <rect x="12" y="42" width="42" height="7" rx="2.2" fill="#a78bfa" />
-                  <rect x="9" y="49" width="46" height="7" rx="2.2" fill="#7c3aed" />
-                  <path d="M32 20l24 9.5-24 9.5-24-9.5z" fill="#8b5cf6" />
-                  <path d="M18 32v6.5c0 3.2 6.3 5.5 14 5.5s14-2.3 14-5.5V32l-14 5.6z" fill="#6d28d9" />
-                  <path d="M56 29.5v9.5" stroke="#c4b5fd" strokeWidth="2.4" strokeLinecap="round" />
-                  <circle cx="56" cy="41" r="2.8" fill="#fbbf24" />
-                </svg>
-                <svg className="sh-final__deco sh-final__deco--star" viewBox="0 0 48 48" fill="none">
-                  <path d="M24 3.5l5.4 11.9L42 17l-9.2 8.8 2.4 13L24 32.7 12.8 38.8l2.4-13L6 17l12.6-1.6z" fill="#a78bfa" />
-                  <circle cx="20" cy="22" r="1.9" fill="#4c1d95" />
-                  <circle cx="28" cy="22" r="1.9" fill="#4c1d95" />
-                  <path d="M20.4 26c1.7 1.9 5.5 1.9 7.2 0" stroke="#4c1d95" strokeWidth="1.9" strokeLinecap="round" />
-                </svg>
-                <svg className="sh-final__deco sh-final__deco--dots" viewBox="0 0 50 42" fill="none">
-                  <path d="M9 6h32a7 7 0 0 1 7 7v11a7 7 0 0 1-7 7H21l-8 6.5V31H9a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7z" fill="#fff" stroke="#ddd2f7" strokeWidth="1.6" />
-                  <circle cx="17" cy="18.5" r="2.5" fill="#7c3aed" />
-                  <circle cx="25" cy="18.5" r="2.5" fill="#7c3aed" />
-                  <circle cx="33" cy="18.5" r="2.5" fill="#7c3aed" />
-                </svg>
+              <p className="sh-final__lead">
+                {nbd('Присоединитесь к клубу сейчас, и бесплатный доступ сохранится за ребёнком')}{' '}
+                <b>{nb('на весь учебный год')}</b>.
+              </p>
+              <p className="sh-final__lead2">
+                {nbd('Занимайтесь в удобном темпе и возвращайтесь к новым материалам в течение года.')}
+              </p>
+              <a href="#join" className="sh-final__cta-btn">
+                <span className="sh-final__cta-label">{nb('Вступить в интеллектуальный клуб')}</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </a>
+              <div className="sh-final__note">
+                <IconShield />
+                {nbd('Бесплатный доступ фиксируется за именем ребёнка')}
               </div>
             </div>
 
-            <div className="sh-final__cta">
-              <span className="sh-final__gift" aria-hidden="true">
-                <svg viewBox="0 0 64 60" fill="none">
-                  <ellipse cx="32" cy="55" rx="21" ry="3" fill="#6d28d9" opacity="0.12" />
-                  <rect x="12" y="27" width="40" height="25" rx="3" fill="#8b5cf6" />
-                  <rect x="9" y="18.5" width="46" height="10.5" rx="3" fill="#a78bfa" />
-                  <rect x="28" y="18.5" width="8" height="33.5" fill="#6d28d9" />
-                  <ellipse cx="24" cy="13.5" rx="6.6" ry="5.2" transform="rotate(-20 24 13.5)" fill="#7c3aed" />
-                  <ellipse cx="40" cy="13.5" rx="6.6" ry="5.2" transform="rotate(20 40 13.5)" fill="#7c3aed" />
-                  <circle cx="32" cy="16.5" r="3.8" fill="#6d28d9" />
-                </svg>
-              </span>
-              <div className="sh-final__cta-title">{nb('Сейчас участие бесплатно')}</div>
-              <p className="sh-final__cta-text">
-                {nbd('Все, кто вступит в клуб сейчас, смогут пользоваться им бесплатно весь учебный год.')}
-              </p>
-              <p className="sh-final__cta-note">
-                {nbd('Создаём прочные основы уверенности и интереса.')}
-              </p>
-              <a href="#join" className="sh-final__cta-btn">
-                {nb('Вступить в интеллектуальный клуб')}
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </a>
+            <div className="sh-final__hero-media">
+              {/* плейсхолдер под иллюстрацию — картинку не вставляем */}
+              <div className="sh-final__placeholder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.4" stroke="currentColor" strokeWidth="1.6"/><circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/><path d="M4 17l4.5-4 3.5 3 3-2.5L20 17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <span>Здесь будет иллюстрация</span>
+              </div>
             </div>
           </div>
 
-          <ul className="sh-final__features">
+          {/* ряд из 3 фич с 3D-плитками */}
+          <ul className="sh-final__feats">
             {FINAL_FEATURES.map((f, i) => (
-              <li key={i} className="sh-final__feature">
-                <span className="sh-final__feature-icon" aria-hidden="true">{f.icon}</span>
-                <div className="sh-final__feature-body">
-                  <div className="sh-final__feature-title">{nb(f.title)}</div>
-                  <div className="sh-final__feature-text">{nbd(f.text)}</div>
+              <li key={i} className="sh-final__feat">
+                <img src={f.img} alt="" className="sh-final__feat-img" width="128" height="128" loading="lazy" decoding="async" />
+                <div className="sh-final__feat-body">
+                  <div className="sh-final__feat-title">{nb(f.title)}</div>
+                  <div className="sh-final__feat-text">{nb(f.text)}</div>
                 </div>
               </li>
             ))}
           </ul>
+
+          {/* нижняя сиреневая полоса «О! А я могу!» */}
+          <div className="sh-final__band">
+            <div className="sh-final__band-left">
+              <span className="sh-final__kicker">{nb('Чтобы всё чаще было:')}</span>
+              <h3 className="sh-final__title">
+                «О! А&nbsp;я&nbsp;могу!»
+                <span className="sh-final__heart" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.8S3.6 15.6 3.6 9.9A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.4 3.3c0 5.7-8.4 10.9-8.4 10.9z"/></svg>
+                </span>
+              </h3>
+            </div>
+            <ul className="sh-final__points">
+              {[
+                'Математика становится понятнее.',
+                'Задачи — интереснее.',
+                'А ребёнок — увереннее в своих силах.',
+              ].map((t, i) => (
+                <li key={i} className="sh-final__point">
+                  <span className="sh-final__check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.5 12.4l3 3 6-6.4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  {nbd(t)}
+                </li>
+              ))}
+            </ul>
+            <svg className="sh-final__mega" viewBox="0 0 64 56" fill="none" aria-hidden="true">
+              <path d="M6 24c0-2 1.4-3.6 3.2-3.8L34 17v22l-24.8-3.2C7.4 35.6 6 34 6 32z" fill="#8b5cf6"/>
+              <path d="M34 17l16-7v36l-16-7z" fill="#7c3aed"/>
+              <rect x="14" y="38" width="9" height="12" rx="3" fill="#6d28d9"/>
+              <path d="M18.5 50c3 0 5-2 5-5v-3h-9v3c0 3 1 5 4 5z" fill="#6d28d9"/>
+              <path d="M55 20c3 1.6 3 10.4 0 12M58 15c5 3 5 20 0 23" stroke="#c4b5fd" strokeWidth="2.6" strokeLinecap="round"/>
+              <circle cx="40" cy="6" r="2.4" fill="#fbbf24"/>
+              <path d="M50 4l1.4 3 1.6-2.6" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
         </div>
       </section>
 
