@@ -823,7 +823,27 @@ export default function Page() {
             </p>
 
             <div className="sh-hero__free">
-              <span className="sh-hero__free-icon" aria-hidden="true"><IconGift size={24} /></span>
+              <span className="sh-hero__free-icon" aria-hidden="true">
+                <svg className="sh-gift" viewBox="0 0 48 48" fill="none">
+                  <defs>
+                    <linearGradient id="klubGiftBox" x1="8" y1="20" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#fbbf24" />
+                      <stop offset="1" stopColor="#f59e0b" />
+                    </linearGradient>
+                    <linearGradient id="klubGiftLid" x1="6" y1="14" x2="42" y2="23" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#fcd34d" />
+                      <stop offset="1" stopColor="#fbbf24" />
+                    </linearGradient>
+                  </defs>
+                  <ellipse cx="24" cy="43.5" rx="14" ry="2.6" fill="#6d28d9" opacity="0.12" />
+                  <rect x="9" y="21" width="30" height="19" rx="3" fill="url(#klubGiftBox)" />
+                  <rect x="6.5" y="14.5" width="35" height="8.5" rx="3" fill="url(#klubGiftLid)" />
+                  <rect x="21" y="14.5" width="6" height="25.5" fill="#7c3aed" />
+                  <ellipse cx="18.5" cy="11" rx="5.2" ry="4" transform="rotate(-22 18.5 11)" fill="#7c3aed" />
+                  <ellipse cx="29.5" cy="11" rx="5.2" ry="4" transform="rotate(22 29.5 11)" fill="#7c3aed" />
+                  <circle cx="24" cy="13.5" r="3.1" fill="#6d28d9" />
+                </svg>
+              </span>
               <span className="sh-hero__free-text">
                 <b>Бесплатно на весь учебный год</b><br />
                 {nb('для тех, кто вступит сейчас')}
@@ -837,12 +857,14 @@ export default function Page() {
           </div>
 
           <div className="sh-hero__right">
+            {/* мягкое асимметричное сиреневое пятно — отдельный CSS-декор ПОЗАДИ иллюстрации */}
+            <span className="sh-hero__glow" aria-hidden="true" />
             <img
               className="sh-hero__illus"
-              src="/znarnia/images/klub-hero-boy.png"
-              alt="Ученик занимается математикой за ноутбуком"
-              width="1536"
-              height="1024"
+              src="/znarnia/images/klub-hero-scene-2.png"
+              alt="Ученик в фиолетовом худи за ноутбуком и интерактивный урок Знарнии по математике с ИИ-помощником"
+              width="1373"
+              height="965"
               decoding="async"
             />
           </div>

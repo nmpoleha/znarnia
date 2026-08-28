@@ -92,6 +92,8 @@
   position: absolute;
   height: auto;
 }
+/* большой сиреневый круг убран — мягкое blob-пятно теперь запечено в самой сцене справа */
+.sh-hero__blob { display: none; }
 .sh-hero__blob--tr {
   top: clamp(-160px, -12vw, -90px);
   right: clamp(-150px, -9vw, -80px);
@@ -174,22 +176,22 @@
 .sh-hero__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: clamp(30px, 5.2vw, 50px);
-  line-height: 1.08;
+  font-size: clamp(27px, 4.6vw, 44px);
+  line-height: 1.07;
   letter-spacing: -0.015em;
   color: #211432;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 /* на этой странице вторая часть заголовка — того же тёмного цвета, как на референсе */
 .sh-hero__title-accent { color: inherit; }
 
 .sh-hero__sub {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--sh-muted);
   margin-bottom: 26px;
-  max-width: 46ch;
+  max-width: 520px;
 }
 
 /* тэглайн: «Математика + мышление» + подстрочник */
@@ -233,12 +235,13 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: #fff;
-  color: var(--sh-purple);
-  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.12);
+  width: 46px;
+  height: 46px;
+}
+.sh-gift {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 5px 9px rgba(180, 83, 9, 0.28));
 }
 
 .sh-hero__free-text {
@@ -257,10 +260,13 @@
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  padding: 17px 30px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  width: min(440px, 100%);
+  min-height: 62px;
+  padding: 0 28px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 55%, #6d28d9 100%);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -268,22 +274,47 @@
   text-transform: uppercase;
   letter-spacing: 0.02em;
   text-decoration: none;
-  box-shadow: 0 16px 32px rgba(109, 40, 217, 0.32);
+  box-shadow: 0 14px 30px rgba(109, 40, 217, 0.34);
   transition: filter 0.15s, transform 0.1s, box-shadow 0.15s;
 }
 .sh-hero__cta svg { width: 20px; height: 20px; flex-shrink: 0; }
 .sh-hero__cta:hover { filter: brightness(1.06); box-shadow: 0 18px 38px rgba(109, 40, 217, 0.42); }
 .sh-hero__cta:active { transform: translateY(1px); }
 
-/* иллюстрация справа — контентная картинка в потоке грид-ячейки */
+/* иллюстрация справа — контентная картинка в потоке грид-ячейки.
+   Никакой карточки/рамки/белого фона: контейнер прозрачный, картинка лежит
+   прямо поверх фона героя, а сиреневое пятно — отдельный CSS-элемент позади. */
 .sh-hero__right {
+  position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   min-width: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* мягкое асимметричное сиреневое blob-пятно ПОЗАДИ иллюстрации */
+.sh-hero__glow {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  width: 122%;
+  aspect-ratio: 1 / 0.86;
+  transform: translate(-46%, -48%);
+  pointer-events: none;
+  background:
+    radial-gradient(56% 58% at 68% 44%, rgba(196, 181, 253, 0.58) 0%, rgba(196, 181, 253, 0) 64%),
+    radial-gradient(44% 50% at 30% 60%, rgba(221, 214, 254, 0.5) 0%, rgba(221, 214, 254, 0) 62%),
+    radial-gradient(48% 46% at 84% 72%, rgba(233, 213, 255, 0.46) 0%, rgba(233, 213, 255, 0) 64%);
+  filter: blur(8px);
 }
 
 .sh-hero__illus {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 620px;
   height: auto;
@@ -2138,8 +2169,8 @@
 /* ── DESKTOP ── */
 @media (min-width: 860px) {
   .sh-hero__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(380px, 50%);
-    gap: 40px;
+    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+    gap: 8px;
     align-items: center;
   }
 
@@ -2148,11 +2179,22 @@
   }
 
   .sh-hero {
-    padding: 52px 0 48px;
+    padding: 48px 0 36px;
   }
 
+  .sh-hero__right {
+    justify-content: flex-end;
+    align-self: stretch;
+  }
+
+  /* крупная иллюстрация: правая половина, прижата к правому и нижнему краю,
+     без обрезки (object-fit: contain), занимает почти всю высоту героя */
   .sh-hero__illus {
+    /* шире своей колонки с небольшим выносом к правому краю секции */
+    width: calc(100% + 40px);
     max-width: none;
+    margin-right: -40px;
+    margin-bottom: 4px;
   }
 
   .sh-lessons__grid {
