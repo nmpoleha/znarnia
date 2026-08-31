@@ -785,7 +785,9 @@ export default function Page() {
             </div>
 
             <p className="sh-hero__sub">
-              {nbd('Тренируем математику и одновременно развиваем логику, внимание, память и умение находить решения.')}
+              {nbd('Тренируем математику и одновременно развиваем ')}
+              <b className="sh-hero__sub-strong">{nb('логику, внимание, память')}</b>
+              {nbd(' и умение находить решения.')}
             </p>
 
             <div className="sh-hero__free">
@@ -811,7 +813,7 @@ export default function Page() {
                 </svg>
               </span>
               <span className="sh-hero__free-text">
-                <b>Бесплатно на весь учебный год</b><br />
+                <span className="sh-hero__free-hl">Бесплатно</span> <b>{nb('на весь учебный год')}</b><br />
                 {nb('для тех, кто вступит сейчас')}
               </span>
             </div>
@@ -1055,27 +1057,28 @@ export default function Page() {
             </div>
             <ul className="sh-final__points">
               {[
-                'Математика становится понятнее.',
-                'Задачи — интереснее.',
-                'А ребёнок — увереннее в своих силах.',
-              ].map((t, i) => (
+                { t: 'Математика становится понятнее.', c: '#5c9c2c' },
+                { t: 'Задачи — интереснее.', c: '#f8b00a' },
+                { t: 'А ребёнок — увереннее в своих силах.', c: '#6c3ce4' },
+              ].map((p, i) => (
                 <li key={i} className="sh-final__point">
-                  <span className="sh-final__check" aria-hidden="true">
+                  <span className="sh-final__check" style={{ color: p.c }} aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.5 12.4l3 3 6-6.4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </span>
-                  {nbd(t)}
+                  {nbd(p.t)}
                 </li>
               ))}
             </ul>
-            <svg className="sh-final__mega" viewBox="0 0 64 56" fill="none" aria-hidden="true">
-              <path d="M6 24c0-2 1.4-3.6 3.2-3.8L34 17v22l-24.8-3.2C7.4 35.6 6 34 6 32z" fill="#8b5cf6"/>
-              <path d="M34 17l16-7v36l-16-7z" fill="#7c3aed"/>
-              <rect x="14" y="38" width="9" height="12" rx="3" fill="#6d28d9"/>
-              <path d="M18.5 50c3 0 5-2 5-5v-3h-9v3c0 3 1 5 4 5z" fill="#6d28d9"/>
-              <path d="M55 20c3 1.6 3 10.4 0 12M58 15c5 3 5 20 0 23" stroke="#c4b5fd" strokeWidth="2.6" strokeLinecap="round"/>
-              <circle cx="40" cy="6" r="2.4" fill="#fbbf24"/>
-              <path d="M50 4l1.4 3 1.6-2.6" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img
+              className="sh-final__mega"
+              src="/znarnia/images/klub-megaphone.png"
+              alt=""
+              aria-hidden="true"
+              width="679"
+              height="601"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
