@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Fragment } from 'react'
 import RegistrationForm from '../../shared/components/RegistrationForm'
 import { nb } from '../../shared/utils/nb'
 
@@ -811,37 +811,53 @@ export default function Page() {
         <div className="sh-wrap">
           <div className="sh-pace__card">
             <div className="sh-pace__media">
+              <span className="sh-pace__blob" aria-hidden="true" />
               <img
                 className="sh-pace__img"
-                src="/znarnia/images/klub-calendar.png"
+                src="/znarnia/images/klub-calendar-cut.png"
                 alt="Календарь и часы — заниматься можно в удобное время"
-                width="1536"
-                height="1024"
+                width="595"
+                height="511"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div className="sh-pace__body">
-              <h2 className="sh-pace__title">{nb('В своём темпе. Без ещё одного обязательного кружка.')}</h2>
+              <h2 className="sh-pace__title">
+                <span className="sh-pace__title-1">{nb('В своём темпе.')}</span>
+                <span className="sh-pace__title-2">{nb('Без ещё одного обязательного кружка.')}</span>
+              </h2>
               <p className="sh-pace__lead">
-                {nbd('Не нужно подключаться каждую пятницу в определённое время. Новый тренажёр появляется в клубе — а ребёнок проходит его тогда, когда удобно.')}
+                {nbd('Не нужно подключаться каждую пятницу в определённое время. Новый тренажёр появляется в клубе — а ребёнок проходит его ')}
+                <b>{nb('тогда, когда удобно')}</b>.
               </p>
 
-              <div className="sh-pace__chips">
+              <div className="sh-pace__chain">
                 {PACE_CHIPS.map((chip, i) => (
-                  <span key={i} className={`sh-pace__chip sh-pace__chip--${chip.tone}`}>
-                    <span className="sh-pace__chip-icon" aria-hidden="true">{chip.icon}</span>
-                    <span className="sh-pace__chip-text">
-                      {chip.text[0]}<br />{chip.text[1]}
+                  <Fragment key={i}>
+                    <span className={`sh-pace__chip sh-pace__chip--${chip.tone}`}>
+                      <span className="sh-pace__chip-icon" aria-hidden="true">{chip.icon}</span>
+                      <span className="sh-pace__chip-text">{chip.text[0]}<br />{chip.text[1]}</span>
                     </span>
-                  </span>
+                    {i < PACE_CHIPS.length - 1 && <span className="sh-pace__dash" aria-hidden="true" />}
+                  </Fragment>
                 ))}
-                <span className="sh-pace__arrow" aria-hidden="true">→</span>
-                <span className="sh-pace__answer">{nb('Неважно!')}</span>
+                <span className="sh-pace__arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </span>
+                <span className="sh-pace__answer">
+                  {nb('Когда удобно!')}
+                  <span className="sh-pace__answer-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="currentColor" /><path d="M7 12.4l3.4 3.4L17 8.6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                </span>
               </div>
 
               <p className="sh-pace__note">
-                {nbd('Клуб — это дополнительная возможность тренироваться, повторять школьную математику и развивать мышление без перегруза.')}
+                <span className="sh-pace__note-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="currentColor" /><path d="M7 12.4l3.4 3.4L17 8.6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </span>
+                <span>{nbd('Клуб — это дополнительная возможность тренироваться, повторять школьную математику и развивать мышление без перегруза.')}</span>
               </p>
             </div>
           </div>
@@ -972,16 +988,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── CTA К ФОРМЕ КОНСУЛЬТАЦИИ ── */}
-      <section className="sh-cta">
-        <div className="sh-wrap">
-          <a href="#consult" className="sh-cta__btn">
-            {nb('Получить консультацию по обучению в Знарнии')}
-          </a>
-          <p className="sh-cta__note">{nb('Бесплатно и ни к чему не обязывает')}</p>
-        </div>
-      </section>
-
       {/* ── О ПРЕПОДАВАТЕЛЕ ── */}
       <section className="lk-author-section">
         <div className="sh-wrap">
@@ -1047,22 +1053,6 @@ export default function Page() {
               <LettersCarousel />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── ФОРМА КОНСУЛЬТАЦИИ ── */}
-      <section className="sh-consult" id="consult">
-        <div className="sh-wrap">
-          <h2 className="sh-consult__title">{nb('Запишитесь на консультацию')}</h2>
-          <p className="sh-consult__lead">
-            {nb('Подберём программу под цели ребёнка, покажем платформу и ответим на все вопросы.')}
-          </p>
-          <RegistrationForm
-            subtitle={nb('После заполнения формы наши консультанты свяжутся с вами')}
-            nameLabel={nb('Фамилия и имя *')}
-            namePlaceholder="Иванов Иван"
-            successText={nb('После заполнения формы наши консультанты свяжутся с вами и ответят на все вопросы.')}
-          />
         </div>
       </section>
 
