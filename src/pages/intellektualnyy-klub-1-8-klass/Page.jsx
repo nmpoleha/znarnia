@@ -877,7 +877,7 @@ export default function Page() {
                 {nb('Интеллектуальный клуб Знарнии')}
               </span>
               <h2 className="sh-final__htitle">
-                {nb('Вступите бесплатно —')}{' '}
+                {nb('Вступите бесплатно')}{' '}
                 <span className="sh-final__htitle-accent">{nb('доступ на весь год')}</span>
                 <span className="sh-final__heart" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.8S3.6 15.6 3.6 9.9A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.4 3.3c0 5.7-8.4 10.9-8.4 10.9z"/></svg>
@@ -965,15 +965,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── ФОРМА ВСТУПЛЕНИЯ ── */}
-      <section className="sh-join" id="join">
-        <div className="sh-wrap sh-join__inner">
-          <div className="sh-join__form">
-            <RegForm />
-          </div>
-        </div>
-      </section>
-
       {/* ── ПОЛОСА ДОВЕРИЯ ── */}
       <section className="sh-trust">
         <div className="sh-wrap">
@@ -1052,6 +1043,15 @@ export default function Page() {
               <p className="dg-schools__text">{nb('Мы проводили независимую оценку знаний для учеников из более 50 образовательных учреждений Москвы и получали благодарственные письма от школ и педагогов.')}</p>
               <LettersCarousel />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ФОРМА ВСТУПЛЕНИЯ ── */}
+      <section className="sh-join" id="join">
+        <div className="sh-wrap sh-join__inner">
+          <div className="sh-join__form">
+            <RegForm />
           </div>
         </div>
       </section>

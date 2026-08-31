@@ -665,21 +665,22 @@
   border: none;
   border-radius: 12px;
   padding: 16px 20px;
-  background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
+  /* зелёная — единый цвет главного действия по всей странице */
+  background: linear-gradient(135deg, #72c52b 0%, #58ae28 100%);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 16px;
   cursor: pointer;
   transition: filter 0.15s, transform 0.1s, box-shadow 0.15s;
-  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.32);
+  box-shadow: 0 12px 26px rgba(72, 150, 24, 0.32);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.sh-form__submit:hover { filter: brightness(1.05); box-shadow: 0 14px 30px rgba(234, 88, 12, 0.4); }
+.sh-form__submit:hover { filter: brightness(1.05); box-shadow: 0 14px 30px rgba(72, 150, 24, 0.4); }
 .sh-form__submit:active { transform: translateY(1px); }
 
 /* подпись под кнопкой: данные не передаются третьим лицам */
