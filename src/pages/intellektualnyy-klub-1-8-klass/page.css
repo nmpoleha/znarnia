@@ -2370,17 +2370,17 @@
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  background: var(--sh-purple-soft);
+  background: #f4f1fd;
   color: var(--sh-purple);
-  border: 1px solid #ddd2f7;
+  border: 1px solid #e2daf7;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 8px 15px;
-  border-radius: 999px;
-  margin-bottom: 18px;
+  border-radius: 22px;
+  margin-bottom: 14px;
 }
 
 .sh-watch__title {
@@ -2389,35 +2389,35 @@
   font-size: clamp(24px, 3.4vw, 34px);
   line-height: 1.12;
   letter-spacing: -0.01em;
-  color: #211432;
-  margin-bottom: 14px;
+  color: #3b1f6e;
+  margin-bottom: 12px;
 }
 .sh-watch__heart { font-size: 0.92em; }
 
 .sh-watch__lead {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.55;
-  color: #362654;
-  max-width: 760px;
-  margin-bottom: 22px;
+  color: #453a5c;
+  max-width: 620px;
+  margin-bottom: 18px;
 }
 
 .sh-watch__subhead {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: clamp(15px, 1.7vw, 17px);
-  color: var(--sh-purple-mid);
-  margin-bottom: 16px;
+  color: #5ead2f;
+  margin-bottom: 14px;
 }
 
 .sh-watch__list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
-.sh-watch__item { display: flex; align-items: center; gap: 12px; }
+.sh-watch__item { display: flex; align-items: center; gap: 13px; }
 
 .sh-watch__icon {
   flex-shrink: 0;
@@ -2432,27 +2432,29 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 16px;
-  color: #211432;
+  color: #1d1230;
 }
-.sh-watch__item-sep { color: #c4b5fd; font-weight: 700; }
+.sh-watch__item-sep { font-weight: 800; margin: 0 5px; }
+.sh-watch__item--purple .sh-watch__item-sep { color: #6d28d9; }
+.sh-watch__item--amber  .sh-watch__item-sep { color: #f97316; }
+.sh-watch__item--green  .sh-watch__item-sep { color: #5ead2f; }
 .sh-watch__item-desc { font-size: 15px; color: #5b4a7d; }
 
-.sh-watch__right { position: relative; }
+.sh-watch__right {
+  position: relative;
+  width: min(408px, 100%);
+  margin: 0 auto;
+}
 .sh-watch__caption {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 14px;
   color: var(--sh-purple);
-  text-decoration: none;
+  text-align: left;
   margin-bottom: 16px;
 }
-.sh-watch__caption svg { width: 18px; height: 18px; }
-.sh-watch__caption:hover { text-decoration: underline; }
 
-.sh-watch__stage { position: relative; display: flex; justify-content: center; }
+.sh-watch__stage { position: relative; display: flex; justify-content: flex-start; }
 .sh-watch__glow {
   position: absolute;
   z-index: 0;
@@ -2467,12 +2469,12 @@
 .sh-watch__device {
   position: relative;
   z-index: 1;
-  width: min(360px, 100%);
-  border-radius: 26px;
+  width: min(408px, 100%);
+  border-radius: 24px;
   background: #fff;
-  border: 1px solid #e8e0f8;
-  box-shadow: 0 24px 60px rgba(76, 29, 149, 0.16);
-  padding: 10px;
+  border: 1px solid #e9e2f7;
+  box-shadow: 0 24px 60px rgba(76, 29, 149, 0.14);
+  padding: 12px;
 }
 .sh-watch__video {
   display: block;
@@ -2502,27 +2504,43 @@
 .sh-watch__play:hover { filter: brightness(1.06); transform: scale(1.04); }
 
 .sh-watch__bubble {
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  bottom: 13%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 22px auto 0;
   background: #fff;
   color: var(--sh-purple);
-  font-family: 'Caveat', 'Nunito', cursive;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.1;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: nowrap;
   text-align: center;
-  padding: 9px 14px;
-  border-radius: 16px 16px 4px 16px;
-  box-shadow: 0 12px 26px rgba(76, 29, 149, 0.16);
-  max-width: 150px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid #ece5fb;
+  box-shadow: 0 10px 24px rgba(76, 29, 149, 0.18);
+}
+.sh-watch__bubble-check {
+  flex-shrink: 0;
+  width: 1.15em;
+  height: 1.15em;
+  color: #5ead2f;
 }
 
 @media (min-width: 860px) {
-  .sh-watch { padding: 56px 0; }
+  .sh-watch { padding: 52px 0; }
   .sh-watch__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 36%);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
     gap: 40px;
+    align-items: start;
+  }
+  .sh-watch__bubble {
+    margin-top: 28px;
+    font-size: 21px;
+    padding: 13px 26px;
+    box-shadow: 0 14px 30px rgba(76, 29, 149, 0.2);
   }
 }

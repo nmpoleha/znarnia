@@ -318,16 +318,19 @@ const NOTJUST_ITEMS = [
 /* ── «Посмотрите, как это работает»: преимущества интерактивной платформы ── */
 const WATCH_ITEMS = [
   {
+    tone: 'purple',
     title: 'Сюжетные задания',
     text: 'Интересно узнать, что будет дальше.',
     img: '/znarnia/images/klub-w-book.png',
   },
   {
+    tone: 'amber',
     title: 'Сразу виден результат',
     text: 'Ребёнок получает обратную связь.',
     img: '/znarnia/images/klub-w-trophy.png',
   },
   {
+    tone: 'green',
     title: 'Можно проходить самостоятельно',
     text: 'В удобное время и своём темпе.',
     img: '/znarnia/images/klub-w-clock.png',
@@ -537,61 +540,6 @@ function RegForm() {
   )
 }
 
-/* ── Образовательная среда: что входит в платформу ── */
-const ENV_ITEMS = [
-  {
-    text: 'Собственная платформа',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19v-8.5z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-        <path d="M9.6 20.5v-5.4a1 1 0 0 1 1-1h2.8a1 1 0 0 1 1 1v5.4" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-      </svg>
-    ),
-  },
-  {
-    text: 'Интерактивная онлайн-доска',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M4 20l1-4.2L15.6 5.2a1.8 1.8 0 0 1 2.6 0l.6.6a1.8 1.8 0 0 1 0 2.6L8.2 19 4 20z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-        <path d="M14.4 6.6l3 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    text: 'Задания и проверка в реальном времени',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M13.2 2.6L5 13.4h5.6L9.8 21.4 18.6 10h-6l.6-7.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-      </svg>
-    ),
-  },
-  {
-    text: 'Игровая система мотивации',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M12 3.4l2.7 5.6 6.1.8-4.5 4.2 1.2 6-5.5-3-5.5 3 1.2-6L3.2 9.8l6.1-.8L12 3.4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-      </svg>
-    ),
-  },
-  {
-    text: 'Аналитика для родителей',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M6 20v-6M12 20V6M18 20v-9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    text: 'Возможность пересматривать уроки в записи',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="3.2" y="4.6" width="17.6" height="14.8" rx="4" stroke="currentColor" strokeWidth="1.7"/>
-        <path d="M10.4 9.4l4.8 2.6-4.8 2.6V9.4z" fill="currentColor"/>
-      </svg>
-    ),
-  },
-]
-
 /* ── Полоса доверия перед блоком о преподавателе ── */
 const TRUST_ITEMS = [
   {
@@ -647,91 +595,6 @@ const TRUST_ITEMS = [
     ),
   },
 ]
-
-/* ── Принципы работы занятий ── */
-const PRINCIPLES = [
-  {
-    img: '/znarnia/images/lesson-shield.png',
-    title: 'Полная концентрация и безопасная среда',
-    text: 'Каждый ученик работает в своём личном пространстве на платформе. Ответы ребёнка видны только ему и педагогу — так мы снимаем ненужный стресс и страх ошибиться «на виду у всех». Интерактивные задания (ввести ответ, переместить объект, построить график) и мгновенное поощрение баллами держат внимание и интерес на протяжении всего урока.',
-  },
-  {
-    img: '/znarnia/images/lesson-chart.png',
-    title: 'Педагог видит прогресс каждого, а не только группы',
-    text: 'Наш инструментарий для педагога — это «цифровая панель управления» классом в реальном времени. Учитель видит, кто и как выполняет задание, с какой попытки даёт ответ, кому нужна помощь. Это позволяет точечно поддерживать каждого ученика здесь и сейчас, а после урока анализировать статистику для совершенствования материалов.',
-  },
-  {
-    img: '/znarnia/images/lesson-search.png',
-    title: 'Для вас — полная прозрачность прогресса',
-    text: 'Вы в любой момент можете зайти в личный кабинет и увидеть детальную аналитику по занятиям вашего ребёнка: активность на уроке, процент правильных ответов, темы, которые вызвали вопросы. Вы всегда в курсе его успехов и областей роста, чтобы поддержать его своевременно.',
-  },
-  {
-    img: '/znarnia/images/lesson-headset.png',
-    title: 'Домашняя работа с интеллектуальной поддержкой',
-    text: 'Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
-  },
-  {
-    img: '/znarnia/images/lesson-trophy.png',
-    title: 'Наши результаты',
-    text: 'Уже через 2 месяца занятий у учеников заметно повышается интерес к учёбе и мотивация, а школьная оценка вырастает в среднем на 1 балл.',
-  },
-]
-
-/* ── Подробный блок (обучение + занятия) ── */
-function Details() {
-  return (
-    <section className="sh-reveal">
-      <div className="sh-wrap sh-reveal__body">
-
-        {/* Про занятия */}
-        <div className="sh-lessons__head">
-          <div className="sh-lessons__head-text">
-            <h2 className="sh-lessons__title">
-              {nb('Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка')}
-            </h2>
-            <p className="sh-lessons__intro">
-              {nb('Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.')}
-            </p>
-          </div>
-        </div>
-
-        <div className="sh-lessons__grid">
-          {PRINCIPLES.map((p, i) => (
-            <div key={i} className="sh-principle">
-              <div className="sh-principle__media">
-                <div className="sh-principle__icon">
-                  <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
-                </div>
-                <span className="sh-principle__num">{i + 1}</span>
-              </div>
-              <h3 className="sh-principle__title">{nb(p.title)}</h3>
-              <p className="sh-principle__text">{nb(p.text)}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="sh-result">
-          <span className="sh-result__dots" aria-hidden="true" />
-          <span className="sh-result__ring" aria-hidden="true" />
-
-          <div className="sh-result__icon">
-            <svg className="sh-result__hex" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-              <path d="M100 8l73 42v100l-73 42-73-42V50z" stroke="#fff" strokeOpacity="0.16" strokeWidth="2"/>
-              <path d="M100 26l58 33v82l-58 33-58-33V59z" stroke="#fff" strokeOpacity="0.10" strokeWidth="2"/>
-            </svg>
-            <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
-          </div>
-
-          <h2 className="sh-result__title">Главный результат:<br className="sh-br-desktop" /> персонализированное обучение</h2>
-          <p className="sh-result__text">
-            {nbd('Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.')}
-          </p>
-        </div>
-
-      </div>
-    </section>
-  )
-}
 
 export default function Page() {
   return (
@@ -913,25 +776,28 @@ export default function Page() {
             <div className="sh-watch__subhead">{nb('Никаких скучных листочков с примерами')}</div>
             <ul className="sh-watch__list">
               {WATCH_ITEMS.map((item, i) => (
-                <li key={i} className="sh-watch__item">
+                <li key={i} className={`sh-watch__item sh-watch__item--${item.tone}`}>
                   <span className="sh-watch__icon" aria-hidden="true">
                     <img src={item.img} alt="" className="sh-watch__icon-img" width="128" height="128" loading="lazy" decoding="async" />
                   </span>
                   <div className="sh-watch__text">
                     <span className="sh-watch__item-title">{nb(item.title)}</span>
-                    <span className="sh-watch__item-sep" aria-hidden="true"> · </span>
+                    <span className="sh-watch__item-sep" aria-hidden="true">•</span>
                     <span className="sh-watch__item-desc">{nb(item.text)}</span>
                   </div>
                 </li>
               ))}
             </ul>
+            <div className="sh-watch__bubble">
+              <svg className="sh-watch__bubble-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              {nb('Решает → сразу видит результат')}
+            </div>
           </div>
 
           <div className="sh-watch__right">
-            <a href="#join" className="sh-watch__caption">
+            <div className="sh-watch__caption">
               {nb('Так выглядит занятие на платформе Знарнии')}
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </a>
+            </div>
             <div className="sh-watch__stage">
               <span className="sh-watch__glow" aria-hidden="true" />
               <WatchVideo />
@@ -1091,30 +957,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      {/* ── ОБРАЗОВАТЕЛЬНАЯ СРЕДА ── */}
-      <section className="sh-env">
-        <div className="sh-wrap">
-          <h2 className="sh-env__title">
-            {nbd('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}
-          </h2>
-          <p className="sh-env__lead">
-            {nbd('Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.')}
-          </p>
-
-          <ul className="sh-env__grid">
-            {ENV_ITEMS.map((item, i) => (
-              <li key={i} className="sh-env__item">
-                <span className="sh-env__icon" aria-hidden="true">{item.icon}</span>
-                <span className="sh-env__text">{nb(item.text)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── ПОДРОБНЫЙ БЛОК ── */}
-      <Details />
 
       {/* ── ПОЛОСА ДОВЕРИЯ ── */}
       <section className="sh-trust">
