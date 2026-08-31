@@ -1017,11 +1017,15 @@ export default function Page() {
             </div>
 
             <div className="sh-final__hero-media">
-              {/* плейсхолдер под иллюстрацию — картинку не вставляем */}
-              <div className="sh-final__placeholder" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.4" stroke="currentColor" strokeWidth="1.6"/><circle cx="8.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.6"/><path d="M4 17l4.5-4 3.5 3 3-2.5L20 17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                <span>Здесь будет иллюстрация</span>
-              </div>
+              <img
+                className="sh-final__illus"
+                src="/znarnia/images/klub-final-calendar.png"
+                alt="Календарь на весь учебный год: с сентября по май все месяцы отмечены галочками"
+                width="1294"
+                height="766"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
 

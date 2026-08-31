@@ -1341,24 +1341,15 @@
 }
 .sh-final__note svg { color: var(--sh-purple); flex-shrink: 0; }
 
-/* плейсхолдер под иллюстрацию (картинку не вставляем) */
+/* иллюстрация — календарь на весь учебный год */
 .sh-final__hero-media { min-width: 0; }
-.sh-final__placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  aspect-ratio: 16 / 10;
-  border-radius: 22px;
-  background: #f6f2fe;
-  border: 2px dashed #d6c9f5;
-  color: #a78bfa;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
+.sh-final__illus {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1294 / 766;
+  object-fit: contain;
 }
-.sh-final__placeholder svg { width: 42px; height: 42px; }
 
 /* ряд из 3 фич с 3D-плитками */
 .sh-final__feats {
