@@ -891,7 +891,7 @@ export default function Page() {
                 {nbd('Занимайтесь в удобном темпе и возвращайтесь к новым материалам в течение года.')}
               </p>
               <a href="#join" className="sh-final__cta-btn">
-                <span className="sh-final__cta-label">{nb('Вступить в интеллектуальный клуб')}</span>
+                <span className="sh-final__cta-label">{nb('Вступить в клуб')}</span>
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </a>
               <div className="sh-final__note">
