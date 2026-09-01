@@ -33,7 +33,8 @@
 }
 
 /* ПК: боковой марджин ещё вдвое меньше (6px). Мобильную версию пока не трогаем. */
-@media (min-width: 860px) {
+/* полноценный desktop-контейнер — только от 1100px */
+@media (min-width: 1100px) {
   .sh-wrap,
   .sh-header__inner {
     padding: 0 6px;
@@ -886,12 +887,8 @@
   max-width: 760px;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1100px) {
   .sh-join { padding: 64px 0; }
-}
-
-@media (max-width: 859px) {
-  .sh-join { padding: 44px 0; }
 }
 
 /* ── ЧТО ЖДЁТ РЕБЁНКА В КЛУБЕ ── */
@@ -1007,15 +1004,30 @@
   color: #4a4363;
 }
 
-/* ── ПК: ряд из 5 карточек (как на макете) ── */
-@media (min-width: 900px) {
-  .sh-club2 { padding: 60px 0; }
-  .sh-club2__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+/* ── СИСТЕМНАЯ СЕТКА КАРТОЧЕК «Что ждёт ребёнка» ──
+   ≤699: 1 колонка · 700–899: 2 колонки (2+2+1) ·
+   900–1099: 3+2 · ≥1100: 5 колонок (desktop). */
+
+/* планшет-портрет: 2 колонки, пятая карточка — во всю ширину */
+@media (min-width: 700px) and (max-width: 899px) {
+  .sh-club2__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .sh-club2__card:last-child { grid-column: 1 / -1; }
 }
 
-/* промежуточная и мобильная раскладки — простой фолбэк, без тонкой настройки */
-@media (min-width: 560px) and (max-width: 899px) {
-  .sh-club2__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* планшет-лендскейп: 3 + 2 (шестиколоночная база, карточки span 2 / span 3).
+   Сама вертикальная раскладка карточки — ниже, после общей планшетной основы
+   (чтобы перебить горизонтальную карточку из неё по порядку каскада). */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .sh-club2__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; }
+  .sh-club2__card { grid-column: span 2; }
+  .sh-club2__card:nth-child(4),
+  .sh-club2__card:nth-child(5) { grid-column: span 3; }
+}
+
+/* desktop: пять карточек в ряд (как на макете) — только от 1100px */
+@media (min-width: 1100px) {
+  .sh-club2 { padding: 60px 0; }
+  .sh-club2__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 }
 
 /* ── НЕ ПРОСТО ТРЕНАЖЁР ── */
@@ -1100,7 +1112,7 @@
   color: #4a4363;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .sh-notjust { padding: 72px 0; }
   .sh-notjust__inner {
     grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
@@ -1108,8 +1120,7 @@
   }
 }
 
-@media (max-width: 899px) {
-  .sh-notjust { padding: 48px 0; }
+@media (max-width: 1099px) {
   .sh-notjust__img { max-width: 560px; margin: 0 auto; display: block; }
 }
 
@@ -1284,7 +1295,7 @@
 }
 .sh-pace__note-check svg { width: 24px; height: 24px; }
 
-@media (min-width: 860px) {
+@media (min-width: 1100px) {
   .sh-pace { padding: 64px 0; }
   .sh-pace__card {
     grid-template-columns: minmax(230px, 300px) minmax(0, 1fr);
@@ -1293,8 +1304,9 @@
   }
 }
 
-@media (max-width: 859px) {
-  .sh-pace { padding: 40px 0; }
+/* соединители цепочки (пунктир/стрелка) — только на широком desktop, где
+   варианты времени стоят одной горизонтальной строкой */
+@media (max-width: 1099px) {
   .sh-pace__img { width: 62%; max-width: 240px; }
   .sh-pace__dash, .sh-pace__arrow { display: none; }
   .sh-pace__chain { gap: 10px; }
@@ -1499,7 +1511,7 @@
   .sh-final__feat + .sh-final__feat { border-left: 1px solid #ececf2; }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .sh-final { padding: 64px 0; }
   .sh-final__hero { grid-template-columns: minmax(0, 1fr) minmax(0, 46%); gap: 44px; }
   .sh-final__band { flex-direction: row; align-items: center; gap: 36px; padding: 32px 40px; }
@@ -1508,10 +1520,8 @@
   .sh-final__mega { display: block; flex-shrink: 0; width: 118px; height: auto; margin-bottom: -6px; }
 }
 
-@media (max-width: 899px) {
-  .sh-final { padding: 44px 0; }
-  /* на узких экранах длинная подпись кнопки может переноситься, а не
-     распирать колонку до min-content ширины */
+@media (max-width: 1099px) {
+  /* длинная подпись кнопки переносится, а не распирает колонку до min-content */
   .sh-final__cta-label { white-space: normal; }
   .sh-final__cta-btn { min-height: 60px; height: auto; padding-top: 12px; padding-bottom: 12px; }
 }
@@ -2281,8 +2291,8 @@
   color: var(--sh-muted);
 }
 
-/* ── DESKTOP ── */
-@media (min-width: 860px) {
+/* ── DESKTOP ── (полноценный 2-колоночный герой — только от 1100px) */
+@media (min-width: 1100px) {
   .sh-hero__inner {
     grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
     gap: 8px;
@@ -2317,8 +2327,8 @@
   }
 }
 
-/* ── ЕДИНЫЙ ВЕРТИКАЛЬНЫЙ РИТМ НА МОБИЛЬНЫХ/ПЛАНШЕТАХ ── */
-@media (max-width: 859px) {
+/* ── ЕДИНЫЙ ВЕРТИКАЛЬНЫЙ РИТМ НА МОБИЛЬНЫХ/ПЛАНШЕТАХ (до desktop) ── */
+@media (max-width: 1099px) {
   .sh-hero { padding: 36px 0 16px; }
   .sh-hint { margin-top: 33px; }
   .sh-env { padding: 48px 0 0; }
@@ -2601,7 +2611,7 @@
   color: #5ead2f;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1100px) {
   .sh-watch { padding: 52px 0; }
   .sh-watch__inner {
     grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
@@ -2793,6 +2803,195 @@
   .sh-club2__icon { width: 48px; height: 48px; }
   .sh-watch__title { font-size: 23px; }
   .sh-pace__title { font-size: 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TABLET — отдельная промежуточная композиция (600–859px).
+   Ниже 600px — mobile; от 860px — desktop (обе не затрагиваются).
+   Больше воздуха, чем на телефоне; умеренные 2 колонки, где это уместно.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── ОБЩАЯ ОСНОВА ПЛАНШЕТА (600–1099) ── */
+@media (min-width: 600px) and (max-width: 1099px) {
+  /* просторный контейнер */
+  .sh-wrap { padding-inline: clamp(28px, 5vw, 56px); }
+
+  /* воздух между секциями — больше mobile, меньше desktop */
+  .sh-club2,
+  .sh-notjust,
+  .sh-watch,
+  .sh-pace,
+  .sh-final,
+  .sh-join { padding: clamp(64px, 9vw, 84px) 0; }
+  .sh-trust { padding: clamp(56px, 8vw, 72px) 0; }
+
+  /* типографика планшета — растёт с шириной (не «уменьшенный desktop») */
+  .sh-hero__title { font-size: clamp(34px, 5.4vw, 58px); line-height: 1.04; }
+  .sh-club2__title { font-size: clamp(24px, 3.6vw, 36px); margin-bottom: clamp(28px, 3.4vw, 40px); }
+  .sh-notjust__title,
+  .sh-watch__title,
+  .sh-pace__title,
+  .sh-final__htitle { font-size: clamp(28px, 4.4vw, 44px); }
+  .sh-hero__sub,
+  .sh-watch__lead,
+  .sh-pace__lead,
+  .sh-final__lead,
+  .sh-final__lead2 { font-size: clamp(16px, 1.9vw, 19px); }
+  .sh-notjust__item-title { font-size: clamp(18px, 2.1vw, 22px); }
+  .sh-notjust__item-desc,
+  .sh-watch__item-title,
+  .sh-watch__item-desc { font-size: clamp(15px, 1.7vw, 17px); }
+
+  /* комфортная мера строки — текст не растягивается на всю ширину */
+  .sh-hero__sub,
+  .sh-hero__tagline { max-width: 640px; }
+  .sh-watch__lead { max-width: 660px; }
+  .sh-final__lead,
+  .sh-final__lead2 { max-width: 640px; }
+
+  /* HERO — центрированная одноколоночная композиция во всю ширину контейнера
+     (меньше пустых полей по бокам), крупная иллюстрация, CTA по центру */
+  .sh-hero { padding: clamp(40px, 6vw, 64px) 0 clamp(20px, 3vw, 36px); }
+  .sh-hero__inner { max-width: min(100%, 1040px); margin-inline: auto; }
+  .sh-hero__left { align-items: center; text-align: center; }
+  .sh-hero__sub { margin-inline: auto; }
+  .sh-hero__right { justify-content: center; }
+  .sh-hero__illus { width: min(96%, 720px); max-width: none; margin-inline: auto; }
+  /* оффер-плашка и CTA — во всю ширину, по центру, одной шириной */
+  .sh-hero__free {
+    align-self: stretch;
+    width: 100%;
+    justify-content: center;
+  }
+  .sh-hero__cta { align-self: stretch; width: 100%; min-height: 58px; }
+
+  /* «ЧТО ЖДЁТ РЕБЁНКА» — те же компактные горизонтальные карточки, что и на
+     телефоне (плавный переход 767↔768), но крупнее и в 2 колонки */
+  .sh-club2__dots { display: none; }
+  .sh-club2__grid { gap: 20px; }
+  .sh-club2__card {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 4px;
+    align-items: start;
+    text-align: left;
+    padding: 22px 24px;
+    border-radius: 22px;
+  }
+  .sh-club2__tagrow { grid-column: 1 / 3; grid-row: 1; text-align: left; margin: 0 0 10px; }
+  .sh-club2__icon { grid-column: 1; grid-row: 2 / 4; align-self: center; width: 60px; height: 60px; margin: 0; }
+  .sh-club2__card-title { grid-column: 2; grid-row: 2; min-height: 0; margin: 0 0 4px; font-size: 18px; }
+  .sh-club2__card-text { grid-column: 2; grid-row: 3; margin: 0; font-size: 15px; }
+
+  /* умеренные внутренние отступы крупных карточек */
+  .sh-pace__card { padding: clamp(28px, 4vw, 36px); }
+
+  /* touch */
+  .sh-final__cta-btn { min-height: 58px; }
+}
+
+/* ── ДВУХКОЛОНОЧНЫЕ КОМПОЗИЦИИ ПЛАНШЕТА (768–1099) ── */
+@media (min-width: 768px) and (max-width: 1099px) {
+  /* НЕ ПРОСТО ТРЕНАЖЁР — заголовок во всю ширину над картинкой;
+     ниже картинка слева, пункты справа (выровнены по верху) */
+  .sh-notjust__inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "title title"
+      "media list";
+    column-gap: clamp(32px, 4vw, 52px);
+    row-gap: clamp(18px, 2.6vw, 30px);
+    align-items: start;
+  }
+  .sh-notjust__body { display: contents; }
+  .sh-notjust__title { grid-area: title; margin-bottom: 0; }
+  .sh-notjust__media { grid-area: media; align-self: start; }
+  .sh-notjust__list { grid-area: list; }
+  .sh-notjust__img { max-width: clamp(320px, 38vw, 440px); }
+
+  /* ВИДЕО-БЛОК — бейдж и заголовок во всю ширину сверху; ниже текст слева,
+     вертикальное видео справа, выровненное по верху абзаца-лида */
+  .sh-watch__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 30vw, 360px);
+    grid-template-areas:
+      "badge  badge"
+      "title  title"
+      "lead   media"
+      "sub    media"
+      "list   media"
+      "bubble media";
+    column-gap: clamp(32px, 4vw, 48px);
+    row-gap: 0;
+    align-items: start;
+  }
+  .sh-watch__left { display: contents; }
+  /* плашка «Посмотрите, как это работает» — по содержимому, у левого края
+     (иначе тянется на всю ширину ячейки badge) */
+  .sh-watch__badge { grid-area: badge; justify-self: start; }
+  .sh-watch__title { grid-area: title; }
+  .sh-watch__lead { grid-area: lead; }
+  .sh-watch__subhead { grid-area: sub; }
+  .sh-watch__list { grid-area: list; }
+  .sh-watch__bubble { grid-area: bubble; margin: 20px 0 0; }
+  .sh-watch__right { grid-area: media; align-self: start; width: auto; margin: 0; min-width: 0; }
+  .sh-watch__caption { text-align: left; }
+  .sh-watch__device { width: 100%; max-width: 360px; margin-inline: 0; }
+  .sh-watch__stage { justify-content: flex-start; }
+
+  /* В СВОЁМ ТЕМПЕ — календарь слева, текст справа; варианты времени сеткой 2×2 */
+  .sh-pace__card {
+    grid-template-columns: minmax(200px, 34%) minmax(0, 1fr);
+    gap: clamp(28px, 4vw, 44px);
+    align-items: center;
+  }
+  .sh-pace__media { padding: 0; }
+  .sh-pace__img { width: 100%; max-width: clamp(240px, 26vw, 300px); }
+  .sh-pace__chain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .sh-pace__chip { width: 100%; justify-content: flex-start; }
+  .sh-pace__answer { width: 100%; justify-content: center; }
+
+  /* ДОСТУП НА ВЕСЬ ГОД — текст+CTA слева, календарь справа */
+  .sh-final__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+    gap: clamp(32px, 4vw, 48px);
+    align-items: center;
+  }
+  .sh-final__cta-btn { width: 100%; }
+  .sh-final__illus { width: 100%; }
+}
+
+/* «О! А Я МОГУ!» — на планшете остаётся акцентная вертикальная композиция
+   (горизонтальная сжимает заголовок в узкую колонку), но просторнее */
+@media (min-width: 600px) and (max-width: 1099px) {
+  .sh-final__band { padding: clamp(28px, 4vw, 40px); }
+  .sh-final__points { max-width: 620px; }
+}
+
+/* Карточки «Что ждёт ребёнка» в многоколоночных раскладках планшета
+   (2+2+1 при 700–899 и 3+2 при 900–1099): вертикальные — иконка сверху,
+   текст во всю ширину столбца. Так текст не сжимается в узкий столбец, а
+   переход 899↔900 остаётся плавным (везде вертикальная карточка).
+   Блок стоит ПОСЛЕ планшетной основы, чтобы перебить горизонтальную карточку. */
+@media (min-width: 700px) and (max-width: 1099px) {
+  .sh-club2__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 26px 24px;
+  }
+  .sh-club2__tagrow { width: auto; margin: 0 0 14px; }
+  .sh-club2__icon { align-self: flex-start; width: 62px; height: 62px; margin: 0 0 14px; }
+  .sh-club2__card-title { min-height: 0; margin: 0 0 8px; font-size: clamp(18px, 1.9vw, 20px); }
+  .sh-club2__card-text { font-size: clamp(15px, 1.6vw, 16px); }
 }
 
 /* ── Уважаем системную настройку «меньше движения» ── */
