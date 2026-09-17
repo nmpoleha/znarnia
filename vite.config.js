@@ -61,6 +61,7 @@ export default defineConfig({
         'intellektualnyy-klub': resolve(__dirname, 'intellektualnyy-klub/index.html'),
         'intellektualnyy-klub-1-8-klass': resolve(__dirname, 'intellektualnyy-klub-1-8-klass/index.html'),
         'samostoyatelnaya-oplata-osen': resolve(__dirname, 'samostoyatelnaya-oplata-osen/index.html'),
+        'konsultatsiya': resolve(__dirname, 'konsultatsiya/index.html'),
       },
     },
   },

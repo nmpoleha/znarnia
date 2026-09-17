@@ -1,0 +1,653 @@
+.ks-page {
+  min-height: 100vh;
+  background: #f5f3ff;
+}
+
+.ks-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 20px 72px;
+}
+
+.ks-wrap {
+  width: 100%;
+  max-width: 900px;
+}
+
+.ks-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 4.5vw, 40px);
+  line-height: 1.15;
+  text-align: center;
+  background: linear-gradient(90deg, #5b21b6, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #5b21b6;
+  margin-bottom: 16px;
+}
+
+.ks-lead {
+  text-align: center;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.5;
+  color: #6b7280;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+/* ── Card ── */
+.ks-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 40px 40px;
+  box-shadow: 0 18px 50px rgba(76, 29, 149, 0.12);
+  overflow: hidden;
+}
+
+.ks-card__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #5b21b6, #7c3aed);
+}
+
+.ks-card__head {
+  margin-bottom: 24px;
+}
+
+.ks-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #5b21b6;
+  margin-bottom: 6px;
+}
+
+.ks-card__sub {
+  font-size: 15px;
+  color: #9ca3af;
+}
+
+/* ── Form ── */
+.ks-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+}
+
+.ks-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ks-field--half {
+  max-width: calc(50% - 12px);
+}
+
+.ks-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.ks-req { color: #dc2626; }
+
+.ks-input,
+.ks-select {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f5f3ff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #1e1b4b;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ks-input::placeholder { color: #9ca3af; }
+
+.ks-input:focus,
+.ks-select:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.ks-input--err { border-color: #dc2626; }
+
+.ks-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.ks-err {
+  font-size: 13px;
+  color: #dc2626;
+}
+.ks-err--check { margin-top: -12px; }
+
+/* ── Checkbox ── */
+.ks-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.ks-check__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ks-check__box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+}
+
+.ks-check__input:checked + .ks-check__box {
+  background: #5b21b6;
+  border-color: #5b21b6;
+}
+
+.ks-check__input:checked + .ks-check__box::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ks-check__input:focus-visible + .ks-check__box {
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+.ks-check--err .ks-check__box { border-color: #dc2626; }
+
+.ks-link { color: #7c3aed; text-decoration: underline; }
+
+/* ── Submit ── */
+.ks-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px;
+  margin-top: 4px;
+  background: #5b21b6;
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.ks-submit:hover {
+  background: #4c1d95;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(76, 29, 149, 0.28);
+}
+
+/* ── Success ── */
+.ks-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 28px 12px 20px;
+}
+.ks-success__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ede9fe;
+  color: #5b21b6;
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ks-success__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #5b21b6;
+}
+.ks-success__text {
+  font-size: 15px;
+  color: #6b7280;
+  max-width: 460px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .ks-page { padding: 36px 16px 56px; }
+  .ks-card { padding: 28px 20px 30px; }
+  .ks-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ks-field--half { max-width: 100%; }
+  .ks-card__title { font-size: 21px; }
+}
+
+/* ─────────────────────────────────────────────
+   Блоки о платформе / соц. доказательства
+   (перенос со страницы samostoyatelnaya-oplata-osen)
+   ───────────────────────────────────────────── */
+.ks-page {
+  --so-purple:      #6d28d9;
+  --so-purple-mid:  #7c3aed;
+  --so-purple-soft: #ede9fe;
+  --so-purple-lt:   #f3efff;
+  --so-ink:         #2b1a6b;
+  --so-text:        #3b2f52;
+  --so-muted:       #6f6091;
+  --so-max:         1100px;
+  --so-gap:         60px;
+  --sh-purple:      #6d28d9;
+  --sh-purple-mid:  #7c3aed;
+  --sh-purple-lt:   #f0eeff;
+  --sh-purple-soft: #ede9fe;
+}
+@media (max-width: 640px)  { .ks-page { --so-gap: 42px; } }
+@media (min-width: 641px)  { .ks-page { --so-gap: 120px; } }
+@media (min-width: 1000px) { .ks-page { --so-gap: 136px; } }
+
+.so-wrap {
+  max-width: calc(var(--so-max) + 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 480px) {
+  .so-wrap { padding: 0 16px; }
+}
+
+/* ── HEADER ── */
+.so-header {
+  background: #fff;
+  border-bottom: 1px solid #efeafc;
+  padding: 10px 0;
+  font-family: 'Nunito', sans-serif;
+}
+.so-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+  flex-wrap: wrap;
+}
+.so-header__brand { display: flex; align-items: center; gap: 10px; }
+.so-header__logo { height: 64px; width: auto; }
+.so-header__brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--so-ink);
+  letter-spacing: 0.02em;
+}
+.so-header__badge {
+  background: var(--so-purple-soft);
+  color: var(--so-purple);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .so-header { padding: 8px 0; }
+  .so-header__inner { flex-wrap: nowrap; gap: 12px; }
+  .so-header__badge { display: none; }
+  .so-header__logo { height: 46px; }
+  .so-header__brand { gap: 8px; min-width: 0; }
+  .so-header__brand-name { font-size: 15px; line-height: 1.2; }
+}
+
+.so-section__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(18px, 5.2vw, 30px);
+  color: var(--so-ink);
+  margin-bottom: 20px;
+  text-wrap: normal;
+}
+.so-section__title:has(+ .so-section__lead) { margin-bottom: 8px; }
+.so-section__lead {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(16px, 2vw, 19px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--so-text);
+  margin-bottom: 20px;
+  max-width: 780px;
+}
+
+.so-platform { width: 100%; padding: calc(var(--so-gap) / 6) 0 20px; font-family: 'Nunito', sans-serif; color: var(--so-text); }
+.so-platform .so-section__title { text-wrap: normal; max-width: none; }
+.so-platform .so-section__lead { max-width: none; }
+.so-platform__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  border: 1px solid #ece5fb;
+  border-radius: 22px;
+  background: #f0ebfb;
+  overflow: hidden;
+  box-shadow: 0 20px 44px -32px rgba(76, 29, 149, 0.4);
+}
+@media (min-width: 560px) { .so-platform__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .so-platform__grid { grid-template-columns: repeat(3, 1fr); } }
+.so-social {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+@media (max-width: 640px) { .so-social { margin-top: 28px; gap: 28px; } }
+.so-platform__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 26px 28px;
+  background: #fff;
+}
+.so-platform__icon {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+.so-platform__label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--so-ink);
+  line-height: 1.25;
+}
+
+/* ── Как построены наши занятия (раскрываемые карточки) ── */
+.ks-lessons { font-family: 'Nunito', sans-serif; }
+.ks-lessons .sh-lessons__head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.ks-lessons .sh-lessons__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(21px, 4vw, 29px);
+  line-height: 1.22;
+  color: #2b1a6b;
+  margin-bottom: 12px;
+  text-wrap: normal;
+}
+.ks-lessons .sh-lessons__intro {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(16px, 2vw, 19px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--so-text);
+}
+.ks-lessons .sh-lessons__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.ks-lessons .sh-principle {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "media title btn"
+    "text  text  text";
+  column-gap: 16px;
+  row-gap: 12px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #efeafc;
+  border-radius: 20px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 30px rgba(76, 29, 149, 0.06);
+}
+.ks-lessons .sh-principle__media {
+  grid-area: media;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+.ks-lessons .sh-principle__icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #efeaff 0%, #e5dcff 100%);
+}
+.ks-lessons .sh-principle__icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ks-lessons .sh-principle__num {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sh-purple-mid) 0%, var(--sh-purple) 100%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 10px rgba(109, 40, 217, 0.35);
+}
+.ks-lessons .sh-principle__title {
+  grid-area: title;
+  align-self: center;
+  min-width: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(16px, 3vw, 19px);
+  color: var(--so-ink);
+}
+.ks-lessons .sh-principle__text {
+  grid-area: text;
+  min-width: 0;
+  padding-top: 4px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #4a4363;
+}
+.ks-lessons .gv-principle__toggle {
+  grid-area: btn;
+  align-self: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--sh-purple-soft);
+  background: var(--sh-purple-lt);
+  color: var(--sh-purple);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.ks-lessons .gv-principle__toggle:hover { background: #e5dcff; }
+.ks-lessons .gv-principle__toggle svg { transition: transform 0.2s ease; }
+.ks-lessons .gv-principle--open .gv-principle__toggle {
+  background: linear-gradient(135deg, var(--sh-purple-mid) 0%, var(--sh-purple) 100%);
+  border-color: transparent;
+  color: #fff;
+}
+.ks-lessons .gv-principle--open .gv-principle__toggle svg { transform: rotate(45deg); }
+
+@media (min-width: 760px) {
+  .ks-lessons .sh-lessons__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .ks-lessons .sh-principle {
+    grid-template-areas:
+      "media title btn"
+      "media text  text";
+    align-items: start;
+    column-gap: 22px;
+    row-gap: 6px;
+    padding: 24px 28px;
+  }
+  .ks-lessons .sh-principle__media { align-self: start; width: 76px; height: 76px; }
+  .ks-lessons .sh-principle__icon { border-radius: 18px; }
+  .ks-lessons .sh-principle__title { align-self: start; }
+  .ks-lessons .gv-principle__toggle { align-self: start; }
+  .ks-lessons .sh-principle__num { top: -10px; left: -10px; width: 32px; height: 32px; font-size: 16px; }
+}
+
+/* ── Формат занятий (О занятиях в центре) ── */
+.ks-format { font-family: 'Nunito', sans-serif; }
+.ks-format__head { text-align: left; margin-bottom: 24px; }
+.ks-format__badge {
+  display: inline-block;
+  background: var(--sh-purple-soft);
+  color: var(--sh-purple);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.ks-format__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(21px, 4vw, 29px);
+  line-height: 1.22;
+  color: var(--so-ink);
+}
+.ks-format__title-accent { color: inherit; }
+
+.ks-format__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 760px) {
+  .ks-format__grid { grid-template-columns: 1fr 1fr; }
+  .ks-format__card--wide { grid-column: 1 / -1; }
+}
+
+.ks-format__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 22px;
+  row-gap: 12px;
+  padding: 28px 30px;
+  border-radius: 22px;
+  border: 1px solid #efeafc;
+}
+.ks-format__card--violet { background: #f4f1fe; border-color: #e9e2fb; }
+.ks-format__card--green  { background: #eefaf0; border-color: #dcf1e0; }
+.ks-format__card--wide {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background: linear-gradient(120deg, #6d28d9 0%, #7c3aed 55%, #8b5cf6 100%);
+  border-color: transparent;
+  box-shadow: 0 16px 34px -18px rgba(76, 29, 149, 0.65);
+}
+.ks-format__card--wide .ks-format__icon { width: 60px; height: 60px; }
+.ks-format__card--wide .ks-format__card-title { color: #fff; }
+.ks-format__card--wide .ks-format__card-text { color: rgba(255, 255, 255, 0.9); }
+
+.ks-format__icon {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.ks-format__card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: var(--so-ink);
+  margin-bottom: 8px;
+}
+.ks-format__card-text {
+  font-size: clamp(15px, 1.7vw, 17px);
+  line-height: 1.55;
+  color: #4a4363;
+}
+
+@media (max-width: 520px) {
+  .ks-format__card {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    text-align: left;
+    padding: 22px 20px;
+  }
+  .ks-format__icon { width: 88px; height: 88px; }
+}
+
+/* ── Единый шрифт заголовков: соц. доказательства наследуют Nunito → Montserrat ── */
+.ks-page .dg-author__label,
+.ks-page .dg-author__name,
+.ks-page .dg-reviews__title,
+.ks-page .dg-schools__title {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Плашка «О занятиях в центре» между формой и первым блоком ── */
+.ks-topbadge {
+  align-self: center;
+  text-align: center;
+  margin-top: calc(var(--so-gap) / 2);
+}
