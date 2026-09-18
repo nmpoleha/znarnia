@@ -512,6 +512,13 @@
   .so-wrap { padding: 0 16px; }
 }
 
+/* Блоки под героем — во всю ширину героя (боковые отступы даёт .ks-main) */
+.so-platform .so-wrap {
+  max-width: 1240px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* ── HEADER ── */
 .so-header {
   background: #fff;
@@ -556,7 +563,7 @@
 .so-section__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(18px, 5.2vw, 30px);
+  font-size: clamp(17px, 4.8vw, 27px);
   color: var(--so-ink);
   margin-bottom: 20px;
   text-wrap: normal;
@@ -608,8 +615,7 @@
   object-fit: contain;
 }
 .so-platform__label {
-  display: flex;
-  flex-direction: column;
+  display: block;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 14px;
@@ -631,7 +637,7 @@
 .ks-lessons .sh-lessons__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(21px, 4vw, 29px);
+  font-size: clamp(19px, 3.6vw, 26px);
   line-height: 1.22;
   color: #2b1a6b;
   margin-bottom: 12px;
@@ -742,6 +748,40 @@
 }
 .ks-lessons .gv-principle--open .gv-principle__toggle svg { transform: rotate(45deg); }
 
+/* ── Цветовые темы карточек (по примеру) ── */
+.ks-lessons .sh-principle--violet { --pc: #7c3aed; --pc-soft: #f0eafe; }
+.ks-lessons .sh-principle--green  { --pc: #22b06b; --pc-soft: #e6f7ee; }
+.ks-lessons .sh-principle--orange { --pc: #f97316; --pc-soft: #fdecdd; }
+
+/* левый цветной акцент */
+.ks-lessons .sh-principle { position: relative; }
+.ks-lessons .sh-principle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 5px;
+  border-radius: 0 4px 4px 0;
+  background: var(--pc);
+}
+/* цветной номер */
+.ks-lessons .sh-principle__num { background: var(--pc); }
+/* выделенная часть заголовка */
+.ks-lessons .sh-principle__title-accent { color: var(--pc); }
+/* кнопка «+» в цвет темы */
+.ks-lessons .gv-principle__toggle {
+  border-color: var(--pc-soft);
+  background: var(--pc-soft);
+  color: var(--pc);
+}
+.ks-lessons .gv-principle__toggle:hover { background: var(--pc-soft); filter: brightness(0.97); }
+.ks-lessons .gv-principle--open .gv-principle__toggle {
+  background: var(--pc);
+  border-color: transparent;
+  color: #fff;
+}
+
 @media (min-width: 760px) {
   .ks-lessons .sh-lessons__grid {
     grid-template-columns: 1fr 1fr;
@@ -782,7 +822,7 @@
 .ks-format__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(21px, 4vw, 29px);
+  font-size: clamp(19px, 3.6vw, 26px);
   line-height: 1.22;
   color: var(--so-ink);
 }
@@ -830,7 +870,7 @@
 .ks-format__card-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(20px, 2.6vw, 26px);
+  font-size: clamp(17px, 1.9vw, 20px);
   color: var(--so-ink);
   margin-bottom: 8px;
 }

@@ -18,22 +18,34 @@ const PLATFORM = [
 const PRINCIPLES = [
   {
     img: '/znarnia/images/lesson-shield.png',
-    title: 'Полная концентрация и безопасная среда',
+    theme: 'violet',
+    pre: 'Полная концентрация и ',
+    accent: 'безопасная среда',
+    post: '',
     text: 'Каждый ученик работает в своём личном пространстве на платформе. Ответы ребёнка видны только ему и педагогу — так мы снимаем ненужный стресс и страх ошибиться «на виду у всех». Интерактивные задания (ввести ответ, переместить объект, построить график) и мгновенное поощрение баллами держат внимание и интерес на протяжении всего урока.',
   },
   {
     img: '/znarnia/images/lesson-chart.png',
-    title: 'Педагог видит прогресс каждого, а не только группы',
+    theme: 'green',
+    pre: 'Педагог видит ',
+    accent: 'прогресс каждого',
+    post: ', а не только группы',
     text: 'Наш инструментарий для педагога — это «цифровая панель управления» классом в реальном времени. Учитель видит, кто и как выполняет задание, с какой попытки даёт ответ, кому нужна помощь. Это позволяет точечно поддерживать каждого ученика здесь и сейчас, а после урока анализировать статистику для совершенствования материалов.',
   },
   {
     img: '/znarnia/images/lesson-search.png',
-    title: 'Для вас — полная прозрачность прогресса',
+    theme: 'orange',
+    pre: 'Для вас — полная ',
+    accent: 'прозрачность прогресса',
+    post: '',
     text: 'Вы в любой момент можете зайти в личный кабинет и увидеть детальную аналитику по занятиям вашего ребёнка: активность на уроке, процент правильных ответов, темы, которые вызвали вопросы. Вы всегда в курсе его успехов и областей роста, чтобы поддержать его своевременно.',
   },
   {
     img: '/znarnia/images/lesson-headset.png',
-    title: 'Персональная помощь с домашними заданиями',
+    theme: 'violet',
+    pre: '',
+    accent: 'Персональная помощь',
+    post: ' с домашними заданиями',
     text: 'За ребёнком закреплён персональный куратор, к которому можно обратиться, если возникли сложности с домашним заданием. Он поможет найти ошибку, обратит внимание на оформление решения, подскажет, в каком направлении двигаться, и разберёт непонятный момент. Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
   },
 ]
@@ -224,9 +236,7 @@ export default function Page() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="so-platform__label">
-                  {p.label.map((l, i) => (<span key={i}>{l}</span>))}
-                </span>
+                <span className="so-platform__label">{p.label.join(' ')}</span>
               </div>
             ))}
           </div>
@@ -236,7 +246,7 @@ export default function Page() {
               <div className="sh-lessons__head">
                 <div className="sh-lessons__head-text">
                   <h2 className="sh-lessons__title">
-                    {nb('Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка')}
+                    {nb('Безопасность, вовлечение и результат для вашего ребёнка')}
                   </h2>
                   <p className="sh-lessons__intro">
                     {nb('Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.')}
@@ -248,14 +258,18 @@ export default function Page() {
                 {PRINCIPLES.map((p, i) => {
                   const isOpen = openCards.has(i)
                   return (
-                    <div key={i} className={`sh-principle gv-principle${isOpen ? ' gv-principle--open' : ''}`}>
+                    <div key={i} className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`}>
                       <div className="sh-principle__media">
                         <div className="sh-principle__icon">
                           <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
                         </div>
                         <span className="sh-principle__num">{i + 1}</span>
                       </div>
-                      <h3 className="sh-principle__title">{nb(p.title)}</h3>
+                      <h3 className="sh-principle__title">
+                        {p.pre && nb(p.pre)}
+                        <span className="sh-principle__title-accent">{nb(p.accent)}</span>
+                        {p.post && nb(p.post)}
+                      </h3>
                       <button
                         type="button"
                         className="gv-principle__toggle"
