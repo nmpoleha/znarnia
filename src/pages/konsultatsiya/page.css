@@ -31,8 +31,8 @@
   gap: 8px;
   align-self: start;
   justify-self: start;
-  background: #ede9fe;
-  color: #6d28d9;
+  background: #e8f8ef;
+  color: #239b63;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -46,7 +46,7 @@
   font-weight: 800;
   font-size: clamp(27px, 4.7vw, 45px);
   line-height: 1.04;
-  color: #1f1633;
+  color: #21183b;
   margin: 0;
 }
 .ks-title__accent { color: #5a39a5; }
@@ -63,6 +63,7 @@
 
 /* Плашка стоимости */
 .ks-hero__price {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,17 +71,35 @@
   gap: 2px;
   align-self: start;
   justify-self: center;
-  background: linear-gradient(150deg, #efe9fe 0%, #e5ddfb 100%);
+  background: linear-gradient(150deg, #f3efff 0%, #ece4fe 100%);
   border-radius: 36px 36px 32px 31px;
   padding: 18px 29px 17px;
   box-shadow: 0 16px 32px -22px rgba(109, 40, 217, 0.4);
+}
+/* Мини-акцент над плашкой цены */
+.ks-hero__price-tag {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  background: #fff0e3;
+  color: #e87524;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px -6px rgba(232, 117, 36, 0.4);
 }
 .ks-hero__price-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: clamp(10px, 1.05vw, 11px);
   line-height: 1.2;
-  color: #6d28d9;
+  color: #5a39a5;
   white-space: nowrap;
 }
 .ks-hero__price-value {
@@ -94,7 +113,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: clamp(10px, 1.05vw, 11px);
-  color: #6d28d9;
+  color: #5a39a5;
 }
 
 /* Иллюстрация девочки */
@@ -108,8 +127,10 @@
 .ks-hero__aside::before {
   content: '';
   position: absolute;
-  inset: -4% -14% 4% -14%;
-  background: radial-gradient(56% 50% at 52% 44%, rgba(196, 181, 253, 0.42), rgba(245, 243, 255, 0) 74%);
+  inset: -8% -18% 2% -18%;
+  background:
+    radial-gradient(52% 46% at 52% 42%, rgba(139, 92, 246, 0.06), rgba(245, 243, 255, 0) 72%),
+    radial-gradient(70% 62% at 50% 50%, rgba(90, 57, 165, 0.03), rgba(245, 243, 255, 0) 78%);
   z-index: 0;
   pointer-events: none;
 }
@@ -169,6 +190,7 @@
 
 @media (min-width: 960px) {
   .ks-hero__inner {
+    position: relative;
     grid-template-columns: minmax(0, 1.38fr) minmax(320px, 1fr);
     column-gap: 32px;
     row-gap: 0;
@@ -179,14 +201,11 @@
   .ks-lead        { grid-column: 1; grid-row: 3; margin-bottom: 22px; }
   .ks-card        { grid-column: 1; grid-row: 4; }
   .ks-hero__price {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    position: relative;
+    position: absolute;
     z-index: 3;
-    justify-self: start;
-    margin-top: 40px;
-    margin-left: -6%;
-    margin-bottom: -30px;
+    top: 80px;
+    left: 57.4%;
+    margin: 0;
   }
   .ks-hero__aside {
     grid-column: 2;
@@ -221,7 +240,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #5b21b6, #7c3aed);
+  background: linear-gradient(90deg, #5a39a5 0%, #8b5cf6 100%);
 }
 
 .ks-card__head {
@@ -232,7 +251,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 22px;
-  color: #5b21b6;
+  color: #5a39a5;
   margin-bottom: 4px;
 }
 
@@ -293,8 +312,8 @@
 
 .ks-input:focus,
 .ks-select:focus {
-  border-color: #7c3aed;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.10);
 }
 
 .ks-input--err { border-color: #dc2626; }
@@ -378,7 +397,7 @@
   width: 100%;
   padding: 14px;
   margin-top: 2px;
-  background: #5b21b6;
+  background: linear-gradient(90deg, #5a39a5 0%, #7029d8 100%);
   border: none;
   border-radius: 13px;
   color: #fff;
@@ -386,12 +405,12 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 8px 20px rgba(90, 57, 165, 0.18);
+  transition: transform 0.15s, box-shadow 0.2s;
 }
 .ks-submit:hover {
-  background: #4c1d95;
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(76, 29, 149, 0.28);
+  box-shadow: 0 12px 26px rgba(90, 57, 165, 0.28);
 }
 
 /* ── Success ── */

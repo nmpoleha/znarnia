@@ -104,6 +104,7 @@ export default function Page() {
           <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
 
           <div className="ks-hero__price">
+            <span className="ks-hero__price-tag">Доступная цена</span>
             <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
             <span className="ks-hero__price-value">600&nbsp;₽</span>
             <span className="ks-hero__price-unit">за урок</span>
@@ -119,13 +120,14 @@ export default function Page() {
               decoding="async"
             />
             <svg className="ks-hero__doodle ks-hero__doodle--spark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M10 1l1.6 6.4L18 9l-6.4 1.6L10 17l-1.6-6.4L2 9l6.4-1.6L10 1z" fill="#c4b5fd" />
+              <path d="M10 1l1.6 6.4L18 9l-6.4 1.6L10 17l-1.6-6.4L2 9l6.4-1.6L10 1z" fill="#ff9a4a" />
             </svg>
-            <svg className="ks-hero__doodle ks-hero__doodle--heart" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z" fill="#d6c9fb" />
+            <svg className="ks-hero__doodle ks-hero__doodle--heart" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z" stroke="#35b978" strokeWidth="2" fill="none" />
             </svg>
-            <svg className="ks-hero__doodle ks-hero__doodle--line" width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true">
-              <path d="M2 12c6-8 16-8 22 0" stroke="#c4b5fd" strokeWidth="2.4" strokeLinecap="round" />
+            <svg className="ks-hero__doodle ks-hero__doodle--line" width="26" height="16" viewBox="0 0 26 16" fill="none" aria-hidden="true">
+              <path d="M1 11c3.5-5 8-5 11 0" stroke="#9b7bf5" strokeWidth="2.4" strokeLinecap="round" />
+              <path d="M17 6h7" stroke="#9b7bf5" strokeWidth="2.4" strokeLinecap="round" />
             </svg>
 
           </div>
