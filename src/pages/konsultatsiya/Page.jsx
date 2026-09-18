@@ -86,11 +86,51 @@ export default function Page() {
       </header>
 
       <main className="ks-main">
-      <div className="ks-wrap">
-        <h1 className="ks-title">Запишитесь на бесплатную консультацию</h1>
-        <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
+      <section className="ks-hero">
+        <div className="ks-hero__inner">
+          <span className="ks-hero__pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="4.5" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="2" />
+              <path d="M3 9h18M8 2.5v4M16 2.5v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+            Подберём программу под цели и уровень
+          </span>
 
-        <div className="ks-card">
+          <h1 className="ks-title">
+            Запишитесь на{' '}
+            <span className="ks-title__accent">консультацию</span>
+          </h1>
+
+          <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
+
+          <div className="ks-hero__price">
+            <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
+            <span className="ks-hero__price-value">600&nbsp;₽</span>
+            <span className="ks-hero__price-unit">за урок</span>
+          </div>
+
+          <div className="ks-hero__aside">
+            <img
+              className="ks-hero__girl"
+              src="/znarnia/images/konsultatsiya-girl.png"
+              alt="Девочка с ноутбуком и книгами по математике, логике и успеху"
+              width="1371"
+              height="1148"
+              decoding="async"
+            />
+            <svg className="ks-hero__doodle ks-hero__doodle--spark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 1l1.6 6.4L18 9l-6.4 1.6L10 17l-1.6-6.4L2 9l6.4-1.6L10 1z" fill="#c4b5fd" />
+            </svg>
+            <svg className="ks-hero__doodle ks-hero__doodle--heart" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z" fill="#d6c9fb" />
+            </svg>
+            <svg className="ks-hero__doodle ks-hero__doodle--line" width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true">
+              <path d="M2 12c6-8 16-8 22 0" stroke="#c4b5fd" strokeWidth="2.4" strokeLinecap="round" />
+            </svg>
+
+          </div>
+
+          <div className="ks-card">
           <span className="ks-card__accent" aria-hidden="true" />
           {submitted ? (
             <div className="ks-success">
@@ -153,8 +193,9 @@ export default function Page() {
               </form>
             </>
           )}
+          </div>
         </div>
-      </div>
+      </section>
 
       <div className="ks-topbadge">
         <span className="ks-format__badge">О занятиях в центре</span>
