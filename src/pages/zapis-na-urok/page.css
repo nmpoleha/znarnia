@@ -127,8 +127,8 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: var(--violet-soft);
-  color: var(--navy);
+  background: #e6f6ec;
+  color: #1c7a4c;
   font-size: 15px;
   font-weight: 600;
   line-height: 1.15;
@@ -139,7 +139,7 @@
 }
 .zu-tag__ic {
   display: inline-flex;
-  color: var(--violet);
+  color: #2fa96a;
   flex-shrink: 0;
 }
 .zu-tag__ic svg { width: 20px; height: 20px; display: block; }

@@ -108,12 +108,12 @@ export default function Page() {
         <section className="zu-hero">
           <div className="zu-wrap zu-hero__inner">
             <div className="zu-hero__content">
-              <span className="zu-eyebrow">Первое занятие с учителем</span>
+              <span className="zu-eyebrow">Первое знакомство с «Знарнией»</span>
               <h1 className="zu-hero__title">
                 Онлайн-урок по математике<br />
                 с учителем
               </h1>
-              <p className="zu-hero__lead">{nb('Начните с занятия, которое подходит именно вашему ребёнку.')}</p>
+              <p className="zu-hero__lead">{nb('Начните с занятия с учителем: попробуйте формат обучения или выберите индивидуальную диагностику.')}</p>
 
               <ul className="zu-tags">
                 <li className="zu-tag"><span className="zu-tag__ic"><IconUsers /></span>1–11 класс</li>
