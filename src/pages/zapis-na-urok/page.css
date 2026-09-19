@@ -109,7 +109,7 @@
   color: #5b5776;
   /* по ширине заголовка — в одну строку */
   max-width: none;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
 }
 
 /* Плашки-теги */
@@ -118,8 +118,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;  /* распределяем на всю ширину заголовка */
-  gap: 11px;
-  margin: 0 0 22px;
+  align-items: stretch;
+  gap: 14px;
+  margin: 0 0 24px;
   padding: 0;
 }
 .zu-tag {
@@ -129,18 +130,19 @@
   background: var(--violet-soft);
   color: var(--navy);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
-  padding: 11px 15px;
+  height: 56px;
+  padding: 0 20px;
   border-radius: 14px;
-  max-width: 165px;   /* «Интерактивная платформа» переносится в 2 строки — 3 плашки в одну строку */
+  white-space: nowrap;   /* «Интерактивная платформа» — в одну строку */
 }
 .zu-tag__ic {
   display: inline-flex;
   color: var(--violet);
   flex-shrink: 0;
 }
-.zu-tag__ic svg { width: 21px; height: 21px; display: block; }
+.zu-tag__ic svg { width: 20px; height: 20px; display: block; }
 
 /* CTA-кнопки */
 .zu-cta {
@@ -161,14 +163,16 @@
 .zu-cta svg { flex-shrink: 0; }
 .zu-cta--orange {
   width: 100%;
-  max-width: none;   /* по ширине заголовка */
+  max-width: none;   /* на всю ширину блока */
+  gap: 16px;
+  height: 58px;
   font-size: 17px;
-  padding: 17px 28px;
+  padding: 0 28px;
   border-radius: 12px;
   background: var(--orange);
-  box-shadow: 0 10px 22px -12px rgba(255, 100, 34, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 100, 34, 0.18);   /* очень мягкая тень */
 }
-.zu-cta--orange:hover { transform: translateY(-2px); filter: brightness(1.03); box-shadow: 0 14px 26px -12px rgba(255, 100, 34, 0.55); }
+.zu-cta--orange:hover { transform: translateY(-1px); filter: brightness(1.02); box-shadow: 0 6px 16px rgba(255, 100, 34, 0.22); }
 .zu-cta--violet {
   background: linear-gradient(135deg, #6c3bff 0%, #7938e8 100%);
   box-shadow: 0 16px 32px -14px rgba(108, 59, 255, 0.6);
@@ -176,11 +180,11 @@
 .zu-cta--violet:hover { transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 22px 40px -14px rgba(108, 59, 255, 0.65); }
 
 .zu-hero__note {
-  margin: 12px 0 0;
-  font-size: 14.5px;
-  font-weight: 500;
+  margin: 15px 0 0;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.4;
-  color: var(--muted);
+  color: #626080;
 }
 
 /* Иллюстрация девочки */
@@ -511,10 +515,18 @@
 /* ══════════ АДАПТИВ ══════════ */
 @media (max-width: 1024px) {
   .zu-hero__inner { padding: 32px 34px; gap: 14px; }
+  .zu-tags { gap: 10px; }
+  .zu-tag { padding: 0 13px; gap: 7px; font-size: 13.5px; }
+  .zu-tag__ic svg { width: 18px; height: 18px; }
   .zu-hero__media { max-width: 450px; margin-bottom: -32px; }
   .zu-cards { gap: 20px; }
   .zu-card { padding: 26px; }
   .zu-card__title { min-height: 0; }
+}
+
+/* Ниже ширины, где 3 плашки помещаются в одну строку — аккуратный перенос слева */
+@media (max-width: 985px) {
+  .zu-tags { justify-content: flex-start; }
 }
 
 @media (max-width: 860px) {
@@ -555,7 +567,7 @@
 
   .zu-hero__inner { padding: 24px 20px; border-radius: 18px; }
   .zu-hero__title { font-size: clamp(32px, 8.5vw, 40px); }
-  .zu-tag { font-size: 14px; padding: 11px 15px; }
+  .zu-tag { font-size: 14px; padding: 0 16px; }
   .zu-cta { font-size: 16px; padding: 16px 26px; }
   .zu-cta--orange { width: 100%; max-width: none; }
   .zu-hero__media { max-width: 360px; margin-top: 22px; margin-bottom: -24px; }
