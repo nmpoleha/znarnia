@@ -110,8 +110,7 @@ export default function Page() {
             <div className="zu-hero__content">
               <span className="zu-eyebrow">Первое знакомство с «Знарнией»</span>
               <h1 className="zu-hero__title">
-                Онлайн-урок по математике<br />
-                с учителем
+                {'Онлайн-урок по математике с учителем'}
               </h1>
               <p className="zu-hero__lead">{nb('Начните с занятия с учителем: попробуйте формат обучения или выберите индивидуальную диагностику.')}</p>
 
@@ -164,7 +163,11 @@ export default function Page() {
               <article className="zu-card zu-card--violet">
                 <div className="zu-card__top">
                   <span className="zu-card__icon"><IconGroup /></span>
-                  <span className="zu-card__badge">Вариант 1 · Попробовать формат</span>
+                  <span className="zu-card__badge">
+                    <span className="zu-card__badge-num">Вариант 1</span>
+                    <span className="zu-card__badge-sep" aria-hidden="true"> · </span>
+                    <span className="zu-card__badge-label">Попробовать формат</span>
+                  </span>
                 </div>
                 <h3 className="zu-card__title">Групповой урок</h3>
                 <p className="zu-card__text">{nb('Живое занятие по математике с учителем на интерактивной платформе.')}</p>
@@ -183,7 +186,11 @@ export default function Page() {
               <article className="zu-card zu-card--peach">
                 <div className="zu-card__top">
                   <span className="zu-card__icon"><IconPerson /></span>
-                  <span className="zu-card__badge">Вариант 2 · Разобраться глубже</span>
+                  <span className="zu-card__badge">
+                    <span className="zu-card__badge-num">Вариант 2</span>
+                    <span className="zu-card__badge-sep" aria-hidden="true"> · </span>
+                    <span className="zu-card__badge-label">Разобраться глубже</span>
+                  </span>
                 </div>
                 <h3 className="zu-card__title">{nb('Индивидуальный диагностический урок')}</h3>
                 <p className="zu-card__text">{nb('Занятие один на один с учителем, чтобы понять текущую ситуацию ребёнка.')}</p>
@@ -231,8 +238,7 @@ export default function Page() {
                 <>
                   <div className="zu-final__head">
                     <h2 className="zu-final__title">
-                      {nb('Оставьте заявку — формат')}<br />
-                      подберём вместе
+                      {nb('Оставьте заявку — формат подберём вместе')}
                     </h2>
                     <p className="zu-final__sub">{nb('Менеджер свяжется с вами, уточнит детали и поможет выбрать подходящий формат.')}</p>
                   </div>

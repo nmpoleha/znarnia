@@ -389,6 +389,7 @@
   max-width: 720px;
   margin: 0 auto 13px;
   text-align: center;
+  text-wrap: balance;
 }
 .zu-final__sub {
   font-family: 'Nunito', sans-serif;
@@ -560,7 +561,8 @@
     max-width: 420px;
   }
   .zu-cards { grid-template-columns: 1fr; }
-  .zu-card { max-width: 560px; margin: 0 auto; width: 100%; }
+  /* карточки на всю ширину блока, как остальные секции */
+  .zu-card { width: 100%; max-width: none; margin: 0; }
 }
 
 @media (max-width: 620px) {
@@ -587,13 +589,68 @@
   .zu-final { padding: 52px 0 64px; }
   .zu-final__box { padding: 28px 20px; border-radius: 22px; }
   .zu-final__head { margin-bottom: 20px; }
+  /* Компактная шапка формы на мобильном: жадный перенос вместо balance */
+  .zu-final__title {
+    font-size: 26px;
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-wrap: wrap;
+    width: auto;
+    max-width: none;
+    /* выходим в паддинг карточки, чтобы заголовок использовал всю её ширину */
+    margin: 0 -18px;
+    padding: 0;
+    text-align: center;
+  }
+  .zu-final__sub {
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 400;
+    max-width: 350px;
+    margin: 14px auto 0;
+    text-align: center;
+  }
   .zu-form__grid { grid-template-columns: 1fr; gap: 14px; }
   .zu-field--half { max-width: 100%; }
 }
 
 @media (max-width: 400px) {
-  .zu-hero__title { font-size: 30px; }
   .zu-header__brand-name { font-size: 14px; }
   .zu-header__logo { height: 42px; }
   .zu-hero__quote { display: none; }
+}
+
+/* H1 в диапазоне 390–430px: компактнее и легче, перенос — шириной контейнера
+   «Онлайн-урок по математике / с учителем» */
+@media (max-width: 430px) {
+  .zu-hero__title {
+    font-size: 32px;
+    line-height: 1.08;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* 360px: допускаем 3 строки «Онлайн-урок по / математике / с учителем» */
+@media (max-width: 375px) {
+  .zu-hero__title { font-size: 30px; }
+}
+
+/* 390–405px: уменьшаем заголовок формы, чтобы «Оставьте заявку — формат»
+   встало в одну строку (перенос: «…формат» / «подберём вместе») */
+@media (min-width: 386px) and (max-width: 411px) {
+  .zu-final__title { font-size: 24px; }
+}
+
+/* ── Мобильные карточки: бейдж «Вариант N» / описание с новой строки ── */
+@media (max-width: 620px) {
+  .zu-card__badge-num { display: block; }
+  .zu-card__badge-sep { display: none; }
+}
+
+/* ── Карточка преподавателя на мобильном: строка 1 «Основатель и руководитель»,
+   строка 2 «Школы Знарния», строка 3 — ФИО. Скоуп — только этот лендинг. ── */
+@media (max-width: 640px) {
+  .zu-social .dg-author__label { max-width: 270px; }
 }
