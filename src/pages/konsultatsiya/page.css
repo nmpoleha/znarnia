@@ -480,6 +480,87 @@
   .ks-hero__aside { max-width: 280px; }
 }
 
+/* ── Единая мобильная композиция hero (320–540px) ── */
+@media (max-width: 540px) {
+  /* явный вертикальный ритм вместо общего gap */
+  .ks-hero__inner { gap: 0; }
+
+  /* Зелёная плашка — на всю ширину */
+  .ks-hero__pill {
+    display: flex;
+    width: 100%;
+    min-height: 56px;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 18px;
+    border-radius: 28px;
+    font-size: clamp(15px, 4vw, 17px);
+    line-height: 1.15;
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .ks-hero__pill svg { width: 18px; height: 18px; }
+
+  /* Заголовок */
+  .ks-title {
+    font-size: clamp(30px, 8vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* Описание */
+  .ks-lead {
+    font-size: clamp(15px, 4vw, 17px);
+    line-height: 1.5;
+    font-weight: 400;
+    margin-top: 16px;
+  }
+
+  /* Ценовой блок — крупнее и спокойнее */
+  .ks-hero__price {
+    width: min(100%, 260px);
+    min-height: 112px;
+    height: auto;
+    margin: 24px auto 20px;
+    padding: 22px 20px 16px;
+    border-radius: 24px;
+    gap: 0;
+  }
+  .ks-hero__price-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 7px 16px;
+    border-radius: 999px;
+  }
+  .ks-hero__price-label {
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .ks-hero__price-value {
+    font-size: clamp(36px, 10vw, 44px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .ks-hero__price-unit {
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+}
+
+/* ── Очень узкие экраны hero 320–359px ── */
+@media (max-width: 359px) {
+  .ks-title { font-size: 28px; }
+  .ks-hero__price { width: min(100%, 240px); }
+}
+
 /* ─────────────────────────────────────────────
    Блоки о платформе / соц. доказательства
    (перенос со страницы samostoyatelnaya-oplata-osen)
@@ -661,20 +742,20 @@
   grid-template-areas:
     "media title btn"
     "text  text  text";
-  column-gap: 16px;
+  column-gap: 8px;
   row-gap: 12px;
   align-items: center;
   background: #fff;
   border: 1px solid #efeafc;
   border-radius: 20px;
-  padding: 18px 20px;
+  padding: 18px 10px;
   box-shadow: 0 12px 30px rgba(76, 29, 149, 0.06);
 }
 .ks-lessons .sh-principle__media {
   grid-area: media;
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
 }
 .ks-lessons .sh-principle__icon {
@@ -715,6 +796,7 @@
   font-weight: 800;
   font-size: clamp(16px, 3vw, 19px);
   color: var(--so-ink);
+  text-wrap: pretty;
 }
 .ks-lessons .sh-principle__text {
   grid-area: text;
@@ -728,8 +810,8 @@
   grid-area: btn;
   align-self: center;
   flex-shrink: 0;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
   border: 1px solid var(--sh-purple-soft);
   background: var(--sh-purple-lt);
@@ -880,14 +962,157 @@
   color: #4a4363;
 }
 
-@media (max-width: 520px) {
-  .ks-format__card {
-    grid-template-columns: 1fr;
-    justify-items: start;
-    text-align: left;
-    padding: 22px 20px;
+/* ── Единая адаптивная система карточек 320–540px ── */
+@media (max-width: 540px) {
+  .ks-format__head { margin-bottom: clamp(20px, 5vw, 24px); }
+  .ks-format__title {
+    font-size: clamp(21px, 5.5vw, 25px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
   }
-  .ks-format__icon { width: 88px; height: 88px; }
+
+  .ks-format__grid { gap: 16px; }
+
+  /* иконка слева, сразу справа — название, описание под ним */
+  .ks-format__card {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    text-align: left;
+    column-gap: 14px;
+    row-gap: 0;
+    padding: clamp(18px, 4.5vw, 22px);
+    border-radius: 20px;
+  }
+  .ks-format__card--wide { padding: clamp(18px, 4.5vw, 22px); }
+
+  /* одинаковая визуальная область под иллюстрацию во всех карточках */
+  .ks-format__icon {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+  .ks-format__card--wide .ks-format__icon { width: 52px; height: 52px; }
+
+  .ks-format__card-title {
+    font-size: clamp(17px, 4.3vw, 19px);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .ks-format__card-text {
+    font-size: clamp(14px, 3.6vw, 15px);
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+}
+
+/* ── Очень узкие экраны 320–359px ── */
+@media (max-width: 359px) {
+  .ks-format__card,
+  .ks-format__card--wide { padding: 16px; column-gap: 12px; }
+  .ks-format__icon { width: 48px; height: 48px; }
+  .ks-format__card--wide .ks-format__icon { width: 44px; height: 44px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   TABLET 541–1024px (iPad mini/Air, Surface Pro портрет)
+   — самостоятельная композиция, не мобильная и не десктоп
+   ═══════════════════════════════════════════════════ */
+@media (min-width: 541px) and (max-width: 1024px) {
+
+  /* единый вертикальный ритм между блоками секции */
+  .so-social { margin-top: 40px; gap: 40px; }
+
+  /* ── 4 карточки преимуществ: компактная композиция ── */
+  .ks-lessons .sh-lessons__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .ks-lessons .sh-principle {
+    grid-template-areas:
+      "media title btn"
+      "text  text  text";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 8px;
+    padding: 16px 18px;
+  }
+  .ks-lessons .sh-principle__media {
+    align-self: center;
+    width: 52px;
+    height: 52px;
+  }
+  .ks-lessons .sh-principle__num { top: -8px; left: -8px; width: 28px; height: 28px; font-size: 14px; }
+  /* текстовая область (заголовок-утверждение) — во всю доступную ширину */
+  .ks-lessons .sh-principle__title {
+    align-self: center;
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .ks-lessons .gv-principle__toggle {
+    align-self: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+  .ks-lessons .gv-principle__toggle svg { width: 18px; height: 18px; }
+
+  /* ── Заголовок секции «Формат занятий» ── */
+  .ks-format__head { margin-bottom: 22px; }
+  .ks-format__title {
+    font-size: clamp(24px, 3.4vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Большие карточки: иконка слева, сразу справа заголовок, текст под ним ── */
+  .ks-format__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .ks-format__card--wide { grid-column: auto; }
+
+  .ks-format__card {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    align-content: start;   /* контент прижат вверх, ряды не растягиваются */
+    text-align: left;
+    column-gap: 16px;
+    row-gap: 0;
+    padding: 24px;
+    border-radius: 20px;
+  }
+  .ks-format__card--wide { padding: 24px; }
+
+  .ks-format__icon {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+  }
+  .ks-format__card--wide .ks-format__icon { width: 64px; height: 64px; }
+
+  .ks-format__card-title {
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ks-format__card-text {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: none;
+    text-wrap: pretty;
+  }
+}
+
+/* ── Планшет: 2 колонки, когда ширины достаточно (680–1024px) ── */
+@media (min-width: 680px) and (max-width: 1024px) {
+  .ks-lessons .sh-lessons__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ks-format__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ks-format__card--wide { grid-column: 1 / -1; }
 }
 
 /* ── Единый шрифт заголовков: соц. доказательства наследуют Nunito → Montserrat ── */
