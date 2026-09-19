@@ -230,8 +230,11 @@ export default function Page() {
               ) : (
                 <>
                   <div className="zu-final__head">
-                    <h2 className="zu-final__title">{nb('Одна заявка — дальше формат подбирает менеджер')}</h2>
-                    <p className="zu-final__sub">{nb('Оставьте заявку — менеджер перезвонит, уточнит детали и подберёт подходящий формат.')}</p>
+                    <h2 className="zu-final__title">
+                      {nb('Оставьте заявку — формат')}<br />
+                      подберём вместе
+                    </h2>
+                    <p className="zu-final__sub">{nb('Менеджер свяжется с вами, уточнит детали и поможет выбрать подходящий формат.')}</p>
                   </div>
 
                   <form className="zu-form" onSubmit={handleSubmit} noValidate>
