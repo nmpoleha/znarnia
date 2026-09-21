@@ -89,8 +89,12 @@
   font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--violet);
-  margin-bottom: 12px;
+  color: #fff;
+  background: var(--violet);
+  padding: 10px 22px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px -8px rgba(108, 59, 255, 0.5);
+  margin-bottom: 16px;
 }
 .zu-hero__title {
   font-family: 'Montserrat', sans-serif;
@@ -253,6 +257,16 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
   align-items: stretch;
+}
+.zu-start__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+.zu-start__cta .zu-cta {
+  min-width: 420px;
+  padding-left: 48px;
+  padding-right: 48px;
 }
 .zu-card {
   display: flex;
@@ -578,6 +592,7 @@
   .zu-tag { font-size: 14px; padding: 0 16px; }
   .zu-cta { font-size: 16px; padding: 16px 26px; }
   .zu-cta--orange { width: 100%; max-width: none; }
+  .zu-start__cta .zu-cta { min-width: 0; width: 100%; padding-left: 26px; padding-right: 26px; }
   .zu-hero__media { max-width: 360px; margin-top: 22px; margin-bottom: -24px; }
   .zu-hero__quote { font-size: 17px; max-width: 120px; }
 
