@@ -63,6 +63,7 @@ export default defineConfig({
         'samostoyatelnaya-oplata-osen': resolve(__dirname, 'samostoyatelnaya-oplata-osen/index.html'),
         'konsultatsiya': resolve(__dirname, 'konsultatsiya/index.html'),
         'zapis-na-urok': resolve(__dirname, 'zapis-na-urok/index.html'),
+        'znakomstvo': resolve(__dirname, 'znakomstvo/index.html'),
       },
     },
   },
