@@ -308,3 +308,558 @@
   .zn-feat { gap: 14px; padding: 16px 18px; }
   .zn-feat__icon { width: 64px; height: 64px; }
 }
+
+/* ══════════ КАК МОЖЕТ ПРОЙТИ ПЕРВОЕ ЗАНЯТИЕ ══════════ */
+/* Дизайн, цвета и типографика перенесены с блока «С чего лучше начать?»
+   страницы zapis-na-urok. Локальная палитра, чтобы визуал совпадал 1-в-1. */
+.zn-start {
+  --zs-navy: #17145c;
+  --zs-violet: #6c3bff;
+  --zs-orange: #ff6422;
+
+  width: 100%;
+  padding: 12px 0 8px;
+}
+.zn-start__wrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.zn-start__head { text-align: center; margin-bottom: 44px; }
+.zn-start__h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 4.6vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--zs-navy);
+  margin: 0 0 12px;
+}
+.zn-start__sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 600;
+  color: #6b6788;
+  margin: 0;
+}
+
+.zn-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+.zn-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid transparent;
+}
+.zn-card--violet {
+  background: linear-gradient(180deg, #f3eeff 0%, #f6f2ff 100%);
+  border-color: #e7deff;
+}
+.zn-card--peach {
+  background: linear-gradient(180deg, #fff3ea 0%, #fdf4ee 100%);
+  border-color: #ffe2cf;
+}
+.zn-card__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.zn-card__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.zn-card__icon svg { width: 25px; height: 25px; }
+.zn-card--violet .zn-card__icon { background: #e5daff; color: var(--zs-violet); }
+.zn-card--peach .zn-card__icon { background: #ffe0cd; color: var(--zs-orange); }
+.zn-card__badge {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.zn-card--violet .zn-card__badge { color: var(--zs-violet); }
+.zn-card--peach .zn-card__badge { color: var(--zs-orange); }
+
+.zn-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.08;
+  color: var(--zs-navy);
+  margin: 0 0 20px;
+}
+.zn-card__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #535174;
+  margin: 0 0 24px;
+}
+
+.zn-list {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
+}
+.zn-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #242052;
+}
+.zn-list__check {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+.zn-list__check svg { width: 20px; height: 20px; }
+.zn-card--violet .zn-list__check { background: var(--zs-violet); }
+.zn-card--peach .zn-list__check { background: var(--zs-orange); }
+
+.zn-card__foot {
+  border-radius: 16px;
+  padding: 18px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.35;
+}
+.zn-card--violet .zn-card__foot { background: #e7ddff; color: #5327c9; }
+.zn-card--peach .zn-card__foot { background: #ffe1cf; color: #d1560f; }
+
+@media (max-width: 1024px) {
+  .zn-cards { gap: 20px; }
+  .zn-card { padding: 26px; }
+}
+@media (max-width: 860px) {
+  .zn-cards { grid-template-columns: 1fr; }
+  .zn-card { width: 100%; max-width: none; margin: 0; }
+}
+@media (max-width: 620px) {
+  .zn-start__head { margin-bottom: 32px; }
+  .zn-card { padding: 22px; }
+  .zn-card__top { gap: 12px; }
+  .zn-card__icon { width: 44px; height: 44px; }
+  .zn-card__title { font-size: 23px; }
+  .zn-card__badge-num { display: block; }
+  .zn-card__badge-sep { display: none; }
+}
+
+/* ══════════ ФОРМА ЗАЯВКИ ══════════ */
+/* Форма и её типографика перенесены со страницы zapis-na-urok (Image #3). */
+.zn-final {
+  --zf-navy: #17145c;
+  --zf-violet: #6c3bff;
+  --zf-ink: #1d1a4e;
+  --zf-muted: #6b6788;
+
+  width: 100%;
+  padding: 60px 0 12px;
+}
+.zn-final__wrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.zn-final__box {
+  position: relative;
+  background: #fff;
+  border: 1px solid #efeafc;
+  border-radius: 24px;
+  padding: 40px 44px;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  box-shadow: 0 18px 50px rgba(76, 29, 149, 0.10);
+  overflow: hidden;
+}
+.zn-final__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6c3bff 0%, #7938e8 100%);
+}
+.zn-final__head { margin-bottom: 32px; }
+.zn-final__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3.8vw, 30px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--zf-navy);
+  max-width: 720px;
+  margin: 0 auto 13px;
+  text-wrap: balance;
+}
+.zn-final__sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #626080;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.zn-form { text-align: left; }
+.zn-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+  margin-bottom: 16px;
+}
+.zn-field { display: flex; flex-direction: column; min-width: 0; }
+.zn-field--half { max-width: calc(50% - 8px); margin-bottom: 20px; }
+.zn-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 6px;
+}
+.zn-req { color: #dc2626; }
+.zn-input {
+  width: 100%;
+  border: 1.5px solid #ede9fe;
+  background: #f7f5ff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--zf-ink);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.zn-input::placeholder { color: #9ca3af; }
+.zn-input:focus {
+  outline: none;
+  border-color: var(--zf-violet);
+  box-shadow: 0 0 0 4px rgba(108, 59, 255, 0.1);
+}
+.zn-input--err { border-color: #ef4444; }
+.zn-select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%236c3bff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+.zn-err { color: #ef4444; font-size: 12.5px; font-weight: 600; margin-top: 5px; }
+.zn-err--check { display: block; margin-top: 8px; }
+
+.zn-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+.zn-check__input { position: absolute; opacity: 0; width: 0; height: 0; }
+.zn-check__box {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  border: 1.5px solid #cdc2ec;
+  background: #fff;
+  flex-shrink: 0;
+  margin-top: 1px;
+  position: relative;
+  transition: background .15s ease, border-color .15s ease;
+}
+.zn-check__input:checked + .zn-check__box {
+  background: var(--zf-violet);
+  border-color: var(--zf-violet);
+}
+.zn-check__input:checked + .zn-check__box::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 11px;
+  border: solid #fff;
+  border-width: 0 2.4px 2.4px 0;
+  transform: rotate(45deg);
+}
+.zn-check__input:focus-visible + .zn-check__box { box-shadow: 0 0 0 4px rgba(108, 59, 255, 0.18); }
+.zn-check__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--zf-muted);
+}
+.zn-link { color: var(--zf-violet); text-decoration: underline; }
+
+.zn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+  padding: 18px 34px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #6c3bff 0%, #7938e8 100%);
+  box-shadow: 0 16px 32px -14px rgba(108, 59, 255, 0.6);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.zn-submit svg { flex-shrink: 0; }
+.zn-submit:hover { transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 22px 40px -14px rgba(108, 59, 255, 0.65); }
+
+/* Успех */
+.zn-success { padding: 24px 0; }
+.zn-success__icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--zf-violet);
+  color: #fff;
+  font-size: 32px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+}
+.zn-success__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--zf-navy);
+  margin-bottom: 10px;
+}
+.zn-success__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--zf-muted);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+@media (max-width: 620px) {
+  .zn-final { padding: 44px 0 8px; }
+  .zn-final__box { padding: 28px 20px; border-radius: 22px; }
+  .zn-final__head { margin-bottom: 20px; }
+  .zn-final__title {
+    font-size: 26px;
+    line-height: 1.08;
+    text-wrap: wrap;
+  }
+  .zn-final__sub { font-size: 16px; line-height: 1.45; margin: 14px auto 0; }
+  .zn-form__grid { grid-template-columns: 1fr; gap: 14px; }
+  .zn-field--half { max-width: 100%; }
+}
+
+/* ══════════ ПРИГЛАШЕНИЕ · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ══════════ */
+/* Ширина блока совпадает с героем: полная ширина + такой же боковой отступ. */
+.zn-note {
+  width: 100%;
+  padding: 44px clamp(20px, 4vw, 64px) 0;
+}
+.zn-note__inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  background: #f1edfc;
+  border: 1px solid #e6ddfa;
+  border-radius: 22px;
+  padding: 20px 22px;
+}
+.zn-note__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #e3dbfa;
+  flex-shrink: 0;
+}
+.zn-note__body { min-width: 0; }
+.zn-note__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #4a4363;
+  margin: 0;
+}
+.zn-note__text + .zn-note__text { margin-top: 10px; }
+.zn-note__text strong { color: var(--so-purple); font-weight: 800; }
+
+@media (min-width: 860px) {
+  .zn-note__inner {
+    align-items: center;
+    gap: 18px;
+    padding: 22px 28px;
+  }
+}
+@media (max-width: 540px) {
+  .zn-note { padding: 32px 12px 0; }
+}
+
+/* ══════════ БАННЕР · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ══════════ */
+.zn-club {
+  --zc-navy: #17145c;
+  --zc-violet: #6c3bff;
+
+  width: 100%;
+  padding: 48px clamp(20px, 4vw, 64px) 8px;
+}
+.zn-club__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: clamp(28px, 4vw, 52px);
+  background:
+    radial-gradient(120% 120% at 0% 0%, #f4f0ff 0%, rgba(244, 240, 255, 0) 60%),
+    linear-gradient(180deg, #efeafd 0%, #f3effe 100%);
+  border: 1px solid #e7ddfa;
+}
+.zn-club__content { position: relative; z-index: 1; min-width: 0; }
+.zn-club__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.3;
+  color: var(--zc-navy);
+  margin: 0 0 12px;
+}
+.zn-club__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--zc-navy);
+  margin: 0 0 18px;
+}
+.zn-club__title-accent { color: var(--zc-violet); }
+.zn-club__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: #56527a;
+  margin: 0 0 18px;
+  max-width: 54ch;
+}
+.zn-club__perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 1.7vw, 18px);
+  color: var(--zc-violet);
+  margin: 0 0 28px;
+}
+.zn-club__gift {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--zc-violet);
+  flex-shrink: 0;
+}
+.zn-club__gift svg { width: 26px; height: 26px; }
+.zn-club__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6c3bff 0%, #7938e8 100%);
+  box-shadow: 0 16px 32px -14px rgba(108, 59, 255, 0.6);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.zn-club__btn svg { flex-shrink: 0; }
+.zn-club__btn:hover { transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 22px 40px -14px rgba(108, 59, 255, 0.65); }
+
+/* без z-index: грид-элемент не должен создавать stacking-context,
+   иначе mix-blend-mode иллюстрации не с чем смешивать */
+.zn-club__media { min-width: 0; }
+.zn-club__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* белый фон иллюстрации сливается со светло-сиреневой карточкой */
+  mix-blend-mode: multiply;
+}
+
+/* декоративные штрихи слева (echo hero) */
+.zn-club__dash {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+.zn-club__dash--1 { top: clamp(16px, 3vw, 34px); left: clamp(14px, 3vw, 40px); }
+.zn-club__dash--2 { top: 44%; left: clamp(10px, 2vw, 26px); }
+
+/* ── DESKTOP ── */
+@media (min-width: 860px) {
+  .zn-club__card {
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 24px;
+  }
+  .zn-club__media { align-self: center; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 859px) {
+  .zn-club__dash { display: none; }
+  .zn-club__media {
+    order: -1;
+    max-width: 420px;
+    margin: 0 auto 8px;
+  }
+  .zn-club__btn { width: 100%; }
+}
+@media (max-width: 540px) {
+  .zn-club { padding: 36px 12px 0; }
+  .zn-club__card { border-radius: 24px; }
+  .zn-club__btn { font-size: 16px; padding: 16px 22px; gap: 10px; }
+  .zn-club__perk { align-items: flex-start; }
+  .zn-club__gift { margin-top: 1px; }
+}
