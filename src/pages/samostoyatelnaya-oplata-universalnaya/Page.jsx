@@ -115,7 +115,6 @@ export default function Page() {
             <img src="/znarnia/images/logo.png" alt="Знарния" className="so-header__logo" width="80" height="80" />
             <span className="so-header__brand-name">Школа Сотниковой Ольги</span>
           </div>
-          <span className="so-header__badge">🍂 Запись на осень открыта</span>
           <button
             type="button"
             className="so-header__burger"
@@ -191,8 +190,8 @@ export default function Page() {
             </div>
 
             <p className="so-hero__fine">
-              {typo('После оплаты менеджер свяжется с вами и поможет подобрать расписание.')}<br />
-              {typo('Если расписание не подойдёт — оформим полный возврат.')}
+              <span className="so-hero__fine-item">{typo('После оплаты менеджер свяжется с вами и поможет подобрать расписание.')}</span>
+              <span className="so-hero__fine-item">{typo('Если расписание не подойдёт — оформим полный возврат.')}</span>
             </p>
             <p className="so-hero__footnote">
               {typo('* Точная стоимость занятия зависит от программы и выбранного формата обучения.')}

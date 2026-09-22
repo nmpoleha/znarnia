@@ -374,7 +374,8 @@ html { scroll-behavior: smooth; }
   font-size: 16px;
 }
 @media (min-width: 1000px) { .so-hero__actions .so-btn { max-width: none; } }
-.so-hero__fine { font-size: 13.5px; line-height: 1.5; color: var(--so-muted); }
+.so-hero__fine { display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; line-height: 1.5; color: var(--so-muted); }
+.so-hero__fine-item { display: block; }
 
 /* Иллюстрация справа */
 .so-hero__media {
@@ -392,6 +393,73 @@ html { scroll-behavior: smooth; }
   /* мягко растворяем белый фон картинки в фоне героя, чтобы границы не выделялись */
   -webkit-mask-image: radial-gradient(135% 130% at 50% 46%, #000 68%, transparent 100%);
   mask-image: radial-gradient(135% 130% at 50% 46%, #000 68%, transparent 100%);
+}
+
+/* ── Планшеты / iPad (≈744–1024px): одна центрированная колонка, крупнее типографика ── */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .so-hero { padding: 52px 0; }
+
+  /* Основной контейнер — не растягиваем на всю ширину */
+  .so-hero__inner {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    width: calc(100% - 64px);
+    margin: 0 auto;
+    gap: 28px;
+    align-items: start;
+  }
+  .so-hero__copy { width: 100%; max-width: 700px; margin-inline: auto; }
+
+  /* Убираем пустую декоративную окружность справа */
+  .so-deco--ring { display: none; }
+
+  /* Текстовый блок — крупнее и на 75–85% ширины */
+  .so-hero__title {
+    font-size: clamp(34px, 5vw, 48px);
+    line-height: 1.08;
+    max-width: 650px;
+  }
+  .so-hero__sub {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  .so-hero__sub-line { display: inline; white-space: normal; }
+
+  /* Блок стоимости — горизонтально, во всю строку */
+  .so-hero__price {
+    width: 100%;
+    max-width: 700px;
+    flex-wrap: nowrap;
+    min-height: 96px;
+    padding: 20px 24px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .so-hero__price-val { font-size: 40px; }
+
+  /* Кнопка — сразу под ценой, той же ширины */
+  .so-hero__actions { margin-bottom: 20px; }
+  .so-hero__actions .so-btn {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px 28px;
+    border-radius: 16px;
+    font-size: 17px;
+  }
+
+  /* Инфо-пункты — в одну строку, если хватает ширины */
+  .so-hero__fine {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    max-width: 700px;
+  }
+  .so-hero__fine-item { flex: 1 1 280px; }
+
+  /* Сноска — отдельной строкой, приглушённая */
+  .so-hero__footnote { max-width: 700px; margin-top: 14px; font-size: 13px; }
 }
 
 /* ── SECTION HEADINGS ── */

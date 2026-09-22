@@ -98,7 +98,6 @@ export default function Page() {
             <img src="/znarnia/images/logo.png" alt="Знарния" className="so-header__logo" width="80" height="80" />
             <span className="so-header__brand-name">Школа Сотниковой Ольги</span>
           </div>
-          <span className="so-header__badge">🍂 Запись на осень открыта</span>
           <button
             type="button"
             className="so-header__burger"
