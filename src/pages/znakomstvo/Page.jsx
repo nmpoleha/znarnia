@@ -141,12 +141,14 @@ export default function Page() {
 
               <div className="zn-hero__gift">
                 <span className="zn-hero__gift-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="8.5" width="18" height="12.5" rx="2" fill="currentColor" opacity="0.16" />
-                    <path d="M3 10.5A1.5 1.5 0 0 1 4.5 9h15A1.5 1.5 0 0 1 21 10.5v1A1.5 1.5 0 0 1 19.5 13h-15A1.5 1.5 0 0 1 3 11.5v-1z" fill="currentColor" />
-                    <rect x="10.4" y="9" width="3.2" height="12" fill="currentColor" />
-                    <path d="M12 9c-1.4-.2-4.2-1-4-3 .2-1.7 3-1 4 3zm0 0c1.4-.2 4.2-1 4-3-.2-1.7-3-1-4 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                  </svg>
+                  <img
+                    src="/znarnia/images/gift-3d.png"
+                    alt=""
+                    width="1254"
+                    height="1254"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </span>
                 <p className="zn-hero__gift-text">
                   А ещё мы создали <strong>бесплатный Интеллектуальный клуб</strong> — {nb('интерактивные уроки, тренажёры и новые материалы каждую неделю.')}
@@ -159,7 +161,7 @@ export default function Page() {
                 <li key={i} className={`zn-feat zn-feat--${f.theme}`}>
                   <img className="zn-feat__icon" src={f.img} alt="" aria-hidden="true" width="360" height="360" loading="lazy" decoding="async" />
                   <div className="zn-feat__body">
-                    <h3 className="zn-feat__title">{f.title[0]}<br />{f.title[1]}</h3>
+                    <h3 className="zn-feat__title">{f.title[0]} {f.title[1]}</h3>
                     <p className="zn-feat__text">{nb(f.text)}</p>
                   </div>
                   <span className="zn-feat__deco" aria-hidden="true">

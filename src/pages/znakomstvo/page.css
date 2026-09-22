@@ -135,8 +135,8 @@
   font-weight: 800;
   font-size: clamp(13px, 1.5vw, 15px);
   letter-spacing: 0.01em;
-  color: var(--so-purple-mid);
-  background: #e5dbfa;
+  color: var(--zn-orange);
+  background: #ffe0cd;
   padding: 9px 20px;
   border-radius: 999px;
   margin-bottom: 18px;
@@ -167,16 +167,20 @@
   padding: 16px 22px;
 }
 .zn-hero__gift-icon {
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
+  display: block;
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
-  background: #e3dbfa;
-  color: var(--so-purple-mid);
+  overflow: hidden;
   flex-shrink: 0;
 }
-.zn-hero__gift-icon svg { width: 26px; height: 26px; }
+.zn-hero__gift-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* лёгкий зум, чтобы обрезать светлую окантовку по краям PNG */
+  transform: scale(1.2);
+}
 .zn-hero__gift-text {
   font-family: 'Nunito', sans-serif;
   font-size: 14.5px;
@@ -316,7 +320,10 @@
     gap: 40px;
     align-items: start;
   }
-  .zn-feats { align-self: start; }
+  /* Растягиваем колонку карточек на высоту левой части:
+     верх — по верху плашки «Давайте познакомимся!»,
+     низ — по низу плашки про Интеллектуальный клуб. */
+  .zn-feats { align-self: stretch; justify-content: space-between; }
 
   .zn-hero__note {
     align-items: center;
@@ -326,7 +333,9 @@
 }
 
 /* показываем декор, когда карточке хватает ширины */
-@media (min-width: 1180px) {
+/* Декор справа показываем только когда колонка достаточно широкая,
+   чтобы заголовок помещался в одну строку рядом с ним. */
+@media (min-width: 1440px) {
   .zn-feat { padding-right: 118px; }
   .zn-feat__deco { display: block; }
 }
