@@ -29,12 +29,12 @@ const NAV = [
 /* ── SVG-иконки для карточек программ ── */
 /* ── Цены форматов обучения (по умолчанию и для отдельных программ) ── */
 const DEFAULT_FMT = {
-  m1: { price: '8 200 ₽', note: 'за 10 уроков (≈ 820 ₽ за урок)' },
-  m3: { price: '21 600 ₽', note: 'по 7 200 ₽ в месяц (≈ 720 ₽ за урок)', benefit: '4 800 ₽' },
+  m1: { price: '8 200 ₽', note: 'за 12 уроков (≈ 684 ₽ за урок)' },
+  m3: { price: '21 600 ₽', note: 'по 7 200 ₽ в месяц (≈ 580 ₽ за урок)', benefit: '3 000 ₽' },
 }
 const FMT_PROFIL = {
-  m1: { price: '10 000 ₽', note: 'за 10 уроков (≈ 1 000 ₽ за урок)' },
-  m3: { price: '27 000 ₽', note: 'по 9 000 ₽ в месяц (≈ 900 ₽ за урок)', benefit: '3 000 ₽' },
+  m1: { price: '10 000 ₽', note: 'за 12 уроков (≈ 834 ₽ за урок)' },
+  m3: { price: '27 000 ₽', note: 'по 9 000 ₽ в месяц (≈ 711 ₽ за урок)', benefit: '3 000 ₽' },
 }
 
 /* ── Программы по математике ── */
@@ -75,12 +75,12 @@ const FAQ = [
 
 /* ── Блок о платформе ── */
 const PLATFORM = [
-  { icon: 'video', label: ['Собственная', 'видеосвязь'] },
-  { icon: 'board', label: ['Интерактивная', 'доска'] },
-  { icon: 'lock',  label: ['Автопроверка'] },
-  { icon: 'list',  label: ['Записи с', 'интерактивом'] },
-  { icon: 'chart', label: ['Мотивация', 'и баллы'] },
-  { icon: 'ai',    label: ['AI помощник /', 'аналитика'] },
+  { icon: 'video', label: 'Собственная видеосвязь' },
+  { icon: 'board', label: 'Интерактивная доска' },
+  { icon: 'lock',  label: 'Помощь куратора' },
+  { icon: 'list',  label: 'Записи с интерактивом' },
+  { icon: 'chart', label: 'Мотивация и баллы' },
+  { icon: 'ai',    label: 'AI помощник / аналитика' },
 ]
 
 export default function Page() {
@@ -167,10 +167,12 @@ export default function Page() {
               <div className="so-hero__price-left">
                 <span className="so-hero__price-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none">
-                    <ellipse cx="8.5" cy="9" rx="5.5" ry="2.5" stroke="currentColor" strokeWidth="1.7" />
-                    <path d="M3 9v3.2c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5V9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                    <path d="M3 12.2v3.2c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-3.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                    <path d="M17.5 3.3v2.6M20.4 4.8l-1.9 1.6M21 8.6l-2.3-.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    <ellipse cx="9" cy="9" rx="6" ry="2.7" fill="currentColor" opacity=".12" />
+                    <path d="M3 9v3.4c0 1.5 2.7 2.6 6 2.6s6-1.1 6-2.6V9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M3 12.4v3.4c0 1.5 2.7 2.6 6 2.6s6-1.1 6-2.6v-3.4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                    <ellipse cx="9" cy="9" rx="6" ry="2.7" stroke="currentColor" strokeWidth="1.7" />
+                    <path d="M18.6 3.2l.75 2.05 2.05.75-2.05.75-.75 2.05-.75-2.05-2.05-.75 2.05-.75z" fill="currentColor" />
+                    <circle cx="20.4" cy="10.8" r=".85" fill="currentColor" opacity=".55" />
                   </svg>
                 </span>
                 <div className="so-hero__price-text">
@@ -292,7 +294,7 @@ export default function Page() {
                 <h3 className="so-subject__title">{typo(s.title)}</h3>
                 <p className="so-subject__meta">{typo('1 раз в неделю • 90 минут')}</p>
                 <p className="so-subject__meta">{typo('Расписание: ' + s.schedule)}</p>
-                <p className="so-subject__price">{typo('4 400 ₽ за 4 занятия')}</p>
+                <p className="so-subject__price">{typo('4 200 ₽ за 4 занятия')}</p>
                 <a href="#" className="so-btn so-btn--pay">Оплатить</a>
               </article>
             ))}
@@ -319,7 +321,7 @@ export default function Page() {
             </div>
             <div className="so-format__price">
               <span className="so-format__price-label">Стоимость</span>
-              <span className="so-format__price-val">4 400 ₽ <span className="so-format__price-suffix">{typo('за 4 занятия')}</span></span>
+              <span className="so-format__price-val">4 200 ₽ <span className="so-format__price-suffix">{typo('за 4 занятия')}</span></span>
             </div>
           </div>
         </div>
@@ -409,7 +411,7 @@ export default function Page() {
           </p>
           <div className="so-platform__grid">
             {PLATFORM.map((p) => (
-              <div key={p.label.join(' ')} className="so-platform__item">
+              <div key={p.label} className="so-platform__item">
                 <img
                   className="so-platform__icon"
                   src={`/znarnia/images/platform-${p.icon}.png`}
@@ -420,9 +422,7 @@ export default function Page() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="so-platform__label">
-                  {p.label.map((l, i) => (<span key={i}>{l}</span>))}
-                </span>
+                <span className="so-platform__label">{typo(p.label)}</span>
               </div>
             ))}
           </div>
@@ -443,7 +443,6 @@ export default function Page() {
               <h2 className="so-final__title">{typo('Готовы записаться на осень?')}</h2>
               <span className="so-final__rule" aria-hidden="true" />
               <p className="so-final__text">
-                {typo('Математика — 4 500 ₽ / 10 уроков в сентябре.')}<br />
                 {typo('После оплаты менеджер поможет подобрать расписание.')}
               </p>
               <div className="so-final__actions">
@@ -550,16 +549,16 @@ export default function Page() {
                     </span>
                   </div>
                   <div className="so-fmt-gift">
-                    <span className="so-fmt-gift__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none"><path d="M4 11h16v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 7.5h18V11H3z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 7.5V20" stroke="currentColor" strokeWidth="1.7"/><path d="M12 7.5C9.5 7.5 7.8 4 9.6 3s3 2.5 2.4 4.5C11.4 5.5 12.9 3 14.6 4s-.1 3.5-2.6 3.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/></svg>
-                    </span>
-                    <div className="so-fmt-gift__body">
+                    <div className="so-fmt-gift__head">
+                      <span className="so-fmt-gift__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 11h16v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 7.5h18V11H3z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 7.5V20" stroke="currentColor" strokeWidth="1.7"/><path d="M12 7.5C9.5 7.5 7.8 4 9.6 3s3 2.5 2.4 4.5C11.4 5.5 12.9 3 14.6 4s-.1 3.5-2.6 3.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/></svg>
+                      </span>
                       <span className="so-fmt-gift__title">{typo('В подарок:')}</span>
-                      <ul className="so-fmt-gift__list">
+                    </div>
+                    <ul className="so-fmt-gift__list">
                         <li><span className="so-fmt-gift__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l3.6 3.6L18 7.6" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>{typo('обучение в сентябре — ')}<b>бесплатно</b></span></li>
                         <li><span className="so-fmt-gift__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l3.6 3.6L18 7.6" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span>{typo('20 уроков-тренажёров по русскому языку — ')}<b>бесплатно</b></span></li>
                       </ul>
-                    </div>
                   </div>
                   <div className="so-fmt-card__actions">
                     <a href="#" className="so-btn so-btn--pay">Оплатить 3 месяца</a>

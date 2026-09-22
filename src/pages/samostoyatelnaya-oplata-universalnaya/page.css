@@ -536,11 +536,12 @@ html { scroll-behavior: smooth; }
 }
 .so-fmt__sub { font-size: clamp(15px, 2vw, 18px); line-height: 1.5; color: var(--so-muted); }
 
-.so-fmt__grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
-@media (min-width: 860px) { .so-fmt__grid { grid-template-columns: 1fr 1fr; } }
+.so-fmt__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (min-width: 860px) { .so-fmt__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 
 .so-fmt-card {
   position: relative;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -549,6 +550,11 @@ html { scroll-behavior: smooth; }
   border-radius: 24px;
   padding: 28px;
   box-shadow: 0 22px 48px -32px rgba(76, 29, 149, 0.4);
+}
+@media (max-width: 400px) {
+  .so-fmt-card { padding: 22px 18px; }
+  .so-fmt-card--best .so-fmt-card__top { flex-wrap: wrap; }
+  .so-fmt-month { width: 42px; height: 44px; }
 }
 .so-fmt-card--best { border: 2px solid #7dd3a0; background: #f6fdf9; }
 
@@ -638,10 +644,9 @@ html { scroll-behavior: smooth; }
 .so-fmt-card__price-main { min-width: 0; }
 .so-fmt-card__benefit {
   flex-shrink: 0;
-  display: flex;
+  align-self: flex-start;
+  display: inline-flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: 2px;
   background: #e7f8ee;
   border-radius: 14px;
@@ -650,12 +655,14 @@ html { scroll-behavior: smooth; }
 .so-fmt-card__benefit-label { font-size: 13px; font-weight: 700; color: #15803d; }
 .so-fmt-card__benefit-val { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: #15803d; }
 
-.so-fmt-gift { display: flex; align-items: flex-start; gap: 16px; background: #f3efff; border-radius: 16px; padding: 16px 18px; }
-.so-fmt-gift__icon { flex-shrink: 0; display: grid; place-items: center; width: 50px; height: 50px; color: var(--so-purple); }
-.so-fmt-gift__icon svg { width: 40px; height: 40px; }
-.so-fmt-gift__title { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--so-ink); margin-bottom: 8px; }
+.so-fmt-gift { display: flex; flex-direction: column; gap: 12px; background: #f3efff; border-radius: 16px; padding: 16px 18px; }
+.so-fmt-gift__head { display: flex; align-items: center; gap: 12px; }
+.so-fmt-gift__icon { flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; color: var(--so-purple); }
+.so-fmt-gift__icon svg { width: 36px; height: 36px; }
+.so-fmt-gift__title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--so-ink); }
 .so-fmt-gift__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .so-fmt-gift__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.4; color: var(--so-text); }
+.so-fmt-gift__list li > span:last-child { min-width: 0; overflow-wrap: anywhere; }
 .so-fmt-gift__list b { color: var(--so-purple); font-weight: 800; }
 .so-fmt-gift__check { flex-shrink: 0; margin-top: 1px; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--so-green); }
 .so-fmt-gift__check svg { width: 14px; height: 14px; }
@@ -1081,8 +1088,7 @@ html { scroll-behavior: smooth; }
   object-fit: contain;
 }
 .so-platform__label {
-  display: flex;
-  flex-direction: column;
+  min-width: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 14px;
