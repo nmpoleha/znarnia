@@ -122,6 +122,10 @@ export default function Page() {
         <section className="zn-hero">
           <div className="zn-hero__inner">
             <div className="zn-hero__main">
+              <div className="zn-hero__decor" aria-hidden="true">
+                <span className="zn-hero__blob zn-hero__blob--lavender" />
+                <span className="zn-hero__blob zn-hero__blob--mint" />
+              </div>
               <span className="zn-hero__badge">Давайте познакомимся!</span>
               <h1 className="zn-hero__title">
                 Современная образовательная платформа,{' '}
