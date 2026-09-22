@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { nb } from '../../shared/utils/nb'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
 
 const GRADES = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
 
@@ -322,6 +323,21 @@ export default function Page() {
                   </form>
                 </>
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* ── ПРЕПОДАВАТЕЛЬ · ОТЗЫВЫ · БЛАГОДАРНОСТИ ── */}
+        <section className="zn-social">
+          <div className="zn-social__wrap">
+            <div className="zn-social__head">
+              <h2 className="zn-start__h2">Почему нам доверяют</h2>
+              <p className="zn-start__sub">{nb('Опытный преподаватель, реальные отзывы родителей и благодарности от школ.')}</p>
+            </div>
+            <div className="zn-social__inner">
+              <AuthorCard />
+              <ReviewsCarousel />
+              <SchoolsCard />
             </div>
           </div>
         </section>

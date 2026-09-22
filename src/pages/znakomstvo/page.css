@@ -677,6 +677,28 @@
   .zn-field--half { max-width: 100%; }
 }
 
+/* ══════════ ПРЕПОДАВАТЕЛЬ · ОТЗЫВЫ · БЛАГОДАРНОСТИ ══════════ */
+.zn-social {
+  width: 100%;
+  padding: 64px 0 8px;
+  font-family: 'Nunito', sans-serif;
+}
+.zn-social__wrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.zn-social__head { text-align: center; margin-bottom: 40px; }
+.zn-social__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+@media (max-width: 620px) {
+  .zn-social { padding: 44px 0 4px; }
+  .zn-social__head { margin-bottom: 28px; }
+}
+
 /* ══════════ БАННЕР · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ══════════ */
 .zn-club {
   --zc-navy: #17145c;
