@@ -119,35 +119,33 @@ export default function Page() {
 
       <main className="zn-main">
         <section className="zn-hero">
-          {/* декоративные завитки фона */}
-          <svg className="zn-hero__squiggle zn-hero__squiggle--bl" width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true">
-            <path d="M6 50c10-16 26-16 36 0M50 34c8-12 22-12 32 0" stroke="#35b978" strokeWidth="4" strokeLinecap="round" opacity="0.5" />
-          </svg>
-
           <div className="zn-hero__inner">
             <div className="zn-hero__main">
-              <span className="zn-hero__eyebrow">Знарния</span>
+              <span className="zn-hero__badge">Давайте познакомимся!</span>
               <h1 className="zn-hero__title">
                 Современная образовательная платформа,{' '}
                 <span className="zn-hero__title-accent">которая меняет отношение к&nbsp;учёбе</span>
               </h1>
               <p className="zn-hero__lead">
-                {nb('Мы хотим, чтобы ребёнок не просто запоминал правила, а учился думать, понимать и верить в свои силы.')}
+                <strong>{nb('Приглашаем ребёнка на живое онлайн-занятие с учителем.')}</strong>{' '}
+                <br className="zn-hero__br" />
+                {nb('Вы увидите наш подход к обучению, а главное — сможете лучше понять ребёнка:')}{' '}
+                <br className="zn-hero__br" />
+                {nb('как он думает, что знает, как воспринимает новое и что у него получается.')}
               </p>
 
-              <div className="zn-hero__actions">
-                <a href="#znakomstvo" className="zn-btn zn-btn--primary">
-                  Давайте познакомимся
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M4 12h15M13 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              <div className="zn-hero__gift">
+                <span className="zn-hero__gift-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="8.5" width="18" height="12.5" rx="2" fill="currentColor" opacity="0.16" />
+                    <path d="M3 10.5A1.5 1.5 0 0 1 4.5 9h15A1.5 1.5 0 0 1 21 10.5v1A1.5 1.5 0 0 1 19.5 13h-15A1.5 1.5 0 0 1 3 11.5v-1z" fill="currentColor" />
+                    <rect x="10.4" y="9" width="3.2" height="12" fill="currentColor" />
+                    <path d="M12 9c-1.4-.2-4.2-1-4-3 .2-1.7 3-1 4 3zm0 0c1.4-.2 4.2-1 4-3-.2-1.7-3-1-4 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                   </svg>
-                </a>
-                <a href="#how" className="zn-btn zn-btn--ghost">
-                  <span className="zn-btn__play" aria-hidden="true">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="#6d28d9" /></svg>
-                  </span>
-                  Как это работает?
-                </a>
+                </span>
+                <p className="zn-hero__gift-text">
+                  А ещё мы создали <strong>бесплатный Интеллектуальный клуб</strong> — {nb('интерактивные уроки, тренажёры и новые материалы каждую неделю.')}
+                </p>
               </div>
             </div>
 
@@ -328,36 +326,9 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── ПРИГЛАШЕНИЕ · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ── */}
-        <section className="zn-note">
-          <div className="zn-note__inner">
-            <span className="zn-note__icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6.5A2.5 2.5 0 0 0 4 21.5V5.5z" stroke="#7c3aed" strokeWidth="1.7" strokeLinejoin="round" />
-                <path d="M4 5.5V19" stroke="#7c3aed" strokeWidth="1.7" />
-              </svg>
-            </span>
-            <div className="zn-note__body">
-              <p className="zn-note__text">
-                {nb('Приглашаем ребёнка на живое онлайн-занятие с учителем. Вы увидите наш подход к обучению, а главное — сможете лучше понять ребёнка: как он думает, что знает, как воспринимает новое и что у него получается.')}
-              </p>
-              <p className="zn-note__text">
-                А ещё мы создали <strong>бесплатный Интеллектуальный клуб</strong> — {nb('интерактивные уроки, тренажёры и новые материалы каждую неделю.')}
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* ── БАННЕР · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ── */}
         <section className="zn-club">
           <div className="zn-club__card">
-            <svg className="zn-club__dash zn-club__dash--1" width="46" height="30" viewBox="0 0 46 30" fill="none" aria-hidden="true">
-              <path d="M4 22l7-8M20 6l5 6M34 20l9-6" stroke="#8b5cf6" strokeWidth="3.4" strokeLinecap="round" />
-            </svg>
-            <svg className="zn-club__dash zn-club__dash--2" width="40" height="34" viewBox="0 0 40 34" fill="none" aria-hidden="true">
-              <path d="M6 10l8 5M4 26l10-2M28 6l6 8" stroke="#f5b301" strokeWidth="3.4" strokeLinecap="round" />
-            </svg>
-
             <div className="zn-club__content">
               <p className="zn-club__eyebrow">Хотите сначала познакомиться с нами самостоятельно?</p>
               <h2 className="zn-club__title">
