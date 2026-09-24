@@ -940,6 +940,7 @@ html { scroll-behavior: smooth; }
   font-weight: 700;
   color: var(--so-text);
 }
+.so-format__hint { margin: 4px 0 0; font-size: 13px; line-height: 1.4; font-weight: 600; color: var(--so-muted); }
 .so-format__sep { color: var(--so-muted); }
 .so-format__old { color: var(--so-muted); }
 .so-format__old s { color: var(--so-muted); text-decoration-thickness: 1.5px; }

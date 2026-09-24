@@ -387,6 +387,7 @@ export default function Page() {
                 subtitle={typo('После заполнения формы наши консультанты свяжутся с вами')}
                 nameLabel="Фамилия и имя *"
                 namePlaceholder="Иванов Иван"
+                gradeLabel="Класс ребёнка *"
                 showSubject
                 subjectPlaceholder="Например, математика"
                 successText={typo('Мы свяжемся с вами для уточнения деталей и подберём формат занятий.')}
@@ -510,6 +511,7 @@ export default function Page() {
               subtitle={typo('Оставьте заявку — подберём программу и ответим на все вопросы.')}
               nameLabel="Фамилия и имя *"
               namePlaceholder="Иванов Иван"
+              gradeLabel="Класс ребёнка *"
               showSubject
               subjectPlaceholder="Например, математика"
               successText={typo('Мы свяжемся с вами для уточнения деталей и подберём формат занятий.')}
