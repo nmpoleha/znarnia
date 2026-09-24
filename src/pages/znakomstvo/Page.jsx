@@ -228,6 +228,75 @@ export default function Page() {
                 <div className="zn-card__foot">{nb('Если хочется познакомиться с форматом занятий «Знарнии».')}</div>
               </article>
             </div>
+
+            <div className="zn-start__cta">
+              <a href="#znakomstvo" className="zn-cta-btn">
+                Записаться на занятие
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── БАННЕР · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ── */}
+        <section className="zn-club">
+          <div className="zn-club__card">
+            <div className="zn-club__content">
+              <p className="zn-club__eyebrow">Хотите сначала познакомиться с нами самостоятельно?</p>
+              <h2 className="zn-club__title">
+                Интеллектуальный клуб «Знарнии» —{' '}
+                <span className="zn-club__title-accent">бесплатно</span>
+              </h2>
+              <p className="zn-club__text">
+                {nb('Интерактивные уроки, тренажёры и полезные материалы, которые помогают ребёнку развивать математическое и критическое мышление.')}
+              </p>
+              <p className="zn-club__perk">
+                <span className="zn-club__gift" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="8.5" width="18" height="12.5" rx="2" fill="currentColor" opacity="0.16" />
+                    <path d="M3 10.5A1.5 1.5 0 0 1 4.5 9h15A1.5 1.5 0 0 1 21 10.5v1A1.5 1.5 0 0 1 19.5 13h-15A1.5 1.5 0 0 1 3 11.5v-1z" fill="currentColor" />
+                    <rect x="10.4" y="9" width="3.2" height="12" fill="currentColor" />
+                    <path d="M12 9c-1.4-.2-4.2-1-4-3 .2-1.7 3-1 4 3zm0 0c1.4-.2 4.2-1 4-3-.2-1.7-3-1-4 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                Новые материалы каждую неделю.
+              </p>
+              <a href="/znarnia/intellektualnyy-klub-1-8-klass/" className="zn-club__btn">
+                Перейти в Интеллектуальный клуб
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+
+            <div className="zn-club__media">
+              <img
+                className="zn-club__img"
+                src="/znarnia/images/klub-cta-illustration.png"
+                alt="Стопка книг «Идеи», «Логика», «Развитие» с лампочкой, карандашами и пазлом"
+                width="1374"
+                height="1145"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── ПРЕПОДАВАТЕЛЬ · ОТЗЫВЫ · БЛАГОДАРНОСТИ ── */}
+        <section className="zn-social">
+          <div className="zn-social__wrap">
+            <div className="zn-social__head">
+              <h2 className="zn-start__h2">Почему нам доверяют</h2>
+              <p className="zn-start__sub">{nb('Опытный преподаватель, реальные отзывы родителей и благодарности от школ.')}</p>
+            </div>
+            <div className="zn-social__inner">
+              <AuthorCard />
+              <ReviewsCarousel />
+              <SchoolsCard />
+            </div>
           </div>
         </section>
 
@@ -329,66 +398,6 @@ export default function Page() {
                   </form>
                 </>
               )}
-            </div>
-          </div>
-        </section>
-
-        {/* ── ПРЕПОДАВАТЕЛЬ · ОТЗЫВЫ · БЛАГОДАРНОСТИ ── */}
-        <section className="zn-social">
-          <div className="zn-social__wrap">
-            <div className="zn-social__head">
-              <h2 className="zn-start__h2">Почему нам доверяют</h2>
-              <p className="zn-start__sub">{nb('Опытный преподаватель, реальные отзывы родителей и благодарности от школ.')}</p>
-            </div>
-            <div className="zn-social__inner">
-              <AuthorCard />
-              <ReviewsCarousel />
-              <SchoolsCard />
-            </div>
-          </div>
-        </section>
-
-        {/* ── БАННЕР · ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ ── */}
-        <section className="zn-club">
-          <div className="zn-club__card">
-            <div className="zn-club__content">
-              <p className="zn-club__eyebrow">Хотите сначала познакомиться с нами самостоятельно?</p>
-              <h2 className="zn-club__title">
-                Интеллектуальный клуб «Знарнии» —{' '}
-                <span className="zn-club__title-accent">бесплатно</span>
-              </h2>
-              <p className="zn-club__text">
-                {nb('Интерактивные уроки, тренажёры и полезные материалы, которые помогают ребёнку развивать математическое и критическое мышление.')}
-              </p>
-              <p className="zn-club__perk">
-                <span className="zn-club__gift" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="8.5" width="18" height="12.5" rx="2" fill="currentColor" opacity="0.16" />
-                    <path d="M3 10.5A1.5 1.5 0 0 1 4.5 9h15A1.5 1.5 0 0 1 21 10.5v1A1.5 1.5 0 0 1 19.5 13h-15A1.5 1.5 0 0 1 3 11.5v-1z" fill="currentColor" />
-                    <rect x="10.4" y="9" width="3.2" height="12" fill="currentColor" />
-                    <path d="M12 9c-1.4-.2-4.2-1-4-3 .2-1.7 3-1 4 3zm0 0c1.4-.2 4.2-1 4-3-.2-1.7-3-1-4 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                Новые материалы каждую неделю.
-              </p>
-              <a href="/znarnia/intellektualnyy-klub-1-8-klass/" className="zn-club__btn">
-                Перейти в Интеллектуальный клуб
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-            </div>
-
-            <div className="zn-club__media">
-              <img
-                className="zn-club__img"
-                src="/znarnia/images/klub-cta-illustration.png"
-                alt="Стопка книг «Идеи», «Логика», «Развитие» с лампочкой, карандашами и пазлом"
-                width="1374"
-                height="1145"
-                loading="lazy"
-                decoding="async"
-              />
             </div>
           </div>
         </section>
