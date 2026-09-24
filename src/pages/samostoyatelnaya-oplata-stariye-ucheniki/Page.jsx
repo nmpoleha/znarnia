@@ -53,8 +53,15 @@ const OCT_14 = {
   payLabel: 'Оплатить октябрь — 8 100 ₽',
 }
 const FMT_MATH_OCT = { ...DEFAULT_FMT, oct: OCT_14 }
+/* 5–8 и 9 классы: цена октября 7 200 ₽ за 12 занятий (600 ₽ за урок). */
+const FMT_7200 = {
+  m1: { price: '7 200 ₽', note: 'за 12 уроков (600 ₽ за урок)' },
+  m3: DEFAULT_FMT.m3,
+}
 /* Программы (по ASCII-полю img), у которых обновлён октябрь. */
 const OCT_IMGS = new Set(['prog-abacus', 'prog-cap', 'prog-target'])
+/* Индивидуальные форматы по ASCII-полю img. */
+const FMT_BY_IMG = { 'prog-backpack': FMT_7200, 'prog-pie': FMT_7200 }
 
 const PROGRAMS = [
   { img: 'prog-abacus',    title: '1–4 классы',            desc: 'Математика + развитие математического мышления', href: '#' },
@@ -109,7 +116,7 @@ export default function Page() {
   const [fmt, setFmt] = useState(DEFAULT_FMT)
 
   const openFormat = (p) => {
-    setFmt(OCT_IMGS.has(p?.img) ? FMT_MATH_OCT : (p?.fmt || DEFAULT_FMT))
+    setFmt(OCT_IMGS.has(p?.img) ? FMT_MATH_OCT : (FMT_BY_IMG[p?.img] || p?.fmt || DEFAULT_FMT))
     setFormatOpen(true)
   }
 
