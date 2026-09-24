@@ -75,277 +75,196 @@
 .zn-hero__inner {
   position: relative;
   z-index: 1;
+  max-width: 1720px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 32px;
   align-items: center;
 }
 
-/* ── Левая колонка ── */
+/* ── Левая колонка: текст ── */
+.zn-hero__text { min-width: 0; max-width: 930px; }
 .zn-hero__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(26px, 4.4vw, 42px);
-  line-height: 1.1;
+  font-size: clamp(24px, 2.45vw, 42px);
+  line-height: 1.14;
   color: var(--so-ink);
   margin: 0 0 16px;
 }
 .zn-hero__title-accent { color: var(--so-purple-mid); }
-
-.zn-hero__main { position: relative; }
-
-/* ── Фоновый декор левой колонки: очень лёгкие цветные формы ──
-   Лежат позади текста (z-index: 0), контент поднят на z-index: 1. */
-.zn-hero__decor {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-.zn-hero__blob { position: absolute; border-radius: 50%; }
-.zn-hero__blob--lavender {
-  width: 380px;
-  height: 320px;
-  top: -34px;
-  right: 32px;
-  background: radial-gradient(closest-side, #e7e0fb 0%, rgba(231, 224, 251, 0) 100%);
-  border-radius: 46% 54% 52% 48% / 56% 46% 54% 44%;
-  opacity: 0.9;
-  filter: blur(4px);
-}
-.zn-hero__blob--mint {
-  width: 148px;
-  height: 148px;
-  top: 214px;
-  right: 26px;
-  background: radial-gradient(closest-side, #daf1e0 0%, rgba(218, 241, 224, 0) 100%);
-  opacity: 0.85;
-}
-
-/* контент над декором */
-.zn-hero__badge,
-.zn-hero__title,
-.zn-hero__lead,
-.zn-hero__gift { position: relative; z-index: 1; }
-
-/* Плашка «Давайте познакомимся!» */
-.zn-hero__badge {
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: clamp(13px, 1.5vw, 15px);
-  letter-spacing: 0.01em;
-  color: var(--zn-orange);
-  background: #ffe0cd;
-  padding: 9px 20px;
-  border-radius: 999px;
-  margin-bottom: 18px;
+/* принудительные переносы заголовка — как в макете; на узких экранах текст течёт сам */
+@media (max-width: 767px) {
+  .zn-hero__title-br { display: none; }
 }
 
 .zn-hero__lead {
   font-family: 'Nunito', sans-serif;
-  font-size: clamp(15px, 1.7vw, 17px);
+  font-size: clamp(16px, 1.8vw, 19px);
   font-weight: 600;
   line-height: 1.55;
   color: #4a4363;
-  margin: 0;
-  max-width: 720px;
-}
-.zn-hero__lead strong { color: var(--so-ink); font-weight: 800; }
-
-/* Плашка с подарком · Интеллектуальный клуб */
-.zn-hero__gift {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 16px;
-  margin-top: 24px;
-  background: linear-gradient(135deg, #ede6fd 0%, #f5f1fe 100%);
-  border: 1px solid #e8e0fb;
-  border-radius: 18px;
-  padding: 16px 22px;
-}
-.zn-hero__gift-icon {
-  display: block;
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.zn-hero__gift-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* лёгкий зум, чтобы обрезать светлую окантовку по краям PNG */
-  transform: scale(1.2);
-}
-.zn-hero__gift-text {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: #4a4363;
-  margin: 0;
-}
-.zn-hero__gift-text strong { color: var(--so-purple-mid); font-weight: 800; }
-
-/* принудительные переносы строк лида — только на широком десктопе,
-   где строки помещаются целиком (как в макете). Ниже — перенос по потоку. */
-.zn-hero__br { display: none; }
-@media (min-width: 1280px) {
-  .zn-hero__br { display: inline; }
+  margin: 0 0 28px;
+  max-width: 780px;
 }
 
-/* ── Правая колонка: карточки преимуществ ── */
-.zn-feats {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.zn-feat {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 18px;
-  min-height: 116px;          /* одинаковая высота всех карточек */
-  border-radius: 20px;
-  padding: 20px 24px;         /* одинаковые внутренние отступы */
-  overflow: hidden;
-}
-/* очень деликатные, почти пастельные фоны */
-.zn-feat--violet { background: #f7f5fe; }
-.zn-feat--green  { background: #f1f9f3; }
-.zn-feat--orange { background: #fdf5ee; }
-
-.zn-feat__icon {
-  width: 68px;
-  height: 68px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-.zn-feat__body { position: relative; z-index: 1; min-width: 0; }
-.zn-feat__title {
+.zn-hero__kicker {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 19px;            /* единый размер и начертание */
-  line-height: 1.08;          /* меньше разрыв между строками */
-  color: var(--so-ink);       /* тёмно-синий */
-  margin: 0 0 5px;            /* описание ближе к заголовку */
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--zn-orange);
+  margin: 0 0 12px;
 }
-.zn-feat__text {
+
+.zn-hero__desc {
   font-family: 'Nunito', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #453e5c;             /* немного темнее для читаемости */
+  font-size: clamp(15px, 1.6vw, 16.5px);
+  font-weight: 500;
+  line-height: 1.55;
+  color: #6f6685;
   margin: 0;
+  max-width: 800px;
 }
 
-/* аккуратный декор справа: 1 основной дудл + мелкий акцент, лёгкие тонкие линии */
-.zn-feat__deco {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 116px;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.85;
+/* ── Правая колонка: карточки-действия ── */
+.zn-hero__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  min-width: 0;
+  width: 100%;
 }
-.zn-feat__doodle {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-}
-.zn-feat__note {
-  position: absolute;
-  top: 50%;
-  right: 14px;
-  transform: translateY(-50%) rotate(-7deg);
+
+.zn-hero__cards-cap {
   font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-style: italic;
-  font-size: 13.5px;
-  line-height: 1.15;
-  color: #a78bf0;
-  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9b90bd;
+  margin: 0 0 2px;
 }
-.zn-feat__accent { display: block; margin: 3px auto 0; }
 
-/* ── Нижняя плашка ── */
-.zn-hero__note {
-  position: relative;
-  z-index: 1;
+.zn-hcard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 16px 30px;
+}
+.zn-hcard--lesson { background: #fdf1e7; }
+.zn-hcard--club   { background: #f1edfc; }
+
+.zn-hcard__head {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  align-items: start;
-  gap: 14px;
-  margin-top: 26px;
-  background: #f1edfc;
-  border: 1px solid #e6ddfa;
-  border-radius: 22px;
-  padding: 20px 22px;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 12px;
 }
-.zn-hero__note-icon {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: #e3dbfa;
+.zn-hcard__icon {
+  display: block;
+  width: 76px;
+  height: 76px;
   flex-shrink: 0;
 }
-.zn-hero__note-body { min-width: 0; }
-.zn-hero__note-text {
+.zn-hcard__icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.zn-hcard__heading { min-width: 0; }
+.zn-hcard__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1.14;
+  color: var(--so-ink);
+  margin: 0 0 7px;
+}
+.zn-hcard__text {
   font-family: 'Nunito', sans-serif;
+  font-weight: 600;
   font-size: 14.5px;
-  line-height: 1.55;
-  color: #4a4363;
+  line-height: 1.45;
+  color: #574f70;
   margin: 0;
 }
-.zn-hero__note-text + .zn-hero__note-text { margin-top: 10px; }
-.zn-hero__note-text strong { color: var(--so-purple); font-weight: 800; }
 
-/* ── DESKTOP ── */
-@media (min-width: 860px) {
-  .zn-hero__inner {
-    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr);
-    gap: 40px;
-    align-items: start;
-  }
-  /* Растягиваем колонку карточек на высоту левой части:
-     верх — по верху плашки «Давайте познакомимся!»,
-     низ — по низу плашки про Интеллектуальный клуб. */
-  .zn-feats { align-self: stretch; justify-content: space-between; }
+.zn-hcard__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 54px;
+  margin-top: auto;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16.5px;
+  color: #fff;
+  padding: 0 24px;
+  border-radius: 18px;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.zn-hcard__btn svg { flex-shrink: 0; }
+.zn-hcard__btn--orange {
+  background: linear-gradient(135deg, #f7861f 0%, #ec6a1a 100%);
+  box-shadow: 0 14px 28px -12px rgba(236, 106, 26, 0.6);
+}
+.zn-hcard__btn--violet {
+  background: linear-gradient(135deg, #6c3bff 0%, #7938e8 100%);
+  box-shadow: 0 14px 28px -12px rgba(108, 59, 255, 0.6);
+}
+.zn-hcard__btn:hover { transform: translateY(-2px); filter: brightness(1.04); }
 
-  .zn-hero__note {
-    align-items: center;
-    gap: 18px;
-    padding: 22px 28px;
+/* ── TABLET: вводный блок сверху, две карточки в ряд ── */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .zn-hero__cards { max-width: none; }
+  .zn-hero__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
   }
+  .zn-hero__cards-cap { grid-column: 1 / -1; }
+  .zn-hcard__icon { width: 84px; height: 84px; }
 }
 
-/* показываем декор, когда карточке хватает ширины */
-/* Декор справа показываем только когда колонка достаточно широкая,
-   чтобы заголовок помещался в одну строку рядом с ним. */
-@media (min-width: 1440px) {
-  .zn-feat { padding-right: 118px; }
-  .zn-feat__deco { display: block; }
+/* ── DESKTOP: две колонки ── */
+@media (min-width: 1200px) {
+  .zn-hero__inner {
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(64px, 5vw, 96px);
+    align-items: start;
+  }
+  .zn-hero__cards {
+    position: relative;
+    max-width: 784px;
+    justify-self: end;
+  }
+  /* подпись выносим над карточками, не сдвигая их — верх заголовка совпадает с верхом карточки */
+  .zn-hero__cards-cap {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 12px);
+    margin: 0;
+  }
+  .zn-hcard__icon { width: 96px; height: 96px; }
+  .zn-hcard__title { font-size: 22px; }
 }
 
 /* ── MOBILE ── */
 @media (max-width: 540px) {
   .zn-main { padding: 24px 12px 48px; }
-  .zn-hero__gift { padding: 16px 18px; gap: 14px; }
-  .zn-feat { gap: 14px; padding: 16px 18px; }
-  .zn-feat__icon { width: 64px; height: 64px; }
+  .zn-hcard { padding: 22px 20px; border-radius: 24px; }
+  .zn-hcard__head { gap: 16px; margin-bottom: 18px; }
+  .zn-hcard__icon { width: 64px; height: 64px; }
+  /* на узких экранах убираем принудительные переносы — заголовок течёт по словам */
+  .zn-hcard__br { display: none; }
+  .zn-hcard__title { font-size: 19px; }
 }
 
 /* ══════════ КАК МОЖЕТ ПРОЙТИ ПЕРВОЕ ЗАНЯТИЕ ══════════ */

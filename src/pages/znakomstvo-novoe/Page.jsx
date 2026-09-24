@@ -121,55 +121,54 @@ export default function Page() {
       <main className="zn-main">
         <section className="zn-hero">
           <div className="zn-hero__inner">
-            <div className="zn-hero__main">
-              <div className="zn-hero__decor" aria-hidden="true">
-                <span className="zn-hero__blob zn-hero__blob--lavender" />
-                <span className="zn-hero__blob zn-hero__blob--mint" />
-              </div>
-              <span className="zn-hero__badge">Давайте познакомимся!</span>
+            <div className="zn-hero__text">
               <h1 className="zn-hero__title">
-                Современная образовательная платформа,{' '}
-                <span className="zn-hero__title-accent">которая меняет отношение к&nbsp;учёбе</span>
+                Современная образовательная{' '}<br className="zn-hero__title-br" />платформа,{' '}
+                <span className="zn-hero__title-accent">которая меняет{' '}<br className="zn-hero__title-br" />отношение к&nbsp;учёбе</span>
               </h1>
               <p className="zn-hero__lead">
-                <strong>{nb('Приглашаем ребёнка на живое онлайн-занятие с учителем.')}</strong>{' '}
-                <br className="zn-hero__br" />
-                {nb('Вы увидите наш подход к обучению, а главное — сможете лучше понять ребёнка:')}{' '}
-                <br className="zn-hero__br" />
-                {nb('как он думает, что знает, как воспринимает новое и что у него получается.')}
+                {nb('Мы хотим, чтобы ребёнок не просто запоминал правила, а учился думать, понимать и верить в свои силы.')}
               </p>
-
-              <div className="zn-hero__gift">
-                <span className="zn-hero__gift-icon" aria-hidden="true">
-                  <img
-                    src="/znarnia/images/gift-3d.png"
-                    alt=""
-                    width="1254"
-                    height="1254"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-                <p className="zn-hero__gift-text">
-                  А ещё мы создали <strong>бесплатный Интеллектуальный клуб</strong> — {nb('интерактивные уроки, тренажёры и новые материалы каждую неделю.')}
-                </p>
-              </div>
+              <p className="zn-hero__kicker">Давайте познакомимся.</p>
+              <p className="zn-hero__desc">
+                {nb('Выберите удобный способ познакомиться со Знарнией. Вы увидите наш подход к обучению, а главное — сможете лучше понять ребёнка: как он думает, что знает, как воспринимает новое и что у него получается.')}
+              </p>
             </div>
 
-            <ul className="zn-feats">
-              {FEATS.map((f, i) => (
-                <li key={i} className={`zn-feat zn-feat--${f.theme}`}>
-                  <img className="zn-feat__icon" src={f.img} alt="" aria-hidden="true" width="360" height="360" loading="lazy" decoding="async" />
-                  <div className="zn-feat__body">
-                    <h3 className="zn-feat__title">{f.title[0]} {f.title[1]}</h3>
-                    <p className="zn-feat__text">{nb(f.text)}</p>
-                  </div>
-                  <span className="zn-feat__deco" aria-hidden="true">
-                    {f.doodle}
+            <div className="zn-hero__cards">
+              <p className="zn-hero__cards-cap">Выберите формат знакомства</p>
+              <article className="zn-hcard zn-hcard--lesson">
+                <div className="zn-hcard__head">
+                  <span className="zn-hcard__icon" aria-hidden="true">
+                    <img src="/znarnia/images/znn-icon-lesson.png" alt="" width="948" height="948" loading="lazy" decoding="async" />
                   </span>
-                </li>
-              ))}
-            </ul>
+                  <div className="zn-hcard__heading">
+                    <h2 className="zn-hcard__title">Живое занятие с&nbsp;учителем</h2>
+                    <p className="zn-hcard__text">{nb('Познакомьтесь с нашим подходом и узнайте, как ребёнок думает, что знает и как воспринимает новое.')}</p>
+                  </div>
+                </div>
+                <a href="#znakomstvo" className="zn-hcard__btn zn-hcard__btn--orange">
+                  Записаться на занятие
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </a>
+              </article>
+
+              <article className="zn-hcard zn-hcard--club">
+                <div className="zn-hcard__head">
+                  <span className="zn-hcard__icon" aria-hidden="true">
+                    <img src="/znarnia/images/znn-icon-club.png" alt="" width="948" height="948" loading="lazy" decoding="async" />
+                  </span>
+                  <div className="zn-hcard__heading">
+                    <h2 className="zn-hcard__title">Бесплатный{' '}<br className="zn-hcard__br" />Интеллектуальный клуб</h2>
+                    <p className="zn-hcard__text">{nb('Интерактивные уроки, тренажёры и новые материалы каждую неделю.')}</p>
+                  </div>
+                </div>
+                <a href="https://znarnia.ru/student/club" className="zn-hcard__btn zn-hcard__btn--violet">
+                  Перейти в клуб
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </a>
+              </article>
+            </div>
           </div>
         </section>
 
