@@ -968,6 +968,7 @@ html { scroll-behavior: smooth; }
   font-weight: 700;
   color: var(--so-text);
 }
+.so-format__hint { margin: 4px 0 0; font-size: 13px; line-height: 1.4; font-weight: 600; color: var(--so-muted); }
 .so-format__sep { color: var(--so-muted); }
 .so-format__old { color: var(--so-muted); }
 .so-format__old s { color: var(--so-muted); text-decoration-thickness: 1.5px; }
@@ -990,6 +991,7 @@ html { scroll-behavior: smooth; }
 }
 .so-format__price-val { font-size: 25px; font-weight: 900; line-height: 1; color: var(--so-orange); white-space: nowrap; }
 .so-format__price-suffix { font-size: 14px; font-weight: 700; }
+.so-format__price-note { margin-top: 2px; font-size: 13px; font-weight: 700; color: var(--so-orange); opacity: 0.85; }
 
 /* ── ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ ── */
 .so-individual { padding: var(--so-gap) 0 0; }

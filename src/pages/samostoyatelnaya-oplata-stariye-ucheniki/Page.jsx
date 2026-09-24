@@ -86,6 +86,12 @@ const SUBJECTS = [
   { img: 'subj-laptop', title: 'Информатика',     schedule: 'Понедельник, 18:00 МСК' },
   { img: 'subj-bank',   title: 'Обществознание',  schedule: 'Суббота, 12:45 МСК' },
 ]
+/* Цена по предмету (по ASCII-полю img); по умолчанию — 4 200 ₽ за 4 занятия. */
+const SUBJ_PRICE_DEFAULT = '4 200 ₽ за 4 занятия'
+const SUBJ_PRICE = {
+  'subj-atom': '5 250 ₽ за 5 занятий',
+  'subj-bank': '5 250 ₽ за 5 занятий',
+}
 
 /* ── Частые вопросы ── */
 const FAQ = [
@@ -318,7 +324,7 @@ export default function Page() {
                 <h3 className="so-subject__title">{typo(s.title)}</h3>
                 <p className="so-subject__meta">{typo('1 раз в неделю • 90 минут')}</p>
                 <p className="so-subject__meta">{typo('Расписание: ' + s.schedule)}</p>
-                <p className="so-subject__price">{typo('4 200 ₽ за 4 занятия')}</p>
+                <p className="so-subject__price">{typo(SUBJ_PRICE[s.img] || SUBJ_PRICE_DEFAULT)}</p>
                 <a href="#" className="so-btn so-btn--pay">Оплатить</a>
               </article>
             ))}
@@ -341,11 +347,12 @@ export default function Page() {
                 <div className="so-format__meta">
                   <span>{typo('1 раз в неделю • 90 минут')}</span>
                 </div>
+                <p className="so-format__hint">{typo('Цена за месяц зависит от количества уроков в месяце.')}</p>
               </div>
             </div>
             <div className="so-format__price">
               <span className="so-format__price-label">Стоимость</span>
-              <span className="so-format__price-val">4 200 ₽ <span className="so-format__price-suffix">{typo('за 4 занятия')}</span></span>
+              <span className="so-format__price-val">1 050 ₽ <span className="so-format__price-suffix">{typo('за урок')}</span></span>
             </div>
           </div>
         </div>
