@@ -749,11 +749,18 @@ html { scroll-behavior: smooth; }
 .so-oct__arrow { font-size: 20px; color: var(--so-muted); line-height: 1; }
 .so-oct__now { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(24px, 4vw, 34px); color: var(--so-ink); }
 
-.so-oct__extra { display: flex; align-items: flex-start; gap: 16px; background: #fff4ea; border-radius: 16px; padding: 16px 18px; }
+/* Мобайл: иконка + заголовок в верхнем ряду, текст — на всю ширину карточки. */
+.so-oct__extra { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; row-gap: 10px; align-items: center; background: #fff4ea; border-radius: 16px; padding: 16px 18px; }
 .so-oct__extra-icon { flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; color: var(--so-orange); }
 .so-oct__extra-icon svg { width: 36px; height: 36px; }
-.so-oct__extra-body { flex: 1 1 auto; min-width: 0; }
 .so-oct__extra-title { margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--so-ink); }
+.so-oct__extra-body { grid-column: 1 / -1; min-width: 0; }
+/* Планшет/десктоп: текст справа от иконки. */
+@media (min-width: 641px) {
+  .so-oct__extra { align-items: start; column-gap: 16px; }
+  .so-oct__extra-icon { grid-row: 1 / span 2; }
+  .so-oct__extra-body { grid-column: 2; }
+}
 .so-oct__extra-desc { margin: 0; font-size: 14px; line-height: 1.45; color: var(--so-muted); }
 .so-oct__extra-plus { margin: 12px 0 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(15px, 2.2vw, 17px); color: var(--so-orange); }
 .so-oct__extra-mid { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 6px; }

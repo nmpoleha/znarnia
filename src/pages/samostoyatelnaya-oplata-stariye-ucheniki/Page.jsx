@@ -560,8 +560,8 @@ export default function Page() {
                       <span className="so-oct__extra-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M4 11h16v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 7.5h18V11H3z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 7.5V20" stroke="currentColor" strokeWidth="1.7"/><path d="M12 7.5C9.5 7.5 7.8 4 9.6 3s3 2.5 2.4 4.5C11.4 5.5 12.9 3 14.6 4s-.1 3.5-2.6 3.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/></svg>
                       </span>
+                      <p className="so-oct__extra-title">{typo(fmt.oct.lessons)}</p>
                       <div className="so-oct__extra-body">
-                        <p className="so-oct__extra-title">{typo(fmt.oct.lessons)}</p>
                         <div className="so-oct__extra-mid">
                           <p className="so-oct__extra-desc">{typo(fmt.oct.lessonsDesc)}</p>
                           <ul className="so-oct__extra-list">
