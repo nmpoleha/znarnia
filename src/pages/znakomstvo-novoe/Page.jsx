@@ -120,6 +120,11 @@ export default function Page() {
 
       <main className="zn-main">
         <section className="zn-hero">
+          <div className="zn-hero__decor" aria-hidden="true">
+            <span className="zn-hero__blob zn-hero__blob--lavender" />
+            <span className="zn-hero__blob zn-hero__blob--mint" />
+            <span className="zn-hero__blob zn-hero__blob--peach" />
+          </div>
           <div className="zn-hero__inner">
             <div className="zn-hero__text">
               <h1 className="zn-hero__title">
