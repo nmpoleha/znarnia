@@ -692,31 +692,52 @@ html, body { background: #ffffff; overflow-x: clip; }
   .zn-start__f--5 { left: 4px; }
   .zn-start__f--8 { right: 4px; }
 
+  /* карточка: плашка → 24 → заголовок → 16 → описание → 24 → список → 12 → иллюстрация → 20 → кнопка */
   .zn-cards { gap: 18px; }
-  .zn-card { padding: 24px 22px; border-radius: 26px; }
-  .zn-card__top { gap: 12px; margin-bottom: 18px; }
-  .zn-card__icon { width: 46px; height: 46px; border-radius: 14px; }
-  .zn-card__icon svg { width: 24px; height: 24px; }
-  .zn-card__badge { font-size: 11.5px; padding: 7px 11px; letter-spacing: 0.01em; }
-  .zn-card__title { font-size: 21px; margin-bottom: 12px; }
-  .zn-card__text { font-size: 16px; margin-bottom: 20px; }
-  .zn-card__body { margin-bottom: 22px; }
-  .zn-card__img { width: 140px; }
+  .zn-card { padding: 24px; border-radius: 26px; }
+  .zn-card__top { gap: 12px; margin-bottom: 24px; }
+  .zn-card__icon { width: 50px; height: 50px; border-radius: 14px; }
+  .zn-card__icon svg { width: 26px; height: 26px; }
+  /* высота плашки ≈ 36px: 11px + 11px отступы + строка 14px */
+  .zn-card__badge { padding: 11px 12px; font-size: 11.5px; line-height: 14px; letter-spacing: 0.01em; }
+  /* «исследование с учителем» целиком во второй строке: шрифт от ширины карточки */
+  .zn-card__title { font-size: min(21px, calc((100vw - 88px) / 14.8)); margin-bottom: 16px; }
+  .zn-card__text { font-size: 16px; margin-bottom: 24px; }
   .zn-list { gap: 13px; }
   .zn-list__item { font-size: 16px; gap: 12px; }
   .zn-list__check { width: 28px; height: 28px; }
-  .zn-card__cta { font-size: 16px; min-height: 56px; padding: 16px 12px; border-radius: 16px; gap: 8px; }
+  /* иллюстрация крупнее (+20%), ближе к списку и к правому краю */
+  .zn-card__body { gap: 0; margin-bottom: 20px; }
+  .zn-card__img { width: 172px; margin: -6px -10px 0 0; }
+  /* текст кнопки — всегда в одну строку, стрелка на отдельном отступе */
+  .zn-card__cta {
+    font-size: 16px;
+    min-height: 56px;
+    padding: 14px 12px;
+    border-radius: 16px;
+    gap: 12px;
+    white-space: nowrap;
+  }
 }
 @media (max-width: 479px) {
   .zn-start__arrow { display: none; }
 }
-@media (max-width: 420px) {
-  .zn-card__cta { font-size: 15px; }
+/* «Записаться на исследование» — самый длинный текст: шрифт по ширине экрана */
+@media (max-width: 429px) {
+  .zn-card__cta { font-size: 15px; padding: 14px 8px; }
 }
-@media (max-width: 380px) {
-  .zn-card { padding: 22px 20px; }
-  .zn-card__title { font-size: 19px; }
-  .zn-card__cta { font-size: 14px; }
+@media (max-width: 389px) {
+  .zn-card__title { font-size: calc((100vw - 80px) / 15.2); }
+  .zn-card__cta { font-size: 14px; gap: 10px; }
+  .zn-card__img { width: 156px; }
+}
+/* 320–359: чтобы 14px-текст встал в одну строку, декоративная стрелка скрыта */
+@media (max-width: 359px) {
+  .zn-card { padding: 20px; }
+  .zn-card__title { font-size: calc((100vw - 72px) / 14.8); }
+  .zn-card__badge { font-size: 10.5px; padding: 11px 10px; }
+  .zn-card__cta { padding: 14px 8px; }
+  .zn-card__cta svg { display: none; }
 }
 
 /* ══════════ ФОРМА ЗАЯВКИ ══════════ */
@@ -1123,12 +1144,9 @@ html, body { background: #ffffff; overflow-x: clip; }
   .zn-page .dg-schools { flex-direction: column; }
 }
 
-/* самые узкие телефоны: у длинных CTA убираем декоративную стрелку, чтобы текст не дробился */
+/* самые узкие телефоны: у кнопки клуба убираем декоративную стрелку, чтобы текст не дробился */
 @media (max-width: 389px) {
   .zn-club__btn { font-size: 14px; padding: 14px 14px; }
   .zn-club__btn svg { display: none; }
 }
-@media (max-width: 359px) {
-  .zn-card__cta { padding: 14px 12px; }
-  .zn-card__cta svg { display: none; }
-}
+
