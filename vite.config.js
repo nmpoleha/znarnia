@@ -67,6 +67,7 @@ export default defineConfig({
         'zapis-na-urok': resolve(__dirname, 'zapis-na-urok/index.html'),
         'znakomstvo': resolve(__dirname, 'znakomstvo/index.html'),
         'znakomstvo-novoe': resolve(__dirname, 'znakomstvo-novoe/index.html'),
+        'znakomstvo-dlya-reklamy': resolve(__dirname, 'znakomstvo-dlya-reklamy/index.html'),
       },
     },
   },

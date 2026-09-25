@@ -5,6 +5,13 @@ import './catalog.css'
 
 const pages = [
   {
+    slug: 'znakomstvo-dlya-reklamy',
+    title: 'Знакомство для рекламы',
+    client: 'Школа Сотниковой Ольги',
+    description: 'Копия страницы «Новое знакомство» для рекламных кампаний',
+    date: 'Сентябрь 2026',
+  },
+  {
     slug: 'samostoyatelnaya-oplata-stariye-ucheniki',
     title: 'Самостоятельная оплата занятий — старые ученики',
     client: 'Школа Сотниковой Ольги',
