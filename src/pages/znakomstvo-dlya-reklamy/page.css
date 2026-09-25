@@ -1,3 +1,8 @@
+/* Фон документа — белый, как у страницы: иначе сиреневый фон body из base.css
+   проступает полосой справа (зона скроллбара, «оттягивание» страницы на телефоне).
+   clip, а не hidden: не создаёт лишний контейнер прокрутки. */
+html, body { background: #ffffff; overflow-x: clip; }
+
 /* ── TOKENS ── */
 .zn-page {
   --so-purple:      #6d28d9;
@@ -18,7 +23,7 @@
   margin: 0 auto;
   padding: 0 20px;
 }
-@media (max-width: 480px) {
+@media (max-width: 389px) {
   .so-wrap { padding: 0 16px; }
 }
 
@@ -273,11 +278,12 @@
   /* Hero — одна колонка, крупная типографика */
   .zn-hero { padding: 24px 0 8px; }
   .zn-hero__inner { gap: 40px; }
-  .zn-hero__text { max-width: 760px; }
-  .zn-hero__title { font-size: clamp(36px, 5vw, 52px); line-height: 1.08; margin-bottom: 18px; }
-  .zn-hero__lead { font-size: 18px; line-height: 1.55; margin-bottom: 0; max-width: 720px; }
-  .zn-hero__kicker { font-size: clamp(24px, 3.2vw, 28px); margin: 36px 0 12px; }
-  .zn-hero__desc { font-size: 17px; line-height: 1.55; max-width: 720px; }
+  /* текст занимает всю ширину — без пустой правой половины */
+  .zn-hero__text { width: 100%; max-width: none; }
+  .zn-hero__title { font-size: clamp(42px, 5.4vw, 56px); line-height: 1.06; margin-bottom: 20px; text-wrap: pretty; }
+  .zn-hero__lead { font-size: clamp(18px, 2.1vw, 21px); line-height: 1.55; margin-bottom: 0; max-width: none; }
+  .zn-hero__kicker { font-size: clamp(24px, 3.2vw, 30px); margin: 40px 0 12px; }
+  .zn-hero__desc { font-size: clamp(17px, 1.9vw, 19px); line-height: 1.55; max-width: none; }
 
   /* Подпись + две карточки в один ряд, одинаковой высоты */
   .zn-hero__cards {
@@ -287,7 +293,7 @@
     align-items: stretch;
     max-width: none;
   }
-  .zn-hero__cards-cap { grid-column: 1 / -1; margin-bottom: 4px; }
+  .zn-hero__cards-cap { grid-column: 1 / -1; margin: 12px 0 0; }
   .zn-hcard { padding: 22px 22px; border-radius: 26px; }
   .zn-hcard__head { gap: 16px; margin-bottom: 14px; align-items: start; }
   .zn-hcard__icon { width: 76px; height: 76px; }
@@ -329,33 +335,53 @@
 
 /* ── MOBILE: всё в одну колонку ── */
 @media (max-width: 767px) {
-  .zn-main { padding: 28px 16px 44px; }
+  .zn-main { padding: 28px 20px 48px; }
   .zn-club { padding-left: 0; padding-right: 0; }
 
-  /* Hero */
-  .zn-hero { padding: 8px 0 4px; }
-  .zn-hero__inner { gap: 26px; }
-  .zn-hero__text { max-width: 100%; }
+  /* Hero — одна колонка на всю ширину экрана */
+  .zn-hero { padding: 4px 0 0; }
+  .zn-hero__inner { display: flex; flex-direction: column; gap: 0; }
+  .zn-hero__text,
+  .zn-hero__cards { width: 100%; max-width: none; }
+  /* 30px на 320 (крупнее «образовательная» не влезает), 33px на 390, 40px на 470+ */
   .zn-hero__title {
     font-size: clamp(30px, 8.5vw, 40px);
-    line-height: 1.05;
+    line-height: 1.06;
     letter-spacing: -0.02em;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    text-wrap: pretty;
   }
-  .zn-hero__lead { font-size: 16px; line-height: 1.5; margin-bottom: 0; max-width: 100%; }
-  .zn-hero__kicker { font-size: 23px; line-height: 1.2; margin: 32px 0 10px; }
-  .zn-hero__desc { font-size: 15.5px; line-height: 1.5; max-width: 100%; }
+  .zn-hero__lead { font-size: 16px; line-height: 1.55; margin-bottom: 0; max-width: none; }
+  .zn-hero__kicker { font-size: 23px; line-height: 1.2; margin: 36px 0 12px; }
+  .zn-hero__desc { font-size: 16px; line-height: 1.5; max-width: none; }
+  /* декор: только одно мягкое пятно за заголовком */
+  .zn-hero__blob--mint,
+  .zn-hero__blob--peach { display: none; }
+  /* пятно целиком внутри блока — край обрезки не даёт жёсткой границы */
+  .zn-hero__blob--lavender { width: 260px; height: 220px; top: 16px; left: auto; right: 0; opacity: .8; }
 
-  /* Карточки — друг под другом */
-  .zn-hero__cards { display: flex; flex-direction: column; gap: 16px; max-width: 100%; }
-  .zn-hero__cards-cap { font-size: 12px; letter-spacing: 0.05em; margin: 28px 0 14px; }
+  /* «Выберите формат знакомства ↓» — разделитель перед карточками */
+  .zn-hero__cards { display: flex; flex-direction: column; gap: 16px; }
+  .zn-hero__cards-cap {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #7a6bb8;
+    margin: 32px 0 0;
+  }
+  .zn-hero__cards-cap::after { content: ' ↓'; }
 
-  .zn-hcard { padding: 20px; border-radius: 24px; }
-  .zn-hcard__head { gap: 16px; margin-bottom: 14px; align-items: start; }
+  /* карточка: [иконка][заголовок], описание — под ними на всю ширину */
+  .zn-hcard { width: 100%; padding: 20px; border-radius: 24px; }
+  .zn-hcard__head { grid-template-columns: auto minmax(0, 1fr); gap: 12px 14px; align-items: center; margin-bottom: 0; }
+  .zn-hcard__heading { display: contents; }
   .zn-hcard__icon { width: 60px; height: 60px; }
-  .zn-hcard__title { font-size: clamp(18px, 5.3vw, 22px); line-height: 1.12; }
-  .zn-hcard__text { font-size: 14px; line-height: 1.4; }
-  .zn-hcard__btn { height: 54px; margin-top: 18px; border-radius: 15px; font-size: 15px; }
+  .zn-hcard__title { font-size: min(23px, 5.6vw); line-height: 1.12; margin: 0; }
+  .zn-hcard__text { grid-column: 1 / -1; font-size: 15px; line-height: 1.45; }
+  .zn-hcard__btn { height: 54px; margin-top: 20px; border-radius: 15px; font-size: 16px; white-space: nowrap; }
+}
+@media (max-width: 389px) {
+  .zn-main { padding-left: 16px; padding-right: 16px; }
 }
 
 /* ══════════ КАК МОЖЕТ ПРОЙТИ ПЕРВОЕ ЗАНЯТИЕ ══════════ */
@@ -456,6 +482,7 @@
   font-size: 16px;
   line-height: 1.2;
 }
+.zn-start__pill { white-space: nowrap; }
 .zn-start__pill svg { flex-shrink: 0; color: var(--zs-violet); }
 .zn-start__arrow { width: 56px; height: 36px; flex-shrink: 0; margin-top: 18px; }
 .zn-start__arrow--left  { color: var(--zs-orange); }
@@ -607,6 +634,7 @@
   transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
 }
 .zn-card__cta svg { flex-shrink: 0; }
+.zn-card__cta > span { min-width: 0; }
 .zn-card__cta--orange {
   background: linear-gradient(135deg, #ff7a2e 0%, #ff5a14 100%);
   box-shadow: 0 16px 30px -16px rgba(255, 90, 20, 0.7);
@@ -627,6 +655,7 @@
 @container (max-width: 470px) {
   .zn-card__body { grid-template-columns: 1fr; gap: 4px; }
   .zn-card__img { width: 150px; margin-top: -8px; }
+  .zn-card__img--laptop { transform: none; }
 }
 
 /* формулы в шапке — только там, где им хватает места по бокам заголовка */
@@ -639,13 +668,13 @@
   .zn-card { padding: 36px; }
 }
 /* планшет: карточки одна под другой, иллюстрация остаётся справа */
-@media (max-width: 899px) {
+@media (max-width: 999px) {
   .zn-cards { grid-template-columns: 1fr; gap: 24px; }
   .zn-start__deco--tri { display: none; }
 }
 /* мобильный */
 @media (max-width: 767px) {
-  .zn-start { padding: 28px 0 24px; margin-top: 20px; }
+  .zn-start { padding: 48px 0 24px; margin-top: 0; }
   .zn-start__head { margin-bottom: 26px; }
   .zn-start__eyebrow { font-size: 11px; padding: 7px 14px; margin-bottom: 14px; }
   .zn-start__h2 { font-size: clamp(26px, 7vw, 32px); }
@@ -658,7 +687,7 @@
   .zn-start__deco--star    { top: 20px; left: 0; width: 18px; }
   .zn-start__deco--star-sm { top: 24px; right: 0; width: 13px; }
   /* на мобильном — пара примеров под карточками */
-  .zn-start { padding-bottom: 40px; }
+  .zn-start { padding-bottom: 44px; }
   .zn-start__f--5, .zn-start__f--8 { display: block; font-size: 16px; bottom: 6px; }
   .zn-start__f--5 { left: 4px; }
   .zn-start__f--8 { right: 4px; }
@@ -678,11 +707,13 @@
   .zn-list__check { width: 28px; height: 28px; }
   .zn-card__cta { font-size: 16px; min-height: 56px; padding: 16px 12px; border-radius: 16px; gap: 8px; }
 }
+@media (max-width: 479px) {
+  .zn-start__arrow { display: none; }
+}
 @media (max-width: 420px) {
   .zn-card__cta { font-size: 15px; }
 }
 @media (max-width: 380px) {
-  .zn-start__arrow { display: none; }
   .zn-card { padding: 22px 20px; }
   .zn-card__title { font-size: 19px; }
   .zn-card__cta { font-size: 14px; }
@@ -887,8 +918,18 @@
   margin: 0 auto;
 }
 
+/* планшет и мобильный: поля и кнопка — полноценные touch-цели */
+@media (max-width: 1024px) {
+  .zn-input { min-height: 48px; }
+}
+@media (max-width: 767px) {
+  .zn-final { padding-top: 48px; }
+  /* 16px — iOS не зумит страницу при фокусе на поле */
+  .zn-input { min-height: 50px; font-size: 16px; }
+  .zn-submit { font-size: 16px; padding: 16px 20px; min-height: 56px; white-space: nowrap; }
+}
 @media (max-width: 620px) {
-  .zn-final { padding: 44px 0 8px; }
+  .zn-final { padding-bottom: 8px; }
   .zn-final__box { padding: 28px 20px; border-radius: 22px; }
   .zn-final__head { margin-bottom: 20px; }
   .zn-final__title {
@@ -918,8 +959,8 @@
   flex-direction: column;
   gap: 22px;
 }
-@media (max-width: 620px) {
-  .zn-social { padding: 44px 0 4px; }
+@media (max-width: 767px) {
+  .zn-social { padding: 52px 0 4px; }
   .zn-social__head { margin-bottom: 28px; }
 }
 
@@ -999,9 +1040,10 @@
   gap: 14px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(16px, 1.8vw, 19px);
+  font-size: clamp(15px, 1.6vw, 19px);
   color: #fff;
   text-decoration: none;
+  white-space: nowrap;
   padding: 18px 36px;
   border-radius: 16px;
   background: linear-gradient(135deg, #6c3bff 0%, #7938e8 100%);
@@ -1023,7 +1065,7 @@
 }
 
 /* ── DESKTOP ── */
-@media (min-width: 860px) {
+@media (min-width: 1024px) {
   .zn-club__card {
     grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
     gap: 24px;
@@ -1031,19 +1073,62 @@
   .zn-club__media { align-self: center; }
 }
 
-/* ── MOBILE ── */
-@media (max-width: 859px) {
+/* ── ПЛАНШЕТ И МОБИЛЬНЫЙ: одна колонка, иллюстрация сверху ── */
+@media (max-width: 1023px) {
   .zn-club__media {
     order: -1;
-    max-width: 420px;
+    width: 100%;
+    max-width: 380px;
     margin: 0 auto 8px;
   }
-  .zn-club__btn { width: 100%; }
+  .zn-club__btn { width: 100%; min-height: 56px; }
+}
+@media (max-width: 767px) {
+  .zn-club { padding: 16px 0 0; }
+  .zn-club__card { border-radius: 24px; padding: 24px 20px 28px; }
+  .zn-club__media { max-width: 280px; }
+  .zn-club__btn { font-size: 16px; padding: 14px 18px; gap: 10px; }
+}
+/* текст кнопки клуба длиннее ширины узкого телефона — две ровные строки по центру */
+@media (max-width: 430px) {
+  .zn-club__btn { white-space: normal; text-align: center; text-wrap: balance; font-size: 15px; }
 }
 @media (max-width: 540px) {
-  .zn-club { padding: 36px 12px 0; }
-  .zn-club__card { border-radius: 24px; }
-  .zn-club__btn { font-size: 16px; padding: 16px 22px; gap: 10px; }
   .zn-club__perk { align-items: flex-start; }
   .zn-club__gift { margin-top: 1px; }
+}
+
+/* узкие телефоны: длинное слово «Интеллектуальный» должно помещаться в строку */
+@media (max-width: 430px) {
+  .zn-club__title { font-size: min(28px, 7vw); }
+}
+@media (max-width: 359px) {
+  .zn-hcard__icon { width: 52px; height: 52px; }
+  .zn-hcard__title { font-size: 17px; }
+}
+
+/* ── Общий блок доверия (SocialProof): мобильная доработка только для этой страницы ── */
+@media (max-width: 1024px) {
+  .zn-page .dg-reviews__arrow,
+  .zn-page .dg-letters__arrow { width: 44px; height: 44px; }
+}
+@media (max-width: 640px) {
+  .zn-page .dg-author__photo { max-width: 280px; }
+  /* статистика — компактная сетка 2×2 вместо четырёх высоких строк */
+  .zn-page .dg-author__stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .zn-page .dg-author__stat { padding: 14px 12px; border-bottom: 1px solid #e5e7eb; min-width: 0; }
+  .zn-page .dg-author__stat:nth-child(odd) { border-right: 1px solid #e5e7eb; }
+  .zn-page .dg-author__stat:nth-last-child(-n + 2) { border-bottom: none; }
+  /* иконка над текстом — описание и письма на всю ширину карточки */
+  .zn-page .dg-schools { flex-direction: column; }
+}
+
+/* самые узкие телефоны: у длинных CTA убираем декоративную стрелку, чтобы текст не дробился */
+@media (max-width: 389px) {
+  .zn-club__btn { font-size: 14px; padding: 14px 14px; }
+  .zn-club__btn svg { display: none; }
+}
+@media (max-width: 359px) {
+  .zn-card__cta { padding: 14px 12px; }
+  .zn-card__cta svg { display: none; }
 }
