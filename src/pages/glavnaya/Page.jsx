@@ -59,27 +59,32 @@ const HERO_PILLS = [
 ]
 
 import { useState } from 'react'
+import { nb } from '../../shared/utils/nb'
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
-
-/* ── Программы (3 возрастных направления + 2 варианта для 9 класса) ── */
-const PROGRAMS = [
-  { img: 'prog-abacus',   title: 'Начальная школа',           tag: '1–4 классы',  desc: 'Математика и развитие математического мышления', href: '#' },
-  { img: 'prog-backpack', title: 'Средняя школа',             tag: '5–8 классы',  desc: 'Сильная школьная база и работа с пробелами',      href: '#' },
-  { img: 'prog-cap',      title: 'Старшая школа',             tag: '10–11 классы', desc: 'Математика, систематизация знаний и подготовка к ЕГЭ', href: '#' },
-  { img: 'prog-pie',      title: '9 класс — математика',      tag: '9 класс',     desc: 'Математика + подготовка к ОГЭ',                   badge: 'Подготовка к ОГЭ', href: '#' },
-  { img: 'subj-book',     title: '9 класс — дополнительные предметы', tag: '9 класс', desc: 'Русский язык, физика, информатика, обществознание — подготовка к ОГЭ', badge: 'Подготовка к ОГЭ', href: '#' },
-]
 
 /* ── «Формат обучения»: 4 программы сеткой 2×2 ── */
 const FORMAT_PROGRAMS = [
   { grade: '1–4 класс',   name: 'Начальная школа', tone: 'lilac',  placeholder: 'стопка книг',
-    text: 'Формируем прочную математическую базу, учим рассуждать, понимать задачи и уверенно применять знания.', href: '#' },
+    text: 'Формируем прочную математическую базу, учим рассуждать, понимать задачи и уверенно применять знания.',
+    extra: { title: 'Индивидуальные занятия',
+      subjects: ['Математика', 'Русский язык', 'Английский язык', 'Олимпиадная математика', 'Поступление в математическую школу'],
+      note: 'Программа составляется под уровень ребёнка и конкретную образовательную цель.' } },
   { grade: '5–8 класс',   name: 'Средняя школа',   tone: 'peach',  placeholder: 'калькулятор + угольник',
-    text: 'Выстраиваем уверенную математическую базу, закрываем пробелы и помогаем разобраться в сложных школьных темах.', href: '#' },
+    text: 'Выстраиваем уверенную математическую базу, закрываем пробелы и помогаем разобраться в сложных школьных темах.',
+    extra: { title: 'Индивидуальные занятия',
+      subjects: ['Математика', 'Русский язык', 'Английский язык', 'Физика', 'Информатика', 'Обществознание', 'Биология', 'Химия'],
+      note: 'Программа подбирается с учётом уровня ребёнка, школьной программы и ваших целей.' } },
   { grade: '9 класс',     name: 'Подготовка к ОГЭ', tone: 'mint',  placeholder: 'бланк ОГЭ с галочкой',
-    text: 'Систематизируем знания, закрываем пробелы и последовательно отрабатываем задания ОГЭ — от базовых до сложных.', href: '#' },
+    text: 'Систематизируем знания, закрываем пробелы и последовательно отрабатываем задания ОГЭ — от базовых до сложных.',
+    extra: { title: 'Другие предметы ОГЭ в мини\u2011группах',
+      subjects: ['Русский язык', 'Физика', 'Информатика', 'Обществознание'],
+      meta: '1 раз в неделю · 90 минут · 1\u00a0050\u00a0₽\u00a0/\u00a0занятие',
+      note: 'Также доступны индивидуальные занятия по школьным предметам и выбранным предметам ОГЭ.' } },
   { grade: '10–11 класс', name: 'Подготовка к ЕГЭ', tone: 'lilac', placeholder: 'академическая шапочка',
-    text: 'Повторяем необходимую базу, разбираем типы заданий и выстраиваем последовательную стратегию подготовки к экзамену.', href: '#' },
+    text: 'Повторяем необходимую базу, разбираем типы заданий и выстраиваем последовательную стратегию подготовки к экзамену.',
+    extra: { title: 'Индивидуальные занятия',
+      subjects: ['Физика', 'Информатика', 'Обществознание', 'Русский язык', 'Химия', 'Биология'],
+      note: 'Программа составляется с учётом текущего уровня ученика, цели и выбранного экзамена.' } },
 ]
 
 const FmtIconVideo = () => (
@@ -95,6 +100,8 @@ const FmtIconLaptop = () => (
     <path d="M2.5 22h23" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
   </svg>
 )
+
+const KS_GRADES = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
 
 import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
 
@@ -316,6 +323,33 @@ export default function GlavnayaPage() {
   const [contactsOpen, setContactsOpen] = useState(false)
   const [openCards, setOpenCards] = useState(() => new Set())
   const [activeProblem, setActiveProblem] = useState(0)
+
+  /* форма записи на консультацию (копия со страницы konsultatsiya) */
+  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
+  const [errors, setErrors] = useState({})
+  const [submitted, setSubmitted] = useState(false)
+
+  const set = (k, v) => {
+    setForm(f => ({ ...f, [k]: v }))
+    if (errors[k]) setErrors(er => ({ ...er, [k]: undefined }))
+  }
+
+  const validate = () => {
+    const e = {}
+    if (!form.name.trim()) e.name = 'Введите имя'
+    if (!form.phone.trim()) e.phone = 'Введите телефон'
+    if (!form.email.trim()) e.email = 'Введите email'
+    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Некорректный email'
+    if (!form.agree) e.agree = 'Необходимо согласие'
+    return e
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const e2 = validate()
+    if (Object.keys(e2).length) { setErrors(e2); return }
+    setSubmitted(true)
+  }
 
   const toggleCard = (i) => setOpenCards((prev) => {
     const next = new Set(prev)
@@ -728,38 +762,134 @@ export default function GlavnayaPage() {
                   <p className="gv-fmt-card__text">{p.text}</p>
                 </div>
                 <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>
-                <a href={p.href} className="gv-fmt-card__btn">Подробнее <span aria-hidden="true">→</span></a>
+                <div className="gv-fmt-card__extra">
+                  <p className="gv-fmt-card__extra-title">{p.extra.title}</p>
+                  <p className="gv-fmt-card__subjects">{p.extra.subjects.join(' · ')}</p>
+                  {p.extra.meta && <p className="gv-fmt-card__meta">{p.extra.meta}</p>}
+                  <p className="gv-fmt-card__note">{p.extra.note}</p>
+                </div>
+                <a href="#konsultatsiya" className="gv-fmt-card__btn">Получить консультацию <span aria-hidden="true">→</span></a>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── ВЫБОР ПРОГРАММЫ ── */}
-      <section className="gv-prog">
-        <div className="sh-wrap">
-          <h2 className="gv-prog__title">Выберите программу</h2>
-          <p className="gv-prog__subtitle">Подберём подходящий формат и поможем достичь результата</p>
-          <div className="gv-prog__grid">
-            {PROGRAMS.map((p) => (
-              <article key={p.title} className="gv-prog-card">
-                <div className="gv-prog-card__head">
-                  <span className="gv-prog-card__icon">
-                    <img src={`/znarnia/images/${p.img}.png`} alt="" width="408" height="412" loading="lazy" decoding="async" />
-                  </span>
-                  <div className="gv-prog-card__heading">
-                    <h3 className="gv-prog-card__title">{p.title}</h3>
-                    <span className="gv-prog-card__tag">{p.tag}</span>
-                  </div>
+      {/* ── ЗАПИСЬ НА КОНСУЛЬТАЦИЮ (копия героя со страницы konsultatsiya) ── */}
+      <div className="gv-ks" id="konsultatsiya">
+        <section className="ks-hero">
+          <div className="ks-hero__inner">
+            <span className="ks-hero__pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4.5" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="2" />
+                <path d="M3 9h18M8 2.5v4M16 2.5v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              Подберём программу под цели и уровень
+            </span>
+
+            <h2 className="ks-title">
+              Запишитесь на{' '}
+              <span className="ks-title__accent">консультацию</span>
+            </h2>
+
+            <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
+
+            <div className="ks-hero__price">
+              <span className="ks-hero__price-tag">Доступная цена</span>
+              <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
+              <span className="ks-hero__price-value">600&nbsp;₽</span>
+              <span className="ks-hero__price-unit">за урок</span>
+            </div>
+
+            <div className="ks-hero__aside">
+              <img
+                className="ks-hero__girl"
+                src="/znarnia/images/konsultatsiya-girl.png"
+                alt="Девочка с ноутбуком и книгами по математике, логике и успеху"
+                width="1371"
+                height="1148"
+                decoding="async"
+              />
+              <svg className="ks-hero__doodle ks-hero__doodle--spark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 1l1.6 6.4L18 9l-6.4 1.6L10 17l-1.6-6.4L2 9l6.4-1.6L10 1z" fill="#ff9a4a" />
+              </svg>
+              <svg className="ks-hero__doodle ks-hero__doodle--heart" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z" stroke="#35b978" strokeWidth="2" fill="none" />
+              </svg>
+              <svg className="ks-hero__doodle ks-hero__doodle--line" width="26" height="16" viewBox="0 0 26 16" fill="none" aria-hidden="true">
+                <path d="M1 11c3.5-5 8-5 11 0" stroke="#9b7bf5" strokeWidth="2.4" strokeLinecap="round" />
+                <path d="M17 6h7" stroke="#9b7bf5" strokeWidth="2.4" strokeLinecap="round" />
+              </svg>
+
+            </div>
+
+            <div className="ks-card">
+            <span className="ks-card__accent" aria-hidden="true" />
+            {submitted ? (
+              <div className="ks-success">
+                <div className="ks-success__icon">✓</div>
+                <div className="ks-success__title">Заявка принята!</div>
+                <div className="ks-success__text">{nb('Мы перезвоним вам в ближайшее время, расскажем о программе и подберём удобное расписание.')}</div>
+              </div>
+            ) : (
+              <>
+                <div className="ks-card__head">
+                  <div className="ks-card__title">Оставьте заявку</div>
+                  <div className="ks-card__sub">{nb('Мы перезвоним, расскажем о программе и подберём удобное расписание')}</div>
                 </div>
-                {p.badge && <span className="gv-prog-card__badge">{p.badge}</span>}
-                <p className="gv-prog-card__desc">{p.desc}</p>
-                <a href={p.href} className="gv-prog-card__btn">Подробнее о программе →</a>
-              </article>
-            ))}
+
+                <form className="ks-form" onSubmit={handleSubmit} noValidate>
+                  <div className="ks-grid">
+                    <div className="ks-field">
+                      <label className="ks-label">Ваше имя <span className="ks-req">*</span></label>
+                      <input className={`ks-input${errors.name ? ' ks-input--err' : ''}`} type="text" placeholder="Иван Иванов" value={form.name} onChange={e => set('name', e.target.value)} />
+                      {errors.name && <span className="ks-err">{errors.name}</span>}
+                    </div>
+                    <div className="ks-field">
+                      <label className="ks-label">Телефон <span className="ks-req">*</span></label>
+                      <input className={`ks-input${errors.phone ? ' ks-input--err' : ''}`} type="tel" inputMode="tel" placeholder="+7 (___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
+                      {errors.phone && <span className="ks-err">{errors.phone}</span>}
+                    </div>
+                    <div className="ks-field">
+                      <label className="ks-label">Email <span className="ks-req">*</span></label>
+                      <input className={`ks-input${errors.email ? ' ks-input--err' : ''}`} type="email" placeholder="ivan@example.com" value={form.email} onChange={e => set('email', e.target.value)} />
+                      {errors.email && <span className="ks-err">{errors.email}</span>}
+                    </div>
+                    <div className="ks-field">
+                      <label className="ks-label">Ник в Telegram</label>
+                      <input className="ks-input" type="text" placeholder="@username" value={form.telegram} onChange={e => set('telegram', e.target.value)} />
+                    </div>
+                  </div>
+
+                  <div className="ks-field ks-field--half">
+                    <label className="ks-label">Класс ребёнка</label>
+                    <select className="ks-input ks-select" value={form.grade} onChange={e => set('grade', e.target.value)}>
+                      <option value="">Выберите класс</option>
+                      {KS_GRADES.map(g => <option key={g} value={g}>{g} класс</option>)}
+                    </select>
+                  </div>
+
+                  <label className={`ks-check${errors.agree ? ' ks-check--err' : ''}`}>
+                    <input type="checkbox" className="ks-check__input" checked={form.agree} onChange={e => set('agree', e.target.checked)} />
+                    <span className="ks-check__box" aria-hidden="true" />
+                    <span className="ks-check__text">
+                      Согласен с обработкой персональных данных в соответствии с{' '}
+                      <a href="#" className="ks-link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a> <span className="ks-req">*</span>
+                    </span>
+                  </label>
+                  {errors.agree && <span className="ks-err ks-err--check">{errors.agree}</span>}
+
+                  <button type="submit" className="ks-submit">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    Записаться на консультацию
+                  </button>
+                </form>
+              </>
+            )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
     </div>
   )
