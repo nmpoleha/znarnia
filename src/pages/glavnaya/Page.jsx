@@ -62,7 +62,7 @@ import { useState } from 'react'
 import { nb } from '../../shared/utils/nb'
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
 
-/* ── «Формат обучения»: 4 программы сеткой 2×2 ── */
+/* ── «Математика в мини-группах»: 4 программы сеткой 2×2 ── */
 const FORMAT_PROGRAMS = [
   { grade: '1–4 класс',   name: 'Начальная школа', tone: 'lilac',  placeholder: 'стопка книг',
     text: 'Формируем прочную математическую базу, учим рассуждать, понимать задачи и уверенно применять знания.',
@@ -86,6 +86,13 @@ const FORMAT_PROGRAMS = [
       subjects: ['Физика', 'Информатика', 'Обществознание', 'Русский язык', 'Химия', 'Биология'],
       note: 'Программа составляется с учётом текущего уровня ученика, цели и выбранного экзамена.' } },
 ]
+
+const FmtIconPerson = () => (
+  <svg width="30" height="30" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <circle cx="14" cy="9" r="4.5" stroke="currentColor" strokeWidth="2"/>
+    <path d="M5 24c0-4.7 4-8 9-8s9 3.3 9 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
 
 const FmtIconVideo = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -116,22 +123,26 @@ const LkCheck = () => (
 const PRINCIPLES = [
   {
     img: '/znarnia/images/lesson-shield.png',
-    title: 'Полная концентрация и безопасная среда',
+    theme: 'violet',
+    pre: 'Полная концентрация и ', accent: 'безопасная среда', post: '',
     text: 'Каждый ученик работает в своём личном пространстве на платформе. Ответы ребёнка видны только ему и педагогу — так мы снимаем ненужный стресс и страх ошибиться «на виду у всех». Интерактивные задания (ввести ответ, переместить объект, построить график) и мгновенное поощрение баллами держат внимание и интерес на протяжении всего урока.',
   },
   {
     img: '/znarnia/images/lesson-chart.png',
-    title: 'Педагог видит прогресс каждого, а не только группы',
+    theme: 'green',
+    pre: 'Педагог видит ', accent: 'прогресс каждого', post: ', а не только группы',
     text: 'Наш инструментарий для педагога — это «цифровая панель управления» классом в реальном времени. Учитель видит, кто и как выполняет задание, с какой попытки даёт ответ, кому нужна помощь. Это позволяет точечно поддерживать каждого ученика здесь и сейчас, а после урока анализировать статистику для совершенствования материалов.',
   },
   {
     img: '/znarnia/images/lesson-search.png',
-    title: 'Для вас — полная прозрачность прогресса',
+    theme: 'orange',
+    pre: 'Для вас — полная ', accent: 'прозрачность прогресса', post: '',
     text: 'Вы в любой момент можете зайти в личный кабинет и увидеть детальную аналитику по занятиям вашего ребёнка: активность на уроке, процент правильных ответов, темы, которые вызвали вопросы. Вы всегда в курсе его успехов и областей роста, чтобы поддержать его своевременно.',
   },
   {
     img: '/znarnia/images/lesson-headset.png',
-    title: 'Персональная помощь с домашними заданиями',
+    theme: 'violet',
+    pre: '', accent: 'Персональная помощь', post: ' с домашними заданиями',
     text: 'За ребёнком закреплён персональный куратор, к которому можно обратиться, если возникли сложности с домашним заданием. Он поможет найти ошибку, обратит внимание на оформление решения, подскажет, в каком направлении двигаться, и разберёт непонятный момент. Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
   },
 ]
@@ -578,13 +589,14 @@ export default function GlavnayaPage() {
       {/* ── КАК ПОСТРОЕНЫ ЗАНЯТИЯ (как на intellektualnyy-klub) ── */}
       <section className="sh-reveal">
         <div className="sh-wrap sh-reveal__body">
+          <div className="gv-lessons">
           <div className="sh-lessons__head">
             <div className="sh-lessons__head-text">
               <h2 className="sh-lessons__title">
-                Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка
+                {nb('Как построены наши занятия: безопасность, вовлечение и результат для вашего ребёнка')}
               </h2>
               <p className="sh-lessons__intro">
-                Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.
+                {nb('Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.')}
               </p>
             </div>
           </div>
@@ -593,14 +605,18 @@ export default function GlavnayaPage() {
             {PRINCIPLES.map((p, i) => {
               const isOpen = openCards.has(i)
               return (
-                <div key={i} className={`sh-principle gv-principle${isOpen ? ' gv-principle--open' : ''}`}>
+                <div key={i} className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`}>
                   <div className="sh-principle__media">
                     <div className="sh-principle__icon">
                       <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
                     </div>
                     <span className="sh-principle__num">{i + 1}</span>
                   </div>
-                  <h3 className="sh-principle__title">{p.title}</h3>
+                  <h3 className="sh-principle__title">
+                    {p.pre && nb(p.pre)}
+                    <span className="sh-principle__title-accent">{nb(p.accent)}</span>
+                    {p.post && nb(p.post)}
+                  </h3>
                   <button
                     type="button"
                     className="gv-principle__toggle"
@@ -612,10 +628,11 @@ export default function GlavnayaPage() {
                       <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
                     </svg>
                   </button>
-                  {isOpen && <p className="sh-principle__text">{p.text}</p>}
+                  {isOpen && <p className="sh-principle__text">{nb(p.text)}</p>}
                 </div>
               )
             })}
+          </div>
           </div>
 
           {/* ── Результаты, которые замечают родители (как на predszapis-osen-stariye-5-8) ── */}
@@ -725,27 +742,25 @@ export default function GlavnayaPage() {
         </div>
       </section>
 
-      {/* ── ФОРМАТ ОБУЧЕНИЯ ── */}
+      {/* ── МАТЕМАТИКА В МИНИ-ГРУППАХ (формат обучения) ── */}
       <section className="gv-fmt">
         <div className="sh-wrap">
           <div className="gv-fmt__top">
             <div className="gv-fmt__intro">
               <span className="gv-fmt__eyebrow">Как проходят занятия</span>
-              <h2 className="gv-fmt__title">Формат <span>обучения</span></h2>
-              <p className="gv-fmt__subtitle">Занятия в мини-группах + самостоятельная практика</p>
+              <h2 className="gv-fmt__title">Математика <span>в&nbsp;мини&#8209;группах</span></h2>
               <p className="gv-fmt__desc">
-                Каждую неделю ребёнок занимается с преподавателем онлайн и закрепляет материал
-                на интерактивном уроке-тренажёре.
+                {nb('Основной формат обучения: занятия с преподавателем в небольшой группе и самостоятельная практика на интерактивном уроке-тренажёре.')}
               </p>
               <div className="gv-fmt__week">
                 <div className="gv-fmt__pill">
                   <span className="gv-fmt__pill-icon"><FmtIconVideo /></span>
-                  <span><b>2 онлайн-урока в неделю</b><br/>с учителем</span>
+                  <span><b>2 онлайн-урока<br/>в неделю</b><small>с учителем математики</small></span>
                 </div>
                 <span className="gv-fmt__plus" aria-hidden="true">+</span>
                 <div className="gv-fmt__pill">
                   <span className="gv-fmt__pill-icon"><FmtIconLaptop /></span>
-                  <span><b>1 урок-тренажёр в неделю</b><br/>на платформе</span>
+                  <span><b>1 урок-тренажёр<br/>в неделю</b><small>на платформе</small></span>
                 </div>
                 <div className="gv-fmt__price">от 580&nbsp;₽ / занятие</div>
               </div>
@@ -756,19 +771,25 @@ export default function GlavnayaPage() {
           <div className="gv-fmt__grid">
             {FORMAT_PROGRAMS.map((p) => (
               <article key={p.grade} className={`gv-fmt-card gv-fmt-card--${p.tone}`}>
-                <div className="gv-fmt-card__body">
-                  <h3 className="gv-fmt-card__grade">{p.grade}</h3>
-                  <p className="gv-fmt-card__name">{p.name}</p>
-                  <p className="gv-fmt-card__text">{p.text}</p>
+                <div className="gv-fmt-card__main">
+                  <div className="gv-fmt-card__body">
+                    <h3 className="gv-fmt-card__grade">{p.grade}</h3>
+                    <span className="gv-fmt-card__badge">Математика в мини&#8209;группе</span>
+                    <p className="gv-fmt-card__name">{p.name}</p>
+                    <p className="gv-fmt-card__text">{nb(p.text)}</p>
+                  </div>
+                  <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>
+                  <a href="#konsultatsiya" className="gv-fmt-card__btn">Получить консультацию <span aria-hidden="true">→</span></a>
                 </div>
-                <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>
-                <div className="gv-fmt-card__extra">
-                  <p className="gv-fmt-card__extra-title">{p.extra.title}</p>
-                  <p className="gv-fmt-card__subjects">{p.extra.subjects.join(' · ')}</p>
-                  {p.extra.meta && <p className="gv-fmt-card__meta">{p.extra.meta}</p>}
-                  <p className="gv-fmt-card__note">{p.extra.note}</p>
+                <div className="gv-fmt-card__ind">
+                  <span className="gv-fmt-card__ind-icon"><FmtIconPerson /></span>
+                  <div className="gv-fmt-card__ind-text">
+                    <p className="gv-fmt-card__ind-title">{p.extra.title}<span className="gv-fmt-card__star" aria-hidden="true">*</span></p>
+                    <p className="gv-fmt-card__ind-subjects">{p.extra.subjects.join(' · ')}</p>
+                    {p.extra.meta && <p className="gv-fmt-card__ind-meta">{p.extra.meta}</p>}
+                    <p className="gv-fmt-card__ind-note"><span aria-hidden="true">* </span>{nb(p.extra.note)}</p>
+                  </div>
                 </div>
-                <a href="#konsultatsiya" className="gv-fmt-card__btn">Получить консультацию <span aria-hidden="true">→</span></a>
               </article>
             ))}
           </div>
