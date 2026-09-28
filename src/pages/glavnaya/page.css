@@ -182,60 +182,76 @@
 .gv-hero__features-panel {
   display: block;
   background: #ffffff;
-  border: 1.5px solid rgba(109, 40, 217, 0.12);
-  border-radius: 18px;
-  padding: clamp(10px, 1.5vh, 14px) 20px;
+  border: 1px solid rgba(109, 40, 217, 0.1);
+  border-radius: 20px;
+  padding: clamp(14px, 2vh, 20px) 8px;
   margin-bottom: clamp(12px, 2vh, 24px);
-  box-shadow:
-    0 1px 3px rgba(109, 40, 217, 0.06),
-    0 4px 16px rgba(109, 40, 217, 0.08);
+  box-shadow: 0 12px 32px -18px rgba(76, 29, 149, 0.22);
   animation: gv-fade-up 0.55s 0.16s ease both;
 }
 
-/* 4 feature items */
+/* 4 feature items, разделены тонкими вертикальными линиями */
 .gv-hero__features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .gv-hero__feature {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 7px;
+  gap: 12px;
+  min-width: 0;
+  padding: 2px 14px;
+}
+
+.gv-hero__feature + .gv-hero__feature {
+  border-left: 1px solid #eeeaf6;
+}
+
+/* 4 колонки помещаются только на широком экране — ниже 2×2 */
+@media (max-width: 1319px) {
+  .gv-hero__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
+  }
+  .gv-hero__feature:nth-child(odd) { border-left: 0; }
 }
 
 .gv-hero__feature-icon {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  background: var(--gv-purple-lt);
-  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #6d28d9;
 }
+
+.gv-hero__feature-icon--lilac  { background: #f1ecff; }
+.gv-hero__feature-icon--peach  { background: #fff0e0; }
+.gv-hero__feature-icon--violet { background: #ebe4ff; }
+.gv-hero__feature-icon--mint   { background: #e5f7ec; }
 
 .gv-hero__feature-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .gv-hero__feature-title {
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--gv-text);
 }
 
 .gv-hero__feature-sub {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  color: var(--gv-text-2);
-  opacity: 0.85;
+  color: #8a86a0;
 }
 
 /* Pills (уровни / экзамены) */
@@ -357,9 +373,10 @@
     box-sizing: border-box;
   }
   .gv-hero__features {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
   }
+  .gv-hero__feature:nth-child(odd) { border-left: 0; }
 }
 
 @media (max-width: 768px) {
@@ -406,9 +423,11 @@
   }
 
   .gv-hero__features {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
   }
+  .gv-hero__feature { padding: 2px 12px; }
+  .gv-hero__feature-icon { width: 46px; height: 46px; border-radius: 13px; }
 
   .gv-hero__actions {
     flex-direction: column;

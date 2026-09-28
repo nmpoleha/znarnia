@@ -1,32 +1,33 @@
 const IconPeople = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-    <circle cx="11" cy="9" r="4" stroke="#6d28d9" strokeWidth="1.9"/>
-    <path d="M3 25c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#6d28d9" strokeWidth="1.9" strokeLinecap="round"/>
-    <circle cx="22" cy="9" r="3" stroke="#6d28d9" strokeWidth="1.9"/>
-    <path d="M19.5 17.3c2.8.7 4.5 3.4 4.5 6.7" stroke="#6d28d9" strokeWidth="1.9" strokeLinecap="round"/>
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <circle cx="16" cy="9.5" r="3.8" stroke="currentColor" strokeWidth="1.9"/>
+    <circle cx="7.5" cy="12" r="2.8" stroke="currentColor" strokeWidth="1.9"/>
+    <circle cx="24.5" cy="12" r="2.8" stroke="currentColor" strokeWidth="1.9"/>
+    <path d="M9.5 25c0-3.9 2.9-7 6.5-7s6.5 3.1 6.5 7" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+    <path d="M3 24c0-3 2-5.2 4.5-5.2 1 0 1.9.3 2.6.9M29 24c0-3-2-5.2-4.5-5.2-1 0-1.9.3-2.6.9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
   </svg>
 )
 
-const IconBook = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-    <path d="M6 5h14a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" stroke="#6d28d9" strokeWidth="1.9"/>
-    <path d="M22 9h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2" stroke="#6d28d9" strokeWidth="1.9" strokeLinecap="round"/>
-    <path d="M9 11h8M9 15h8M9 19h5" stroke="#6d28d9" strokeWidth="1.6" strokeLinecap="round"/>
+const IconDocPen = () => (
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <path d="M22 13V7a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v19a2 2 0 0 0 2 2h7" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+    <path d="M10 11h8M10 15.5h8M10 20h4" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+    <path d="M25.6 15.4l2 2-7.8 7.8-3 .9.9-3 7.9-7.7z" stroke="currentColor" strokeWidth="1.9" strokeLinejoin="round"/>
   </svg>
 )
 
-const IconMonitor = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-    <rect x="3" y="4" width="26" height="18" rx="2.5" stroke="#6d28d9" strokeWidth="1.9"/>
-    <path d="M13 22v4M19 22v4M10 26h12" stroke="#6d28d9" strokeWidth="1.9" strokeLinecap="round"/>
-    <path d="M12 12l4 3-4 3V12z" fill="#6d28d9"/>
-    <circle cx="22" cy="23.5" r="1.5" fill="#6d28d9"/>
+const IconLaptopPlay = () => (
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <rect x="5" y="6" width="22" height="15" rx="2" stroke="currentColor" strokeWidth="1.9"/>
+    <path d="M2.5 25.5h27" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+    <path d="M14 10.8l5 2.7-5 2.7v-5.4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
   </svg>
 )
 
-const IconStar = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-    <path d="M16 4l3.5 7.1 7.8 1.1-5.65 5.5 1.34 7.8L16 28.8l-7-3.67 1.34-7.8L4.7 12.2l7.8-1.1L16 4z" stroke="#6d28d9" strokeWidth="1.9" strokeLinejoin="round"/>
+const IconStarCheck = () => (
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <path d="M16 3.5l3.7 7.4 8.1 1.2-5.9 5.7 1.4 8.1L16 22.1l-7.3 3.8 1.4-8.1-5.9-5.7 8.1-1.2L16 3.5z" stroke="currentColor" strokeWidth="1.9" strokeLinejoin="round"/>
+    <path d="M12.3 15.3l2.6 2.6 4.8-4.8" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
@@ -46,10 +47,10 @@ const IconBookMini = () => (
 )
 
 const FEATURES = [
-  { icon: <IconPeople />,  title: 'Маленькие группы',       sub: '4–8 детей' },
-  { icon: <IconBook />,    title: 'Авторская методика',     sub: 'Ольги Сотниковой' },
-  { icon: <IconMonitor />, title: 'Живые занятия',          sub: '+ записи уроков' },
-  { icon: <IconStar />,    title: 'От школьной базы до ЕГЭ', sub: '1–11 классы' },
+  { icon: <IconPeople />,     tone: 'lilac',  title: 'Маленькие группы',        sub: '4–8 детей' },
+  { icon: <IconDocPen />,     tone: 'peach',  title: 'Авторская методика',      sub: 'Ольги Сотниковой' },
+  { icon: <IconLaptopPlay />, tone: 'violet', title: 'Живые занятия',           sub: '+ записи уроков' },
+  { icon: <IconStarCheck />,  tone: 'mint',   title: 'От школьной базы до ЕГЭ', sub: '1–11 классы' },
 ]
 
 const HERO_PILLS = [
@@ -452,7 +453,7 @@ export default function GlavnayaPage() {
               <div className="gv-hero__features">
                 {FEATURES.map((f, i) => (
                   <div key={i} className="gv-hero__feature">
-                    <div className="gv-hero__feature-icon">{f.icon}</div>
+                    <div className={`gv-hero__feature-icon gv-hero__feature-icon--${f.tone}`}>{f.icon}</div>
                     <p className="gv-hero__feature-text">
                       <span className="gv-hero__feature-title">{f.title}</span>
                       <span className="gv-hero__feature-sub">{f.sub}</span>
