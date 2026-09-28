@@ -70,6 +70,32 @@ const PROGRAMS = [
   { img: 'subj-book',     title: '9 класс — дополнительные предметы', tag: '9 класс', desc: 'Русский язык, физика, информатика, обществознание — подготовка к ОГЭ', badge: 'Подготовка к ОГЭ', href: '#' },
 ]
 
+/* ── «Формат обучения»: 4 программы сеткой 2×2 ── */
+const FORMAT_PROGRAMS = [
+  { grade: '1–4 класс',   name: 'Начальная школа', tone: 'lilac',  placeholder: 'стопка книг',
+    text: 'Формируем прочную математическую базу, учим рассуждать, понимать задачи и уверенно применять знания.', href: '#' },
+  { grade: '5–8 класс',   name: 'Средняя школа',   tone: 'peach',  placeholder: 'калькулятор + угольник',
+    text: 'Выстраиваем уверенную математическую базу, закрываем пробелы и помогаем разобраться в сложных школьных темах.', href: '#' },
+  { grade: '9 класс',     name: 'Подготовка к ОГЭ', tone: 'mint',  placeholder: 'бланк ОГЭ с галочкой',
+    text: 'Систематизируем знания, закрываем пробелы и последовательно отрабатываем задания ОГЭ — от базовых до сложных.', href: '#' },
+  { grade: '10–11 класс', name: 'Подготовка к ЕГЭ', tone: 'lilac', placeholder: 'академическая шапочка',
+    text: 'Повторяем необходимую базу, разбираем типы заданий и выстраиваем последовательную стратегию подготовки к экзамену.', href: '#' },
+]
+
+const FmtIconVideo = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <rect x="3" y="7" width="15" height="14" rx="3" stroke="currentColor" strokeWidth="2.2"/>
+    <path d="M18 12.5l6-3.5v10l-6-3.5" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round"/>
+  </svg>
+)
+
+const FmtIconLaptop = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <rect x="5" y="6" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="2.2"/>
+    <path d="M2.5 22h23" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
+  </svg>
+)
+
 import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
 
 const LkCheck = () => (
@@ -662,6 +688,50 @@ export default function GlavnayaPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ── ФОРМАТ ОБУЧЕНИЯ ── */}
+      <section className="gv-fmt">
+        <div className="sh-wrap">
+          <div className="gv-fmt__top">
+            <div className="gv-fmt__intro">
+              <span className="gv-fmt__eyebrow">Как проходят занятия</span>
+              <h2 className="gv-fmt__title">Формат <span>обучения</span></h2>
+              <p className="gv-fmt__subtitle">Занятия в мини-группах + самостоятельная практика</p>
+              <p className="gv-fmt__desc">
+                Каждую неделю ребёнок занимается с преподавателем онлайн и закрепляет материал
+                на интерактивном уроке-тренажёре.
+              </p>
+              <div className="gv-fmt__week">
+                <div className="gv-fmt__pill">
+                  <span className="gv-fmt__pill-icon"><FmtIconVideo /></span>
+                  <span><b>2 онлайн-урока в неделю</b><br/>с учителем</span>
+                </div>
+                <span className="gv-fmt__plus" aria-hidden="true">+</span>
+                <div className="gv-fmt__pill">
+                  <span className="gv-fmt__pill-icon"><FmtIconLaptop /></span>
+                  <span><b>1 урок-тренажёр в неделю</b><br/>на платформе</span>
+                </div>
+                <div className="gv-fmt__price">от 580&nbsp;₽ / занятие</div>
+              </div>
+            </div>
+            <div className="gv-fmt__ph gv-fmt__ph--hero" aria-hidden="true">ноутбук + книги + карандаши</div>
+          </div>
+
+          <div className="gv-fmt__grid">
+            {FORMAT_PROGRAMS.map((p) => (
+              <article key={p.grade} className={`gv-fmt-card gv-fmt-card--${p.tone}`}>
+                <div className="gv-fmt-card__body">
+                  <h3 className="gv-fmt-card__grade">{p.grade}</h3>
+                  <p className="gv-fmt-card__name">{p.name}</p>
+                  <p className="gv-fmt-card__text">{p.text}</p>
+                </div>
+                <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>
+                <a href={p.href} className="gv-fmt-card__btn">Подробнее <span aria-hidden="true">→</span></a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
