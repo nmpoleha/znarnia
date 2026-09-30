@@ -205,72 +205,9 @@ const TRUST_ITEMS = [
 ]
 
 /* ── «Узнаёте свою ситуацию?» — проблема → решение ── */
-const SitIconCap = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M12 4l10 4-10 4L2 8l10-4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-    <path d="M6 10.5V15c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8v-4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M22 8v5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-  </svg>
-)
-const SitIconCalendar = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.7"/>
-    <path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-  </svg>
-)
-const SitIconPuzzle = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M10 4.5c0-1 .9-1.5 1.8-1.2.7.2 1.1.9 1 1.6-.1.6.3 1.1.9 1.1h2.1c.6 0 1.1.5 1.1 1.1v2.1c0 .6.5 1 1.1.9.7-.1 1.4.3 1.6 1 .3.9-.2 1.8-1.2 1.8-.7 0-1.5.4-1.5 1.2v2.9c0 .6-.5 1.1-1.1 1.1h-2.9c-.8 0-1.2-.8-1.2-1.5 0-1-.9-1.5-1.8-1.2-.7.2-1.1.9-1 1.6.1.7-.4 1.4-1.1 1.4H5.6c-.6 0-1.1-.5-1.1-1.1v-3c0-.6-.5-1-1.1-.9-.7.1-1.4-.3-1.6-1-.3-.9.2-1.8 1.2-1.8.7 0 1.5-.4 1.5-1.2V6.1c0-.6.5-1.1 1.1-1.1h3c.7 0 1.1-.6 1-1.2" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-  </svg>
-)
-const SitIconSad = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7"/>
-    <path d="M8.5 15.5c1-1.2 5-1.2 7 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-    <path d="M9 9.5h.01M15 9.5h.01" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
-  </svg>
-)
-const SitIconGrade = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" strokeWidth="1.7"/>
-    <path d="M14 8.5h-3.2l-.4 3c.5-.4 1.1-.6 1.8-.6 1.4 0 2.5 1 2.5 2.4S13.5 15.5 12 15.5c-1.1 0-2-.5-2.4-1.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-const SitIconHourglass = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M7 3.5h10M7 20.5h10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-    <path d="M8 3.5c0 4 8 4.5 8 8.5s-8 4.5-8 8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-    <path d="M16 3.5c0 4-8 4.5-8 8.5s8 4.5 8 8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-  </svg>
-)
-
-/* Иконки для трёх слотов в карточке решения (как на референсе) */
-const SolIconChart = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M4 20h16" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round"/>
-    <rect x="6" y="12" width="3" height="6" rx="1" fill="#6d28d9"/>
-    <rect x="11" y="8" width="3" height="10" rx="1" fill="#a78bfa"/>
-    <rect x="16" y="5" width="3" height="13" rx="1" fill="#6d28d9"/>
-  </svg>
-)
-const SolIconPlay = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="3.5" y="5" width="17" height="14" rx="3" stroke="#6d28d9" strokeWidth="1.8"/>
-    <path d="M10.5 9.5l4 2.5-4 2.5v-5z" fill="#6d28d9"/>
-  </svg>
-)
-const SolIconCheck = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="5" y="4" width="14" height="16" rx="2.5" stroke="#6d28d9" strokeWidth="1.8"/>
-    <path d="M9 3.5h6v3H9z" stroke="#6d28d9" strokeWidth="1.8" strokeLinejoin="round"/>
-    <path d="M8.5 12.5l2.2 2.2 4-4.2" stroke="#6d28d9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-const SOLUTION_SLOT_ICONS = [<SolIconChart />, <SolIconPlay />, <SolIconCheck />]
-
 const PROBLEMS = [
   {
-    icon: <SitIconCap />,
+    icon: 'sit-gaps',
     title: ['У ребёнка есть пробелы', 'и новые темы даются всё сложнее'],
     points: [
       { title: 'Находим и закрываем пробелы', text: 'Определяем слабые места и выстраиваем понятную систему.' },
@@ -278,9 +215,10 @@ const PROBLEMS = [
       { title: 'Много практики',              text: 'Тренируем навыки на интересных и понятных заданиях.' },
     ],
     result: 'В результате ребёнок снова понимает темы, справляется с заданиями и становится увереннее в себе.',
+    pointImgs: ['sol-search', 'sol-support', 'sol-idea'],
   },
   {
-    icon: <SitIconCalendar />,
+    icon: 'sit-missed',
     title: ['Пропускает уроки', 'и потом не может догнать класс'],
     points: [
       { title: 'Запись каждого занятия',   text: 'Пропущенную тему можно пересмотреть в удобное время.' },
@@ -288,9 +226,10 @@ const PROBLEMS = [
       { title: 'Педагог видит отставание', text: 'Замечает, где ребёнок отстал, и даёт дополнительные задания.' },
     ],
     result: 'В результате ребёнок быстро догоняет класс и не выпадает из программы.',
+    pointImgs: ['sol-video', 'sol-calendar', 'sol-watch'],
   },
   {
-    icon: <SitIconPuzzle />,
+    icon: 'sit-rule',
     title: ['Знает правило, но не может', 'самостоятельно решить задачу'],
     points: [
       { title: 'Разбираем логику решения',       text: 'Показываем, как рассуждать, а не заучивать алгоритм.' },
@@ -298,9 +237,10 @@ const PROBLEMS = [
       { title: 'Практика от простого к сложному', text: 'Постепенно доводим навык до уверенного уровня.' },
     ],
     result: 'В результате ребёнок сам решает задачи, а не заучивает готовые шаги.',
+    pointImgs: ['sol-brain', 'sol-book-idea', 'sol-steps'],
   },
   {
-    icon: <SitIconSad />,
+    icon: 'sit-fear',
     title: ['Боится ошибаться', 'и не верит в свои силы'],
     points: [
       { title: 'Маленькие группы',        text: 'Спокойная и безопасная среда без страха ошибиться «на виду».' },
@@ -308,9 +248,10 @@ const PROBLEMS = [
       { title: 'Внимание к каждому',      text: 'Преподаватель видит работу каждого ученика и поддерживает.' },
     ],
     result: 'В результате ребёнок перестаёт бояться ошибок и верит в свои силы.',
+    pointImgs: ['sol-group', 'sol-teacher-chat', 'sol-care'],
   },
   {
-    icon: <SitIconGrade />,
+    icon: 'sit-oge',
     title: ['Нужно успешно сдать ОГЭ', 'по дополнительным предметам'],
     points: [
       { title: 'Готовим по 4 предметам', text: 'Русский язык, физика, информатика и обществознание.' },
@@ -318,9 +259,10 @@ const PROBLEMS = [
       { title: 'Практика формата ОГЭ',  text: 'Тренируемся на экзаменационных заданиях.' },
     ],
     result: 'Ребёнок подходит к экзамену подготовленным и понимает, чего ожидать на ОГЭ.',
+    pointImgs: ['sol-subjects', 'sol-system', 'sol-oge-practice'],
   },
   {
-    icon: <SitIconHourglass />,
+    icon: 'sit-homework',
     title: ['Домашние задания превращаются', 'в стресс для всей семьи'],
     points: [
       { title: 'Персональный куратор',  text: 'Помогает ребёнку с домашним заданием, когда возникают сложности.' },
@@ -328,6 +270,7 @@ const PROBLEMS = [
       { title: 'Дополнительный разбор', text: 'При необходимости ребёнок получает пошаговое объяснение.' },
     ],
     result: 'В результате домашние задания перестают быть стрессом для всей семьи.',
+    pointImgs: ['sol-support', 'sol-idea', 'sol-search'],
   },
 ]
 
@@ -513,9 +456,9 @@ export default function GlavnayaPage() {
                       className={`gv-sit__problem${isActive ? ' gv-sit__problem--active' : ''}`}
                       onClick={() => setActiveProblem(i)}
                     >
-                      <span className="gv-sit__problem-icon">{p.icon}</span>
+                      <img className="gv-sit__problem-icon" src={`/znarnia/images/${p.icon}.png`} alt="" width="192" height="192" loading="lazy" decoding="async" />
                       <span className="gv-sit__problem-text">
-                        {p.title[0]}<br/>{p.title[1]}
+                        {p.title[0]}{' '}<br className="gv-sit__br" />{p.title[1]}
                       </span>
                       <svg className="gv-sit__problem-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -544,10 +487,10 @@ export default function GlavnayaPage() {
                 <div className="gv-sit__points">
                   {PROBLEMS[activeProblem].points.map((pt, j) => (
                     <div key={j} className="gv-sit__point">
-                      <span className="gv-sit__point-icon">{SOLUTION_SLOT_ICONS[j]}</span>
+                      <img className="gv-sit__point-img" src={`/znarnia/images/${PROBLEMS[activeProblem].pointImgs[j]}.png`} alt="" width="144" height="144" decoding="async" />
                       <div className="gv-sit__point-body">
                         <div className="gv-sit__point-title">{pt.title}</div>
-                        <p className="gv-sit__point-text">{pt.text}</p>
+                        <p className="gv-sit__point-text">{nb(pt.text)}</p>
                       </div>
                     </div>
                   ))}
@@ -557,7 +500,7 @@ export default function GlavnayaPage() {
                   <svg className="gv-sit__result-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M12 3l1.7 4.1L18 8.4l-3.2 2.8.8 4.8L12 13.6 8.4 16l.8-4.8L6 8.4l4.3-1.3L12 3z" fill="#16a34a"/>
                   </svg>
-                  <p className="gv-sit__result-text">{PROBLEMS[activeProblem].result}</p>
+                  <p className="gv-sit__result-text">{nb(PROBLEMS[activeProblem].result)}</p>
                 </div>
               </div>
 
