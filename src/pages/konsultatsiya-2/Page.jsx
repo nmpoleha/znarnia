@@ -52,9 +52,9 @@ const PRINCIPLES = [
 
 /* ── Блок «Регулярные занятия в мини-группах» ── */
 const LEVELS = [
-  { grades: '1–4', theme: 'yellow', img: 'лампочка', src: '/znarnia/images/konsultatsiya-2-grades-1-4.png', w: 480, h: 249, text: 'Развиваем математическое мышление, учимся рассуждать, видеть связи и осмысленно решать задачи.' },
-  { grades: '5–8', theme: 'blue', img: 'график роста', src: '/znarnia/images/konsultatsiya-2-grades-5-8.png', w: 480, h: 293, text: 'Системно осваиваем школьную программу, разбираемся в сложных темах и учимся уверенно применять знания на практике.' },
-  { grades: '9–11', theme: 'violet', img: 'лист ОГЭ/ЕГЭ', src: '/znarnia/images/konsultatsiya-2-grades-9-11.png', w: 480, h: 355, text: 'Готовимся к ОГЭ и ЕГЭ: систематизируем знания, отрабатываем экзаменационные задания и выстраиваем планомерную подготовку к экзамену.' },
+  { grades: '1–4', theme: 'yellow', text: 'Развиваем математическое мышление, учимся рассуждать, видеть связи и осмысленно решать задачи.' },
+  { grades: '5–8', theme: 'blue', text: 'Системно осваиваем школьную программу, разбираемся в сложных темах и учимся уверенно применять знания на практике.' },
+  { grades: '9–11', theme: 'violet', text: 'Готовимся к ОГЭ и ЕГЭ: систематизируем знания, отрабатываем экзаменационные задания и выстраиваем планомерную подготовку к экзамену.' },
 ]
 
 export default function Page() {
@@ -137,12 +137,6 @@ export default function Page() {
                 <span className="kg-level__label">классы</span>
               </div>
               <p className="kg-level__text">{nb(l.text)}</p>
-              {l.src ? (
-                <img className="kg-level__pic" src={l.src} alt="" aria-hidden="true" width={l.w} height={l.h} loading="lazy" decoding="async" />
-              ) : (
-                /* Плейсхолдер декоративной картинки */
-                <div className="kg-ph kg-level__img" aria-hidden="true">{l.img}</div>
-              )}
             </div>
           ))}
         </div>
