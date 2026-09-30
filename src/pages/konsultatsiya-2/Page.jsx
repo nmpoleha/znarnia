@@ -1,0 +1,394 @@
+import { useState } from 'react'
+import { nb } from '../../shared/utils/nb'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
+
+const grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
+
+/* ── Блок о платформе ── */
+const PLATFORM = [
+  { icon: 'video', label: ['Собственная', 'видеосвязь'] },
+  { icon: 'board', label: ['Интерактивная', 'доска'] },
+  { src: '/znarnia/images/sol-support-orange.png', label: ['Помощь', 'куратора'] },
+  { icon: 'list',  label: ['Записи с', 'интерактивом'] },
+  { icon: 'chart', label: ['Мотивация', 'и баллы'] },
+  { icon: 'ai',    label: ['AI помощник /', 'аналитика'] },
+]
+
+/* ── Принципы построения занятий ── */
+const PRINCIPLES = [
+  {
+    img: '/znarnia/images/lesson-shield.png',
+    theme: 'violet',
+    pre: 'Полная концентрация и ',
+    accent: 'безопасная среда',
+    post: '',
+    text: 'Каждый ученик работает в своём личном пространстве на платформе. Ответы ребёнка видны только ему и педагогу — так мы снимаем ненужный стресс и страх ошибиться «на виду у всех». Интерактивные задания (ввести ответ, переместить объект, построить график) и мгновенное поощрение баллами держат внимание и интерес на протяжении всего урока.',
+  },
+  {
+    img: '/znarnia/images/lesson-chart.png',
+    theme: 'green',
+    pre: 'Педагог видит ',
+    accent: 'прогресс каждого',
+    post: ', а не только группы',
+    text: 'Наш инструментарий для педагога — это «цифровая панель управления» классом в реальном времени. Учитель видит, кто и как выполняет задание, с какой попытки даёт ответ, кому нужна помощь. Это позволяет точечно поддерживать каждого ученика здесь и сейчас, а после урока анализировать статистику для совершенствования материалов.',
+  },
+  {
+    img: '/znarnia/images/lesson-search.png',
+    theme: 'orange',
+    pre: 'Для вас — полная ',
+    accent: 'прозрачность прогресса',
+    post: '',
+    text: 'Вы в любой момент можете зайти в личный кабинет и увидеть детальную аналитику по занятиям вашего ребёнка: активность на уроке, процент правильных ответов, темы, которые вызвали вопросы. Вы всегда в курсе его успехов и областей роста, чтобы поддержать его своевременно.',
+  },
+  {
+    img: '/znarnia/images/lesson-headset.png',
+    theme: 'violet',
+    pre: '',
+    accent: 'Персональная помощь',
+    post: ' с домашними заданиями',
+    text: 'За ребёнком закреплён персональный куратор, к которому можно обратиться, если возникли сложности с домашним заданием. Он поможет найти ошибку, обратит внимание на оформление решения, подскажет, в каком направлении двигаться, и разберёт непонятный момент. Если у ребёнка не получается решить задачу, он может запросить у системы умную подсказку, которая направляет, но не даёт готового ответа. При необходимости доступен пошаговый разбор. Затем ИИ подберёт похожее задание для закрепления темы. Это гарантирует, что пробелы в знаниях будут устранены сразу.',
+  },
+]
+
+/* ── Блок «Регулярные занятия в мини-группах» ── */
+const LEVELS = [
+  { grades: '1–4', theme: 'yellow', img: 'лампочка', src: '/znarnia/images/konsultatsiya-2-grades-1-4.png', w: 480, h: 249, text: 'Развиваем математическое мышление, учимся рассуждать, видеть связи и осмысленно решать задачи.' },
+  { grades: '5–8', theme: 'blue', img: 'график роста', src: '/znarnia/images/konsultatsiya-2-grades-5-8.png', w: 480, h: 293, text: 'Системно осваиваем школьную программу, разбираемся в сложных темах и учимся уверенно применять знания на практике.' },
+  { grades: '9–11', theme: 'violet', img: 'лист ОГЭ/ЕГЭ', src: '/znarnia/images/konsultatsiya-2-grades-9-11.png', w: 480, h: 355, text: 'Готовимся к ОГЭ и ЕГЭ: систематизируем знания, отрабатываем экзаменационные задания и выстраиваем планомерную подготовку к экзамену.' },
+]
+
+export default function Page() {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
+  const [errors, setErrors] = useState({})
+  const [submitted, setSubmitted] = useState(false)
+  const [openCards, setOpenCards] = useState(() => new Set())
+
+  const toggleCard = (i) => {
+    setOpenCards((prev) => {
+      const next = new Set(prev)
+      next.has(i) ? next.delete(i) : next.add(i)
+      return next
+    })
+  }
+
+  const set = (k, v) => {
+    setForm(f => ({ ...f, [k]: v }))
+    if (errors[k]) setErrors(er => ({ ...er, [k]: undefined }))
+  }
+
+  const validate = () => {
+    const e = {}
+    if (!form.name.trim()) e.name = 'Введите имя'
+    if (!form.phone.trim()) e.phone = 'Введите телефон'
+    if (!form.email.trim()) e.email = 'Введите email'
+    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Некорректный email'
+    if (!form.agree) e.agree = 'Необходимо согласие'
+    return e
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const e2 = validate()
+    if (Object.keys(e2).length) { setErrors(e2); return }
+    setSubmitted(true)
+  }
+
+  return (
+    <div className="ks-page">
+      <header className="so-header">
+        <div className="so-wrap so-header__inner">
+          <div className="so-header__brand">
+            <img src="/znarnia/images/logo.png" alt="Знарния" className="so-header__logo" width="80" height="80" />
+            <span className="so-header__brand-name">Школа Сотниковой Ольги</span>
+          </div>
+        </div>
+      </header>
+
+      <main className="ks-main">
+      <section className="kg-groups" aria-labelledby="kg-groups-title">
+        <div className="kg-groups__top">
+          <div className="kg-groups__intro">
+            <h2 className="kg-groups__title" id="kg-groups-title">
+              {nb('Хотите системно повысить')}{' '}
+              <span className="kg-groups__title-mark">{nb('уровень ребёнка в математике?')}</span>
+            </h2>
+            <p className="kg-groups__text">
+              {nb('В «ЗНАРНИИ» есть')} <b>{nb('регулярные занятия в мини-группах')} <span className="kg-nowrap">для 1–11 классов.</span></b>
+            </p>
+            <p className="kg-groups__text">
+              {nb('На занятиях дети получают')} <b>{nb('прочную математическую базу')}</b> {nb('и двигаются дальше с учётом возраста и задач:')}
+            </p>
+          </div>
+          <img
+            className="kg-groups__hero-img"
+            src="/znarnia/images/konsultatsiya-2-books-transparent.png"
+            alt="Стопка книг «Идеи», «Логика», «Развитие» с лампочкой, стаканом с карандашами и пазлом"
+            width="900"
+            height="750"
+            decoding="async"
+          />
+        </div>
+
+        <div className="kg-groups__levels">
+          {LEVELS.map((l) => (
+            <div key={l.grades} className={`kg-level kg-level--${l.theme}`}>
+              <div className="kg-level__head">
+                <span className="kg-level__badge">{l.grades}</span>
+                <span className="kg-level__label">классы</span>
+              </div>
+              <p className="kg-level__text">{nb(l.text)}</p>
+              {l.src ? (
+                <img className="kg-level__pic" src={l.src} alt="" aria-hidden="true" width={l.w} height={l.h} loading="lazy" decoding="async" />
+              ) : (
+                /* Плейсхолдер декоративной картинки */
+                <div className="kg-ph kg-level__img" aria-hidden="true">{l.img}</div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="kg-groups__price">
+          <div className="kg-groups__price-main">
+            <img className="kg-groups__coins" src="/znarnia/images/konsultatsiya-2-coins.png" alt="" aria-hidden="true" width="240" height="180" loading="lazy" decoding="async" />
+            <p className="kg-groups__price-text">
+              {nb('Стоимость —')}{' '}
+              <span className="kg-groups__price-value">{nb('от 580 ₽ за урок.')}</span>
+            </p>
+          </div>
+          <p className="kg-groups__price-note">
+            {nb('Оставьте заявку — наш менеджер свяжется с вами, ответит на вопросы и поможет подобрать подходящую группу.')}
+          </p>
+        </div>
+      </section>
+
+      <section className="ks-hero">
+        <div className="ks-hero__inner">
+          <span className="ks-hero__pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="4.5" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="2" />
+              <path d="M3 9h18M8 2.5v4M16 2.5v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+            Подберём программу под цели и уровень
+          </span>
+
+          <h1 className="ks-title">
+            Запишитесь на{' '}
+            <span className="ks-title__accent">консультацию</span>
+          </h1>
+
+          <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
+
+          <div className="ks-hero__price">
+            <span className="ks-hero__price-tag">Доступная цена</span>
+            <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
+            <span className="ks-hero__price-value">600&nbsp;₽</span>
+            <span className="ks-hero__price-unit">за урок</span>
+          </div>
+
+          <div className="ks-hero__aside">
+            <img
+              className="ks-hero__girl"
+              src="/znarnia/images/konsultatsiya-girl.png"
+              alt="Девочка с ноутбуком и книгами по математике, логике и успеху"
+              width="1371"
+              height="1148"
+              decoding="async"
+            />
+            <svg className="ks-hero__doodle ks-hero__doodle--spark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 1l1.6 6.4L18 9l-6.4 1.6L10 17l-1.6-6.4L2 9l6.4-1.6L10 1z" fill="#ff9a4a" />
+            </svg>
+            <svg className="ks-hero__doodle ks-hero__doodle--heart" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z" stroke="#35b978" strokeWidth="2" fill="none" />
+            </svg>
+            <svg className="ks-hero__doodle ks-hero__doodle--line" width="26" height="16" viewBox="0 0 26 16" fill="none" aria-hidden="true">
+              <path d="M1 11c3.5-5 8-5 11 0" stroke="#9b7bf5" strokeWidth="2.4" strokeLinecap="round" />
+              <path d="M17 6h7" stroke="#9b7bf5" strokeWidth="2.4" strokeLinecap="round" />
+            </svg>
+
+          </div>
+
+          <div className="ks-card">
+          <span className="ks-card__accent" aria-hidden="true" />
+          {submitted ? (
+            <div className="ks-success">
+              <div className="ks-success__icon">✓</div>
+              <div className="ks-success__title">Заявка принята!</div>
+              <div className="ks-success__text">{nb('Мы перезвоним вам в ближайшее время, расскажем о программе и подберём удобное расписание.')}</div>
+            </div>
+          ) : (
+            <>
+              <div className="ks-card__head">
+                <div className="ks-card__title">Оставьте заявку</div>
+                <div className="ks-card__sub">{nb('Мы перезвоним, расскажем о программе и подберём удобное расписание')}</div>
+              </div>
+
+              <form className="ks-form" onSubmit={handleSubmit} noValidate>
+                <div className="ks-grid">
+                  <div className="ks-field">
+                    <label className="ks-label">Ваше имя <span className="ks-req">*</span></label>
+                    <input className={`ks-input${errors.name ? ' ks-input--err' : ''}`} type="text" placeholder="Иван Иванов" value={form.name} onChange={e => set('name', e.target.value)} />
+                    {errors.name && <span className="ks-err">{errors.name}</span>}
+                  </div>
+                  <div className="ks-field">
+                    <label className="ks-label">Телефон <span className="ks-req">*</span></label>
+                    <input className={`ks-input${errors.phone ? ' ks-input--err' : ''}`} type="tel" inputMode="tel" placeholder="+7 (___) ___-__-__" value={form.phone} onChange={e => set('phone', e.target.value)} />
+                    {errors.phone && <span className="ks-err">{errors.phone}</span>}
+                  </div>
+                  <div className="ks-field">
+                    <label className="ks-label">Email <span className="ks-req">*</span></label>
+                    <input className={`ks-input${errors.email ? ' ks-input--err' : ''}`} type="email" placeholder="ivan@example.com" value={form.email} onChange={e => set('email', e.target.value)} />
+                    {errors.email && <span className="ks-err">{errors.email}</span>}
+                  </div>
+                  <div className="ks-field">
+                    <label className="ks-label">Ник в Telegram</label>
+                    <input className="ks-input" type="text" placeholder="@username" value={form.telegram} onChange={e => set('telegram', e.target.value)} />
+                  </div>
+                </div>
+
+                <div className="ks-field ks-field--half">
+                  <label className="ks-label">Класс ребёнка</label>
+                  <select className="ks-input ks-select" value={form.grade} onChange={e => set('grade', e.target.value)}>
+                    <option value="">Выберите класс</option>
+                    {grades.map(g => <option key={g} value={g}>{g} класс</option>)}
+                  </select>
+                </div>
+
+                <label className={`ks-check${errors.agree ? ' ks-check--err' : ''}`}>
+                  <input type="checkbox" className="ks-check__input" checked={form.agree} onChange={e => set('agree', e.target.checked)} />
+                  <span className="ks-check__box" aria-hidden="true" />
+                  <span className="ks-check__text">
+                    Согласен с обработкой персональных данных в соответствии с{' '}
+                    <a href="#" className="ks-link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a> <span className="ks-req">*</span>
+                  </span>
+                </label>
+                {errors.agree && <span className="ks-err ks-err--check">{errors.agree}</span>}
+
+                <button type="submit" className="ks-submit">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  Записаться на консультацию
+                </button>
+              </form>
+            </>
+          )}
+          </div>
+        </div>
+      </section>
+
+      <div className="ks-topbadge">
+        <span className="ks-format__badge">О занятиях в центре</span>
+      </div>
+
+      <section className="so-platform" id="platform">
+        <div className="so-wrap">
+          <h2 className="so-section__title">
+            {nb('«Знарния» — образовательная онлайн-среда для комфортного обучения детей')}
+          </h2>
+          <p className="so-section__lead">
+            {nb('Все занятия, домашние задания, аналитика и обратная связь собраны в одном месте — без переключений между сервисами и потери внимания.')}
+          </p>
+          <div className="so-platform__grid">
+            {PLATFORM.map((p) => (
+              <div key={p.label.join(' ')} className="so-platform__item">
+                <img
+                  className="so-platform__icon"
+                  src={p.src || `/znarnia/images/platform-${p.icon}.png`}
+                  alt=""
+                  aria-hidden="true"
+                  width="120"
+                  height="120"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="so-platform__label">{p.label.join(' ')}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="so-social">
+            <div className="ks-lessons">
+              <div className="sh-lessons__head">
+                <div className="sh-lessons__head-text">
+                  <h2 className="sh-lessons__title">
+                    {nb('Безопасность, вовлечение и результат для вашего ребёнка')}
+                  </h2>
+                  <p className="sh-lessons__intro">
+                    {nb('Наша платформа создана для того, чтобы каждый ребёнок чувствовал себя комфортно, был максимально вовлечён в процесс и достигал реальных результатов. Вот ключевые принципы, на которых строится обучение.')}
+                  </p>
+                </div>
+              </div>
+
+              <div className="sh-lessons__grid">
+                {PRINCIPLES.map((p, i) => {
+                  const isOpen = openCards.has(i)
+                  return (
+                    <div key={i} className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`}>
+                      <div className="sh-principle__media">
+                        <div className="sh-principle__icon">
+                          <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
+                        </div>
+                        <span className="sh-principle__num">{i + 1}</span>
+                      </div>
+                      <h3 className="sh-principle__title">
+                        {p.pre && nb(p.pre)}
+                        <span className="sh-principle__title-accent">{nb(p.accent)}</span>
+                        {p.post && nb(p.post)}
+                      </h3>
+                      <button
+                        type="button"
+                        className="gv-principle__toggle"
+                        aria-expanded={isOpen}
+                        aria-label={isOpen ? 'Свернуть описание' : 'Показать описание'}
+                        onClick={() => toggleCard(i)}
+                      >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                        </svg>
+                      </button>
+                      {isOpen && <p className="sh-principle__text">{nb(p.text)}</p>}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            <div className="ks-format">
+              <div className="ks-format__head">
+                <h2 className="ks-format__title">
+                  Групповой и индивидуальный <span className="ks-format__title-accent">формат занятий</span>
+                </h2>
+              </div>
+              <div className="ks-format__grid">
+                <div className="ks-format__card ks-format__card--violet">
+                  <img className="ks-format__icon" src="/znarnia/images/prog-abacus.png" alt="" aria-hidden="true" width="220" height="220" loading="lazy" decoding="async" />
+                  <div className="ks-format__body">
+                    <h3 className="ks-format__card-title">Математика</h3>
+                    <p className="ks-format__card-text">{nb('Системные занятия, понятные объяснения и практика, которые помогают уверенно справляться с любыми задачами.')}</p>
+                  </div>
+                </div>
+                <div className="ks-format__card ks-format__card--green">
+                  <img className="ks-format__icon" src="/znarnia/images/library-books-3d.png" alt="" aria-hidden="true" width="220" height="220" loading="lazy" decoding="async" />
+                  <div className="ks-format__body">
+                    <h3 className="ks-format__card-title">Дополнительные предметы</h3>
+                    <p className="ks-format__card-text">{nb('В индивидуальном формате наши репетиторы помогают повысить успеваемость и подготовиться к важным работам по русскому языку, обществознанию, английскому языку и информатике.')}</p>
+                  </div>
+                </div>
+                <div className="ks-format__card ks-format__card--violet ks-format__card--wide">
+                  <img className="ks-format__icon" src="/znarnia/images/lesson-shield.png" alt="" aria-hidden="true" width="220" height="220" loading="lazy" decoding="async" />
+                  <div className="ks-format__body">
+                    <h3 className="ks-format__card-title">Оплата без риска</h3>
+                    <p className="ks-format__card-text">{nb('Возврат оплаты в течение 7 дней, если не подошло обучение.')}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <AuthorCard />
+            <ReviewsCarousel />
+            <SchoolsCard />
+          </div>
+        </div>
+      </section>
+      </main>
+    </div>
+  )
+}

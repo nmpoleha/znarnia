@@ -64,6 +64,7 @@ export default defineConfig({
         'samostoyatelnaya-oplata-universalnaya': resolve(__dirname, 'samostoyatelnaya-oplata-universalnaya/index.html'),
         'samostoyatelnaya-oplata-stariye-ucheniki': resolve(__dirname, 'samostoyatelnaya-oplata-stariye-ucheniki/index.html'),
         'konsultatsiya': resolve(__dirname, 'konsultatsiya/index.html'),
+        'konsultatsiya-2': resolve(__dirname, 'konsultatsiya-2/index.html'),
         'zapis-na-urok': resolve(__dirname, 'zapis-na-urok/index.html'),
         'znakomstvo': resolve(__dirname, 'znakomstvo/index.html'),
         'znakomstvo-novoe': resolve(__dirname, 'znakomstvo-novoe/index.html'),
