@@ -669,7 +669,7 @@
   display: block;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 899px) {
   .gv-page .p2-results__card {
     grid-template-columns: 1fr;
     gap: 0;
@@ -802,7 +802,7 @@
   font-weight: 800;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 899px) {
   .gv-page .p2-more__card { grid-template-columns: 1fr; gap: 0; }
   .gv-page .p2-more__content,
   .gv-page .p2-more__media,
@@ -828,7 +828,7 @@
   --so-text:        #3b2f52;
   --so-muted:       #6f6091;
   --so-orange:      #ea580c;
-  --so-gap:         80px;   /* единый промежуток между блоками страницы */
+  --so-gap:         clamp(56px, calc(4.7vw + 20px), 80px);   /* промежуток между блоками: 80px от 1280px, 56px на телефоне */
 }
 
 .gv-page .so-btn {
@@ -1107,7 +1107,7 @@
 }
 
 /* desktop: проблемы 31% · связка · решение 43% · иллюстрация 26% */
-@media (min-width: 960px) {
+@media (min-width: 1200px) {
   .gv-page .gv-sit__body {
     grid-template-columns: minmax(0, 31fr) 26px minmax(0, 43fr) minmax(0, 26fr);
     gap: 0 10px;
@@ -1203,7 +1203,7 @@
   color: #b9a7ea;
 }
 
-@media (min-width: 960px) { .gv-page .gv-sit__connector { display: flex; } }
+@media (min-width: 768px) { .gv-page .gv-sit__connector { display: flex; } }
 
 /* 2 — Решение Знарнии */
 .gv-page .gv-sit__solution {
@@ -1316,7 +1316,7 @@
   object-fit: contain;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1200px) {
   .gv-page .gv-sit__media {
     margin-left: -12%;   /* иллюстрация заходит за центральную карточку */
     justify-content: flex-start;
@@ -1862,28 +1862,26 @@
 }
 
 /* ── DESKTOP ── */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .gv-page .zn-club__card {
-    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
     gap: 24px;
   }
   .gv-page .zn-club__media { align-self: center; }
 }
 
 /* ── ПЛАНШЕТ И МОБИЛЬНЫЙ: одна колонка, иллюстрация сверху ── */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .gv-page .zn-club__media {
-    order: -1;
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto 8px;
+    max-width: 300px;
+    margin: 16px auto 0;
   }
-  .gv-page .zn-club__btn { width: 100%; min-height: 56px; }
+  .gv-page .zn-club__btn { width: 100%; min-height: 52px; }
 }
 @media (max-width: 767px) {
   .gv-page .zn-club { padding: 16px 0 0; }
   .gv-page .zn-club__card { border-radius: 24px; padding: 24px 20px 28px; }
-  .gv-page .zn-club__media { max-width: 280px; }
   .gv-page .zn-club__btn { font-size: 16px; padding: 14px 18px; gap: 10px; }
 }
 /* текст кнопки клуба длиннее ширины узкого телефона — две ровные строки по центру */
@@ -2593,11 +2591,14 @@
   color: #fff;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 900px) {
   .gv-page .gv-lessons .sh-lessons__grid {
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
+}
+/* с 640px карточки принципов — в «большом» виде (иконка слева, текст под заголовком) */
+@media (min-width: 640px) {
   .gv-page .gv-lessons .sh-principle {
     grid-template-areas:
       "media title btn"
@@ -2795,4 +2796,300 @@
   }
   .gv-page .gv-fmt-card__grade { font-size: clamp(18px, 5vw, 22px); }
   .gv-page .gv-fmt__title { font-size: clamp(18px, 5vw, 22px); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   АДАПТИВ: общие поля, шапка, герой и блоки на планшете/телефоне.
+   Брейкпоинты страницы: 1200 (узкий десктоп) · 900 (планшет) · 768 · 640 (телефон) · 400
+   ══════════════════════════════════════════════════════════ */
+
+/* единые боковые поля: 90px на десктопе → 16–20px на телефоне */
+.gv-page { --gv-gutter: clamp(16px, calc(6.6vw - 4px), 90px); }
+.gv-page .gv-topbar__inner,
+.gv-page .sh-wrap { padding-left: var(--gv-gutter); padding-right: var(--gv-gutter); }
+.gv-page .gv-hero__inner { padding-left: var(--gv-gutter); padding-right: var(--gv-gutter); }
+.gv-page .gv-ks { padding-left: var(--gv-gutter); padding-right: var(--gv-gutter); }
+
+/* естественные переносы: без «висячих» слов в заголовках и абзацах */
+.gv-page :is(h1, h2, h3) { text-wrap: balance; }
+.gv-page :is(p, li) { text-wrap: pretty; }
+
+/* ── Шапка: ниже 1180px меню уходит второй строкой и прокручивается по горизонтали ── */
+.gv-page .gv-topbar__logo { height: clamp(52px, 6.4vw, 91px); }
+.gv-page .gv-topbar__brand-name {
+  font-size: clamp(14px, calc(0.6vw + 11px), 20px);
+  margin-top: clamp(8px, 1.3vw, 19px);
+}
+@media (max-width: 1179px) {
+  .gv-page .gv-topbar__inner { flex-wrap: wrap; row-gap: 0; }
+  .gv-page .gv-topbar__nav {
+    display: flex;
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    gap: 4px;
+    margin: 0 calc(-1 * var(--gv-gutter));
+    padding: 2px var(--gv-gutter) 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .gv-page .gv-topbar__nav::-webkit-scrollbar { display: none; }
+  .gv-page .gv-topbar__link { flex-shrink: 0; min-height: 40px; display: inline-flex; align-items: center; padding: 8px 12px; font-size: 14px; }
+  .gv-page .gv-topbar__contacts-dropdown { flex-wrap: wrap; gap: 10px 20px; padding: 10px var(--gv-gutter); }
+}
+
+/* ── Герой: на 900–1199px иллюстрация по центру высоты текста ── */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gv-page .gv-hero__media { align-self: center; }
+  .gv-page .gv-hero__title { font-size: clamp(30px, 3.1vw, 36px); }
+}
+
+/* ── Герой: ниже 900px — текст, затем иллюстрация ── */
+@media (max-width: 899px) {
+  .gv-page .gv-hero__inner { grid-template-columns: 1fr; gap: 0; padding-top: 24px; }
+  .gv-page .gv-hero__content { order: 1; padding-bottom: 8px; }
+  .gv-page .gv-hero__media { order: 2; width: 100%; max-width: 520px; justify-self: center; }
+  .gv-page .gv-hero__title { font-size: clamp(27px, 4.4vw, 34px); }
+  .gv-page .gv-hero__sub { font-size: 15px; }
+  .gv-page .gv-btn { min-height: 50px; font-size: 15.5px; }
+  .gv-page .gv-hero__actions { margin-bottom: 8px; }
+}
+@media (max-width: 640px) {
+  .gv-page .gv-hero__title { font-size: clamp(27px, 7.8vw, 38px); }
+  /* три плашки уровней — в одну строку до 360px */
+  .gv-page .gv-hero__pills { gap: 8px; }
+  .gv-page .gv-hero__pill { padding: 8px 12px; font-size: 13.5px; gap: 6px; }
+  .gv-page .gv-hero__media { max-width: 420px; }
+}
+/* узкий телефон: преимущества — вертикальный список «иконка + текст» */
+@media (max-width: 399px) {
+  .gv-page .gv-hero__features { grid-template-columns: 1fr; row-gap: 0; }
+  .gv-page .gv-hero__feature {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+  }
+  .gv-page .gv-hero__feature + .gv-hero__feature { border-left: 0; border-top: 1px solid #eeeaf6; }
+  .gv-page .gv-hero__feature-icon { width: 44px; height: 44px; border-radius: 12px; }
+}
+
+/* ── «Узнаёте свою ситуацию?» ── */
+.gv-page .gv-sit__solution-slot { display: contents; }
+
+/* планшет и узкий десктоп: проблемы | решение, иллюстрация — под решением */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page .gv-sit__body {
+    grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1.15fr);
+    grid-template-rows: auto 1fr;
+    gap: 16px 8px;
+  }
+  .gv-page .gv-sit__problems,
+  .gv-page .gv-sit__connector { grid-row: 1 / span 2; }
+  .gv-page .gv-sit__problems { align-self: start; }
+  .gv-page .gv-sit__problem { flex: 0 0 auto; }
+  .gv-page .gv-sit__solution { grid-column: 3; grid-row: 1; }
+  .gv-page .gv-sit__media { grid-column: 3; grid-row: 2; align-self: start; }
+  .gv-page .gv-sit__img { max-width: 320px; margin: 0 auto; }
+  .gv-page .gv-sit__br { display: none; }
+}
+
+/* телефон: решение открывается в модальном окне по нажатию на ситуацию */
+@media (max-width: 767px) {
+  .gv-page .gv-sit__solution-slot { display: none; }
+  .gv-page .gv-sit__media { margin-top: 4px; }
+  .gv-page .gv-sit__img { max-width: 300px; margin: 0 auto; }
+  .gv-page .gv-sit__problem { flex: 0 0 auto; min-height: 64px; }
+  .gv-page .gv-sit__problem-text { font-size: 15px; }
+  .gv-page .gv-sit__point-title { font-size: 15.5px; }
+  .gv-page .gv-sit__point-text,
+  .gv-page .gv-sit__result-text,
+  .gv-page .gv-sit__note { font-size: 15px; }
+  .gv-page .gv-sit__cta-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    min-height: 52px;
+    padding: 14px 18px;
+    font-size: 15.5px;
+  }
+}
+
+/* планшет: текст решения чуть крупнее */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page .gv-sit__point-text,
+  .gv-page .gv-sit__result-text { font-size: 14px; }
+}
+
+/* ── «Как построены занятия»: кнопка «+» — удобная цель для пальца ── */
+.gv-page .gv-lessons .gv-principle__toggle { width: 44px; height: 44px; }
+@media (max-width: 639px) {
+  .gv-page .gv-lessons .sh-principle { padding: 18px 16px 18px 14px; column-gap: 12px; }
+  .gv-page .gv-lessons .sh-principle__text { font-size: 15.5px; }
+}
+
+/* ── Плашки «Персонализированный подход» и «Оплата и гарантии» ──
+   с планшета: текст слева, иллюстрация справа; до 1200px три пункта — строкой на всю ширину */
+@media (min-width: 768px) {
+  .gv-page .gv-pay { row-gap: 0; column-gap: clamp(20px, 3vw, 32px); }
+  .gv-page .gv-pay__content { display: contents; }
+  .gv-page .gv-pay__eyebrow { grid-column: 1; justify-self: start; }
+  .gv-page .gv-pay__title,
+  .gv-page .gv-pay__lead { grid-column: 1; }
+  .gv-page .gv-pay__img { grid-column: 2; grid-row: 1 / span 3; align-self: center; max-width: none; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page .gv-pay { grid-template-columns: minmax(0, 1fr) clamp(200px, 30%, 340px); grid-template-rows: auto auto 1fr auto; }
+  .gv-page .gv-pay__lead { align-self: start; }
+  .gv-page .gv-pay__features { grid-column: 1 / -1; }
+}
+@media (min-width: 1200px) {
+  .gv-page .gv-pay__features { grid-column: 1; grid-row: 4; }
+  .gv-page .gv-pay__img { grid-row: 1 / span 4; }
+}
+@media (max-width: 767px) {
+  .gv-page .gv-pay__img { max-width: min(100%, 300px); margin-top: 4px; }
+  .gv-page .gv-pay__lead { font-size: 15.5px; }
+  .gv-page .gv-pay__feature-sub { font-size: 15px; }
+  .gv-page .gv-pay__features { gap: 14px; }
+  .gv-page .gv-pay__icon { width: 46px; height: 46px; border-radius: 13px; }
+}
+
+/* ── «Математика в мини-группах»: верх ── */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page .gv-fmt__top {
+    grid-template-columns: minmax(0, 1fr) clamp(200px, 30%, 320px);
+    column-gap: 24px;
+    row-gap: 0;
+  }
+  /* текст — по центру высоты картинки, строка формата — на всю ширину под ними */
+  .gv-page .gv-fmt__top { grid-template-rows: 1fr auto auto 1fr auto; }
+  .gv-page .gv-fmt__intro { display: contents; }
+  .gv-page .gv-fmt__title { grid-column: 1; grid-row: 2; }
+  .gv-page .gv-fmt__desc { grid-column: 1; grid-row: 3; margin-bottom: 0; }
+  .gv-page .gv-fmt__hero-img { grid-column: 2; grid-row: 1 / span 4; align-self: center; max-width: none; }
+  .gv-page .gv-fmt__week { grid-column: 1 / -1; grid-row: 5; margin-top: 16px; }
+}
+@media (max-width: 767px) {
+  .gv-page .gv-fmt__plus { font-size: 18px; margin: -4px 0; }
+  .gv-page .gv-fmt__price { font-size: 18px; padding: 13px 20px; }
+  .gv-page .gv-fmt__hero-img { max-width: min(100%, 300px); }
+  .gv-page .gv-fmt__desc { font-size: 15.5px; }
+}
+
+/* ── Карточки классов ──
+   с планшета: картинка справа от заголовочной части (как на десктопе), размер — по ширине экрана */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* плашка «Математика в мини-группе» не помещается рядом с картинкой — картинка только у строки класса */
+  .gv-page .gv-fmt-card__main {
+    grid-template-columns: minmax(0, 1fr) clamp(84px, 10vw, 120px);
+    column-gap: 16px;
+    padding: 24px 24px 22px;
+  }
+  .gv-page .gv-fmt-card__img { align-self: center; }
+}
+.gv-page .gv-fmt-card__btn { min-height: 46px; }
+.gv-page .gv-fmt-card__ind-note { font-size: 13px; }
+@media (max-width: 767px) {
+  .gv-page .gv-fmt-card__main { grid-template-columns: minmax(0, 1fr) clamp(72px, 20vw, 96px); }
+  .gv-page .gv-fmt-card__text { font-size: 15.5px; }
+  .gv-page .gv-fmt-card__ind-subjects { font-size: 14.5px; }
+  .gv-page .gv-fmt-card__btn { min-height: 50px; }
+}
+
+/* самые узкие телефоны: «Получить консультацию →» — в одну строку */
+@media (max-width: 359px) {
+  .gv-page .gv-fmt-card__btn { font-size: 14px; padding: 12px 14px; gap: 8px; }
+  .gv-page .gv-fmt-card__main { padding-left: 18px; padding-right: 18px; }
+  .gv-page .gv-fmt-card__ind { padding-left: 18px; padding-right: 18px; }
+}
+
+/* ── «Почему Знарния» и «Результаты»: на узком десктопе картинки уже ── */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gv-page .p2-more__card { grid-template-columns: minmax(0, 1fr) minmax(260px, 40%); column-gap: 28px; padding: 32px; }
+  .gv-page .p2-results__card { grid-template-columns: minmax(0, 1fr) minmax(240px, 36%); gap: 28px; padding: 32px; }
+  .gv-page .p2-results__list { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
+}
+@media (max-width: 899px) {
+  .gv-page .p2-more__media { width: 100%; max-width: 520px; }
+  .gv-page .p2-results__photo-slot { max-width: 560px; justify-self: center; aspect-ratio: 16 / 10; }
+}
+@media (max-width: 480px) {
+  .gv-page .p2-more__lead { font-size: 15.5px; }
+  .gv-page .p2-more__list li,
+  .gv-page .p2-results__list li { font-size: 15px; }
+  .gv-page .p2-more__goal { font-size: 15px; }
+}
+/* 90%: на узком телефоне цифра над текстом */
+@media (max-width: 419px) {
+  .gv-page .p2-results__highlight { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+/* ── Форма записи ── */
+@media (max-width: 680px) { .gv-page .gv-ks { padding-top: 36px; padding-bottom: 56px; } }
+@media (max-width: 380px) { .gv-page .gv-ks { padding-top: 28px; padding-bottom: 48px; } }
+
+/* ── Модальное окно «Решение Знарнии» (телефон) ── */
+.gv-page .gv-sit-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px 12px 0;
+  background: rgba(30, 27, 75, 0.45);
+  animation: gv-modal-fade 0.18s ease both;
+}
+.gv-page .gv-sit-modal__dialog {
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 18px 16px calc(20px + env(safe-area-inset-bottom));
+  box-shadow: 0 -12px 40px rgba(30, 27, 75, 0.22);
+  animation: gv-modal-up 0.24s ease both;
+}
+.gv-page .gv-sit-modal__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+.gv-page .gv-sit-modal__title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #25145F;
+}
+.gv-page .gv-sit-modal__close {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: #f1ebff;
+  color: #6d28d9;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.gv-page .gv-sit-modal .gv-sit__solution {
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+@keyframes gv-modal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes gv-modal-up { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* ── Герой: на телефоне без иллюстрации ── */
+@media (max-width: 767px) {
+  .gv-page .gv-hero__media { display: none; }
+  .gv-page .gv-hero__actions { margin-bottom: 0; }
+  .gv-page .gv-hero__content { padding-bottom: 0; }
 }

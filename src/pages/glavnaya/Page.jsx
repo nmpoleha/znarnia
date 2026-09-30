@@ -59,7 +59,7 @@ const HERO_PILLS = [
   { icon: <IconBookMini />, label: 'ЕГЭ',         variant: 'orange' },
 ]
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { nb } from '../../shared/utils/nb'
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
 
@@ -238,7 +238,7 @@ const TRUST_ITEMS = [
     ),
   },
   {
-    text: 'Видимый результат уже за 1–2 месяца',
+    text: 'Видимый результат уже за 1\u2060–\u20602\u00a0месяца',
     icon: (
       <svg viewBox="0 0 24 24" fill="none">
         <path d="M6 20v-6M12 20V6M18 20v-9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
@@ -329,6 +329,25 @@ export default function GlavnayaPage() {
   const [contactsOpen, setContactsOpen] = useState(false)
   const [openCards, setOpenCards] = useState(() => new Set())
   const [activeProblem, setActiveProblem] = useState(0)
+  /* на телефоне решение показывается в модальном окне */
+  const [solutionModal, setSolutionModal] = useState(false)
+
+  const selectProblem = (i) => {
+    setActiveProblem(i)
+    if (window.matchMedia('(max-width: 767px)').matches) setSolutionModal(true)
+  }
+
+  useEffect(() => {
+    if (!solutionModal) return undefined
+    const onKey = (e) => { if (e.key === 'Escape') setSolutionModal(false) }
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = prevOverflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [solutionModal])
 
   /* форма записи на консультацию (копия со страницы konsultatsiya) */
   const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
@@ -363,6 +382,37 @@ export default function GlavnayaPage() {
     else next.add(i)
     return next
   })
+
+  /* панель «Решение Знарнии»: на desktop — отдельная колонка, на телефоне — сразу под выбранной ситуацией */
+  const solutionPanel = (
+    <div className="gv-sit__solution">
+      <span className="gv-sit__badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.9 4.6L18.5 9l-3.5 3.1.9 5.4L12 15l-3.9 2.5.9-5.4L5.5 9l4.6-1.4L12 3z" fill="currentColor"/>
+        </svg>
+        Решение Знарнии
+      </span>
+
+      <div className="gv-sit__points">
+        {PROBLEMS[activeProblem].points.map((pt, j) => (
+          <div key={j} className="gv-sit__point">
+            <img className="gv-sit__point-img" src={`/znarnia/images/${PROBLEMS[activeProblem].pointImgs[j]}.png`} alt="" width="144" height="144" decoding="async" />
+            <div className="gv-sit__point-body">
+              <div className="gv-sit__point-title">{pt.title}</div>
+              <p className="gv-sit__point-text">{nb(pt.text)}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="gv-sit__result">
+        <svg className="gv-sit__result-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.7 4.1L18 8.4l-3.2 2.8.8 4.8L12 13.6 8.4 16l.8-4.8L6 8.4l4.3-1.3L12 3z" fill="#16a34a"/>
+        </svg>
+        <p className="gv-sit__result-text">{nb(PROBLEMS[activeProblem].result)}</p>
+      </div>
+    </div>
+  )
 
   return (
     <div className="gv-page">
@@ -502,7 +552,7 @@ export default function GlavnayaPage() {
                       role="tab"
                       aria-selected={isActive}
                       className={`gv-sit__problem gv-sit__problem--${['violet', 'orange', 'blue', 'green', 'violet', 'pink'][i]}${isActive ? ' gv-sit__problem--active' : ''}`}
-                      onClick={() => setActiveProblem(i)}
+                      onClick={() => selectProblem(i)}
                     >
                       <img className="gv-sit__problem-icon" src={`/znarnia/images/${p.icon}.png`} alt="" width="192" height="192" loading="lazy" decoding="async" />
                       <span className="gv-sit__problem-text">
@@ -524,33 +574,7 @@ export default function GlavnayaPage() {
               </div>
 
               {/* 2 — Решение Знарнии */}
-              <div className="gv-sit__solution">
-                <span className="gv-sit__badge">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 3l1.9 4.6L18.5 9l-3.5 3.1.9 5.4L12 15l-3.9 2.5.9-5.4L5.5 9l4.6-1.4L12 3z" fill="currentColor"/>
-                  </svg>
-                  Решение Знарнии
-                </span>
-
-                <div className="gv-sit__points">
-                  {PROBLEMS[activeProblem].points.map((pt, j) => (
-                    <div key={j} className="gv-sit__point">
-                      <img className="gv-sit__point-img" src={`/znarnia/images/${PROBLEMS[activeProblem].pointImgs[j]}.png`} alt="" width="144" height="144" decoding="async" />
-                      <div className="gv-sit__point-body">
-                        <div className="gv-sit__point-title">{pt.title}</div>
-                        <p className="gv-sit__point-text">{nb(pt.text)}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="gv-sit__result">
-                  <svg className="gv-sit__result-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 3l1.7 4.1L18 8.4l-3.2 2.8.8 4.8L12 13.6 8.4 16l.8-4.8L6 8.4l4.3-1.3L12 3z" fill="#16a34a"/>
-                  </svg>
-                  <p className="gv-sit__result-text">{nb(PROBLEMS[activeProblem].result)}</p>
-                </div>
-              </div>
+              <div className="gv-sit__solution-slot">{solutionPanel}</div>
 
               {/* 3 — Иллюстрация */}
               <div className="gv-sit__media">
@@ -577,6 +601,31 @@ export default function GlavnayaPage() {
           </div>
         </div>
       </section>
+
+      {/* Модальное окно с решением (только телефон) */}
+      {solutionModal && (
+        <div className="gv-sit-modal" onClick={() => setSolutionModal(false)}>
+          <div
+            className="gv-sit-modal__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="gv-sit-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="gv-sit-modal__head">
+              <p id="gv-sit-modal-title" className="gv-sit-modal__title">
+                {PROBLEMS[activeProblem].title[0]} {PROBLEMS[activeProblem].title[1]}
+              </p>
+              <button type="button" className="gv-sit-modal__close" aria-label="Закрыть" onClick={() => setSolutionModal(false)} autoFocus>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+            {solutionPanel}
+          </div>
+        </div>
+      )}
 
       {/* ── КАК ПОСТРОЕНЫ ЗАНЯТИЯ (как на intellektualnyy-klub) ── */}
       <section className="sh-reveal gv-reveal--lessons">
