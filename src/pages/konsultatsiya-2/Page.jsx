@@ -176,12 +176,6 @@ export default function Page() {
 
           <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
 
-          <div className="ks-hero__price">
-            <span className="ks-hero__price-tag">Доступная цена</span>
-            <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
-            <span className="ks-hero__price-value">580&nbsp;₽</span>
-            <span className="ks-hero__price-unit">за урок</span>
-          </div>
 
           <div className="ks-hero__aside">
             <img
