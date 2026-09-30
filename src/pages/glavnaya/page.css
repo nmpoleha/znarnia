@@ -157,7 +157,7 @@
 .gv-hero__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(24px, 2.7vw, 36px);
+  font-size: clamp(27px, 2.85vw, 38px);
   line-height: 1.18;
   color: var(--gv-text);
   margin-bottom: clamp(8px, 1.5vh, 16px);
@@ -299,6 +299,9 @@
   animation: gv-fade-up 0.55s 0.24s ease both;
 }
 
+/* кнопка — во всю ширину панели преимуществ над ней */
+.gv-hero__actions .gv-btn { flex: 1 1 100%; }
+
 .gv-btn {
   display: inline-flex;
   align-items: center;
@@ -407,7 +410,7 @@
   }
 
   .gv-hero__title {
-    font-size: clamp(24px, 7vw, 34px);
+    font-size: clamp(27px, 7.8vw, 38px);
     margin-bottom: 12px;
   }
 
@@ -535,14 +538,14 @@
 }
 
 .gv-page .gv-results {
-  margin-top: 72px;
+  margin-top: var(--so-gap);
   position: relative;
 }
 
 /* «Как построены занятия» → «Математика в мини-группах» → «Результаты»: секция разрезана блоком формата,
    расстояния между ними — через padding-top у gv-fmt и margin-top у gv-results */
-.gv-page .gv-reveal--lessons { padding-bottom: 0; }
-.gv-page .gv-reveal--results { padding-top: 0; }
+.gv-page .gv-reveal--lessons { padding: var(--so-gap) 0 0; }
+.gv-page .gv-reveal--results { padding: 0 0 var(--so-gap); }
 
 /* Больше воздуха между блоками ниже героя */
 .gv-page .sh-guarantee,
@@ -696,7 +699,7 @@
 
 /* ── Блок «Почему Знарния — это больше, чем репетитор» (как на predszapis-osen-stariye-5-8) ── */
 .gv-page .gv-more {
-  margin-top: 72px;
+  margin-top: var(--so-gap);
 }
 
 .gv-page .lk-pu-checklist {
@@ -825,7 +828,7 @@
   --so-text:        #3b2f52;
   --so-muted:       #6f6091;
   --so-orange:      #ea580c;
-  --so-gap:         72px;
+  --so-gap:         80px;   /* единый промежуток между блоками страницы */
 }
 
 .gv-page .so-btn {
@@ -1034,7 +1037,7 @@
    «Узнаёте свою ситуацию?» — проблема → решение (gv-sit)
    единый компактный контейнер: проблемы → решение → иллюстрация
    ══════════════════════════════════════════════════════════ */
-.gv-page .gv-sit { padding: var(--so-gap) 0; }
+.gv-page .gv-sit { padding: var(--so-gap) 0 0; }
 
 /* Единый светлый контейнер */
 .gv-page .gv-sit__panel {
@@ -1379,27 +1382,14 @@
 
 .gv-page .gv-fmt__intro { min-width: 0; }
 
-.gv-page .gv-fmt__eyebrow {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: #ece5fb;
-  color: var(--fmt-accent);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .gv-page .gv-fmt__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 6.4vw, 52px);
-  line-height: 1.08;
+  font-size: clamp(18px, 1.8vw, 26px);   /* подзаголовок внутри блока — меньше заголовка «Как проходят занятия» */
+  line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--fmt-ink);
-  margin: 12px 0 12px;
+  margin: 0 0 12px;
 }
 
 .gv-page .gv-fmt__title span { color: var(--fmt-accent); }
@@ -1735,7 +1725,6 @@
     gap: 32px;
     padding: 36px 44px;
   }
-  .gv-page .gv-fmt__title { font-size: clamp(40px, 3.3vw, 52px); }
   .gv-page .gv-fmt-card__badge { font-size: 13px; }
   .gv-page .gv-fmt__hero-img { max-width: none; }
 
@@ -2627,10 +2616,172 @@
 
 
 /* ══════════════════════════════════════════════════════════
+   «Оплата и гарантии» — 7 дней на знакомство (gv-pay), под карточками классов
+   ══════════════════════════════════════════════════════════ */
+.gv-page .gv-pay {
+  --pay-green: #16a34a;
+  --pay-green-2: #22c55e;
+  --pay-bg: #edf8f1;
+  --pay-line: #d5efdf;
+  --pay-soft: #d6f2e0;
+  --pay-divider: #cfe9d8;
+  --pay-shadow: rgba(21, 128, 61, 0.45);
+  --pay-eyebrow: var(--pay-green);
+  --pay-accent: var(--pay-green-2);
+  --pay-strong: var(--pay-green);
+  margin-top: var(--so-gap);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 26px 20px;
+  border-radius: 28px;
+  background: var(--pay-bg);
+  border: 1px solid var(--pay-line);
+  box-shadow: 0 16px 40px -34px var(--pay-shadow);
+}
+
+.gv-page .gv-pay__content { min-width: 0; }
+
+.gv-page .gv-pay__eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--pay-soft);
+  color: var(--pay-eyebrow);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gv-page .gv-pay__title {
+  margin: 14px 0 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #25145F;
+}
+
+.gv-page .gv-pay__accent { color: var(--pay-accent); }
+
+.gv-page .gv-pay__lead {
+  margin: 0;
+  max-width: 640px;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.55;
+  color: #5b5870;
+}
+
+.gv-page .gv-pay__lead b { color: var(--pay-strong); font-weight: 800; }
+
+.gv-page .gv-pay__features {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.gv-page .gv-pay__feature {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.gv-page .gv-pay__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+}
+.gv-page .gv-pay__icon--violet { background: #ece4ff; color: #7c3aed; }
+.gv-page .gv-pay__icon--orange { background: #ffe9d6; color: #f97316; }
+.gv-page .gv-pay__icon--green  { background: #d6f2e0; color: #16a34a; }
+
+.gv-page .gv-pers { padding: var(--so-gap) 0 0; }
+
+/* лиловый вариант — «Персонализированный подход» */
+.gv-page .gv-pay--violet {
+  --pay-bg: #f6f2ff;
+  --pay-line: #ebe3fc;
+  --pay-soft: #ece4ff;
+  --pay-divider: #e2d8f8;
+  --pay-shadow: rgba(76, 29, 149, 0.45);
+  --pay-eyebrow: #5A39A5;
+  --pay-accent: #7c3aed;
+  --pay-strong: #6d28d9;
+  margin-top: 0;
+}
+.gv-page .gv-pay__title-line { display: block; }
+
+.gv-page .gv-pay__feature-title {
+  display: block;
+  margin: 3px 0 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #25145F;
+}
+
+.gv-page .gv-pay__feature-sub {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6b6880;
+}
+
+/* иллюстрация: белый фон растворяется в мятной плашке */
+.gv-page .gv-pay__img {
+  display: block;
+  justify-self: center;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 900 / 591;
+  mix-blend-mode: multiply;
+}
+
+@media (min-width: 768px) {
+  .gv-page .gv-pay { padding: 32px; }
+  .gv-page .gv-pay__features { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+  .gv-page .gv-pay__feature { padding: 0 18px; border-left: 1px solid var(--pay-divider); }
+  .gv-page .gv-pay__feature:first-child { padding-left: 0; border-left: 0; }
+  .gv-page .gv-pay__feature:last-child { padding-right: 0; }
+}
+
+@media (min-width: 1200px) {
+  .gv-page .gv-pay {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 34%);
+    gap: 32px;
+    padding: 40px 44px;
+  }
+  .gv-page .gv-pay--violet { margin-top: 0; }
+  .gv-page .gv-pay__img { max-width: none; }
+}
+
+/* узкий десктоп: картинку чуть уже, чтобы трём пунктам хватало места */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .gv-page .gv-pay { grid-template-columns: minmax(0, 1fr) minmax(260px, 28%); }
+}
+
+/* телефон: длинная метка («Персонализированный подход») помещается в одну строку */
+@media (max-width: 480px) {
+  .gv-page .gv-pay__eyebrow { font-size: 10.5px; letter-spacing: 0.04em; padding: 6px 12px; }
+}
+
+/* ══════════════════════════════════════════════════════════
    Иерархия заголовков: все заголовки блоков меньше заголовка героя
    (герой: clamp(24px, 2.7vw, 36px), на ≤640px — clamp(24px, 7vw, 34px))
    ══════════════════════════════════════════════════════════ */
-.gv-page :is(.gv-sit__title, .gv-fmt__title, .zn-club__title, .p2-section-title, .sh-result__title, .ks-title),
+.gv-page :is(.gv-sit__title, .zn-club__title, .p2-section-title, .sh-result__title, .ks-title, .gv-pay__title),
 .gv-page .gv-lessons .sh-lessons__title {
   font-size: clamp(20px, 2.2vw, 30px);
 }
@@ -2638,9 +2789,10 @@
 .gv-page .gv-fmt-card__grade { font-size: clamp(18px, 1.7vw, 24px); }
 
 @media (max-width: 640px) {
-  .gv-page :is(.gv-sit__title, .gv-fmt__title, .zn-club__title, .p2-section-title, .sh-result__title, .ks-title),
+  .gv-page :is(.gv-sit__title, .zn-club__title, .p2-section-title, .sh-result__title, .ks-title, .gv-pay__title),
   .gv-page .gv-lessons .sh-lessons__title {
     font-size: clamp(20px, 5.6vw, 26px);
   }
   .gv-page .gv-fmt-card__grade { font-size: clamp(18px, 5vw, 22px); }
+  .gv-page .gv-fmt__title { font-size: clamp(18px, 5vw, 22px); }
 }

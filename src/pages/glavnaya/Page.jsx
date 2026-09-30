@@ -64,6 +64,58 @@ import { nb } from '../../shared/utils/nb'
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
 
 /* ── «Математика в мини-группах»: 4 программы сеткой 2×2 ── */
+/* ── Оплата и гарантии ── */
+const PayIconCard = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2.5" y="5" width="19" height="14" rx="3" />
+    <path d="M2.5 10h19M6.5 15h4" />
+  </svg>
+)
+const PayIconCalendar = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4.5" width="18" height="16" rx="3" />
+    <path d="M3 9.5h18M8 2.5v4M16 2.5v4" />
+  </svg>
+)
+const PayIconShield = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2.8l7.5 2.8v5.6c0 4.8-3.2 8.6-7.5 10-4.3-1.4-7.5-5.2-7.5-10V5.6z" />
+    <path d="M8.6 12.1l2.3 2.3 4.5-4.7" />
+  </svg>
+)
+
+const PAY_FEATURES = [
+  { icon: <PayIconCard />, tone: 'violet', title: 'Удобная оплата', text: 'Банковской картой онлайн, безопасно и быстро.' },
+  { icon: <PayIconCalendar />, tone: 'orange', title: 'Гибкие варианты', text: 'Оплата только текущего периода или сразу нескольких месяцев.' },
+  { icon: <PayIconShield />, tone: 'green', title: 'Гарантия возврата', text: 'Если формат не подойдёт — вернём деньги в течение 7 дней.' },
+]
+
+const PersIconSearch = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="10.5" cy="10.5" r="6.5" />
+    <path d="M15.5 15.5l5 5" />
+  </svg>
+)
+const PersIconGear = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" />
+  </svg>
+)
+const PersIconBars = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="3" y="13" width="4" height="8" rx="1.2" />
+    <rect x="10" y="8" width="4" height="13" rx="1.2" />
+    <rect x="17" y="3" width="4" height="18" rx="1.2" />
+  </svg>
+)
+
+const PERS_FEATURES = [
+  { icon: <PersIconSearch />, tone: 'violet', title: 'Определяем слабые места', text: 'и закрываем пробелы в знаниях.' },
+  { icon: <PersIconGear />, tone: 'orange', title: 'Адаптируем программу', text: 'под цели, уровень и темп ребёнка.' },
+  { icon: <PersIconBars />, tone: 'green', title: 'Отслеживаем прогресс', text: 'и регулярно корректируем обучение.' },
+]
+
 const FORMAT_PROGRAMS = [
   { grade: '1–4 класс',   name: 'Начальная школа', tone: 'lilac',  placeholder: 'стопка книг', img: 'fmt-card-1-4', imgAlt: 'Стопка учебников, тетрадь с примерами и карандаши',
     text: 'Формируем прочную математическую базу, учим рассуждать, понимать задачи и уверенно применять знания.',
@@ -577,13 +629,41 @@ export default function GlavnayaPage() {
         </div>
       </section>
 
+      {/* ── ПЕРСОНАЛИЗИРОВАННЫЙ ПОДХОД (перед «Как проходят занятия»; вёрстка как у «Оплата и гарантии») ── */}
+      <section className="gv-pers">
+        <div className="sh-wrap">
+          <div className="gv-pay gv-pay--violet">
+            <div className="gv-pay__content">
+              <span className="gv-pay__eyebrow">Персонализированный подход</span>
+              <h2 className="gv-pay__title">
+                <span className="gv-pay__title-line">Не просто идём по&nbsp;программе&nbsp;—</span>
+                <span className="gv-pay__title-line gv-pay__accent">подстраиваем обучение под&nbsp;ребёнка</span>
+              </h2>
+              <p className="gv-pay__lead">{nb('Мы видим реальный прогресс, находим слабые места и адаптируем темп, формат и задания под цели и уровень каждого ученика.')}</p>
+              <ul className="gv-pay__features">
+                {PERS_FEATURES.map((f) => (
+                  <li key={f.title} className="gv-pay__feature">
+                    <span className={`gv-pay__icon gv-pay__icon--${f.tone}`} aria-hidden="true">{f.icon}</span>
+                    <span className="gv-pay__feature-text">
+                      <b className="gv-pay__feature-title">{f.title}</b>
+                      <span className="gv-pay__feature-sub">{nb(f.text)}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <img className="gv-pay__img" src="/znarnia/images/pers-approach.png" alt="Карточка ученика, график роста, учебники и чек-лист" width="900" height="671" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
+
       {/* ── МАТЕМАТИКА В МИНИ-ГРУППАХ (формат обучения) ── */}
       <section className="gv-fmt">
         <div className="sh-wrap">
+          <h2 className="p2-section-title">Как проходят занятия</h2>
           <div className="gv-fmt__top">
             <div className="gv-fmt__intro">
-              <span className="gv-fmt__eyebrow">Как проходят занятия</span>
-              <h2 className="gv-fmt__title">Математика <span>в&nbsp;мини&#8209;группах</span></h2>
+              <h3 className="gv-fmt__title">Математика <span>в&nbsp;мини&#8209;группах</span></h3>
               <p className="gv-fmt__desc">
                 {nb('Основной формат обучения: занятия с преподавателем в небольшой группе и самостоятельная практика на интерактивном уроке-тренажёре.')}
               </p>
@@ -629,6 +709,30 @@ export default function GlavnayaPage() {
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* ── Оплата и гарантии: 7 дней на знакомство ── */}
+          <div className="gv-pay">
+            <div className="gv-pay__content">
+              <span className="gv-pay__eyebrow">Оплата и гарантии</span>
+              <h2 className="gv-pay__title">7 дней на знакомство — <span className="gv-pay__accent">без&nbsp;риска</span></h2>
+              <p className="gv-pay__lead">
+                {nb('Мы уверены в качестве наших занятий, поэтому, если в течение 7 дней после начала обучения вам что-то не подойдёт — ')}
+                <b>{nb('вернём деньги в полном объёме.')}</b>
+              </p>
+              <ul className="gv-pay__features">
+                {PAY_FEATURES.map((f) => (
+                  <li key={f.title} className="gv-pay__feature">
+                    <span className={`gv-pay__icon gv-pay__icon--${f.tone}`} aria-hidden="true">{f.icon}</span>
+                    <span className="gv-pay__feature-text">
+                      <b className="gv-pay__feature-title">{f.title}</b>
+                      <span className="gv-pay__feature-sub">{nb(f.text)}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <img className="gv-pay__img" src="/znarnia/images/pay-guarantee.png" alt="Щит с галочкой, календарь «7 дней» и растущие столбики" width="900" height="591" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
@@ -738,39 +842,6 @@ export default function GlavnayaPage() {
                 <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
               </div>
             </div>
-          </div>
-
-          <div className="sh-guarantee">
-            <div className="sh-guarantee__head">
-              <div className="sh-guarantee__icon" aria-hidden="true">
-                <svg width="30" height="32" viewBox="0 0 34 36" fill="none">
-                  <path d="M17 3l12 4.5v9C29 26 22 32 17 34 12 32 5 26 5 16.5v-9L17 3z" fill="#fff" fillOpacity="0.18" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
-                  <path d="M11.5 17.5l4 4 7-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="sh-guarantee__title">Безопасность решения</div>
-            </div>
-            <p className="sh-guarantee__text">
-              Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.
-            </p>
-          </div>
-
-          <div className="sh-result">
-            <span className="sh-result__dots" aria-hidden="true" />
-            <span className="sh-result__ring" aria-hidden="true" />
-
-            <div className="sh-result__icon">
-              <svg className="sh-result__hex" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                <path d="M100 8l73 42v100l-73 42-73-42V50z" stroke="#fff" strokeOpacity="0.16" strokeWidth="2"/>
-                <path d="M100 26l58 33v82l-58 33-58-33V59z" stroke="#fff" strokeOpacity="0.10" strokeWidth="2"/>
-              </svg>
-              <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
-            </div>
-
-            <h2 className="sh-result__title">Главный результат:<br className="sh-br-desktop" /> персонализированное обучение</h2>
-            <p className="sh-result__text">
-              Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.
-            </p>
           </div>
         </div>
       </section>
