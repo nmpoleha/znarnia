@@ -427,19 +427,15 @@ export default function GlavnayaPage() {
       {/* ── УЗНАЁТЕ СВОЮ СИТУАЦИЮ? (проблема → решение) ── */}
       <section className="gv-sit">
         <div className="sh-wrap">
+          {/* заголовок лежит на верхней границе контейнера */}
+          <h2 className="gv-sit__title">
+            Узнаёте <span className="gv-sit__accent">свою</span> ситуацию?
+          </h2>
           <div className="gv-sit__panel">
-            <div className="gv-sit__head">
-              <div className="gv-sit__heading">
-                <h2 className="gv-sit__title">
-                  Узнаёте <span className="gv-sit__accent">свою</span> ситуацию?
-                </h2>
-                <p className="gv-sit__subtitle">Скорее всего, мы уже знаем, как помочь.</p>
-              </div>
-              <p className="gv-sit__note">
-                Наши методики и формат занятий созданы
-                для реальных задач современных школьников.
-              </p>
-            </div>
+            <p className="gv-sit__note">
+              Наши методики и формат занятий созданы
+              для реальных задач современных школьников.
+            </p>
 
             <div className="gv-sit__body">
               {/* 1 — Проблемы */}
@@ -530,7 +526,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── КАК ПОСТРОЕНЫ ЗАНЯТИЯ (как на intellektualnyy-klub) ── */}
-      <section className="sh-reveal">
+      <section className="sh-reveal gv-reveal--lessons">
         <div className="sh-wrap sh-reveal__body">
           <div className="gv-lessons">
           <div className="sh-lessons__head">
@@ -577,111 +573,6 @@ export default function GlavnayaPage() {
             })}
           </div>
           </div>
-
-          {/* ── Результаты, которые замечают родители (как на predszapis-osen-stariye-5-8) ── */}
-          <div className="p2-results gv-results">
-            <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
-            <div className="p2-results__card">
-              <div className="p2-results__content">
-                <p className="p2-results__lead">Уже через несколько месяцев занятий ребёнок:</p>
-                <ul className="p2-results__list">
-                  {[
-                    'начинает получать более высокие оценки по математике',
-                    'увереннее чувствует себя на уроках',
-                    'меньше переживает из-за контрольных и самостоятельных работ',
-                    'перестаёт бояться ошибок',
-                    'лучше понимает новые темы',
-                    'легче справляется с домашними заданиями',
-                  ].map((t, i) => (
-                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{t}</span></li>
-                  ))}
-                </ul>
-                <div className="p2-results__highlight">
-                  <div className="p2-results__highlight-num">90%</div>
-                  <div className="p2-results__highlight-text">
-                    <div className="p2-results__highlight-main">учеников улучшают результаты по математике минимум на 1 балл</div>
-                    <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
-                  </div>
-                </div>
-              </div>
-              <div className="p2-results__photo-slot p2-results__photo-slot--filled">
-                <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
-              </div>
-            </div>
-          </div>
-
-          {/* ── Почему Знарния — это больше, чем репетитор (как на predszapis-osen-stariye-5-8) ── */}
-          <div className="p2-more gv-more">
-            <h2 className="p2-section-title">Почему Знарния — это больше, чем репетитор</h2>
-            <div className="p2-more__card">
-              <div className="p2-more__content">
-                <p className="p2-more__lead">Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.</p>
-                <p className="p2-more__accent">Мы работаем иначе.</p>
-                <ul className="lk-pu-checklist p2-more__list">
-                  {[
-                    'Выявляем и устраняем пробелы в знаниях',
-                    'Выстраиваем прочную математическую базу',
-                    'Помогаем разобраться со сложными темами школьной программы',
-                    'Развиваем умение рассуждать и находить решения',
-                    'Учим ребёнка самостоятельно справляться с учебными задачами',
-                  ].map((t, i) => (
-                    <li key={i}><LkCheck /><span>{t}</span></li>
-                  ))}
-                </ul>
-              </div>
-              <div className="p2-more__media">
-                <img src="/znarnia/images/why-znarnia-steps.png" alt="Девочка с рюкзаком поднимается по ступенькам от вопроса к цели" width="1672" height="941" loading="lazy" decoding="async" />
-              </div>
-              <p className="p2-more__goal">Наша цель — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
-            </div>
-          </div>
-
-          <div className="sh-guarantee">
-            <div className="sh-guarantee__head">
-              <div className="sh-guarantee__icon" aria-hidden="true">
-                <svg width="30" height="32" viewBox="0 0 34 36" fill="none">
-                  <path d="M17 3l12 4.5v9C29 26 22 32 17 34 12 32 5 26 5 16.5v-9L17 3z" fill="#fff" fillOpacity="0.18" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
-                  <path d="M11.5 17.5l4 4 7-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="sh-guarantee__title">Безопасность решения</div>
-            </div>
-            <p className="sh-guarantee__text">
-              Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.
-            </p>
-          </div>
-
-          <div className="sh-result">
-            <span className="sh-result__dots" aria-hidden="true" />
-            <span className="sh-result__ring" aria-hidden="true" />
-
-            <div className="sh-result__icon">
-              <svg className="sh-result__hex" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                <path d="M100 8l73 42v100l-73 42-73-42V50z" stroke="#fff" strokeOpacity="0.16" strokeWidth="2"/>
-                <path d="M100 26l58 33v82l-58 33-58-33V59z" stroke="#fff" strokeOpacity="0.10" strokeWidth="2"/>
-              </svg>
-              <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
-            </div>
-
-            <h2 className="sh-result__title">Главный результат:<br className="sh-br-desktop" /> персонализированное обучение</h2>
-            <p className="sh-result__text">
-              Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ПОЛОСА ДОВЕРИЯ (как на intellektualnyy-klub) ── */}
-      <section className="sh-trust">
-        <div className="sh-wrap">
-          <ul className="sh-trust__grid">
-            {TRUST_ITEMS.map((item, i) => (
-              <li key={i} className="sh-trust__item">
-                <span className="sh-trust__icon" aria-hidden="true">{item.icon}</span>
-                <span className="sh-trust__text">{item.text}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -785,6 +676,115 @@ export default function GlavnayaPage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="sh-reveal gv-reveal--results">
+        <div className="sh-wrap sh-reveal__body">
+          {/* ── Почему Знарния — это больше, чем репетитор (как на predszapis-osen-stariye-5-8) ── */}
+          <div className="p2-more gv-more">
+            <h2 className="p2-section-title">Почему Знарния — это больше, чем репетитор</h2>
+            <div className="p2-more__card">
+              <div className="p2-more__content">
+                <p className="p2-more__lead">Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.</p>
+                <p className="p2-more__accent">Мы работаем иначе.</p>
+                <ul className="lk-pu-checklist p2-more__list">
+                  {[
+                    'Выявляем и устраняем пробелы в знаниях',
+                    'Выстраиваем прочную математическую базу',
+                    'Помогаем разобраться со сложными темами школьной программы',
+                    'Развиваем умение рассуждать и находить решения',
+                    'Учим ребёнка самостоятельно справляться с учебными задачами',
+                  ].map((t, i) => (
+                    <li key={i}><LkCheck /><span>{t}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p2-more__media">
+                <img src="/znarnia/images/why-znarnia-steps.png" alt="Девочка с рюкзаком поднимается по ступенькам от вопроса к цели" width="1672" height="941" loading="lazy" decoding="async" />
+              </div>
+              <p className="p2-more__goal">Наша цель — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
+            </div>
+          </div>
+
+          {/* ── Результаты, которые замечают родители (как на predszapis-osen-stariye-5-8) ── */}
+          <div className="p2-results gv-results">
+            <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
+            <div className="p2-results__card">
+              <div className="p2-results__content">
+                <p className="p2-results__lead">Уже через несколько месяцев занятий ребёнок:</p>
+                <ul className="p2-results__list">
+                  {[
+                    'начинает получать более высокие оценки по математике',
+                    'увереннее чувствует себя на уроках',
+                    'меньше переживает из-за контрольных и самостоятельных работ',
+                    'перестаёт бояться ошибок',
+                    'лучше понимает новые темы',
+                    'легче справляется с домашними заданиями',
+                  ].map((t, i) => (
+                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{t}</span></li>
+                  ))}
+                </ul>
+                <div className="p2-results__highlight">
+                  <div className="p2-results__highlight-num">90%</div>
+                  <div className="p2-results__highlight-text">
+                    <div className="p2-results__highlight-main">учеников улучшают результаты по математике минимум на 1 балл</div>
+                    <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p2-results__photo-slot p2-results__photo-slot--filled">
+                <img src={resultsPhotoImg} alt="Улыбающийся школьник показывает работу с оценкой 5" width="1280" height="853" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div className="sh-guarantee">
+            <div className="sh-guarantee__head">
+              <div className="sh-guarantee__icon" aria-hidden="true">
+                <svg width="30" height="32" viewBox="0 0 34 36" fill="none">
+                  <path d="M17 3l12 4.5v9C29 26 22 32 17 34 12 32 5 26 5 16.5v-9L17 3z" fill="#fff" fillOpacity="0.18" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M11.5 17.5l4 4 7-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <div className="sh-guarantee__title">Безопасность решения</div>
+            </div>
+            <p className="sh-guarantee__text">
+              Мы уверены в результате, поэтому даём гарантию возврата средств: если в течение 7 дней после начала занятий вам что-то не понравится — вернём деньги в полном объёме.
+            </p>
+          </div>
+
+          <div className="sh-result">
+            <span className="sh-result__dots" aria-hidden="true" />
+            <span className="sh-result__ring" aria-hidden="true" />
+
+            <div className="sh-result__icon">
+              <svg className="sh-result__hex" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                <path d="M100 8l73 42v100l-73 42-73-42V50z" stroke="#fff" strokeOpacity="0.16" strokeWidth="2"/>
+                <path d="M100 26l58 33v82l-58 33-58-33V59z" stroke="#fff" strokeOpacity="0.10" strokeWidth="2"/>
+              </svg>
+              <img src="/znarnia/images/lesson-target.png" alt="" aria-hidden="true" className="sh-result__icon-img" width="440" height="440" loading="lazy" decoding="async" />
+            </div>
+
+            <h2 className="sh-result__title">Главный результат:<br className="sh-br-desktop" /> персонализированное обучение</h2>
+            <p className="sh-result__text">
+              Вся аналитика — по каждому ученику и классу в целом — позволяет нам точно видеть слабые места и понимать, какие темы требуют больше внимания. Мы не идём строго по программе, а постоянно адаптируем и улучшаем уроки, основываясь на реальных данных. Мы учим осознанно, делая процесс эффективным для вашего ребёнка.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ПОЛОСА ДОВЕРИЯ (как на intellektualnyy-klub) ── */}
+      <section className="sh-trust">
+        <div className="sh-wrap">
+          <ul className="sh-trust__grid">
+            {TRUST_ITEMS.map((item, i) => (
+              <li key={i} className="sh-trust__item">
+                <span className="sh-trust__icon" aria-hidden="true">{item.icon}</span>
+                <span className="sh-trust__text">{item.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
