@@ -967,7 +967,7 @@ export default function GlavnayaPage() {
             {TRUST_ITEMS.map((item, i) => (
               <li key={i} className="sh-trust__item">
                 <span className="sh-trust__icon" aria-hidden="true">{item.icon}</span>
-                <span className="sh-trust__text">{item.text}</span>
+                <span className="sh-trust__text">{nb(item.text)}</span>
               </li>
             ))}
           </ul>

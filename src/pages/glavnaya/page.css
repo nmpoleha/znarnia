@@ -3899,3 +3899,47 @@
   .gv-page .p2-results__photo-slot--filled img { object-position: 50% 55%; }
   .gv-page .p2-results__lead { font-size: 16px; margin-bottom: 16px; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   Полоса доверия — мобильная версия (≤699px, одна колонка)
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 699px) {
+  .gv-page > .gv-section.sh-trust { padding-top: 14px; padding-bottom: 14px; }
+  .gv-page .sh-trust .sh-wrap { padding-left: 20px; padding-right: 20px; }
+  .gv-page .sh-trust__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 60px;
+    padding: 9px 0;
+    border-bottom: 0;
+  }
+  /* деликатный разделитель — начинается после иконки */
+  .gv-page .sh-trust__item + .sh-trust__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 55px;
+    right: 0;
+    height: 1px;
+    background: #d9cef3;
+    opacity: 0.55;
+  }
+  .gv-page .sh-trust__icon {
+    width: 41px;
+    height: 41px;
+    border-radius: 13px;
+    background: #ebe3fc;
+    color: #6d28d9;
+  }
+  .gv-page .sh-trust__icon svg { width: 19px; height: 19px; }
+  .gv-page .sh-trust__text {
+    flex: 1;
+    min-width: 0;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.37;
+    color: #25145F;
+  }
+}
