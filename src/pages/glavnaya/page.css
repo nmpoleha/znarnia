@@ -3093,3 +3093,87 @@
   .gv-page .gv-hero__actions { margin-bottom: 0; }
   .gv-page .gv-hero__content { padding-bottom: 0; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   Герой — отдельная мобильная композиция (≤767px): компактнее, CTA выше.
+   Desktop и планшет не затрагиваются.
+   ══════════════════════════════════════════════════════════ */
+.gv-page .gv-br-m { display: none; }
+
+@media (max-width: 767px) {
+  .gv-page .gv-br-m { display: inline; }
+  .gv-page .gv-br-d { display: none; }
+
+  .gv-page .gv-hero__inner { padding: 20px 20px 0; }
+
+  /* 1. Заголовок — 4 строки на 360–430px */
+  .gv-page .gv-hero__title {
+    font-size: clamp(28px, 8vw, 35px);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    text-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  /* 2. Подзаголовок — вторичный, на всю ширину */
+  .gv-page .gv-hero__sub {
+    max-width: none;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 16px;
+    text-wrap: pretty;
+  }
+
+  /* 3. Бейджи — компактные, в одну строку */
+  .gv-page .gv-hero__pills { gap: 8px; margin-bottom: 16px; flex-wrap: nowrap; }
+  .gv-page .gv-hero__pill {
+    height: 35px;
+    padding: 0 12px;
+    gap: 6px;
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+  .gv-page .gv-hero__pill svg { width: 15px; height: 15px; }
+
+  /* 4. Преимущества — одна белая карточка, внутри сетка 2×2 без разделителей */
+  .gv-page .gv-hero__features-panel {
+    padding: 12px;
+    border-radius: 18px;
+    margin-bottom: 16px;
+  }
+  .gv-page .gv-hero__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 10px;
+  }
+  .gv-page .gv-hero__feature,
+  .gv-page .gv-hero__feature + .gv-hero__feature {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 0;
+    border: 0;
+  }
+  .gv-page .gv-hero__feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+  .gv-page .gv-hero__feature-icon svg { width: 22px; height: 22px; }
+  .gv-page .gv-hero__feature-text { gap: 2px; padding-top: 1px; min-width: 0; }
+  .gv-page .gv-hero__feature-title { font-size: 13.5px; font-weight: 700; line-height: 1.25; }
+  .gv-page .gv-hero__feature-sub { font-size: 12.5px; line-height: 1.3; }
+
+  /* 5. CTA */
+  .gv-page .gv-hero__actions { margin-bottom: 0; }
+  .gv-page .gv-hero__actions .gv-btn { min-height: 54px; font-size: 16px; }
+}
+
+/* 320–359px: преимущества — компактный вертикальный список, бейджи могут переноситься */
+@media (max-width: 359px) {
+  .gv-page .gv-hero__inner { padding-left: 16px; padding-right: 16px; }
+  .gv-page .gv-hero__title { font-size: clamp(25px, 7.9vw, 28px); }
+  .gv-page .gv-hero__pills { flex-wrap: wrap; }
+  .gv-page .gv-hero__features { grid-template-columns: 1fr; gap: 10px; }
+  .gv-page .gv-hero__feature,
+  .gv-page .gv-hero__feature + .gv-hero__feature { align-items: center; }
+}

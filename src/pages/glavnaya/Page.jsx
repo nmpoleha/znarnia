@@ -471,16 +471,17 @@ export default function GlavnayaPage() {
 
           {/* LEFT: text content */}
           <div className="gv-hero__content">
+            {/* переносы: desktop — «…математики, / где дети учатся думать, / …»;
+                телефон — «Онлайн-школа / математики, где / дети учатся думать, / а не зубрить» */}
             <h1 className="gv-hero__title">
-              Онлайн-школа математики,<br/>
-              где дети{' '}
-              <span className="gv-hero__accent">учатся думать,</span>
+              Онлайн-школа<br className="gv-br-m" />{' '}математики,<br className="gv-br-d" />{' '}где<br className="gv-br-m" />{' '}дети{' '}
+              <span className="gv-hero__accent">учатся&nbsp;думать,</span>
               <br/>
               а не зубрить
             </h1>
 
             <p className="gv-hero__sub">
-              Авторские курсы по математике для 1–11 классов: школьная программа,
+              Авторские курсы по математике для 1{'\u2060–\u2060'}11&nbsp;классов: школьная программа,
               развитие математического мышления, подготовка к ОГЭ и ЕГЭ.
             </p>
 
