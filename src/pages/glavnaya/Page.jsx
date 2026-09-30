@@ -113,7 +113,7 @@ const PersIconBars = () => (
 const PERS_FEATURES = [
   { icon: <PersIconSearch />, tone: 'violet', title: 'Определяем слабые места', text: 'и закрываем пробелы в знаниях.' },
   { icon: <PersIconGear />, tone: 'orange', title: 'Адаптируем программу', text: 'под цели, уровень и темп ребёнка.' },
-  { icon: <PersIconBars />, tone: 'green', title: 'Отслеживаем прогресс', text: 'и регулярно корректируем обучение.' },
+  { icon: <PersIconBars />, tone: 'green', title: 'Отслеживаем прогресс', text: 'и регулярно корректируем\u00a0обучение.' },
 ]
 
 const FORMAT_PROGRAMS = [
@@ -329,17 +329,28 @@ export default function GlavnayaPage() {
   const [contactsOpen, setContactsOpen] = useState(false)
   const [openCards, setOpenCards] = useState(() => new Set())
   const [activeProblem, setActiveProblem] = useState(0)
-  /* на телефоне решение показывается в модальном окне */
-  const [solutionModal, setSolutionModal] = useState(false)
+  /* на телефоне решение показывается в нижней панели (bottom sheet): 'closed' | 'open' | 'closing' */
+  const [solutionModal, setSolutionModal] = useState('closed')
 
   const selectProblem = (i) => {
     setActiveProblem(i)
-    if (window.matchMedia('(max-width: 767px)').matches) setSolutionModal(true)
+    if (window.matchMedia('(max-width: 767px)').matches) setSolutionModal('open')
+  }
+
+  /* закрытие — с обратной анимацией, затем панель убирается из DOM */
+  const closeSolution = () => {
+    setSolutionModal((st) => (st === 'open' ? 'closing' : st))
   }
 
   useEffect(() => {
-    if (!solutionModal) return undefined
-    const onKey = (e) => { if (e.key === 'Escape') setSolutionModal(false) }
+    if (solutionModal !== 'closing') return undefined
+    const t = setTimeout(() => setSolutionModal('closed'), 260)
+    return () => clearTimeout(t)
+  }, [solutionModal])
+
+  useEffect(() => {
+    if (solutionModal !== 'open') return undefined
+    const onKey = (e) => { if (e.key === 'Escape') closeSolution() }
     const prevOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKey)
@@ -347,7 +358,7 @@ export default function GlavnayaPage() {
       document.body.style.overflow = prevOverflow
       window.removeEventListener('keydown', onKey)
     }
-  }, [solutionModal])
+  }, [solutionModal === 'open'])
 
   /* форма записи на консультацию (копия со страницы konsultatsiya) */
   const [form, setForm] = useState({ name: '', phone: '', email: '', telegram: '', grade: '', agree: false })
@@ -409,7 +420,11 @@ export default function GlavnayaPage() {
         <svg className="gv-sit__result-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 3l1.7 4.1L18 8.4l-3.2 2.8.8 4.8L12 13.6 8.4 16l.8-4.8L6 8.4l4.3-1.3L12 3z" fill="#16a34a"/>
         </svg>
-        <p className="gv-sit__result-text">{nb(PROBLEMS[activeProblem].result)}</p>
+        <p className="gv-sit__result-text">
+          {PROBLEMS[activeProblem].result.startsWith('В результате')
+            ? <><span className="gv-sit__result-lead">В результате</span>{nb(PROBLEMS[activeProblem].result.slice('В результате'.length))}</>
+            : nb(PROBLEMS[activeProblem].result)}
+        </p>
       </div>
     </div>
   )
@@ -603,9 +618,9 @@ export default function GlavnayaPage() {
         </div>
       </section>
 
-      {/* Модальное окно с решением (только телефон) */}
-      {solutionModal && (
-        <div className="gv-sit-modal" onClick={() => setSolutionModal(false)}>
+      {/* Нижняя панель с решением (только телефон) */}
+      {solutionModal !== 'closed' && (
+        <div className={`gv-sit-modal${solutionModal === 'closing' ? ' gv-sit-modal--closing' : ''}`} onClick={closeSolution}>
           <div
             className="gv-sit-modal__dialog"
             role="dialog"
@@ -613,17 +628,25 @@ export default function GlavnayaPage() {
             aria-labelledby="gv-sit-modal-title"
             onClick={(e) => e.stopPropagation()}
           >
+            <span className="gv-sit-modal__handle" aria-hidden="true" />
             <div className="gv-sit-modal__head">
               <p id="gv-sit-modal-title" className="gv-sit-modal__title">
                 {PROBLEMS[activeProblem].title[0]} {PROBLEMS[activeProblem].title[1]}
               </p>
-              <button type="button" className="gv-sit-modal__close" aria-label="Закрыть" onClick={() => setSolutionModal(false)} autoFocus>
+              <button type="button" className="gv-sit-modal__close" aria-label="Закрыть" onClick={closeSolution} autoFocus>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
                 </svg>
               </button>
             </div>
             {solutionPanel}
+            {/* тот же CTA, что под списком ситуаций */}
+            <a href="#" className="gv-sit-modal__cta" onClick={closeSolution}>
+              Посмотреть программы по предметам
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </div>
         </div>
       )}
@@ -687,7 +710,7 @@ export default function GlavnayaPage() {
               <span className="gv-pay__eyebrow">Персонализированный подход</span>
               <h2 className="gv-pay__title">
                 <span className="gv-pay__title-line">Не просто идём по&nbsp;программе&nbsp;—</span>
-                <span className="gv-pay__title-line gv-pay__accent">подстраиваем обучение под&nbsp;ребёнка</span>
+                <span className="gv-pay__title-line gv-pay__accent"><span className="gv-pay__phrase">подстраиваем обучение</span> под&nbsp;ребёнка</span>
               </h2>
               <p className="gv-pay__lead">{nb('Мы видим реальный прогресс, находим слабые места и адаптируем темп, формат и задания под цели и уровень каждого ученика.')}</p>
               <ul className="gv-pay__features">
