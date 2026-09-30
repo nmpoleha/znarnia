@@ -1116,8 +1116,8 @@
   gap: 12px;
   width: 100%;
   padding: 10px 12px 10px 10px;
-  background: #fbfaff;
-  border: 1.5px solid #efeafc;
+  background: #fff;
+  border: 1.5px solid #f0ecf8;
   border-radius: 16px;
   text-align: left;
   cursor: pointer;
@@ -1126,15 +1126,23 @@
   transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
 }
 
+/* цвет подсветки — в тон иконке ситуации */
+.gv-page .gv-sit__problem--violet { --sit-c: #8b5cf6; --sit-c-rgb: 139, 92, 246; --sit-soft: #f1ebff; --sit-hover: #f7f4ff; --sit-line: #d9ccf7; --sit-dark: #6d28d9; }
+.gv-page .gv-sit__problem--orange { --sit-c: #f97316; --sit-c-rgb: 249, 115, 22; --sit-soft: #fff3e8; --sit-hover: #fff8f1; --sit-line: #fcd7b6; --sit-dark: #ea580c; }
+.gv-page .gv-sit__problem--blue   { --sit-c: #3b82f6; --sit-c-rgb: 59, 130, 246; --sit-soft: #eaf2ff; --sit-hover: #f3f7ff; --sit-line: #c3d8fb; --sit-dark: #2563eb; }
+.gv-page .gv-sit__problem--green  { --sit-c: #22c55e; --sit-c-rgb: 34, 197, 94; --sit-soft: #eafaf0; --sit-hover: #f3fcf6; --sit-line: #bfeccf; --sit-dark: #16a34a; }
+.gv-page .gv-sit__problem--pink   { --sit-c: #ec4899; --sit-c-rgb: 236, 72, 153; --sit-soft: #fdedf5; --sit-hover: #fef5f9; --sit-line: #f7c6de; --sit-dark: #db2777; }
+
 .gv-page .gv-sit__problem:hover {
-  border-color: #d9ccf7;
-  background: #f7f4ff;
+  border-color: var(--sit-line, #d9ccf7);
+  background: var(--sit-hover, #f7f4ff);
 }
 
-.gv-page .gv-sit__problem--active {
-  background: #f1ebff;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.14), 0 8px 20px rgba(109, 40, 217, 0.12);
+.gv-page .gv-sit__problem--active,
+.gv-page .gv-sit__problem--active:hover {
+  background: var(--sit-soft, #f1ebff);
+  border-color: var(--sit-c, #8b5cf6);
+  box-shadow: 0 0 0 3px rgba(var(--sit-c-rgb, 139, 92, 246), 0.14), 0 8px 20px rgba(var(--sit-c-rgb, 139, 92, 246), 0.14);
 }
 
 .gv-page .gv-sit__problem-icon {
@@ -1148,7 +1156,7 @@
 }
 
 .gv-page .gv-sit__problem--active .gv-sit__problem-icon {
-  box-shadow: 0 0 0 2px #8b5cf6;
+  box-shadow: 0 0 0 2px var(--sit-c, #8b5cf6);
 }
 
 .gv-page .gv-sit__problem-text {
@@ -1171,7 +1179,7 @@
 }
 
 .gv-page .gv-sit__problem-arrow { color: #c3b4ec; flex-shrink: 0; }
-.gv-page .gv-sit__problem--active .gv-sit__problem-arrow { color: #6d28d9; }
+.gv-page .gv-sit__problem--active .gv-sit__problem-arrow { color: var(--sit-dark, #6d28d9); }
 
 /* Связка проблема → решение */
 .gv-page .gv-sit__connector {

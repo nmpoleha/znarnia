@@ -214,10 +214,10 @@ const PROBLEMS = [
       { title: 'Много практики',              text: 'Тренируем навыки на интересных и понятных заданиях.' },
     ],
     result: 'В результате ребёнок снова понимает темы, справляется с заданиями и становится увереннее в себе.',
-    pointImgs: ['sol-search', 'sol-support', 'sol-idea'],
+    pointImgs: ['sol-search', 'sol-support-orange', 'sol-idea-green'],
   },
   {
-    icon: 'sit-missed',
+    icon: 'sit-missed-orange',
     title: ['Пропускает уроки', 'и потом не может догнать класс'],
     points: [
       { title: 'Запись каждого занятия',   text: 'Пропущенную тему можно пересмотреть в удобное время.' },
@@ -225,10 +225,10 @@ const PROBLEMS = [
       { title: 'Педагог видит отставание', text: 'Замечает, где ребёнок отстал, и даёт дополнительные задания.' },
     ],
     result: 'В результате ребёнок быстро догоняет класс и не выпадает из программы.',
-    pointImgs: ['sol-video', 'sol-calendar', 'sol-watch'],
+    pointImgs: ['sol-video', 'sol-calendar-orange', 'sol-watch-green'],
   },
   {
-    icon: 'sit-rule',
+    icon: 'sit-rule-blue',
     title: ['Знает правило, но не может', 'самостоятельно решить задачу'],
     points: [
       { title: 'Разбираем логику решения',       text: 'Показываем, как рассуждать, а не заучивать алгоритм.' },
@@ -236,10 +236,10 @@ const PROBLEMS = [
       { title: 'Практика от простого к сложному', text: 'Постепенно доводим навык до уверенного уровня.' },
     ],
     result: 'В результате ребёнок сам решает задачи, а не заучивает готовые шаги.',
-    pointImgs: ['sol-brain', 'sol-book-idea', 'sol-steps'],
+    pointImgs: ['sol-brain', 'sol-book-idea-orange', 'sol-steps-green'],
   },
   {
-    icon: 'sit-fear',
+    icon: 'sit-fear-green',
     title: ['Боится ошибаться', 'и не верит в свои силы'],
     points: [
       { title: 'Маленькие группы',        text: 'Спокойная и безопасная среда без страха ошибиться «на виду».' },
@@ -247,7 +247,7 @@ const PROBLEMS = [
       { title: 'Внимание к каждому',      text: 'Преподаватель видит работу каждого ученика и поддерживает.' },
     ],
     result: 'В результате ребёнок перестаёт бояться ошибок и верит в свои силы.',
-    pointImgs: ['sol-group', 'sol-teacher-chat', 'sol-care'],
+    pointImgs: ['sol-group', 'sol-teacher-chat-orange', 'sol-care-green'],
   },
   {
     icon: 'sit-oge',
@@ -258,10 +258,10 @@ const PROBLEMS = [
       { title: 'Практика формата ОГЭ',  text: 'Тренируемся на экзаменационных заданиях.' },
     ],
     result: 'Ребёнок подходит к экзамену подготовленным и понимает, чего ожидать на ОГЭ.',
-    pointImgs: ['sol-subjects', 'sol-system', 'sol-oge-practice'],
+    pointImgs: ['sol-subjects', 'sol-system-orange', 'sol-oge-practice-green'],
   },
   {
-    icon: 'sit-homework',
+    icon: 'sit-homework-pink',
     title: ['Домашние задания превращаются', 'в стресс для всей семьи'],
     points: [
       { title: 'Персональный куратор',  text: 'Помогает ребёнку с домашним заданием, когда возникают сложности.' },
@@ -269,7 +269,7 @@ const PROBLEMS = [
       { title: 'Дополнительный разбор', text: 'При необходимости ребёнок получает пошаговое объяснение.' },
     ],
     result: 'В результате домашние задания перестают быть стрессом для всей семьи.',
-    pointImgs: ['sol-support', 'sol-idea', 'sol-search'],
+    pointImgs: ['sol-support', 'sol-idea-orange', 'sol-search-green'],
   },
 ]
 
@@ -452,7 +452,7 @@ export default function GlavnayaPage() {
                       type="button"
                       role="tab"
                       aria-selected={isActive}
-                      className={`gv-sit__problem${isActive ? ' gv-sit__problem--active' : ''}`}
+                      className={`gv-sit__problem gv-sit__problem--${['violet', 'orange', 'blue', 'green', 'violet', 'pink'][i]}${isActive ? ' gv-sit__problem--active' : ''}`}
                       onClick={() => setActiveProblem(i)}
                     >
                       <img className="gv-sit__problem-icon" src={`/znarnia/images/${p.icon}.png`} alt="" width="192" height="192" loading="lazy" decoding="async" />
