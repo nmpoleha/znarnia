@@ -996,7 +996,7 @@ export default function GlavnayaPage() {
             <div className="ks-hero__price">
               <span className="ks-hero__price-tag">Доступная цена</span>
               <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
-              <span className="ks-hero__price-value">600&nbsp;₽</span>
+              <span className="ks-hero__price-value">580&nbsp;₽</span>
               <span className="ks-hero__price-unit">за урок</span>
             </div>
 
