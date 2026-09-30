@@ -52,9 +52,9 @@ const PRINCIPLES = [
 
 /* ── Блок «Регулярные занятия в мини-группах» ── */
 const LEVELS = [
-  { grades: '1–4', theme: 'yellow', text: 'Развиваем математическое мышление, учимся рассуждать, видеть связи и осмысленно решать задачи.' },
-  { grades: '5–8', theme: 'blue', text: 'Системно осваиваем школьную программу, разбираемся в сложных темах и учимся уверенно применять знания на практике.' },
-  { grades: '9–11', theme: 'violet', text: 'Готовимся к ОГЭ и ЕГЭ: систематизируем знания, отрабатываем экзаменационные задания и выстраиваем планомерную подготовку к экзамену.' },
+  { grades: '1–4', pic: '/znarnia/images/konsultatsiya-2-grades-1-4.png', w: 480, h: 249, theme: 'yellow', text: 'Развиваем математическое мышление, учимся рассуждать, видеть связи и осмысленно решать задачи.' },
+  { grades: '5–8', pic: '/znarnia/images/konsultatsiya-2-grades-5-8.png', w: 480, h: 293, theme: 'blue', text: 'Системно осваиваем школьную программу, разбираемся в сложных темах и учимся уверенно применять знания на практике.' },
+  { grades: '9–11', pic: '/znarnia/images/konsultatsiya-2-grades-9-11.png', w: 480, h: 355, theme: 'violet', text: 'Готовимся к ОГЭ и ЕГЭ: систематизируем знания, отрабатываем экзаменационные задания и выстраиваем планомерную подготовку к экзамену.' },
 ]
 
 export default function Page() {
@@ -109,11 +109,13 @@ export default function Page() {
         <div className="kg-groups__top">
           <div className="kg-groups__intro">
             <h2 className="kg-groups__title" id="kg-groups-title">
-              {nb('Хотите системно повысить')}{' '}
+              {nb('Хотите системно повысить')}
+              {/* на мобильном «повысить» клеится к «уровень», чтобы не висеть одним словом */}
+              <span className="kg-sp-desk"> </span><span className="kg-sp-mob">{'\u00A0'}</span>
               <span className="kg-groups__title-mark">{nb('уровень ребёнка в математике?')}</span>
             </h2>
             <p className="kg-groups__text">
-              {nb('В «ЗНАРНИИ» есть')} <b>{nb('регулярные занятия в мини-группах')} <span className="kg-nowrap">для 1–11 классов.</span></b>
+              {nb('В «ЗНАРНИИ» есть')} <b>{nb('регулярные занятия в')}{'\u00A0'}<span className="kg-nowrap">мини-группах</span> <span className="kg-nowrap">для 1–11 классов.</span></b>
             </p>
             <p className="kg-groups__text">
               {nb('На занятиях дети получают')} <b>{nb('прочную математическую базу')}</b> {nb('и двигаются дальше с учётом возраста и задач:')}
@@ -137,6 +139,8 @@ export default function Page() {
                 <span className="kg-level__label">классы</span>
               </div>
               <p className="kg-level__text">{nb(l.text)}</p>
+              {/* Иллюстрация видна только на мобильном */}
+              <img className="kg-level__pic" src={l.pic} alt="" aria-hidden="true" width={l.w} height={l.h} loading="lazy" decoding="async" />
             </div>
           ))}
         </div>
@@ -145,7 +149,7 @@ export default function Page() {
           <div className="kg-groups__price-main">
             <img className="kg-groups__coins" src="/znarnia/images/konsultatsiya-2-coins.png" alt="" aria-hidden="true" width="240" height="180" loading="lazy" decoding="async" />
             <p className="kg-groups__price-text">
-              {nb('Стоимость —')}{' '}
+              <span className="kg-groups__price-label">{nb('Стоимость —')}</span>{' '}
               <span className="kg-groups__price-value">{nb('от 580 ₽ за урок.')}</span>
             </p>
           </div>
@@ -175,7 +179,7 @@ export default function Page() {
           <div className="ks-hero__price">
             <span className="ks-hero__price-tag">Доступная цена</span>
             <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
-            <span className="ks-hero__price-value">600&nbsp;₽</span>
+            <span className="ks-hero__price-value">580&nbsp;₽</span>
             <span className="ks-hero__price-unit">за урок</span>
           </div>
 
@@ -315,7 +319,8 @@ export default function Page() {
                 {PRINCIPLES.map((p, i) => {
                   const isOpen = openCards.has(i)
                   return (
-                    <div key={i} className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`}>
+                    /* вся карточка кликабельна; нажатие на «+» всплывает сюда же */
+                    <div key={i} className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`} onClick={() => toggleCard(i)}>
                       <div className="sh-principle__media">
                         <div className="sh-principle__icon">
                           <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
@@ -332,7 +337,6 @@ export default function Page() {
                         className="gv-principle__toggle"
                         aria-expanded={isOpen}
                         aria-label={isOpen ? 'Свернуть описание' : 'Показать описание'}
-                        onClick={() => toggleCard(i)}
                       >
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />

@@ -1328,3 +1328,376 @@
   .kg-groups__coins { width: 112px; }
 }
 .kg-nowrap { white-space: nowrap; }
+
+/* Иллюстрации в карточках классов — только на мобильном */
+.kg-level__pic { display: none; }
+.kg-sp-mob { display: none; }
+
+/* ── Мобильная композиция блока (десктоп и планшет не затрагиваются) ── */
+@media (max-width: 679px) {
+  .kg-groups { gap: 26px; margin-bottom: 40px; }
+
+  .kg-groups__top { gap: 0; }
+  .kg-groups__title {
+    font-size: clamp(26px, 7.6vw, 30px);
+    font-weight: 800;
+    line-height: 1.08;
+    margin-bottom: 14px;
+    text-wrap: balance;
+  }
+  .kg-groups__title-mark { border-radius: 10px; }
+  .kg-sp-desk { display: none; }
+  .kg-sp-mob { display: inline; }
+  .kg-groups__text { font-size: 15.5px; line-height: 1.45; margin-bottom: 11px; }
+
+  .kg-groups__hero-img {
+    width: 70%;
+    max-width: 280px;
+    margin: 14px auto 0;
+  }
+
+  .kg-groups__levels { gap: 14px; }
+  .kg-level { gap: 0; padding: 20px; border-radius: 20px; }
+  .kg-level__head { gap: 12px; }
+  .kg-level__badge {
+    min-width: 54px;
+    height: 54px;
+    padding: 0 8px;
+    font-size: 19px;
+  }
+  .kg-level__label { font-size: 20px; font-weight: 700; }
+  .kg-level__text { margin-top: 16px; font-size: 15px; line-height: 1.45; }
+  .kg-level__pic {
+    display: block;
+    align-self: flex-end;
+    width: 136px;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .kg-groups__price { gap: 14px; padding: 20px; border-radius: 20px; }
+  .kg-groups__price-main { gap: 12px; }
+  .kg-groups__coins { width: 60px; }
+  .kg-groups__price-text { font-size: 18px; font-weight: 700; line-height: 1.5; }
+  .kg-groups__price-value {
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 5px 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .kg-groups__price-note { font-size: 14.5px; line-height: 1.45; }
+}
+
+/* Узкие экраны: плашка цены не помещается рядом с монетами — уходит строкой ниже */
+@media (max-width: 374px) {
+  .kg-groups__price-main {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-areas: "coins label" "value value";
+    align-items: center;
+    gap: 10px 12px;
+  }
+  .kg-groups__price-text { display: contents; }
+  .kg-groups__coins { grid-area: coins; width: 56px; }
+  .kg-groups__price-label {
+    grid-area: label;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1b1a3a;
+  }
+  .kg-groups__price-value { grid-area: value; justify-self: start; }
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE ≤540px — компактные hero-форма и «Безопасность, вовлечение…»
+   (десктоп и планшет не затрагиваются)
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 540px) {
+  .ks-main { padding-left: 16px; padding-right: 16px; }
+
+  /* ── Hero: плашка → заголовок → описание → цена → форма → девушка ── */
+  .ks-hero__pill {
+    display: inline-flex;
+    letter-spacing: -0.005em;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 0;
+    gap: 8px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: clamp(11px, 3.3vw, 13px);
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+    margin-bottom: 18px;
+  }
+  .ks-hero__pill svg { width: 15px; height: 15px; }
+
+  .ks-title {
+    font-size: clamp(25px, 7vw, 30px);
+    line-height: 1.07;
+    font-weight: 800;
+  }
+  .ks-lead {
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-top: 12px;
+    max-width: none;
+  }
+
+  /* Цена — компактная горизонтальная карточка */
+  .ks-hero__price {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "label value" "label unit";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    justify-self: stretch;
+    width: 100%;
+    min-height: 0;
+    margin: 18px 0 22px;
+    padding: 16px 16px 12px;
+    border-radius: 18px;
+    text-align: left;
+    box-shadow: 0 10px 24px -20px rgba(109, 40, 217, 0.4);
+  }
+  .ks-hero__price-tag {
+    left: 16px;
+    transform: translateY(-55%);
+    font-size: 10.5px;
+    padding: 4px 10px;
+  }
+  .ks-hero__price-label {
+    grid-area: label;
+    white-space: nowrap;
+    font-size: 13px;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .ks-hero__price-value {
+    grid-area: value;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .ks-hero__price-unit {
+    grid-area: unit;
+    justify-self: end;
+    font-size: 11.5px;
+    margin: 0;
+  }
+
+  /* Форма */
+  .ks-card {
+    border-radius: 22px;
+    padding: 19px 16px 18px;
+    box-shadow: 0 10px 30px rgba(76, 29, 149, 0.07);
+  }
+  .ks-card__accent { height: 3px; opacity: 0.85; }
+  .ks-card__head { margin-bottom: 15px; }
+  .ks-card__title { font-size: 20px; margin-bottom: 5px; }
+  .ks-card__sub { font-size: 13.5px; line-height: 1.4; }
+
+  .ks-form { gap: 12px; }
+  .ks-grid { gap: 12px; }
+  .ks-field { gap: 5px; }
+  .ks-label { font-size: 13px; font-weight: 600; line-height: 1.25; }
+  .ks-input,
+  .ks-select {
+    height: 44px;
+    padding: 0 13px;
+    border-radius: 11px;
+    font-size: 14px;
+  }
+  .ks-select { padding-right: 40px; }
+
+  .ks-check { gap: 8px; font-size: 12px; line-height: 1.35; }
+  .ks-check__box { margin-top: 0; }
+  .ks-check__text { flex: 1; min-width: 0; }
+  .ks-err--check { margin-top: -8px; }
+
+  .ks-submit {
+    height: 54px;
+    padding: 0 16px;
+    margin-top: 2px;
+    border-radius: 13px;
+    font-size: 15.5px;
+    gap: 8px;
+  }
+  .ks-submit svg { width: 16px; height: 16px; }
+
+  /* Девушка — сразу под формой, как часть того же блока */
+  .ks-hero__aside {
+    width: 86%;
+    max-width: 330px;
+    margin: 12px auto 0;
+  }
+
+  /* ── «Безопасность, вовлечение и результат…» ── */
+  .ks-lessons .sh-lessons__head { margin-bottom: 22px; }
+  .ks-lessons .sh-lessons__title {
+    font-size: clamp(22px, 6.2vw, 26px);
+    line-height: 1.1;
+    margin-bottom: 13px;
+  }
+  .ks-lessons .sh-lessons__intro {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #6b6580;
+  }
+
+  .ks-lessons .sh-lessons__grid { gap: 12px; }
+  .ks-lessons .sh-principle {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    min-height: 84px;
+    padding: 12px 6px 12px 16px;
+    border-radius: 18px;
+    border-color: #f3f0fc;
+    box-shadow: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.15s ease;
+  }
+  .ks-lessons .sh-principle:active { background: #faf8ff; }
+  .ks-lessons .sh-principle::before { top: 16px; bottom: 16px; width: 4px; }
+
+  /* номер — часть иконки: сидит на её верхнем левом углу */
+  .ks-lessons .sh-principle__media { width: 48px; height: 48px; }
+  .ks-lessons .sh-principle__icon { border-radius: 14px; }
+  .ks-lessons .sh-principle__num {
+    top: -6px;
+    left: -6px;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    border-width: 2px;
+    box-shadow: none;
+  }
+
+  .ks-lessons .sh-principle__title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.18;
+    text-wrap: pretty;
+  }
+  .ks-lessons .sh-principle__text { font-size: 14.5px; line-height: 1.5; padding: 0 8px 2px 0; }
+
+  /* «+»: зона нажатия 44×44, видимая подложка 38px */
+  .ks-lessons .gv-principle__toggle,
+  .ks-lessons .gv-principle--open .gv-principle__toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    filter: none;
+  }
+  .ks-lessons .gv-principle__toggle::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 11px;
+    background: var(--pc-soft);
+    transition: background 0.15s ease;
+  }
+  .ks-lessons .gv-principle--open .gv-principle__toggle::before { background: var(--pc); }
+  .ks-lessons .gv-principle__toggle svg { position: relative; width: 18px; height: 18px; }
+}
+
+/* 390–540px — чуть шире поля страницы */
+@media (min-width: 390px) and (max-width: 540px) {
+  .ks-main { padding-left: 18px; padding-right: 18px; }
+}
+
+/* 320–359px — карточкам принципов больше ширины под текст */
+@media (max-width: 359px) {
+  .ks-lessons .sh-principle { column-gap: 8px; padding: 12px 4px 12px 14px; }
+  .ks-lessons .sh-principle__media { width: 44px; height: 44px; }
+  .ks-lessons .sh-principle__num { top: -5px; left: -5px; width: 22px; height: 22px; font-size: 11px; }
+  .ks-submit { font-size: 14.5px; padding: 0 12px; white-space: nowrap; }
+  .ks-hero__pill { gap: 5px; padding: 7px 9px; letter-spacing: -0.02em; }
+  .ks-hero__pill svg { width: 13px; height: 13px; }
+  .ks-hero__price-value { font-size: 30px; }
+  .ks-hero__price-label { font-size: 12px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   TABLET 768–1024px — hero: форма слева, цена + девушка справа
+   (десктоп >1024 и мобильная версия <768 не затрагиваются)
+   ═══════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ks-hero__inner {
+    position: relative;
+    grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.95fr);
+    column-gap: 24px;
+    row-gap: 0;
+    align-items: start;
+    justify-items: stretch;
+  }
+
+  .ks-hero__pill {
+    grid-column: 1 / -1; grid-row: 1;
+    justify-self: stretch;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .ks-title {
+    grid-column: 1 / -1; grid-row: 2;
+    font-size: clamp(32px, 4.3vw, 36px);
+    line-height: 1.07;
+    white-space: normal;
+    margin: 0 0 10px;
+  }
+  .ks-lead {
+    grid-column: 1 / -1; grid-row: 3;
+    max-width: 700px;
+    margin: 0 0 22px;
+  }
+
+  /* Форма */
+  .ks-card {
+    grid-column: 1; grid-row: 4;
+    width: 100%;
+    padding: 24px;
+    border-radius: 22px;
+  }
+  .ks-card__head { margin-bottom: 14px; }
+  .ks-form { gap: 11px; }
+  .ks-grid { grid-template-columns: 1fr 1fr; gap: 11px 14px; }
+  .ks-field--half { max-width: calc(50% - 7px); }
+  .ks-label { line-height: 1.25; }
+  .ks-input,
+  .ks-select { height: 46px; padding-top: 0; padding-bottom: 0; }
+
+  /* Правая колонка: компактная цена сверху, девушка прижата к низу формы */
+  .ks-hero__price {
+    grid-column: 2; grid-row: 4;
+    position: relative;
+    top: auto; left: auto;
+    align-self: start;
+    justify-self: center;
+    width: 150px;
+    margin: 14px 0 0;
+    padding: 18px 12px 13px;
+    border-radius: 24px;
+  }
+  .ks-hero__price-value { font-size: 36px; }
+
+  .ks-hero__aside {
+    grid-column: 2; grid-row: 4;
+    align-self: end;
+    justify-self: center;
+    width: 100%;
+    max-width: 330px;
+    margin: 0;
+  }
+  .ks-hero__girl { object-fit: contain; }
+  .ks-hero__doodle { display: none; }
+}
