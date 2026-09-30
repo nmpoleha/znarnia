@@ -65,23 +65,23 @@ import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
 
 /* ── «Математика в мини-группах»: 4 программы сеткой 2×2 ── */
 const FORMAT_PROGRAMS = [
-  { grade: '1–4 класс',   name: 'Начальная школа', tone: 'lilac',  placeholder: 'стопка книг',
+  { grade: '1–4 класс',   name: 'Начальная школа', tone: 'lilac',  placeholder: 'стопка книг', img: 'fmt-card-1-4', imgAlt: 'Стопка учебников, тетрадь с примерами и карандаши',
     text: 'Формируем прочную математическую базу, учим рассуждать, понимать задачи и уверенно применять знания.',
     extra: { title: 'Индивидуальные занятия',
       subjects: ['Математика', 'Русский язык', 'Английский язык', 'Олимпиадная математика', 'Поступление в математическую школу'],
       note: 'Программа составляется под уровень ребёнка и конкретную образовательную цель.' } },
-  { grade: '5–8 класс',   name: 'Средняя школа',   tone: 'peach',  placeholder: 'калькулятор + угольник',
+  { grade: '5–8 класс',   name: 'Средняя школа',   tone: 'peach',  placeholder: 'калькулятор + угольник', img: 'fmt-card-5-8', imgAlt: 'Учебники, калькулятор, тетрадь с графиком и угольник',
     text: 'Выстраиваем уверенную математическую базу, закрываем пробелы и помогаем разобраться в сложных школьных темах.',
     extra: { title: 'Индивидуальные занятия',
       subjects: ['Математика', 'Русский язык', 'Английский язык', 'Физика', 'Информатика', 'Обществознание', 'Биология', 'Химия'],
       note: 'Программа подбирается с учётом уровня ребёнка, школьной программы и ваших целей.' } },
-  { grade: '9 класс',     name: 'Подготовка к ОГЭ', tone: 'mint',  placeholder: 'бланк ОГЭ с галочкой',
+  { grade: '9 класс',     name: 'Подготовка к ОГЭ', tone: 'mint',  placeholder: 'бланк ОГЭ с галочкой', img: 'fmt-card-9', imgAlt: 'Бланк ОГЭ, планшет с тестом, учебники и тетрадь',
     text: 'Систематизируем знания, закрываем пробелы и последовательно отрабатываем задания ОГЭ — от базовых до сложных.',
     extra: { title: 'Другие предметы ОГЭ в мини\u2011группах',
       subjects: ['Русский язык', 'Физика', 'Информатика', 'Обществознание'],
       meta: '1 раз в неделю · 90 минут · 1\u00a0050\u00a0₽\u00a0/\u00a0занятие',
       note: 'Также доступны индивидуальные занятия по школьным предметам и выбранным предметам ОГЭ.' } },
-  { grade: '10–11 класс', name: 'Подготовка к ЕГЭ', tone: 'lilac', placeholder: 'академическая шапочка',
+  { grade: '10–11 класс', name: 'Подготовка к ЕГЭ', tone: 'lilac', placeholder: 'академическая шапочка', img: 'fmt-card-10-11', imgAlt: 'Бланк ЕГЭ с графиком, мишень, калькулятор и формулы',
     text: 'Повторяем необходимую базу, разбираем типы заданий и выстраиваем последовательную стратегию подготовки к экзамену.',
     extra: { title: 'Индивидуальные занятия',
       subjects: ['Физика', 'Информатика', 'Обществознание', 'Русский язык', 'Химия', 'Биология'],
@@ -698,17 +698,17 @@ export default function GlavnayaPage() {
               <div className="gv-fmt__week">
                 <div className="gv-fmt__pill">
                   <span className="gv-fmt__pill-icon"><FmtIconVideo /></span>
-                  <span><b>2 онлайн-урока<br/>в неделю</b><small>с учителем математики</small></span>
+                  <span><b>2 онлайн-урока в неделю</b><small>с учителем математики</small></span>
                 </div>
                 <span className="gv-fmt__plus" aria-hidden="true">+</span>
                 <div className="gv-fmt__pill">
                   <span className="gv-fmt__pill-icon"><FmtIconLaptop /></span>
-                  <span><b>1 урок-тренажёр<br/>в неделю</b><small>на платформе</small></span>
+                  <span><b>1 урок-тренажёр в неделю</b><small>на платформе</small></span>
                 </div>
                 <div className="gv-fmt__price">от 580&nbsp;₽ / занятие</div>
               </div>
             </div>
-            <div className="gv-fmt__ph gv-fmt__ph--hero" aria-hidden="true">ноутбук + книги + карандаши</div>
+            <img className="gv-fmt__hero-img" src="/znarnia/images/fmt-mini-groups.png" alt="Ноутбук с видеоуроком, учебники и карандаши" width="900" height="639" loading="lazy" decoding="async" />
           </div>
 
           <div className="gv-fmt__grid">
@@ -721,7 +721,9 @@ export default function GlavnayaPage() {
                     <p className="gv-fmt-card__name">{p.name}</p>
                     <p className="gv-fmt-card__text">{nb(p.text)}</p>
                   </div>
-                  <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>
+                  {p.img
+                    ? <img className="gv-fmt-card__img" src={`/znarnia/images/${p.img}.png`} alt={p.imgAlt} width="480" height="480" loading="lazy" decoding="async" />
+                    : <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>}
                   <a href="#konsultatsiya" className="gv-fmt-card__btn">Получить консультацию <span aria-hidden="true">→</span></a>
                 </div>
                 <div className="gv-fmt-card__ind">
