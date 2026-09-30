@@ -3348,3 +3348,222 @@
 @media (min-width: 360px) and (max-width: 767px) {
   .gv-page .gv-pay--violet .gv-pay__phrase { white-space: nowrap; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   «Как построены наши занятия» — мобильная версия (≤639px)
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 639px) {
+  .gv-page .gv-lessons .sh-lessons__head { margin-bottom: 22px; gap: 0; }
+  .gv-page .gv-lessons .sh-lessons__title {
+    font-size: clamp(22px, 6.2vw, 25px);
+    line-height: 1.1;
+    margin-bottom: 13px;
+    text-wrap: balance;
+  }
+  .gv-page .gv-lessons .sh-lessons__intro {
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.48;
+    color: #5b5775;
+  }
+
+  .gv-page .gv-lessons .sh-lessons__grid { gap: 12px; }
+
+  /* карточка: [номер+иконка] [заголовок] [+] */
+  .gv-page .gv-lessons .sh-principle {
+    grid-template-columns: 46px minmax(0, 1fr) 44px;
+    column-gap: 10px;
+    row-gap: 8px;
+    min-height: 84px;
+    padding: 12px 4px 12px 16px;
+    border-radius: 19px;
+    border-color: #f1edf9;
+    box-shadow: 0 4px 14px rgba(76, 29, 149, 0.035);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .gv-page .gv-lessons .sh-principle:active { background: #fbf9ff; transform: scale(0.995); }
+  .gv-page .gv-lessons .sh-principle::before { top: 16px; bottom: 16px; width: 4px; }
+
+  /* номер лежит на верхнем левом углу иконки */
+  .gv-page .gv-lessons .sh-principle__media { width: 46px; height: 46px; }
+  .gv-page .gv-lessons .sh-principle__icon { border-radius: 14px; }
+  .gv-page .gv-lessons .sh-principle__num {
+    top: -5px;
+    left: -6px;
+    width: 24px;
+    height: 24px;
+    font-size: 12.5px;
+    border-width: 2px;
+    box-shadow: 0 3px 8px rgba(76, 29, 149, 0.22);
+  }
+
+  .gv-page .gv-lessons .sh-principle__title {
+    font-size: 15.5px;
+    line-height: 1.18;
+    font-weight: 700;
+    text-wrap: pretty;
+  }
+
+  /* «+»: касание 44×44, видимая подложка 38px */
+  .gv-page .gv-lessons .gv-principle__toggle,
+  .gv-page .gv-lessons .gv-principle__toggle:hover,
+  .gv-page .gv-lessons .gv-principle--open .gv-principle__toggle {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    filter: none;
+  }
+  .gv-page .gv-lessons .gv-principle__toggle::before {
+    content: '';
+    grid-area: 1 / 1;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--pc-soft);
+    transition: background 0.15s ease;
+  }
+  .gv-page .gv-lessons .gv-principle--open .gv-principle__toggle::before { background: var(--pc); }
+  .gv-page .gv-lessons .gv-principle__toggle svg { grid-area: 1 / 1; position: relative; width: 18px; height: 18px; }
+
+  .gv-page .gv-lessons .sh-principle__text { padding: 2px 10px 2px 0; font-size: 14.5px; }
+}
+/* секция «Как построены занятия» на телефоне — поля 16px, больше ширины тексту карточек */
+@media (max-width: 639px) {
+  .gv-page .gv-reveal--lessons .sh-wrap { padding-left: 16px; padding-right: 16px; }
+}
+@media (max-width: 359px) {
+  .gv-page .gv-lessons .sh-principle { padding-left: 14px; column-gap: 8px; grid-template-columns: 42px minmax(0, 1fr) 44px; }
+  .gv-page .gv-lessons .sh-principle__media { width: 42px; height: 42px; }
+  .gv-page .gv-lessons .sh-principle__title { font-size: 14.5px; }
+}
+@media (min-width: 360px) and (max-width: 389px) {
+  .gv-page .gv-lessons .sh-principle__title { font-size: 15px; letter-spacing: -0.005em; }
+  .gv-page .gv-lessons .sh-principle { padding-right: 2px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   «Как проходят занятия» + карточки классов — мобильная версия (≤767px)
+   ══════════════════════════════════════════════════════════ */
+/* переключатель аккордеона нужен только на телефоне */
+.gv-page .gv-fmt-card__ind-toggle { display: none; }
+
+@media (max-width: 767px) {
+  .gv-page .gv-fmt .sh-wrap { padding-left: 16px; padding-right: 16px; }
+  .gv-page .gv-fmt .p2-section-title { font-size: clamp(23px, 6.6vw, 26px); line-height: 1.1; margin-bottom: 18px; }
+
+  /* ── верхний блок формата ── */
+  .gv-page .gv-fmt__top { padding: 18px 18px 12px; gap: 8px; border-radius: 24px; }
+  .gv-page .gv-fmt__title { font-size: clamp(19px, 5.6vw, 22px); margin-bottom: 8px; }
+  .gv-page .gv-fmt__desc { font-size: 14.5px; line-height: 1.45; margin-bottom: 14px; }
+  .gv-page .gv-fmt__week { gap: 0; }
+  .gv-page .gv-fmt__pill { min-height: 56px; padding: 9px 14px; gap: 12px; border-radius: 15px; }
+  .gv-page .gv-fmt__pill-icon svg { width: 26px; height: 26px; }
+  .gv-page .gv-fmt__pill b { font-size: 14.5px; }
+  .gv-page .gv-fmt__pill small { font-size: 12.5px; margin-top: 2px; }
+  .gv-page .gv-fmt__plus { font-size: 16px; line-height: 1; margin: 3px 0; }
+  .gv-page .gv-fmt__price { min-height: 48px; padding: 10px 20px; font-size: 17px; margin-top: 10px; }
+  .gv-page .gv-fmt__hero-img { max-width: min(68%, 224px); margin: 0 auto -4px; }
+
+  /* ── карточки ── */
+  .gv-page .gv-fmt__grid { gap: 16px; margin-top: 16px; }
+  .gv-page .gv-fmt-card { border-radius: 22px; }
+  .gv-page .gv-fmt-card__main {
+    grid-template-columns: minmax(0, 1fr) 78px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "grade ph"
+      "badge badge"
+      "name  name"
+      "text  text"
+      "btn   btn";
+    column-gap: 12px;
+    padding: 16px 18px 16px;
+  }
+  .gv-page .gv-fmt-card__grade { align-self: center; margin: 0; }
+  .gv-page .gv-fmt-card__img { width: 78px; height: auto; align-self: center; margin: -4px 0 -2px; }
+  .gv-page .gv-fmt-card__badge {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    height: 27px;
+    padding: 0 11px;
+    border-radius: 8px;
+    font-size: 11.5px;
+    margin-top: 6px;
+  }
+  .gv-page .gv-fmt-card__name { font-size: 17.5px; font-weight: 700; line-height: 1.2; margin: 8px 0 6px; }
+  .gv-page .gv-fmt-card__text { font-size: 14.5px; line-height: 1.45; margin: 0; }
+  .gv-page .gv-fmt-card__btn {
+    min-height: 50px;
+    margin-top: 16px;
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-size: 15px;
+  }
+
+  /* ── полоса «Индивидуальные занятия»: аккордеон ── */
+  .gv-page .gv-fmt-card__ind { display: block; padding: 0; }
+  .gv-page .gv-fmt-card__ind-icon,
+  .gv-page .gv-fmt-card__ind-title { display: none; }
+  .gv-page .gv-fmt-card__ind-toggle {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr) 24px;
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+    min-height: 58px;
+    padding: 10px 16px 10px 18px;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    color: var(--fmt-ink);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .gv-page .gv-fmt-card__ind-toggle:focus-visible { outline: 2px solid var(--fmt-accent); outline-offset: -3px; border-radius: 0 0 22px 22px; }
+  .gv-page .gv-fmt-card__ind-toggle-icon { display: flex; color: var(--fmt-accent); }
+  .gv-page .gv-fmt-card__ind-toggle-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .gv-page .gv-fmt-card__ind-toggle-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    line-height: 1.3;
+  }
+  .gv-page .gv-fmt-card__ind-toggle-sub { font-size: 13px; line-height: 1.4; color: var(--fmt-muted); }
+  .gv-page .gv-fmt-card__ind-chevron { justify-self: end; color: #9d8bcf; transition: transform 0.25s ease; }
+  .gv-page .gv-fmt-card__ind--open .gv-fmt-card__ind-chevron { transform: rotate(180deg); }
+
+  /* плавное раскрытие: 0fr → 1fr */
+  .gv-page .gv-fmt-card__ind-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.28s ease, opacity 0.2s ease;
+  }
+  .gv-page .gv-fmt-card__ind--open .gv-fmt-card__ind-body { grid-template-rows: 1fr; opacity: 1; }
+  .gv-page .gv-fmt-card__ind-inner { overflow: hidden; min-height: 0; }
+  .gv-page .gv-fmt-card__ind-inner > :first-child { margin-top: 0; }
+  .gv-page .gv-fmt-card__ind-inner > :last-child { margin-bottom: 16px; }
+  .gv-page .gv-fmt-card__ind-inner { padding: 0 16px 0 52px; }
+  .gv-page .gv-fmt-card__ind-subjects { font-size: 13.5px; line-height: 1.45; }
+  .gv-page .gv-fmt-card__ind-note { font-size: 12.5px; }
+  /* 9 класс: предметы уже видны в строке, в раскрытии — расписание и примечание */
+  .gv-page .gv-fmt-card__ind--preview .gv-fmt-card__ind-inner .gv-fmt-card__ind-subjects { display: none; }
+}
+
+@media (max-width: 359px) {
+  .gv-page .gv-fmt .sh-wrap { padding-left: 13px; padding-right: 13px; }
+  .gv-page .gv-fmt__top { padding-left: 16px; padding-right: 16px; }
+  .gv-page .gv-fmt-card__main { padding-left: 16px; padding-right: 16px; grid-template-columns: minmax(0, 1fr) 70px; }
+  .gv-page .gv-fmt-card__img { width: 70px; }
+  .gv-page .gv-fmt-card__ind-toggle { padding-left: 16px; padding-right: 12px; }
+  .gv-page .gv-fmt-card__ind-inner { padding-left: 50px; padding-right: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gv-page .gv-fmt-card__ind-body,
+  .gv-page .gv-fmt-card__ind-chevron { transition: none; }
+}

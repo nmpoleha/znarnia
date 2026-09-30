@@ -328,6 +328,14 @@ const PROBLEMS = [
 export default function GlavnayaPage() {
   const [contactsOpen, setContactsOpen] = useState(false)
   const [openCards, setOpenCards] = useState(() => new Set())
+  /* раскрытые полосы «Индивидуальные занятия» в карточках классов (аккордеон на телефоне) */
+  const [openInd, setOpenInd] = useState(() => new Set())
+  const toggleInd = (i) => setOpenInd((prev) => {
+    const next = new Set(prev)
+    if (next.has(i)) next.delete(i)
+    else next.add(i)
+    return next
+  })
   const [activeProblem, setActiveProblem] = useState(0)
   /* на телефоне решение показывается в нижней панели (bottom sheet): 'closed' | 'open' | 'closing' */
   const [solutionModal, setSolutionModal] = useState('closed')
@@ -670,7 +678,15 @@ export default function GlavnayaPage() {
             {PRINCIPLES.map((p, i) => {
               const isOpen = openCards.has(i)
               return (
-                <div key={i} className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`}>
+                <div
+                  key={i}
+                  className={`sh-principle gv-principle sh-principle--${p.theme}${isOpen ? ' gv-principle--open' : ''}`}
+                  onClick={(e) => {
+                    /* на телефоне раскрывается нажатием на любую часть карточки */
+                    if (e.target.closest('button')) return
+                    if (window.matchMedia('(max-width: 639px)').matches) toggleCard(i)
+                  }}
+                >
                   <div className="sh-principle__media">
                     <div className="sh-principle__icon">
                       <img src={p.img} alt="" aria-hidden="true" className="sh-principle__icon-img" width="320" height="320" loading="lazy" decoding="async" />
@@ -757,7 +773,10 @@ export default function GlavnayaPage() {
           </div>
 
           <div className="gv-fmt__grid">
-            {FORMAT_PROGRAMS.map((p) => (
+            {FORMAT_PROGRAMS.map((p, i) => {
+              const indOpen = openInd.has(i)
+              const indId = `gv-fmt-ind-${i}`
+              return (
               <article key={p.grade} className={`gv-fmt-card gv-fmt-card--${p.tone}`}>
                 <div className="gv-fmt-card__main">
                   <div className="gv-fmt-card__body">
@@ -771,17 +790,39 @@ export default function GlavnayaPage() {
                     : <div className="gv-fmt__ph gv-fmt-card__ph" aria-hidden="true">{p.placeholder}</div>}
                   <a href="#konsultatsiya" className="gv-fmt-card__btn">Получить консультацию <span aria-hidden="true">→</span></a>
                 </div>
-                <div className="gv-fmt-card__ind">
+                <div className={`gv-fmt-card__ind${indOpen ? ' gv-fmt-card__ind--open' : ''}${p.extra.meta ? ' gv-fmt-card__ind--preview' : ''}`}>
                   <span className="gv-fmt-card__ind-icon"><FmtIconPerson /></span>
                   <div className="gv-fmt-card__ind-text">
+                    {/* desktop/планшет: обычный заголовок; телефон: строка-переключатель (аккордеон) */}
                     <p className="gv-fmt-card__ind-title">{p.extra.title}<span className="gv-fmt-card__star" aria-hidden="true">*</span></p>
-                    <p className="gv-fmt-card__ind-subjects">{p.extra.subjects.join(' · ')}</p>
-                    {p.extra.meta && <p className="gv-fmt-card__ind-meta">{p.extra.meta}</p>}
-                    <p className="gv-fmt-card__ind-note"><span aria-hidden="true">* </span>{nb(p.extra.note)}</p>
+                    <button
+                      type="button"
+                      className="gv-fmt-card__ind-toggle"
+                      aria-expanded={indOpen}
+                      aria-controls={indId}
+                      onClick={() => toggleInd(i)}
+                    >
+                      <span className="gv-fmt-card__ind-toggle-icon" aria-hidden="true"><FmtIconPerson /></span>
+                      <span className="gv-fmt-card__ind-toggle-text">
+                        <span className="gv-fmt-card__ind-toggle-title">{p.extra.title}<span className="gv-fmt-card__star" aria-hidden="true">*</span></span>
+                        {p.extra.meta && <span className="gv-fmt-card__ind-toggle-sub">{p.extra.subjects.join(' · ')}</span>}
+                      </span>
+                      <svg className="gv-fmt-card__ind-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="gv-fmt-card__ind-body" id={indId}>
+                      <div className="gv-fmt-card__ind-inner">
+                        <p className="gv-fmt-card__ind-subjects">{p.extra.subjects.join(' · ')}</p>
+                        {p.extra.meta && <p className="gv-fmt-card__ind-meta">{p.extra.meta}</p>}
+                        <p className="gv-fmt-card__ind-note"><span aria-hidden="true">* </span>{nb(p.extra.note)}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
-            ))}
+              )
+            })}
           </div>
 
           {/* ── Оплата и гарантии: 7 дней на знакомство ── */}
