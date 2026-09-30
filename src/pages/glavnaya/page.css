@@ -1712,6 +1712,155 @@
 }
 
 /* ══════════════════════════════════════════════════════════
+   Интеллектуальный клуб — копия баннера со страницы znakomstvo-dlya-reklamy (zn-club)
+   ══════════════════════════════════════════════════════════ */
+.gv-page .zn-club {
+  --zc-navy: #17145c;
+  --zc-violet: #6c3bff;
+
+  width: 100%;
+  padding: 48px clamp(20px, 4vw, 64px) 8px;
+}
+.gv-page .zn-club__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: clamp(28px, 4vw, 52px);
+  background:
+    radial-gradient(120% 120% at 0% 0%, #f4f0ff 0%, rgba(244, 240, 255, 0) 60%),
+    linear-gradient(180deg, #efeafd 0%, #f3effe 100%);
+  border: 1px solid #e7ddfa;
+}
+.gv-page .zn-club__content { position: relative; z-index: 1; min-width: 0; }
+.gv-page .zn-club__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.3;
+  color: var(--zc-navy);
+  margin: 0 0 12px;
+}
+.gv-page .zn-club__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--zc-navy);
+  margin: 0 0 18px;
+}
+.gv-page .zn-club__title-accent { color: var(--zc-violet); }
+.gv-page .zn-club__text {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: #56527a;
+  margin: 0 0 18px;
+  max-width: 54ch;
+}
+.gv-page .zn-club__perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 1.7vw, 18px);
+  color: var(--zc-violet);
+  margin: 0 0 28px;
+}
+.gv-page .zn-club__gift {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--zc-violet);
+  flex-shrink: 0;
+}
+.gv-page .zn-club__gift svg { width: 26px; height: 26px; }
+.gv-page .zn-club__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6c3bff 0%, #7938e8 100%);
+  box-shadow: 0 16px 32px -14px rgba(108, 59, 255, 0.6);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.gv-page .zn-club__btn svg { flex-shrink: 0; }
+.gv-page .zn-club__btn:hover { transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 22px 40px -14px rgba(108, 59, 255, 0.65); }
+
+/* без z-index: грид-элемент не должен создавать stacking-context,
+   иначе mix-blend-mode иллюстрации не с чем смешивать */
+.gv-page .zn-club__media { min-width: 0; }
+.gv-page .zn-club__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* белый фон иллюстрации сливается со светло-сиреневой карточкой */
+  mix-blend-mode: multiply;
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 1024px) {
+  .gv-page .zn-club__card {
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 24px;
+  }
+  .gv-page .zn-club__media { align-self: center; }
+}
+
+/* ── ПЛАНШЕТ И МОБИЛЬНЫЙ: одна колонка, иллюстрация сверху ── */
+@media (max-width: 1023px) {
+  .gv-page .zn-club__media {
+    order: -1;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 8px;
+  }
+  .gv-page .zn-club__btn { width: 100%; min-height: 56px; }
+}
+@media (max-width: 767px) {
+  .gv-page .zn-club { padding: 16px 0 0; }
+  .gv-page .zn-club__card { border-radius: 24px; padding: 24px 20px 28px; }
+  .gv-page .zn-club__media { max-width: 280px; }
+  .gv-page .zn-club__btn { font-size: 16px; padding: 14px 18px; gap: 10px; }
+}
+/* текст кнопки клуба длиннее ширины узкого телефона — две ровные строки по центру */
+@media (max-width: 430px) {
+  .gv-page .zn-club__btn { white-space: normal; text-align: center; text-wrap: balance; font-size: 15px; }
+}
+@media (max-width: 540px) {
+  .gv-page .zn-club__perk { align-items: flex-start; }
+  .gv-page .zn-club__gift { margin-top: 1px; }
+}
+
+/* узкие телефоны: длинное слово «Интеллектуальный» должно помещаться в строку */
+@media (max-width: 430px) {
+  .gv-page .zn-club__title { font-size: min(28px, 7vw); }
+}
+/* самые узкие телефоны: у кнопки клуба убираем декоративную стрелку, чтобы текст не дробился */
+@media (max-width: 389px) {
+  .gv-page .zn-club__btn { font-size: 14px; padding: 14px 14px; }
+  .gv-page .zn-club__btn svg { display: none; }
+}
+
+/* на главной: отступы секции как у соседних блоков, боковые поля даёт .sh-wrap */
+.gv-page .zn-club { padding: var(--so-gap) 0 0; }
+
+/* ══════════════════════════════════════════════════════════
    Запись на консультацию — копия героя со страницы konsultatsiya (ks-*)
    ══════════════════════════════════════════════════════════ */
 .gv-page .gv-ks {
