@@ -111,7 +111,6 @@ const FmtIconLaptop = () => (
 
 const KS_GRADES = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
 
-import whyIllustrationImg from '../predszapis-osen-stariye-5-8/why-illustration.png'
 
 const LkCheck = () => (
   <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
@@ -631,7 +630,7 @@ export default function GlavnayaPage() {
                 </ul>
               </div>
               <div className="p2-more__media">
-                <img src={whyIllustrationImg} alt="Дети занимаются онлайн на видеоуроке" width="1536" height="1024" loading="lazy" />
+                <img src="/znarnia/images/why-znarnia-steps.png" alt="Девочка с рюкзаком поднимается по ступенькам от вопроса к цели" width="1672" height="941" loading="lazy" decoding="async" />
               </div>
               <p className="p2-more__goal">Наша цель — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
             </div>
