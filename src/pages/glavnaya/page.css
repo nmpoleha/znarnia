@@ -3567,3 +3567,100 @@
   .gv-page .gv-fmt-card__ind-body,
   .gv-page .gv-fmt-card__ind-chevron { transition: none; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   ВЕРТИКАЛЬНЫЙ РИТМ СТРАНИЦЫ — единая система.
+   Расстояние между крупными секциями задаёт только правило
+   `.gv-section + .gv-section` (margin-top следующей секции);
+   собственные внешние отступы секций обнулены, чтобы ничего не складывалось.
+   Внутренние padding компонентов с фоном (полоса доверия, форма записи) не трогаем.
+   ══════════════════════════════════════════════════════════ */
+.gv-page {
+  --section-gap: 80px;           /* самостоятельные секции */
+  --section-gap-related: 40px;   /* связанные по смыслу блоки */
+  --component-gap: 20px;         /* карточки внутри секции */
+  --title-gap: 32px;             /* заголовок секции → содержимое */
+}
+@media (max-width: 1439px) { .gv-page { --section-gap: 64px; --section-gap-related: 40px; --title-gap: 28px; } }
+@media (max-width: 1023px) { .gv-page { --section-gap: 56px; --section-gap-related: 32px; --title-gap: 24px; } }
+@media (max-width: 767px)  { .gv-page { --section-gap: 48px; --section-gap-related: 24px; --component-gap: 16px; --title-gap: 22px; } }
+@media (max-width: 374px)  { .gv-page { --section-gap: 40px; --section-gap-related: 24px; --title-gap: 20px; } }
+
+/* 1. секции не несут внешних отступов сами */
+.gv-page > .gv-section,
+.gv-page > .gv-section.sh-reveal,
+.gv-page > .gv-section.zn-club {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+/* полоса доверия и форма — блоки с фоном: внутренний padding оставляем */
+.gv-page > .gv-section.sh-trust { padding-top: 18px; padding-bottom: 18px; }
+.gv-page > .gv-section.gv-ks { padding-top: 56px; padding-bottom: 72px; }
+@media (max-width: 680px) { .gv-page > .gv-section.gv-ks { padding-top: 36px; padding-bottom: 56px; } }
+@media (max-width: 380px) { .gv-page > .gv-section.gv-ks { padding-top: 28px; padding-bottom: 48px; } }
+
+/* 2. единственный источник расстояния между секциями */
+.gv-page > .gv-section + .gv-section { margin-top: var(--section-gap); }
+
+/* 3. самостоятельные блоки внутри одной секции «Почему Знарния → Результаты» */
+.gv-page .gv-more { margin-top: 0; }
+.gv-page .gv-more + .gv-results { margin-top: var(--section-gap); }
+
+/* 4. связанные блоки: последняя карточка программы → оплата и гарантии */
+.gv-page .gv-fmt__grid + .gv-pay { margin-top: var(--section-gap-related); }
+
+/* 5. внутренние отступы: карточки и «заголовок → содержимое» */
+.gv-page .gv-fmt__grid { gap: var(--component-gap); margin-top: var(--component-gap); }
+.gv-page .gv-lessons .sh-lessons__grid { gap: min(var(--component-gap), 18px); }
+.gv-page .p2-section-title,
+.gv-page .gv-fmt .p2-section-title { margin-bottom: var(--title-gap); }
+
+/* ══════════════════════════════════════════════════════════
+   «Оплата и гарантии» — мобильная версия (≤767px). Desktop/планшет без изменений.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .gv-page .gv-pay--green {
+    row-gap: 0;
+    padding: 22px 17px 18px;
+    border-radius: 26px;
+  }
+  .gv-page .gv-pay--green .gv-pay__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    height: 25px;
+    padding: 0 11px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .gv-page .gv-pay--green .gv-pay__title {
+    font-size: clamp(22px, 6vw, 26px);
+    line-height: 1.08;
+    margin: 13px 0 12px;
+  }
+  .gv-page .gv-pay--green .gv-pay__lead {
+    max-width: none;
+    font-size: 14.5px;
+    line-height: 1.47;
+    color: #4a4661;
+  }
+  .gv-page .gv-pay--green .gv-pay__lead b { font-weight: 700; }
+
+  .gv-page .gv-pay--green .gv-pay__features { margin-top: 20px; gap: 15px; }
+  .gv-page .gv-pay--green .gv-pay__feature { gap: 12px; align-items: start; }
+  .gv-page .gv-pay--green .gv-pay__icon { width: 42px; height: 42px; border-radius: 13px; }
+  .gv-page .gv-pay--green .gv-pay__icon svg { width: 22px; height: 22px; }
+  .gv-page .gv-pay--green .gv-pay__feature-title { font-size: 14.5px; line-height: 1.2; margin: 2px 0 3px; }
+  .gv-page .gv-pay--green .gv-pay__feature-sub { font-size: 13.5px; line-height: 1.4; color: #5b5775; }
+
+  .gv-page .gv-pay--green .gv-pay__img {
+    width: 78%;
+    max-width: 270px;
+    margin: 18px auto 0;
+  }
+}
+@media (max-width: 360px) {
+  .gv-page .gv-pay--green { padding-left: 15px; padding-right: 15px; }
+}

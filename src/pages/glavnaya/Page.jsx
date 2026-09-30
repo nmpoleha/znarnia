@@ -489,7 +489,7 @@ export default function GlavnayaPage() {
       </header>
 
       {/* ── HERO ── */}
-      <section className="gv-hero">
+      <section className="gv-section gv-hero">
         <div className="gv-hero__inner">
 
           {/* LEFT: text content */}
@@ -551,7 +551,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── УЗНАЁТЕ СВОЮ СИТУАЦИЮ? (проблема → решение) ── */}
-      <section className="gv-sit">
+      <section className="gv-section gv-sit">
         <div className="sh-wrap">
           {/* заголовок лежит на верхней границе контейнера */}
           <h2 className="gv-sit__title">
@@ -660,7 +660,7 @@ export default function GlavnayaPage() {
       )}
 
       {/* ── КАК ПОСТРОЕНЫ ЗАНЯТИЯ (как на intellektualnyy-klub) ── */}
-      <section className="sh-reveal gv-reveal--lessons">
+      <section className="gv-section sh-reveal gv-reveal--lessons">
         <div className="sh-wrap sh-reveal__body">
           <div className="gv-lessons">
           <div className="sh-lessons__head">
@@ -719,7 +719,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── ПЕРСОНАЛИЗИРОВАННЫЙ ПОДХОД (перед «Как проходят занятия»; вёрстка как у «Оплата и гарантии») ── */}
-      <section className="gv-pers">
+      <section className="gv-section gv-pers">
         <div className="sh-wrap">
           <div className="gv-pay gv-pay--violet">
             <div className="gv-pay__content">
@@ -747,7 +747,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── МАТЕМАТИКА В МИНИ-ГРУППАХ (формат обучения) ── */}
-      <section className="gv-fmt">
+      <section className="gv-section gv-fmt">
         <div className="sh-wrap">
           <h2 className="p2-section-title">Как проходят занятия</h2>
           <div className="gv-fmt__top">
@@ -826,7 +826,7 @@ export default function GlavnayaPage() {
           </div>
 
           {/* ── Оплата и гарантии: 7 дней на знакомство ── */}
-          <div className="gv-pay">
+          <div className="gv-pay gv-pay--green">
             <div className="gv-pay__content">
               <span className="gv-pay__eyebrow">Оплата и гарантии</span>
               <h2 className="gv-pay__title">7 дней на знакомство — <span className="gv-pay__accent">без&nbsp;риска</span></h2>
@@ -852,7 +852,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── ИНТЕЛЛЕКТУАЛЬНЫЙ КЛУБ (копия со страницы znakomstvo-dlya-reklamy) ── */}
-      <section className="zn-club">
+      <section className="gv-section zn-club">
         <div className="sh-wrap">
           <div className="zn-club__card">
             <div className="zn-club__content">
@@ -898,7 +898,7 @@ export default function GlavnayaPage() {
         </div>
       </section>
 
-      <section className="sh-reveal gv-reveal--results">
+      <section className="gv-section sh-reveal gv-reveal--results">
         <div className="sh-wrap sh-reveal__body">
           {/* ── Почему Знарния — это больше, чем репетитор (как на predszapis-osen-stariye-5-8) ── */}
           <div className="p2-more gv-more">
@@ -961,7 +961,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── ПОЛОСА ДОВЕРИЯ (как на intellektualnyy-klub) ── */}
-      <section className="sh-trust">
+      <section className="gv-section sh-trust">
         <div className="sh-wrap">
           <ul className="sh-trust__grid">
             {TRUST_ITEMS.map((item, i) => (
@@ -975,7 +975,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── ЗАПИСЬ НА КОНСУЛЬТАЦИЮ (копия героя со страницы konsultatsiya) ── */}
-      <div className="gv-ks" id="konsultatsiya">
+      <div className="gv-section gv-ks" id="konsultatsiya">
         <section className="ks-hero">
           <div className="ks-hero__inner">
             <span className="ks-hero__pill">
