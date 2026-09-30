@@ -3664,3 +3664,238 @@
 @media (max-width: 360px) {
   .gv-page .gv-pay--green { padding-left: 15px; padding-right: 15px; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   «Интеллектуальный клуб» — мобильная версия (≤767px). Desktop/планшет без изменений.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .gv-page .zn-club__card {
+    gap: 0;
+    padding: 22px 18px 18px;
+    border-radius: 26px;
+  }
+  .gv-page .zn-club__eyebrow {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.28;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .gv-page .zn-club__title {
+    font-size: clamp(23px, 6vw, 27px);
+    line-height: 1.08;
+    font-weight: 800;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .gv-page .zn-club__text {
+    max-width: none;
+    margin: 15px 0 0;
+    font-size: 14.5px;
+    line-height: 1.48;
+  }
+  .gv-page .zn-club__perk {
+    margin: 17px 0 0;
+    gap: 11px;
+    align-items: center;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .gv-page .zn-club__gift { width: 23px; height: 23px; margin-top: 0; }
+  .gv-page .zn-club__gift svg { width: 23px; height: 23px; }
+  .gv-page .zn-club__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 19px;
+    padding: 10px 18px;
+    border-radius: 15px;
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.25;
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
+  .gv-page .zn-club__btn svg { width: 20px; height: 20px; flex-shrink: 0; display: block; }
+  .gv-page .zn-club__media {
+    width: 80%;
+    max-width: 276px;
+    margin: 24px auto 0;
+  }
+}
+@media (max-width: 360px) {
+  .gv-page .zn-club__card { padding-left: 16px; padding-right: 16px; }
+}
+@media (max-width: 389px) {
+  .gv-page .zn-club__btn { font-size: 15px; padding-left: 14px; padding-right: 14px; }
+}
+/* клуб на телефоне: поля секции 16px, чтобы заголовок и «Новые материалы…» помещались естественно */
+@media (max-width: 767px) {
+  .gv-page .zn-club .sh-wrap { padding-left: 16px; padding-right: 16px; }
+  .gv-page .zn-club__card { padding-left: 17px; padding-right: 17px; }
+  .gv-page .zn-club__title { text-wrap: wrap; }
+  .gv-page .zn-club__perk { font-size: 14px; gap: 10px; }
+  .gv-page .zn-club__gift,
+  .gv-page .zn-club__gift svg { width: 22px; height: 22px; }
+}
+@media (max-width: 360px) {
+  .gv-page .zn-club .sh-wrap { padding-left: 13px; padding-right: 13px; }
+  .gv-page .zn-club__card { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   «Почему Знарния — это больше, чем репетитор»
+   ══════════════════════════════════════════════════════════ */
+/* итоговый тезис — лёгкая акцентная карточка вместо насыщенной плашки (все экраны) */
+.gv-page .p2-more__goal {
+  position: relative;
+  padding: 16px 20px 16px 24px;
+  background: #f7f3ff;
+  border: 1px solid #e6dcfb;
+  border-radius: 18px;
+  box-shadow: none;
+  color: #3d3659;
+  font-weight: 500;
+  line-height: 1.55;
+}
+.gv-page .p2-more__goal::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: #7c3aed;
+}
+.gv-page .p2-more__goal-lead { font-weight: 800; color: #25145F; }
+.gv-page .p2-more__goal-accent { color: #6d28d9; font-weight: 700; }
+
+/* мобильная версия */
+@media (max-width: 767px) {
+  .gv-page .gv-more .sh-wrap,
+  .gv-page .gv-reveal--results .sh-wrap { padding-left: 16px; padding-right: 16px; }
+  .gv-page .gv-more .p2-section-title {
+    font-size: clamp(24px, 6.5vw, 28px);
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .gv-page .p2-more__card { padding: 20px 18px 18px; border-radius: 22px; box-shadow: 0 8px 24px rgba(76, 29, 149, 0.05); }
+  .gv-page .p2-more__lead { font-size: 14.5px; line-height: 1.47; color: #3d3659; margin: 0; }
+  .gv-page .p2-more__accent { font-size: 15.5px; font-weight: 700; margin: 7px 0 17px; }
+  .gv-page .p2-more__list { gap: 12px; margin-bottom: 0; }
+  .gv-page .p2-more__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  .gv-page .p2-more__list li > span { flex: 1; min-width: 0; }
+  .gv-page .p2-more__list li svg { width: 19px; height: 19px; margin-top: 0; }
+  .gv-page .p2-more__media {
+    width: 100%;
+    max-width: none;
+    margin-top: 22px;
+    border-radius: 15px;
+  }
+  .gv-page .p2-more__goal {
+    margin-top: 18px;
+    padding: 14px 16px 14px 20px;
+    border-radius: 17px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 360px) {
+  .gv-page .p2-more__card { padding: 18px 16px 16px; }
+  .gv-page .gv-more .sh-wrap,
+  .gv-page .gv-reveal--results .sh-wrap { padding-left: 13px; padding-right: 13px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   «Результаты, которые замечают родители» — мобильная версия (≤767px)
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .gv-page .gv-results .p2-section-title {
+    font-size: clamp(24px, 6.5vw, 28px);
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .gv-page .p2-results__card {
+    padding: 20px 18px 18px;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(76, 29, 149, 0.05);
+  }
+  .gv-page .p2-results__lead { font-size: 16.5px; line-height: 1.25; margin: 0 0 17px; }
+  .gv-page .p2-results__list { gap: 12px; }
+  .gv-page .p2-results__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+  .gv-page .p2-results__list li > span:last-child { flex: 1; min-width: 0; }
+  .gv-page .p2-results__star {
+    flex-shrink: 0;
+    width: 19px;
+    font-size: 15px;
+    line-height: 20.6px;   /* = высота первой строки текста: звезда по её центру */
+    text-align: center;
+  }
+
+  /* 90% — лёгкая статистическая карточка, цифра и текст в строку */
+  .gv-page .p2-results__highlight {
+    margin-top: 22px;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #f6f1ff 0%, #efe7ff 100%);
+    border: 1px solid #ddd0fb;
+    box-shadow: none;
+    color: #2b1a6b;
+  }
+  .gv-page .p2-results__highlight-num { font-size: 40px; font-weight: 800; color: #6d28d9; letter-spacing: -0.02em; }
+  .gv-page .p2-results__highlight-main { font-size: 13.5px; font-weight: 700; line-height: 1.35; }
+  .gv-page .p2-results__highlight-label { font-size: 10.5px; color: #6d28d9; opacity: 0.85; margin-top: 4px; }
+
+  /* фото — сразу под статистикой, как её подтверждение */
+  .gv-page .p2-results__photo-slot,
+  .gv-page .p2-results__photo-slot--filled {
+    width: 100%;
+    max-width: none;
+    margin-top: 12px;
+    aspect-ratio: 16 / 10;
+    border-radius: 15px;
+    border-color: #ebe4fb;
+  }
+  .gv-page .p2-results__photo-slot--filled img { object-fit: cover; object-position: 50% 45%; }
+}
+@media (max-width: 360px) {
+  .gv-page .p2-results__card { padding: 18px 16px 16px; }
+}
+/* 320px: 90% над текстом, когда в строку тесно */
+@media (max-width: 339px) {
+  .gv-page .p2-results__highlight { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (min-width: 340px) and (max-width: 419px) {
+  .gv-page .p2-results__highlight { flex-direction: row; align-items: center; }
+}
+@media (max-width: 767px) {
+  .gv-page .p2-results__highlight { gap: 12px; padding: 13px 15px; }
+  .gv-page .p2-results__highlight-num { font-size: 36px; }
+  .gv-page .p2-results__highlight-main { font-size: 13px; }
+  .gv-page .p2-results__photo-slot,
+  .gv-page .p2-results__photo-slot--filled { aspect-ratio: 16 / 9; }
+  .gv-page .p2-results__photo-slot--filled img { object-position: 50% 55%; }
+  .gv-page .p2-results__lead { font-size: 16px; margin-bottom: 16px; }
+}

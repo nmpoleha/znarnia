@@ -922,7 +922,7 @@ export default function GlavnayaPage() {
               <div className="p2-more__media">
                 <img src="/znarnia/images/why-znarnia-steps.png" alt="Девочка с рюкзаком поднимается по ступенькам от вопроса к цели" width="1672" height="941" loading="lazy" decoding="async" />
               </div>
-              <p className="p2-more__goal">Наша цель — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
+              <p className="p2-more__goal"><b className="p2-more__goal-lead">Наша цель</b> — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
             </div>
           </div>
 
