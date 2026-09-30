@@ -432,6 +432,7 @@ export default function GlavnayaPage() {
             Узнаёте <span className="gv-sit__accent">свою</span> ситуацию?
           </h2>
           <div className="gv-sit__panel">
+            <p className="gv-sit__subtitle">Мы уже знаем, как помочь.</p>
             <p className="gv-sit__note">
               Наши методики и формат занятий созданы
               для реальных задач современных школьников.
