@@ -1350,11 +1350,7 @@
   .kg-sp-mob { display: inline; }
   .kg-groups__text { font-size: 15.5px; line-height: 1.45; margin-bottom: 11px; }
 
-  .kg-groups__hero-img {
-    width: 70%;
-    max-width: 280px;
-    margin: 14px auto 0;
-  }
+  .kg-groups__hero-img { display: none; }  /* на мобильном без иллюстрации */
 
   .kg-groups__levels { gap: 14px; }
   .kg-level { gap: 0; padding: 20px; border-radius: 20px; }
