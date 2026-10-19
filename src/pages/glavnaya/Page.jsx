@@ -532,7 +532,7 @@ export default function GlavnayaPage() {
             </div>
 
             <div className="gv-hero__actions">
-              <a href="#" className="gv-btn gv-btn--primary">Подобрать курс</a>
+              <a href="#kak-prohodyat-zanyatiya" className="gv-btn gv-btn--primary">Подобрать курс</a>
             </div>
 
           </div>
@@ -747,7 +747,7 @@ export default function GlavnayaPage() {
       </section>
 
       {/* ── МАТЕМАТИКА В МИНИ-ГРУППАХ (формат обучения) ── */}
-      <section className="gv-section gv-fmt">
+      <section className="gv-section gv-fmt" id="kak-prohodyat-zanyatiya">
         <div className="sh-wrap">
           <h2 className="p2-section-title">Как проходят занятия</h2>
           <div className="gv-fmt__top">

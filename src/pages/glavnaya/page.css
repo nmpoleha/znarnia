@@ -1909,6 +1909,8 @@
 /* ══════════════════════════════════════════════════════════
    Запись на консультацию — копия героя со страницы konsultatsiya (ks-*)
    ══════════════════════════════════════════════════════════ */
+.gv-page .gv-fmt { scroll-margin-top: 16px; }
+
 .gv-page .gv-ks {
   scroll-margin-top: 16px;
   margin-top: var(--so-gap);
@@ -2813,6 +2815,11 @@
 /* естественные переносы: без «висячих» слов в заголовках и абзацах */
 .gv-page :is(h1, h2, h3) { text-wrap: balance; }
 .gv-page :is(p, li) { text-wrap: pretty; }
+
+/* «Как построены наши занятия» на ПК: заголовок заполняет всю ширину блока, а не сжимается балансировкой */
+@media (min-width: 1024px) {
+  .gv-page .gv-lessons .sh-lessons__title { text-wrap: pretty; }
+}
 
 /* ── Шапка: ниже 1180px меню уходит второй строкой и прокручивается по горизонтали ── */
 .gv-page .gv-topbar__logo { height: clamp(52px, 6.4vw, 91px); }
