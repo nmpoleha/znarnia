@@ -4524,3 +4524,90 @@
   .gv-page .gv-proof .dg-author__stat-icon { width: 48px; height: 48px; }
   .gv-page .gv-proof .dg-author__stat-desc { font-size: 12px; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   ГЕРОЙ — ПЛАНШЕТЫ (последний слой, перекрывает правила 760–1099 / 900–1199 выше).
+   760–1199 — одна колонка: H1 → описание → теги → преимущества → CTA; иллюстрация на планшетах скрыта
+   ПК ≥1200 и телефон <760 не затрагиваются. Только grid/flex, без absolute.
+   ══════════════════════════════════════════════════════════ */
+
+/* ── общее для обоих планшетных диапазонов ── */
+@media (min-width: 760px) and (max-width: 1199px) {
+  .gv-page:not(#_) .gv-hero__inner {
+    max-width: none;
+    margin: 0;
+    padding: 40px 32px 48px;
+    row-gap: 0;
+  }
+  .gv-page:not(#_) .gv-hero__title { margin: 0 0 22px; max-width: none; line-height: 1.07; letter-spacing: -0.025em; text-wrap: wrap; }
+  .gv-page:not(#_) .gv-hero__sub { margin: 0; font-size: 17px; line-height: 1.5; }
+  .gv-page:not(#_) .gv-hero__pills { margin: 20px 0 0; flex-wrap: nowrap; gap: 10px; }
+  .gv-page:not(#_) .gv-hero__pill { height: 38px; padding: 0 15px; font-size: 14px; }
+
+  /* карточка преимуществ: на всю ширину, 2×2, иконка слева от текста — горизонтальная и невысокая */
+  .gv-page:not(#_) .gv-hero__features-panel { width: 100%; max-width: none; box-sizing: border-box; margin: 0; padding: 20px 22px; border-radius: 20px; }
+  .gv-page:not(#_) .gv-hero__features { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; row-gap: 16px; }
+  .gv-page:not(#_) .gv-hero__feature { flex-direction: row; align-items: center; gap: 12px; padding: 0 16px 0 0; border-left: 0; border-top: 0; }
+  .gv-page:not(#_) .gv-hero__feature:nth-child(even) { padding: 0 0 0 20px; border-left: 1px solid #f0ecf8; }
+  .gv-page:not(#_) .gv-hero__feature-icon { width: 44px; height: 44px; border-radius: 13px; flex-shrink: 0; }
+  .gv-page:not(#_) .gv-hero__feature-icon svg { width: 24px; height: 24px; }
+  .gv-page:not(#_) .gv-hero__feature-text { min-width: 0; gap: 3px; }
+  .gv-page:not(#_) .gv-hero__feature-title { font-size: 15px; line-height: 1.25; }
+  .gv-page:not(#_) .gv-hero__feature-sub { font-size: 13px; line-height: 1.3; }
+
+  /* CTA — ширина карточки преимуществ */
+  .gv-page:not(#_) .gv-hero__actions { margin: 18px 0 0; }
+  .gv-page:not(#_) .gv-hero__actions .gv-btn { width: 100%; max-width: none; min-height: 54px; }
+
+  .gv-page:not(#_) .gv-hero__media { display: flex; justify-content: center; align-items: center; max-width: none; margin: 0; }
+  .gv-page:not(#_) .gv-hero__img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; margin: 0; }
+}
+
+/* ── планшет 760–1199: одна колонка (иллюстрация на планшетах скрыта) ── */
+@media (min-width: 760px) and (max-width: 1199px) {
+  .gv-page:not(#_) .gv-hero__inner { grid-template-columns: minmax(0, 1fr); padding-inline: 28px; align-items: start; }
+  /* контент «растворяется» в сетке героя: порядок блоков задаётся order */
+  .gv-page:not(#_) .gv-hero__content { display: contents; }
+  .gv-page:not(#_) .gv-hero__title          { order: 1; }
+  .gv-page:not(#_) .gv-hero__sub            { order: 2; }
+  .gv-page:not(#_) .gv-hero__pills          { order: 3; }
+  .gv-page:not(#_) .gv-hero__features-panel { order: 5; }
+  .gv-page:not(#_) .gv-hero__actions        { order: 6; }
+
+  /* заголовок — 3 строки: «Онлайн-школа математики, / где дети учатся думать, / а не зубрить» */
+  .gv-page:not(#_) .gv-br-m { display: none; }
+  .gv-page:not(#_) .gv-br-d { display: inline; }
+  .gv-page:not(#_) .gv-hero__title { font-size: clamp(36px, calc(2.6vw + 16px), 40px); max-width: 680px; }
+  .gv-page:not(#_) .gv-hero__sub { max-width: 660px; }
+
+  .gv-page:not(#_) .gv-hero__features-panel { margin-top: 24px; }
+}
+
+
+/* планшеты: без иллюстраций в герое и в «Узнаёте свою ситуацию?» */
+@media (min-width: 760px) and (max-width: 1199px) {
+  .gv-page:not(#_) .gv-hero__media { display: none; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page:not(#_) .gv-sit__media { display: none; }
+  .gv-page:not(#_) .gv-sit__solution { align-self: start; }
+}
+/* широкий планшет 900–1199: преимущества в один ряд из четырёх — карточка горизонтальная и невысокая */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gv-page:not(#_) .gv-hero__features { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gv-page:not(#_) .gv-hero__feature,
+  .gv-page:not(#_) .gv-hero__feature:nth-child(even) { padding: 0 14px; border-left: 1px solid #f0ecf8; }
+  .gv-page:not(#_) .gv-hero__feature:first-child { padding-left: 0; border-left: 0; }
+  .gv-page:not(#_) .gv-hero__feature:last-child { padding-right: 0; }
+  .gv-page:not(#_) .gv-hero__feature-icon { width: 40px; height: 40px; border-radius: 12px; }
+  .gv-page:not(#_) .gv-hero__feature-icon svg { width: 22px; height: 22px; }
+}
+/* «Как проходят занятия» на планшетах: карточки классов без картинок — текст на всю ширину карточки */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page:not(#_) .gv-fmt-card__img,
+  .gv-page:not(#_) .gv-fmt-card__ph { display: none; }
+  .gv-page:not(#_) .gv-fmt-card__main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "grade" "badge" "name" "text" "btn";
+  }
+}
