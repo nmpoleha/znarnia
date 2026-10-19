@@ -4286,7 +4286,7 @@
 /* ── планшет 768–1279 ── */
 @media (max-width: 1279px) {
   .gv-page:not(#_) :is(.gv-sit__title, .sh-lessons__title, .gv-pay__title, .p2-section-title, .zn-club__title, .ks-title) {
-    font-size: clamp(25px, calc(0.98vw + 17.5px), 30px);
+    font-size: clamp(28px, calc(0.39vw + 25px), 30px);
   }
   .gv-page:not(#_) .gv-fmt__title { font-size: clamp(21px, calc(0.6vw + 16.4px), 24px); }
   .gv-page:not(#_) .sh-principle__title { font-size: 19px; }
@@ -4595,10 +4595,16 @@
 /* широкий планшет 900–1199: преимущества в один ряд из четырёх — карточка горизонтальная и невысокая */
 @media (min-width: 900px) and (max-width: 1199px) {
   .gv-page:not(#_) .gv-hero__features { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* у всех четырёх колонок одинаковые внутренние отступы; поля по краям даёт сама карточка */
+  .gv-page:not(#_) .gv-hero__features-panel { padding: 20px 6px; }
   .gv-page:not(#_) .gv-hero__feature,
-  .gv-page:not(#_) .gv-hero__feature:nth-child(even) { padding: 0 14px; border-left: 1px solid #f0ecf8; }
-  .gv-page:not(#_) .gv-hero__feature:first-child { padding-left: 0; border-left: 0; }
-  .gv-page:not(#_) .gv-hero__feature:last-child { padding-right: 0; }
+  .gv-page:not(#_) .gv-hero__feature:nth-child(even) { padding: 0 16px; border-left: 1px solid #f0ecf8; }
+  .gv-page:not(#_) .gv-hero__feature:first-child { border-left: 0; }
+
+  /* контейнер и типографика широкого планшета */
+  .gv-page:not(#_) .gv-hero__inner { padding-inline: 40px; }
+  .gv-page:not(#_) .gv-hero__title { font-size: clamp(40px, calc(1.43vw + 27.1px), 44px); max-width: 760px; }
+  .gv-page:not(#_) .gv-hero__sub { max-width: 760px; }
   .gv-page:not(#_) .gv-hero__feature-icon { width: 40px; height: 40px; border-radius: 12px; }
   .gv-page:not(#_) .gv-hero__feature-icon svg { width: 22px; height: 22px; }
 }
@@ -4610,4 +4616,86 @@
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "grade" "badge" "name" "text" "btn";
   }
+}
+
+/* тире в заголовках (Dash в Page.jsx): по умолчанию обычное тире; если на планшете строка
+   обрывается сразу после него — скрипт ставит .gv-dash--eol: тире скрыто, перенос сохраняется <br> */
+.gv-page .gv-dash-br { display: none; }
+.gv-page .gv-dash--eol { display: none; }
+.gv-page .gv-dash--eol + .gv-dash-br { display: inline; }
+
+/* ══════════════════════════════════════════════════════════
+   ПЛАНШЕТЫ: поля страницы как у героя — 28px (768–899) и 40px (900–1199)
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 899px) { .gv-page { --gv-gutter: 28px; } }
+@media (min-width: 900px) and (max-width: 1199px) { .gv-page { --gv-gutter: 40px; } }
+
+/* ══════════════════════════════════════════════════════════
+   «Результаты, которые замечают родители» — планшеты 768–1199 (по макету):
+   одна колонка: «Уже через несколько месяцев…» → фото-полоса → результаты в 2 колонки → 90% | текст
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gv-page:not(#_) .p2-results__card { display: flex; flex-direction: column; gap: 0; padding: 28px 28px 30px; }
+  .gv-page:not(#_) .p2-results__content { display: contents; }
+  .gv-page:not(#_) .p2-results__lead       { order: 1; }
+  .gv-page:not(#_) .p2-results__photo-slot { order: 2; }
+  .gv-page:not(#_) .p2-results__list       { order: 3; }
+  .gv-page:not(#_) .p2-results__highlight  { order: 4; }
+
+  .gv-page:not(#_) .p2-results__lead { font-size: 19px; font-weight: 800; line-height: 1.25; margin: 0 0 20px; }
+
+  /* фото — широкая полоса во всю ширину карточки. В кадре ~68% высоты снимка:
+     причёска (верх на 13% снимка) с запасом сверху, лицо и лист с пятёркой */
+  .gv-page:not(#_) .p2-results__photo-slot {
+    width: 100%; max-width: none; height: auto; min-height: 0;
+    aspect-ratio: 11 / 5; margin: 0 0 24px; justify-self: stretch; align-self: stretch;
+  }
+  .gv-page:not(#_) .p2-results__photo-slot--filled img { object-fit: cover; object-position: 50% 18%; }
+
+  /* результаты — две колонки, порядок по рядам */
+  .gv-page:not(#_) .p2-results__list {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 32px;
+  }
+  .gv-page:not(#_) .p2-results__list li { gap: 13px; font-size: 16px; line-height: 1.45; }
+  .gv-page:not(#_) .p2-results__star { width: 20px; font-size: 17px; line-height: 23px; text-align: center; }
+
+  /* 90% | текст — горизонтальная плашка во всю ширину, с тонким разделителем */
+  .gv-page:not(#_) .p2-results__highlight {
+    flex-direction: row; align-items: center; gap: 0;
+    width: 100%; box-sizing: border-box; margin-top: 26px; padding: 20px 28px;
+  }
+  .gv-page:not(#_) .p2-results__highlight-num { font-size: 48px; padding-right: 26px; }
+  .gv-page:not(#_) .p2-results__highlight-text { flex: 1; min-width: 0; padding-left: 26px; border-left: 1px solid rgba(255, 255, 255, 0.35); }
+  .gv-page:not(#_) .p2-results__highlight .p2-results__highlight-main { font-size: 16px; line-height: 1.4; max-width: none; text-wrap: pretty; }
+  .gv-page:not(#_) .p2-results__highlight-label { font-size: 12px; margin-top: 6px; }
+}
+/* узкий планшет: кадр выше, текст результатов чуть компактнее */
+@media (min-width: 768px) and (max-width: 899px) {
+  .gv-page:not(#_) .p2-results__card { padding: 24px 24px 26px; }
+  .gv-page:not(#_) .p2-results__photo-slot { margin-bottom: 22px; }
+  .gv-page:not(#_) .p2-results__list { gap: 14px 24px; }
+  .gv-page:not(#_) .p2-results__list li { font-size: 15px; }
+  .gv-page:not(#_) .p2-results__highlight { padding: 18px 22px; }
+  .gv-page:not(#_) .p2-results__highlight-num { font-size: 44px; padding-right: 22px; }
+  .gv-page:not(#_) .p2-results__highlight-text { padding-left: 22px; }
+  .gv-page:not(#_) .p2-results__highlight-main { font-size: 15px; }
+}
+/* «Почему Знарния»: вводная фраза — на всю ширину карточки над текстом и картинкой */
+@media (min-width: 900px) {
+  .gv-page:not(#_) .p2-more__card { grid-template-rows: auto auto 1fr auto; }   /* лишняя высота картинки — в ряд списка, а не под «Мы работаем иначе» */
+  .gv-page:not(#_) .p2-more__content { display: contents; }
+  .gv-page:not(#_) .p2-more__lead   { grid-column: 1 / -1; grid-row: 1; margin: 0 0 14px; }
+  .gv-page:not(#_) .p2-more__accent { grid-column: 1; grid-row: 2; }
+  .gv-page:not(#_) .p2-more__list   { grid-column: 1; grid-row: 3; margin-bottom: 0; align-self: start; }
+  .gv-page:not(#_) .p2-more__media  { grid-column: 2; grid-row: 2 / span 2; align-self: center; }
+  .gv-page:not(#_) .p2-more__goal   { grid-row: 4; }
+}
+/* карточка основателя на планшете: колонка фото узкая и высокая — кадр сдвинут вправо (человек справа от центра,
+   слева только фон с растением), колонка чуть шире, чтобы не срезались плечо и рука */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .gv-page:not(#_) .gv-proof .dg-author__top { grid-template-columns: minmax(0, 1fr) 300px; }
+  .gv-page:not(#_) .gv-proof .dg-author__photo { object-position: 85% bottom; }
 }

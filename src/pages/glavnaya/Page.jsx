@@ -329,7 +329,55 @@ const PROBLEMS = [
   },
 ]
 
+/* ── Тире в заголовках: на планшете, если перенос строки приходится сразу после тире,
+   тире скрывается, а строка обрывается на том же месте (см. useDashLineEnds) ── */
+const Dash = ({ br = true }) => (
+  <>
+    <span className="gv-dash">{'\u00a0—'}</span>
+    {br && <br className="gv-dash-br" />}
+    {' '}
+  </>
+)
+
+/* nb() + тире «слово — слово» заменяется на <Dash /> */
+const nbDash = (str) => str.split(' — ').flatMap((part, i) => (i ? [<Dash key={i} />, nb(part)] : [nb(part)]))
+
+const DASH_MQ = '(min-width: 768px) and (max-width: 1199px)'
+
+function useDashLineEnds() {
+  useEffect(() => {
+    const mq = window.matchMedia(DASH_MQ)
+    const firstCharAfter = (dash) => {
+      const root = dash.closest('h1, h2, h3') || dash.parentElement
+      const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+      tw.currentNode = dash.lastChild || dash
+      while (tw.nextNode()) {
+        const n = tw.currentNode
+        if (dash.contains(n)) continue
+        const i = n.textContent.search(/\S/)
+        if (i >= 0) { const r = document.createRange(); r.setStart(n, i); r.setEnd(n, i + 1); return r.getClientRects()[0] }
+      }
+      return null
+    }
+    const run = () => {
+      const dashes = [...document.querySelectorAll('.gv-page .gv-dash')]
+      dashes.forEach((d) => d.classList.remove('gv-dash--eol'))
+      if (!mq.matches) return
+      const eol = dashes.filter((d) => {
+        const a = d.getBoundingClientRect(), b = firstCharAfter(d)
+        return b && b.top > a.top + a.height / 2
+      })
+      eol.forEach((d) => d.classList.add('gv-dash--eol'))
+    }
+    run()
+    document.fonts?.ready.then(run)
+    window.addEventListener('resize', run)
+    return () => window.removeEventListener('resize', run)
+  }, [])
+}
+
 export default function GlavnayaPage() {
+  useDashLineEnds()
   const [contactsOpen, setContactsOpen] = useState(false)
   const [openCards, setOpenCards] = useState(() => new Set())
   /* раскрытые полосы «Индивидуальные занятия» в карточках классов (аккордеон на телефоне) */
@@ -456,7 +504,7 @@ export default function GlavnayaPage() {
             <span className="gv-topbar__brand-name">Школа Сотниковой Ольги</span>
           </div>
           <nav className="gv-topbar__nav">
-            {['О нас','Отзывы','Сообщество','Курсы','Как проходят занятия'].map(link => (
+            {['Отзывы','Клуб','Как проходят занятия'].map(link => (
               <a key={link} href="#" className="gv-topbar__link">{link}</a>
             ))}
             <button
@@ -696,7 +744,7 @@ export default function GlavnayaPage() {
                     <span className="sh-principle__num">{i + 1}</span>
                   </div>
                   <h3 className="sh-principle__title">
-                    {p.pre && nb(p.pre)}
+                    {p.pre && nbDash(p.pre)}
                     <span className="sh-principle__title-accent">{nb(p.accent)}</span>
                     {p.post && nb(p.post)}
                   </h3>
@@ -727,7 +775,7 @@ export default function GlavnayaPage() {
             <div className="gv-pay__content">
               <span className="gv-pay__eyebrow">Персонализированный подход</span>
               <h2 className="gv-pay__title">
-                <span className="gv-pay__title-line">Не просто идём по&nbsp;программе&nbsp;—</span>
+                <span className="gv-pay__title-line">Не просто идём по&nbsp;программе<Dash br={false} /></span>
                 <span className="gv-pay__title-line gv-pay__accent"><span className="gv-pay__phrase">подстраиваем обучение</span> под&nbsp;ребёнка</span>
               </h2>
               <p className="gv-pay__lead">{nb('Мы видим реальный прогресс, находим слабые места и адаптируем темп, формат и задания под цели и уровень каждого ученика.')}</p>
@@ -831,7 +879,7 @@ export default function GlavnayaPage() {
           <div className="gv-pay gv-pay--green">
             <div className="gv-pay__content">
               <span className="gv-pay__eyebrow">Оплата и гарантии</span>
-              <h2 className="gv-pay__title">{nb('7 дней на знакомство — ')}<span className="gv-pay__accent">без&nbsp;риска</span></h2>
+              <h2 className="gv-pay__title">{nb('7 дней на знакомство')}<Dash /><span className="gv-pay__accent">без&nbsp;риска</span></h2>
               <p className="gv-pay__lead">
                 {nb('Мы уверены в качестве наших занятий, поэтому, если в течение 7 дней после начала обучения вам что-то не подойдёт — ')}
                 <b>{nb('вернём деньги в полном объёме.')}</b>
@@ -860,7 +908,7 @@ export default function GlavnayaPage() {
             <div className="zn-club__content">
               <p className="zn-club__eyebrow">{nb('Хотите сначала познакомиться с нами самостоятельно?')}</p>
               <h2 className="zn-club__title">
-                Интеллектуальный клуб «Знарнии» —{' '}
+                Интеллектуальный клуб «Знарнии»<Dash />
                 <span className="zn-club__title-accent">бесплатно</span>
               </h2>
               <p className="zn-club__text">
@@ -904,7 +952,7 @@ export default function GlavnayaPage() {
         <div className="sh-wrap sh-reveal__body">
           {/* ── Почему Знарния — это больше, чем репетитор (как на predszapis-osen-stariye-5-8) ── */}
           <div className="p2-more gv-more">
-            <h2 className="p2-section-title">{nb('Почему Знарния — это больше, чем репетитор')}</h2>
+            <h2 className="p2-section-title">{nbDash('Почему Знарния — это больше, чем репетитор')}</h2>
             <div className="p2-more__card">
               <div className="p2-more__content">
                 <p className="p2-more__lead">{nb('Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.')}</p>
