@@ -60,7 +60,11 @@ const HERO_PILLS = [
 ]
 
 import { useEffect, useState } from 'react'
-import { nb } from '../../shared/utils/nb'
+import { nb as nbBase } from '../../shared/utils/nb'
+import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
+
+/* nb + слова через дефис («что-то», «из-за», «урок-тренажёр») не рвутся по дефису */
+const nb = (str) => nbBase(str).replace(/([^\s\u00a0])-(?=[^\s\u00a0])/g, '$1\u2060-\u2060')
 import resultsPhotoImg from '../predszapis-osen-stariye-5-8/results-photo.png'
 
 /* ── «Математика в мини-группах»: 4 программы сеткой 2×2 ── */
@@ -113,7 +117,7 @@ const PersIconBars = () => (
 const PERS_FEATURES = [
   { icon: <PersIconSearch />, tone: 'violet', title: 'Определяем слабые места', text: 'и закрываем пробелы в знаниях.' },
   { icon: <PersIconGear />, tone: 'orange', title: 'Адаптируем программу', text: 'под цели, уровень и темп ребёнка.' },
-  { icon: <PersIconBars />, tone: 'green', title: 'Отслеживаем прогресс', text: 'и регулярно корректируем\u00a0обучение.' },
+  { icon: <PersIconBars />, tone: 'green', title: 'Отслеживаем прогресс', text: 'и регулярно корректируем обучение.' },
 ]
 
 const FORMAT_PROGRAMS = [
@@ -417,7 +421,7 @@ export default function GlavnayaPage() {
           <div key={j} className="gv-sit__point">
             <img className="gv-sit__point-img" src={`/znarnia/images/${PROBLEMS[activeProblem].pointImgs[j]}.png`} alt="" width="144" height="144" decoding="async" />
             <div className="gv-sit__point-body">
-              <div className="gv-sit__point-title">{pt.title}</div>
+              <div className="gv-sit__point-title">{nb(pt.title)}</div>
               <p className="gv-sit__point-text">{nb(pt.text)}</p>
             </div>
           </div>
@@ -504,8 +508,7 @@ export default function GlavnayaPage() {
             </h1>
 
             <p className="gv-hero__sub">
-              Авторские курсы по математике для 1{'\u2060–\u2060'}11&nbsp;классов: школьная программа,
-              развитие математического мышления, подготовка к ОГЭ и ЕГЭ.
+              {nb('Авторские курсы по математике для 1\u2060–\u206011\u00a0классов: школьная программа, развитие математического мышления, подготовка к ОГЭ и ЕГЭ.')}
             </p>
 
             <div className="gv-hero__pills">
@@ -523,7 +526,7 @@ export default function GlavnayaPage() {
                   <div key={i} className="gv-hero__feature">
                     <div className={`gv-hero__feature-icon gv-hero__feature-icon--${f.tone}`}>{f.icon}</div>
                     <p className="gv-hero__feature-text">
-                      <span className="gv-hero__feature-title">{f.title}</span>
+                      <span className="gv-hero__feature-title">{nb(f.title)}</span>
                       <span className="gv-hero__feature-sub">{f.sub}</span>
                     </p>
                   </div>
@@ -560,8 +563,7 @@ export default function GlavnayaPage() {
           <div className="gv-sit__panel">
             <p className="gv-sit__subtitle">Мы уже знаем, как помочь.</p>
             <p className="gv-sit__note">
-              Наши методики и формат занятий созданы
-              для реальных задач современных школьников.
+              {nb('Наши методики и формат занятий созданы для реальных задач современных школьников.')}
             </p>
 
             <div className="gv-sit__body">
@@ -580,7 +582,7 @@ export default function GlavnayaPage() {
                     >
                       <img className="gv-sit__problem-icon" src={`/znarnia/images/${p.icon}.png`} alt="" width="192" height="192" loading="lazy" decoding="async" />
                       <span className="gv-sit__problem-text">
-                        {p.title[0]}{' '}<br className="gv-sit__br" />{p.title[1]}
+                        {nb(p.title[0])}{' '}<br className="gv-sit__br" />{nb(p.title[1])}
                       </span>
                       <svg className="gv-sit__problem-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -616,7 +618,7 @@ export default function GlavnayaPage() {
 
             <div className="gv-sit__cta">
               <a href="#" className="gv-sit__cta-btn">
-                Посмотреть программы по предметам
+                Посмотреть программы по&nbsp;предметам
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -639,7 +641,7 @@ export default function GlavnayaPage() {
             <span className="gv-sit-modal__handle" aria-hidden="true" />
             <div className="gv-sit-modal__head">
               <p id="gv-sit-modal-title" className="gv-sit-modal__title">
-                {PROBLEMS[activeProblem].title[0]} {PROBLEMS[activeProblem].title[1]}
+                {nb(PROBLEMS[activeProblem].title.join(' '))}
               </p>
               <button type="button" className="gv-sit-modal__close" aria-label="Закрыть" onClick={closeSolution} autoFocus>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -650,7 +652,7 @@ export default function GlavnayaPage() {
             {solutionPanel}
             {/* тот же CTA, что под списком ситуаций */}
             <a href="#" className="gv-sit-modal__cta" onClick={closeSolution}>
-              Посмотреть программы по предметам
+              Посмотреть программы по&nbsp;предметам
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -759,14 +761,14 @@ export default function GlavnayaPage() {
               <div className="gv-fmt__week">
                 <div className="gv-fmt__pill">
                   <span className="gv-fmt__pill-icon"><FmtIconVideo /></span>
-                  <span><b>2 онлайн-урока в неделю</b><small>с учителем математики</small></span>
+                  <span><b>{nb('2 онлайн-урока в неделю')}</b><small>{nb('с учителем математики')}</small></span>
                 </div>
                 <span className="gv-fmt__plus" aria-hidden="true">+</span>
                 <div className="gv-fmt__pill">
                   <span className="gv-fmt__pill-icon"><FmtIconLaptop /></span>
-                  <span><b>1 урок-тренажёр в неделю</b><small>на платформе</small></span>
+                  <span><b>{nb('1 урок-тренажёр в неделю')}</b><small>{nb('на платформе')}</small></span>
                 </div>
-                <div className="gv-fmt__price">от 580&nbsp;₽ / занятие</div>
+                <div className="gv-fmt__price">от&nbsp;580&nbsp;₽&nbsp;/ занятие</div>
               </div>
             </div>
             <img className="gv-fmt__hero-img" src="/znarnia/images/fmt-mini-groups.png" alt="Ноутбук с видеоуроком, учебники и карандаши" width="900" height="639" loading="lazy" decoding="async" />
@@ -781,8 +783,8 @@ export default function GlavnayaPage() {
                 <div className="gv-fmt-card__main">
                   <div className="gv-fmt-card__body">
                     <h3 className="gv-fmt-card__grade">{p.grade}</h3>
-                    <span className="gv-fmt-card__badge">Математика в мини&#8209;группе</span>
-                    <p className="gv-fmt-card__name">{p.name}</p>
+                    <span className="gv-fmt-card__badge">Математика в&nbsp;мини&#8209;группе</span>
+                    <p className="gv-fmt-card__name">{nb(p.name)}</p>
                     <p className="gv-fmt-card__text">{nb(p.text)}</p>
                   </div>
                   {p.img
@@ -794,7 +796,7 @@ export default function GlavnayaPage() {
                   <span className="gv-fmt-card__ind-icon"><FmtIconPerson /></span>
                   <div className="gv-fmt-card__ind-text">
                     {/* desktop/планшет: обычный заголовок; телефон: строка-переключатель (аккордеон) */}
-                    <p className="gv-fmt-card__ind-title">{p.extra.title}<span className="gv-fmt-card__star" aria-hidden="true">*</span></p>
+                    <p className="gv-fmt-card__ind-title">{nb(p.extra.title)}<span className="gv-fmt-card__star" aria-hidden="true">*</span></p>
                     <button
                       type="button"
                       className="gv-fmt-card__ind-toggle"
@@ -804,8 +806,8 @@ export default function GlavnayaPage() {
                     >
                       <span className="gv-fmt-card__ind-toggle-icon" aria-hidden="true"><FmtIconPerson /></span>
                       <span className="gv-fmt-card__ind-toggle-text">
-                        <span className="gv-fmt-card__ind-toggle-title">{p.extra.title}<span className="gv-fmt-card__star" aria-hidden="true">*</span></span>
-                        {p.extra.meta && <span className="gv-fmt-card__ind-toggle-sub">{p.extra.subjects.join(' · ')}</span>}
+                        <span className="gv-fmt-card__ind-toggle-title">{nb(p.extra.title)}<span className="gv-fmt-card__star" aria-hidden="true">*</span></span>
+                        {p.extra.meta && <span className="gv-fmt-card__ind-toggle-sub">{nb(p.extra.subjects.join('\u00a0· '))}</span>}
                       </span>
                       <svg className="gv-fmt-card__ind-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -813,7 +815,7 @@ export default function GlavnayaPage() {
                     </button>
                     <div className="gv-fmt-card__ind-body" id={indId}>
                       <div className="gv-fmt-card__ind-inner">
-                        <p className="gv-fmt-card__ind-subjects">{p.extra.subjects.join(' · ')}</p>
+                        <p className="gv-fmt-card__ind-subjects">{nb(p.extra.subjects.join('\u00a0· '))}</p>
                         {p.extra.meta && <p className="gv-fmt-card__ind-meta">{p.extra.meta}</p>}
                         <p className="gv-fmt-card__ind-note"><span aria-hidden="true">* </span>{nb(p.extra.note)}</p>
                       </div>
@@ -829,7 +831,7 @@ export default function GlavnayaPage() {
           <div className="gv-pay gv-pay--green">
             <div className="gv-pay__content">
               <span className="gv-pay__eyebrow">Оплата и гарантии</span>
-              <h2 className="gv-pay__title">7 дней на знакомство — <span className="gv-pay__accent">без&nbsp;риска</span></h2>
+              <h2 className="gv-pay__title">{nb('7 дней на знакомство — ')}<span className="gv-pay__accent">без&nbsp;риска</span></h2>
               <p className="gv-pay__lead">
                 {nb('Мы уверены в качестве наших занятий, поэтому, если в течение 7 дней после начала обучения вам что-то не подойдёт — ')}
                 <b>{nb('вернём деньги в полном объёме.')}</b>
@@ -856,7 +858,7 @@ export default function GlavnayaPage() {
         <div className="sh-wrap">
           <div className="zn-club__card">
             <div className="zn-club__content">
-              <p className="zn-club__eyebrow">Хотите сначала познакомиться с нами самостоятельно?</p>
+              <p className="zn-club__eyebrow">{nb('Хотите сначала познакомиться с нами самостоятельно?')}</p>
               <h2 className="zn-club__title">
                 Интеллектуальный клуб «Знарнии» —{' '}
                 <span className="zn-club__title-accent">бесплатно</span>
@@ -876,7 +878,7 @@ export default function GlavnayaPage() {
                 Новые материалы каждую неделю.
               </p>
               <a href="https://znarnia.ru/student/club" className="zn-club__btn">
-                Перейти в Интеллектуальный клуб
+                Перейти в&nbsp;Интеллектуальный&nbsp;клуб
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -902,11 +904,11 @@ export default function GlavnayaPage() {
         <div className="sh-wrap sh-reveal__body">
           {/* ── Почему Знарния — это больше, чем репетитор (как на predszapis-osen-stariye-5-8) ── */}
           <div className="p2-more gv-more">
-            <h2 className="p2-section-title">Почему Знарния — это больше, чем репетитор</h2>
+            <h2 className="p2-section-title">{nb('Почему Знарния — это больше, чем репетитор')}</h2>
             <div className="p2-more__card">
               <div className="p2-more__content">
-                <p className="p2-more__lead">Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.</p>
-                <p className="p2-more__accent">Мы работаем иначе.</p>
+                <p className="p2-more__lead">{nb('Большинство репетиторов помогают решить конкретную задачу или выполнить домашнее задание.')}</p>
+                <p className="p2-more__accent">{nb('Мы работаем иначе.')}</p>
                 <ul className="lk-pu-checklist p2-more__list">
                   {[
                     'Выявляем и устраняем пробелы в знаниях',
@@ -915,23 +917,23 @@ export default function GlavnayaPage() {
                     'Развиваем умение рассуждать и находить решения',
                     'Учим ребёнка самостоятельно справляться с учебными задачами',
                   ].map((t, i) => (
-                    <li key={i}><LkCheck /><span>{t}</span></li>
+                    <li key={i}><LkCheck /><span>{nb(t)}</span></li>
                   ))}
                 </ul>
               </div>
               <div className="p2-more__media">
                 <img src="/znarnia/images/why-znarnia-steps.png" alt="Девочка с рюкзаком поднимается по ступенькам от вопроса к цели" width="1672" height="941" loading="lazy" decoding="async" />
               </div>
-              <p className="p2-more__goal"><b className="p2-more__goal-lead">Наша цель</b> — не временно улучшить результат, а <span className="p2-more__goal-accent">создать фундамент для дальнейшего успешного обучения</span>.</p>
+              <p className="p2-more__goal"><b className="p2-more__goal-lead">Наша цель</b>{nb(' — не временно улучшить результат, а ')}<span className="p2-more__goal-accent">{nb('создать фундамент для дальнейшего успешного обучения')}</span>.</p>
             </div>
           </div>
 
           {/* ── Результаты, которые замечают родители (как на predszapis-osen-stariye-5-8) ── */}
           <div className="p2-results gv-results">
-            <h2 className="p2-section-title">Результаты, которые замечают родители</h2>
+            <h2 className="p2-section-title">{nb('Результаты, которые замечают родители')}</h2>
             <div className="p2-results__card">
               <div className="p2-results__content">
-                <p className="p2-results__lead">Уже через несколько месяцев занятий ребёнок:</p>
+                <p className="p2-results__lead">{nb('Уже через несколько месяцев занятий ребёнок:')}</p>
                 <ul className="p2-results__list">
                   {[
                     'начинает получать более высокие оценки по математике',
@@ -941,14 +943,14 @@ export default function GlavnayaPage() {
                     'лучше понимает новые темы',
                     'легче справляется с домашними заданиями',
                   ].map((t, i) => (
-                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{t}</span></li>
+                    <li key={i}><span className="p2-results__star" aria-hidden="true">⭐</span><span>{nb(t)}</span></li>
                   ))}
                 </ul>
                 <div className="p2-results__highlight">
                   <div className="p2-results__highlight-num">90%</div>
                   <div className="p2-results__highlight-text">
-                    <div className="p2-results__highlight-main">учеников улучшают результаты по математике минимум на 1 балл</div>
-                    <div className="p2-results__highlight-label">Уже через 2 месяца занятий</div>
+                    <div className="p2-results__highlight-main">{nb('учеников улучшают результаты по математике минимум на 1 балл')}</div>
+                    <div className="p2-results__highlight-label">{nb('Уже через 2 месяца занятий')}</div>
                   </div>
                 </div>
               </div>
@@ -974,6 +976,15 @@ export default function GlavnayaPage() {
         </div>
       </section>
 
+      {/* ── О ПРЕПОДАВАТЕЛЕ, ОТЗЫВЫ, БЛАГОДАРНОСТИ ШКОЛ (общие блоки SocialProof, как на konsultatsiya) ── */}
+      <section className="gv-section gv-proof">
+        <div className="sh-wrap">
+          <AuthorCard />
+          <ReviewsCarousel />
+          <SchoolsCard />
+        </div>
+      </section>
+
       {/* ── ЗАПИСЬ НА КОНСУЛЬТАЦИЮ (копия героя со страницы konsultatsiya) ── */}
       <div className="gv-section gv-ks" id="konsultatsiya">
         <section className="ks-hero">
@@ -983,19 +994,18 @@ export default function GlavnayaPage() {
                 <rect x="3" y="4.5" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="2" />
                 <path d="M3 9h18M8 2.5v4M16 2.5v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
-              Подберём программу под цели и уровень
+              {nb('Подберём программу под цели и уровень')}
             </span>
 
             <h2 className="ks-title">
-              Запишитесь на{' '}
-              <span className="ks-title__accent">консультацию</span>
+              Запишитесь на&nbsp;<span className="ks-title__accent">консультацию</span>
             </h2>
 
             <p className="ks-lead">{nb('Расскажем подробнее о занятиях, подберём удобное расписание и ответим на все вопросы')}</p>
 
             <div className="ks-hero__price">
               <span className="ks-hero__price-tag">Доступная цена</span>
-              <span className="ks-hero__price-label">{nb('Стоимость занятий от')}</span>
+              <span className="ks-hero__price-label">{nb('Стоимость занятий\u00a0от')}</span>
               <span className="ks-hero__price-value">580&nbsp;₽</span>
               <span className="ks-hero__price-unit">за урок</span>
             </div>
@@ -1072,15 +1082,15 @@ export default function GlavnayaPage() {
                     <input type="checkbox" className="ks-check__input" checked={form.agree} onChange={e => set('agree', e.target.checked)} />
                     <span className="ks-check__box" aria-hidden="true" />
                     <span className="ks-check__text">
-                      Согласен с обработкой персональных данных в соответствии с{' '}
-                      <a href="#" className="ks-link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a> <span className="ks-req">*</span>
+                      {nb('Согласен с обработкой персональных данных в соответствии с')}{'\u00a0'}
+                      <a href="#" className="ks-link" onClick={e => e.preventDefault()}>политикой конфиденциальности</a>{'\u00a0'}<span className="ks-req">*</span>
                     </span>
                   </label>
                   {errors.agree && <span className="ks-err ks-err--check">{errors.agree}</span>}
 
                   <button type="submit" className="ks-submit">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    Записаться на консультацию
+                    Записаться на&nbsp;консультацию
                   </button>
                 </form>
               </>

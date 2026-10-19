@@ -1906,6 +1906,22 @@
 /* на главной: отступы секции как у соседних блоков, боковые поля даёт .sh-wrap */
 .gv-page .zn-club { padding: var(--so-gap) 0 0; }
 
+/* ПК: иллюстрация той же ширины, что при колонках 1.15fr/0.85fr; между колонками до 72px
+   (не меньше 24px, чтобы подзаголовок не переносился), остальную ширину занимает текст.
+   Проценты в треках и gap считаются от ширины контента карточки. */
+@media (min-width: 768px) {
+  .gv-page .zn-club__card {
+    --zc-media: calc((100% - 24px) * 0.425);
+    grid-template-columns: minmax(0, 1fr) var(--zc-media);
+    column-gap: clamp(24px, calc(100% - var(--zc-media) - 570px), 72px);
+  }
+  .gv-page .zn-club__text { max-width: none; }
+}
+/* широкий ПК: кнопка клуба шире; на меньших экранах она не помещается в колонку */
+@media (min-width: 1280px) {
+  .gv-page .zn-club__btn { padding-left: 64px; padding-right: 64px; }
+}
+
 /* ══════════════════════════════════════════════════════════
    Запись на консультацию — копия героя со страницы konsultatsiya (ks-*)
    ══════════════════════════════════════════════════════════ */
@@ -4210,4 +4226,301 @@
 /* планшет: иллюстрация крупнее — заходит в правое поле (в потоке, через отрицательный margin) */
 @media (min-width: 760px) and (max-width: 1099px) {
   .gv-page .gv-hero__img { width: min(calc(100% + 24px), 500px); max-width: none; margin-right: -24px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   ТИПОГРАФИКА — единая система (последний слой, перекрывает размеры выше).
+   :not(#_) поднимает специфичность над любыми классовыми правилами страницы,
+   чтобы шкала действовала одинаково во всех секциях.
+     H1  — герой: 38 (ПК) · 33→36 (планшет) · как было (телефон, 4 строки)
+     H2  — заголовки секций: 30 (ПК) · 25→30 (планшет) · 22→25 (телефон)
+     H3  — заголовки карточек и подблоков
+     лид — 18 / 17 / 16;  текст — 16;  карточки — 15;  подписи — 13–14;  кнопки — 16/700
+   ══════════════════════════════════════════════════════════ */
+
+/* — заголовки — */
+.gv-page:not(#_) .gv-hero__title { line-height: 1.1; }
+.gv-page:not(#_) :is(.gv-sit__title, .sh-lessons__title, .gv-pay__title, .p2-section-title, .zn-club__title, .ks-title) {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+.gv-page:not(#_) .gv-pay__title-line { font-size: inherit; line-height: inherit; }
+.gv-page:not(#_) .gv-fmt__title { font-size: 24px; line-height: 1.2; }
+.gv-page:not(#_) .sh-principle__title { font-size: 20px; line-height: 1.2; }
+.gv-page:not(#_) .gv-fmt-card__grade { font-size: 24px; line-height: 1.15; }
+
+/* — основной текст — */
+.gv-page:not(#_) :is(.sh-lessons__intro, .gv-pay__lead, .zn-club__text, .ks-lead) { font-size: 18px; line-height: 1.5; }
+.gv-page:not(#_) .gv-hero__sub { font-size: 17px; line-height: 1.55; }
+.gv-page:not(#_) :is(.gv-fmt__desc, .p2-more__lead, .p2-more__goal) { font-size: 16px; line-height: 1.55; }
+.gv-page:not(#_) .p2-more__list li, .gv-page:not(#_) .p2-results__list li { line-height: 1.5; }
+/* длинные абзацы на широком экране — не длиннее ~75 знаков */
+.gv-page:not(#_) .sh-lessons__intro { max-width: 72ch; }
+
+/* — текст карточек — */
+.gv-page:not(#_) :is(.gv-fmt-card__text, .sh-principle__text) { font-size: 15px; line-height: 1.55; }
+.gv-page:not(#_) :is(.gv-sit__point-text, .gv-sit__result-text) { font-size: 14px; line-height: 1.5; }
+.gv-page:not(#_) .gv-sit__problem-text { font-size: 13px; line-height: 1.3; }   /* 14px даёт карточкам разную высоту */
+.gv-page:not(#_) .gv-pay__feature-sub { font-size: 14px; line-height: 1.5; }
+
+/* — подписи и мелкий текст: не мельче 12px — */
+.gv-page:not(#_) .gv-sit__note { font-size: 14px; line-height: 1.5; }
+.gv-page:not(#_) :is(.ks-hero__price-label, .ks-hero__price-unit, .p2-results__highlight-label) { font-size: 12px; }
+.gv-page:not(#_) .ks-hero__price-tag { font-size: 11px; }
+.gv-page:not(#_) .ks-check__text { font-size: 13px; line-height: 1.45; }
+
+/* — кнопки: один кегль и насыщенность — */
+.gv-page:not(#_) :is(.gv-btn, .gv-sit__cta-btn, .gv-sit-modal__cta, .gv-fmt-card__btn, .zn-club__btn, .ks-submit) {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* — переносы: короткие подписи и заголовки карточек — ровными строками, абзацы — без «висячей» строки — */
+.gv-page:not(#_) :is(.gv-sit__problem-text, .gv-sit__point-title, .sh-trust__text, .gv-pay__feature-title,
+  .gv-fmt-card__ind-title, .gv-fmt-card__ind-toggle-title, .p2-results__highlight-main,
+  .sh-principle__title, .gv-fmt__pill b, .gv-fmt__pill small, .ks-hero__pill) { text-wrap: balance; }
+.gv-page:not(#_) :is(.ks-card__sub, .ks-success__text, .gv-sit__result-text, .ks-check__text, .gv-fmt-card__ind-subjects) { text-wrap: pretty; }
+
+/* ── планшет 768–1279 ── */
+@media (max-width: 1279px) {
+  .gv-page:not(#_) :is(.gv-sit__title, .sh-lessons__title, .gv-pay__title, .p2-section-title, .zn-club__title, .ks-title) {
+    font-size: clamp(25px, calc(0.98vw + 17.5px), 30px);
+  }
+  .gv-page:not(#_) .gv-fmt__title { font-size: clamp(21px, calc(0.6vw + 16.4px), 24px); }
+  .gv-page:not(#_) .sh-principle__title { font-size: 19px; }
+  .gv-page:not(#_) .gv-fmt-card__grade { font-size: clamp(21px, calc(0.6vw + 16.4px), 24px); }
+  .gv-page:not(#_) :is(.sh-lessons__intro, .gv-pay__lead, .zn-club__text, .ks-lead) { font-size: 17px; }
+  .gv-page:not(#_) .gv-hero__sub { font-size: 16px; }
+}
+/* герой планшета (4 строки): плавно 33→36px, без скачка к ПК-версии на 1100px */
+@media (min-width: 760px) and (max-width: 1099px) {
+  .gv-page:not(#_) .gv-hero__title { font-size: clamp(33px, calc(0.9vw + 26px), 36px); line-height: 1.08; }
+}
+
+/* ── телефон ≤767 ── */
+@media (max-width: 767px) {
+  .gv-page:not(#_) .gv-hero__title { line-height: 1.06; }
+  .gv-page:not(#_) :is(.gv-sit__title, .sh-lessons__title, .gv-pay__title, .p2-section-title, .zn-club__title, .ks-title) {
+    font-size: clamp(22px, 5.6vw, 24px);
+    line-height: 1.15;
+  }
+  .gv-page:not(#_) .gv-fmt__title { font-size: 20px; }
+  .gv-page:not(#_) .sh-principle__title { font-size: 16px; line-height: 1.2; }
+  .gv-page:not(#_) .gv-fmt-card__grade { font-size: 20px; }
+  /* основной текст на телефоне — 16px */
+  .gv-page:not(#_) :is(.sh-lessons__intro, .gv-pay__lead, .zn-club__text, .ks-lead, .gv-hero__sub,
+    .gv-fmt__desc, .p2-more__lead, .p2-more__goal) { font-size: 16px; line-height: 1.5; }
+  .gv-page:not(#_) :is(.p2-more__list li, .p2-results__list li) { font-size: 15px; }
+  .gv-page:not(#_) :is(.gv-fmt-card__text, .sh-principle__text) { font-size: 15px; line-height: 1.5; }
+  .gv-page:not(#_) :is(.gv-sit__point-text, .gv-sit__result-text, .gv-pay__feature-sub) { font-size: 15px; line-height: 1.45; }
+  .gv-page:not(#_) .gv-sit__problem-text { font-size: 15px; }
+  .gv-page:not(#_) .gv-sit__note { font-size: 14px; }
+  .gv-page:not(#_) .gv-pay__eyebrow { font-size: 11.5px; }
+  .gv-page:not(#_) .ks-check__text { font-size: 13px; }
+  .gv-page:not(#_) :is(.gv-fmt-card__ind-note, .gv-fmt-card__ind-subjects, .gv-fmt-card__ind-toggle-sub) { font-size: 13.5px; }
+}
+@media (max-width: 359px) {
+  .gv-page:not(#_) :is(.gv-btn, .gv-sit__cta-btn, .gv-sit-modal__cta, .gv-fmt-card__btn, .zn-club__btn, .ks-submit) { font-size: 15px; }
+}
+/* «Получить консультацию →» в карточках классов — всегда одной строкой */
+.gv-page:not(#_) .gv-fmt-card__btn { white-space: nowrap; }
+@media (min-width: 768px) and (max-width: 899px) {
+  .gv-page:not(#_) .gv-fmt-card__btn { padding-left: 14px; padding-right: 14px; }
+}
+/* «подстраиваем обучение» — одной строкой: на 360–389px заголовок чуть меньше H2, чтобы фраза поместилась */
+@media (min-width: 360px) and (max-width: 389px) {
+  .gv-page:not(#_) .gv-pay--violet .gv-pay__title { font-size: max(20px, calc(7.35vw - 6.5px)); }
+}
+/* карточки принципов на узких телефонах: колонка заголовка узкая (рядом иконка) */
+@media (max-width: 389px) {
+  .gv-page:not(#_) .sh-principle__title { font-size: 15px; }
+}
+@media (max-width: 359px) {
+  .gv-page:not(#_) .sh-principle__title { font-size: 14.5px; }
+}
+/* «Не просто идём / по программе —»: строки заголовка заполняются слева направо, без балансировки */
+@media (max-width: 767px) {
+  .gv-page:not(#_) .gv-pay__title-line { text-wrap: wrap; }
+}
+/* «ПЕРСОНАЛИЗИРОВАННЫЙ ПОДХОД» — одной строкой и на узких телефонах */
+@media (max-width: 379px) {
+  .gv-page:not(#_) .gv-pay__eyebrow { font-size: 11px; letter-spacing: 0.03em; padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width: 339px) {
+  .gv-page:not(#_) .gv-pay__eyebrow { font-size: 10.5px; letter-spacing: 0.02em; padding-left: 8px; padding-right: 8px; }
+}
+/* цветная фраза в заголовке карточки принципа не разрывается («прогресс каждого») —
+   там, где колонка заголовка широкая (одна карточка в ряд или широкий ПК) */
+@media (min-width: 1200px), (min-width: 640px) and (max-width: 1099px) {
+  .gv-page:not(#_) .sh-principle__title-accent { white-space: nowrap; }
+}
+/* 900–1099: в две колонки заголовкам карточек остаётся 160–220px (4–5 строк) — карточки по одной в ряд, как на 640–899 */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .gv-page:not(#_) .gv-lessons .sh-lessons__grid { grid-template-columns: 1fr; }
+}
+/* две карточки в ряд на узком ПК: колонка заголовка 250–330px */
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .gv-page:not(#_) .sh-principle__title { font-size: 18px; }
+}
+/* описание принципа в карточке на всю ширину — не длиннее ~70 знаков */
+.gv-page:not(#_) .sh-principle__text { max-width: 68ch; }
+/* «Персонализированный подход» / «Оплата и гарантии» на 768–1023: три пункта в ряд, иконка над текстом —
+   иначе тексту остаётся ~120px и подписи рассыпаются по слову в строке */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gv-page:not(#_) .gv-pay__feature { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+}
+@media (min-width: 1024px) {
+  .gv-page:not(#_) .gv-pay__feature-sub { text-wrap: balance; }
+}
+
+/* ── Клуб: «Хотите сначала познакомиться…» — спокойный надзаголовок, главный акцент на заголовке ── */
+.gv-page:not(#_) .zn-club__eyebrow {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #4a467c;              /* тёмно-синий, светлее и спокойнее заголовка (#17145c) */
+  margin: 0 0 15px;
+  text-wrap: balance;
+}
+@media (max-width: 1279px) {
+  .gv-page:not(#_) .zn-club__eyebrow { font-size: 16.5px; margin-bottom: 16px; }
+}
+@media (max-width: 767px) {
+  .gv-page:not(#_) .zn-club__eyebrow { font-size: 14.5px; margin-bottom: 12px; }
+}
+@media (max-width: 359px) {
+  .gv-page:not(#_) .zn-club__eyebrow { font-size: 13.5px; }
+}
+/* ПК: вертикальный ритм блока клуба — надзаголовок → H2 15, H2 → описание 26, описание → преимущество 26, преимущество → кнопка 34 */
+@media (min-width: 1280px) {
+  .gv-page:not(#_) .zn-club__title { margin-bottom: 26px; }
+  .gv-page:not(#_) .zn-club__text { margin-bottom: 26px; }
+  .gv-page:not(#_) .zn-club__perk { margin-bottom: 34px; }
+}
+/* 1280–1329: текст выше иллюстрации — нижние значения ритма, чтобы карточка почти не росла */
+@media (min-width: 1280px) and (max-width: 1329px) {
+  .gv-page:not(#_) .zn-club__title { margin-bottom: 24px; }
+  .gv-page:not(#_) .zn-club__text { margin-bottom: 24px; }
+  .gv-page:not(#_) .zn-club__perk { margin-bottom: 32px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   О преподавателе · Родители о нас · Сотрудничество со школами
+   (общие компоненты SocialProof) — перед формой записи
+   ══════════════════════════════════════════════════════════ */
+.gv-page .gv-proof .sh-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-related);
+}
+
+/* ── Карточка основателя (общий AuthorCard) — только на главной: экспертный профиль ──
+   иерархия: должность (надзаголовок) → имя (заголовок карточки) → факты 2 колонки → цифры.
+   Шрифты страницы: Montserrat — должность, имя, цифры; Nunito — факты и подписи. */
+/* колонка фото 290–310px: при высоте ряда ~280px видно ≥82% снимка — от головы до рук на столе */
+.gv-page .gv-proof .dg-author__top { grid-template-columns: minmax(0, 1fr) clamp(290px, 24%, 310px); }
+.gv-page .gv-proof .dg-author__left { gap: 0; padding: 24px 36px 26px; justify-content: center; }
+.gv-page .gv-proof .dg-author__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: #5a5f86;
+}
+.gv-page .gv-proof .dg-author__name {
+  margin-top: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  text-transform: none;
+  color: #1e1b4b;
+}
+.gv-page .gv-proof .dg-author__items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 10px;
+  margin-top: 22px;
+}
+.gv-page .gv-proof .dg-author__item {
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #1e1b4b;
+}
+.gv-page .gv-proof .dg-author__item > span:last-child { text-wrap: pretty; }
+.gv-page .gv-proof .dg-author__icon { width: 44px; height: 44px; }
+.gv-page .gv-proof .dg-author__icon svg { width: 22px; height: 22px; }
+
+/* фото заполняет высоту ряда, но не задаёт её (высоту верхней части определяет текст);
+   кадр привязан к низу — руки и стол в кадре, обрезается только фон над головой */
+@media (min-width: 641px) {
+  .gv-page .gv-proof .dg-author__photo { height: 0; min-height: 100%; margin-top: 0; object-position: center bottom; }
+}
+
+/* статистика: иконка в белом круге, число — главный акцент, подпись в одну строку */
+.gv-page .gv-proof .dg-author__stats { padding: 16px 0; }
+.gv-page .gv-proof .dg-author__stat { align-items: center; padding: 0 16px 0 22px; gap: 12px; }
+.gv-page .gv-proof .dg-author__stat-icon { width: 52px; height: 52px; }
+.gv-page .gv-proof .dg-author__stat-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.gv-page .gv-proof .dg-author__stat-desc { font-size: 12.5px; line-height: 1.35; margin-top: 3px; color: #5b5775; white-space: nowrap; }
+
+/* узкий ПК 1100–1439: плотнее, чтобы карточка не росла */
+@media (min-width: 1100px) and (max-width: 1439px) {
+  .gv-page .gv-proof .dg-author__name { font-size: 28px; }
+  .gv-page .gv-proof .dg-author__items { column-gap: 28px; }
+  .gv-page .gv-proof .dg-author__item { font-size: 15px; gap: 12px; }
+  .gv-page .gv-proof .dg-author__icon { width: 40px; height: 40px; }
+  .gv-page .gv-proof .dg-author__stat { padding: 0 14px; gap: 12px; }
+  .gv-page .gv-proof .dg-author__stat-icon { width: 44px; height: 44px; }
+  .gv-page .gv-proof .dg-author__stat-icon svg { width: 24px; height: 24px; }
+  .gv-page .gv-proof .dg-author__stat-val { font-size: 20px; }
+  .gv-page .gv-proof .dg-author__stat-desc { font-size: 12.5px; white-space: normal; }
+  .gv-page .gv-proof .dg-author__stat { align-items: flex-start; }
+}
+/* планшет: факты в один столбец */
+@media (max-width: 1099px) {
+  .gv-page .gv-proof .dg-author__items { grid-template-columns: minmax(0, 1fr); row-gap: 8px; margin-top: 18px; }
+  .gv-page .gv-proof .dg-author__item { font-size: 15px; }
+  .gv-page .gv-proof .dg-author__icon { width: 38px; height: 38px; }
+  .gv-page .gv-proof .dg-author__icon svg { width: 20px; height: 20px; }
+  .gv-page .gv-proof .dg-author__name { font-size: 26px; }
+}
+@media (max-width: 1024px) {
+  .gv-page .gv-proof .dg-author__top { grid-template-columns: minmax(0, 1fr) 240px; }
+  .gv-page .gv-proof .dg-author__left { padding: 22px 26px; }
+  .gv-page .gv-proof .dg-author__stat { padding: 14px 22px; }
+}
+@media (max-width: 640px) {
+  .gv-page .gv-proof .dg-author__top { grid-template-columns: minmax(0, 1fr); }
+  .gv-page .gv-proof .dg-author__left { padding: 22px 18px 20px; }
+  .gv-page .gv-proof .dg-author__label { font-size: 13px; }
+  .gv-page .gv-proof .dg-author__name { font-size: 22px; }
+  .gv-page .gv-proof .dg-author__items { margin-top: 14px; }
+  .gv-page .gv-proof .dg-author__item { font-size: 15px; gap: 12px; }
+  .gv-page .gv-proof .dg-author__icon { width: 34px; height: 34px; }
+  .gv-page .gv-proof .dg-author__icon svg { width: 18px; height: 18px; }
+  .gv-page .gv-proof .dg-author__stat { padding: 14px 18px; }
+  .gv-page .gv-proof .dg-author__stat-icon { width: 44px; height: 44px; }
+  .gv-page .gv-proof .dg-author__stat-val { font-size: 20px; }
+}
+@media (max-width: 1099px) {
+  .gv-page .gv-proof .dg-author__stat-desc { white-space: normal; }
+}
+/* 1440–1599: подписи статистики в одну строку не упираются в разделитель */
+@media (min-width: 1440px) and (max-width: 1599px) {
+  .gv-page .gv-proof .dg-author__stat-icon { width: 48px; height: 48px; }
+  .gv-page .gv-proof .dg-author__stat-desc { font-size: 12px; }
 }
