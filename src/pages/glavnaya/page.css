@@ -4796,3 +4796,10 @@
   .gv-page:not(#_) .gv-hero__actions .gv-hero__auth-btn { padding-inline: 6px; gap: 6px; font-size: 14.5px; }
   .gv-page:not(#_) .gv-hero__actions .gv-hero__auth-btn .gv-btn__icon { width: 18px; height: 18px; }
 }
+
+/* ── CTA «Получить консультацию» после «Оплата и гарантии» ── */
+.gv-page .gv-pay-cta { display: flex; justify-content: center; margin-top: clamp(20px, 2.2vw, 32px); }
+.gv-page:not(#_) .gv-pay-cta__btn { gap: 10px; min-height: 56px; min-width: 340px; padding-inline: 36px; border-radius: 12px; }
+@media (max-width: 640px) {
+  .gv-page:not(#_) .gv-pay-cta__btn { width: 100%; min-width: 0; min-height: 54px; }
+}

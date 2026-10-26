@@ -59,9 +59,10 @@ const HERO_PILLS = [
   { icon: <IconBookMini />, label: 'ЕГЭ',         variant: 'orange' },
 ]
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { nb as nbBase } from '../../shared/utils/nb'
 import { AuthorCard, ReviewsCarousel, SchoolsCard } from '../../shared/components/SocialProof'
+import AuthModal from './AuthModal'
 
 /* nb + слова через дефис («что-то», «из-за», «урок-тренажёр») не рвутся по дефису */
 const nb = (str) => nbBase(str).replace(/([^\s\u00a0])-(?=[^\s\u00a0])/g, '$1\u2060-\u2060')
@@ -376,9 +377,30 @@ function useDashLineEnds() {
   }, [])
 }
 
+/* прокрутка к блоку с повторной доводкой, если за время прокрутки над ним изменилась высота страницы */
+function scrollToAnchor(id, tries = 3) {
+  const el = document.getElementById(id)
+  if (!el) return
+  el.scrollIntoView({ behavior: 'smooth' })
+  let done = false
+  const settle = () => {
+    if (done) return
+    done = true
+    window.removeEventListener('scrollend', settle)
+    const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0
+    if (tries > 1 && Math.abs(el.getBoundingClientRect().top - margin) > 2) scrollToAnchor(id, tries - 1)
+  }
+  window.addEventListener('scrollend', settle)
+  setTimeout(settle, 1500) // Safari без scrollend
+}
+
 export default function GlavnayaPage() {
   useDashLineEnds()
   const [contactsOpen, setContactsOpen] = useState(false)
+  const [authView, setAuthView] = useState(null) // 'register' | 'login' | null
+  const openReg = (e) => { e.preventDefault(); setAuthView('register') }
+  const openLogin = (e) => { e.preventDefault(); setAuthView('login') }
+  const closeAuth = useCallback(() => setAuthView(null), [])
   const [openCards, setOpenCards] = useState(() => new Set())
   /* раскрытые полосы «Индивидуальные занятия» в карточках классов (аккордеон на телефоне) */
   const [openInd, setOpenInd] = useState(() => new Set())
@@ -401,6 +423,32 @@ export default function GlavnayaPage() {
   const closeSolution = () => {
     setSolutionModal((st) => (st === 'open' ? 'closing' : st))
   }
+
+  /* CTA в панели: закрыть её и перейти к «Как проходят занятия» — уже после снятия блокировки прокрутки */
+  const goToPrograms = (e) => {
+    e.preventDefault()
+    closeSolution()
+    requestAnimationFrame(() => {
+      history.replaceState(null, '', '#kak-prohodyat-zanyatiya')
+      scrollToAnchor('kak-prohodyat-zanyatiya')
+    })
+  }
+
+  /* якорные ссылки страницы: пока идёт прокрутка, выше догружаются картинки и блок «уезжает» —
+     по окончании прокрутки доводим его к верху экрана ещё раз */
+  useEffect(() => {
+    const onClick = (e) => {
+      const a = e.target.closest('a[href^="#"]')
+      if (!a || e.defaultPrevented || a.getAttribute('href').length < 2) return
+      const id = decodeURIComponent(a.getAttribute('href').slice(1))
+      if (!document.getElementById(id)) return
+      e.preventDefault()
+      history.replaceState(null, '', '#' + id)
+      scrollToAnchor(id)
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
 
   useEffect(() => {
     if (solutionModal !== 'closing') return undefined
@@ -515,8 +563,8 @@ export default function GlavnayaPage() {
             </button>
           </nav>
           <div className="gv-topbar__auth">
-            <a href="#" className="gv-topbar__auth-btn gv-topbar__auth-btn--ghost">Войти</a>
-            <a href="#" className="gv-topbar__auth-btn gv-topbar__auth-btn--primary">Регистрация</a>
+            <a href="#" className="gv-topbar__auth-btn gv-topbar__auth-btn--ghost" onClick={openLogin}>Войти</a>
+            <a href="#" className="gv-topbar__auth-btn gv-topbar__auth-btn--primary" onClick={openReg}>Регистрация</a>
           </div>
         </div>
         {contactsOpen && (
@@ -594,14 +642,14 @@ export default function GlavnayaPage() {
                 </svg>
                 Подобрать курс
               </a>
-              <a href="#" className="gv-btn gv-hero__auth-btn gv-hero__auth-btn--reg">
+              <a href="#" className="gv-btn gv-hero__auth-btn gv-hero__auth-btn--reg" onClick={openReg}>
                 <svg className="gv-btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <circle cx="12" cy="8" r="4"/>
                   <path d="M4.5 20.5c.6-3.6 3.6-6 7.5-6s6.9 2.4 7.5 6z"/>
                 </svg>
                 Регистрация
               </a>
-              <a href="#" className="gv-btn gv-hero__auth-btn gv-hero__auth-btn--login">
+              <a href="#" className="gv-btn gv-hero__auth-btn gv-hero__auth-btn--login" onClick={openLogin}>
                 <svg className="gv-btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/>
                   <path d="M3 12h11M10 8l4 4-4 4"/>
@@ -689,7 +737,7 @@ export default function GlavnayaPage() {
             </div>
 
             <div className="gv-sit__cta">
-              <a href="#" className="gv-sit__cta-btn">
+              <a href="#kak-prohodyat-zanyatiya" className="gv-sit__cta-btn">
                 Посмотреть программы по&nbsp;предметам
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -723,7 +771,7 @@ export default function GlavnayaPage() {
             </div>
             {solutionPanel}
             {/* тот же CTA, что под списком ситуаций */}
-            <a href="#" className="gv-sit-modal__cta" onClick={closeSolution}>
+            <a href="#kak-prohodyat-zanyatiya" className="gv-sit-modal__cta" onClick={goToPrograms}>
               Посмотреть программы по&nbsp;предметам
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -921,6 +969,15 @@ export default function GlavnayaPage() {
               </ul>
             </div>
             <img className="gv-pay__img" src="/znarnia/images/pay-guarantee.png" alt="Щит с галочкой, календарь «7 дней» и растущие столбики" width="900" height="591" loading="lazy" decoding="async" />
+          </div>
+
+          <div className="gv-pay-cta">
+            <a href="#konsultatsiya" className="gv-btn gv-btn--primary gv-pay-cta__btn">
+              Получить консультацию
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -1174,6 +1231,8 @@ export default function GlavnayaPage() {
         </section>
       </div>
 
+
+      <AuthModal view={authView} onView={setAuthView} onClose={closeAuth} />
     </div>
   )
 }

@@ -1,0 +1,320 @@
+/* ══════════════════════════════════════════════════════════
+   Окно входа и регистрации (кнопки «Войти» и «Регистрация» в шапке и герое)
+   ПК/планшет: две колонки — маскот с приветствием | форма; телефон: окно на весь экран,
+   приветствие сжато в полосу над формой
+   ══════════════════════════════════════════════════════════ */
+.gv-reg {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(30, 27, 75, 0.45);
+  backdrop-filter: blur(3px);
+  animation: gv-reg-fade 0.22s ease both;
+  overscroll-behavior: contain;
+}
+.gv-reg--closing { animation: gv-reg-fade 0.22s ease reverse both; }
+.gv-reg--closing .gv-reg__dialog { animation: gv-reg-rise 0.22s ease reverse both; }
+
+@keyframes gv-reg-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes gv-reg-rise { from { opacity: 0; transform: translateY(28px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+.gv-reg__dialog {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  width: min(860px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: hidden;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(30, 27, 75, 0.28), 0 4px 14px rgba(30, 27, 75, 0.12);
+  animation: gv-reg-rise 0.32s cubic-bezier(.2, .8, .3, 1) both;
+  font-family: 'Nunito', sans-serif;
+  color: #1e1b4b;
+}
+
+.gv-reg__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #6b6890;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.gv-reg__close:hover { background: #f5f3ff; color: #4c1d95; }
+
+/* — левая колонка: маскот и приветствие — */
+.gv-reg__hello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 36px 28px 32px;
+  background:
+    radial-gradient(60% 45% at 50% 42%, rgba(255, 255, 255, 0.75), transparent 70%),
+    radial-gradient(55% 40% at 80% 18%, rgba(196, 181, 253, 0.35), transparent 70%),
+    radial-gradient(60% 45% at 15% 85%, rgba(196, 181, 253, 0.30), transparent 70%),
+    #f1edfd;
+  text-align: center;
+}
+.gv-reg__mascot {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 720 / 674;
+  object-fit: contain;
+}
+.gv-reg__welcome {
+  margin: 8px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 3.6vw, 38px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: 0;
+  color: #3b1f6e;
+  max-width: 10ch;
+  text-wrap: balance;
+}
+.gv-reg__welcome-accent { color: #6d28d9; }
+.gv-reg__hello-sub {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #5b5775;
+}
+
+/* — правая колонка: форма — */
+.gv-reg__body {
+  min-width: 0;
+  overflow-y: auto;
+  padding: 26px 28px 26px;
+}
+.gv-reg__form { display: flex; flex-direction: column; }
+.gv-reg__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-right: 34px; /* место под крестик */
+}
+.gv-reg__title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1e1b4b;
+}
+.gv-reg__login {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gv-purple, #6d28d9);
+  text-decoration: none;
+}
+.gv-reg__login:hover { text-decoration: underline; }
+.gv-reg__hint { margin: 6px 0 14px; font-size: 13px; color: #6b6890; }
+.gv-reg__req { color: #dc2626; }
+
+.gv-reg__tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
+.gv-reg__tab {
+  min-height: 42px;
+  border: 1.5px solid #c4b5fd;
+  border-radius: 11px;
+  background: #fff;
+  color: #3b1f6e;
+  font: 700 15px/1 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.gv-reg__tab:hover { background: #f5f3ff; }
+.gv-reg__tab--active,
+.gv-reg__tab--active:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.gv-reg__field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.gv-reg__label { font-size: 14px; font-weight: 700; color: #374151; }
+.gv-reg__input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 10px 13px;
+  background: #f5f3ff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 11px;
+  font: 500 15px 'Nunito', sans-serif;
+  color: #1e1b4b;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.gv-reg__input::placeholder { color: #9ca3af; }
+.gv-reg__input:focus { border-color: #8b5cf6; background: #fff; box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12); }
+.gv-reg__input--err { border-color: #dc2626; }
+.gv-reg__err { font-size: 12.5px; color: #dc2626; }
+
+.gv-reg__checks { display: flex; flex-direction: column; gap: 10px; margin: 4px 0 10px; }
+.gv-reg__check {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #374151;
+  cursor: pointer;
+}
+.gv-reg__check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.gv-reg__box {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  border: 1.5px solid #a78bfa;
+  border-radius: 6px;
+  background: #fff;
+  color: transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.gv-reg__box svg { width: 14px; height: 14px; }
+.gv-reg__check input:checked + .gv-reg__box { background: #6d28d9; border-color: #6d28d9; color: #fff; }
+.gv-reg__check input:focus-visible + .gv-reg__box { box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25); }
+.gv-reg__check--err .gv-reg__box { border-color: #dc2626; }
+.gv-reg__check a { color: #6d28d9; text-decoration: none; font-weight: 600; }
+.gv-reg__check a:hover { text-decoration: underline; }
+.gv-reg__opt { color: #6b6890; }
+
+.gv-reg__note { margin: 0 0 14px; font-size: 12.5px; line-height: 1.4; color: #6b6890; }
+.gv-reg__note--err { color: #dc2626; }
+
+.gv-reg__submit {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.28);
+  color: #fff;
+  font: 700 16px/1.2 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.15s, background 0.2s;
+}
+.gv-reg__submit:hover { background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%); box-shadow: 0 8px 20px rgba(109, 40, 217, 0.35); }
+.gv-reg__submit:active { transform: translateY(1px); }
+
+.gv-reg__or {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0;
+  font-size: 14px;
+  color: #6b6890;
+}
+.gv-reg__or::before,
+.gv-reg__or::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+
+.gv-reg__yandex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: 12px;
+  background: #000;
+  color: #fff;
+  font: 700 15px/1.2 'Nunito', sans-serif;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.gv-reg__yandex:hover { background: #222; }
+
+/* — после отправки — */
+.gv-reg__done { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 100%; padding: 24px 0; text-align: center; }
+.gv-reg__done-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #ede9fe; color: #6d28d9; }
+.gv-reg__done-icon svg { width: 32px; height: 32px; }
+.gv-reg__done-text { margin: 0 0 8px; font-size: 16px; line-height: 1.45; color: #5b5775; max-width: 32ch; }
+
+/* — планшет: колонка с маскотом уже — */
+@media (max-width: 899px) {
+  .gv-reg__dialog { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); }
+  .gv-reg__hello { padding: 28px 18px; }
+}
+
+/* — телефон: окно на весь экран, приветствие — полоса над формой — */
+@media (max-width: 679px) {
+  .gv-reg { padding: 0; place-items: stretch; }
+  .gv-reg__dialog {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    width: 100%;
+    max-height: none;
+    height: 100dvh;
+    border-radius: 0;
+  }
+  .gv-reg__hello {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 10px;
+    padding: 12px 52px 10px 14px;
+    text-align: left;
+  }
+  .gv-reg__mascot { grid-row: 1 / 3; max-width: none; }
+  .gv-reg__welcome {
+    margin: 0;
+    font-size: 23px;
+    max-width: none;
+  }
+  .gv-reg__hello-sub { margin: 8px 0 0; font-size: 14px; }
+  .gv-reg__body { padding: 18px 16px 24px; }
+  .gv-reg__title { font-size: 22px; }
+}
+@media (max-width: 359px) {
+  .gv-reg__hello { grid-template-columns: 92px minmax(0, 1fr); padding-right: 48px; }
+  .gv-reg__welcome { font-size: 19px; }
+  .gv-reg__hello-sub { font-size: 13px; }
+}
+
+/* — вход: «Забыли пароль?», подсказка об отправленном коде — */
+.gv-reg__forgot {
+  align-self: flex-end;
+  margin: -4px 0 14px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 14px/1.3 'Nunito', sans-serif;
+  color: #6d28d9;
+  text-decoration: none;
+  text-align: right;
+  cursor: pointer;
+}
+.gv-reg__forgot:hover { text-decoration: underline; }
+.gv-reg__sent { margin: -2px 0 12px; font-size: 14px; line-height: 1.4; color: #5b5775; overflow-wrap: anywhere; }
+.gv-reg__sent b { color: #1e1b4b; }
+.gv-reg__input[readonly] { color: #6b6890; background: #faf9ff; }
+/* «С возвращением!» — одно длинное слово, предлог «С» к нему приклеен: кегль меньше, чтобы строка помещалась в колонку */
+.gv-reg__dialog--login .gv-reg__welcome { max-width: none; font-size: clamp(24px, 2.6vw, 32px); }
+@media (min-width: 680px) {
+  .gv-reg__dialog--login .gv-reg__body { display: flex; flex-direction: column; justify-content: center; }
+}
+@media (max-width: 679px) {
+  .gv-reg__dialog--login .gv-reg__welcome { font-size: 18.5px; }
+}
+@media (max-width: 359px) {
+  .gv-reg__dialog--login .gv-reg__welcome { font-size: 15.5px; }
+}
