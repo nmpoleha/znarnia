@@ -514,6 +514,10 @@ export default function GlavnayaPage() {
               Контакты
             </button>
           </nav>
+          <div className="gv-topbar__auth">
+            <a href="#" className="gv-topbar__auth-btn gv-topbar__auth-btn--ghost">Войти</a>
+            <a href="#" className="gv-topbar__auth-btn gv-topbar__auth-btn--primary">Регистрация</a>
+          </div>
         </div>
         {contactsOpen && (
           <div className="gv-topbar__contacts-dropdown">
@@ -584,6 +588,8 @@ export default function GlavnayaPage() {
 
             <div className="gv-hero__actions">
               <a href="#kak-prohodyat-zanyatiya" className="gv-btn gv-btn--primary">Подобрать курс</a>
+              <a href="#" className="gv-btn gv-btn--outline gv-hero__auth-btn">Регистрация</a>
+              <a href="#" className="gv-btn gv-btn--outline gv-hero__auth-btn">Войти</a>
             </div>
 
           </div>

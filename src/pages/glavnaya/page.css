@@ -4699,3 +4699,82 @@
   .gv-page:not(#_) .gv-proof .dg-author__top { grid-template-columns: minmax(0, 1fr) 300px; }
   .gv-page:not(#_) .gv-proof .dg-author__photo { object-position: 85% bottom; }
 }
+
+/* ── Шапка: «Войти» / «Регистрация» ──
+   ПК: справа от меню; ниже 1180px меню уходит второй строкой, кнопки остаются в первой рядом с логотипом */
+.gv-page .gv-topbar__auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+.gv-page .gv-topbar__auth-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--gv-purple);
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.gv-page .gv-topbar__auth-btn--ghost { color: var(--gv-purple); background: #fff; }
+.gv-page .gv-topbar__auth-btn--ghost:hover { background: var(--gv-purple-lt); }
+.gv-page .gv-topbar__auth-btn--primary { color: #fff; background: var(--gv-purple); }
+.gv-page .gv-topbar__auth-btn--primary:hover { background: var(--gv-purple-dark); border-color: var(--gv-purple-dark); }
+
+@media (max-width: 1179px) {
+  .gv-page .gv-topbar__brand { order: 1; }
+  .gv-page .gv-topbar__auth { order: 2; margin-left: auto; }
+  .gv-page .gv-topbar__nav { order: 3; }
+}
+@media (max-width: 640px) {
+  .gv-page .gv-topbar__inner { column-gap: 8px; }
+  .gv-page .gv-topbar__inner { flex-wrap: wrap; }
+  .gv-page .gv-topbar__brand { flex: 1 1 0; min-width: 0; }
+  .gv-page .gv-topbar__logo { height: 46px; }
+  .gv-page .gv-topbar__brand-name { white-space: normal; font-size: 13px; line-height: 1.2; margin-top: 6px; }
+  .gv-page .gv-topbar__auth { gap: 6px; margin-left: 0; }
+  .gv-page .gv-topbar__auth-btn { font-size: 13px; min-height: 36px; padding: 0 11px; border-radius: 9px; }
+}
+/* совсем узкие телефоны: название школы уже есть на логотипе, оставляем логотип и кнопки */
+/* телефон и планшет: в шапке только логотип, название и кнопки входа — меню и «Контакты» скрыты */
+@media (max-width: 1199px) {
+  .gv-page .gv-topbar__nav,
+  .gv-page .gv-topbar__contacts-dropdown { display: none; }
+}
+@media (max-width: 399px) {
+  .gv-page .gv-topbar__inner { column-gap: 6px; }
+  .gv-page .gv-topbar__brand { gap: 4px; }
+  .gv-page .gv-topbar__logo { height: 40px; }
+  .gv-page .gv-topbar__brand-name { font-size: 12px; letter-spacing: 0; margin-top: 4px; }
+  .gv-page .gv-topbar__auth { gap: 5px; }
+  .gv-page .gv-topbar__auth-btn { padding: 0 9px; }
+  .gv-page .gv-topbar__brand-name { font-size: 11.5px; }
+}
+/* 320–359: кнопкам не хватает места рядом с названием — они уходят второй строкой, поровну по ширине */
+@media (max-width: 359px) {
+  .gv-page .gv-topbar__inner { row-gap: 8px; padding-bottom: 4px; }
+  .gv-page .gv-topbar__brand-name { font-size: 13px; }
+  .gv-page .gv-topbar__auth { flex: 1 0 100%; }
+  .gv-page .gv-topbar__auth-btn { flex: 1; justify-content: center; }
+}
+
+/* ── Герой: рядом с «Подобрать курс» — «Регистрация» и «Войти» ──
+   ПК и планшет: три кнопки в ряд, главная шире; телефон: главная во всю ширину, две вторичные под ней поровну */
+.gv-page:not(#_) .gv-hero__actions { flex-direction: row; flex-wrap: nowrap; gap: 12px; }
+.gv-page:not(#_) .gv-hero__actions .gv-btn { width: auto; max-width: none; min-width: 0; padding-inline: 20px; }
+.gv-page:not(#_) .gv-hero__actions .gv-btn--primary { flex: 1.6 1 0; }
+.gv-page:not(#_) .gv-hero__actions .gv-hero__auth-btn { flex: 1 1 0; background: #fff; }
+.gv-page:not(#_) .gv-hero__actions .gv-hero__auth-btn:hover { background: var(--gv-purple-lt); }
+@media (max-width: 640px) {
+  .gv-page:not(#_) .gv-hero__actions { flex-wrap: wrap; gap: 10px; }
+  .gv-page:not(#_) .gv-hero__actions .gv-btn--primary { flex: 1 1 100%; }
+  .gv-page:not(#_) .gv-hero__actions .gv-hero__auth-btn { flex: 1 1 0; min-height: 50px; padding-inline: 12px; }
+}
