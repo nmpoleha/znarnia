@@ -504,8 +504,8 @@ export default function GlavnayaPage() {
             <span className="gv-topbar__brand-name">Школа Сотниковой Ольги</span>
           </div>
           <nav className="gv-topbar__nav">
-            {['Отзывы','Клуб','Как проходят занятия'].map(link => (
-              <a key={link} href="#" className="gv-topbar__link">{link}</a>
+            {[['Отзывы', '#otzyvy'], ['Клуб', 'https://znarnia.ru/student/club'], ['Как проходят занятия', '#kak-postroeny-zanyatiya']].map(([link, href]) => (
+              <a key={link} href={href} className="gv-topbar__link">{link}</a>
             ))}
             <button
               className={`gv-topbar__link gv-topbar__link--contacts${contactsOpen ? ' gv-topbar__link--active' : ''}`}
@@ -587,9 +587,27 @@ export default function GlavnayaPage() {
             </div>
 
             <div className="gv-hero__actions">
-              <a href="#kak-prohodyat-zanyatiya" className="gv-btn gv-btn--primary">Подобрать курс</a>
-              <a href="#" className="gv-btn gv-btn--outline gv-hero__auth-btn">Регистрация</a>
-              <a href="#" className="gv-btn gv-btn--outline gv-hero__auth-btn">Войти</a>
+              <a href="#kak-prohodyat-zanyatiya" className="gv-btn gv-btn--primary">
+                <svg className="gv-btn__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M2 9.5 12 5l10 4.5-10 4.5L2 9.5z"/>
+                  <path d="M6 11.3v4.2c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8v-4.2"/>
+                </svg>
+                Подобрать курс
+              </a>
+              <a href="#" className="gv-btn gv-hero__auth-btn gv-hero__auth-btn--reg">
+                <svg className="gv-btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4.5 20.5c.6-3.6 3.6-6 7.5-6s6.9 2.4 7.5 6z"/>
+                </svg>
+                Регистрация
+              </a>
+              <a href="#" className="gv-btn gv-hero__auth-btn gv-hero__auth-btn--login">
+                <svg className="gv-btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/>
+                  <path d="M3 12h11M10 8l4 4-4 4"/>
+                </svg>
+                Войти
+              </a>
             </div>
 
           </div>
@@ -716,7 +734,7 @@ export default function GlavnayaPage() {
       )}
 
       {/* ── КАК ПОСТРОЕНЫ ЗАНЯТИЯ (как на intellektualnyy-klub) ── */}
-      <section className="gv-section sh-reveal gv-reveal--lessons">
+      <section className="gv-section sh-reveal gv-reveal--lessons" id="kak-postroeny-zanyatiya">
         <div className="sh-wrap sh-reveal__body">
           <div className="gv-lessons">
           <div className="sh-lessons__head">
@@ -1034,7 +1052,9 @@ export default function GlavnayaPage() {
       <section className="gv-section gv-proof">
         <div className="sh-wrap">
           <AuthorCard />
-          <ReviewsCarousel />
+          <div id="otzyvy" className="gv-proof__reviews">
+            <ReviewsCarousel />
+          </div>
           <SchoolsCard />
         </div>
       </section>
